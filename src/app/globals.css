@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-work-sans), "Montserrat", sans-serif;
+  --font-serif: var(--font-newsreader), "Playfair Display", serif;
+
+  /* Primary - Deep Maroon */
+  --color-primary: #570000;
+  --color-primary-container: #800000;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ff8371;
+  --color-primary-fixed: #ffdad4;
+  --color-primary-fixed-dim: #ffb4a8;
+
+  /* Secondary - Gold */
+  --color-secondary: #7b5805;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdcd74;
+  --color-on-secondary-container: #785601;
+  --color-secondary-fixed: #ffdea6;
+  --color-secondary-fixed-dim: #eec068;
+
+  /* Tertiary - Navy */
+  --color-tertiary: #07274d;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #233d64;
+  --color-on-tertiary-container: #8fa8d6;
+  --color-tertiary-fixed: #d6e3ff;
+  --color-tertiary-fixed-dim: #aec7f7;
+
+  /* Surfaces */
+  --color-surface: #fafaeb;
+  --color-surface-dim: #dbdbcd;
+  --color-surface-bright: #fafaeb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f5e6;
+  --color-surface-container: #efefe0;
+  --color-surface-container-high: #e9e9db;
+  --color-surface-container-highest: #e3e3d5;
+  --color-on-surface: #1b1c14;
+  --color-on-surface-variant: #5a413d;
+
+  /* Utility */
+  --color-outline: #8e706c;
+  --color-outline-variant: #e2bfb9;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-inverse-surface: #2f3128;
+  --color-inverse-on-surface: #f1f2e3;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 10px;
+  border: 2px solid var(--color-surface);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}

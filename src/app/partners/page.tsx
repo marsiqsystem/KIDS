@@ -10,7 +10,7 @@ import PageHeader from "@/components/PageHeader";
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const mediaPartners = [
-  { name: "The Daily Chronicle", type: "Mainstream Press Partner", icon: "📰", image: "/Local Newspaper Partner.jpeg" },
+  { name: "The Daily Chronicle", type: "Mainstream Press Partner", icon: "📰", image: "/Local Newspaper partner.jpeg" },
   { name: "Education TV", type: "Broadcast Partner", icon: "📺", image: "/Media Partner.jpeg" },
   { name: "Scholar's Journal", type: "Academic Publication", icon: "📄", image: "/Journal Partner.jpeg" },
   { name: "EduVoices Network", type: "Cultural Partner", icon: "🎙️", image: "/Cultural Partner.png" },

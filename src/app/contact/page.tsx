@@ -89,7 +89,7 @@ export default function ContactPage() {
           </div>
 
           <div className="gsap-fade-up bg-surface-container p-8 rounded-xl border-l-4 border-primary">
-            <h3 className="font-serif text-xl text-primary mb-4">Executive Contact</h3>
+            <h3 className="font-serif text-xl text-primary mb-4">Executive</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span>👤</span>

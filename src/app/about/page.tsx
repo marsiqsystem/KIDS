@@ -22,25 +22,25 @@ const execCommittee = [
   { name: "Gopal Sonar", role: "President", desc: "Visionary educationist with 30+ years in rural development.", img: "/members/Gopal Sonar.jpeg" },
   { name: "Zakir Hossain", role: "Vice President", desc: "Expert in legal affairs and institutional governance.", img: "/members/Zakir Hossain.jpeg" },
   { name: "Md. Rizwan", role: "General Secretary", desc: "Operations specialist overseeing multi-district delivery.", img: "/members/Rizwan Sir.jpeg" },
-  { name: "Dr. Md Nasir", role: "Joint Secretary", desc: "Academic lead focusing on teacher training and pedagogy.", img: "/members/Dr. Md Nasir.jpeg" },
-  { name: "Md Iqbal Ansari", role: "Treasurer", desc: "Financial controller ensuring transparency in NGO funds.", img: "/members/Md Iqbal Ansari.jpeg" },
+  { name: "Md Shanawaz", role: "Vice President", desc: "Academic lead focusing on teacher training and pedagogy.", img: "/members/Md Shanawaz.jpeg" },
+  { name: "Nusrat Hussain Khan", role: "Treasurer", desc: "Financial controller ensuring transparency in NGO funds.", img: "/members/Nusrat Hussain Khan.jpeg" },
 ];
 
 const boardMembers = [
   { name: "Aftab Nadeem", img: "/members/AFTAB NADEEM.jpeg" },
   { name: "Anguri Khatoon", img: "/members/Anguri Khatoon.jpeg" },
   { name: "Ashraf Ali", img: "/members/Ashraf Ali.jpeg" },
+  { name: "Dr. Md Nasir", img: "/members/Dr. Md Nasir.jpeg" },
   { name: "Gulshan Naaz", img: "/members/Gulshan Naaz.jpeg" },
   { name: "Imteyaz Ahmed Ansari", img: "/members/Imteyaz Ahmed Ansari.jpeg" },
   { name: "Javed Ashraf", img: "/members/Javed Ashraf.jpeg" },
   { name: "Manoj Rai", img: "/members/Manoj Rai.jpeg" },
   { name: "Maswood Ejaz", img: "/members/Maswood Ejaz.jpeg" },
+  { name: "Md Iqbal Ansari", img: "/members/Md Iqbal Ansari.jpeg" },
   { name: "Md Khalid", img: "/members/Md Khalid.jpeg" },
   { name: "Md Naushad Ali", img: "/members/Md Naushad Ali.jpeg" },
   { name: "Md Shahbaaz Ali", img: "/members/Md Shahbaaz Ali.jpeg" },
   { name: "Md Shahid", img: "/members/Md Shahid.jpeg" },
-  { name: "Md Shanawaz", img: "/members/Md Shanawaz.jpeg" },
-  { name: "Nusrat Hussain Khan", img: "/members/Nusrat Hussain Khan.jpeg" },
   { name: "Reena Pandey", img: "/members/Reena Pandey.jpeg" },
   { name: "Wasima Parveen", img: "/members/Wasima Parveen.jpeg" },
 ];
@@ -119,17 +119,17 @@ export default function AboutPage() {
             <h2 className="font-serif text-4xl text-primary mt-2">Our Journey</h2>
           </div>
           <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-0.5 bg-outline-variant h-full" />
+            <div className="absolute left-10 md:left-1/2 -translate-x-1/2 w-0.5 bg-outline-variant h-full" />
             <div className="space-y-12">
               {timeline.map((item, i) => (
                 <div key={i} className="gsap-fade-up relative flex flex-col md:flex-row items-start md:items-center">
                   {i % 2 === 0 ? (
                     <>
-                      <div className="md:w-1/2 md:pr-12 text-left md:text-right ml-16 md:ml-0">
+                      <div className="w-[calc(100%-5rem)] md:w-1/2 md:pr-12 text-left md:text-right ml-20 md:ml-0">
                         <h3 className="font-serif text-xl text-primary">{item.title}</h3>
                         <p className="text-on-surface-variant">{item.desc}</p>
                       </div>
-                      <div className="absolute left-0 md:left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold border-4 border-surface shadow-lg text-sm">
+                      <div className="absolute left-10 md:left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold border-4 border-surface shadow-lg text-sm">
                         {item.year}
                       </div>
                       <div className="md:w-1/2 md:pl-12 hidden md:block" />
@@ -137,10 +137,10 @@ export default function AboutPage() {
                   ) : (
                     <>
                       <div className="md:w-1/2 md:pr-12 hidden md:block" />
-                      <div className="absolute left-0 md:left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-white font-bold border-4 border-surface shadow-lg text-sm">
+                      <div className="absolute left-10 md:left-1/2 -translate-x-1/2 z-10 w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-white font-bold border-4 border-surface shadow-lg text-sm">
                         📍
                       </div>
-                      <div className="md:w-1/2 md:pl-12 text-left ml-16 md:ml-0">
+                      <div className="w-[calc(100%-5rem)] md:w-1/2 md:pl-12 text-left ml-20 md:ml-0">
                         <h3 className="font-serif text-xl text-primary">{item.title}</h3>
                         <p className="text-on-surface-variant">{item.desc}</p>
                       </div>

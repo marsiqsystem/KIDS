@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div ref={mainRef}>
       {/* ─── HERO ─── */}
-      <section className="relative bg-primary overflow-hidden h-screen flex items-center">
+      <section className="relative bg-primary overflow-hidden min-h-screen lg:h-screen flex items-center">
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img
@@ -52,7 +52,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/30" />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 pt-28 pb-16">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 pt-36 lg:pt-28 pb-16">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -108,17 +108,17 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="hidden lg:block lg:col-span-7"
+            className="block mt-12 lg:mt-0 lg:col-span-7"
           >
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border-2 border-white/10 aspect-[4/3]">
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border-2 border-white/10 aspect-[4/3] md:aspect-auto">
                 <img
                   src="/Hero Section Image.jpeg"
                   alt="KIDS Leadership Team"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 -right-5 bg-surface/95 backdrop-blur-sm p-5 rounded-xl shadow-2xl border border-outline-variant/50 max-w-[260px]">
+              <div className="absolute -bottom-5 right-0 md:-right-5 bg-surface/95 backdrop-blur-sm p-5 rounded-xl shadow-2xl border border-outline-variant/50 max-w-[260px] z-20">
                 <p className="font-serif text-base font-semibold text-primary mb-1">Our Mission Leaders</p>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
                   Dedicated educators and social workers committed to transformative rural education.

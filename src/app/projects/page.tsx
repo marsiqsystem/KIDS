@@ -138,7 +138,7 @@ export default function ProjectsPage() {
               <img
                 src="/Mission.jpeg"
                 alt="KIDS Team at INSPIRE 2026"
-                className="w-full h-[400px] md:h-[500px] object-cover rounded-xl shadow-lg"
+                className="w-full h-auto md:h-[500px] object-cover rounded-xl shadow-lg"
               />
             </div>
           </div>
@@ -269,7 +269,7 @@ export default function ProjectsPage() {
                 <img
                   src="/2024 Performance Whitepaper.png"
                   alt="KIDS Performance Whitepaper"
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 object-contain md:object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
                   <p className="text-white font-serif text-lg">2025 Performance Whitepaper</p>

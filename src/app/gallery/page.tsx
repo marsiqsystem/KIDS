@@ -64,7 +64,7 @@ export default function GalleryPage() {
             <div className="lg:col-span-7 gsap-fade-up">
               <div className="relative overflow-hidden rounded-xl shadow-xl group">
                 <img
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full aspect-auto md:aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   src="/gallery/IMG-20260505-WA0010.jpg"
                   alt="Project UDAAN 2026"
                 />
@@ -91,7 +91,7 @@ export default function GalleryPage() {
       {/* ─── CHAPTER I: THE ACADEMIC JOURNEY (3-col masonry) ─── */}
       <section className="py-20 bg-surface-container-low">
         <div className="w-full px-4 md:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-4 text-center md:text-left">
             <div className="gsap-fade-up">
               <span className="text-sm font-semibold text-primary uppercase tracking-widest block mb-2">Chapter I</span>
               <h2 className="font-serif text-3xl md:text-4xl text-on-surface">The Academic Journey</h2>
@@ -101,7 +101,7 @@ export default function GalleryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Column 1 */}
-            <div className="space-y-8 md:mt-10 gsap-fade-up">
+            <div className="space-y-8 lg:mt-10 gsap-fade-up">
               <div className="group relative overflow-hidden rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 <img className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" src="/gallery/IMG-20260504-WA0010.jpg" alt="Student Focus, Central Campus" />
               </div>
@@ -116,7 +116,7 @@ export default function GalleryPage() {
               </div>
             </div>
             {/* Column 3 */}
-            <div className="space-y-8 md:mt-10 gsap-fade-up">
+            <div className="space-y-8 lg:mt-10 gsap-fade-up">
               <div className="group relative overflow-hidden rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 <img className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" src="/gallery/IMG-20260504-WA0025.jpg" alt="Mastery in Mathematics" />
               </div>
@@ -182,7 +182,7 @@ export default function GalleryPage() {
       {/* ─── CHAPTER V: INSPIRE GRAND AWARDS (3-col masonry) ─── */}
       <section className="py-20">
         <div className="w-full px-4 md:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-4 text-center md:text-left">
             <div className="gsap-fade-up">
               <span className="text-sm font-semibold text-primary uppercase tracking-widest block mb-2">Chapter V</span>
               <h2 className="font-serif text-3xl md:text-4xl text-on-surface">INSPIRE Grand Awards</h2>
@@ -192,7 +192,7 @@ export default function GalleryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Column 1 */}
-            <div className="space-y-8 md:mt-10 gsap-fade-up">
+            <div className="space-y-8 lg:mt-10 gsap-fade-up">
               <div className="group relative overflow-hidden rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 <img className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" src="/gallery/IMG-20260505-WA0031.jpg" alt="Excellence in Innovation Felicitations" />
               </div>
@@ -204,7 +204,7 @@ export default function GalleryPage() {
               </div>
             </div>
             {/* Column 3 */}
-            <div className="space-y-8 md:mt-10 gsap-fade-up">
+            <div className="space-y-8 lg:mt-10 gsap-fade-up">
               <div className="group relative overflow-hidden rounded-xl hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 <img className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105" src="/gallery/IMG-20260505-WA0036.jpg" alt="Grand Finale Stage Moment" />
               </div>
@@ -221,9 +221,9 @@ export default function GalleryPage() {
             <h2 className="font-serif text-3xl md:text-4xl text-on-surface">From Our Journey</h2>
           </div>
           {/* Masonry layout — images render at natural aspect ratio */}
-          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
             {morePhotos.map((src, i) => (
-              <div key={i} className="gsap-fade-up break-inside-avoid group relative overflow-hidden rounded-xl hover:shadow-xl transition-all">
+              <div key={i} className="mb-4 break-inside-avoid group relative overflow-hidden rounded-xl hover:shadow-xl transition-all">
                 <img className="w-full object-cover transition-transform duration-500 group-hover:scale-105" src={src} alt={`KIDS Gallery Photo ${i + 1}`} loading="lazy" />
               </div>
             ))}

@@ -151,19 +151,19 @@ export default function PartnersPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {mediaPartners.map((partner, i) => (
               <div key={i} className="gsap-fade-up bg-white border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all group">
-                <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-4">
+                <div className="aspect-square md:aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-3 md:p-4">
                   <img
                     src={partner.image}
                     alt={partner.name}
                     className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 text-center">
-                  <h3 className="font-serif text-xl text-primary">{partner.name}</h3>
-                  <p className="text-xs font-medium text-on-surface-variant mt-2 uppercase tracking-wider">{partner.type}</p>
+                <div className="p-3 md:p-6 text-center">
+                  <h3 className="font-serif text-sm md:text-xl text-primary">{partner.name}</h3>
+                  <p className="text-[10px] md:text-xs font-medium text-on-surface-variant mt-1 md:mt-2 uppercase tracking-wider">{partner.type}</p>
                 </div>
               </div>
             ))}

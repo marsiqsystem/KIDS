@@ -91,7 +91,7 @@ export default function PartnersPage() {
             <div className="gsap-fade-up order-2 lg:order-1">
               <div className="aspect-square bg-surface-container-high border border-outline-variant rounded-2xl shadow-lg overflow-hidden relative">
                 <img
-                  src="/vision.png"
+                  src="/Vision.png"
                   alt="Innovation and Future"
                   className="w-full h-full object-cover"
                 />

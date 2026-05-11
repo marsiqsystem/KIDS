@@ -99,7 +99,7 @@ export default function ProjectsPage() {
               {[
                 { value: "10.1k", suffix: "+", label: "Participants" },
                 { value: "9", suffix: "", label: "Districts" },
-                { value: "40", suffix: "+", label: "Schools" },
+                { value: "70", suffix: "+", label: "Schools" },
               ].map((s, i) => (
                 <div key={i} className="bg-surface-container-highest p-6 rounded-lg border border-outline-variant/30 text-center min-w-[120px] md:min-w-[140px]">
                   <p className="text-3xl md:text-4xl font-serif text-primary leading-none">

@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +23,15 @@ const zones = [
 export default function ContactPage() {
   const mainRef = useRef<HTMLDivElement>(null);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    inquiryType: "Volunteer Inquiries",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
   useGSAP(() => {
     gsap.utils.toArray<HTMLElement>(".gsap-fade-up").forEach((el) => {
       gsap.fromTo(el, { y: 50, opacity: 0 }, {
@@ -31,6 +40,35 @@ export default function ContactPage() {
       });
     });
   }, { scope: mainRef });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMsg("Please fill in all required fields.");
+      setStatus("error");
+      return;
+    }
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setStatus("success");
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Failed to send. Please try again.");
+      setStatus("error");
+    }
+  };
 
   return (
     <div ref={mainRef}>
@@ -106,34 +144,85 @@ export default function ContactPage() {
 
         {/* Inquiry Form */}
         <div className="lg:col-span-7 gsap-fade-up bg-white p-10 rounded-xl shadow-sm border border-stone-200">
-          <h2 className="font-serif text-2xl text-primary mb-8">Inquiry Form</h2>
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Full Name</label>
-                <input type="text" className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
-              </div>
-              <div className="space-y-2">
-                <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Email Address</label>
-                <input type="email" className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Inquiry Type</label>
-              <select className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30">
-                <option>Volunteer Inquiries</option>
-                <option>School Partnerships</option>
-                <option>General Information</option>
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Message</label>
-              <textarea rows={5} className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
-            </div>
-            <button type="submit" className="w-full bg-primary text-white py-4 font-semibold text-sm uppercase tracking-widest rounded-lg hover:bg-primary-container shadow-md transition-all active:scale-[0.98]">
-              Submit Inquiry
-            </button>
-          </form>
+          <AnimatePresence mode="wait">
+            {status === "success" ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center py-12"
+              >
+                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-4xl">✅</span>
+                </div>
+                <h2 className="font-serif text-3xl text-primary mb-4">Message Sent!</h2>
+                <p className="text-lg text-on-surface-variant mb-8">
+                  Thank you, {formData.name}. We&apos;ve received your inquiry and will get back to you shortly.
+                </p>
+                <button
+                  onClick={() => {
+                    setStatus("idle");
+                    setFormData({ name: "", email: "", inquiryType: "Volunteer Inquiries", message: "" });
+                  }}
+                  className="bg-primary text-white px-8 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-all"
+                >
+                  Send Another Inquiry
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }}>
+                <h2 className="font-serif text-2xl text-primary mb-8">Inquiry Form</h2>
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Full Name *</label>
+                      <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Email Address *</label>
+                      <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Inquiry Type</label>
+                    <select name="inquiryType" value={formData.inquiryType} onChange={handleChange} className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30">
+                      <option>Volunteer Inquiries</option>
+                      <option>School Partnerships</option>
+                      <option>General Information</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="font-semibold text-xs text-on-surface-variant uppercase tracking-wider">Message *</label>
+                    <textarea name="message" rows={5} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary transition-all bg-surface/30" />
+                  </div>
+
+                  {status === "error" && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                      {errorMsg}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full bg-primary text-white py-4 font-semibold text-sm uppercase tracking-widest rounded-lg hover:bg-primary-container shadow-md transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      "Submit Inquiry"
+                    )}
+                  </button>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

@@ -37,6 +37,8 @@ export default function SupportPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   useGSAP(() => {
     gsap.utils.toArray<HTMLElement>(".gsap-fade-up").forEach((el) => {
@@ -66,11 +68,26 @@ export default function SupportPage() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    // In a real app, send data to the backend here
-    setSubmitted(true);
+    setIsLoading(true);
+    setApiError("");
+
+    try {
+      const res = await fetch("/api/membership", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setSubmitted(true);
+    } catch (err) {
+      setApiError(err instanceof Error ? err.message : "Failed to submit. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -225,11 +242,28 @@ export default function SupportPage() {
                     {errors.agreeTerm && <p className="text-error text-sm mt-2">{errors.agreeTerm}</p>}
                   </div>
 
+                  {apiError && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                      {apiError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-5 rounded-lg font-serif text-xl hover:bg-primary-container transition-all flex items-center justify-center gap-3 active:scale-[0.98] shadow-lg shadow-primary/20"
+                    disabled={isLoading}
+                    className="w-full bg-primary text-white py-5 rounded-lg font-serif text-xl hover:bg-primary-container transition-all flex items-center justify-center gap-3 active:scale-[0.98] shadow-lg shadow-primary/20 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Application
+                    {isLoading ? (
+                      <>
+                        <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit Application"
+                    )}
                   </button>
                 </form>
               </motion.div>

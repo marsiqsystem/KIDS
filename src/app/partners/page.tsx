@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import PageHeader from "@/components/PageHeader";
+import { Mic, Brain } from "lucide-react";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -85,43 +86,49 @@ export default function PartnersPage() {
 
 
       {/* ─── VISION SECTION ─── */}
-      <section className="py-20 bg-surface">
+      <section className="py-20 bg-[#FDFBF2]">
         <div className="w-full px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="gsap-fade-up order-2 lg:order-1">
-              <div className="aspect-square bg-surface-container-high border border-outline-variant rounded-2xl shadow-lg overflow-hidden relative">
+              <div className="rounded-2xl shadow-2xl overflow-hidden relative" style={{ boxShadow: '0 25px 50px -12px rgba(0,0,0,0.4)' }}>
                 <img
                   src="/Vision.png"
                   alt="Innovation and Future"
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                  <p className="font-serif text-2xl font-bold text-white">MARS</p>
-                  <p className="text-xs font-medium tracking-widest text-white/80 uppercase">Market Analyzers and Research Solutions</p>
-                </div>
               </div>
             </div>
 
             <div className="gsap-fade-up order-1 lg:order-2">
-              <span className="text-sm font-semibold text-primary uppercase tracking-widest block mb-4">Our North Star</span>
-              <h2 className="font-serif text-3xl md:text-4xl text-primary mb-6">Vision: The Autonomous Business Operating System</h2>
-              <div className="w-24 h-1 bg-secondary-container mb-8" />
-              <p className="text-lg text-on-surface-variant mb-8">
-                At MARS, we are building a future where the friction of operational management disappears. Our flagship conceptual framework is the <span className="font-semibold text-primary">Autonomous Business Operating System</span>.
+              <h2 className="font-serif text-6xl md:text-7xl text-[#5C1A14] mb-4">MARS</h2>
+              <p className="text-xs font-bold text-[#A2775E] tracking-[0.2em] uppercase mb-8">Market Analyzers & Research Based Solutions Pvt. Ltd.</p>
+              
+              <div className="w-full h-px bg-[#EBDDD2] mb-10" />
+              
+              <span className="text-sm font-semibold text-[#A2775E] uppercase tracking-widest block mb-4">Our North Star</span>
+              <p className="font-serif text-[#A2775E] text-lg mb-6">Vision: The Autonomous Business Operating System</p>
+              
+              <p className="text-[#6A6A6A] text-[15px] mb-10 leading-relaxed max-w-lg">
+                At MARS, we are building a future where the friction of operational management disappears. Our flagship conceptual framework is the <span className="font-semibold text-[#5C1A14]">Autonomous Business Operating System</span>.
               </p>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <span className="text-2xl flex-shrink-0">🎙️</span>
+
+              <div className="space-y-8">
+                <div className="flex gap-5">
+                  <div className="w-12 h-12 bg-[#F8CC7F] rounded-lg flex items-center justify-center shrink-0">
+                    <Mic className="w-6 h-6 text-[#5C1A14]" strokeWidth={2} />
+                  </div>
                   <div>
-                    <h4 className="font-serif text-lg text-primary mb-1">Voice-First Command Center</h4>
-                    <p className="text-on-surface-variant">Imagine a CEO speaking tasks directly into a microphone: &ldquo;Analyze Q3 student performance and adjust outreach budgets for the top 5 performing schools.&rdquo;</p>
+                    <h4 className="font-serif text-xl text-[#5C1A14] mb-2">Voice-First Command Center</h4>
+                    <p className="text-[#6A6A6A] leading-relaxed text-[15px]">Imagine a CEO speaking tasks directly into a microphone: &ldquo;Analyze Q3 student performance and adjust outreach budgets for the top 5 performing schools.&rdquo;</p>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-2xl flex-shrink-0">🧠</span>
+                <div className="flex gap-5">
+                  <div className="w-12 h-12 bg-[#F8CC7F] rounded-lg flex items-center justify-center shrink-0">
+                    <Brain className="w-6 h-6 text-[#5C1A14]" strokeWidth={2} />
+                  </div>
                   <div>
-                    <h4 className="font-serif text-lg text-primary mb-1">Cognitive Automation</h4>
-                    <p className="text-on-surface-variant">The system interprets the intent, cross-references data silos, generates an execution plan, and triggers the necessary digital agents to complete the work autonomously.</p>
+                    <h4 className="font-serif text-xl text-[#5C1A14] mb-2">Cognitive Automation</h4>
+                    <p className="text-[#6A6A6A] leading-relaxed text-[15px]">The system interprets the intent, cross-references data silos, generates an execution plan, and triggers the necessary digital agents to complete the work autonomously.</p>
                   </div>
                 </div>
               </div>

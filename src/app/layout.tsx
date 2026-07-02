@@ -3,6 +3,8 @@ import { Playfair_Display, Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
+import AnnouncementBar from "@/components/AnnouncementBar";
+import PosterModal from "@/components/PosterModal";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-work-sans" });
@@ -32,8 +34,10 @@ export default function RootLayout({
         className={`${montserrat.variable} ${playfairDisplay.variable} font-sans antialiased`}
       >
         <SmoothScroll>
+          <AnnouncementBar />
           <Navbar />
-          <main>{children}</main>
+          <PosterModal />
+          <main className="pt-10">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

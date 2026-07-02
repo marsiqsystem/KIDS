@@ -21,6 +21,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       infinite: false,
     });
     lenisRef.current = lenis;
+    // Expose the instance so anchor buttons (e.g. "How to Enrol") can smooth-scroll.
+    (window as unknown as { lenis?: Lenis }).lenis = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -33,6 +35,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     return () => {
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
+      delete (window as unknown as { lenis?: Lenis }).lenis;
     };
   }, []);
 

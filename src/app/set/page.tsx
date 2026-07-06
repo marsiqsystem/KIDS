@@ -23,39 +23,6 @@ const syllabus = [
   { cls: "Class XII", scope: "Syllabus of Third Semester", board: "W.B.C.H.S.E." },
 ];
 
-const steps = [
-  {
-    num: "01",
-    title: "Express Your Interest",
-    desc: "Speak to your Head of School / Teacher-in-Charge and let them know you wish to appear for the Students Evaluation Test.",
-  },
-  {
-    num: "02",
-    title: "Share Your Details With the School",
-    desc: "Provide your particulars — Name, Father's Name, Date of Birth, Contact Number, Class and Stream — so your school can add you to its nomination list.",
-  },
-  {
-    num: "03",
-    title: "School Submits the List to KIDS",
-    desc: "Your school sends the list of interested students to KIDS on or before 4th July 2026 by email (kids.kol.org2003@gmail.com) or WhatsApp (8777052393). Enrolment is done through your school, not individually.",
-  },
-  {
-    num: "04",
-    title: "Receive Your Exam Details",
-    desc: "Registered students are informed of their allotted examination centre and reporting time (10:00 AM on exam day).",
-  },
-  {
-    num: "05",
-    title: "Appear for the Test",
-    desc: "Sit the MCQ-based written examination at your centre on Sunday, 19th July 2026.",
-  },
-  {
-    num: "06",
-    title: "Results & Recognition",
-    desc: "Results are published on the KIDS website, and meritorious students are recognised with awards.",
-  },
-];
-
 type LenisLike = { scrollTo: (target: HTMLElement | string | number, options?: { offset?: number }) => void };
 
 export default function SetPage() {
@@ -198,23 +165,19 @@ export default function SetPage() {
         </div>
       </section>
 
-      {/* How to enrol */}
+      {/* Enrolment closed notice */}
       <section id="how-to-enrol" className="py-20 bg-surface scroll-mt-28">
-        <div className="w-full px-4 md:px-8 max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-sm font-semibold text-primary uppercase tracking-widest block mb-2">The Journey</span>
-            <h2 className="font-serif text-4xl text-primary">From Enrolment to Recognition</h2>
-          </div>
-          <div className="space-y-6">
-            {steps.map((step) => (
-              <div key={step.num} className="gsap-fade-up flex items-start gap-6 p-6 bg-white rounded-xl border border-outline-variant shadow-sm">
-                <span className="text-3xl md:text-4xl font-serif text-secondary shrink-0 w-12">{step.num}</span>
-                <div>
-                  <h3 className="font-serif text-xl text-primary mb-2">{step.title}</h3>
-                  <p className="text-on-surface-variant">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+        <div className="w-full px-4 md:px-8 max-w-3xl mx-auto">
+          <div className="gsap-fade-up bg-white rounded-2xl border border-outline-variant shadow-sm p-10 md:p-14 text-center">
+            <span className="inline-block text-xs font-semibold text-secondary uppercase tracking-widest bg-secondary-container/60 px-3 py-1 rounded-full mb-6">
+              Notice
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-primary mb-4">
+              Enrolment is Now Closed
+            </h2>
+            <p className="text-on-surface-variant text-lg leading-relaxed">
+              Enrolment for the Students Evaluation Test 2026&ndash;27 has been closed. Enrolled students are requested to wait for their admit cards, which will be shared through their respective schools shortly.
+            </p>
           </div>
         </div>
       </section>

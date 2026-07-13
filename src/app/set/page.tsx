@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import PageHeader from "@/components/PageHeader";
+import CentreDirectory from "@/components/CentreDirectory";
 import FindYourCentre from "@/components/FindYourCentre";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -139,6 +140,9 @@ export default function SetPage() {
           </div>
         </div>
       </section>
+
+      {/* Centre &rarr; school allocation */}
+      <CentreDirectory />
 
       {/* Find your exam centre */}
       <FindYourCentre />

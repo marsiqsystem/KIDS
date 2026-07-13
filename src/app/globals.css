@@ -83,6 +83,26 @@
   background: var(--color-primary);
 }
 
+/* Centre directory — expanding school panel */
+@keyframes centre-panel {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-centre-panel {
+  animation: centre-panel 0.25s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-centre-panel {
+    animation: none;
+  }
+}
+
 /* Lenis */
 html.lenis, html.lenis body {
   height: auto;

@@ -248,8 +248,8 @@ export const CENTRES: Record<string, Centre> = {
     address: "Jemari, P.O. Bidhanbag, P.S. Raniganj, Paschim Bardhaman, West Bengal 713337",
     district: "Jemari, Paschim Bardhaman",
     schools: [
-      { code: "SC-01", name: "Jay Kay Nagar High School (H.S.) — Hindi" },
-      { code: "SC-01", name: "Jay Kay Nagar High School (H.S.) — Bengali" },
+      { code: "SC-01", name: "Jay Kay Nagar High School (H.S) (HINDI)" },
+      { code: "SC-01", name: "Jay Kay Nagar High School (H.S) (BENG)" },
       { code: "SC-02", name: "Ratibati Hindi High School (H.S.)" },
       { code: "SC-03", name: "Jamuria Hindi High School (H.S.)" },
       { code: "SC-04", name: "D. A. V. Asansol High School (H.S.)" },

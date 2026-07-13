@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import PageHeader from "@/components/PageHeader";
+import FindYourCentre from "@/components/FindYourCentre";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -28,8 +29,8 @@ type LenisLike = { scrollTo: (target: HTMLElement | string | number, options?: {
 export default function SetPage() {
   const mainRef = useRef<HTMLDivElement>(null);
 
-  const scrollToEnrol = () => {
-    const el = document.getElementById("how-to-enrol");
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
     if (!el) return;
     const lenis = (window as unknown as { lenis?: LenisLike }).lenis;
     if (lenis) {
@@ -38,6 +39,9 @@ export default function SetPage() {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const scrollToEnrol = () => scrollTo("how-to-enrol");
+  const scrollToCentre = () => scrollTo("find-centre");
 
   useGSAP(() => {
     gsap.utils.toArray<HTMLElement>(".gsap-fade-up").forEach((el) => {
@@ -64,12 +68,13 @@ export default function SetPage() {
             >
               How to Enrol
             </button>
-            <Link
-              href="/udaan"
+            <button
+              type="button"
+              onClick={scrollToCentre}
               className="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-sm uppercase tracking-wider text-center hover:bg-white/10 transition-all"
             >
-              About Project UDAAN
-            </Link>
+              Find Your Centre
+            </button>
           </>
         }
       />
@@ -134,6 +139,9 @@ export default function SetPage() {
           </div>
         </div>
       </section>
+
+      {/* Find your exam centre */}
+      <FindYourCentre />
 
       {/* Syllabus */}
       <section className="py-20 bg-surface-container-low border-y border-stone-200">

@@ -1,111 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { MapPin, Navigation, Search, LoaderCircle, TriangleAlert } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Search, LoaderCircle, TriangleAlert } from "lucide-react";
 import { CENTRE_COUNT, CENTRES, DISTRICT_COUNT, type Centre } from "@/app/set/centres";
-
-const MAPS_DIR = "https://www.google.com/maps/dir/?api=1";
-const MAPS_SEARCH = "https://www.google.com/maps/search/?api=1";
-
-/**
- * The text we hand Google as the destination.
- *
- * Falls back to the centre's name and address if `mapsQuery` is somehow absent.
- * Never interpolate a possibly-undefined value straight into a Maps URL:
- * `encodeURIComponent(undefined)` yields the string "undefined", and Google will
- * happily geocode that to a real address on the other side of the world.
- */
-const destination = (centre: Centre) =>
-  centre.mapsQuery?.trim() || `${centre.name}, ${centre.address}`;
-
-type Coords = { lat: number; lng: number };
-
-/**
- * Directions to a centre.
- *
- * With `origin` omitted Google still routes -- it just guesses the start from
- * the user's IP, which is only accurate to a neighbourhood. So we pass real
- * coordinates when we have them, and let Google fall back to its own "Your
- * location" when we don't.
- *
- * Crucially the click never *waits* for those coordinates. The old code opened a
- * blank tab and held it while getCurrentPosition({ enableHighAccuracy: true,
- * timeout: 10000 }) warmed up the GPS, stranding the user on an empty page for
- * seconds. Here the link is always immediately valid and simply gets sharper if
- * the fix arrives first.
- */
-const directionsUrl = (centre: Centre, from: Coords | null) =>
-  `${MAPS_DIR}` +
-  (from ? `&origin=${from.lat},${from.lng}` : "") +
-  `&destination=${encodeURIComponent(destination(centre))}`;
-
-const mapUrl = (centre: Centre) => `${MAPS_SEARCH}&query=${encodeURIComponent(destination(centre))}`;
+import GetDirections from "@/components/GetDirections";
 
 export default function FindYourCentre() {
   const [uniqueId, setUniqueId] = useState("");
   const [centre, setCentre] = useState<Centre | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [checking, setChecking] = useState(false);
-  const [from, setFrom] = useState<Coords | null>(null);
-  const [locating, setLocating] = useState(false);
-
-  /**
-   * If the user has ALREADY granted location to this site, read their position
-   * up front -- `permissions.query` lets us check without triggering a prompt.
-   * Then the button is a plain link that opens Maps instantly in a new tab.
-   *
-   * We never prompt from here. An unrequested permission dialog appearing while
-   * the user is looking at something else is exactly the bug this replaced.
-   */
-  useEffect(() => {
-    if (typeof navigator === "undefined" || !("geolocation" in navigator)) return;
-
-    navigator.permissions
-      ?.query({ name: "geolocation" })
-      .then((status) => {
-        if (status.state !== "granted") return;
-        navigator.geolocation.getCurrentPosition(
-          ({ coords }) => setFrom({ lat: coords.latitude, lng: coords.longitude }),
-          () => {},
-          { enableHighAccuracy: true, timeout: 8000, maximumAge: 60_000 },
-        );
-      })
-      .catch(() => {});
-  }, []);
-
-  /**
-   * First-time click: ask for location, wait for the answer, THEN go to Maps.
-   *
-   * The wait happens on this page, under a spinner the user can see -- not
-   * inside a blank tab opened ahead of time, which is what used to strand people
-   * on an empty screen. Because the navigation now happens after an await, it
-   * has to be same-tab: `window.open` post-await is eaten by popup blockers.
-   * Once permission is granted, `from` is set and the anchor below takes over,
-   * opening a new tab natively with no interception at all.
-   */
-  const handleDirections = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!centre || from) return; // already located -- let the href open a new tab
-    if (typeof navigator === "undefined" || !("geolocation" in navigator)) return;
-
-    event.preventDefault();
-    setLocating(true);
-
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        const here = { lat: coords.latitude, lng: coords.longitude };
-        setFrom(here);
-        setLocating(false);
-        window.location.href = directionsUrl(centre, here);
-      },
-      () => {
-        // Declined, or the fix timed out. Still take them there; Google will
-        // estimate the starting point rather than leaving them stuck here.
-        setLocating(false);
-        window.location.href = directionsUrl(centre, null);
-      },
-      { enableHighAccuracy: true, timeout: 10_000, maximumAge: 60_000 },
-    );
-  };
 
   const handleChange = (value: string) => {
     setUniqueId(value.replace(/\D/g, "").slice(0, 9));
@@ -266,45 +170,7 @@ export default function FindYourCentre() {
                     <address className="not-italic text-on-surface-variant leading-relaxed">{centre.address}</address>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                    <a
-                      href={directionsUrl(centre, from)}
-                      onClick={handleDirections}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-busy={locating}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary text-on-secondary px-7 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:brightness-110 transition-all aria-busy:cursor-wait aria-busy:opacity-70"
-                    >
-                      {locating ? (
-                        <>
-                          <LoaderCircle className="w-4 h-4 animate-spin" aria-hidden="true" />
-                          Getting your location&hellip;
-                        </>
-                      ) : (
-                        <>
-                          <Navigation className="w-4 h-4" aria-hidden="true" />
-                          Get Google Directions
-                        </>
-                      )}
-                    </a>
-
-                    <a
-                      href={mapUrl(centre)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-primary underline underline-offset-4 hover:text-secondary transition-colors"
-                    >
-                      <MapPin className="w-4 h-4" aria-hidden="true" />
-                      View centre on the map
-                    </a>
-                  </div>
-
-                  <p className="mt-3 text-xs text-on-surface-variant leading-relaxed">
-                    {from
-                      ? "Directions will start from your current location."
-                      : "We'll ask for your location so the route starts from exactly where you are. If you decline, Google Maps will estimate your starting point instead."}{" "}
-                    Reporting time is 10:00 AM &mdash; please plan to arrive early.
-                  </p>
+                  <GetDirections centre={centre} />
                 </div>
               )}
             </div>

@@ -44,3 +44,6 @@ next-env.d.ts
 # counts, and must not reach this public repo. Centre names/addresses that are
 # safe to publish live in src/app/set/centres.ts.
 /Centre_and_School_Allocation_Register*.pdf
+
+.vercel
+.env*

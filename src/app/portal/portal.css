@@ -1,0 +1,114 @@
+/* KIDS design-system tokens, scoped to the student portal.
+ *
+ * The live site runs an older palette (#570000 / #7b5805). The portal was
+ * designed against the KIDS design system proper -- a lighter maroon, and a teal
+ * that the site has no equivalent for and that the design leans on heavily (the
+ * device check, every "safe/verified" affordance). Scoping the tokens to
+ * `.portal` lets the portal be the design without repainting the rest of the
+ * site five days before the exam.
+ *
+ * Fonts are deliberately NOT the design's Inter + IBM Plex Mono. The site
+ * already self-hosts Playfair Display and Montserrat, and every extra family is
+ * another download for a student on 3G at a school where a thousand other
+ * phones are on the same tower. Display keeps Playfair; body reuses Montserrat;
+ * the Unique ID uses a system monospace stack that costs nothing.
+ */
+
+.portal {
+  --maroon: #7b1e2b;
+  --maroon-deep: #3d0a10;
+  --maroon-light: #9a3340;
+  --maroon-tint: #e8c9cc;
+
+  --gold: #c9a24b;
+  --gold-light: #e5be7a;
+  --star-gold: #f4c12a;
+
+  --teal: #1e9e8c;
+  --teal-dark: #0c2a2e;
+  --teal-ink: #0d5248;
+
+  --cream: #fdfbf7;
+  --cream-surface: #fbf7ef;
+  --cream-muted: #f2e9da;
+  --ink: #2b1a1c;
+  --ink-muted: #6b5b5d;
+
+  --gradient-maroon: linear-gradient(160deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+
+  --font-display: var(--font-serif);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.portal h1,
+.portal h2,
+.portal h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+/* Figures that must not jitter as they tick, and IDs read aloud to a teacher. */
+.tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* The night-sky band behind every hero. Echoes the KIDS logo mark. */
+.sky {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(178deg, #0c2a2e 0%, #123a3b 45%, #1e7e78 100%);
+}
+/* Hours out: warmer, closer to dawn. */
+.sky-dawn {
+  background: linear-gradient(178deg, #0c2a2e 0%, #243b34 60%, #5c6b34 100%);
+}
+/* The last hour: get moving. */
+.sky-urgent {
+  background: linear-gradient(178deg, #3d0a10 0%, #7b1e2b 70%, #9a5a2a 100%);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(1.4px 1.4px at 12% 22%, #f4c12a 40%, transparent),
+    radial-gradient(1px 1px at 32% 12%, #e5be7a 40%, transparent),
+    radial-gradient(1.6px 1.6px at 62% 28%, #f4c12a 40%, transparent),
+    radial-gradient(1px 1px at 82% 14%, #fff8e6 40%, transparent),
+    radial-gradient(1.2px 1.2px at 48% 40%, #e5be7a 40%, transparent),
+    radial-gradient(1px 1px at 90% 34%, #f4c12a 40%, transparent),
+    radial-gradient(1px 1px at 22% 44%, #fff 40%, transparent);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.portal-card {
+  background: var(--cream-surface);
+  border: 1px solid var(--cream-muted);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgb(43 26 28 / 6%), 0 4px 12px rgb(43 26 28 / 4%);
+}
+
+.lbl {
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+/* A slow phone cannot spare frames for decoration it did not ask for. */
+@media (prefers-reduced-motion: reduce) {
+  .portal *,
+  .portal *::before,
+  .portal *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

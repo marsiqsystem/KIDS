@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown, MapPin, School, X } from "lucide-react";
-import { CENTRE_COUNT, CENTRE_LIST, SCHOOL_COUNT } from "@/app/set/centres";
+import { CENTRE_COUNT, CENTRE_LIST, DISTRICT_COUNT, SCHOOL_COUNT } from "@/app/set/centres";
 
 /** Column count per breakpoint, matched to the grid classes below. */
 const COLUMNS: { min: number; cols: number }[] = [
@@ -52,8 +52,8 @@ export default function CentreDirectory() {
           </span>
           <h2 className="font-serif text-4xl text-primary mb-4">All {CENTRE_COUNT} Examination Centres</h2>
           <p className="text-lg text-on-surface-variant leading-relaxed">
-            {SCHOOL_COUNT} schools across 5 districts have been allocated to the {CENTRE_COUNT} centres below.
-            Tap any centre to see the schools reporting there on exam day.
+            {SCHOOL_COUNT} schools across {DISTRICT_COUNT} districts have been allocated to the {CENTRE_COUNT} centres
+            below. Tap any centre to see the schools reporting there on exam day.
           </p>
         </div>
 

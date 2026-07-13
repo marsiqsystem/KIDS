@@ -17,6 +17,8 @@ export interface Centre {
   name: string;
   address: string;
   district: string;
+  /** Exact Google Maps search text supplied by KIDS; the destination we send students to. */
+  mapsQuery: string;
   /** Schools allocated to this centre, in register order. */
   schools: School[];
 }
@@ -26,6 +28,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-01",
     name: "G. R. Maulana Azad Memorial Girls' High School (H.S.)",
     address: "H-83, Paharpur Road, Kolkata 700024",
+    mapsQuery: "G. R. Maulana Azad Memorial Girls High School H-83 Paharpur Road Kolkata 700024",
     district: "Garden Reach, Kolkata",
     schools: [
       { code: "SC-01", name: "Maulana Hasrat Mohani Memorial Girls' High School (H.S.)" },
@@ -39,6 +42,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-02",
     name: "Maulana Hasrat Mohani Memorial Girls' High School (H.S.)",
     address: "F-69, 28 No. Garden Reach Road, Kolkata 700024",
+    mapsQuery: "Maulana Hasrat Mohani Memorial Girls High School F-69 28 No. Garden Reach Road Kolkata-700024",
     district: "Garden Reach, Kolkata",
     schools: [
       { code: "SC-01", name: "G. R. Maulana Azad Memorial Girls' High School (H.S.)" },
@@ -51,6 +55,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-03",
     name: "Dhankheti High School (H.S.)",
     address: "G-185, Shamlal Lane, Garden Reach, Kolkata 700024",
+    mapsQuery: "Dhankheti High School 185 Shamlal Lane Garden Reach Kolkata-700024",
     district: "Garden Reach, Kolkata",
     schools: [
       { code: "SC-01", name: "Garden Reach K. C. Mills High School (H.S.)" },
@@ -63,6 +68,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-04",
     name: "Kidderpore Muslim High School (H.S.)",
     address: "3, Nawab Ali Lane, Kolkata 700023",
+    mapsQuery: "Kidderpore Muslim High School 3 Nawab Ali Lane Kolkata 700023",
     district: "Kidderpore, Kolkata",
     schools: [
       { code: "SC-01", name: "Badshah Khan Centenary Girls High School (H.S.)" },
@@ -78,6 +84,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-05",
     name: "Shri Jnan Bhaskar Vidyalaya",
     address: "11, Dock Eastern Boundary Road, Kolkata 700023",
+    mapsQuery: "Shri Jnan Bhaskar Vidyalaya 11 Dock Eastern Boundary Road Kolkata 700023",
     district: "Kidderpore, Kolkata",
     schools: [
       { code: "SC-01", name: "Shri Jnan Bhaskar Vidyalaya" },
@@ -97,6 +104,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-06",
     name: "Islamia High School (H.S.)",
     address: "44, Hare Krishna Konar Road, Beniapukur, Kolkata 700014",
+    mapsQuery: "Islamia High School 44 Hare Krishna Konar Road Beniapukur Kolkata 700014",
     district: "Beniapukur, Kolkata",
     schools: [
       { code: "SC-01", name: "Park Circus High School (H.S.)" },
@@ -111,6 +119,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-07",
     name: "Md. Jan High School (H.S.)",
     address: "9B, Bolai Dutta Street, Kolkata 700073",
+    mapsQuery: "Md. Jan High School 9B Bolai Dutta Street Kolkata 700073",
     district: "Central Kolkata",
     schools: [
       { code: "SC-01", name: "C.M.O. High School (H.S.) (Boys)" },
@@ -123,6 +132,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-08",
     name: "Momin High School (H.S.)",
     address: "36 & 37, Maulana Abul Kalam Azad Sarani, Kolkata 700011",
+    mapsQuery: "Momin High School 36 and 37 Maulana Abul Kalam Azad Sarani Kolkata 700011",
     district: "Central Kolkata",
     schools: [
       { code: "SC-01", name: "Momin High School (H.S.)" },
@@ -134,6 +144,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-09",
     name: "Aulad Hussain Islamic Academy",
     address: "23, Topsia 2nd Lane, Kolkata 700039",
+    mapsQuery: "Aulad Hussain Islamic Academy 23 Topsia 2Nd Lane Kolkata 700039",
     district: "Topsia, Kolkata",
     schools: [
       { code: "SC-01", name: "Aulad Hussain Islamic Academy" },
@@ -145,6 +156,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-10",
     name: "Belgachia Urdu High School (Co-Ed)",
     address: "1/2/4, Jiban Krishna Ghosh Road, Kolkata 700037",
+    mapsQuery: "Belgachia Urdu High School Jiban Krishna Ghosh Road Kolkata 700037",
     district: "Belgachia, Kolkata",
     schools: [
       { code: "SC-01", name: "Belgachia Urdu High School (Co-Ed)" },
@@ -155,6 +167,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-11",
     name: "Alambazar Urdu High School (H.S.)",
     address: "155, S.P. Banerjee Road, Alambazar, Kolkata 700035",
+    mapsQuery: "Alambazar Urdu High School 155 S.P. Banerjee Road Alambazar Kolkata 700035",
     district: "Alambazar, Kolkata",
     schools: [
       { code: "SC-01", name: "Cossipore Aman High School" },
@@ -166,6 +179,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-12",
     name: "Kamarhati Union Collegiate High School",
     address: "Chhai Madan Road, 20, Old Line (Union College Road), Kamarhati, Kolkata 700058",
+    mapsQuery: "Kamarhati Union Collegiate High School Chhai Madan Road Kamarhati Kolkata 700058",
     district: "Kamarhati, North 24 Parganas",
     schools: [
       { code: "SC-01", name: "Kamarhati Union Collegiate High School" },
@@ -180,6 +194,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-13",
     name: "Kankinara Urdu Girls High School",
     address: "House No. 16/1, BL No. 3, Nayabazar, Post Kankinara, North 24 Parganas, West Bengal 743126",
+    mapsQuery: "Kankinara Urdu Girls High School Nayabazar Kankinara 743126",
     district: "Kankinara, North 24 Parganas",
     schools: [
       { code: "SC-01", name: "Kankinara Urdu Girls High School" },
@@ -190,6 +205,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-14",
     name: "Rishra Anjuman High School",
     address: "3/5, Anjuman Road (Maitri Path), Masjid Lane, Rishra, Hooghly, West Bengal 712248",
+    mapsQuery: "Rishra Anjuman High School Anjuman Road Rishra Hooghly 712248",
     district: "Rishra, Hooghly",
     schools: [
       { code: "SC-01", name: "Rishra Anjuman High School" },
@@ -202,6 +218,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-15",
     name: "Howrah High School (H.S.)",
     address: "6 & 7/1 Priya, Manna Basti 3rd Lane, Shibpur, Howrah, West Bengal 711102",
+    mapsQuery: "Howrah High School Priya Manna Basti Shibpur Howrah 711102",
     district: "Shibpur, Howrah",
     schools: [
       { code: "SC-01", name: "Belur T. H. Memorial High School (H.S.)" },
@@ -221,6 +238,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-16",
     name: "Raniganj Anjuman Urdu Girls' High School (H.S.)",
     address: "S.M. Road, Raniganj, Burdwan 713347",
+    mapsQuery: "Raniganj Anjuman Urdu Girls High School S.M. Road Raniganj Burdwan 713347",
     district: "Raniganj, Paschim Bardhaman",
     schools: [
       { code: "SC-01", name: "Raniganj Anjuman Urdu Girls' High School (H.S.)" },
@@ -236,6 +254,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-17",
     name: "Rahmatnagar Iqbal Academy High School (H.S.)",
     address: "12 No. Railway Colony, Andal, Paschim Burdwan 713321",
+    mapsQuery: "Rahmatnagar Iqbal Academy High School Railway Colony Andal 713321",
     district: "Andal, Paschim Bardhaman",
     schools: [
       { code: "SC-01", name: "Rahmatnagar Iqbal Academy High School (H.S.)" },
@@ -246,6 +265,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-18",
     name: "Jay Kay Nagar High School (H.S.)",
     address: "Jemari, P.O. Bidhanbag, P.S. Raniganj, Paschim Bardhaman, West Bengal 713337",
+    mapsQuery: "Jay Kay Nagar High School Jemari Bidhanbag Raniganj 713337",
     district: "Jemari, Paschim Bardhaman",
     schools: [
       { code: "SC-01", name: "Jay Kay Nagar High School (H.S) (HINDI)" },
@@ -259,6 +279,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-19",
     name: "Asansol Rahmania High School",
     address: "Rail Par, Jahangiri Mohalla, Asansol 713302",
+    mapsQuery: "Asansol Rahmania High School Rail par jahangiri Mohalla Asansol 713302",
     district: "Asansol, Paschim Bardhaman",
     schools: [
       { code: "SC-01", name: "Dr. Shyama Prasad Vidyalaya (Bengali)" },
@@ -276,6 +297,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-20",
     name: "Madrasah Islamia High Madrasah (H.S.)",
     address: "New Famine Road, Eidgah Mohalla, Post & Dist. Purulia, Pin 723101",
+    mapsQuery: "Madrasah Islamia High Madrasah New Famine Road Eidgah Mohalla Purulia 723101",
     district: "Purulia",
     schools: [
       { code: "SC-01", name: "Ayesha Kutchchi Urdu High School" },
@@ -289,6 +311,7 @@ export const CENTRES: Record<string, Centre> = {
     code: "CTR-21",
     name: "Ayesha Kutchi Urdu High School",
     address: "S.G. Road, Purulia (M), District Purulia, West Bengal 723101",
+    mapsQuery: "Ayesha Kutchi Urdu High School S.G. Road Purulia 723101",
     district: "Purulia",
     schools: [
       { code: "SC-01", name: "Madrasah Islamia High Madrasah (H.S.)" },
@@ -301,6 +324,35 @@ export const CENTRES: Record<string, Centre> = {
   },
 };
 
+/**
+ * Official revenue district of each centre, per the SET 2026 master workbook.
+ * `Centre.district` above is the locality shown to students; this is the
+ * administrative district, and it is what the "Districts" figure counts.
+ */
+export const CENTRE_DISTRICT: Record<string, string> = {
+  "01": "South 24 Parganas",
+  "02": "South 24 Parganas",
+  "03": "South 24 Parganas",
+  "04": "Kolkata",
+  "05": "Kolkata",
+  "06": "Kolkata",
+  "07": "Kolkata",
+  "08": "Kolkata",
+  "09": "Kolkata",
+  "10": "Kolkata",
+  "11": "Kolkata",
+  "12": "North 24 Parganas",
+  "13": "North 24 Parganas",
+  "14": "Hooghly",
+  "15": "Howrah",
+  "16": "Paschim Bardhaman",
+  "17": "Paschim Bardhaman",
+  "18": "Paschim Bardhaman",
+  "19": "Paschim Bardhaman",
+  "20": "Purulia",
+  "21": "Purulia",
+};
+
 export const CENTRE_COUNT = Object.keys(CENTRES).length;
 
 /** The 21 centres in register order, keyed by their Unique ID digits. */
@@ -310,7 +362,17 @@ export const CENTRE_LIST: { key: string; centre: Centre }[] = Object.entries(CEN
 
 export const SCHOOL_COUNT = CENTRE_LIST.reduce((n, { centre }) => n + centre.schools.length, 0);
 
-/** Pulls the centre code out of the 2nd and 3rd digits of a 9-digit Unique ID. */
+/** Distinct administrative districts covered by the 21 centres. */
+export const DISTRICT_COUNT = new Set(Object.values(CENTRE_DISTRICT)).size;
+
+/**
+ * Pulls the centre out of the 2nd and 3rd digits of a 9-digit Unique ID.
+ *
+ * This decodes the ID's *shape*; it does NOT prove the student exists. A typo
+ * such as 102001001 is well-formed and will happily resolve to CTR-02. Callers
+ * facing students must check the ID against the enrolled register first — see
+ * /api/centre — or they will confidently send someone to the wrong school.
+ */
 export function centreFromUniqueId(uniqueId: string): Centre | undefined {
   if (!/^\d{9}$/.test(uniqueId)) return undefined;
   return CENTRES[uniqueId.slice(1, 3)];

@@ -1,28 +1,125 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin, Navigation, Search, LoaderCircle, TriangleAlert } from "lucide-react";
-import { CENTRE_COUNT, centreFromUniqueId, type Centre } from "@/app/set/centres";
+import { CENTRE_COUNT, CENTRES, DISTRICT_COUNT, type Centre } from "@/app/set/centres";
 
 const MAPS_DIR = "https://www.google.com/maps/dir/?api=1";
+const MAPS_SEARCH = "https://www.google.com/maps/search/?api=1";
+
+/**
+ * The text we hand Google as the destination.
+ *
+ * Falls back to the centre's name and address if `mapsQuery` is somehow absent.
+ * Never interpolate a possibly-undefined value straight into a Maps URL:
+ * `encodeURIComponent(undefined)` yields the string "undefined", and Google will
+ * happily geocode that to a real address on the other side of the world.
+ */
+const destination = (centre: Centre) =>
+  centre.mapsQuery?.trim() || `${centre.name}, ${centre.address}`;
+
+type Coords = { lat: number; lng: number };
+
+/**
+ * Directions to a centre.
+ *
+ * With `origin` omitted Google still routes -- it just guesses the start from
+ * the user's IP, which is only accurate to a neighbourhood. So we pass real
+ * coordinates when we have them, and let Google fall back to its own "Your
+ * location" when we don't.
+ *
+ * Crucially the click never *waits* for those coordinates. The old code opened a
+ * blank tab and held it while getCurrentPosition({ enableHighAccuracy: true,
+ * timeout: 10000 }) warmed up the GPS, stranding the user on an empty page for
+ * seconds. Here the link is always immediately valid and simply gets sharper if
+ * the fix arrives first.
+ */
+const directionsUrl = (centre: Centre, from: Coords | null) =>
+  `${MAPS_DIR}` +
+  (from ? `&origin=${from.lat},${from.lng}` : "") +
+  `&destination=${encodeURIComponent(destination(centre))}`;
+
+const mapUrl = (centre: Centre) => `${MAPS_SEARCH}&query=${encodeURIComponent(destination(centre))}`;
 
 export default function FindYourCentre() {
   const [uniqueId, setUniqueId] = useState("");
   const [centre, setCentre] = useState<Centre | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [checking, setChecking] = useState(false);
+  const [from, setFrom] = useState<Coords | null>(null);
   const [locating, setLocating] = useState(false);
-  const [geoNote, setGeoNote] = useState<string | null>(null);
+
+  /**
+   * If the user has ALREADY granted location to this site, read their position
+   * up front -- `permissions.query` lets us check without triggering a prompt.
+   * Then the button is a plain link that opens Maps instantly in a new tab.
+   *
+   * We never prompt from here. An unrequested permission dialog appearing while
+   * the user is looking at something else is exactly the bug this replaced.
+   */
+  useEffect(() => {
+    if (typeof navigator === "undefined" || !("geolocation" in navigator)) return;
+
+    navigator.permissions
+      ?.query({ name: "geolocation" })
+      .then((status) => {
+        if (status.state !== "granted") return;
+        navigator.geolocation.getCurrentPosition(
+          ({ coords }) => setFrom({ lat: coords.latitude, lng: coords.longitude }),
+          () => {},
+          { enableHighAccuracy: true, timeout: 8000, maximumAge: 60_000 },
+        );
+      })
+      .catch(() => {});
+  }, []);
+
+  /**
+   * First-time click: ask for location, wait for the answer, THEN go to Maps.
+   *
+   * The wait happens on this page, under a spinner the user can see -- not
+   * inside a blank tab opened ahead of time, which is what used to strand people
+   * on an empty screen. Because the navigation now happens after an await, it
+   * has to be same-tab: `window.open` post-await is eaten by popup blockers.
+   * Once permission is granted, `from` is set and the anchor below takes over,
+   * opening a new tab natively with no interception at all.
+   */
+  const handleDirections = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!centre || from) return; // already located -- let the href open a new tab
+    if (typeof navigator === "undefined" || !("geolocation" in navigator)) return;
+
+    event.preventDefault();
+    setLocating(true);
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const here = { lat: coords.latitude, lng: coords.longitude };
+        setFrom(here);
+        setLocating(false);
+        window.location.href = directionsUrl(centre, here);
+      },
+      () => {
+        // Declined, or the fix timed out. Still take them there; Google will
+        // estimate the starting point rather than leaving them stuck here.
+        setLocating(false);
+        window.location.href = directionsUrl(centre, null);
+      },
+      { enableHighAccuracy: true, timeout: 10_000, maximumAge: 60_000 },
+    );
+  };
 
   const handleChange = (value: string) => {
     setUniqueId(value.replace(/\D/g, "").slice(0, 9));
     setCentre(null);
     setError(null);
-    setGeoNote(null);
   };
 
-  const handleLocate = (e: React.FormEvent) => {
+  /**
+   * Resolves against the enrolled register on the server. We deliberately do
+   * not decode the ID in the browser: digits 2-3 of any 9-digit number look
+   * like a valid centre, so a typo would send a student to the wrong school.
+   */
+  const handleLocate = async (e: React.FormEvent) => {
     e.preventDefault();
-    setGeoNote(null);
 
     if (uniqueId.length !== 9) {
       setCentre(null);
@@ -30,56 +127,32 @@ export default function FindYourCentre() {
       return;
     }
 
-    const match = centreFromUniqueId(uniqueId);
-    if (!match) {
-      setCentre(null);
-      setError(
-        `Centre code “${uniqueId.slice(1, 3)}” is not on our list. Please re-check your Unique ID, or contact the KIDS office.`,
-      );
-      return;
-    }
-
+    setChecking(true);
     setError(null);
-    setCentre(match);
-  };
+    setCentre(null);
 
-  const openDirections = () => {
-    if (!centre) return;
+    try {
+      const res = await fetch(`/api/centre?id=${uniqueId}`, { cache: "no-store" });
+      const data = await res.json();
 
-    const destination = encodeURIComponent(`${centre.name}, ${centre.address}`);
-    const withoutOrigin = `${MAPS_DIR}&destination=${destination}`;
-
-    // The tab is opened synchronously inside the click handler: browsers block
-    // window.open() once the async geolocation prompt has resolved.
-    const tab = window.open("about:blank", "_blank");
-    const go = (url: string) => {
-      if (tab) {
-        tab.opener = null;
-        tab.location.href = url;
-      } else {
-        window.location.href = url;
+      if (!res.ok || !data.ok) {
+        setError(data.message ?? "We couldn't look that ID up. Please try again.");
+        return;
       }
-    };
 
-    if (!("geolocation" in navigator)) {
-      setGeoNote("Your browser can't share a location, so Google Maps will ask for a starting point.");
-      go(withoutOrigin);
-      return;
+      // The server vouches for the ID and names the centre; we render it from
+      // the table bundled with this build, so code and data can never disagree.
+      const match = CENTRES[data.centreKey];
+      if (!match) {
+        setError("We couldn't look that ID up. Please refresh the page and try again.");
+        return;
+      }
+      setCentre(match);
+    } catch {
+      setError("We couldn't reach the register — please check your connection and try again.");
+    } finally {
+      setChecking(false);
     }
-
-    setLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        setLocating(false);
-        go(`${MAPS_DIR}&origin=${coords.latitude},${coords.longitude}&destination=${destination}`);
-      },
-      () => {
-        setLocating(false);
-        setGeoNote("We couldn't read your location, so Google Maps will ask for a starting point.");
-        go(withoutOrigin);
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 },
-    );
   };
 
   return (
@@ -94,7 +167,7 @@ export default function FindYourCentre() {
           <div className="mt-6 grid grid-cols-3 gap-3 text-center">
             {[
               { value: CENTRE_COUNT, label: "Exam Centres" },
-              { value: "5", label: "Districts" },
+              { value: DISTRICT_COUNT, label: "Districts" },
               { value: "19 July", label: "Exam Day" },
             ].map((s) => (
               <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 py-4 px-2">
@@ -130,7 +203,7 @@ export default function FindYourCentre() {
                   type="text"
                   inputMode="numeric"
                   autoComplete="off"
-                  placeholder="1 0 2 0 0 1 0 0 1"
+                  placeholder="9 digits, e.g. 4 1 5 1 0 . . . ."
                   value={uniqueId}
                   onChange={(e) => handleChange(e.target.value)}
                   aria-invalid={Boolean(error)}
@@ -141,18 +214,29 @@ export default function FindYourCentre() {
                 />
                 <button
                   type="submit"
-                  className="shrink-0 inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-7 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors"
+                  disabled={checking}
+                  className="shrink-0 inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-7 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors disabled:cursor-wait disabled:opacity-70"
                 >
-                  <Search className="w-4 h-4" aria-hidden="true" />
-                  Locate
+                  {checking ? (
+                    <>
+                      <LoaderCircle className="w-4 h-4 animate-spin" aria-hidden="true" />
+                      Checking&hellip;
+                    </>
+                  ) : (
+                    <>
+                      <Search className="w-4 h-4" aria-hidden="true" />
+                      Locate
+                    </>
+                  )}
                 </button>
               </div>
               <p id="unique-id-hint" className="mt-2.5 text-xs text-on-surface-variant">
-                The 2nd and 3rd digits of your ID identify your centre &mdash; e.g.{" "}
+                Enter the Unique ID exactly as printed on your admit card. We check it against the
+                official register &mdash; the 2nd and 3rd digits are your centre, so an ID beginning{" "}
                 <span className="font-mono text-on-surface">
-                  1<span className="text-primary font-bold">02</span>001001
+                  4<span className="text-primary font-bold">15</span>
                 </span>{" "}
-                reports to CTR-02.
+                reports to CTR-15.
               </p>
             </form>
 
@@ -182,28 +266,44 @@ export default function FindYourCentre() {
                     <address className="not-italic text-on-surface-variant leading-relaxed">{centre.address}</address>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={openDirections}
-                    disabled={locating}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary text-on-secondary px-7 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:brightness-110 transition-all disabled:cursor-wait disabled:opacity-70"
-                  >
-                    {locating ? (
-                      <>
-                        <LoaderCircle className="w-4 h-4 animate-spin" aria-hidden="true" />
-                        Finding you&hellip;
-                      </>
-                    ) : (
-                      <>
-                        <Navigation className="w-4 h-4" aria-hidden="true" />
-                        Get Google Directions
-                      </>
-                    )}
-                  </button>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <a
+                      href={directionsUrl(centre, from)}
+                      onClick={handleDirections}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-busy={locating}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary text-on-secondary px-7 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:brightness-110 transition-all aria-busy:cursor-wait aria-busy:opacity-70"
+                    >
+                      {locating ? (
+                        <>
+                          <LoaderCircle className="w-4 h-4 animate-spin" aria-hidden="true" />
+                          Getting your location&hellip;
+                        </>
+                      ) : (
+                        <>
+                          <Navigation className="w-4 h-4" aria-hidden="true" />
+                          Get Google Directions
+                        </>
+                      )}
+                    </a>
+
+                    <a
+                      href={mapUrl(centre)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-primary underline underline-offset-4 hover:text-secondary transition-colors"
+                    >
+                      <MapPin className="w-4 h-4" aria-hidden="true" />
+                      View centre on the map
+                    </a>
+                  </div>
 
                   <p className="mt-3 text-xs text-on-surface-variant leading-relaxed">
-                    {geoNote ??
-                      "We'll ask for your current location to plot the route. Reporting time is 10:00 AM — please plan to arrive early."}
+                    {from
+                      ? "Directions will start from your current location."
+                      : "We'll ask for your location so the route starts from exactly where you are. If you decline, Google Maps will estimate your starting point instead."}{" "}
+                    Reporting time is 10:00 AM &mdash; please plan to arrive early.
                   </p>
                 </div>
               )}

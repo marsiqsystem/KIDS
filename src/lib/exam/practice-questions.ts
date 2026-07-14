@@ -9,14 +9,9 @@
  * tell a student how they did the moment they submit, so neither does this one.
  * Practice is here to make the interface familiar, not to mark them.
  */
-export type PracticeQuestion = {
-  q: string;
-  /** The passage a question hangs off, when it has one. Rendered above the stem. */
-  context?: string;
-  options: string[];
-};
+import type { Question } from "./question";
 
-export const PRACTICE_QUESTIONS: PracticeQuestion[] = [
+export const PRACTICE_QUESTIONS: Question[] = [
   {
     q: "Which of these is the odd one out?",
     options: ["Rose", "Lotus", "Mango", "Jasmine"],

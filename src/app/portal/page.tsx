@@ -12,16 +12,18 @@ import {
   ListChecks,
 } from "lucide-react";
 import { openPortal, firstName } from "@/lib/exam/portal-auth";
-import { EXAM, examPhase } from "@/lib/exam/config";
+import { EXAM } from "@/lib/exam/config";
+import { windowFor, phaseOf } from "@/lib/exam/schedule";
 import { CENTRES, type Centre } from "@/app/set/centres";
 import type { Student } from "@/lib/exam/db";
 import GetDirections from "@/components/GetDirections";
 import PortalShell from "@/components/portal/PortalShell";
 import ErrorScreen from "@/components/portal/ErrorScreen";
-import Countdown, { WaitingCountdown } from "@/components/portal/Countdown";
+import Countdown from "@/components/portal/Countdown";
 import DeviceCheck from "@/components/portal/DeviceCheck";
 import Checklist from "@/components/portal/Checklist";
 import QuickActions from "@/components/portal/QuickActions";
+import LiveExam from "@/components/portal/LiveExam";
 import Faq from "@/components/portal/Faq";
 import "./portal.css";
 
@@ -43,14 +45,40 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
 
   const { student } = gate;
   const centre = CENTRES[student.centre_code.slice(-2)];
-  const phase = examPhase();
   const now = new Date().toISOString();
   const name = firstName(student.name);
   const href = `/portal?id=${student.uid}&t=${encodeURIComponent(t)}`;
 
+  // Which paper, and when — resolved per student, so a rehearsal account can sit
+  // the real machinery at a time of our choosing without touching the 19 July
+  // window that everyone else is on.
+  const examWindow = windowFor(student);
+  if (!examWindow) return <ErrorScreen reason="no_class" uid={student.uid} />;
+
+  const phase = phaseOf(examWindow);
+
   if (phase === "over") return <Closed student={student} name={name} />;
+
+  // The paper is open, or about to be. Hand over to the exam: it shows the
+  // waiting-room countdown, turns it into a Start button at the appointed second,
+  // and runs the paper from there.
   if (phase === "scanning" || phase === "live") {
-    return <WaitingRoom student={student} name={name} serverNow={now} />;
+    return (
+      <div className="portal">
+        <LiveExam
+          uid={student.uid}
+          token={t}
+          label={
+            examWindow.isRehearsal
+              ? "Rehearsal · not the real exam"
+              : `SET 2026 · Class ${student.class}`
+          }
+          startsAtIso={examWindow.startsAt.toISOString()}
+          serverNowIso={now}
+          backHref={href}
+        />
+      </div>
+    );
   }
 
   return (
@@ -80,7 +108,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
           </div>
 
           <Countdown
-            startsAtIso={EXAM.startsAt.toISOString()}
+            startsAtIso={examWindow.startsAt.toISOString()}
             reportByIso={EXAM.scanOpensAt.toISOString()}
             serverNowIso={now}
           />
@@ -387,46 +415,6 @@ function HelpCard() {
 }
 
 /* --------------------------------------------------------------- states --- */
-
-function WaitingRoom({
-  student,
-  name,
-  serverNow,
-}: {
-  student: Student;
-  name: string;
-  serverNow: string;
-}) {
-  return (
-    <div className="portal sky flex min-h-screen flex-col px-6 py-6">
-      <div className="stars" aria-hidden="true" />
-      <div className="relative flex flex-1 flex-col items-center justify-center text-center">
-        <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#9fdccb]">
-          Your test begins at 10:30
-        </div>
-
-        <WaitingCountdown startsAtIso={EXAM.startsAt.toISOString()} serverNowIso={serverNow} />
-
-        <div className="text-xs uppercase tracking-[0.24em] text-[#bcd0cc]">minutes · seconds</div>
-
-        <div className="mt-10 w-full max-w-md rounded-2xl border border-[rgb(229_190_122/25%)] bg-[rgb(12_42_46/50%)] px-5 py-4">
-          <div className="mb-3 flex items-center justify-center gap-2 text-sm font-semibold text-[#e9d9be]">
-            <span className="h-2.5 w-2.5 rounded-full bg-[var(--star-gold)] shadow-[0_0_0_3px_rgb(244_193_42/25%)]" />
-            Preparing your paper…
-          </div>
-          <p className="text-sm leading-relaxed text-[#a9c3be]">
-            Stay on this page and keep it open. Don&apos;t close or refresh — your test will open
-            here by itself.
-          </p>
-        </div>
-      </div>
-
-      <div className="relative pt-5 text-center text-xs text-[#8fb0aa]">
-        {name} · ID <span className="tnum">{student.uid}</span> · {student.centre_code}
-      </div>
-    </div>
-  );
-}
 
 function Closed({ student, name }: { student: Student; name: string }) {
   return (

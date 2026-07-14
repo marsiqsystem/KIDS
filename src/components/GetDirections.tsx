@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { LoaderCircle, MapPin, Navigation } from "lucide-react";
-import type { Centre } from "@/app/set/centres";
+import type { Centre } from "@/lib/centres";
 import { directionsUrl, mapUrl, type Coords } from "@/lib/maps";
 
 /**

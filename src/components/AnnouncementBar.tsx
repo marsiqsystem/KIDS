@@ -18,7 +18,9 @@ export default function AnnouncementBar() {
           <span className="hidden sm:inline">Students Evaluation Test (SET) 2026&ndash;27 First Phase</span>
           <span className="sm:hidden">SET 2026&ndash;27 First Phase</span>
         </span>
-        <span className="hidden md:inline text-on-primary/70">&mdash; Enrolment closes 4th July 2026</span>
+        <span className="hidden md:inline text-on-primary/70">
+          &mdash; Exam on Sunday, 19th July 2026
+        </span>
         <span className="inline-flex items-center gap-1 font-bold uppercase tracking-wider text-secondary-fixed-dim">
           Click Here
           <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>

@@ -14,7 +14,7 @@ import {
 import { openPortal, firstName } from "@/lib/exam/portal-auth";
 import { EXAM } from "@/lib/exam/config";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
-import { CENTRES, type Centre } from "@/app/set/centres";
+import { CENTRES, type Centre } from "@/lib/centres";
 import type { Student } from "@/lib/exam/db";
 import GetDirections from "@/components/GetDirections";
 import PortalShell from "@/components/portal/PortalShell";

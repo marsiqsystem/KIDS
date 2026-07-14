@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CENTRES } from "@/app/set/centres";
+import { CENTRES } from "@/lib/centres";
 import ENROLLED from "@/data/enrolled-ids.json";
 
 /**

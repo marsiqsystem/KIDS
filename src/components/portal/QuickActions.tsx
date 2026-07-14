@@ -1,7 +1,7 @@
 "use client";
 
 import { CalendarPlus, Share2, Smartphone } from "lucide-react";
-import type { Centre } from "@/app/set/centres";
+import type { Centre } from "@/lib/centres";
 
 /**
  * Add-to-calendar, share-with-a-parent, save-to-home-screen.

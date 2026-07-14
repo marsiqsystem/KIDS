@@ -1,4 +1,4 @@
-import type { Centre } from "@/app/set/centres";
+import type { Centre } from "@/lib/centres";
 
 const MAPS_DIR = "https://www.google.com/maps/dir/?api=1";
 const MAPS_SEARCH = "https://www.google.com/maps/search/?api=1";

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import PosterModal from "@/components/PosterModal";
 import "./globals.css";
+
+/**
+ * The root layout: <html>, <body>, fonts. Nothing else.
+ *
+ * The site's chrome (nav, footer, announcement bar, smooth scrolling) lives in
+ * app/(site)/layout.tsx, so that /portal and /qr can render without it. See the
+ * comment there — a fixed navbar over a running exam clock is not a cosmetic
+ * problem.
+ */
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-work-sans" });
 const playfairDisplay = Playfair_Display({ subsets: ["latin"], variable: "--font-newsreader" });
@@ -33,13 +37,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${playfairDisplay.variable} font-sans antialiased`}
       >
-        <SmoothScroll>
-          <AnnouncementBar />
-          <Navbar />
-          <PosterModal />
-          <main className="pt-10">{children}</main>
-          <Footer />
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );

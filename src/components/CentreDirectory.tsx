@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown, MapPin, School, X } from "lucide-react";
-import { CENTRE_COUNT, CENTRE_LIST, DISTRICT_COUNT, SCHOOL_COUNT } from "@/app/set/centres";
+import { CENTRE_COUNT, CENTRE_LIST, DISTRICT_COUNT, SCHOOL_COUNT } from "@/lib/centres";
 
 /** Column count per breakpoint, matched to the grid classes below. */
 const COLUMNS: { min: number; cols: number }[] = [

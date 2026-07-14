@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, Search, LoaderCircle, TriangleAlert } from "lucide-react";
-import { CENTRE_COUNT, CENTRES, DISTRICT_COUNT, type Centre } from "@/app/set/centres";
+import { CENTRE_COUNT, CENTRES, DISTRICT_COUNT, type Centre } from "@/lib/centres";
 import GetDirections from "@/components/GetDirections";
 
 export default function FindYourCentre() {

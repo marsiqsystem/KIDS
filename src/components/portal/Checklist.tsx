@@ -3,13 +3,7 @@
 import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 
-const ITEMS = [
-  "Printed admit card",
-  "Photo ID",
-  "Phone charged",
-  "Black or blue pen",
-  "I know my route",
-] as const;
+const ITEMS = ["Photo ID", "Phone charged", "Black or blue pen", "I know my route"] as const;
 
 /**
  * The exam-day checklist. Ticks live on the student's own phone.
@@ -38,6 +32,10 @@ export default function Checklist({ uid }: { uid: string }) {
     } catch {
       /* no storage: the list still works, it just won't persist */
     }
+    // Ticks are stored by item name, so a student who ticked an item we have
+    // since removed would come back to a phone holding a tick for nothing --
+    // and a counter reading "5 of 4". Only remember items that still exist.
+    saved = saved.filter((item) => (ITEMS as readonly string[]).includes(item));
     // localStorage does not exist during SSR, so the ticks can only be read
     // after mount -- reading them during render would hydrate different checkbox
     // state than the server sent. Runs exactly once per student.

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Camera, CircleAlert, ImageUp, Loader2, ScanLine, ScanSearch } from "lucide-react";
+import { Camera, CircleAlert, ImageUp, Loader2, ScanLine } from "lucide-react";
 
 /**
  * The QR scanner, for students whose phone camera cannot scan a QR code itself.
@@ -166,15 +166,11 @@ type State =
   | "photo-failed"
   | "found";
 
-/**
- * Google Lens on Android, best-effort. There is no reliable web link that opens
- * Lens' live camera on an arbitrary phone (lens.google.com is a marketing page,
- * /scan 404s), so this fires the Android intent and lets the OS fall back if
- * Lens isn't installed. It is an EXTRA escape hatch — the "Take a photo" button
- * is the guaranteed universal path, and it lives right beside this one.
- */
-const LENS_INTENT =
-  "intent://#Intent;action=android.intent.action.VIEW;package=com.google.android.googlequicksearchbox;S.browser_fallback_url=https%3A%2F%2Flens.google%2F;end";
+// A Google Lens button was tried and removed: no web link reliably opens Lens'
+// live camera (lens.google.com is a marketing page, /scan 404s, and the Android
+// intent falls through to that marketing page on Brave and other browsers). The
+// "Take a photo of the QR code" fallback does the same job on every phone and
+// stays on our own secure page, so it is the universal path instead.
 
 export default function QrScanner() {
   const router = useRouter();
@@ -183,13 +179,6 @@ export default function QrScanner() {
   const loop = useRef<number | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
   const [state, setState] = useState<State>("idle");
-  // Only offer the Google Lens button where Lens can actually exist. Not a
-  // security decision — just avoids a dead button on an iPhone. Lazy init (not
-  // an effect) so it never fights hydration: it is read only in error states,
-  // which never render on the first paint.
-  const [isAndroid] = useState(
-    () => typeof navigator !== "undefined" && /android/i.test(navigator.userAgent),
-  );
 
   const stop = useCallback(() => {
     if (loop.current !== null) {
@@ -385,11 +374,7 @@ export default function QrScanner() {
             We could not read a QR code in that photo. Take another with the code held flat and filling
             the frame, in good light.
           </Notice>
-          <Recovery
-            onRetryCamera={scan}
-            onPhoto={() => fileInput.current?.click()}
-            isAndroid={isAndroid}
-          />
+          <Recovery onRetryCamera={scan} onPhoto={() => fileInput.current?.click()} />
         </>
       )}
 
@@ -399,11 +384,7 @@ export default function QrScanner() {
             We could not use the camera. Allow camera access for this page in your browser settings and
             tap “Try the camera again” — or take a photo of the code instead.
           </Notice>
-          <Recovery
-            onRetryCamera={scan}
-            onPhoto={() => fileInput.current?.click()}
-            isAndroid={isAndroid}
-          />
+          <Recovery onRetryCamera={scan} onPhoto={() => fileInput.current?.click()} />
         </>
       )}
 
@@ -413,11 +394,7 @@ export default function QrScanner() {
             This browser could not open the camera for scanning. You can still take a photo of the QR
             code with your phone’s camera, and we’ll read it here.
           </Notice>
-          <Recovery
-            onRetryCamera={scan}
-            onPhoto={() => fileInput.current?.click()}
-            isAndroid={isAndroid}
-          />
+          <Recovery onRetryCamera={scan} onPhoto={() => fileInput.current?.click()} />
         </>
       )}
     </div>
@@ -449,27 +426,10 @@ function PhotoButton({ onClick, subtle = false }: { onClick: () => void; subtle?
 }
 
 /** The full recovery panel shown on every failure — always a next step, never a dead end. */
-function Recovery({
-  onRetryCamera,
-  onPhoto,
-  isAndroid,
-}: {
-  onRetryCamera: () => void;
-  onPhoto: () => void;
-  isAndroid: boolean;
-}) {
+function Recovery({ onRetryCamera, onPhoto }: { onRetryCamera: () => void; onPhoto: () => void }) {
   return (
     <div className="mt-4 flex flex-col gap-3">
       <PhotoButton onClick={onPhoto} />
-      {isAndroid && (
-        <a
-          href={LENS_INTENT}
-          className="flex w-full items-center justify-center gap-2.5 rounded-xl border border-[var(--maroon)] py-3.5 text-base font-semibold text-[var(--maroon)] transition hover:bg-[var(--maroon-tint)]"
-        >
-          <ScanSearch className="h-5 w-5" aria-hidden="true" />
-          Open Google Lens
-        </a>
-      )}
       <button
         onClick={onRetryCamera}
         className="flex w-full items-center justify-center gap-2 py-2 text-sm font-semibold text-[var(--ink-muted)] underline underline-offset-4"

@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { Check, Clock, CloudOff, Loader2, ClipboardList } from "lucide-react";
+import { Check, Clock, CloudOff, Loader2, ArrowRight } from "lucide-react";
 import type { Question } from "@/lib/exam/question";
 import { EXAM } from "@/lib/exam/config";
 import { useServerCountdown } from "./Countdown";
+import AnswersReceived, { formatIstClock } from "./AnswersReceived";
 import Paper, { ClockFace } from "./Paper";
 
 /**
@@ -43,16 +43,31 @@ export default function LiveExam({
   uid,
   token,
   label,
+  name,
+  classLabel,
+  centreCode,
+  questionCount,
+  durationMinutes,
+  windowClosesIso,
   startsAtIso,
   serverNowIso,
-  backHref,
 }: {
   uid: string;
   token: string;
   label: string;
+  /** First name, for the greeting and the footer. */
+  name: string;
+  /** IX | X | XI | XII, for "Class X" on the submitted screen. */
+  classLabel: string;
+  /** e.g. CTR-04, for the start-screen footer. */
+  centreCode: string;
+  /** How many questions the paper holds — shown before it loads. */
+  questionCount: number;
+  durationMinutes: number;
+  /** When the window closes, for "the window closes at 11:00". */
+  windowClosesIso: string;
   startsAtIso: string;
   serverNowIso: string;
-  backHref: string;
 }) {
   const [stage, setStage] = useState<Stage>("waiting");
   const [error, setError] = useState("");
@@ -61,6 +76,10 @@ export default function LiveExam({
   const [deadlineAt, setDeadlineAt] = useState("");
   const [save, setSave] = useState<Save>("saved");
   const [resumed, setResumed] = useState(false);
+  // When the submit landed, and whether the clock submitted for them — both only
+  // to render the "answers are in" screen truthfully.
+  const [submittedAtMs, setSubmittedAtMs] = useState<number | null>(null);
+  const [autoSubmitted, setAutoSubmitted] = useState(false);
 
   const cacheKey = `kids:exam:${uid}`;
 
@@ -119,8 +138,13 @@ export default function LiveExam({
       }
 
       if (data.state === "waiting") return setStage("waiting");
-      if (data.state === "submitted") return setStage("submitted");
-      if (data.state === "over") return setStage("over");
+      // Already submitted (or the window shut) before this phone opened the paper:
+      // reload, and the portal itself renders the right closed/submitted screen
+      // server-side, with the sheet it holds. Nothing to draw from here.
+      if (data.state === "submitted" || data.state === "over") {
+        window.location.reload();
+        return;
+      }
 
       // The phone is the source of truth for answers it has not managed to send
       // yet, so local overlays the server's copy rather than the other way round.
@@ -195,6 +219,7 @@ export default function LiveExam({
     setStage("submitting");
     try {
       await push("submit");
+      setSubmittedAtMs(Date.now());
       setStage("submitted");
       try {
         window.localStorage.removeItem(cacheKey);
@@ -235,12 +260,32 @@ export default function LiveExam({
 
   if (stage === "waiting" || stage === "starting" || stage === "error") {
     return (
-      <StartScreen stage={stage} error={error} resumable={Boolean(readCache())} onStart={start} />
+      <StartScreen
+        stage={stage}
+        error={error}
+        resumable={Boolean(readCache())}
+        onStart={start}
+        name={name}
+        uid={uid}
+        centreCode={centreCode}
+        questionCount={questionCount}
+        durationMinutes={durationMinutes}
+        windowClosesLabel={formatIstClock(windowClosesIso)}
+      />
     );
   }
 
-  if (stage === "submitted" || stage === "over") {
-    return <Submitted backHref={backHref} timedOut={stage === "over"} />;
+  if (stage === "submitted") {
+    return (
+      <AnswersReceived
+        name={name}
+        classLabel={classLabel}
+        receivedAtIso={new Date(submittedAtMs ?? Date.now()).toISOString()}
+        deadlineAtIso={deadlineAt}
+        filled={questions.map((_, i) => String(i) in answers)}
+        timedOut={autoSubmitted}
+      />
+    );
   }
 
   const list: (number | null)[] = questions.map((_, i) => answers[String(i)] ?? null);
@@ -257,7 +302,10 @@ export default function LiveExam({
           <DeadlineClock
             deadlineIso={deadlineAt}
             serverNowIso={serverNowIso}
-            onExpire={() => expire.current()}
+            onExpire={() => {
+              setAutoSubmitted(true);
+              expire.current();
+            }}
           />
         }
         banner={
@@ -344,54 +392,106 @@ function StartScreen({
   error,
   resumable,
   onStart,
+  name,
+  uid,
+  centreCode,
+  questionCount,
+  durationMinutes,
+  windowClosesLabel,
 }: {
   stage: Stage;
   error: string;
   resumable: boolean;
   onStart: () => void;
+  name: string;
+  uid: string;
+  centreCode: string;
+  questionCount: number;
+  durationMinutes: number;
+  windowClosesLabel: string;
 }) {
   const busy = stage === "starting";
+  // A student coming back to a paper they already started is resuming, not starting
+  // fresh — the copy softens accordingly. An error overrides both.
+  const resuming = resumable && stage !== "error";
 
   return (
-    <div className="sky flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <div className="portal sky flex min-h-screen flex-col px-6 text-center">
       <div className="stars" aria-hidden="true" />
-      <div className="relative w-full max-w-md">
-        <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#9fdccb]">
-          Your paper is open
-        </div>
-        <h1 className="mt-4 text-4xl font-bold leading-tight text-[var(--cream)] sm:text-5xl">
-          {resumable ? "Carry on with your test" : "Ready when you are"}
-        </h1>
-        <p className="mx-auto mt-4 max-w-sm leading-relaxed text-[#d8e6e2]">
-          {resumable
-            ? "Your answers are still here. Press the button to go back to your paper."
-            : "The clock is already running and ends for everyone at the same time — so start now."}
-        </p>
 
-        {stage === "error" && (
-          <p className="mt-6 rounded-xl border border-[rgb(244_193_42/45%)] bg-[rgb(61_10_16/55%)] px-4 py-3 text-sm leading-relaxed text-[#f6dcc4]">
-            {error}
+      {/* brand row */}
+      <div className="relative flex items-center gap-2.5 py-4 text-[var(--cream)]">
+        <span className="text-[0.62rem] font-semibold uppercase tracking-[0.1em]">SET 2026</span>
+      </div>
+
+      {/* the one action */}
+      <div className="relative flex flex-1 flex-col items-center justify-center">
+        <div className="w-full max-w-md">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[rgb(229_190_122/50%)] bg-[rgb(201_162_75/16%)] px-3.5 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-[var(--star-gold)] shadow-[0_0_0_3px_rgb(244_193_42/28%)]" />
+            <span className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#F4E3C4]">
+              Your paper is open
+            </span>
+          </div>
+
+          <h1 className="text-[2.5rem] font-extrabold leading-[1.12] text-[var(--cream)] sm:text-[3.2rem]">
+            {resuming ? <>Welcome back, {name}.</> : <>It&apos;s time, {name}.</>}
+          </h1>
+          <p className="mx-auto mt-3 max-w-[290px] leading-relaxed text-[#d8e6e2] sm:text-lg">
+            {resuming
+              ? "Your answers are still here — pick up exactly where you left off."
+              : `Take a breath. The ${durationMinutes}-minute timer starts the moment you open your paper — not before.`}
           </p>
-        )}
 
-        <button
-          onClick={onStart}
-          disabled={busy}
-          className="mt-8 flex w-full items-center justify-center gap-2.5 rounded-xl bg-[var(--gold)] py-4.5 text-lg font-bold text-[var(--maroon-deep)] shadow-[0_0_0_8px_rgb(201_162_75/18%)] transition hover:brightness-110 disabled:opacity-70"
-        >
-          {busy && <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />}
-          {busy
-            ? "Opening your paper…"
-            : stage === "error"
-              ? "Try again"
-              : resumable
-                ? "Back to my test"
-                : "Start my test"}
-        </button>
+          {stage === "error" && (
+            <p className="mt-6 rounded-xl border border-[rgb(244_193_42/45%)] bg-[rgb(61_10_16/55%)] px-4 py-3 text-sm leading-relaxed text-[#f6dcc4]">
+              {error}
+            </p>
+          )}
 
-        <p className="mt-5 text-xs leading-relaxed text-[#8fb0aa]">
-          Once you start, the paper stays open until the time is up — even if your signal drops.
-        </p>
+          <button
+            onClick={onStart}
+            disabled={busy}
+            className="mt-9 flex w-full items-center justify-center gap-3 rounded-2xl bg-[var(--gold)] px-6 py-5 font-[family-name:var(--font-display)] text-2xl font-extrabold text-[var(--maroon-deep)] shadow-[0_14px_34px_rgb(201_162_75/40%)] transition hover:brightness-105 disabled:opacity-70"
+          >
+            {busy ? (
+              <>
+                <Loader2 className="h-6 w-6 animate-spin" aria-hidden="true" />
+                Opening your paper…
+              </>
+            ) : stage === "error" ? (
+              "Try again"
+            ) : resuming ? (
+              "Back to my test"
+            ) : (
+              <>
+                Start exam
+                <ArrowRight className="h-6 w-6" strokeWidth={2.6} aria-hidden="true" />
+              </>
+            )}
+          </button>
+
+          <div className="mt-4 flex justify-center gap-2.5 text-sm text-[#bcd0cc]">
+            <span className="tnum">{questionCount} questions</span>
+            <span className="opacity-50">·</span>
+            <span className="tnum">{durationMinutes} minutes</span>
+          </div>
+
+          <div className="mt-7 flex items-start gap-3 rounded-xl border border-[rgb(229_190_122/28%)] bg-[rgb(12_42_46/50%)] px-4 py-3.5 text-left">
+            <span className="text-base leading-tight text-[var(--star-gold)]" aria-hidden="true">
+              ★
+            </span>
+            <p className="text-sm leading-relaxed text-[#e7d9c1]">
+              <strong className="font-bold text-white">The paper opens once only.</strong> You can
+              change any answer freely until you submit. The window closes at{" "}
+              <span className="tnum">{windowClosesLabel}</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative py-5 text-center text-xs text-[#8fb0aa]">
+        {name} · ID <span className="tnum">{uid}</span> · {centreCode}
       </div>
     </div>
   );
@@ -457,45 +557,3 @@ function Submitting() {
   );
 }
 
-function Submitted({ backHref, timedOut }: { backHref: string; timedOut: boolean }) {
-  return (
-    <div className="portal flex min-h-screen flex-col">
-      <div className="sky flex flex-1 flex-col items-center justify-center px-6 py-14 text-center">
-        <div className="stars" aria-hidden="true" />
-        <div className="relative w-full max-w-lg">
-          <span className="inline-flex h-[76px] w-[76px] items-center justify-center rounded-full bg-[var(--gold)] shadow-[0_0_0_10px_rgb(201_162_75/18%)]">
-            <Check className="h-10 w-10 text-[var(--maroon-deep)]" strokeWidth={2.6} aria-hidden="true" />
-          </span>
-
-          <h1 className="mt-6 text-3xl font-bold leading-tight text-[var(--cream)] sm:text-[2.7rem]">
-            Your test is submitted
-          </h1>
-          <p className="mt-3 leading-relaxed text-[#d8e6e2] sm:text-lg">
-            {timedOut
-              ? "Time is up, and your answers were submitted for you — exactly as promised. Nothing is lost."
-              : "Well done. The online part is complete and your answers are safely with us."}
-          </p>
-
-          <div className="mt-9 rounded-2xl border border-[rgb(229_190_122/25%)] bg-[rgb(12_42_46/50%)] px-5 py-5 text-left">
-            <h2 className="flex items-center gap-2.5 font-[family-name:var(--font-display)] text-lg font-bold text-[var(--cream)]">
-              <ClipboardList className="h-5 w-5 text-[var(--gold-light)]" aria-hidden="true" />
-              Now: the written test
-            </h2>
-            <p className="mt-1.5 text-sm leading-relaxed text-[#a9c3be]">
-              Hand your phone in when asked. The written test begins at{" "}
-              <strong className="tnum font-semibold text-[#e9d9be]">11:30 AM</strong> — go to your
-              room and an invigilator will guide you.
-            </p>
-          </div>
-
-          <Link
-            href={backHref}
-            className="mt-6 inline-block rounded-[10px] border-[1.5px] border-[rgb(251_247_239/40%)] px-8 py-3 font-semibold text-[var(--cream)] transition hover:bg-white/10"
-          >
-            Back to my portal
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}

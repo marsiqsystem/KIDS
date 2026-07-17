@@ -1,5 +1,4 @@
 import { EXAM, paperIdFor } from "./config";
-import { REHEARSAL_PAPER_ID } from "./papers";
 import type { Student } from "./db";
 
 /**
@@ -61,8 +60,16 @@ function rehearsalFor(student: Student): ExamWindow | null {
   const minutes = Number(process.env.KIDS_REHEARSAL_MINUTES ?? "10");
   if (!Number.isFinite(minutes) || minutes <= 0) return null;
 
+  // The rehearsal sits the student's REAL class paper, so it exercises exactly
+  // what 19 July will — the same 50-question paper, the same gate, the same
+  // marking. (Until the real questions are loaded that id resolves to the
+  // 50-question DUMMY paper, but ONLY because this is a rehearsal window: the
+  // real path can never reach dummy content — see getPaper.)
+  const paperId = paperIdFor(student.class);
+  if (!paperId) return null; // a demo account with no class has no paper to sit
+
   return {
-    paperId: REHEARSAL_PAPER_ID,
+    paperId,
     isRehearsal: true,
     opensAt: new Date(startsAt.getTime() - SCAN_LEAD_MINUTES * 60_000),
     startsAt,

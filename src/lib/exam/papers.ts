@@ -1,6 +1,7 @@
 // Explicit .ts specifier so scripts/finalise-attempts.ts can import this module
 // on bare Node, which does not do extensionless resolution. See tsconfig.
 import { PRACTICE_QUESTIONS } from "./practice-questions.ts";
+import { DUMMY_PAPERS } from "./dummy-papers.ts";
 import type { Question } from "./question";
 
 /**
@@ -43,9 +44,21 @@ const REHEARSAL: Paper = {
  * Nobody has written them. Returning null here rather than inventing questions
  * is deliberate: on 19 July a missing paper must fail loudly, in advance, and
  * not quietly hand a child fifty questions that no examiner ever approved.
+ *
+ * The one exception is a REHEARSAL: when `opts.rehearsal` is set AND the
+ * `KIDS_DUMMY_PAPERS=1` flag is present, the class IDs resolve to the
+ * 50-question DUMMY papers so the whole machinery can be exercised end to end
+ * before the real questions land. Both conditions are required, and a rehearsal
+ * window only ever attaches to an is_demo account on an explicit UID allowlist
+ * (see schedule.ts). So the real 19-July path — which passes rehearsal:false —
+ * can NEVER resolve to dummy content: it returns null and fails loud, exactly as
+ * designed, even if the flag is left on in production. See dummy-papers.ts.
  */
-export function getPaper(paperId: string): Paper | null {
+export function getPaper(paperId: string, opts?: { rehearsal?: boolean }): Paper | null {
   if (paperId === REHEARSAL_PAPER_ID) return REHEARSAL;
+  if (opts?.rehearsal && process.env.KIDS_DUMMY_PAPERS === "1") {
+    return DUMMY_PAPERS[paperId] ?? null;
+  }
   return null;
 }
 

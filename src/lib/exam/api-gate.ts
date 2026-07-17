@@ -55,7 +55,7 @@ export async function gate(id: unknown, token: unknown): Promise<GateResult> {
     return fail(409, "no_window", "No exam is scheduled for you.");
   }
 
-  const paper = getPaper(window.paperId);
+  const paper = getPaper(window.paperId, { rehearsal: window.isRehearsal });
   if (!paper) {
     // The four real papers are not written yet. Say so plainly rather than
     // handing a child an empty exam and letting them think they have sat it.

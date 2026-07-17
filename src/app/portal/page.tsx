@@ -14,6 +14,7 @@ import {
 import { openPortal, firstName } from "@/lib/exam/portal-auth";
 import { EXAM } from "@/lib/exam/config";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
+import { findAttempt } from "@/lib/exam/attempts";
 import { CENTRES, type Centre } from "@/lib/centres";
 import type { Student } from "@/lib/exam/db";
 import GetDirections from "@/components/GetDirections";
@@ -24,6 +25,7 @@ import DeviceCheck from "@/components/portal/DeviceCheck";
 import Checklist from "@/components/portal/Checklist";
 import QuickActions from "@/components/portal/QuickActions";
 import LiveExam from "@/components/portal/LiveExam";
+import AnswersReceived from "@/components/portal/AnswersReceived";
 import Faq from "@/components/portal/Faq";
 import "./portal.css";
 
@@ -55,6 +57,32 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   const examWindow = windowFor(student);
   if (!examWindow) return <ErrorScreen reason="no_class" uid={student.uid} />;
 
+  // A student who has already submitted is done, whatever the clock says. Show the
+  // "answers are in" receipt — never the countdown, never the paper again — and
+  // keep a finished student from being told their test "is on Sunday". An
+  // in_progress attempt is deliberately NOT caught here: during the live window it
+  // must still fall through to resume.
+  const attempt = await findAttempt(student.uid);
+  if (attempt?.status === "submitted") {
+    // auto-submit stamps submitted_at at the deadline; a hand-submit lands before it.
+    const timedOut =
+      !attempt.submitted_at ||
+      new Date(attempt.submitted_at) >= new Date(attempt.deadline_at);
+    return (
+      <AnswersReceived
+        name={name}
+        classLabel={student.class}
+        receivedAtIso={attempt.submitted_at ?? attempt.deadline_at}
+        deadlineAtIso={attempt.deadline_at}
+        filled={Array.from(
+          { length: EXAM.questionCount },
+          (_, i) => String(i) in (attempt.answers ?? {}),
+        )}
+        timedOut={timedOut}
+      />
+    );
+  }
+
   const phase = phaseOf(examWindow);
 
   if (phase === "over") return <Closed student={student} name={name} />;
@@ -73,9 +101,14 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
               ? "Rehearsal · not the real exam"
               : `SET 2026 · Class ${student.class}`
           }
+          name={name}
+          classLabel={student.class}
+          centreCode={student.centre_code}
+          questionCount={EXAM.questionCount}
+          durationMinutes={examWindow.durationMinutes}
+          windowClosesIso={examWindow.endsAt.toISOString()}
           startsAtIso={examWindow.startsAt.toISOString()}
           serverNowIso={now}
-          backHref={href}
         />
       </div>
     );

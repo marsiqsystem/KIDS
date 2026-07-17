@@ -6,15 +6,32 @@
  * only allowed to count down toward it.
  */
 
-/** 19 July 2026, in IST (UTC+05:30). */
+/** 19 July 2026, 10:30 IST — when the paper really unlocks. */
+const REAL_START = new Date("2026-07-19T10:30:00+05:30");
+/** Scanning opens 60 min before the paper; the paper runs for 30. */
+const SCAN_LEAD_MINUTES = 60;
+const DURATION_MINUTES = 30;
+
+/**
+ * The moment the paper unlocks — always 19 July, for everyone.
+ *
+ * There is deliberately NO environment override here. The real window must not
+ * be movable by a stray variable: the only way to drive the engine before
+ * 19 July is a per-student REHEARSAL window (see schedule.ts `rehearsalFor`),
+ * which is gated to `is_demo` accounts on an explicit UID allowlist and so can
+ * never move — or even touch — a real child's exam.
+ */
+const START = REAL_START;
+
+/** 19 July 2026, in IST (UTC+05:30) — unless overridden for a local test. */
 export const EXAM = {
   /** Scanning opens: students verify their card and the paper preloads. */
-  scanOpensAt: new Date("2026-07-19T09:30:00+05:30"),
+  scanOpensAt: new Date(START.getTime() - SCAN_LEAD_MINUTES * 60_000),
   /** The paper unlocks. Not a second earlier. */
-  startsAt: new Date("2026-07-19T10:30:00+05:30"),
+  startsAt: START,
   /** Hard stop. An attempt past this is submitted, whatever the student does. */
-  endsAt: new Date("2026-07-19T11:00:00+05:30"),
-  durationMinutes: 30,
+  endsAt: new Date(START.getTime() + DURATION_MINUTES * 60_000),
+  durationMinutes: DURATION_MINUTES,
   questionCount: 50,
   /** Full snapshot of the answer sheet, so a dead phone costs a minute, not an exam. */
   draftIntervalSeconds: 60,

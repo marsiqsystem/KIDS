@@ -51,9 +51,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   const name = firstName(student.name);
   const href = `/portal?id=${student.uid}&t=${encodeURIComponent(t)}`;
 
-  // Which paper, and when — resolved per student, so a rehearsal account can sit
-  // the real machinery at a time of our choosing without touching the 19 July
-  // window that everyone else is on.
+  // Which paper, and when — the same 19 July window for every verified student.
   const examWindow = windowFor(student);
   if (!examWindow) return <ErrorScreen reason="no_class" uid={student.uid} />;
 
@@ -96,11 +94,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
         <LiveExam
           uid={student.uid}
           token={t}
-          label={
-            examWindow.isRehearsal
-              ? "Rehearsal · not the real exam"
-              : `SET 2026 · Class ${student.class}`
-          }
+          label={`SET 2026 · Class ${student.class}`}
           name={name}
           classLabel={student.class}
           centreCode={student.centre_code}

@@ -1,7 +1,6 @@
 // Explicit .ts specifier so scripts/finalise-attempts.ts can import this module
 // on bare Node, which does not do extensionless resolution. See tsconfig.
-import { PRACTICE_QUESTIONS } from "./practice-questions.ts";
-import { DUMMY_PAPERS } from "./dummy-papers.ts";
+import { SET2026_PAPERS } from "./set2026-papers.ts";
 import type { Question } from "./question";
 
 /**
@@ -21,45 +20,16 @@ export type Paper = {
   questions: Question[];
 };
 
-export const REHEARSAL_PAPER_ID = "SET2026-REHEARSAL";
-
 /**
- * The rehearsal paper — the five practice questions, with a key bolted on.
+ * The paper for a class id: SET2026-IX, -X, -XI or -XII.
  *
- * It exists so the machinery (start, save, resume, auto-submit, score) can be
- * driven end to end by a real person on a real phone before 9,378 children do it
- * at once. It is NOT a real paper and must never be handed to a real student:
- * `windowFor()` will only schedule it against an `is_demo` record.
+ * The real questions live in set2026-papers.ts; this is the one lookup the rest
+ * of the exam goes through. An unknown id returns null so a caller can fail
+ * loudly rather than hand a child an empty paper — but for the four real ids it
+ * now returns the real, examiner-approved 50-question papers.
  */
-const REHEARSAL: Paper = {
-  id: REHEARSAL_PAPER_ID,
-  questions: PRACTICE_QUESTIONS,
-  // Mango (a fruit among flowers) · 30 · 40 km/h · 0.7 · Kolkata
-  key: [2, 1, 1, 0, 1],
-};
-
-/**
- * The four real papers — SET2026-IX, -X, -XI, -XII — DO NOT EXIST YET.
- *
- * Nobody has written them. Returning null here rather than inventing questions
- * is deliberate: on 19 July a missing paper must fail loudly, in advance, and
- * not quietly hand a child fifty questions that no examiner ever approved.
- *
- * The one exception is a REHEARSAL: when `opts.rehearsal` is set AND the
- * `KIDS_DUMMY_PAPERS=1` flag is present, the class IDs resolve to the
- * 50-question DUMMY papers so the whole machinery can be exercised end to end
- * before the real questions land. Both conditions are required, and a rehearsal
- * window only ever attaches to an is_demo account on an explicit UID allowlist
- * (see schedule.ts). So the real 19-July path — which passes rehearsal:false —
- * can NEVER resolve to dummy content: it returns null and fails loud, exactly as
- * designed, even if the flag is left on in production. See dummy-papers.ts.
- */
-export function getPaper(paperId: string, opts?: { rehearsal?: boolean }): Paper | null {
-  if (paperId === REHEARSAL_PAPER_ID) return REHEARSAL;
-  if (opts?.rehearsal && process.env.KIDS_DUMMY_PAPERS === "1") {
-    return DUMMY_PAPERS[paperId] ?? null;
-  }
-  return null;
+export function getPaper(paperId: string): Paper | null {
+  return SET2026_PAPERS[paperId] ?? null;
 }
 
 /** The paper, stripped of its key, safe to send to a phone. */

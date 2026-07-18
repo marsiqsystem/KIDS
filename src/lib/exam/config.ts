@@ -15,11 +15,9 @@ const DURATION_MINUTES = 30;
 /**
  * The moment the paper unlocks — always 19 July, for everyone.
  *
- * There is deliberately NO environment override here. The real window must not
- * be movable by a stray variable: the only way to drive the engine before
- * 19 July is a per-student REHEARSAL window (see schedule.ts `rehearsalFor`),
- * which is gated to `is_demo` accounts on an explicit UID allowlist and so can
- * never move — or even touch — a real child's exam.
+ * There is deliberately NO environment override here, and no per-student window:
+ * the real window must not be movable by a stray variable. Every student and
+ * every demo account is on this one window (see schedule.ts `windowFor`).
  */
 const START = REAL_START;
 

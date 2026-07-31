@@ -25,7 +25,16 @@ export interface Attempt {
   score: number | null;
 }
 
-type EventKind = "scan" | "start" | "sync" | "submit" | "autosubmit" | "reset" | "blur";
+/** "substitute" is written only by scripts/apply-demo-substitutions.ts, never by the app. */
+type EventKind =
+  | "scan"
+  | "start"
+  | "sync"
+  | "submit"
+  | "autosubmit"
+  | "reset"
+  | "blur"
+  | "substitute";
 
 /** Append-only. The story of what happened, for when someone disputes a result. */
 export async function logEvent(uid: string, kind: EventKind, detail?: unknown): Promise<void> {

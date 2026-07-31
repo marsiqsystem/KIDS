@@ -1,0 +1,37 @@
+{
+  "_why": [
+    "19 July 2026, CTR-12. Five students pressed Submit within the first minute,",
+    "before they had answered anything — each row shows 1-4 answers and a submit",
+    "timestamp of 10:30-10:31. The centre handed them the admit cards of KIDS Team",
+    "demo accounts and let them sit the paper properly on those IDs instead.",
+    "",
+    "So the mark that belongs to each of these students is the one recorded against",
+    "the demo ID, not the accidental submission on their own ID. This file is the",
+    "record of that, and scripts/export-marks.ts applies it.",
+    "",
+    "The accidental attempt is never deleted: it is carried through the export as",
+    "'Voided Own Marks' so the substitution can always be audited.",
+    "",
+    "paperMismatch is computed, not declared here: the demo cards were handed out by",
+    "whoever was free rather than by class, so three of these students answered a",
+    "paper written for a different class. That is flagged in the export, loudly.",
+    "",
+    "meritEligible is a DECISION, not a computation, which is why it is written out",
+    "per student rather than derived. Umar's call, 31 Jul 2026: the three who sat",
+    "another class's paper keep their marks and get their full private marksheet,",
+    "but stay off the public merit list — the mark is honestly theirs, the",
+    "comparison with their classmates is not, and a merit list has to be defensible",
+    "when a school asks how a Class X child was ranked on a Class IX paper.",
+    "",
+    "No names here, deliberately: student names are personal data and live only in",
+    "the database (see src/lib/exam/schema.sql). Unique IDs and classes are enough",
+    "to say what happened, and both scripts read the names from Neon at run time."
+  ],
+  "substitutions": [
+    { "demoUid": "104999395", "studentUid": "212022399", "meritEligible": false, "note": "Class X student sat the Class IX paper on a Class IX demo card" },
+    { "demoUid": "301999387", "studentUid": "212042553", "meritEligible": false, "note": "Class X student sat the Class IX paper on a Class IX demo card" },
+    { "demoUid": "302999389", "studentUid": "212042549", "meritEligible": false, "note": "Class X student sat the Class XI paper on a Class XI demo card" },
+    { "demoUid": "212999415", "studentUid": "212052624", "meritEligible": true, "note": "Class XI student on a Class XI demo card — correct paper" },
+    { "demoUid": "303999392", "studentUid": "212032474", "meritEligible": true, "note": "Class XII student on a Class XII demo card — correct paper" }
+  ]
+}

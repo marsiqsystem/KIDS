@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-const STORAGE_KEY = "set_result_poster_2026";
+const STORAGE_KEY = "set_result_poster_2026_v2";
 
 export default function PosterModal() {
   const [open, setOpen] = useState(false);
@@ -75,8 +75,8 @@ export default function PosterModal() {
             {/* Poster */}
             <div className="overflow-y-auto bg-surface-container-low">
               <img
-                src="/SET-2026-Result-Poster.jpg"
-                alt="Students Evaluation Test (SET) 2026-27 First Phase results — published today, 1st August 2026 at 7:00 PM on kidskolkata.org"
+                src="/SET-2026-Result-Poster.png"
+                alt="Students Evaluation Test (SET) 2026-27 First Phase results — out today, 1st August 2026 at 7:00 PM. Scan the QR code on your admit card to view your result."
                 className="w-full h-auto"
               />
             </div>

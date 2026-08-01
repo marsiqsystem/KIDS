@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import PosterModal from "@/components/PosterModal";
 
 /**
  * The public website's chrome: announcement bar, nav, footer, smooth scrolling.
@@ -27,6 +28,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Navbar />
       <main className="pt-10">{children}</main>
       <Footer />
+      <PosterModal />
     </SmoothScroll>
   );
 }

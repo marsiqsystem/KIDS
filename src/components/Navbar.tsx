@@ -79,12 +79,28 @@ export default function Navbar() {
           })}
         </nav>
 
-        <Link
-          href="/support"
-          className="hidden lg:block bg-primary text-on-primary px-6 py-2.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors"
-        >
-          Join Us
-        </Link>
+        {/* Results sits beside Join Us rather than in the text nav: for the
+            weeks after a declaration it is what most visitors arrive for, and a
+            seventh word in the link row is not something anyone finds. Gold, so
+            it reads as a second call to action without competing with Join Us. */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/results"
+            className={`px-6 py-2.5 rounded font-semibold text-sm uppercase tracking-wider border-2 border-secondary transition-colors ${
+              pathname === "/results"
+                ? "bg-secondary text-on-secondary"
+                : "text-secondary hover:bg-secondary hover:text-on-secondary"
+            }`}
+          >
+            Results
+          </Link>
+          <Link
+            href="/support"
+            className="bg-primary text-on-primary px-6 py-2.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors"
+          >
+            Join Us
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -127,9 +143,16 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
+                href="/results"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 border-2 border-secondary text-secondary text-center py-3 rounded font-semibold"
+              >
+                Results
+              </Link>
+              <Link
                 href="/support"
                 onClick={() => setMobileOpen(false)}
-                className="mt-4 bg-primary text-white text-center py-3 rounded font-semibold"
+                className="bg-primary text-white text-center py-3 rounded font-semibold"
               >
                 Join Us
               </Link>

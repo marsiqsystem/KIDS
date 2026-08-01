@@ -1,0 +1,91 @@
+/* KIDS design-system tokens, scoped to the public result report.
+ *
+ * Same arrangement as the student portal (see app/portal/portal.css, which
+ * carries the full reasoning): the live site still runs the older palette
+ * (#570000 / #7b5805), the report was designed against the KIDS design system
+ * proper, and scoping the tokens to `.report` lets this one page be the design
+ * without repainting the rest of the site. The navbar and footer above and below
+ * it stay as they are.
+ *
+ * Fonts are the site's own, deliberately. The design asks for Playfair Display
+ * and Inter; the site already loads Playfair (as --font-serif) and Montserrat,
+ * and a second body face would be another download for a parent opening this on
+ * a phone in Raniganj.
+ */
+
+.report {
+  --maroon: #7b1e2b;
+  --maroon-deep: #3d0a10;
+  --maroon-light: #9a3340;
+  --maroon-tint: #e8c9cc;
+
+  --gold: #c9a24b;
+  --gold-light: #e5be7a;
+  --star-gold: #f4c12a;
+
+  --teal: #1e9e8c;
+  --teal-dark: #0c2a2e;
+  --teal-ink: #0b5f53;
+
+  --cream: #fdfbf7;
+  --cream-surface: #fbf7ef;
+  --cream-muted: #f2e9da;
+  --ink: #2b1a1c;
+  --ink-muted: #6b5b5d;
+  /* Body copy on the maroon and teal panels: cream at full strength glares. */
+  --on-dark: #f3efe6;
+
+  --shadow-sm: 0 1px 2px rgb(43 26 28 / 6%);
+  --shadow-md: 0 4px 12px rgb(43 26 28 / 10%);
+
+  --font-display: var(--font-serif);
+
+  background: var(--cream);
+  color: var(--ink);
+  font-variant-numeric: lining-nums;
+}
+
+.report h1,
+.report h2,
+.report h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+/* Every figure that is read down a column or watched change: marks, counts,
+   percentages. Without this the digits are proportional and the columns wobble. */
+.report .tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* The night sky of the KIDS mark, behind the report's opening. */
+.report .sky {
+  background: linear-gradient(180deg, #0c2a2e 0%, #12564f 62%, #1e9e8c 100%);
+}
+
+/* The score distribution on a 412px phone.
+ *
+ * Eleven bands cannot each hold a horizontal "10–14" at that width, so the band
+ * labels turn on their side and the counts above the bars shrink. The chart is
+ * the centrepiece of the page and must not become a sideways scroll. */
+@media (max-width: 640px) {
+  .report .dist {
+    padding: 14px;
+  }
+  .report .dist-count {
+    font-size: 8px;
+  }
+  .report .dist-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    font-size: 9px;
+  }
+  /* Tables keep their own horizontal scroll; say so, once, where it happens. */
+  .report .scroll-hint {
+    display: block;
+  }
+}

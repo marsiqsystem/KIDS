@@ -6,7 +6,7 @@ export default function AnnouncementBar() {
   return (
     <Link
       href="/set"
-      aria-label="Students Evaluation Test 2026-27 — view details"
+      aria-label="Students Evaluation Test 2026-27 results — declared today at 7 PM"
       className="group fixed top-0 left-0 right-0 z-[60] h-10 flex items-center justify-center bg-primary text-on-primary overflow-hidden border-b border-secondary-container/30"
     >
       <div className="flex items-center gap-2 md:gap-3 px-3 whitespace-nowrap text-[11px] md:text-sm font-sans">
@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
           <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary-fixed-dim" />
         </span>
         <span className="font-semibold tracking-wide">
-          <span className="hidden sm:inline">Students Evaluation Test (SET) 2026&ndash;27 First Phase</span>
-          <span className="sm:hidden">SET 2026&ndash;27 First Phase</span>
+          <span className="hidden sm:inline">SET 2026&ndash;27 First Phase Results</span>
+          <span className="sm:hidden">SET 2026&ndash;27 Results</span>
         </span>
         <span className="hidden md:inline text-on-primary/70">
-          &mdash; Exam on Sunday, 19th July 2026
+          &mdash; Declared today at 7:00 PM
         </span>
         <span className="inline-flex items-center gap-1 font-bold uppercase tracking-wider text-secondary-fixed-dim">
-          Click Here
+          Check Now
           <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
         </span>
       </div>

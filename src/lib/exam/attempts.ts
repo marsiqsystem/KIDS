@@ -25,7 +25,12 @@ export interface Attempt {
   score: number | null;
 }
 
-/** "substitute" is written only by scripts/apply-demo-substitutions.ts, never by the app. */
+/**
+ * "substitute" is written only by scripts/apply-demo-substitutions.ts, never by
+ * the app. "lookup" is a result opened from the /set page by typing a Unique ID
+ * rather than by scanning the admit card — the only trace that access happened
+ * without the card in hand.
+ */
 type EventKind =
   | "scan"
   | "start"
@@ -34,7 +39,8 @@ type EventKind =
   | "autosubmit"
   | "reset"
   | "blur"
-  | "substitute";
+  | "substitute"
+  | "lookup";
 
 /** Append-only. The story of what happened, for when someone disputes a result. */
 export async function logEvent(uid: string, kind: EventKind, detail?: unknown): Promise<void> {

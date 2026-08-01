@@ -19,6 +19,7 @@ import { neon } from "@neondatabase/serverless";
 import ExcelJS from "exceljs";
 import { getPaper, scoreAnswers } from "../src/lib/exam/papers.ts";
 import { EXAM, paperIdFor } from "../src/lib/exam/config.ts";
+import { rankAll, groupBy } from "../src/lib/exam/ranking.ts";
 
 // The Next runtime loads .env.local for us; a bare node script does not.
 try {
@@ -282,52 +283,12 @@ const records: Record_[] = rows.map((r) => {
   };
 });
 
-/**
- * Competition rank (1,2,2,4) over the students who actually sat the paper.
- * A student who never started has no rank — not a last place.
- */
-function rank(group: Record_[], assign: (r: Record_, n: number) => void) {
-  const sat = group.filter((r) => r.score !== null && r.score !== undefined);
-  sat.sort((a, b) => (b.score as number) - (a.score as number));
-  let last: number | null = null;
-  let n = 0;
-  sat.forEach((r, i) => {
-    if (r.score !== last) {
-      n = i + 1;
-      last = r.score as number;
-    }
-    assign(r, n);
-  });
-}
-
-function groupBy(list: Record_[], key: (r: Record_) => string) {
-  const map = new Map<string, Record_[]>();
-  for (const r of list) {
-    const k = key(r);
-    (map.get(k) ?? map.set(k, []).get(k)!).push(r);
-  }
-  return map;
-}
-
-// Ranks are computed inside a cohort — real students only, class by class, since
-// the four papers are different papers and a mark on one is not a mark on another.
-for (const pool of [records.filter((r) => !r.is_demo), records.filter((r) => r.is_demo)]) {
-  for (const [, g] of groupBy(pool, (r) => r.class)) {
-    rank(g, (r, n) => (r.classRank = n));
-    const sat = g.filter((r) => r.score !== null).length;
-    for (const r of g) {
-      if (r.classRank !== null && sat > 1) {
-        r.percentile = Math.round(((sat - r.classRank) / (sat - 1)) * 1000) / 10;
-      }
-    }
-  }
-  for (const [, g] of groupBy(pool, (r) => `${r.centre_code}|${r.class}`)) {
-    rank(g, (r, n) => (r.centreRank = n));
-  }
-  for (const [, g] of groupBy(pool, (r) => `${r.centre_code}|${r.school_code}|${r.class}`)) {
-    rank(g, (r, n) => (r.schoolRank = n));
-  }
-}
+// Ranks are computed inside a cohort — demo accounts in their own pool, class by
+// class, since the four papers are different papers and a mark on one is not a
+// mark on another. The arithmetic lives in src/lib/exam/ranking.ts, shared with
+// scripts/publish-results.ts, so the rank a student reads on their marksheet and
+// the rank in this workbook can never quietly disagree.
+rankAll(records, (r) => r);
 
 // ------------------------------------------------------------- workbook
 

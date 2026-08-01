@@ -36,6 +36,29 @@
 
   --gradient-maroon: linear-gradient(160deg, var(--maroon) 0%, var(--maroon-deep) 100%);
 
+  /* Radius and elevation, from the design system's print-derived scale. Added
+     for the result page, which uses the full set rather than just .portal-card. */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(43 26 28 / 6%);
+  --shadow-md: 0 4px 12px rgb(43 26 28 / 10%);
+  --shadow-lg: 0 12px 32px rgb(43 26 28 / 14%);
+
+  /* The three answer states, named once. They appear on the tiles, the question
+     list, the option rows and the bottom sheet, and drifting apart across four
+     places is how a "wrong" green ends up in front of a child. */
+  --ok-bg: #d3ede8;
+  --ok-line: #57b3a4;
+  --ok-ink: #0b5f53;
+  --no-bg: #f6e2e4;
+  --no-line: #c98d95;
+  --no-ink: #7b1e2b;
+  --skip-bg: #f2e9da;
+  --skip-line: #d0bc9e;
+  --skip-ink: #5c4d4f;
+
   --font-display: var(--font-serif);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
@@ -110,5 +133,77 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------- result --- */
+
+/* The score arriving, rather than simply being there. Deliberately short: a
+   child refreshing a result page has waited twelve days already. */
+@keyframes kids-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes kids-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kids-sheet {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.rise {
+  animation: kids-rise 0.55s ease both;
+}
+.fade {
+  animation: kids-fade 0.2s ease both;
+}
+.sheet-in {
+  animation: kids-sheet 0.24s ease both;
+}
+
+/* Printing a result.
+ *
+ * A student showing this at school needs the marks, the review and their name on
+ * the page — not the header chrome, the filter pills or a bottom sheet that was
+ * open when they hit print. Backgrounds are forced on: the correct/wrong/blank
+ * colours ARE the information in the answer review, and a browser that drops
+ * them prints a grid of identical grey squares. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .portal {
+    background: #fff;
+  }
+  .portal-card,
+  .print-plain {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .print-open {
+    display: block !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @page {
+    margin: 14mm;
   }
 }

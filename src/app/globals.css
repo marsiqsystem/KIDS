@@ -4,6 +4,12 @@
   --font-sans: var(--font-work-sans), "Montserrat", sans-serif;
   --font-serif: var(--font-newsreader), "Playfair Display", serif;
 
+  /* The result page switches from one phone-width column to a two-column
+     laptop layout here. 900px is the design's own breakpoint, and it sits
+     between Tailwind's md (768) and lg (1024) — a tablet held in landscape
+     gets the laptop layout, held upright it does not. */
+  --breakpoint-lap: 900px;
+
   /* Primary - Deep Maroon */
   --color-primary: #570000;
   --color-primary-container: #800000;

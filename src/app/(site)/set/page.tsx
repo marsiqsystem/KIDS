@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import PageHeader from "@/components/PageHeader";
+import ResultLookup from "@/components/ResultLookup";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -95,7 +96,23 @@ export default function SetPage() {
               Can&apos;t Scan? Open the Scanner
             </Link>
           </div>
-          <p className="mt-5 text-sm text-on-surface-variant">
+
+          {/* ─── or type the ID ─── */}
+          <div className="mt-12 pt-10 border-t border-outline-variant">
+            <span className="text-sm font-semibold text-secondary uppercase tracking-widest block mb-2">
+              No Admit Card With You?
+            </span>
+            <h3 className="font-serif text-2xl md:text-3xl text-primary mb-3">
+              Enter Your Unique ID Instead
+            </h3>
+            <p className="text-on-surface-variant leading-relaxed mb-8 max-w-xl mx-auto">
+              If you cannot scan the QR code, type your 9-digit Unique ID below and we will open
+              your result page for you.
+            </p>
+            <ResultLookup />
+          </div>
+
+          <p className="mt-8 text-sm text-on-surface-variant">
             Keep your admit card handy. If your QR code will not open, contact your Head of School or the KIDS office.
           </p>
         </div>

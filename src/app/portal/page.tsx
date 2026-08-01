@@ -20,6 +20,8 @@ import type { Student } from "@/lib/exam/db";
 import GetDirections from "@/components/GetDirections";
 import PortalShell from "@/components/portal/PortalShell";
 import ErrorScreen from "@/components/portal/ErrorScreen";
+import ResultView from "@/components/portal/result/ResultView";
+import { publicationState, findOnlineMarksheet } from "@/lib/exam/results";
 import Countdown from "@/components/portal/Countdown";
 import DeviceCheck from "@/components/portal/DeviceCheck";
 import Checklist from "@/components/portal/Checklist";
@@ -50,6 +52,31 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   const now = new Date().toISOString();
   const name = firstName(student.name);
   const href = `/portal?id=${student.uid}&t=${encodeURIComponent(t)}`;
+
+  // Once the results are out, this page IS the result page — for everybody, and
+  // ahead of every exam-day branch below. A student who never sat, or whose
+  // class was never recorded, still has a page to land on: it tells them so in
+  // words. The one thing none of them should meet in August is a countdown to
+  // an exam that happened in July.
+  const publication = await publicationState();
+  if (publication.published) {
+    return (
+      <PortalShell verifiedAs={name}>
+        <div className="bg-[var(--cream-muted)] px-3 py-4 sm:px-5 sm:py-6">
+          <ResultView
+            name={student.name}
+            uid={student.uid}
+            classLabel={student.class}
+            stream={student.stream}
+            school={student.school_name}
+            centre={student.centre_name}
+            publishedOn={publication.publishedOn}
+            online={await findOnlineMarksheet(student)}
+          />
+        </div>
+      </PortalShell>
+    );
+  }
 
   // Which paper, and when — the same 19 July window for every verified student.
   const examWindow = windowFor(student);

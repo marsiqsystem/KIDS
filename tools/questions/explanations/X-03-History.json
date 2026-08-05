@@ -1,0 +1,142 @@
+[
+ {
+  "id": "X|All|General Paper|26",
+  "approved": false,
+  "why_correct": "Eighteen Fifty Seven was written by Surendra Nath Sen and published in 1957, the centenary year, at the request of the Government of India. It is the standard scholarly account of the revolt of 1857.",
+  "why_wrong": {
+   "0": "V. D. Savarkar wrote The Indian War of Independence 1857, which treats the revolt as a national war. The same event, a different book and a very different argument.",
+   "1": "Susobhan Sarkar was a Marxist historian of Bengal, best known for Notes on the Bengal Renaissance.",
+   "2": "R. C. Majumdar wrote The Sepoy Mutiny and the Revolt of 1857, which argues against calling it a war of independence. He and Sen are often confused because both wrote on 1857 in the centenary period."
+  }
+ },
+ {
+  "id": "X|All|General Paper|27",
+  "approved": false,
+  "why_correct": "The Indian Association was founded in 1876, with Anand Mohan Basu as its first Secretary. It was the most important political body in Bengal before the Indian National Congress.",
+  "why_wrong": {
+   "0": "Krishna Mohan Banerjee was a scholar and reformer of the earlier Young Bengal generation, not an office bearer of the Association.",
+   "2": "Surendranath Banerjee was the leading founder and the public voice of the Indian Association, which is why his name comes first to mind. Founder and first Secretary are different roles, and the Secretary was Anand Mohan Basu.",
+   "3": "Sibnath Sastry was a Brahmo reformer and the historian of the Brahmo Samaj."
+  }
+ },
+ {
+  "id": "X|All|General Paper|28",
+  "approved": false,
+  "why_correct": "The Jatiyo Mela, begun in 1867 by Nabagopal Mitra and the Tagores, was renamed the Hindu Mela in 1870. It was an early attempt to build national feeling through indigenous crafts, sport and song.",
+  "why_wrong": {
+   "0": "1867 is the year the Mela was founded, under its original name. Founding and renaming are different events, and this is the trap in the question.",
+   "1": "1868 falls between the two events and marks neither.",
+   "2": "1869 is likewise a year in which nothing decisive happened to the Mela's name."
+  }
+ },
+ {
+  "id": "X|All|General Paper|29",
+  "approved": false,
+  "why_correct": "Abanindranath Tagore painted Bharat Mata in 1905, during the Swadeshi movement against the partition of Bengal. He showed her as a calm ascetic figure with four hands, and the painting became an emblem of the nation.",
+  "why_wrong": {
+   "0": "Gaganendranath Tagore was Abanindranath's elder brother, a painter known for cubist experiments and political cartoons.",
+   "1": "Rabindranath Tagore was their uncle. He wrote and also painted in later life, but Bharat Mata is not his.",
+   "2": "Nandalal Basu was Abanindranath's pupil and later illustrated the Constitution of India. The teacher painted Bharat Mata, not the student."
+  }
+ },
+ {
+  "id": "X|All|General Paper|30",
+  "approved": false,
+  "why_correct": "Digdarshan, the first monthly periodical in Bengali, appeared from Serampore in 1818 with John Clark Marshman as its editor.",
+  "why_wrong": {
+   "0": "James Augustus Hickey brought out the Bengal Gazette in 1780, the first newspaper in India, but it was in English.",
+   "1": "William Carey was the Serampore missionary and printer, a central figure in Bengali printing, but not the editor of this journal.",
+   "3": "Joshua Marshman was John Clark Marshman's father and another of the Serampore trio. Father and son are easily confused, and the editor here was the son."
+  }
+ },
+ {
+  "id": "X|All|General Paper|32",
+  "approved": false,
+  "why_correct": "Panchanan Karmakar is called the Gutenberg of Bengal. He cut the first Bengali movable metal types at Serampore, which is what made printing in Bengali possible at all.",
+  "why_wrong": {
+   "0": "Charles Wilkins was the Englishman who supervised the first Bengali types, and Karmakar was the craftsman who cut them. Both are named in the story, and the title belongs to the man who did the cutting.",
+   "1": "James Augustus Hickey printed the first newspaper in India, in English, and had nothing to do with Bengali type.",
+   "3": "John Andrews was an associate of Hickey's press, not a typecutter."
+  }
+ },
+ {
+  "id": "X|All|General Paper|33",
+  "approved": false,
+  "why_correct": "The Indian Journal of Physics was published from 1926 by the Indian Association for the Cultivation of Science, founded by Mahendralal Sarkar in 1876. C. V. Raman announced the Raman effect in that journal.",
+  "why_wrong": {
+   "0": "The Bengal Technical Institute grew out of the national education movement and became Jadavpur University. It taught engineering rather than publishing a physics journal.",
+   "1": "Calcutta Science College, part of Calcutta University, was where Raman held his chair, so it is closely tied to the same story. The journal was the Association's.",
+   "3": "The Bose Institute was founded by Jagadish Chandra Bose in 1917 for plant and physical research, and it published its own transactions."
+  }
+ },
+ {
+  "id": "X|All|General Paper|34",
+  "approved": false,
+  "why_correct": "Prasannakumar Tagore first used the term National Education, well before the movement of 1905 gave it wide currency.",
+  "why_wrong": {
+   "1": "Sir Ashutosh Mukhopadhyay led Calcutta University and expanded Indian control of higher education, but he did not coin the phrase.",
+   "2": "Rabindranath Tagore founded Santiniketan and wrote at length on education, so he is the natural guess. Founding a school and coining a term are different things.",
+   "3": "Jagadish Chandra Bose was a scientist and the founder of the Bose Institute, not the author of this phrase."
+  }
+ },
+ {
+  "id": "X|All|General Paper|35",
+  "approved": false,
+  "why_correct": "Rathindranath Tagore, Rabindranath's son, was the first Vice-Chancellor of Visva-Bharati when it became a university.",
+  "why_wrong": {
+   "0": "Indira Gandhi studied at Santiniketan and later served as the university's Chancellor as Prime Minister, but she was never its first Vice-Chancellor.",
+   "2": "Rabindranath Tagore founded Visva-Bharati and was its Acharya, its guiding head. The obvious answer, and the reason the question is asked, but the Vice-Chancellorship went to his son.",
+   "3": "Indira Devi Chaudhurani was Rabindranath's niece, a writer and musician who preserved his songs."
+  }
+ },
+ {
+  "id": "X|All|General Paper|36",
+  "approved": false,
+  "why_correct": "Singaravelu Chettiar organised the first May Day in India, at Madras in 1923, where the red flag was used for the first time in the country. He was among the earliest Indian communists.",
+  "why_wrong": {
+   "1": "Chittaranjan Das was the Deshbandhu, a nationalist leader of Bengal and a founder of the Swaraj Party, but not the organiser of May Day.",
+   "2": "Surendranath Sen is the historian of 1857 who appears elsewhere on this paper, not a labour leader.",
+   "3": "Gandhi led the national movement and took up workers' causes at Ahmedabad, but May Day is a communist and trade union observance and was not his."
+  }
+ },
+ {
+  "id": "X|All|General Paper|37",
+  "approved": false,
+  "why_correct": "Dewan Chamanlal was the first General Secretary of the All India Trade Union Congress when it was founded in 1920.",
+  "why_wrong": {
+   "0": "Chittaranjan Das presided over the AITUC in 1923, so he held high office in it, but the first General Secretary was Chamanlal.",
+   "2": "Lala Lajpat Rai was the first President of the AITUC in 1920. President and General Secretary are different posts, and this is the pair the question is testing.",
+   "3": "Balgangadhar Tilak was a leader of the extremist wing of the Congress and died in 1920, the year the AITUC was founded."
+  }
+ },
+ {
+  "id": "X|All|General Paper|38",
+  "approved": false,
+  "why_correct": "The Madras Labour Union, founded in 1918 by B. P. Wadia, is regarded as the first proper trade union in India, because it had a formal organisation, members and funds.",
+  "why_wrong": {
+   "0": "The Workers' and Peasants' Party was a political party of the 1920s, not a trade union.",
+   "1": "The Centre of Indian Trade Unions was formed in 1970, more than fifty years later.",
+   "3": "The All India Trade Union Congress was founded in 1920 and is the oldest federation of unions. A federation is a body of unions, so the first single union came first, in 1918."
+  }
+ },
+ {
+  "id": "X|All|General Paper|39",
+  "approved": false,
+  "why_correct": "The Eka or unity movement began in 1921 in the districts of Hardoi, Bahraich and Sitapur in Uttar Pradesh, where tenants swore to pay only the recorded rent and not to give forced labour.",
+  "why_wrong": {
+   "1": "Madhya Pradesh saw tribal movements of its own but not the Eka movement.",
+   "2": "Bengal's peasant risings were the Tebhaga movement of 1946 and, earlier, the indigo revolt.",
+   "3": "Bihar's peasant movement of this period was the Champaran satyagraha of 1917, led by Gandhi against indigo planters."
+  }
+ },
+ {
+  "id": "X|All|General Paper|40",
+  "approved": false,
+  "why_correct": "Thirty-three communist and trade union leaders were arrested in the Meerut Conspiracy Case of 1929. The trial dragged on for four years and gave the accused a public platform, which won the movement wide sympathy.",
+  "why_wrong": {
+   "0": "30 is close but short. The figure of 33 is the one recorded for this case.",
+   "1": "31 is likewise a near miss.",
+   "3": "38 overstates the number. The detail worth carrying away is that the trial began in 1929 and that the government's attempt to break the movement helped publicise it instead."
+  }
+ }
+]

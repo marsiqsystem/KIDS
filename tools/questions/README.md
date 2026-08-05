@@ -8,6 +8,7 @@ python tools/questions/extract.py        # papers + key  -> questions.json
 python tools/questions/check_chapters.py # every section has a chapter list
 python tools/questions/tag.py            # tags.json     -> question-chapters.json
 python tools/questions/chapters_page.py out.html   # the reviewable chapter map
+python tools/questions/build_explanations.py --status   # Phase 2 coverage
 ```
 
 Reads from `Desktop\Offline question papers\` (PDFs stay outside the repo).
@@ -144,6 +145,50 @@ central problem and about demand. Those edits are in the git history of
 57 chapters hold a single question. That is expected on a 25-question paper
 sampling a whole year's syllabus, but they are the first place to look if the
 vocabulary ever needs tightening.
+
+## Phase 2 — per-question explanations
+
+Every question gets a short piece of teaching: why the right answer is right,
+and **why each distractor is wrong**. The distractor lines are the part that
+teaches, so each one names the thing the student was probably thinking of —
+Vande Mataram against Jana Gana Mana, national bird against national animal,
+the complement of an angle against the angle — rather than just saying no.
+
+Explanations are **authored by hand into batch files** under
+`explanations/`, one file per class and section, and merged by
+`build_explanations.py` into `src/data/questions/explanations.json`. Like
+`tag.py`, it writes nothing unless every record is sound:
+
+* every id names a real question, and no question is explained twice;
+* `why_wrong` covers **every distractor and only the distractors** — a missing
+  one is exactly the option some child chose;
+* a graced question has `why_graced` instead of `why_correct`, since no option
+  was correct;
+* nothing is written for a question carrying `needs_review`, because the
+  options on screen would not be the options the child sat;
+* `approved` is present and boolean on every record.
+
+**`approved` is false on everything until Umar reads it.** No explanation may
+render to a student while it is false. That flag is the whole safety mechanism,
+so the front end must filter on it rather than assume.
+
+```json
+{ "id": "IX|All|General Paper|24", "approved": false,
+  "why_correct": "The Godavari is called Dakshina Ganga ...",
+  "why_wrong": { "0": "The Krishna is ...", "1": "The Kaveri is ..." } }
+```
+
+Keys of `why_wrong` are option indices as strings, matching `questions.json`.
+A record may also carry `cloned_from`, which means the same question appears on
+two papers and the explanation was copied — see the IX/X Geography block.
+
+**Status: Class IX and X written, 194 of 200.** The six not written are
+defective questions, each documented with a recommendation in
+`explanations/HELD-BACK.md`. XI and XII are not started.
+
+Once the OMR scans exist, the review queue should be **ordered by how many
+students got each question wrong**, so review time goes to the questions that
+hurt most.
 
 ## Findings for Umar
 

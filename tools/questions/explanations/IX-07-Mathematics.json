@@ -1,0 +1,132 @@
+[
+ {
+  "id": "IX|All|General Paper|86",
+  "approved": false,
+  "why_correct": "Euclid's ladder runs downward: the boundaries of a solid are surfaces, the boundaries of a surface are curves or lines, and the boundaries of a line are points. Each step down loses one dimension, and a solid is three-dimensional, so its boundary is the two-dimensional surface.",
+  "why_wrong": {
+   "1": "Curves bound surfaces, not solids. They are one step further down the ladder.",
+   "2": "Lines also bound surfaces. Think of the edges of a page: they bound the flat sheet, not a block.",
+   "3": "Points bound lines, and they are at the very bottom of the ladder, two steps below what a solid needs."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|88",
+  "approved": false,
+  "why_correct": "The square root of 2 cannot be written as a fraction of two integers, so it is irrational. The other three are perfect squares, and the square root of a perfect square is always a whole number.",
+  "why_wrong": {
+   "1": "The square root of 4 is 2, a whole number, and every whole number is rational because it can be written as 2 over 1.",
+   "2": "The square root of 9 is 3, again a whole number and therefore rational.",
+   "3": "The square root of 16 is 4, rational for the same reason. The test is not whether there is a root sign but whether the number under it is a perfect square."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|90",
+  "approved": false,
+  "why_correct": "Use the identity a cubed minus b cubed equals the cube of the difference plus three times the difference, when ab is 1. So x cubed minus 1 over x cubed equals the cube of root 3 plus 3 times root 3, which is 3 root 3 plus 3 root 3, giving 6 root 3.",
+  "why_wrong": {
+   "1": "3 root 3 is the cube of root 3 on its own. It is the first half of the identity, and it forgets the 3 times the difference term that must be added.",
+   "2": "3 comes from squaring root 3. That would be the answer to a question about x squared, not x cubed, and this identity has a plus 2 or minus 2 in it rather than a cube.",
+   "3": "Root 3 is simply the value given in the question. The cube must be worked out, not copied across."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|91",
+  "approved": false,
+  "why_correct": "The distance of a point from the x axis is the size of its y coordinate, because you measure straight up or down to reach the axis. For the point 2 comma 3 that distance is 3 units.",
+  "why_wrong": {
+   "0": "2 is the x coordinate, which gives the distance from the y axis, not the x axis. This is the single most common slip in the topic: distance from the x axis uses y, and distance from the y axis uses x.",
+   "1": "5 units is the sum of the two coordinates, and it has no geometric meaning here. The distance from the origin would be the square root of 13.",
+   "3": "There is a definite answer, so none of these cannot be right."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|92",
+  "approved": false,
+  "why_correct": "Complementary angles add to 90 degrees. If the angle is x, its complement is 90 minus x, and the angle is 14 more, so x equals 90 minus x plus 14. That gives 2x equals 104 and x equals 52 degrees, whose complement is 38.",
+  "why_wrong": {
+   "0": "38 degrees is the complement, the smaller of the pair. The two are right, but the question asks for the angle that is larger by 14, which is 52.",
+   "2": "50 degrees is close, but its complement is 40 and the difference is 10, not 14. Always check the pair adds to 90 and differs by the amount given.",
+   "3": "There is a definite answer, so none of these is wrong here."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|93",
+  "approved": false,
+  "why_correct": "Only statement two is true. All three angles equal to 60 gives a sum of 180, which is exactly what a triangle's angles must add to, and that is the equilateral triangle.",
+  "why_wrong": {
+   "1": "Two obtuse angles would each be more than 90, so the two alone would exceed 180 before the third angle is counted. A triangle can have at most one obtuse angle.",
+   "2": "If all three angles were more than 60, the sum would be more than 180, which is impossible. This is the same reasoning as statement two, only with the inequality made strict.",
+   "3": "Statements one and three are both impossible, so all three cannot be true. Test each against the angle sum of 180 rather than judging them by feel."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|94",
+  "approved": false,
+  "why_correct": "The longest straight object that fits in a box lies along its space diagonal, which is the square root of the sum of the squares of the three edges. That is the square root of 64 plus 36 plus 4, or the square root of 104, which simplifies to 2 root 26.",
+  "why_wrong": {
+   "0": "2 root 13 is the square root of 52, which is half of 104. This comes from dividing somewhere it should not be divided.",
+   "1": "2 root 14 is the square root of 56, which uses only two of the three edges: 64 minus 8 or a similar slip. All three dimensions must be squared and added.",
+   "3": "10 root 2 is the square root of 200, which is what you get by adding the edges first and then squaring. Squaring must come before adding."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|95",
+  "approved": false,
+  "why_correct": "A face of a cube is a square, so a perimeter of 40 means each side is 40 divided by 4, that is 10 cm. The volume is the side cubed, 10 times 10 times 10, which is 1000 cubic centimetres.",
+  "why_wrong": {
+   "0": "1600 is the square of 40, which treats the perimeter as though it were the side. Divide by 4 first.",
+   "2": "800 is the total surface area, 6 times 10 squared minus something, or another area-shaped slip. Volume needs the side cubed.",
+   "3": "160 is 40 times 4, which multiplies where the perimeter should have been divided."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|96",
+  "approved": false,
+  "why_correct": "For a sphere of radius 1 the volume is four thirds pi and the surface area is 4 pi. Dividing gives one third, so the ratio is 1 to 3. In general the ratio is r to 3, which is worth remembering.",
+  "why_wrong": {
+   "0": "4 to 3 is the fraction in the volume formula on its own, with the surface area not divided in at all.",
+   "1": "3 to 4 is that same fraction turned upside down, and it still ignores the surface area.",
+   "3": "3 to 1 is the correct ratio the wrong way round, that is surface area to volume. Keep the order the question asks for: volume first, then surface area."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|97",
+  "approved": false,
+  "why_correct": "Same height means the sphere's diameter equals the cube's edge, so if the edge is a the radius is a over 2. The sphere's volume is pi a cubed over 6 and the cube's is a cubed, so the ratio is pi to 6. Taking pi as 22 over 7 gives 22 to 42, which is 11 to 21.",
+  "why_wrong": {
+   "0": "3 to 4 comes from the four thirds in the volume formula and leaves out both the radius being half the edge and the value of pi.",
+   "1": "21 to 11 is the correct ratio reversed, which is the cube to the sphere. The sphere sits inside the cube, so its share must be the smaller one.",
+   "2": "4 to 3 is again just the fraction from the formula, and it wrongly makes the sphere larger than the cube that contains it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|98",
+  "approved": false,
+  "why_correct": "Euclid's second axiom says that if equals are added to equals, the wholes are equal. Here z is added to both sides of x plus y equals 10, so the two sides stay equal.",
+  "why_wrong": {
+   "0": "The first axiom says things which are equal to the same thing are equal to one another. That compares three quantities; it does not add anything.",
+   "2": "The third axiom is about subtraction: if equals are subtracted from equals, the remainders are equal. Here z is added, not taken away.",
+   "3": "The fourth axiom says things which coincide with one another are equal. That is a geometric statement about figures lying on each other, not an arithmetic one."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|99",
+  "approved": false,
+  "why_correct": "In a triangle, sides opposite equal angles are equal. Angle R equals angle P, and the side opposite angle R is PQ while the side opposite angle P is QR. So PQ equals QR, which is 4 cm.",
+  "why_wrong": {
+   "0": "2 cm matches neither given side. Nothing in the question halves a length.",
+   "1": "2.5 cm is half of PR. Halving belongs to medians and midpoints, and the question is about equal angles, not midpoints.",
+   "3": "5 cm is PR, the side opposite angle Q, and angle Q is the one not mentioned. The trick is to find the side opposite each equal angle rather than reaching for the length that is written down."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|100",
+  "approved": false,
+  "why_correct": "The third side is 42 minus 18 minus 10, that is 14 cm, and the semi-perimeter s is 21. Heron's formula gives the area as the square root of 21 times 3 times 11 times 7, which is the square root of 4851, and since 4851 is 441 times 11, the area is 21 root 11 square centimetres.",
+  "why_wrong": {
+   "0": "20 root 11 would need 4400 under the root. The number outside comes out of 441, which is 21 squared, so it must be 21.",
+   "1": "19 root 11 has the right surd but the wrong coefficient. Check by squaring: 4851 divided by 11 is 441, and the square root of 441 is 21.",
+   "2": "22 root 11 is the near miss you get by using 22 rather than 21 somewhere, most often by taking the perimeter's half wrongly. The semi-perimeter here is exactly 21."
+  }
+ }
+]

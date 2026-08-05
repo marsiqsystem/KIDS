@@ -1,0 +1,142 @@
+[
+ {
+  "id": "IX|All|General Paper|56",
+  "approved": false,
+  "why_correct": "Metabolism, the sum of all the chemical reactions inside a body, is the one thing every living organism does without exception. Nothing alive can stop metabolising and remain alive.",
+  "why_wrong": {
+   "0": "Locomotion is movement from place to place, and plants and fixed animals such as corals and sponges do not do it. Living things all show movement of some kind, but not locomotion.",
+   "2": "Reproduction is universal for species but not for individuals. A mule or a worker bee never reproduces, and it is unquestionably alive.",
+   "3": "Photosynthesis belongs only to green plants, algae and some bacteria. Every animal is alive without it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|57",
+  "approved": false,
+  "why_correct": "The kidneys are the main excretory organs. They filter the blood and remove urea, excess salts and water as urine, and they also regulate the body's water and salt balance.",
+  "why_wrong": {
+   "0": "The heart pumps blood. It is central to circulation but removes no waste itself.",
+   "1": "The lungs do excrete, giving out carbon dioxide and some water vapour, so this is a reasonable answer. But the main excretory organ, handling nitrogenous waste, is the kidney.",
+   "3": "The liver converts toxic ammonia into urea, so it prepares the waste. The kidney is what actually removes it from the body."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|58",
+  "approved": false,
+  "why_correct": "A tissue is a group of similar cells doing one particular job together, such as muscle tissue or nerve tissue. The order of organisation runs cell, tissue, organ, organ system, organism.",
+  "why_wrong": {
+   "0": "An organ is made of several different tissues working together, like the heart with muscle, nerve and connective tissue. The question specifies similar cells, which is one step lower.",
+   "1": "An organ system is a group of organs, such as the digestive system, so it is two levels above tissue.",
+   "3": "An organism is the whole living individual, the top of the ladder."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|59",
+  "approved": false,
+  "why_correct": "Photosynthesis is the process by which green plants use chlorophyll to trap sunlight and convert carbon dioxide and water into glucose, storing solar energy as chemical energy in that glucose.",
+  "why_wrong": {
+   "0": "Respiration does the reverse: it releases the energy stored in glucose rather than capturing it. The two processes are opposites and are the pair most often swapped.",
+   "2": "Transpiration is the loss of water vapour from leaves. It moves water, not energy.",
+   "3": "Digestion breaks large food molecules into smaller ones. Plants make their own food, so they do not need it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|60",
+  "approved": false,
+  "why_correct": "Transpiration is the loss of water as vapour from the aerial parts of a plant, mainly through the stomata of the leaves. The pull it creates is what draws water up from the roots.",
+  "why_wrong": {
+   "0": "Osmosis is the movement of water across a semi-permeable membrane, which is how roots take water in. Liquid water moving in, not vapour moving out.",
+   "2": "Guttation is the loss of liquid water droplets from the leaf margins through hydathodes, usually at night. Water is lost, but as liquid, not vapour.",
+   "3": "Imbibition is the absorption of water by solids such as dry seeds, which makes them swell."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|61",
+  "approved": false,
+  "why_correct": "The energy released when glucose is broken down is stored in ATP, adenosine triphosphate, which is called the energy currency of the cell because every energy-requiring process spends it.",
+  "why_wrong": {
+   "0": "DNA carries genetic information. It is a store of instructions, not of usable energy.",
+   "1": "NADP is a carrier of hydrogen and electrons, and it is important in photosynthesis. It shuttles reducing power rather than being the cell's energy currency.",
+   "3": "RNA carries genetic messages from DNA to the ribosome and helps build proteins."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|63",
+  "approved": false,
+  "why_correct": "Decomposers, mainly bacteria and fungi, break dead plants and animals down into simple nutrients that return to the soil for producers to use again. They are what closes the nutrient cycle.",
+  "why_wrong": {
+   "0": "Producers are green plants, which make food from sunlight. They take up the nutrients decomposers release rather than releasing them.",
+   "2": "Primary consumers are herbivores. They eat living plants, not dead matter.",
+   "3": "Apex predators sit at the top of the food chain and hunt live prey. When they die they too become food for the decomposers."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|64",
+  "approved": false,
+  "why_correct": "Stomata are the tiny pores on the leaf surface, each bounded by two guard cells that open and close it. They allow gas exchange for photosynthesis and are the main route for transpiration.",
+  "why_wrong": {
+   "0": "Lenticels are pores too, but they are found in the bark of woody stems, not on leaves.",
+   "2": "Pits are thin areas in the wall between two plant cells, inside the plant rather than on its surface.",
+   "3": "Hydathodes are openings at the leaf margin that release liquid water in guttation. Real leaf openings, but not the ones meant here, and they release water rather than exchanging gas."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|65",
+  "approved": false,
+  "why_correct": "Anaerobic respiration takes place without oxygen. It yields far less energy than the aerobic kind and produces alcohol and carbon dioxide in yeast, or lactic acid in our muscles when they are short of oxygen.",
+  "why_wrong": {
+   "0": "Aerobic respiration is exactly the opposite: it requires oxygen and releases much more energy per glucose molecule.",
+   "2": "External respiration is the exchange of gases between the lungs and the blood, which is breathing rather than cellular respiration.",
+   "3": "Photorespiration is a wasteful process in plants in which oxygen is taken up instead of carbon dioxide. It needs oxygen, so it cannot be the answer."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|66",
+  "approved": false,
+  "why_correct": "Quinine is an alkaloid, and alkaloids contain nitrogen, so it counts as a nitrogenous waste product of plants. It is obtained from cinchona bark and is used against malaria.",
+  "why_wrong": {
+   "1": "Resins are plant waste, but they are made of carbon, hydrogen and oxygen with no nitrogen in them.",
+   "2": "Gums are carbohydrate in nature and again contain no nitrogen. The test in this question is not whether it is waste but whether it holds nitrogen.",
+   "3": "Latex is the milky fluid of plants such as rubber and papaya. It is a waste product, but not a nitrogenous one."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|67",
+  "approved": false,
+  "why_correct": "Polio is caused by the poliovirus and is prevented by vaccination, both the oral drops and the injected vaccine. India's pulse polio campaign made the country polio-free in 2014.",
+  "why_wrong": {
+   "0": "Malaria is caused by Plasmodium, a protozoan carried by the Anopheles mosquito. Not a virus, and there is no routine vaccine for it in India.",
+   "1": "Tuberculosis is preventable by the BCG vaccine, so it meets half the question. But it is caused by a bacterium, not a virus, and the question asks for both.",
+   "3": "Cholera is caused by the bacterium Vibrio cholerae, spread through contaminated water. Again bacterial, not viral."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|68",
+  "approved": false,
+  "why_correct": "Haemoglobin is the red pigment in our red blood cells. It contains iron, which gives it the colour, and it carries oxygen from the lungs to the tissues.",
+  "why_wrong": {
+   "0": "Haemocyanin is a respiratory pigment too, but it contains copper and is blue. It is found in molluscs and arthropods, not in humans.",
+   "2": "Chlorophyll is the green pigment of plants that traps sunlight.",
+   "3": "Leucoplasts are colourless plastids in plant cells that store starch, oil or protein. Plant structures, and colourless at that."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|69",
+  "approved": false,
+  "why_correct": "BCG protects against tuberculosis, caused by Mycobacterium tuberculosis. In India it is given at birth and is part of the universal immunisation programme.",
+  "why_wrong": {
+   "0": "Cholera has its own oral vaccine and is caused by a different bacterium altogether.",
+   "1": "Typhoid is prevented by the typhoid vaccine, against Salmonella typhi. A different bacterium and a different vaccine.",
+   "3": "Tetanus is prevented by the tetanus toxoid, usually given in the DPT combination. The clue is in the name: Bacillus Calmette-Guerin is the strain used against TB."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|70",
+  "approved": false,
+  "why_correct": "Water is abiotic, meaning non-living. The abiotic components of an ecosystem are its physical and chemical surroundings: water, air, soil, light and temperature.",
+  "why_wrong": {
+   "0": "Plants are living, and as producers they are a biotic component.",
+   "1": "Microbes are living organisms and act as decomposers, so they are biotic. Being invisible does not make something non-living.",
+   "3": "Humans are living organisms and are biotic consumers within the ecosystem."
+  }
+ }
+]

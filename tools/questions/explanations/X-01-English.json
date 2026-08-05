@@ -1,0 +1,152 @@
+[
+ {
+  "id": "X|All|General Paper|1",
+  "approved": false,
+  "why_correct": "In Ted Hughes's poem the oak trees are alive and speaking. They hold a trial, they grieve for their felled kin, and they demand a promise from the boy, so they stand for nature itself and its living spirit.",
+  "why_wrong": {
+   "0": "Human greed is what threatens the trees, not what the trees are. The greed belongs to the people who cut them down.",
+   "2": "The poem sets itself against industrial growth rather than symbolising it. Growth here is the slow growth of a wood.",
+   "3": "The oaks do behave strangely, holding a court in the boy's dream, but Hughes means them as real trees given voice, not as creatures out of myth."
+  }
+ },
+ {
+  "id": "X|All|General Paper|2",
+  "approved": false,
+  "why_correct": "The oaks make the boy swear that for every tree felled he will plant two. So the promise is active: protect the trees that stand and plant new ones.",
+  "why_wrong": {
+   "0": "There is no journey in the poem. The boy walks into a wood and comes out changed, and nothing is said of travelling further.",
+   "1": "Stopping the cutting is only half of it, and it is the passive half. The oaks ask for two trees planted for every one lost, so mere abstention would not satisfy them.",
+   "3": "Farming is never mentioned. The promise concerns forest trees, not crops."
+  }
+ },
+ {
+  "id": "X|All|General Paper|3",
+  "approved": false,
+  "why_correct": "The poem's argument is that human beings belong to the natural world and owe it a duty, which is why the boy walks out of the wood with a tree's heart in his chest. That is environmental responsibility.",
+  "why_wrong": {
+   "0": "There is no war in the poem. The trial the oaks hold is a moral reckoning, not a battle.",
+   "2": "Nothing in the poem happens at sea. The whole of it takes place in a wood.",
+   "3": "Family is in the title, My Own True Family, but Hughes uses the word to mean the trees. He widens family to include the natural world, which is the point rather than the subject."
+  }
+ },
+ {
+  "id": "X|All|General Paper|4",
+  "approved": false,
+  "why_correct": "The kite carries a message that reaches long-lost relatives, and the letter that comes back reunites the family. The runaway kite of the title is what restores people to one another.",
+  "why_wrong": {
+   "0": "There is no competition in the story and no prize. The kite is flown for pleasure, and its importance is accidental.",
+   "2": "No school event is involved. The story is a family one throughout.",
+   "3": "Nothing is dug up or searched for. What is found is a person, not treasure."
+  }
+ },
+ {
+  "id": "X|All|General Paper|5",
+  "approved": false,
+  "why_correct": "Claude and Philippa live on an island, and their isolation is what makes the story work. It is because they are cut off that a kite carried away on the wind can reach someone they could not otherwise have found.",
+  "why_wrong": {
+   "0": "There is a sea in the story and boats in it, but the children live on land.",
+   "2": "No mountain appears. The setting is coastal, with the wind off the water that carries the kite.",
+   "3": "A farm would be inland and ordinary. The island setting is what makes the kite's journey remarkable."
+  }
+ },
+ {
+  "id": "X|All|General Paper|6",
+  "approved": false,
+  "why_correct": "The story is about a family separated and then joined again by chance. Every turn of it, the kite, the message and the letter, works towards bringing relatives together, so family bonding is its subject.",
+  "why_wrong": {
+   "0": "Nobody competes with anybody. There is no contest in the story at all.",
+   "2": "Kite flying here is a children's pastime, not a sport, and the story stops caring about the kite the moment the message is found.",
+   "3": "No one grows rich or successful. The reward at the end is a relative, not a fortune."
+  }
+ },
+ {
+  "id": "X|All|General Paper|7",
+  "approved": false,
+  "why_correct": "Masefield's poem opens with I must go down to the seas again, and the whole poem is that longing repeated. The poet feels an irresistible pull towards a voyage.",
+  "why_wrong": {
+   "0": "The city is what the poet wants to leave. It is never named, but everything he asks for is the opposite of it.",
+   "2": "No mountains appear. His images are all of ship, sail, wind and wave.",
+   "3": "Careful here. The desire is for the voyage itself and for the freedom of it. The poem ends with a quiet sleep and a long trick over, which is a rest at the end of the journey rather than a wish to sail for ever."
+  }
+ },
+ {
+  "id": "X|All|General Paper|8",
+  "approved": false,
+  "why_correct": "Before instruments, sailors navigated by the stars. A star to steer her by is therefore an image of guidance and sure direction, one of the plain necessities the poet lists alongside a tall ship and a wheel.",
+  "why_wrong": {
+   "0": "Confusion is the opposite of what a guiding star means. It is the thing that removes confusion.",
+   "2": "Danger is present in the sea itself, but a star is a comfort against it, not a threat.",
+   "3": "The star shines in the darkness rather than standing for it. It is precisely what makes the dark navigable."
+  }
+ },
+ {
+  "id": "X|All|General Paper|9",
+  "approved": false,
+  "why_correct": "The poem's rhythm rolls like the sea, and its images are of wind, spray, flung spume and the vagrant gypsy life. Together they make a mood that is excited and adventurous, a call to go rather than a lament.",
+  "why_wrong": {
+   "1": "The poem is anything but dull. Its energy is in the beat of the lines, which is one good way to judge a poem's mood.",
+   "2": "There is no fear in it. The poet knows the sea is wild and wants it anyway.",
+   "3": "There is no anger and nothing to be angry at. The only tension is the pull between the poet and the shore."
+  }
+ },
+ {
+  "id": "X|All|General Paper|10",
+  "approved": false,
+  "why_correct": "Built is simple past, so the passive must be was plus the past participle: The house was built by them. The object becomes the subject and the doer follows by.",
+  "why_wrong": {
+   "1": "Is built is the present passive, but the active sentence is in the past. Changing the voice must never change the tense.",
+   "2": "Has built is active, not passive. The passive perfect would be has been built, and the original is simple past in any case.",
+   "3": "There is no auxiliary verb at all here, so this is a phrase rather than a sentence. Every passive needs a form of be."
+  }
+ },
+ {
+  "id": "X|All|General Paper|11",
+  "approved": false,
+  "why_correct": "In indirect speech after a past reporting verb, will becomes would and tomorrow becomes the next day. Both the tense and the time word shift back, giving He said that he would go the next day.",
+  "why_wrong": {
+   "0": "The tense has not shifted. After he said, will must become would.",
+   "2": "Goes is the simple present, which is the wrong tense twice over. The original is future, so the reported form must be would go.",
+   "3": "Went is simple past, but the original speaks of the future. And tomorrow still needs to become the next day."
+  }
+ },
+ {
+  "id": "X|All|General Paper|12",
+  "approved": false,
+  "why_correct": "Since is used with a point in time, the moment something began. Monday is a point, so she has been ill since Monday.",
+  "why_wrong": {
+   "1": "For is used with a length of time, as in for three days. Monday names a moment, not a stretch, and this is the pair to keep straight: since for a point, for for a period.",
+   "2": "From also marks a starting point, but it needs a matching to or till, and it does not sit with the present perfect the way since does.",
+   "3": "By means not later than a deadline, which is a different idea altogether and does not fit an illness that is still going on."
+  }
+ },
+ {
+  "id": "X|All|General Paper|13",
+  "approved": false,
+  "why_correct": "The definite article the is used before something unique, and there is only one Earth. The same rule covers the Sun, the Moon and the sky.",
+  "why_wrong": {
+   "0": "A is indefinite and means any one of many. It cannot go before something there is only one of.",
+   "1": "An is the same indefinite article, used before a vowel sound, and it fails for the same reason.",
+   "3": "Leaving out the article is right for some proper nouns, such as India, but Earth in this sense takes the."
+  }
+ },
+ {
+  "id": "X|All|General Paper|14",
+  "approved": false,
+  "why_correct": "An adjective describes a noun. Beautiful tells us what the garden is like, so it is the adjective in the sentence.",
+  "why_wrong": {
+   "0": "Garden is a noun, and it is the thing being described rather than the describing word.",
+   "1": "Attracted is the verb, the action of the sentence.",
+   "3": "Visitors is a noun too, the object of the verb. A quick test: an adjective can usually take very in front of it, and only beautiful passes."
+  }
+ },
+ {
+  "id": "X|All|General Paper|15",
+  "approved": false,
+  "why_correct": "This is the second conditional, used for something imagined or contrary to fact, and it takes were for every subject. If I were you is the fixed form, and the main clause would accept confirms it.",
+  "why_wrong": {
+   "0": "Am is the ordinary present, which belongs to a real condition such as If I am late, I will call. Here the main clause has would, so the condition is imaginary.",
+   "1": "Was is the everyday past of I, and it is heard in speech, but the unreal conditional takes the subjunctive were.",
+   "3": "Be on its own has no tense and cannot follow I in a conditional clause."
+  }
+ }
+]

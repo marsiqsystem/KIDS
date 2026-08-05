@@ -1,0 +1,152 @@
+[
+ {
+  "id": "X|All|General Paper|56",
+  "approved": false,
+  "why_correct": "After fertilisation the ovary ripens into the fruit, which encloses and protects the seeds. The rule to hold on to is that the ovary becomes the fruit and the ovule becomes the seed.",
+  "why_wrong": {
+   "0": "The seed develops from the ovule, not the ovary. The two changes happen together, which is why they are so easily swapped.",
+   "2": "The ovule is what was there before fertilisation. It is the starting point, not the product.",
+   "3": "The embryo forms from the fertilised egg inside the ovule, and it sits within the seed. It is one level smaller than what the question asks for."
+  }
+ },
+ {
+  "id": "X|All|General Paper|57",
+  "approved": false,
+  "why_correct": "The stamen is the male reproductive part of a flower. It has two parts, the anther, which makes pollen, and the filament that holds it up.",
+  "why_wrong": {
+   "0": "The pistil, also called the carpel, is the female part, made of stigma, style and ovary. This is the pair the question is really testing.",
+   "2": "Sepals are the small green leaf-like parts that protect the bud before it opens. They are not reproductive at all.",
+   "3": "Petals are the coloured parts that attract insects for pollination. They help reproduction happen but take no part in it themselves."
+  }
+ },
+ {
+  "id": "X|All|General Paper|58",
+  "approved": false,
+  "why_correct": "The neuron is the structural and functional unit of the nervous system. Each one has a cell body, dendrites that receive signals and an axon that carries them away.",
+  "why_wrong": {
+   "0": "The nephron is the unit of the kidney, not the nervous system. The two names sound alike, which is exactly why they are offered together.",
+   "2": "Alveoli are the tiny air sacs of the lungs where gases are exchanged.",
+   "3": "The axon is a part of a neuron, the fibre that carries the impulse away from the cell body. A part of the unit is not the unit itself."
+  }
+ },
+ {
+  "id": "X|All|General Paper|59",
+  "approved": false,
+  "why_correct": "Forests and oceans are the main natural carbon sinks. Trees absorb carbon dioxide in photosynthesis and lock it into wood, while the oceans dissolve it and their plankton take it up.",
+  "why_wrong": {
+   "0": "Factories are a source of carbon dioxide, releasing it into the air. A sink absorbs; a source emits.",
+   "1": "Deserts have very little plant life and so absorb very little carbon dioxide.",
+   "3": "The atmosphere is where the carbon dioxide collects, so it is the reservoir being filled rather than the sink drawing it down."
+  }
+ },
+ {
+  "id": "X|All|General Paper|60",
+  "approved": false,
+  "why_correct": "Asthma is a disease of the lungs, in which the airways narrow and become inflamed, making breathing difficult. It is often triggered by dust, pollen or pollution.",
+  "why_wrong": {
+   "0": "Heart disease can also cause breathlessness, which is why this seems plausible, but asthma is a disorder of the airways themselves.",
+   "1": "The liver has no part in breathing. Its diseases include hepatitis and cirrhosis.",
+   "3": "The kidney is the excretory organ. Its failure affects the filtering of blood, not the passage of air."
+  }
+ },
+ {
+  "id": "X|All|General Paper|61",
+  "approved": false,
+  "why_correct": "Ex-situ means off site, conserving a species away from its natural home. A botanical garden does exactly that, as do zoos, seed banks and gene banks.",
+  "why_wrong": {
+   "0": "A biosphere reserve protects a whole living landscape where the species already are, so it is in-situ.",
+   "2": "A national park is also in-situ conservation, protecting habitat in place.",
+   "3": "A sanctuary likewise protects animals within their own habitat. Three of the four options are in-situ, so the odd one out is the answer."
+  }
+ },
+ {
+  "id": "X|All|General Paper|62",
+  "approved": false,
+  "why_correct": "Carbon dioxide is the main greenhouse gas driving global warming. Others such as methane trap more heat per molecule, but carbon dioxide is released in such quantity by burning fuels that its total effect is the largest.",
+  "why_wrong": {
+   "0": "Nitrogen makes up most of the atmosphere but is not a greenhouse gas. Being abundant and being warming are quite separate things.",
+   "1": "Oxygen is essential for life and for burning, but it does not trap heat.",
+   "3": "Argon is an inert gas making up about one per cent of the air and plays no part in the greenhouse effect."
+  }
+ },
+ {
+  "id": "X|All|General Paper|63",
+  "approved": false,
+  "why_correct": "Thalassemia is an inherited disorder in which the globin chains of haemoglobin are not made properly, so the red cells cannot carry oxygen well and the patient becomes anaemic.",
+  "why_wrong": {
+   "0": "Insulin is the hormone whose lack causes diabetes. A protein, but the wrong disease.",
+   "2": "Melanin is the pigment of skin and hair. Its absence causes albinism, another genetic condition, which makes it a tempting distractor.",
+   "3": "Keratin is the protein of hair, nails and the outer skin."
+  }
+ },
+ {
+  "id": "X|All|General Paper|64",
+  "approved": false,
+  "why_correct": "DNA contains adenine, thymine, guanine and cytosine. Uracil replaces thymine in RNA, so it is the base absent from DNA.",
+  "why_wrong": {
+   "0": "Adenine is present in DNA and pairs with thymine.",
+   "2": "Guanine is present in DNA and pairs with cytosine.",
+   "3": "Cytosine is present in DNA. The one to remember is the swap: thymine in DNA, uracil in RNA."
+  }
+ },
+ {
+  "id": "X|All|General Paper|65",
+  "approved": false,
+  "why_correct": "Meiosis is called reductional division because the chromosome number is halved, from diploid to haploid. That halving is what keeps the chromosome number constant from one generation to the next when gametes fuse.",
+  "why_wrong": {
+   "0": "Mitosis is equational division: the daughter cells have the same chromosome number as the parent. It is the opposite of what meiosis does.",
+   "2": "Binary fission is how bacteria and some protists divide, a much simpler process without spindle or chromosomes in this sense.",
+   "3": "Amitosis is direct division without any spindle or visible chromosomes, seen in some simple cells."
+  }
+ },
+ {
+  "id": "X|All|General Paper|66",
+  "approved": false,
+  "why_correct": "In Mendel's monohybrid cross the F2 generation shows three dominant to one recessive, a phenotypic ratio of 3 to 1. That result is what led Mendel to the law of segregation.",
+  "why_wrong": {
+   "0": "1 to 2 to 1 is the genotypic ratio of the same cross, that is one pure dominant, two hybrids and one pure recessive. Genotype and phenotype ratios are the classic mix-up here, because the two hybrids look identical to the pure dominant.",
+   "2": "9 to 3 to 3 to 1 is the F2 phenotypic ratio of a dihybrid cross, which follows two characters at once.",
+   "3": "1 to 1 is the ratio of a test cross, where a hybrid is crossed with a pure recessive."
+  }
+ },
+ {
+  "id": "X|All|General Paper|67",
+  "approved": false,
+  "why_correct": "Auxin causes phototropism. It gathers on the shaded side of a shoot, makes those cells lengthen more, and the unequal growth bends the shoot towards the light.",
+  "why_wrong": {
+   "0": "Gibberellin promotes stem elongation and seed germination, but it acts evenly rather than in response to the direction of light.",
+   "2": "Cytokinin promotes cell division and delays the ageing of leaves.",
+   "3": "Abscisic acid is the stress hormone. It closes stomata and enforces dormancy, so it slows growth rather than directing it."
+  }
+ },
+ {
+  "id": "X|All|General Paper|68",
+  "approved": false,
+  "why_correct": "The medulla oblongata, at the base of the brain stem, controls the involuntary actions that keep us alive: heartbeat, breathing, blood pressure, swallowing, coughing and vomiting.",
+  "why_wrong": {
+   "0": "The cerebrum is the seat of thought, memory and voluntary action, which is the opposite of involuntary.",
+   "1": "The cerebellum controls balance and the coordination of movement. Important and largely unconscious, but not the control of heartbeat and breathing.",
+   "3": "The hypothalamus regulates body temperature, hunger, thirst and the pituitary gland. Also involuntary, but not these two functions."
+  }
+ },
+ {
+  "id": "X|All|General Paper|69",
+  "approved": false,
+  "why_correct": "Cytokinesis is the division of the cytoplasm, which follows the division of the nucleus and completes the making of two separate cells.",
+  "why_wrong": {
+   "0": "Karyokinesis is the division of the nucleus, the step that comes first. Karyo means nucleus and cyto means cell, and that is the way to tell the two apart.",
+   "1": "Mitosis is the whole process of division in body cells, of which cytokinesis is the last stage.",
+   "3": "Meiosis is the reductional division that makes gametes, again a whole process rather than this one step."
+  }
+ },
+ {
+  "id": "X|All|General Paper|70",
+  "approved": false,
+  "why_correct": "In a cactus the leaves are reduced to spines, which cuts the surface area available for transpiration to almost nothing. The stem takes over photosynthesis and stores water, and the spines also deter animals.",
+  "why_wrong": {
+   "0": "Broad flat leaves would have a large surface and lose water fast. They suit wet, shady places, which is the opposite of a desert.",
+   "2": "Air cavities in the stem are an adaptation of water plants such as the lotus, helping them float and get oxygen.",
+   "3": "Shallow fibrous roots do occur in cacti to catch brief rain, but they gather water rather than conserve it. The question asks about conserving, so the spines are the answer."
+  }
+ }
+]

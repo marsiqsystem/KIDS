@@ -1,0 +1,102 @@
+[
+ {
+  "id": "X|All|General Paper|16",
+  "approved": false,
+  "why_correct": "Mars is called the Red Planet because its surface is covered in iron oxide dust, which is rust, and that gives it a reddish colour visible even from Earth.",
+  "why_wrong": {
+   "0": "Venus is the hottest planet and appears white or yellowish through its thick clouds of sulphuric acid.",
+   "2": "Jupiter is the largest planet and shows bands of cream and brown with the Great Red Spot, which is a storm rather than the planet's colour.",
+   "3": "Saturn is the ringed planet, pale gold in appearance."
+  }
+ },
+ {
+  "id": "X|All|General Paper|17",
+  "approved": false,
+  "why_correct": "Dr B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly and is called the Father of the Indian Constitution. He was also independent India's first Law Minister.",
+  "why_wrong": {
+   "0": "Gandhi is the Father of the Nation. He was not a member of the Constituent Assembly, and the two titles are commonly swapped.",
+   "1": "Nehru was the first Prime Minister and moved the Objectives Resolution, which became the basis of the Preamble, but he did not chair the drafting.",
+   "3": "Sardar Patel chaired important committees on fundamental rights and minorities, and he is remembered for integrating the princely states."
+  }
+ },
+ {
+  "id": "X|All|General Paper|18",
+  "approved": false,
+  "why_correct": "Canberra is the capital of Australia. It was purpose-built as a compromise between Sydney and Melbourne, which both wanted the honour, and became the seat of government in 1927.",
+  "why_wrong": {
+   "0": "Sydney is Australia's largest city and its best known, which is exactly why it is the usual wrong answer. Largest is not the same as capital.",
+   "1": "Melbourne was in fact the seat of government from 1901 until Canberra was ready, but it is not the capital now.",
+   "3": "Perth is the capital of Western Australia, a state capital rather than the national one."
+  }
+ },
+ {
+  "id": "X|All|General Paper|19",
+  "approved": false,
+  "why_correct": "Nitrogen makes up about 78 per cent of the atmosphere by volume. It is chemically unreactive, so it stays in the air rather than being consumed.",
+  "why_wrong": {
+   "0": "Oxygen is second at about 21 per cent. We notice it most because we breathe it, but it is not the most abundant.",
+   "1": "Carbon dioxide is about 0.04 per cent. Small in quantity, large in effect, since it drives the greenhouse effect.",
+   "3": "Hydrogen is the commonest element in the universe but is almost absent from our air, because it is too light for Earth's gravity to hold."
+  }
+ },
+ {
+  "id": "X|All|General Paper|20",
+  "approved": false,
+  "why_correct": "The United Nations headquarters is in New York City, on the bank of the East River. The site is international territory, and the General Assembly and Security Council meet there.",
+  "why_wrong": {
+   "0": "Geneva houses the UN Office at Geneva and agencies such as the WHO, which makes it a major UN city but not the headquarters.",
+   "1": "Paris is the headquarters of UNESCO, a specialised agency of the UN.",
+   "2": "London hosts the International Maritime Organization. Useful check: the UN was founded at San Francisco in 1945, in the United States."
+  }
+ },
+ {
+  "id": "X|All|General Paper|21",
+  "approved": false,
+  "why_correct": "Rabindranath Tagore wrote Jana Gana Mana in Bengali in 1911, and the Constituent Assembly adopted it as the national anthem on 24 January 1950.",
+  "why_wrong": {
+   "0": "Bankim Chandra Chattopadhyay wrote Vande Mataram, the national song. India has both a national anthem and a national song, and this is the pair most often confused.",
+   "2": "Sarojini Naidu was a poet and freedom fighter called the Nightingale of India, and the first woman to be governor of an Indian state.",
+   "3": "Subhas Chandra Bose led the Indian National Army. It was his troops who adopted a version of Jana Gana Mana as an anthem, but Tagore wrote it."
+  }
+ },
+ {
+  "id": "X|All|General Paper|22",
+  "approved": false,
+  "why_correct": "The Ganga is the longest river in India, running about 2,525 kilometres from Gangotri to the Bay of Bengal. Its basin is also the largest in the country.",
+  "why_wrong": {
+   "0": "The Yamuna is the Ganga's longest tributary, about 1,376 kilometres, so it is long but joins another river rather than being the longest itself.",
+   "1": "The Godavari is the longest river of peninsular India, which is why it is called Dakshina Ganga, but it is shorter than the Ganga.",
+   "2": "The Brahmaputra is longer overall, at about 2,900 kilometres, but most of that lies in Tibet and Bangladesh. Within India the Ganga is longer, and that is what the question asks."
+  }
+ },
+ {
+  "id": "X|All|General Paper|23",
+  "approved": false,
+  "why_correct": "World Environment Day falls on 5 June each year. It was established by the United Nations in 1972, the year of the Stockholm Conference on the human environment.",
+  "why_wrong": {
+   "0": "22 April is Earth Day, a separate observance and the one most often confused with this.",
+   "2": "8 March is International Women's Day.",
+   "3": "16 September is the International Day for the Preservation of the Ozone Layer, which marks the Montreal Protocol. Environmental, but a different day."
+  }
+ },
+ {
+  "id": "X|All|General Paper|24",
+  "approved": false,
+  "why_correct": "Punjab means the land of five waters, from panj meaning five and ab meaning water. The five rivers are the Sutlej, Beas, Ravi, Chenab and Jhelum, all tributaries of the Indus.",
+  "why_wrong": {
+   "0": "Haryana was carved out of Punjab in 1966 and shares much of its culture, but the name and the five rivers belong to Punjab.",
+   "2": "Rajasthan is India's driest large state and has only one major perennial river, the Chambal.",
+   "3": "Himachal Pradesh is where several of those rivers rise, which makes it a fair guess, but the name belongs to the plains they water."
+  }
+ },
+ {
+  "id": "X|All|General Paper|25",
+  "approved": false,
+  "why_correct": "The ampere is the SI unit of electric current, and it is one of the seven base units. One ampere is a flow of one coulomb of charge per second.",
+  "why_wrong": {
+   "0": "The volt is the unit of potential difference, which drives the current rather than measuring it.",
+   "1": "The ohm is the unit of resistance, which opposes the current. Ohm's law ties all three together: volts equal amperes times ohms.",
+   "3": "The watt is the unit of power, and in electricity it is volts times amperes."
+  }
+ }
+]

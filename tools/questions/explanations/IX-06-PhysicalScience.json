@@ -1,0 +1,132 @@
+[
+ {
+  "id": "IX|All|General Paper|72",
+  "approved": false,
+  "why_correct": "A neutral sodium atom has 11 electrons. The plus sign means it has lost one, so Na+ has 10 electrons. That gives it the stable configuration of neon, which is why sodium forms this ion so readily.",
+  "why_wrong": {
+   "1": "11 is the number of electrons in a neutral sodium atom, and also its atomic number. The charge on the ion is what tells you an electron has gone.",
+   "2": "9 would mean sodium had lost two electrons. Its charge is written as a single plus, so only one is lost.",
+   "3": "12 would mean sodium had gained an electron. Metals lose electrons to form positive ions; they do not gain them."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|73",
+  "approved": false,
+  "why_correct": "Surface tension is force per unit length, so its SI unit is the newton per metre. It can equally be written as joule per square metre, since it is also energy per unit area.",
+  "why_wrong": {
+   "0": "Joule per metre is force, not surface tension, because a joule is a newton metre. Dividing by a metre simply gives newtons back.",
+   "2": "Newton per centimetre has the right kind of quantity but the wrong unit of length. SI units use the metre.",
+   "3": "Joule per centimetre is wrong twice over: energy per length rather than force per length, and centimetres rather than metres."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|74",
+  "approved": false,
+  "why_correct": "Both have atomic number 17, so both are chlorine, but their mass numbers are 35 and 37. Same number of protons, different numbers of neutrons, which is exactly the definition of isotopes.",
+  "why_wrong": {
+   "1": "Isobars have the same mass number but different atomic numbers. Here the mass numbers differ and the atomic numbers match, so it is the other way round.",
+   "2": "Isothermic means at the same temperature. That is a term from heat, and it does not describe a relation between atoms.",
+   "3": "There is a clear relation here, so none of these cannot be right. Check the two numbers separately: the lower one is the atomic number and the upper one the mass number."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|75",
+  "approved": false,
+  "why_correct": "Sound is a mechanical wave and needs a material medium to travel through. A vacuum has no particles to vibrate, so no sound can pass and its velocity there is zero.",
+  "why_wrong": {
+   "1": "1.5 metres per second is far too slow for sound anywhere. Sound travels at about 340 metres per second in air and about 1500 in water, and the figure here looks like that water value with the wrong unit.",
+   "2": "25 metres per second is a walking-pace figure, not a wave speed, and in any case sound cannot travel in a vacuum at all.",
+   "3": "Infinity is what light might tempt you to guess, since light does cross a vacuum. But light is electromagnetic and needs no medium, while sound is mechanical and does."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|76",
+  "approved": false,
+  "why_correct": "An echo is a sound heard again after it reflects off a distant surface. The reflected sound must reach the ear at least a tenth of a second after the original, so the reflecting surface has to be about 17 metres away or more.",
+  "why_wrong": {
+   "0": "Vibration is what produces sound in the first place, at the source. It is the cause of sound, not a result of reflection.",
+   "1": "Oscillation is the same idea as vibration, a to-and-fro motion, and again it describes how sound is made.",
+   "3": "Compression is a region of a sound wave where the particles are crowded together. It is a part of the wave itself, not an effect of reflecting it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|78",
+  "approved": false,
+  "why_correct": "Power is the rate of doing work, so its SI unit is the watt, which is one joule per second. It is named after James Watt.",
+  "why_wrong": {
+   "0": "The ohm is the unit of electrical resistance.",
+   "1": "Kilometre per hour is a unit of speed, and it is not an SI unit either. The SI unit of speed is the metre per second.",
+   "2": "The newton is the unit of force. Force times distance gives work in joules, and work divided by time gives power in watts, so the newton is two steps away."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|79",
+  "approved": false,
+  "why_correct": "Rutherford fired alpha particles, which are helium nuclei carrying a double positive charge, at a thin gold foil. Most passed straight through, but a very few bounced back, and that led him to the idea of a small dense positive nucleus.",
+  "why_wrong": {
+   "0": "Beta rays are fast electrons. Being negative and very light, they would have been deflected by the foil's own electrons and could not have shown the nucleus.",
+   "2": "Gamma rays are high-energy electromagnetic radiation with no charge, so they would not be deflected by charge at all. The whole experiment depended on the projectile being charged and heavy.",
+   "3": "Only one type was used. The experiment is known as the alpha-particle scattering experiment for that reason."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|80",
+  "approved": false,
+  "why_correct": "Methyl orange is an acid-base indicator, red in acid and yellow in alkali, so the colour change marks the point of neutralisation. It is the standard indicator for a strong acid against a weak base.",
+  "why_wrong": {
+   "0": "Methylene blue is a dye and a redox indicator, not an acid-base one, so it does not signal neutralisation.",
+   "1": "Bromine is a reactive element used as a test for unsaturation in organic chemistry. It is a reagent, not an indicator.",
+   "3": "Sodium is a metal. It reacts violently with water and would take part in the reaction rather than report on it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|81",
+  "approved": false,
+  "why_correct": "Chlorine has atomic number 17, so its electrons fill as 2, 8, 7. That leaves 7 in the outermost shell, one short of eight, which is why chlorine so readily gains an electron to form the chloride ion.",
+  "why_wrong": {
+   "0": "2 is the number in chlorine's innermost shell, the K shell, not the outermost.",
+   "2": "3 is the outer-shell count for aluminium, which has 13 electrons arranged 2, 8, 3.",
+   "3": "1 is the outer-shell count for hydrogen or for the alkali metals such as sodium."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|82",
+  "approved": false,
+  "why_correct": "Permanent hardness is caused by the sulphates and chlorides of calcium and magnesium, and calcium sulphate is the standard example. It cannot be removed by boiling, which is what makes it permanent.",
+  "why_wrong": {
+   "0": "Copper sulphate is not a normal constituent of natural water and is not a cause of hardness. Hardness comes from calcium and magnesium salts.",
+   "1": "Sodium hydrogen sulphate contains sodium, and sodium salts do not cause hardness. Sodium compounds are in fact used to soften water.",
+   "3": "Sulphuric acid would make water acidic, not hard. Note that temporary hardness is caused by the bicarbonates of calcium and magnesium and is removed by boiling; permanent hardness is the sulphates and chlorides."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|83",
+  "approved": false,
+  "why_correct": "Petroleum is a mixture of liquids with different boiling points, so it is separated by fractional distillation in a tall column. Each fraction, including kerosene, diesel and wax, condenses at its own level.",
+  "why_wrong": {
+   "0": "Evaporation separates a dissolved solid from a liquid, such as salt from water. It cannot separate one liquid from another.",
+   "1": "Decomposition breaks a compound into different substances. These fractions are already present in petroleum and only need separating, not breaking down.",
+   "3": "Simple distillation separates a liquid from a non-volatile solid, or two liquids with widely separated boiling points. Petroleum's many fractions have close boiling points, so the fractionating column is needed."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|84",
+  "approved": false,
+  "why_correct": "Newton's second law gives force as mass times acceleration, F equals ma. Its unit, the newton, is defined from this as the force that gives a mass of one kilogram an acceleration of one metre per second squared.",
+  "why_wrong": {
+   "1": "F equals Wmg is not a formula at all. W usually stands for weight, and weight is already mg, so this multiplies the same quantity twice over.",
+   "2": "F equals mst mixes mass with distance and time in a way that gives the wrong dimensions entirely.",
+   "3": "mgh is the formula for gravitational potential energy, measured in joules, not for force."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|85",
+  "approved": false,
+  "why_correct": "A dibasic acid gives two hydrogen ions per molecule on ionising. Sulphuric acid, H2SO4, releases two, which makes it dibasic. Basicity counts the replaceable hydrogens, not the total hydrogen atoms.",
+  "why_wrong": {
+   "0": "Sodium sulphate is a salt, not an acid. It is what remains after sulphuric acid has been neutralised.",
+   "1": "Zinc sulphate is also a salt, formed when zinc reacts with sulphuric acid.",
+   "2": "Ammonium hydroxide is a base, not an acid. It gives hydroxide ions rather than hydrogen ions, so it is the opposite of what the question asks for."
+  }
+ }
+]

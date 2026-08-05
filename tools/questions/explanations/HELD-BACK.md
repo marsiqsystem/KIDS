@@ -112,7 +112,7 @@ self-evident from question 30 on the same page.
 
 ---
 
-# Part 2 — Class XI (8 so far, of the 4 subjects done)
+# Part 2 — Class XI (12 so far; 8 of 16 subjects done)
 
 ## 7. `XI|Science|Physics|6` — key error, contradicted by Q14
 
@@ -217,6 +217,57 @@ x² + x²/2 = (3/2)x², and the limit is **3/2**, option (c). The key is the
 reciprocal of the right answer.
 
 **Recommendation: correct the key to (c).**
+
+## 15. `XI|Arts|Education|2` — three defensible answers
+
+> Education means: (a) To nourish (b) To bring up (c) To lead out (d) To put in
+> **Key: (a)**
+
+*Educare* means to bring up or nourish; *educere* means to lead out. So (a),
+(b) and (c) are all standard glosses of the word's roots, and every textbook
+gives at least two of them. Only (d) is clearly wrong.
+
+**Recommendation: keep the key, publish no explanation.** Rewrite as "which
+root means…" before reuse.
+
+## 16. `XI|Arts|Education|22` — disputed priority
+
+> The first to challenge the caste system was:
+> (a) Buddha (b) B.G. Tilak (c) Mahatma Gandhi (d) Mahavira
+> **Key: (a) Buddha**
+
+Mahavira is traditionally dated earlier than Buddha (599–527 BCE against
+563–483 BCE), and Jainism rejected caste just as firmly. Indian school texts
+conventionally credit Buddha, but a well-read student can defend (d).
+
+**Recommendation: a teacher's ruling.** Either confirm (a) as the taught
+answer, or accept both.
+
+## 17. `XI|Arts|Philosophy|10` — both religions have five
+
+> Which philosophy believes in the five principles of conduct?
+> (a) Buddhism (b) Vedic (c) Jainism (d) Islamic
+> **Key: (c) Jainism**
+
+Jainism has the five vows (*pancha mahavrata*) and Buddhism has the five
+precepts (*pancasila*). Both are literally five principles of conduct, so (a)
+cannot be called wrong.
+
+**Recommendation: keep the key, publish no explanation.** Naming the term —
+*mahavrata* — would make the question sound.
+
+## 18. `XI|Arts|Philosophy|18` — the "All of These" is defensible
+
+> Self, according to Samkara, is:
+> (a) Brahman (b) Eternal (c) Transcendent (d) All of These
+> **Key: (a) Brahman**
+
+For Shankara the Self *is* Brahman — and Brahman is eternal and transcendent.
+So (b) and (c) are also true of the Self, which makes (d) at least as good an
+answer as (a), and arguably better.
+
+**Recommendation: correct the key to (d), or rewrite.** Unlike the three above,
+this one has a defensible case for the key actually being wrong.
 
 ---
 

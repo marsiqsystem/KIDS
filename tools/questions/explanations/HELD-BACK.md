@@ -9,9 +9,9 @@ a ruling is still cheap to apply.
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the six outright wrong keys** — `X|31`, `XI Physics 6`,
-`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`. Each is
-demonstrably wrong rather than debatable, and three of the six are contradicted
+**Priority: the seven outright wrong keys** — `X|31`, `XI Physics 6`,
+`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`. Each is
+demonstrably wrong rather than debatable, and two of the seven are contradicted
 by another question on the same paper. XI Mathematics alone has three.
 
 ---
@@ -112,7 +112,7 @@ self-evident from question 30 on the same page.
 
 ---
 
-# Part 2 — Class XI (12 so far; 8 of 16 subjects done)
+# Part 2 — Class XI (13 of 400; all 16 subjects done)
 
 ## 7. `XI|Science|Physics|6` — key error, contradicted by Q14
 
@@ -268,6 +268,22 @@ answer as (a), and arguably better.
 
 **Recommendation: correct the key to (d), or rewrite.** Unlike the three above,
 this one has a defensible case for the key actually being wrong.
+
+## 19. `XI|Arts|History|2` — key error, off by six centuries
+
+> The oldest inscription found in India was
+> (a) Ashokan Inscription (b) Allahabad Inscription
+> (c) Mehrauli Iron Inscription (d) Aihole Inscription
+> **Key: (c) Mehrauli Iron Inscription**
+
+The Mehrauli iron pillar inscription dates to about **400 CE**, in the reign of
+Chandragupta II. The **Ashokan edicts are c. 250 BCE** — roughly six and a half
+centuries older, and universally described as the oldest deciphered
+inscriptions in India. The Allahabad pillar inscription of Samudragupta
+(c. 350 CE) and the Aihole inscription of Pulakeshin II (634 CE) are later
+still, so the keyed option is not even the second oldest of the four.
+
+**Recommendation: correct the key to (a).**
 
 ---
 

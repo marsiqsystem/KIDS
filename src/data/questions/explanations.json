@@ -2935,6 +2935,466 @@
   }
  },
  {
+  "id": "XI|Arts|Geography|1",
+  "approved": false,
+  "why_correct": "Eratosthenes, the Greek scholar and librarian of Alexandria, first used the word geographia in the third century BCE. He also measured the circumference of the Earth with remarkable accuracy.",
+  "why_wrong": {
+   "0": "Aristotle wrote on the natural world and argued the Earth was a sphere, but he did not coin the term.",
+   "2": "Herodotus is called the father of history, and he described many lands, but the word is not his.",
+   "3": "Strabo wrote a great Geographica in the first century, well after Eratosthenes had named the subject."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|2",
+  "approved": false,
+  "why_correct": "Human geography studies the spatial distribution of human activities and the relationship between people and their environment. It covers population, settlement, economic activity and culture.",
+  "why_wrong": {
+   "0": "Geomorphology studies landforms and the processes that shape them, and belongs to physical geography.",
+   "1": "Climatology studies climate and its patterns, again a branch of physical geography.",
+   "3": "Oceanography studies the seas. All three wrong options are physical, and the question asks about human activity."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|3",
+  "approved": false,
+  "why_correct": "Kant's nebular hypothesis, developed by Laplace, holds that the Solar System formed from a hot, rotating cloud of gas that cooled, contracted and shed rings which condensed into planets.",
+  "why_wrong": {
+   "0": "A giant meteorite plays no part in the hypothesis. Meteorite impacts shaped planetary surfaces later.",
+   "2": "Black holes were unknown when the hypothesis was framed, and none is involved in forming a solar system.",
+   "3": "A supercontinent is a feature of Earth's own history, as in Pangaea, and belongs to continental drift rather than to the origin of the system."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|4",
+  "approved": false,
+  "why_correct": "The Big Bang theory is the modern explanation of the origin of the universe, holding that it began about 13.7 billion years ago from an extremely dense, hot state and has been expanding ever since.",
+  "why_wrong": {
+   "0": "The planetesimal theory of Chamberlin and Moulton concerns the origin of the Solar System, not the universe.",
+   "1": "The nebular theory likewise explains the Solar System only. Note the difference of scale the question turns on: the Solar System is one star among billions.",
+   "3": "Continental drift explains the movement of the Earth's landmasses, a far smaller matter still."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|5",
+  "approved": false,
+  "why_correct": "The core is composed mainly of nickel and iron, and is therefore called NIFE. It is the densest layer and is the source of the Earth's magnetic field.",
+  "why_wrong": {
+   "0": "SIAL is the upper continental crust, rich in silica and aluminium.",
+   "1": "SIMA is the oceanic crust, rich in silica and magnesium.",
+   "2": "The mantle is composed largely of silicate rocks rich in iron and magnesium, but it is not the nickel-iron layer. The three names SIAL, SIMA and NIFE run in order of increasing density."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|6",
+  "approved": false,
+  "why_correct": "The Mohorovicic discontinuity, or Moho, separates the crust from the mantle. It was identified by the Croatian seismologist Andrija Mohorovicic from a sudden change in the speed of seismic waves.",
+  "why_wrong": {
+   "0": "The Gutenberg discontinuity separates the mantle from the core.",
+   "1": "The Conrad discontinuity lies within the crust, between its upper and lower parts.",
+   "3": "The Lehmann discontinuity separates the outer core from the inner core. Each boundary is named for the seismologist who found it, and they are best learnt in order from the surface down."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|7",
+  "approved": false,
+  "why_correct": "S-waves are transverse, needing a medium that can resist shearing, and liquids cannot. Their failure to pass through the outer core is the main evidence that it is liquid.",
+  "why_wrong": {
+   "0": "P-waves are longitudinal and travel through solids, liquids and gases alike, which is why they are the first to arrive.",
+   "2": "Surface waves travel along the ground surface and cause most earthquake damage, but the question concerns passage through the interior.",
+   "3": "Long waves, or L-waves, are a kind of surface wave and again do not travel through the deep interior."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|8",
+  "approved": false,
+  "why_correct": "The asthenosphere lies in the upper mantle, roughly 100 to 200 kilometres down. It is partly molten and plastic, and the rigid plates of the lithosphere move over it.",
+  "why_wrong": {
+   "1": "The lower mantle is under greater pressure and behaves more rigidly.",
+   "2": "The outer core is liquid but lies far deeper, beyond the Gutenberg discontinuity.",
+   "3": "The inner core is solid despite its heat, because of the immense pressure. The asthenosphere matters because it is the layer that makes plate tectonics possible."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|9",
+  "approved": false,
+  "why_correct": "Volcanism originates within the Earth, driven by internal heat, so it is an endogenic process. Endogenic processes build landforms up.",
+  "why_wrong": {
+   "0": "Weathering acts at the surface, driven by the atmosphere, so it is exogenic.",
+   "1": "Mass wasting is the downslope movement of material under gravity, again a surface process.",
+   "3": "Erosion is exogenic too. The dividing question is simply where the energy comes from: inside the Earth or outside it."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|10",
+  "approved": false,
+  "why_correct": "Fold mountains are formed when compressional forces at converging plate margins squeeze layers of sedimentary rock into folds. The Himalayas, Alps and Andes were all raised this way.",
+  "why_wrong": {
+   "0": "Denudation wears land down rather than building it up.",
+   "1": "Volcanism builds volcanic mountains such as Fujiyama, which are formed from erupted material rather than by folding.",
+   "3": "River action carves valleys and builds plains, working on a far smaller scale than mountain building."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|11",
+  "approved": false,
+  "why_correct": "Weathering is driven by the atmosphere, water and living things acting at the surface, so it is an exogenic process. Exogenic processes wear landforms down.",
+  "why_wrong": {
+   "0": "Earthquakes arise from movement within the crust and are endogenic.",
+   "1": "Folding is caused by internal compressional forces, again endogenic.",
+   "2": "Faulting is caused by internal tensional or compressional forces. Three of the four originate inside the Earth, so the surface process is the odd one out."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|12",
+  "approved": false,
+  "why_correct": "Weathering is the breakdown of rock in situ, that is in its own place, without any transport. Adding movement to it is what makes erosion.",
+  "why_wrong": {
+   "0": "Erosion involves both breakdown and removal by an agent such as water, wind or ice.",
+   "2": "Deposition is the laying down of material at the end of transport.",
+   "3": "Transportation is the carrying of weathered material away, the middle stage of the sequence. In situ is the phrase that settles this question."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|13",
+  "approved": false,
+  "why_correct": "Insolation is incoming solar radiation, the energy the Earth receives from the Sun. The word is a contraction of incoming solar radiation.",
+  "why_wrong": {
+   "1": "Outgoing terrestrial radiation is the long-wave heat the Earth radiates back, which is a separate part of the heat budget.",
+   "2": "Atmospheric pressure is the weight of the air, measured by a barometer.",
+   "3": "Wind is air in motion, caused by pressure differences that insolation helps create, but not insolation itself."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|14",
+  "approved": false,
+  "why_correct": "Carbon dioxide contributes the largest share of the enhanced greenhouse effect among the gases released by human activity, because it is emitted in such quantity by burning fossil fuels.",
+  "why_wrong": {
+   "0": "Oxygen is not a greenhouse gas, since its molecule cannot absorb infrared radiation.",
+   "1": "Nitrogen is the most abundant gas in the air but is not a greenhouse gas either.",
+   "3": "Argon is inert and plays no part. Note that water vapour is in absolute terms the largest natural contributor, but it is not one of the options here and is not the gas driving the human-caused change."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|15",
+  "approved": false,
+  "why_correct": "The barometer measures atmospheric pressure, either as a column of mercury or, in the aneroid type, by the flexing of a sealed metal box.",
+  "why_wrong": {
+   "0": "A hygrometer measures humidity, that is the moisture content of the air.",
+   "1": "An anemometer measures wind speed.",
+   "3": "A thermometer measures temperature. Each instrument goes with one element of weather, and they are best learnt as a set."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|16",
+  "approved": false,
+  "why_correct": "Human geography studies the relationship between people and their environment, including how people adapt to nature and how they modify it. That reciprocal relationship is its central subject.",
+  "why_wrong": {
+   "0": "Rocks and minerals belong to geology and geomorphology.",
+   "2": "Ocean currents belong to oceanography.",
+   "3": "Earthquakes belong to seismology and geomorphology, which are branches of physical geography."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|17",
+  "approved": false,
+  "why_correct": "Primary activities extract resources directly from nature: agriculture, fishing, forestry, mining and gathering. They are closest to the physical environment of all economic activities.",
+  "why_wrong": {
+   "0": "Secondary activities process and manufacture what the primary sector extracts.",
+   "1": "Tertiary activities provide services such as transport, trade and education.",
+   "3": "Quaternary activities involve knowledge work, research and information handling."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|18",
+  "approved": false,
+  "why_correct": "Software development is a quaternary activity, since it is knowledge-based work concerned with creating and processing information rather than with goods or ordinary services.",
+  "why_wrong": {
+   "0": "Primary activity extracts from nature.",
+   "1": "Secondary activity manufactures goods.",
+   "2": "Tertiary activity provides general services. Software is often lumped with services, which makes this the tempting answer, but the quaternary sector was defined precisely to separate high-knowledge work from routine service work."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|19",
+  "approved": false,
+  "why_correct": "India lies entirely in the Northern and Eastern Hemispheres, extending from about 8 degrees to 37 degrees north and from 68 degrees to 97 degrees east.",
+  "why_wrong": {
+   "0": "The Western Hemisphere lies west of the Prime Meridian, and no part of India does.",
+   "2": "No part of India lies south of the Equator. The southernmost point, Indira Point in the Nicobars, is still about 6 degrees north.",
+   "3": "A country cannot lie entirely in both the Northern and Southern Hemispheres, since the Equator separates them."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|20",
+  "approved": false,
+  "why_correct": "The Tropic of Cancer passes through eight Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram. It runs west to east across the middle of the country.",
+  "why_wrong": {
+   "0": "6 is short by two. A useful check is to trace the line on the map from Gujarat in the west to Mizoram in the east.",
+   "1": "7 is short by one, and usually comes from omitting Tripura or Chhattisgarh.",
+   "3": "9 is one too many, and often comes from wrongly including a neighbouring state such as Odisha or Manipur."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|21",
+  "approved": false,
+  "why_correct": "The Northern Plains were formed by alluvium deposited over millions of years by the Indus, Ganga and Brahmaputra and their tributaries as they emerged from the Himalayas. The soil is deep, fertile and renewed by flooding.",
+  "why_wrong": {
+   "0": "Wind-blown sediment forms loess plains, as in China, not these.",
+   "1": "Lava flows formed the Deccan Trap, in peninsular India, which is a very different landform.",
+   "2": "Glacial deposits occur in the high Himalayas, but the plains themselves are river-built."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|22",
+  "approved": false,
+  "why_correct": "The Peninsular Plateau is made largely of ancient crystalline igneous and metamorphic rocks. It is one of the oldest landmasses on Earth, a fragment of the former Gondwanaland, and is rich in minerals.",
+  "why_wrong": {
+   "0": "Young fold mountains are the Himalayas, geologically recent and still rising, while the plateau is stable and very old.",
+   "1": "Alluvial deposits form the Northern Plains.",
+   "3": "Volcanic islands describe the Andamans and Barren Island. The Deccan Trap is volcanic in origin, but it covers only part of the plateau, whose foundation is crystalline."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|23",
+  "approved": false,
+  "why_correct": "The Himalayas are called the Water Tower of Asia because their snowfields and glaciers feed the Indus, Ganga, Brahmaputra and other great rivers, supplying water to a large part of the continent all year round.",
+  "why_wrong": {
+   "0": "The Northern Plains receive that water rather than supplying it.",
+   "1": "The Indian Desert is the driest region of the country.",
+   "3": "The Coastal Plains lie at the seaward end of the rivers' journey. The name captures the idea of a raised store that feeds the lowlands below."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|24",
+  "approved": false,
+  "why_correct": "The Kosi is called the Sorrow of Bihar. It carries enormous silt from Nepal, which raises its bed and makes it shift its channel repeatedly, flooding wide areas of north Bihar.",
+  "why_wrong": {
+   "0": "The Damodar was called the Sorrow of Bengal before the Damodar Valley Corporation dams tamed it. The two sorrows are the pair most often confused.",
+   "2": "The Mahanadi flows through Chhattisgarh and Odisha and was controlled by the Hirakud dam.",
+   "3": "The Son is a tributary of the Ganga in Bihar but does not carry this name."
+  }
+ },
+ {
+  "id": "XI|Arts|Geography|25",
+  "approved": false,
+  "why_correct": "The Ganga and Brahmaputra together form the Sundarbans delta, the largest in the world, spread across India and Bangladesh. It carries the world's largest mangrove forest.",
+  "why_wrong": {
+   "0": "The Godavari has a large delta on the east coast but a far smaller one.",
+   "1": "The Krishna delta is smaller still, and adjoins the Godavari's.",
+   "3": "The Mahanadi forms a delta in Odisha, again much smaller. The size follows from the two rivers' combined discharge and their vast silt load from the Himalayas."
+  }
+ },
+ {
+  "id": "XI|Arts|History|1",
+  "approved": false,
+  "why_correct": "Dendrochronology is the study of tree rings, so it works on the remains of plants. Each year a tree adds a ring, and their widths give both a date and a record of past climate.",
+  "why_wrong": {
+   "0": "Furniture may be dated by the method, but only because it is made of wood, so the material studied is still the plant.",
+   "1": "Animal remains are dated by other means, such as radiocarbon dating of bone.",
+   "2": "Pottery is dated by thermoluminescence or by its style and stratigraphy. The clue is in the name: dendron is Greek for tree."
+  }
+ },
+ {
+  "id": "XI|Arts|History|3",
+  "approved": false,
+  "why_correct": "The Mesopotamians invented writing first, developing cuneiform in Sumer around 3400 BCE. It began as pictographic records of grain and cattle pressed into clay with a reed stylus.",
+  "why_wrong": {
+   "1": "The Harappan script appeared around 2600 BCE, later than cuneiform, and it remains undeciphered.",
+   "2": "Egyptian hieroglyphs appeared around 3200 BCE, close behind Mesopotamia but not first. These two are the pair to keep in order.",
+   "3": "Mayan writing developed in Central America much later, in the first millennium BCE."
+  }
+ },
+ {
+  "id": "XI|Arts|History|4",
+  "approved": false,
+  "why_correct": "Quintus Curtius Rufus, a Roman historian of the first century, wrote the Historiae Alexandri Magni, which covers Alexander's campaigns including his invasion of India and the battle against Porus.",
+  "why_wrong": {
+   "0": "Herodotus is the father of history but wrote of the Persian Wars, a century before Alexander was born.",
+   "1": "Plato was a philosopher, and he died before Alexander's campaigns began.",
+   "3": "Homer composed the Iliad and Odyssey, epics of the legendary Trojan War, centuries earlier."
+  }
+ },
+ {
+  "id": "XI|Arts|History|6",
+  "approved": false,
+  "why_correct": "Statements two and four are true and one and three are false. Marx did urge intellectuals to join the working-class movement, and he interpreted history materially, through the economic base of society.",
+  "why_wrong": {
+   "0": "This makes statement one true, but Marx understood society from below, starting from the material conditions of production and the working class, not from above.",
+   "1": "This adds statement three, but Marx was a critic of imperialism, not a champion of empire building.",
+   "2": "This option lists statement four as both true and false, so it contradicts itself. Read each of the four statements against what you know before matching them to an option."
+  }
+ },
+ {
+  "id": "XI|Arts|History|7",
+  "approved": false,
+  "why_correct": "Of the four travellers, Fa-Hien came earliest. The Chinese pilgrim visited India in the early fifth century, during the reign of Chandragupta II, and recorded what he saw in his account of the Buddhist kingdoms.",
+  "why_wrong": {
+   "0": "Jean-Baptiste Tavernier was a French jeweller who travelled in India in the seventeenth century, under the Mughals, so he is the latest of the four.",
+   "1": "Taranath was a Tibetan Buddhist historian of the sixteenth and seventeenth centuries.",
+   "3": "Hiuen-Tsang came in the seventh century, during Harsha's reign, two hundred years after Fa-Hien. The two Chinese pilgrims are often confused, and Fa-Hien is the earlier."
+  }
+ },
+ {
+  "id": "XI|Arts|History|8",
+  "approved": false,
+  "why_correct": "The Euphrates formed the traditional frontier between the Roman empire and the Iranian empires, first Parthian and later Sasanian. Control of the crossings was fought over for centuries.",
+  "why_wrong": {
+   "0": "The Danube was Rome's northern frontier, against the Germanic peoples.",
+   "1": "The Nile flows through Egypt, which was a Roman province rather than a border with Iran.",
+   "3": "The Tigris is the other great Mesopotamian river and lies further east, well inside Iranian territory for most of this period."
+  }
+ },
+ {
+  "id": "XI|Arts|History|9",
+  "approved": false,
+  "why_correct": "All three worked together. Pressure on the frontiers and barbarian invasion strained the army, internal corruption weakened government, and economic trouble with debased coinage and inflation undermined the whole structure.",
+  "why_wrong": {
+   "0": "External pressure was severe, but the empire had survived invasions before when it was internally sound.",
+   "1": "Internal mismanagement mattered greatly, but by itself it does not explain the collapse.",
+   "2": "Economic troubles were serious, especially the debasement of the currency. Historians treat the decline as a case of several causes reinforcing one another, which is why all of the above is right."
+  }
+ },
+ {
+  "id": "XI|Arts|History|10",
+  "approved": false,
+  "why_correct": "All three mention slavery. Hammurabi's Code regulates the treatment of slaves in Babylon, Homer's epics describe captives taken in war, and the Twelve Tables set out the legal position of slaves in early Rome.",
+  "why_wrong": {
+   "0": "The Code of Hammurabi does deal with slaves, but so do the others.",
+   "1": "The Iliad and the Odyssey are full of slaves and war captives.",
+   "2": "The Twelve Tables likewise cover them. The point the question makes is that slavery was near universal in the ancient world, which is why every one of these sources touches on it."
+  }
+ },
+ {
+  "id": "XI|Arts|History|11",
+  "approved": false,
+  "why_correct": "Vespasian began the Colosseum around 72 CE, and it was completed under his son Titus in 80 CE. Its formal name, the Flavian Amphitheatre, comes from their dynasty.",
+  "why_wrong": {
+   "0": "Nero built the Golden House on the same site, and the Colosseum was deliberately raised over its lake as a gift back to the people.",
+   "1": "Trajan built the forum and column that bear his name, a generation later.",
+   "2": "Augustus was the first emperor, a century earlier, and is remembered for saying he found Rome brick and left it marble."
+  }
+ },
+ {
+  "id": "XI|Arts|History|12",
+  "approved": false,
+  "why_correct": "Menander I, known in Indian sources as Milinda, is credited with the first gold coins issued in India. He ruled the largest of the Indo-Greek kingdoms and appears in the Buddhist text Milindapanha, which records his dialogue with the monk Nagasena.",
+  "why_wrong": {
+   "0": "Antimachus I was an earlier Indo-Greek ruler, known for his silver coinage and his portrait with a distinctive hat.",
+   "1": "Demetrius I extended Greek rule into north-west India and is shown wearing an elephant-scalp headdress, but the gold issue is credited to Menander.",
+   "3": "Apollodotus I ruled in the same region and issued bilingual silver coins in Greek and Kharosthi."
+  }
+ },
+ {
+  "id": "XI|Arts|History|13",
+  "approved": false,
+  "why_correct": "Sparta and Athens were the two great city-states of ancient Greece, so statements one and two are true. Milan and Venice are Italian cities of a much later age, so three and four are false.",
+  "why_wrong": {
+   "1": "This reverses the truth, making the Greek cities false and the Italian ones Greek.",
+   "2": "Venice is not a Greek city-state, and Athens certainly is.",
+   "3": "Milan is not a Greek city-state, and Athens again is. Athens and Sparta are the two whose rivalry produced the Peloponnesian War, which fixes them firmly in Greece."
+  }
+ },
+ {
+  "id": "XI|Arts|History|15",
+  "approved": false,
+  "why_correct": "Both statements are true and the reason does explain the assertion. Augustus ended a century of civil war, established the Pax Romana and presided over a flowering of literature and building, which is precisely why his age is called golden.",
+  "why_wrong": {
+   "0": "The assertion is correct, so this option fails at the first step.",
+   "2": "Both are indeed correct, but this option stops short of saying the reason explains the assertion, and it plainly does. In assertion-reason questions the more precise correct option is the answer.",
+   "3": "The reason is correct, not incorrect. Peace and stability after the civil wars are exactly what made the age prosperous."
+  }
+ },
+ {
+  "id": "XI|Arts|History|16",
+  "approved": false,
+  "why_correct": "The passage says revolts were rare while escape was common, so slaves in ancient Greece preferred individual escape to collective rebellion. Scattered across many small households, they had little chance to organise together.",
+  "why_wrong": {
+   "0": "The passage says the opposite, that organised revolt was rare.",
+   "2": "Contentment cannot be inferred from escape. Fleeing shows discontent, not satisfaction.",
+   "3": "The passage states that slaves fled to obtain freedom, so the desire for it was clearly present. Answer a case-based question from the passage itself rather than from general knowledge."
+  }
+ },
+ {
+  "id": "XI|Arts|History|17",
+  "approved": false,
+  "why_correct": "Aristotle wrote the Politics, in which he classified constitutions and called man a political animal. He also wrote the Nicomachean Ethics and the Poetics.",
+  "why_wrong": {
+   "0": "Thucydides wrote the History of the Peloponnesian War.",
+   "1": "Herodotus wrote the Histories, on the Persian Wars.",
+   "2": "Plato wrote The Republic and The Laws, which are also political works. Plato and Aristotle are teacher and pupil, and matching each to his titles is what the question tests."
+  }
+ },
+ {
+  "id": "XI|Arts|History|18",
+  "approved": false,
+  "why_correct": "Cleisthenes is called the father of Athenian democracy. His reforms of 508 BCE reorganised the citizens into ten tribes cutting across old family loyalties, and gave real power to the assembly.",
+  "why_wrong": {
+   "0": "Aristotle analysed democracy as a philosopher and was in fact critical of it.",
+   "1": "Plato was hostile to democracy, having seen it condemn his teacher to death.",
+   "2": "Socrates was executed by the Athenian democracy in 399 BCE. Note that Solon's earlier reforms prepared the ground, but the title belongs to Cleisthenes."
+  }
+ },
+ {
+  "id": "XI|Arts|History|19",
+  "approved": false,
+  "why_correct": "The sixteen Mahajanapadas are listed in the Anguttara Nikaya, a Buddhist text in the Pali canon. Jain sources such as the Bhagavati Sutra give a similar list.",
+  "why_wrong": {
+   "0": "The Ramayana is an epic and does not give this administrative list.",
+   "2": "The Mahabharata is likewise epic rather than a record of the sixteen states.",
+   "3": "The Gita is a philosophical dialogue within the Mahabharata. The list comes from Buddhist literature, which places it in the sixth century BCE, exactly when these states existed."
+  }
+ },
+ {
+  "id": "XI|Arts|History|20",
+  "approved": false,
+  "why_correct": "Buddhist sources record both Bimbisara and Ajatashatru as lay followers of the Buddha. Bimbisara gave the Venuvana grove to the sangha, and Ajatashatru is said to have hosted the First Buddhist Council at Rajgir after the Buddha's death.",
+  "why_wrong": {
+   "0": "Mahavira was their contemporary, and Jain tradition also claims both kings, calling them Shrenika and Kunika. So this is not a baseless answer, and historians note that the two traditions compete for them. What the question asks for is the association recorded in the Buddhist canon, which is with the Buddha.",
+   "1": "Parshvanatha was the twenty-third Jain Tirthankara and lived some two hundred and fifty years before these kings, so he cannot have been their teacher.",
+   "3": "Both kings are firmly connected with the new religions of their day, so none of the above is wrong."
+  }
+ },
+ {
+  "id": "XI|Arts|History|21",
+  "approved": false,
+  "why_correct": "The Mauryan empire had its centre in Magadha, with its capital at Pataliputra on the Ganga. Magadha's iron, its fertile land and its river routes had already made it the strongest of the Mahajanapadas.",
+  "why_wrong": {
+   "0": "Malwa in central India was a province rather than the centre.",
+   "2": "Gandhara in the north-west was the frontier region, where Ashoka's inscriptions appear in Greek and Aramaic.",
+   "3": "Kashi was an earlier Mahajanapada, absorbed by Magadha during its rise."
+  }
+ },
+ {
+  "id": "XI|Arts|History|22",
+  "approved": false,
+  "why_correct": "Alexander fought Porus at the Battle of the Hydaspes in 326 BCE, on the river now called the Jhelum. Alexander won but was so impressed by Porus that he restored his kingdom to him.",
+  "why_wrong": {
+   "0": "The siege of Tyre in 332 BCE was in Phoenicia, on the Mediterranean coast.",
+   "1": "The Battle of Issus in 333 BCE was against Darius III of Persia.",
+   "2": "The Battle of Gaugamela in 331 BCE was the decisive defeat of Darius. All three came earlier, on Alexander's march east, and the Indian campaign is the last of them."
+  }
+ },
+ {
+  "id": "XI|Arts|History|23",
+  "approved": false,
+  "why_correct": "Statements two and three are true and one and four are false. The Smritishastras were composed in this age and Kalidasa wrote then, but the medium of Gupta literature was Sanskrit, not Pali, and Latin never reached India.",
+  "why_wrong": {
+   "0": "This makes statement one true, but Pali belongs to the earlier Buddhist literature, whereas the Gupta age is the great age of Sanskrit.",
+   "1": "This makes statement four true, but Latin was the language of Rome and had no currency in India.",
+   "2": "This again accepts statement four. The quickest way through is to spot that Latin in India is impossible, which eliminates every option that calls statement four true."
+  }
+ },
+ {
+  "id": "XI|Arts|History|25",
+  "approved": false,
+  "why_correct": "The passage states directly that the Ottoman emperors monitored their officials in order to maintain public welfare and progress. The answer to a case-based question must come from the passage itself.",
+  "why_wrong": {
+   "1": "Punishing corrupt officials would be a means of achieving the purpose, not the purpose itself, and the passage does not mention punishment.",
+   "2": "Increasing tax is not mentioned, and it would conflict with the stated aim of public welfare.",
+   "3": "Reducing administrative cost is not mentioned either. When a passage names the purpose in so many words, resist the option that sounds more sophisticated."
+  }
+ },
+ {
   "id": "XI|Arts|Philosophy|1",
   "approved": false,
   "why_correct": "Idealism holds that reality is ultimately spiritual and that the individual is part of a universal mind or spirit. On that view the child is an integral part of the ultimate universe, and education draws out the spiritual self already present.",
@@ -3162,6 +3622,256 @@
    "0": "Without beginning is only half the doctrine, and leaving out the second half changes the meaning.",
    "1": "Without an end is the other half, and it is equally incomplete on its own.",
    "3": "Creation at a particular moment is the view of the Semitic traditions, and it is precisely what the cyclical Vedic conception denies."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|1",
+  "approved": false,
+  "why_correct": "A State has four essential elements: population, territory, government and sovereignty. Religion is not among them, and a State may have any religion or none, as a secular State does.",
+  "why_wrong": {
+   "0": "Population is essential; there can be no State without people.",
+   "1": "Government is essential, being the machinery through which the State acts.",
+   "2": "Sovereignty is essential, and it is what distinguishes a State from any other association. Territory is the fourth, and it is the one missing from this list of options."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|2",
+  "approved": false,
+  "why_correct": "Pluralists hold that sovereignty is not the monopoly of the State but is shared among the many associations to which people belong: churches, trade unions, universities and local bodies. Laski and MacIver argued this against the monistic view.",
+  "why_wrong": {
+   "0": "Absolute and indivisible sovereignty is the monistic theory of Bodin, Hobbes and Austin, which pluralism was framed to attack.",
+   "2": "Sovereignty held only by the monarch is the doctrine of divine right and absolute monarchy.",
+   "3": "Sovereignty exercised only by the judiciary describes no theory, and would make the courts supreme over the legislature."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|3",
+  "approved": false,
+  "why_correct": "Thomas Hobbes is most closely associated with the State of Nature, which he described in Leviathan as a war of every man against every man, where life was solitary, poor, nasty, brutish and short.",
+  "why_wrong": {
+   "0": "Karl Marx explained the State as an instrument of class domination and predicted its withering away.",
+   "2": "J. S. Mill wrote on liberty and representative government, not on a pre-political condition.",
+   "3": "T. H. Green was an idealist who saw the State as removing obstacles to the good life. Locke and Rousseau also used the term, but of the four names offered only Hobbes belongs to that tradition."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|4",
+  "approved": false,
+  "why_correct": "Individualists describe the State as a necessary evil. They hold that its interference restricts liberty, so it is an evil, but that it is needed to maintain order and protect rights, so it is necessary.",
+  "why_wrong": {
+   "1": "Idealists such as Hegel and Green regard the State as a positive good and even as the march of God on earth.",
+   "2": "Socialists want the State to do more, not less, in order to secure economic equality.",
+   "3": "Fascists glorify the State absolutely, holding that the individual exists for it."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|5",
+  "approved": false,
+  "why_correct": "The Social Contract Theory explains the State as arising from an agreement among people who left the state of nature to secure order. Hobbes, Locke and Rousseau each gave their own version of it.",
+  "why_wrong": {
+   "0": "The Force Theory holds that the State arose from conquest by the strong.",
+   "1": "The Divine Origin Theory holds that the State was created by God and the ruler is His representative.",
+   "3": "The Evolutionary Theory holds that the State grew gradually from the family, without any single founding act."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|6",
+  "approved": false,
+  "why_correct": "Rousseau located sovereignty in the General Will, the will of the community aiming at the common good. It is not the mere sum of individual wills but what all would will as citizens.",
+  "why_wrong": {
+   "0": "Hobbes placed sovereignty in an absolute ruler to whom people surrendered all rights.",
+   "1": "Locke placed ultimate authority with the people but expressed it through a limited government and the right of resistance, not through a general will.",
+   "3": "Austin placed sovereignty in a determinate human superior whose commands are habitually obeyed."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|7",
+  "approved": false,
+  "why_correct": "John Austin gave the legal or monistic theory of sovereignty, defining the sovereign as a determinate human superior who receives habitual obedience and owes it to no one else. Law, for him, is the sovereign's command.",
+  "why_wrong": {
+   "0": "Harold Laski was the leading pluralist and a critic of exactly this theory.",
+   "1": "J. A. Hobson wrote on imperialism and economics.",
+   "3": "MacIver was a sociologist who also criticised the monistic view and distinguished the State from society."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|8",
+  "approved": false,
+  "why_correct": "The external aspect of sovereignty is independence from foreign control, meaning the State is free to conduct its own affairs and is not subject to any other State.",
+  "why_wrong": {
+   "0": "Law-making power is internal, exercised over the State's own people and territory.",
+   "1": "Taxation is likewise an internal power.",
+   "3": "Judicial authority is internal too. The division is simply direction: inward over its own subjects, outward against other States."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|9",
+  "approved": false,
+  "why_correct": "The Force Theory holds that the State originated in conquest, the strong subduing the weak and imposing their rule. War, said the theory's critics, made the king and the king made war.",
+  "why_wrong": {
+   "0": "Origin from the family is the Evolutionary or Patriarchal theory.",
+   "1": "Creation by divine command is the Divine Origin Theory.",
+   "3": "Gradual evolution is again the Evolutionary Theory, which is the modern and most accepted explanation."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|10",
+  "approved": false,
+  "why_correct": "Sir Henry Maine is the chief exponent of the Evolutionary Theory, tracing the growth of the State from family to gens, tribe and finally State, and describing the movement from status to contract.",
+  "why_wrong": {
+   "1": "Rousseau is a social contract theorist.",
+   "2": "Austin gave the legal theory of sovereignty, not an account of the State's origin.",
+   "3": "Bodin first systematised the concept of sovereignty in the sixteenth century."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|11",
+  "approved": false,
+  "why_correct": "Locke supported limited government. He held that people surrender only some rights, that the government is a trustee bound by natural law, and that people may resist it if it breaks the trust.",
+  "why_wrong": {
+   "0": "Hobbes argued for an absolute sovereign, since only unlimited power could prevent a return to the war of all against all.",
+   "2": "Mussolini founded fascism, which subordinates the individual entirely to the State.",
+   "3": "Austin's sovereign is legally unlimited and subject to no restraint. Hobbes and Locke are the pair to keep straight: both use the contract, but reach opposite conclusions about how much power the ruler should have."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|12",
+  "approved": false,
+  "why_correct": "Popular sovereignty means that ultimate authority rests with the people, from whom all governmental power is derived. The Indian Constitution opens with We, the people of India, on that principle.",
+  "why_wrong": {
+   "0": "Sovereignty in the king is monarchical sovereignty, defended by the divine right theory.",
+   "2": "Sovereignty in Parliament alone is legal sovereignty, as in the British doctrine. Popular sovereignty lies behind it, since Parliament is elected.",
+   "3": "Sovereignty in the military describes a dictatorship, which is the negation of the idea."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|13",
+  "approved": false,
+  "why_correct": "The Divine Origin Theory rests on faith rather than evidence. It cannot be tested historically, and it was largely abandoned once the Reformation, the rise of science and democratic ideas undermined it.",
+  "why_wrong": {
+   "0": "The Evolutionary Theory is supported by anthropological and historical evidence of tribal societies developing into States.",
+   "1": "The Force Theory has considerable historical support, since many States were indeed founded by conquest.",
+   "3": "The Social Contract Theory is criticised as unhistorical, which makes it a fair guess, but it is at least argued from reason rather than from faith."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|14",
+  "approved": false,
+  "why_correct": "Hegel regarded the State as an ethical institution, the highest expression of the moral idea, in which the individual realises true freedom. His idealism was later developed by T. H. Green and Bosanquet.",
+  "why_wrong": {
+   "1": "Locke saw the State as a limited trustee for protecting life, liberty and property.",
+   "2": "Bentham was a utilitarian and judged the State by whether it produced the greatest happiness of the greatest number.",
+   "3": "Laski was a pluralist who denied the State any such moral supremacy over other associations."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|15",
+  "approved": false,
+  "why_correct": "Political sovereignty in a democracy rests with the electorate, the body of voters behind the legal sovereign. Their verdict at elections is the power that legal authority must ultimately answer to.",
+  "why_wrong": {
+   "1": "The army is subordinate to civilian authority in a democracy.",
+   "2": "The bureaucracy executes policy but does not make or legitimise it.",
+   "3": "The judiciary interprets the law. Legal sovereignty lies with the law-making body and political sovereignty behind it with the voters, and that pairing is what the question tests."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|16",
+  "approved": false,
+  "why_correct": "Sovereignty is inalienable, meaning it cannot be given away, and territory is not one of its characteristics at all. Transferability of territory is therefore not a feature of sovereignty.",
+  "why_wrong": {
+   "0": "Permanence is a genuine feature: sovereignty lasts as long as the State does, whoever governs.",
+   "1": "Absoluteness is a feature in the monistic theory, meaning the sovereign is subject to no higher legal power.",
+   "2": "Universality within the territory is a feature, since sovereignty extends over every person and association inside the State. Alongside these go indivisibility, inalienability and exclusiveness."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|17",
+  "approved": false,
+  "why_correct": "Locke wrote to justify constitutional, limited government, and his Two Treatises defended the English Glorious Revolution of 1688. His ideas later shaped the American Declaration of Independence.",
+  "why_wrong": {
+   "0": "Absolute monarchy is what Hobbes's version of the contract justified, and what Locke was arguing against.",
+   "2": "Military rule finds no support anywhere in Locke.",
+   "3": "Theocracy is government by religious authority, which Locke opposed in his Letter Concerning Toleration."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|18",
+  "approved": false,
+  "why_correct": "Aristotle defined the State in his Politics as a union of families and villages having for its end a perfect and self-sufficing life. He held that the State comes into being for life and continues for the good life.",
+  "why_wrong": {
+   "1": "Plato described an ideal state in The Republic built on justice and the division of classes, but this definition is Aristotle's.",
+   "2": "Rousseau wrote of the general will and the social contract.",
+   "3": "T. H. Green defined the State as removing hindrances to the good life, which is a related idea from a much later idealist."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|19",
+  "approved": false,
+  "why_correct": "The Divine Origin Theory supported absolute monarchy, since a king who ruled by God's will was answerable to God alone and could not be resisted or judged by his subjects.",
+  "why_wrong": {
+   "0": "Democracy rests on popular sovereignty, which is the opposite claim.",
+   "1": "Constitutionalism means limited government under law, which divine right rejects.",
+   "3": "Socialism concerns economic organisation and arose centuries later. James I of England and Louis XIV of France are the standard examples of rulers who invoked the theory."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|20",
+  "approved": false,
+  "why_correct": "Commercial sovereignty is not a recognised form. The forms discussed in political science are legal, political, popular, de jure, de facto and titular sovereignty.",
+  "why_wrong": {
+   "0": "Legal sovereignty is the authority recognised by law to issue commands.",
+   "1": "Political sovereignty is the power behind the legal sovereign, in modern States the electorate.",
+   "2": "Popular sovereignty is the doctrine that ultimate authority rests with the people. Trade and commerce are regulated by a sovereign State, but they are not a kind of sovereignty."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|21",
+  "approved": false,
+  "why_correct": "Austin held that in every political society there is a determinate human superior who receives habitual obedience from the bulk of the people and renders obedience to no one. That obedience is the mark of sovereignty.",
+  "why_wrong": {
+   "1": "People's participation belongs to popular sovereignty, and Austin's theory is legal rather than democratic.",
+   "2": "Group autonomy is the pluralist position, framed in opposition to Austin.",
+   "3": "International cooperation limits sovereignty in practice, and Austin's theory makes no room for it. His three key terms are determinate, habitual obedience and legally unlimited."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|22",
+  "approved": false,
+  "why_correct": "The chief criticism of Hobbes is that his contract justifies absolute authority. People surrender all their rights irrevocably to a sovereign who is party to no agreement, leaving them no right of resistance however tyrannical he becomes.",
+  "why_wrong": {
+   "0": "Hobbes does not promote democracy. He preferred monarchy as the most effective form of absolute rule.",
+   "2": "He does not oppose sovereignty; he makes it unlimited.",
+   "3": "Pluralism is the opposite of his position, which concentrates all authority in one sovereign."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|23",
+  "approved": false,
+  "why_correct": "Harold Laski was the strongest critic of the monistic theory. He argued that the State is only one association among many and has no moral right to unlimited obedience, and that in reality power is federal and divided.",
+  "why_wrong": {
+   "0": "Bodin founded the monistic theory in the sixteenth century.",
+   "1": "Austin gave it its classic legal statement.",
+   "3": "Hobbes gave it its philosophical defence. The other three built the theory; Laski attacked it."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|24",
+  "approved": false,
+  "why_correct": "The evolutionary explanation holds that the State grew gradually out of the family, kinship, religion, war and political consciousness working together over long ages. It is the explanation historians and anthropologists accept.",
+  "why_wrong": {
+   "0": "Creation in a single event describes the social contract theory, and evolution denies any such founding moment.",
+   "2": "Foundation by God is the divine origin theory.",
+   "3": "Military conquest alone is the force theory. Force did play a part in evolution, but as one factor among several rather than the whole explanation."
+  }
+ },
+ {
+  "id": "XI|Arts|Political Science|25",
+  "approved": false,
+  "why_correct": "Jean Bodin first gave a systematic account of sovereignty in his Six Books of the Commonwealth in 1576, defining it as supreme power over citizens and subjects, unrestrained by law.",
+  "why_wrong": {
+   "1": "Aristotle wrote on the State and its forms but had no developed concept of sovereignty, which is a modern idea tied to the nation-state.",
+   "2": "Marx analysed the State in class terms in the nineteenth century.",
+   "3": "T. H. Green was a nineteenth-century idealist. The sequence to remember runs Bodin, then Hobbes, then Austin."
   }
  },
  {

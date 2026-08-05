@@ -1,0 +1,212 @@
+[
+ {
+  "id": "XI|Arts|History|1",
+  "approved": false,
+  "why_correct": "Dendrochronology is the study of tree rings, so it works on the remains of plants. Each year a tree adds a ring, and their widths give both a date and a record of past climate.",
+  "why_wrong": {
+   "0": "Furniture may be dated by the method, but only because it is made of wood, so the material studied is still the plant.",
+   "1": "Animal remains are dated by other means, such as radiocarbon dating of bone.",
+   "2": "Pottery is dated by thermoluminescence or by its style and stratigraphy. The clue is in the name: dendron is Greek for tree."
+  }
+ },
+ {
+  "id": "XI|Arts|History|3",
+  "approved": false,
+  "why_correct": "The Mesopotamians invented writing first, developing cuneiform in Sumer around 3400 BCE. It began as pictographic records of grain and cattle pressed into clay with a reed stylus.",
+  "why_wrong": {
+   "1": "The Harappan script appeared around 2600 BCE, later than cuneiform, and it remains undeciphered.",
+   "2": "Egyptian hieroglyphs appeared around 3200 BCE, close behind Mesopotamia but not first. These two are the pair to keep in order.",
+   "3": "Mayan writing developed in Central America much later, in the first millennium BCE."
+  }
+ },
+ {
+  "id": "XI|Arts|History|4",
+  "approved": false,
+  "why_correct": "Quintus Curtius Rufus, a Roman historian of the first century, wrote the Historiae Alexandri Magni, which covers Alexander's campaigns including his invasion of India and the battle against Porus.",
+  "why_wrong": {
+   "0": "Herodotus is the father of history but wrote of the Persian Wars, a century before Alexander was born.",
+   "1": "Plato was a philosopher, and he died before Alexander's campaigns began.",
+   "3": "Homer composed the Iliad and Odyssey, epics of the legendary Trojan War, centuries earlier."
+  }
+ },
+ {
+  "id": "XI|Arts|History|6",
+  "approved": false,
+  "why_correct": "Statements two and four are true and one and three are false. Marx did urge intellectuals to join the working-class movement, and he interpreted history materially, through the economic base of society.",
+  "why_wrong": {
+   "0": "This makes statement one true, but Marx understood society from below, starting from the material conditions of production and the working class, not from above.",
+   "1": "This adds statement three, but Marx was a critic of imperialism, not a champion of empire building.",
+   "2": "This option lists statement four as both true and false, so it contradicts itself. Read each of the four statements against what you know before matching them to an option."
+  }
+ },
+ {
+  "id": "XI|Arts|History|7",
+  "approved": false,
+  "why_correct": "Of the four travellers, Fa-Hien came earliest. The Chinese pilgrim visited India in the early fifth century, during the reign of Chandragupta II, and recorded what he saw in his account of the Buddhist kingdoms.",
+  "why_wrong": {
+   "0": "Jean-Baptiste Tavernier was a French jeweller who travelled in India in the seventeenth century, under the Mughals, so he is the latest of the four.",
+   "1": "Taranath was a Tibetan Buddhist historian of the sixteenth and seventeenth centuries.",
+   "3": "Hiuen-Tsang came in the seventh century, during Harsha's reign, two hundred years after Fa-Hien. The two Chinese pilgrims are often confused, and Fa-Hien is the earlier."
+  }
+ },
+ {
+  "id": "XI|Arts|History|8",
+  "approved": false,
+  "why_correct": "The Euphrates formed the traditional frontier between the Roman empire and the Iranian empires, first Parthian and later Sasanian. Control of the crossings was fought over for centuries.",
+  "why_wrong": {
+   "0": "The Danube was Rome's northern frontier, against the Germanic peoples.",
+   "1": "The Nile flows through Egypt, which was a Roman province rather than a border with Iran.",
+   "3": "The Tigris is the other great Mesopotamian river and lies further east, well inside Iranian territory for most of this period."
+  }
+ },
+ {
+  "id": "XI|Arts|History|9",
+  "approved": false,
+  "why_correct": "All three worked together. Pressure on the frontiers and barbarian invasion strained the army, internal corruption weakened government, and economic trouble with debased coinage and inflation undermined the whole structure.",
+  "why_wrong": {
+   "0": "External pressure was severe, but the empire had survived invasions before when it was internally sound.",
+   "1": "Internal mismanagement mattered greatly, but by itself it does not explain the collapse.",
+   "2": "Economic troubles were serious, especially the debasement of the currency. Historians treat the decline as a case of several causes reinforcing one another, which is why all of the above is right."
+  }
+ },
+ {
+  "id": "XI|Arts|History|10",
+  "approved": false,
+  "why_correct": "All three mention slavery. Hammurabi's Code regulates the treatment of slaves in Babylon, Homer's epics describe captives taken in war, and the Twelve Tables set out the legal position of slaves in early Rome.",
+  "why_wrong": {
+   "0": "The Code of Hammurabi does deal with slaves, but so do the others.",
+   "1": "The Iliad and the Odyssey are full of slaves and war captives.",
+   "2": "The Twelve Tables likewise cover them. The point the question makes is that slavery was near universal in the ancient world, which is why every one of these sources touches on it."
+  }
+ },
+ {
+  "id": "XI|Arts|History|11",
+  "approved": false,
+  "why_correct": "Vespasian began the Colosseum around 72 CE, and it was completed under his son Titus in 80 CE. Its formal name, the Flavian Amphitheatre, comes from their dynasty.",
+  "why_wrong": {
+   "0": "Nero built the Golden House on the same site, and the Colosseum was deliberately raised over its lake as a gift back to the people.",
+   "1": "Trajan built the forum and column that bear his name, a generation later.",
+   "2": "Augustus was the first emperor, a century earlier, and is remembered for saying he found Rome brick and left it marble."
+  }
+ },
+ {
+  "id": "XI|Arts|History|12",
+  "approved": false,
+  "why_correct": "Menander I, known in Indian sources as Milinda, is credited with the first gold coins issued in India. He ruled the largest of the Indo-Greek kingdoms and appears in the Buddhist text Milindapanha, which records his dialogue with the monk Nagasena.",
+  "why_wrong": {
+   "0": "Antimachus I was an earlier Indo-Greek ruler, known for his silver coinage and his portrait with a distinctive hat.",
+   "1": "Demetrius I extended Greek rule into north-west India and is shown wearing an elephant-scalp headdress, but the gold issue is credited to Menander.",
+   "3": "Apollodotus I ruled in the same region and issued bilingual silver coins in Greek and Kharosthi."
+  }
+ },
+ {
+  "id": "XI|Arts|History|13",
+  "approved": false,
+  "why_correct": "Sparta and Athens were the two great city-states of ancient Greece, so statements one and two are true. Milan and Venice are Italian cities of a much later age, so three and four are false.",
+  "why_wrong": {
+   "1": "This reverses the truth, making the Greek cities false and the Italian ones Greek.",
+   "2": "Venice is not a Greek city-state, and Athens certainly is.",
+   "3": "Milan is not a Greek city-state, and Athens again is. Athens and Sparta are the two whose rivalry produced the Peloponnesian War, which fixes them firmly in Greece."
+  }
+ },
+ {
+  "id": "XI|Arts|History|15",
+  "approved": false,
+  "why_correct": "Both statements are true and the reason does explain the assertion. Augustus ended a century of civil war, established the Pax Romana and presided over a flowering of literature and building, which is precisely why his age is called golden.",
+  "why_wrong": {
+   "0": "The assertion is correct, so this option fails at the first step.",
+   "2": "Both are indeed correct, but this option stops short of saying the reason explains the assertion, and it plainly does. In assertion-reason questions the more precise correct option is the answer.",
+   "3": "The reason is correct, not incorrect. Peace and stability after the civil wars are exactly what made the age prosperous."
+  }
+ },
+ {
+  "id": "XI|Arts|History|16",
+  "approved": false,
+  "why_correct": "The passage says revolts were rare while escape was common, so slaves in ancient Greece preferred individual escape to collective rebellion. Scattered across many small households, they had little chance to organise together.",
+  "why_wrong": {
+   "0": "The passage says the opposite, that organised revolt was rare.",
+   "2": "Contentment cannot be inferred from escape. Fleeing shows discontent, not satisfaction.",
+   "3": "The passage states that slaves fled to obtain freedom, so the desire for it was clearly present. Answer a case-based question from the passage itself rather than from general knowledge."
+  }
+ },
+ {
+  "id": "XI|Arts|History|17",
+  "approved": false,
+  "why_correct": "Aristotle wrote the Politics, in which he classified constitutions and called man a political animal. He also wrote the Nicomachean Ethics and the Poetics.",
+  "why_wrong": {
+   "0": "Thucydides wrote the History of the Peloponnesian War.",
+   "1": "Herodotus wrote the Histories, on the Persian Wars.",
+   "2": "Plato wrote The Republic and The Laws, which are also political works. Plato and Aristotle are teacher and pupil, and matching each to his titles is what the question tests."
+  }
+ },
+ {
+  "id": "XI|Arts|History|18",
+  "approved": false,
+  "why_correct": "Cleisthenes is called the father of Athenian democracy. His reforms of 508 BCE reorganised the citizens into ten tribes cutting across old family loyalties, and gave real power to the assembly.",
+  "why_wrong": {
+   "0": "Aristotle analysed democracy as a philosopher and was in fact critical of it.",
+   "1": "Plato was hostile to democracy, having seen it condemn his teacher to death.",
+   "2": "Socrates was executed by the Athenian democracy in 399 BCE. Note that Solon's earlier reforms prepared the ground, but the title belongs to Cleisthenes."
+  }
+ },
+ {
+  "id": "XI|Arts|History|19",
+  "approved": false,
+  "why_correct": "The sixteen Mahajanapadas are listed in the Anguttara Nikaya, a Buddhist text in the Pali canon. Jain sources such as the Bhagavati Sutra give a similar list.",
+  "why_wrong": {
+   "0": "The Ramayana is an epic and does not give this administrative list.",
+   "2": "The Mahabharata is likewise epic rather than a record of the sixteen states.",
+   "3": "The Gita is a philosophical dialogue within the Mahabharata. The list comes from Buddhist literature, which places it in the sixth century BCE, exactly when these states existed."
+  }
+ },
+ {
+  "id": "XI|Arts|History|20",
+  "approved": false,
+  "why_correct": "Buddhist sources record both Bimbisara and Ajatashatru as lay followers of the Buddha. Bimbisara gave the Venuvana grove to the sangha, and Ajatashatru is said to have hosted the First Buddhist Council at Rajgir after the Buddha's death.",
+  "why_wrong": {
+   "0": "Mahavira was their contemporary, and Jain tradition also claims both kings, calling them Shrenika and Kunika. So this is not a baseless answer, and historians note that the two traditions compete for them. What the question asks for is the association recorded in the Buddhist canon, which is with the Buddha.",
+   "1": "Parshvanatha was the twenty-third Jain Tirthankara and lived some two hundred and fifty years before these kings, so he cannot have been their teacher.",
+   "3": "Both kings are firmly connected with the new religions of their day, so none of the above is wrong."
+  }
+ },
+ {
+  "id": "XI|Arts|History|21",
+  "approved": false,
+  "why_correct": "The Mauryan empire had its centre in Magadha, with its capital at Pataliputra on the Ganga. Magadha's iron, its fertile land and its river routes had already made it the strongest of the Mahajanapadas.",
+  "why_wrong": {
+   "0": "Malwa in central India was a province rather than the centre.",
+   "2": "Gandhara in the north-west was the frontier region, where Ashoka's inscriptions appear in Greek and Aramaic.",
+   "3": "Kashi was an earlier Mahajanapada, absorbed by Magadha during its rise."
+  }
+ },
+ {
+  "id": "XI|Arts|History|22",
+  "approved": false,
+  "why_correct": "Alexander fought Porus at the Battle of the Hydaspes in 326 BCE, on the river now called the Jhelum. Alexander won but was so impressed by Porus that he restored his kingdom to him.",
+  "why_wrong": {
+   "0": "The siege of Tyre in 332 BCE was in Phoenicia, on the Mediterranean coast.",
+   "1": "The Battle of Issus in 333 BCE was against Darius III of Persia.",
+   "2": "The Battle of Gaugamela in 331 BCE was the decisive defeat of Darius. All three came earlier, on Alexander's march east, and the Indian campaign is the last of them."
+  }
+ },
+ {
+  "id": "XI|Arts|History|23",
+  "approved": false,
+  "why_correct": "Statements two and three are true and one and four are false. The Smritishastras were composed in this age and Kalidasa wrote then, but the medium of Gupta literature was Sanskrit, not Pali, and Latin never reached India.",
+  "why_wrong": {
+   "0": "This makes statement one true, but Pali belongs to the earlier Buddhist literature, whereas the Gupta age is the great age of Sanskrit.",
+   "1": "This makes statement four true, but Latin was the language of Rome and had no currency in India.",
+   "2": "This again accepts statement four. The quickest way through is to spot that Latin in India is impossible, which eliminates every option that calls statement four true."
+  }
+ },
+ {
+  "id": "XI|Arts|History|25",
+  "approved": false,
+  "why_correct": "The passage states directly that the Ottoman emperors monitored their officials in order to maintain public welfare and progress. The answer to a case-based question must come from the passage itself.",
+  "why_wrong": {
+   "1": "Punishing corrupt officials would be a means of achieving the purpose, not the purpose itself, and the passage does not mention punishment.",
+   "2": "Increasing tax is not mentioned, and it would conflict with the stated aim of public welfare.",
+   "3": "Reducing administrative cost is not mentioned either. When a passage names the purpose in so many words, resist the option that sounds more sophisticated."
+  }
+ }
+]

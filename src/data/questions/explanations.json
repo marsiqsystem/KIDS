@@ -2205,6 +2205,1006 @@
   }
  },
  {
+  "id": "XI|Commerce|Accountancy|1",
+  "approved": false,
+  "why_correct": "Accounting is the process of identifying, recording, classifying and summarising financial transactions, and then communicating the results. Recording is the step the other three depend on.",
+  "why_wrong": {
+   "0": "Selling goods is a business activity. Accounting records the sale; it does not make it.",
+   "2": "Manufacturing is production. It creates transactions for accounting to record, but is not accounting itself.",
+   "3": "Advertising is marketing. Note the pattern: the three wrong options are all things a business does, while accounting is how a business keeps track of what it did."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|2",
+  "approved": false,
+  "why_correct": "The business entity concept treats the business as separate and distinct from its owner. That is why the owner's capital is shown as a liability of the business, and why drawings are recorded at all.",
+  "why_wrong": {
+   "0": "The money measurement concept says only what can be expressed in money is recorded, which is why staff morale never appears in the books.",
+   "2": "The cost concept records assets at their purchase price rather than their market value.",
+   "3": "The going concern concept assumes the business will continue for the foreseeable future, which is what justifies spreading an asset's cost over its life."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|3",
+  "approved": false,
+  "why_correct": "The journal is the book of original entry, where a transaction is recorded first, in date order, with its debit and credit. Only afterwards is it posted to the ledger.",
+  "why_wrong": {
+   "0": "The ledger is the book of final entry, holding the accounts to which journal entries are posted.",
+   "2": "The cash book is a subsidiary book for cash and bank transactions, and it does record them first. But it covers only one kind of transaction, whereas the journal is the general first record.",
+   "3": "The trial balance is not a book of entry at all. It is a statement drawn up from the ledger to test the arithmetic."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|4",
+  "approved": false,
+  "why_correct": "Debit the receiver, credit the giver is the golden rule for personal accounts, which are the accounts of persons, firms and institutions the business deals with.",
+  "why_wrong": {
+   "0": "For real accounts the rule is debit what comes in, credit what goes out.",
+   "2": "For nominal accounts the rule is debit all expenses and losses, credit all incomes and gains.",
+   "3": "Cash account is a real account, since cash is a thing rather than a person, so it follows the comes in and goes out rule."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|5",
+  "approved": false,
+  "why_correct": "The accounting equation is Assets equal Liabilities plus Capital. Everything the business owns has been financed either by outsiders, which is liabilities, or by the owner, which is capital.",
+  "why_wrong": {
+   "0": "Expenses reduce profit and so ultimately reduce capital. They are not a separate source of finance.",
+   "1": "Revenue increases capital through profit, but it is a flow over a period rather than a balance at a point in time.",
+   "3": "Profit is part of capital rather than a term alongside it, since undrawn profit is simply added to the owner's capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|6",
+  "approved": false,
+  "why_correct": "The trial balance checks the arithmetical accuracy of the ledger, by testing that total debits equal total credits. It confirms the books balance.",
+  "why_wrong": {
+   "0": "Profit is found from the trading and profit and loss account, which is prepared after the trial balance.",
+   "1": "The cash balance comes from the cash book and appears as one line in the trial balance, not as its purpose.",
+   "3": "Sales is likewise only one figure within it. Note the limit of the check: a transaction entered in the wrong account, or omitted entirely, still leaves the trial balance agreeing."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|7",
+  "approved": false,
+  "why_correct": "Goods bought with the intention of reselling them are stock, also called inventory or goods. Unsold stock at the year end appears as a current asset.",
+  "why_wrong": {
+   "0": "Assets is too broad. Stock is one kind of asset, but so are buildings and debtors, and the question asks for the specific term.",
+   "2": "Furniture bought for use in the business is a fixed asset. The same furniture bought by a furniture dealer for resale would be stock, which shows that the purpose decides the classification.",
+   "3": "Investments are made to earn income, not to be resold as part of the trade."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|8",
+  "approved": false,
+  "why_correct": "A bank overdraft means the business has drawn more from the bank than it had, so it owes the bank that amount. It is a current liability.",
+  "why_wrong": {
+   "0": "A favourable bank balance is an asset, but an overdraft is the opposite: the bank account has a credit balance in the firm's books.",
+   "2": "It is not income. No revenue has been earned by borrowing.",
+   "3": "The interest on an overdraft is an expense, but the overdraft itself is the amount owed, which is a liability."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|9",
+  "approved": false,
+  "why_correct": "Depreciation is the systematic allocation of the cost of a fixed asset over its useful life, so it is charged on fixed assets such as machinery, buildings and vehicles.",
+  "why_wrong": {
+   "0": "Current assets are held for a short period and are not depreciated. Debtors may be reduced by a provision for doubtful debts, but that is not depreciation.",
+   "2": "Cash does not wear out or become obsolete, so it cannot be depreciated.",
+   "3": "Stock is valued at cost or net realisable value, whichever is lower. A fall in its value is a valuation adjustment, not depreciation. Land is the one fixed asset normally excepted, since it has no limited life."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|10",
+  "approved": false,
+  "why_correct": "Outstanding expenses are expenses incurred but not yet paid, such as rent due at the year end. The business owes them, so they are a liability.",
+  "why_wrong": {
+   "0": "Prepaid expenses are the asset, being amounts paid in advance for a benefit still to come. Outstanding is the mirror image.",
+   "1": "Outstanding expenses are not income. They reduce profit rather than increase it.",
+   "3": "They are owed to outsiders, not to the owner, so they are a liability rather than capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|11",
+  "approved": false,
+  "why_correct": "The cost concept, or historical cost concept, requires assets to be recorded at the price actually paid for them, not at market value. It keeps the accounts objective and verifiable.",
+  "why_wrong": {
+   "0": "The matching concept requires expenses to be matched with the revenues they helped earn in the same period.",
+   "2": "The dual aspect concept says every transaction has two effects, and it is the basis of double entry.",
+   "3": "The going concern concept assumes the business will continue, which is part of why historical cost is acceptable, but it is not the rule about purchase price."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|12",
+  "approved": false,
+  "why_correct": "Depositing cash into the bank is a contra entry, affecting both cash and bank, and both columns sit in the cash book. It is marked with a C in the ledger folio column.",
+  "why_wrong": {
+   "0": "The purchase book records only credit purchases of goods.",
+   "1": "The sales book records only credit sales of goods.",
+   "3": "Journal proper records the entries that fit no subsidiary book, such as opening and closing entries. A contra entry has its own home in the cash book."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|13",
+  "approved": false,
+  "why_correct": "Capital is what the business owes its owner, so it is a liability of the business and normally carries a credit balance. Profits increase it and drawings reduce it.",
+  "why_wrong": {
+   "0": "A debit balance on capital would mean the owner owes the business, which happens only when losses and drawings have exceeded the capital introduced.",
+   "2": "A nil balance would mean the owner had no stake at all.",
+   "3": "Temporary balance is not a category. Capital is a permanent account, carried forward from year to year, unlike nominal accounts which are closed off each year."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|14",
+  "approved": false,
+  "why_correct": "One asset is exchanged for another. Furniture comes in and is debited, cash goes out and is credited, so furniture increases and cash decreases. The total of assets is unchanged.",
+  "why_wrong": {
+   "0": "Both cannot increase. The cash used to buy the furniture has left the business.",
+   "2": "Capital is unaffected, because nothing has been earned or introduced and nothing withdrawn.",
+   "3": "Liabilities would rise only if the furniture were bought on credit. Here it is paid for in cash."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|15",
+  "approved": false,
+  "why_correct": "Debtors are people who owe the business money for goods sold on credit, and they are expected to pay within the operating cycle. That short life is what makes them a current asset.",
+  "why_wrong": {
+   "0": "A building is a fixed asset, held for long-term use in the business.",
+   "1": "Machinery is likewise fixed, bought to be used rather than converted into cash.",
+   "3": "Land is a fixed asset too. The test is whether the asset is expected to be turned into cash within a year, and only debtors are."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|16",
+  "approved": false,
+  "why_correct": "Drawings are cash or goods taken by the owner for personal use, so they reduce the owner's stake in the business. Drawings are deducted from capital.",
+  "why_wrong": {
+   "0": "Assets do fall when cash is drawn out, so this is half true. But the question asks what drawings reduce in the accounting sense, and the matching reduction is in capital.",
+   "2": "Liabilities are amounts owed to outsiders and are untouched by the owner's withdrawals.",
+   "3": "Sales are unaffected. Goods taken by the owner are treated as drawings, not as a sale."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|17",
+  "approved": false,
+  "why_correct": "Buying goods on credit increases purchases, which is debited, and creates an amount owed to the supplier, so creditors are credited. No cash moves at the time.",
+  "why_wrong": {
+   "1": "Cash and purchases would be affected in a cash purchase. The word credit in the question is what rules this out.",
+   "2": "Sales and debtors are affected by a credit sale, which is the mirror transaction from the other side.",
+   "3": "Capital and cash are not involved. Capital changes only through profit, further investment or drawings."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|18",
+  "approved": false,
+  "why_correct": "Profit is the excess of income over expenses for a period. If expenses exceed income the result is a loss instead.",
+  "why_wrong": {
+   "0": "Loss is the opposite case, where expenses exceed income.",
+   "1": "Capital is the owner's stake, a balance at a point in time. Profit is added to it, but the two are not the same.",
+   "3": "An asset is a resource owned. Profit is a result of trading, not a resource."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|19",
+  "approved": false,
+  "why_correct": "Carriage paid to bring purchased goods into the business is carriage inward. It is a direct expense and is debited to the trading account, because it is part of the cost of getting the goods ready for sale.",
+  "why_wrong": {
+   "0": "Carriage outward is the cost of delivering goods to customers, and it goes to the profit and loss account as a selling expense. Inward against outward is exactly what this question tests.",
+   "1": "Freight income would be money earned from carrying goods for others, which is the opposite of paying it.",
+   "3": "Commission is a payment for services such as arranging a sale, not for transport."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|20",
+  "approved": false,
+  "why_correct": "Rent received is an income, and the nominal account rule is to credit all incomes and gains. So the rent account is credited while cash or bank is debited.",
+  "why_wrong": {
+   "1": "The cash account is debited, not credited, because cash has come in.",
+   "2": "Capital is not credited directly. The income raises profit, and profit is transferred to capital only at the year end.",
+   "3": "Drawings concern amounts taken out by the owner and have nothing to do with rent received."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|21",
+  "approved": false,
+  "why_correct": "Debtors are customers who owe money to the business, so they are an asset, not a liability. The other three are all amounts the business owes.",
+  "why_wrong": {
+   "0": "Creditors are suppliers the business owes money to, which is a liability.",
+   "1": "A bank loan is money borrowed and repayable, so it is a liability.",
+   "3": "Outstanding expenses are incurred but unpaid, so they too are owed. Debtors and creditors are the pair most often swapped: debtors owe you, you owe creditors."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|22",
+  "approved": false,
+  "why_correct": "The trial balance is prepared from the balances of the ledger accounts, listing each as either a debit or a credit. That is why it tests whether the ledger balances.",
+  "why_wrong": {
+   "0": "The journal is the first record, but entries must be posted to the ledger and balanced before a trial balance can be drawn up.",
+   "2": "The cash book alone would give only cash and bank balances, missing every other account.",
+   "3": "The balance sheet is prepared after the trial balance, not before, so it cannot be its source."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|23",
+  "approved": false,
+  "why_correct": "Salary is a cost incurred to earn revenue in the period, so it is an expense and is debited to the profit and loss account.",
+  "why_wrong": {
+   "0": "It is not an asset, because no future benefit remains once the work has been done and paid for.",
+   "2": "Salary that has been paid is not a liability. Only unpaid salary at the year end is shown as outstanding salary, which is a liability.",
+   "3": "Income is money coming in. Salary paid is money going out."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|24",
+  "approved": false,
+  "why_correct": "Real accounts are accounts of assets and properties, and machinery is a tangible asset. Real accounts are not closed at the year end but carried forward.",
+  "why_wrong": {
+   "0": "Ram's account is a personal account, since it belongs to a person.",
+   "1": "Salary account is a nominal account, being an expense.",
+   "3": "Capital account is a personal account, representing the owner. The three types are worth sorting by test: a person, a thing, or an expense or income."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|25",
+  "approved": false,
+  "why_correct": "Ledger accounts are balanced at the end of the accounting period, so that the balances can be taken into the trial balance and then the final accounts.",
+  "why_wrong": {
+   "0": "Balancing after each transaction would be pointless labour, and the running balance is visible in the account anyway.",
+   "2": "Weekly balancing is not a requirement. Some businesses balance the cash book more often for control, but that is practice, not principle.",
+   "3": "Daily balancing is again done only for cash in some firms. The accounting period is what governs the ledger as a whole."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|1",
+  "approved": false,
+  "why_correct": "Business activity is undertaken with the object of earning profit through the production or exchange of goods and services. The profit motive is what defines it.",
+  "why_wrong": {
+   "0": "Social activity is carried on for the welfare of society, without a profit motive.",
+   "1": "Personal activity is done to satisfy one's own needs, such as cooking a meal at home.",
+   "3": "Religious activity is undertaken for spiritual satisfaction. All three of these are non-economic activities, which is the contrast being drawn."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|2",
+  "approved": false,
+  "why_correct": "An economic activity is one performed to earn a livelihood. Teaching for a salary is done for money, so it is economic, and it falls under employment.",
+  "why_wrong": {
+   "0": "Playing cricket for enjoyment brings no income and is non-economic. Playing it professionally would be a different matter, which shows that the motive decides.",
+   "2": "Watching television is done for recreation.",
+   "3": "Singing for fun brings no earnings. Singing for a fee would be economic."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|3",
+  "approved": false,
+  "why_correct": "Profit is the reward for bearing business risk. It is uncertain, unlike the other returns, precisely because the risk may not come off.",
+  "why_wrong": {
+   "0": "Salary is the reward for labour, paid to employees whether the business does well or badly.",
+   "1": "Interest is the reward for capital lent, fixed in advance and payable regardless of profit.",
+   "2": "Rent is the reward for land or property. Each factor of production has its own reward, and the entrepreneur's is profit because only the entrepreneur carries the risk."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|4",
+  "approved": false,
+  "why_correct": "Helping a friend voluntarily brings no monetary reward and is undertaken out of affection, so it is a non-economic activity.",
+  "why_wrong": {
+   "0": "Running a shop is a business activity carried on for profit.",
+   "1": "Teaching in school for a salary is employment, and therefore economic.",
+   "3": "Working in a bank is employment too. The test in every case is whether money is earned, and only voluntary help fails it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|5",
+  "approved": false,
+  "why_correct": "Trade means the buying and selling of goods and services. It is the part of commerce that actually transfers ownership, and it removes the hindrance of persons.",
+  "why_wrong": {
+   "0": "Manufacturing goods is industry, which creates the goods that trade then moves.",
+   "2": "Transporting goods is an auxiliary to trade, removing the hindrance of place, but it is not trade itself.",
+   "3": "Advertising is also an auxiliary, removing the hindrance of information."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|6",
+  "approved": false,
+  "why_correct": "Commerce is the whole of trade together with the auxiliaries to trade, that is transport, banking, insurance, warehousing and advertising. Trade moves the goods, and the auxiliaries make that movement possible.",
+  "why_wrong": {
+   "1": "Agriculture is a genetic and extractive industry, part of industry rather than of commerce.",
+   "2": "Industry produces the goods. Industry and commerce are the two branches of business, not the same thing.",
+   "3": "Mining is one kind of extractive industry, so it too belongs under industry."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|7",
+  "approved": false,
+  "why_correct": "Banking is an auxiliary to trade. It removes the hindrance of finance by providing funds and by making payment between distant buyers and sellers possible.",
+  "why_wrong": {
+   "0": "Manufacturing is a secondary industry, producing goods rather than assisting their exchange.",
+   "2": "Mining is an extractive industry.",
+   "3": "Farming is a genetic or extractive industry. The five auxiliaries worth remembering are transport, banking, insurance, warehousing and advertising."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|8",
+  "approved": false,
+  "why_correct": "Industry is concerned with the production of goods, including converting raw materials into finished goods. That conversion is the work of manufacturing industry in particular.",
+  "why_wrong": {
+   "0": "Trade is the buying and selling of what has already been produced.",
+   "2": "Commerce is trade plus its auxiliaries, and it distributes goods rather than making them.",
+   "3": "Transport moves goods from place to place without changing their form."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|9",
+  "approved": false,
+  "why_correct": "Extractive industries draw out products from the soil, air, water or beneath the earth, such as mining, fishing and quarrying. They supply raw materials to other industries.",
+  "why_wrong": {
+   "0": "Genetic industries breed and multiply plants and animals, such as nurseries and poultry farms. They reproduce rather than extract.",
+   "1": "Manufacturing industries convert raw materials into finished products.",
+   "3": "Construction industries build structures such as roads, dams and buildings, and their output cannot be carried to a market."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|10",
+  "approved": false,
+  "why_correct": "A warehouse receipt is the document issued by a warehouse acknowledging that goods have been received and are being held in storage. It is a document of title and can be used to obtain a loan against the goods.",
+  "why_wrong": {
+   "0": "A cheque is an order to a bank to pay money.",
+   "1": "A receipt in the general sense acknowledges money received, not goods stored.",
+   "3": "An invoice is issued by a seller to a buyer listing goods sold and the amount due."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|11",
+  "approved": false,
+  "why_correct": "A sole proprietorship is owned, managed and controlled by one person, who takes all the profit and bears all the loss. It is the oldest and simplest form of business organisation.",
+  "why_wrong": {
+   "0": "A partnership needs at least two persons.",
+   "1": "A company needs at least two members for a private company and seven for a public one. A one person company does now exist in law, but it is a company form with its own rules, not what this question is contrasting.",
+   "3": "A cooperative society needs at least ten adult members."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|12",
+  "approved": false,
+  "why_correct": "A partnership requires a minimum of two partners, since it is by definition a relation between persons who have agreed to share the profits of a business.",
+  "why_wrong": {
+   "0": "One person alone is a sole proprietorship. There is no agreement to be made with oneself.",
+   "2": "Three is not the minimum, though many firms have more. The maximum is 50 under the current rules.",
+   "3": "Five is well above the minimum. Note that the minimum for a cooperative society is ten, which is the figure sometimes confused with this."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|13",
+  "approved": false,
+  "why_correct": "The liability of a sole proprietor is unlimited, so if the business assets are not enough to pay the debts, the owner's private property can be used. Business and owner are one in law.",
+  "why_wrong": {
+   "0": "Limited liability belongs to companies and to limited liability partnerships, where the owner risks only the amount invested.",
+   "2": "Fixed liability is not a legal category.",
+   "3": "There is certainly liability. Unlimited liability is the main disadvantage of the sole proprietorship, and the price paid for its simplicity."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|14",
+  "approved": false,
+  "why_correct": "The partnership deed is the written agreement among partners, setting out the profit sharing ratio, capital, duties and other terms. It is not compulsory but is strongly advisable.",
+  "why_wrong": {
+   "0": "The memorandum of association is a company document, defining its objects and its relations with the outside world.",
+   "1": "A prospectus is a company's invitation to the public to buy its shares.",
+   "3": "The articles of association are the company's internal rules. Three of the four options are company documents, so the partnership term is the odd one out."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|15",
+  "approved": false,
+  "why_correct": "A cooperative society is formed on a service motive, to promote the welfare of its members through mutual help rather than to maximise profit. One member has one vote, whatever the shareholding.",
+  "why_wrong": {
+   "0": "Profit maximisation is the aim of a company. A cooperative may earn a surplus, but that is not its purpose.",
+   "2": "Monopoly means sole control of a market, which is not an organising principle of a cooperative.",
+   "3": "Competition is the opposite of the cooperation the form is named for."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|16",
+  "approved": false,
+  "why_correct": "A company's capital is divided into shares of a fixed value, and each shareholder owns a part of the company in proportion to the shares held. Shares are transferable, which is one of the form's great advantages.",
+  "why_wrong": {
+   "0": "Bonds are borrowed money, not ownership.",
+   "2": "Debentures are also borrowings. A debenture holder is a creditor of the company, while a shareholder is an owner, and that is the distinction being tested.",
+   "3": "Loans are likewise borrowed funds and form part of debt capital, not share capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|17",
+  "approved": false,
+  "why_correct": "A company is an artificial person created by law, with a separate legal entity distinct from its members. It can own property, sue and be sued in its own name, and it has perpetual succession.",
+  "why_wrong": {
+   "0": "In a sole proprietorship the owner and the business are legally the same person.",
+   "1": "A partnership firm has no separate legal existence apart from its partners, which is why their liability is unlimited.",
+   "3": "A Joint Hindu Family business also has no separate legal entity. Separate legal entity is what makes limited liability possible."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|18",
+  "approved": false,
+  "why_correct": "The head of a Joint Hindu Family business is the Karta, normally the eldest male member. The Karta has full control and unlimited liability, while the other members are liable only to the extent of their share.",
+  "why_wrong": {
+   "0": "Partner is the term for a member of a partnership firm.",
+   "1": "Director is the term for a person managing a company.",
+   "3": "Manager is a general term for an employee in charge, not the legal head of this form."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|19",
+  "approved": false,
+  "why_correct": "Consumer forums, the district, state and national commissions set up under consumer protection law, hear complaints from consumers and give redress for defective goods and deficient services.",
+  "why_wrong": {
+   "0": "The Reserve Bank of India is the central bank, regulating currency, credit and the banking system.",
+   "2": "A stock exchange is a market for buying and selling securities.",
+   "3": "SEBI protects investors in the securities market. Investor protection and consumer protection are close in spirit but are separate bodies with separate laws."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|20",
+  "approved": false,
+  "why_correct": "E-business means conducting business over the internet and computer networks, covering online buying and selling as well as internal processes carried on electronically.",
+  "why_wrong": {
+   "0": "Traditional business is exactly what e-business is contrasted with, being carried on face to face and on paper.",
+   "2": "Manufacturing is a type of industry and can be done with or without the internet.",
+   "3": "Wholesale trade is a level of distribution, again independent of whether it is done online."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|21",
+  "approved": false,
+  "why_correct": "Insurance spreads risk across many people who face it, so that the loss falling on any one is compensated from the pooled premiums. It reduces the financial loss when the risk occurs.",
+  "why_wrong": {
+   "0": "Insurance does not itself increase production, though the confidence it gives may encourage investment.",
+   "1": "This is the important one. Insurance cannot eliminate risk. A fire is no less likely because a factory is insured; only its financial consequence is covered.",
+   "3": "Sales are not increased by insurance. Advertising and salesmanship do that."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|22",
+  "approved": false,
+  "why_correct": "Rail transport is best suited to heavy and bulky goods over long distances, being cheap per tonne-kilometre, reliable in all weather and able to carry very large loads.",
+  "why_wrong": {
+   "0": "Air transport is the fastest but by far the costliest, and it is limited in the weight it can carry. It suits light, valuable or perishable goods.",
+   "1": "Road transport is ideal for short distances and for door to door delivery, but it becomes expensive and slow for heavy loads over long hauls.",
+   "3": "Courier services handle small parcels and documents, not heavy freight."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|23",
+  "approved": false,
+  "why_correct": "Banks perform the financing function, accepting deposits and lending money, and so removing the hindrance of finance in trade. They also remit funds and provide overdraft and discounting facilities.",
+  "why_wrong": {
+   "0": "Manufacturing is done by industry.",
+   "1": "Transportation is a separate auxiliary to trade.",
+   "3": "Mining is an extractive industry. Banking is one of the five auxiliaries to trade, and finance is what it supplies."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|24",
+  "approved": false,
+  "why_correct": "Entrepreneurship is the act of taking the initiative to start and run a business, bringing together the other factors of production and bearing the risk and uncertainty involved.",
+  "why_wrong": {
+   "0": "Consumption is the using up of goods and services, which is what households do, not entrepreneurs.",
+   "2": "Government service is employment, where the reward is a salary and someone else carries the risk.",
+   "3": "Farming is one business among many. An entrepreneur may farm, but entrepreneurship is not limited to it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|25",
+  "approved": false,
+  "why_correct": "Profit is essential for survival and growth, but a business that ignores its customers will not keep earning it. The modern view is that the objective is profit together with customer satisfaction.",
+  "why_wrong": {
+   "0": "Entertainment may be a business, as with cinema, but it is not the objective of business in general.",
+   "1": "Social service alone is the aim of a charitable body, not of a business. A business does have social responsibilities, but it must also earn.",
+   "3": "Charity is giving without return, which no business could sustain indefinitely."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|1",
+  "approved": false,
+  "why_correct": "Cost is the amount of expenditure incurred on, or attributable to, producing a given thing. It measures what was spent to make the product, before any question of selling it arises.",
+  "why_wrong": {
+   "0": "Selling price is what the customer pays. It normally exceeds cost, and the difference is profit.",
+   "2": "Profit is selling price minus cost, so it is a result rather than the cost itself.",
+   "3": "Tax paid may form part of cost in some cases, but it is only one element and not the meaning of the word."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|2",
+  "approved": false,
+  "why_correct": "Cost is the total of all expenditure incurred in producing goods, taking in materials, labour and expenses, both direct and indirect.",
+  "why_wrong": {
+   "0": "Revenue is money received from selling goods, which is the inflow rather than the outflow.",
+   "2": "Income is what remains after costs are met, so it comes after cost, not instead of it.",
+   "3": "Capital is the money invested in the business by its owner, a source of funds rather than an expenditure on production."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|3",
+  "approved": false,
+  "why_correct": "Factory wages paid to workers who actually make the product can be traced directly to it, so they are a direct cost. Direct costs are those identifiable with a particular unit of output.",
+  "why_wrong": {
+   "0": "Office rent is incurred for the business as a whole and cannot be traced to any one product, so it is an indirect cost.",
+   "2": "Advertising benefits sales generally and is a selling overhead.",
+   "3": "Telephone charges serve the whole organisation. The test is always traceability: if you cannot say which unit it belongs to, it is indirect."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|4",
+  "approved": false,
+  "why_correct": "Indirect costs are collectively called overheads. They are grouped as factory, administration, and selling and distribution overheads, and they are apportioned to products rather than traced to them.",
+  "why_wrong": {
+   "0": "Prime cost is the total of the direct costs, so it is the opposite of overheads.",
+   "2": "Direct expenses are by definition traceable, and they form part of prime cost.",
+   "3": "Capital cost is expenditure on acquiring fixed assets, which is a different classification altogether."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|5",
+  "approved": false,
+  "why_correct": "Prime cost is direct material plus direct labour plus direct expenses. It is the first stage in building up total cost, and everything in it is directly traceable to the product.",
+  "why_wrong": {
+   "0": "Total cost is prime cost plus all the overheads, so it comes at the end of the build-up.",
+   "2": "Selling cost is one category of overhead, incurred after production.",
+   "3": "Fixed cost is a classification by behaviour, not by traceability. A cost can be both direct and variable, or indirect and fixed."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|6",
+  "approved": false,
+  "why_correct": "Fixed costs stay the same in total whatever the level of output, within a relevant range. Rent is the standard example: it is the same whether the factory makes one unit or a thousand.",
+  "why_wrong": {
+   "1": "Varying every month describes no particular category, and a fixed cost is fixed precisely because it does not vary with output.",
+   "2": "Fixed cost has nothing to do with profit and is not equal to it.",
+   "3": "Fixed costs are certainly not zero, and they must be paid even when production stops. Note that fixed cost per unit does fall as output rises, even though the total stays constant."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|7",
+  "approved": false,
+  "why_correct": "Raw material cost varies directly with the number of units produced. Make twice as many units and you need twice the material, which is exactly what makes a cost variable.",
+  "why_wrong": {
+   "0": "Rent is fixed, payable in the same amount however much is produced.",
+   "1": "A manager's salary is fixed, being paid monthly regardless of output.",
+   "3": "Insurance premium is fixed, agreed for the period in advance. Ask of each cost whether it would double if output doubled, and only raw material would."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|8",
+  "approved": false,
+  "why_correct": "A tax is a compulsory payment made to the government, without any direct return promised to the payer. Its compulsory nature is what distinguishes it.",
+  "why_wrong": {
+   "0": "A donation is voluntary, and no one can be prosecuted for not giving one.",
+   "2": "A loan must be repaid, and it is given by choice. Tax is neither.",
+   "3": "A subsidy is a payment by the government to a person or industry, so it flows the other way."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|9",
+  "approved": false,
+  "why_correct": "GST is Goods and Services Tax, a single indirect tax on the supply of both goods and services that replaced a whole set of central and state taxes.",
+  "why_wrong": {
+   "0": "General Sales Tax is not the expansion, and sales tax is in fact one of the taxes GST replaced.",
+   "2": "Government Service Tax is not a real tax. Service tax alone existed before GST and was subsumed into it.",
+   "3": "Gross Service Tax is likewise invented. The name matters because it shows GST covers goods and services together, which is the reform's whole point."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|10",
+  "approved": false,
+  "why_correct": "GST came into force in India on 1 July 2017, launched at a midnight session of Parliament. It replaced excise duty, service tax, VAT and several other levies.",
+  "why_wrong": {
+   "0": "2015 saw the Constitution Amendment Bill for GST introduced in the Lok Sabha, so preparation was under way, but the tax was not in force.",
+   "1": "2016 is when the Constitution 101st Amendment was passed, which made GST legally possible. Passing the amendment and starting the tax are a year apart, and that gap is the trap here.",
+   "3": "2018 is after the launch."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|11",
+  "approved": false,
+  "why_correct": "Income tax is a direct tax, because it is levied on the income of a person and the same person bears the burden. It cannot be shifted to anyone else.",
+  "why_wrong": {
+   "1": "An indirect tax is one whose burden can be shifted, as GST is shifted to the consumer.",
+   "2": "Sales tax is an indirect tax, and it has now been replaced by GST.",
+   "3": "A service charge is a payment for a service rendered, not a tax at all. The test for a direct tax is whether the person who pays it is the person who bears it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|12",
+  "approved": false,
+  "why_correct": "GST is an indirect tax. It is collected by the seller and paid to the government, but the burden is passed on and finally borne by the consumer in the price.",
+  "why_wrong": {
+   "0": "A direct tax is borne by the person who pays it, which GST is not.",
+   "2": "Property tax is a direct tax levied by local bodies on the owner of property.",
+   "3": "Income tax is a direct tax on income."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|13",
+  "approved": false,
+  "why_correct": "In an indirect tax the burden shifts along the chain of supply until it reaches the final consumer, who pays it in the price and has no one further to pass it to.",
+  "why_wrong": {
+   "0": "The government receives the tax; it does not bear it.",
+   "1": "The manufacturer pays the tax at its stage but recovers it in the price charged to the next buyer, so the burden does not rest there.",
+   "3": "Employees bear income tax on their salaries, which is a direct tax and a different matter. The distinction is between the impact of a tax, on whoever pays it in, and its incidence, on whoever finally bears it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|14",
+  "approved": false,
+  "why_correct": "Income tax is paid directly by the taxpayer to the government, either by deduction at source or by self-assessment. There is no intermediary who collects it in a price.",
+  "why_wrong": {
+   "0": "GST is collected by the seller from the buyer and then remitted, so the consumer never deals with the government.",
+   "1": "Excise duty was levied on manufacture and passed into the price. It has been largely subsumed into GST.",
+   "3": "Sales tax likewise reached the government through the seller, and it too has been replaced by GST."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|15",
+  "approved": false,
+  "why_correct": "Cost accounting ascertains cost element by element, so that waste and inefficiency become visible and can be acted on. Controlling cost is its central purpose.",
+  "why_wrong": {
+   "0": "Increasing expenses is the opposite of the aim, though the system itself has a cost to run.",
+   "2": "Reducing sales is no part of it. Better cost information usually supports pricing that helps sales.",
+   "3": "Avoiding taxes is not an objective, and evasion is illegal. Accurate costing may reduce tax legitimately by establishing true profit, but that is a by-product."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|16",
+  "approved": false,
+  "why_correct": "Factory rent is fixed. It is payable in full whether the factory runs at capacity or stands idle, so the total does not change with output.",
+  "why_wrong": {
+   "0": "Electricity used in production rises and falls with the machines running, so it is variable.",
+   "1": "Raw materials are the clearest variable cost of all.",
+   "3": "Packing expenses depend on the number of units packed, so they vary with output too."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|17",
+  "approved": false,
+  "why_correct": "Tax revenue funds public welfare and development: roads, schools, hospitals, defence, and welfare schemes. It is spent on the community rather than on any individual payer.",
+  "why_wrong": {
+   "0": "Personal expenses of officials are not what tax is for, and diverting it that way is corruption.",
+   "2": "Private business is funded by its owners and lenders, though the state may support industry through policy.",
+   "3": "Entertainment is not a purpose of taxation. Note that no taxpayer receives a direct return in proportion to what they pay, which is part of the definition of a tax."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|18",
+  "approved": false,
+  "why_correct": "Selling and distribution cost is incurred after the goods are ready, to secure orders and deliver them. It covers advertising, salesmen's salaries, packing for despatch and carriage outward.",
+  "why_wrong": {
+   "0": "Production cost is incurred in making the goods, which is before this stage.",
+   "2": "Prime cost is the direct cost of production, earlier still.",
+   "3": "Direct cost is a classification by traceability rather than by stage, and most selling costs are indirect."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|19",
+  "approved": false,
+  "why_correct": "Income tax is a direct tax, levied on and borne by the same person. Direct taxes in India include income tax, corporation tax and capital gains tax.",
+  "why_wrong": {
+   "0": "GST is indirect, its burden shifting to the consumer.",
+   "1": "Customs duty is indirect, levied on imports and passed into the price of the goods.",
+   "3": "Excise duty is indirect too. Of the four options only income tax is levied on a person's income rather than on a transaction."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|20",
+  "approved": false,
+  "why_correct": "Costing tells management what each product, process or department actually costs, which supports decisions on pricing, on whether to make or buy, and on which lines to continue.",
+  "why_wrong": {
+   "0": "Costing reveals wastage so that it can be cut, rather than increasing it.",
+   "2": "Reducing sales is not an aim. Knowing costs usually improves pricing and therefore sales.",
+   "3": "Costing supplements financial accounting; it does not replace or avoid it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|21",
+  "approved": false,
+  "why_correct": "GST is the principal indirect tax in India, charged on the supply of goods and services and ultimately borne by the consumer.",
+  "why_wrong": {
+   "0": "Income tax is direct, levied on a person's income.",
+   "1": "Corporation tax is direct, levied on a company's profits.",
+   "3": "Wealth tax was a direct tax on net wealth, abolished in 2015. All three wrong options tax a person or a company; GST taxes a transaction."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|22",
+  "approved": false,
+  "why_correct": "Carriage on raw materials coming into the factory is a direct expense, because it is traceable to the materials and forms part of their cost. It is added to direct material cost in arriving at prime cost.",
+  "why_wrong": {
+   "1": "It is not indirect, since it can be traced to the specific materials being brought in.",
+   "2": "Selling expense would be carriage outward, the cost of sending finished goods to customers. Inward against outward is the distinction here.",
+   "3": "Administrative expense covers office and general management costs, not the movement of materials into production."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|23",
+  "approved": false,
+  "why_correct": "Only the government has the power to levy and collect taxes, exercised through bodies such as the Income Tax Department and the GST authorities. That power comes from law.",
+  "why_wrong": {
+   "0": "Schools charge fees for a service they provide, which is not a tax.",
+   "1": "Banks may deduct tax at source and pass it on, but they act as agents of the government rather than as the taxing authority.",
+   "3": "Companies also collect GST and deduct tax at source, again as agents. No private body can impose a tax of its own."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|24",
+  "approved": false,
+  "why_correct": "The main objective of cost accounting is to ascertain cost and then control it, by comparing actual cost against standards and investigating the differences.",
+  "why_wrong": {
+   "0": "Increasing production cost is the opposite of the purpose.",
+   "2": "Reducing sales is no objective of any accounting system.",
+   "3": "Avoiding taxation is not a legitimate objective. Determining cost accurately is the first half of the answer and controlling it the second, and both matter."
+  }
+ },
+ {
+  "id": "XI|Commerce|Cost & Taxation|25",
+  "approved": false,
+  "why_correct": "A tax built into the price of goods and services is an indirect tax. The buyer pays it without dealing with the government, because the seller has already included it and will remit it.",
+  "why_wrong": {
+   "0": "A direct tax is paid by the taxpayer straight to the government and is never hidden in a price.",
+   "1": "Property tax is direct, paid by the owner to the local body.",
+   "3": "Income tax is direct as well. A useful test: if you can pay it without ever filling in a form, it is indirect."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|1",
+  "approved": false,
+  "why_correct": "Every economy faces the same root problem: wants are unlimited but the resources to satisfy them are scarce and have alternative uses. Scarcity is what forces choice, and choice is what economics studies.",
+  "why_wrong": {
+   "0": "Inflation is a particular macroeconomic problem, serious but not universal. Some economies have had none for years.",
+   "2": "Population growth adds to wants, but a country with a falling population still faces scarcity.",
+   "3": "Income inequality is a problem of distribution, which arises from how the central problem is solved rather than being the problem itself."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|2",
+  "approved": false,
+  "why_correct": "Opportunity cost is the value of the next best alternative given up when a choice is made. Choosing to study for an hour costs the best thing you could have done with that hour instead.",
+  "why_wrong": {
+   "0": "Cost of production is money actually spent, whereas opportunity cost concerns what was forgone and may involve no money at all.",
+   "1": "Money spent on a commodity is its explicit cost. Opportunity cost is measured in alternatives, not rupees.",
+   "3": "Market price is what the good sells for. Two goods at the same price can have very different opportunity costs for different people."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|3",
+  "approved": false,
+  "why_correct": "Microeconomics studies individual units, that is single consumers, firms and markets, and the prices and quantities within them. Micro means small.",
+  "why_wrong": {
+   "0": "Macroeconomics studies the economy as a whole, dealing with national income, employment and the general price level.",
+   "1": "International economics concerns trade and finance between countries.",
+   "3": "Public finance studies government revenue and expenditure. Micro looks at the trees, macro at the forest."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|4",
+  "approved": false,
+  "why_correct": "A normative statement expresses an opinion about what ought to be, and cannot be verified by data. The word should is the giveaway here.",
+  "why_wrong": {
+   "0": "A stated inflation rate is a positive statement, which can be checked against the figures and found true or false.",
+   "2": "A rise of five rupees in the price of sugar is a matter of fact, so it is positive.",
+   "3": "An increase in exports is also verifiable. The test is whether the statement can be settled by evidence, or only by argument about values."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|5",
+  "approved": false,
+  "why_correct": "A point outside the production possibility curve needs more resources or better technology than the economy currently has, so it is unattainable at present. Growth can shift the curve outward and make it attainable later.",
+  "why_wrong": {
+   "0": "Efficient production is shown by points on the curve itself, where resources are fully and efficiently used.",
+   "1": "Unemployment corresponds to a point inside the curve, where some resources are idle.",
+   "3": "Inefficient production is also a point inside the curve. Inside means possible but wasteful, on means efficient, and outside means impossible."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|6",
+  "approved": false,
+  "why_correct": "Marginal utility is the addition to total utility from consuming one more unit of a commodity. It is the change in total utility divided by the change in quantity.",
+  "why_wrong": {
+   "0": "Total utility is the whole satisfaction from all units consumed, which is the sum of the marginal utilities.",
+   "2": "Average utility is total utility divided by the number of units.",
+   "3": "Satisfaction from all goods together is a broader idea and is not what marginal means. Marginal always refers to the effect of one more unit."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|7",
+  "approved": false,
+  "why_correct": "Total utility rises so long as marginal utility is positive and falls once it turns negative, so it reaches its maximum exactly where marginal utility is zero. That point is called the point of satiety.",
+  "why_wrong": {
+   "1": "Marginal utility is greatest at the first unit, when total utility has only just begun to rise. Maximum marginal and maximum total are at opposite ends.",
+   "2": "When marginal utility is negative, total utility is already falling, so the maximum has been passed.",
+   "3": "Average utility is not what governs the peak of total utility. Marginal utility is the rate of change of total utility, and any curve peaks where its rate of change is zero."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|8",
+  "approved": false,
+  "why_correct": "The law of diminishing marginal utility says that as a person consumes more units of a good, the satisfaction from each additional unit falls. The fourth glass of water gives less than the first.",
+  "why_wrong": {
+   "0": "Continuously increasing marginal utility is the exact opposite of the law.",
+   "2": "Total utility does not always fall. It keeps rising, though more and more slowly, until marginal utility becomes negative.",
+   "3": "The law says nothing about price directly, though it is the reason a demand curve slopes downward."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|9",
+  "approved": false,
+  "why_correct": "The law assumes the units consumed are homogeneous, that is identical in size and quality. If a later unit were larger or better, any fall in satisfaction could not be attributed to the law.",
+  "why_wrong": {
+   "0": "The law assumes the consumer is rational, aiming to maximise satisfaction.",
+   "2": "Income is assumed constant. A changing income would change the whole pattern of spending.",
+   "3": "Tastes are assumed unchanged during consumption. The assumptions all exist for the same reason: to make sure that nothing but the extra quantity is varying."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|10",
+  "approved": false,
+  "why_correct": "For a normal good, demand rises as income rises, so income elasticity is positive. Most goods behave this way.",
+  "why_wrong": {
+   "0": "Demand falling as income rises describes an inferior good, such as coarse grain that people give up as they grow better off. That is the contrast this question tests.",
+   "2": "A good unaffected by income would have zero income elasticity, which is a special case rather than the normal one.",
+   "3": "Perfectly elastic demand concerns the response to price, not to income."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|11",
+  "approved": false,
+  "why_correct": "In economics production means creating utility, that is adding to the capacity of something to satisfy a want. It covers form, place, time and possession utility, so a shopkeeper and a carrier are producing as much as a factory is.",
+  "why_wrong": {
+   "0": "Selling goods creates possession utility, so it is one kind of production rather than the opposite of it. But selling alone is too narrow a definition.",
+   "2": "Buying goods is consumption or procurement, not production.",
+   "3": "Distribution in economics means the sharing of income among the factors of production, a separate topic."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|12",
+  "approved": false,
+  "why_correct": "Plant and machinery cannot be varied in the short run, since it takes time to install or dispose of them. The short run is defined precisely as the period in which at least one factor is fixed.",
+  "why_wrong": {
+   "0": "Labour can be hired or laid off relatively quickly, so it is the usual variable factor.",
+   "1": "Raw materials can be bought in any quantity at short notice.",
+   "3": "Electricity consumption changes at once with the level of output. In the long run every factor becomes variable, which is what distinguishes the two periods."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|13",
+  "approved": false,
+  "why_correct": "The law of variable proportions applies to the short run, where a variable factor is added to a fixed one so that the proportion between them changes. That changing proportion is what gives the law its name.",
+  "why_wrong": {
+   "0": "In the long run all factors vary together, which gives returns to scale rather than variable proportions.",
+   "2": "The very long run allows technology itself to change, which is further still from this law.",
+   "3": "It does not apply equally to all periods, because it needs at least one factor to be fixed."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|14",
+  "approved": false,
+  "why_correct": "Average product is total product divided by the number of units of the variable input. It measures output per unit of that input.",
+  "why_wrong": {
+   "0": "Multiplying rather than dividing would grow with input rather than measuring output per unit.",
+   "2": "Marginal product times total product has no meaning, and its units would be wrong.",
+   "3": "Adding marginal to total product mixes two different quantities. Average is always a total divided by a number."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|15",
+  "approved": false,
+  "why_correct": "Marginal product is the addition to total product from one more unit of the variable factor. When it falls to zero, total product has stopped rising and is therefore at its maximum.",
+  "why_wrong": {
+   "1": "Total product is at its minimum when no variable factor is employed at all, where marginal product has not yet been defined.",
+   "2": "When average product is at its maximum, marginal product equals average product, and both are still positive.",
+   "3": "Variable cost is a cost concept, and its minimum has no bearing on where marginal product vanishes. The relationship is the same one as between total utility and marginal utility."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|16",
+  "approved": false,
+  "why_correct": "Primary data are collected for the first time by the investigator, for the specific purpose in hand, through surveys, interviews or direct observation. They are original and therefore reliable but costly.",
+  "why_wrong": {
+   "0": "Secondary data have already been collected by somebody else for some other purpose.",
+   "2": "Classified data are data already sorted into groups, which is a stage of processing rather than a source.",
+   "3": "Tabulated data are data arranged in tables, again a stage of presentation."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|17",
+  "approved": false,
+  "why_correct": "Secondary data are data already collected and published by someone else, such as census reports or the Reserve Bank's bulletins. They are cheap and quick to obtain but were gathered for another purpose.",
+  "why_wrong": {
+   "0": "Primary data are collected first hand by the investigator.",
+   "1": "Census data are one example of data, and they are primary to the agency that collected them and secondary to anyone who uses them later. That is why the term does not answer the question by itself.",
+   "3": "Sample data means data from a part of the population, which describes the method of selection, not the source."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|18",
+  "approved": false,
+  "why_correct": "A census investigation covers every single unit of the population under study. It is accurate and complete, but costly and time-consuming, which is why it is used only where full coverage is essential.",
+  "why_wrong": {
+   "0": "Studying only a sample is the sample method, the alternative to a census.",
+   "2": "Studying one village would itself be a sample of a larger population, unless the village is the whole population of interest.",
+   "3": "Studying only urban areas leaves out rural units, so it is not complete coverage."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|19",
+  "approved": false,
+  "why_correct": "Classification is arranging data into groups or classes according to a common characteristic. It condenses a mass of raw figures into a form that can be understood and compared.",
+  "why_wrong": {
+   "0": "Coding is assigning numbers or symbols to responses so that they can be processed, which comes before classification.",
+   "2": "Estimation is inferring a population value from a sample.",
+   "3": "Sampling is selecting a part of the population for study, which concerns collection rather than arrangement."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|20",
+  "approved": false,
+  "why_correct": "A histogram is used for a continuous frequency distribution. Its bars are drawn adjacent with no gaps, which shows that the classes run continuously into one another.",
+  "why_wrong": {
+   "0": "A pie chart shows the parts of a whole as sectors of a circle, and suits components rather than a frequency distribution.",
+   "2": "A bar diagram has gaps between its bars and is used for discrete or categorical data. The presence or absence of gaps is exactly what separates it from a histogram.",
+   "3": "A pictograph uses pictures to represent quantities, and is used for simple popular presentation."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|21",
+  "approved": false,
+  "why_correct": "The class mark, also called the mid-value, is the midpoint of a class interval, found by averaging its upper and lower limits. It represents the class in calculations such as the mean.",
+  "why_wrong": {
+   "0": "Class limits are the lowest and highest values stated for the class, its two ends rather than its centre.",
+   "1": "Class boundaries are the true limits after adjusting for gaps between classes in a discrete series.",
+   "3": "Frequency is the number of observations falling in the class, not a value on the scale."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|22",
+  "approved": false,
+  "why_correct": "A pie diagram is best for showing how a total divides into parts, because each sector's angle is proportional to its share. The eye reads the composition of the whole at once.",
+  "why_wrong": {
+   "0": "A histogram shows a frequency distribution across classes, not shares of a total.",
+   "2": "A frequency polygon also displays a distribution, drawn by joining the midpoints of a histogram.",
+   "3": "An ogive is a cumulative frequency curve, used to read off medians and quartiles."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|23",
+  "approved": false,
+  "why_correct": "The median is a positional average, depending on the middle position rather than on the values themselves, so a very large or very small observation does not pull it. That is why median income is quoted rather than mean income.",
+  "why_wrong": {
+   "0": "The arithmetic mean uses every value, so a single extreme observation shifts it considerably.",
+   "2": "The harmonic mean is strongly influenced by very small values.",
+   "3": "The geometric mean is less affected than the arithmetic mean but is still calculated from all the values, whereas the median ignores their size entirely."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|24",
+  "approved": false,
+  "why_correct": "The median is the middle value once the data are arranged in order. With an even number of observations it is the average of the two middle ones.",
+  "why_wrong": {
+   "0": "The largest observation is the maximum, one end of the range.",
+   "2": "The most frequent value is the mode.",
+   "3": "The average of the maximum and minimum is the mid-range, a rough measure that is badly affected by extremes, which is the very fault the median avoids."
+  }
+ },
+ {
+  "id": "XI|Commerce|Economics|25",
+  "approved": false,
+  "why_correct": "The mode is the value that occurs most often in a set of data. A distribution may have one mode, several, or none at all.",
+  "why_wrong": {
+   "0": "The arithmetic average is the mean.",
+   "1": "The middle observation is the median.",
+   "3": "Half of the median is not a statistical measure. There is an empirical relation among the three, that mode is roughly three times median minus twice mean, but that is an approximation rather than a definition."
+  }
+ },
+ {
   "id": "XI|Science|Biology|1",
   "approved": false,
   "why_correct": "Carl Linnaeus introduced binomial nomenclature in Species Plantarum in 1753, giving every organism a two-word Latin name of genus and species. He is called the father of taxonomy.",

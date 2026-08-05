@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XI|Commerce|Business Studies|1",
+  "approved": false,
+  "why_correct": "Business activity is undertaken with the object of earning profit through the production or exchange of goods and services. The profit motive is what defines it.",
+  "why_wrong": {
+   "0": "Social activity is carried on for the welfare of society, without a profit motive.",
+   "1": "Personal activity is done to satisfy one's own needs, such as cooking a meal at home.",
+   "3": "Religious activity is undertaken for spiritual satisfaction. All three of these are non-economic activities, which is the contrast being drawn."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|2",
+  "approved": false,
+  "why_correct": "An economic activity is one performed to earn a livelihood. Teaching for a salary is done for money, so it is economic, and it falls under employment.",
+  "why_wrong": {
+   "0": "Playing cricket for enjoyment brings no income and is non-economic. Playing it professionally would be a different matter, which shows that the motive decides.",
+   "2": "Watching television is done for recreation.",
+   "3": "Singing for fun brings no earnings. Singing for a fee would be economic."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|3",
+  "approved": false,
+  "why_correct": "Profit is the reward for bearing business risk. It is uncertain, unlike the other returns, precisely because the risk may not come off.",
+  "why_wrong": {
+   "0": "Salary is the reward for labour, paid to employees whether the business does well or badly.",
+   "1": "Interest is the reward for capital lent, fixed in advance and payable regardless of profit.",
+   "2": "Rent is the reward for land or property. Each factor of production has its own reward, and the entrepreneur's is profit because only the entrepreneur carries the risk."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|4",
+  "approved": false,
+  "why_correct": "Helping a friend voluntarily brings no monetary reward and is undertaken out of affection, so it is a non-economic activity.",
+  "why_wrong": {
+   "0": "Running a shop is a business activity carried on for profit.",
+   "1": "Teaching in school for a salary is employment, and therefore economic.",
+   "3": "Working in a bank is employment too. The test in every case is whether money is earned, and only voluntary help fails it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|5",
+  "approved": false,
+  "why_correct": "Trade means the buying and selling of goods and services. It is the part of commerce that actually transfers ownership, and it removes the hindrance of persons.",
+  "why_wrong": {
+   "0": "Manufacturing goods is industry, which creates the goods that trade then moves.",
+   "2": "Transporting goods is an auxiliary to trade, removing the hindrance of place, but it is not trade itself.",
+   "3": "Advertising is also an auxiliary, removing the hindrance of information."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|6",
+  "approved": false,
+  "why_correct": "Commerce is the whole of trade together with the auxiliaries to trade, that is transport, banking, insurance, warehousing and advertising. Trade moves the goods, and the auxiliaries make that movement possible.",
+  "why_wrong": {
+   "1": "Agriculture is a genetic and extractive industry, part of industry rather than of commerce.",
+   "2": "Industry produces the goods. Industry and commerce are the two branches of business, not the same thing.",
+   "3": "Mining is one kind of extractive industry, so it too belongs under industry."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|7",
+  "approved": false,
+  "why_correct": "Banking is an auxiliary to trade. It removes the hindrance of finance by providing funds and by making payment between distant buyers and sellers possible.",
+  "why_wrong": {
+   "0": "Manufacturing is a secondary industry, producing goods rather than assisting their exchange.",
+   "2": "Mining is an extractive industry.",
+   "3": "Farming is a genetic or extractive industry. The five auxiliaries worth remembering are transport, banking, insurance, warehousing and advertising."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|8",
+  "approved": false,
+  "why_correct": "Industry is concerned with the production of goods, including converting raw materials into finished goods. That conversion is the work of manufacturing industry in particular.",
+  "why_wrong": {
+   "0": "Trade is the buying and selling of what has already been produced.",
+   "2": "Commerce is trade plus its auxiliaries, and it distributes goods rather than making them.",
+   "3": "Transport moves goods from place to place without changing their form."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|9",
+  "approved": false,
+  "why_correct": "Extractive industries draw out products from the soil, air, water or beneath the earth, such as mining, fishing and quarrying. They supply raw materials to other industries.",
+  "why_wrong": {
+   "0": "Genetic industries breed and multiply plants and animals, such as nurseries and poultry farms. They reproduce rather than extract.",
+   "1": "Manufacturing industries convert raw materials into finished products.",
+   "3": "Construction industries build structures such as roads, dams and buildings, and their output cannot be carried to a market."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|10",
+  "approved": false,
+  "why_correct": "A warehouse receipt is the document issued by a warehouse acknowledging that goods have been received and are being held in storage. It is a document of title and can be used to obtain a loan against the goods.",
+  "why_wrong": {
+   "0": "A cheque is an order to a bank to pay money.",
+   "1": "A receipt in the general sense acknowledges money received, not goods stored.",
+   "3": "An invoice is issued by a seller to a buyer listing goods sold and the amount due."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|11",
+  "approved": false,
+  "why_correct": "A sole proprietorship is owned, managed and controlled by one person, who takes all the profit and bears all the loss. It is the oldest and simplest form of business organisation.",
+  "why_wrong": {
+   "0": "A partnership needs at least two persons.",
+   "1": "A company needs at least two members for a private company and seven for a public one. A one person company does now exist in law, but it is a company form with its own rules, not what this question is contrasting.",
+   "3": "A cooperative society needs at least ten adult members."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|12",
+  "approved": false,
+  "why_correct": "A partnership requires a minimum of two partners, since it is by definition a relation between persons who have agreed to share the profits of a business.",
+  "why_wrong": {
+   "0": "One person alone is a sole proprietorship. There is no agreement to be made with oneself.",
+   "2": "Three is not the minimum, though many firms have more. The maximum is 50 under the current rules.",
+   "3": "Five is well above the minimum. Note that the minimum for a cooperative society is ten, which is the figure sometimes confused with this."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|13",
+  "approved": false,
+  "why_correct": "The liability of a sole proprietor is unlimited, so if the business assets are not enough to pay the debts, the owner's private property can be used. Business and owner are one in law.",
+  "why_wrong": {
+   "0": "Limited liability belongs to companies and to limited liability partnerships, where the owner risks only the amount invested.",
+   "2": "Fixed liability is not a legal category.",
+   "3": "There is certainly liability. Unlimited liability is the main disadvantage of the sole proprietorship, and the price paid for its simplicity."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|14",
+  "approved": false,
+  "why_correct": "The partnership deed is the written agreement among partners, setting out the profit sharing ratio, capital, duties and other terms. It is not compulsory but is strongly advisable.",
+  "why_wrong": {
+   "0": "The memorandum of association is a company document, defining its objects and its relations with the outside world.",
+   "1": "A prospectus is a company's invitation to the public to buy its shares.",
+   "3": "The articles of association are the company's internal rules. Three of the four options are company documents, so the partnership term is the odd one out."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|15",
+  "approved": false,
+  "why_correct": "A cooperative society is formed on a service motive, to promote the welfare of its members through mutual help rather than to maximise profit. One member has one vote, whatever the shareholding.",
+  "why_wrong": {
+   "0": "Profit maximisation is the aim of a company. A cooperative may earn a surplus, but that is not its purpose.",
+   "2": "Monopoly means sole control of a market, which is not an organising principle of a cooperative.",
+   "3": "Competition is the opposite of the cooperation the form is named for."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|16",
+  "approved": false,
+  "why_correct": "A company's capital is divided into shares of a fixed value, and each shareholder owns a part of the company in proportion to the shares held. Shares are transferable, which is one of the form's great advantages.",
+  "why_wrong": {
+   "0": "Bonds are borrowed money, not ownership.",
+   "2": "Debentures are also borrowings. A debenture holder is a creditor of the company, while a shareholder is an owner, and that is the distinction being tested.",
+   "3": "Loans are likewise borrowed funds and form part of debt capital, not share capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|17",
+  "approved": false,
+  "why_correct": "A company is an artificial person created by law, with a separate legal entity distinct from its members. It can own property, sue and be sued in its own name, and it has perpetual succession.",
+  "why_wrong": {
+   "0": "In a sole proprietorship the owner and the business are legally the same person.",
+   "1": "A partnership firm has no separate legal existence apart from its partners, which is why their liability is unlimited.",
+   "3": "A Joint Hindu Family business also has no separate legal entity. Separate legal entity is what makes limited liability possible."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|18",
+  "approved": false,
+  "why_correct": "The head of a Joint Hindu Family business is the Karta, normally the eldest male member. The Karta has full control and unlimited liability, while the other members are liable only to the extent of their share.",
+  "why_wrong": {
+   "0": "Partner is the term for a member of a partnership firm.",
+   "1": "Director is the term for a person managing a company.",
+   "3": "Manager is a general term for an employee in charge, not the legal head of this form."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|19",
+  "approved": false,
+  "why_correct": "Consumer forums, the district, state and national commissions set up under consumer protection law, hear complaints from consumers and give redress for defective goods and deficient services.",
+  "why_wrong": {
+   "0": "The Reserve Bank of India is the central bank, regulating currency, credit and the banking system.",
+   "2": "A stock exchange is a market for buying and selling securities.",
+   "3": "SEBI protects investors in the securities market. Investor protection and consumer protection are close in spirit but are separate bodies with separate laws."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|20",
+  "approved": false,
+  "why_correct": "E-business means conducting business over the internet and computer networks, covering online buying and selling as well as internal processes carried on electronically.",
+  "why_wrong": {
+   "0": "Traditional business is exactly what e-business is contrasted with, being carried on face to face and on paper.",
+   "2": "Manufacturing is a type of industry and can be done with or without the internet.",
+   "3": "Wholesale trade is a level of distribution, again independent of whether it is done online."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|21",
+  "approved": false,
+  "why_correct": "Insurance spreads risk across many people who face it, so that the loss falling on any one is compensated from the pooled premiums. It reduces the financial loss when the risk occurs.",
+  "why_wrong": {
+   "0": "Insurance does not itself increase production, though the confidence it gives may encourage investment.",
+   "1": "This is the important one. Insurance cannot eliminate risk. A fire is no less likely because a factory is insured; only its financial consequence is covered.",
+   "3": "Sales are not increased by insurance. Advertising and salesmanship do that."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|22",
+  "approved": false,
+  "why_correct": "Rail transport is best suited to heavy and bulky goods over long distances, being cheap per tonne-kilometre, reliable in all weather and able to carry very large loads.",
+  "why_wrong": {
+   "0": "Air transport is the fastest but by far the costliest, and it is limited in the weight it can carry. It suits light, valuable or perishable goods.",
+   "1": "Road transport is ideal for short distances and for door to door delivery, but it becomes expensive and slow for heavy loads over long hauls.",
+   "3": "Courier services handle small parcels and documents, not heavy freight."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|23",
+  "approved": false,
+  "why_correct": "Banks perform the financing function, accepting deposits and lending money, and so removing the hindrance of finance in trade. They also remit funds and provide overdraft and discounting facilities.",
+  "why_wrong": {
+   "0": "Manufacturing is done by industry.",
+   "1": "Transportation is a separate auxiliary to trade.",
+   "3": "Mining is an extractive industry. Banking is one of the five auxiliaries to trade, and finance is what it supplies."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|24",
+  "approved": false,
+  "why_correct": "Entrepreneurship is the act of taking the initiative to start and run a business, bringing together the other factors of production and bearing the risk and uncertainty involved.",
+  "why_wrong": {
+   "0": "Consumption is the using up of goods and services, which is what households do, not entrepreneurs.",
+   "2": "Government service is employment, where the reward is a salary and someone else carries the risk.",
+   "3": "Farming is one business among many. An entrepreneur may farm, but entrepreneurship is not limited to it."
+  }
+ },
+ {
+  "id": "XI|Commerce|Business Studies|25",
+  "approved": false,
+  "why_correct": "Profit is essential for survival and growth, but a business that ignores its customers will not keep earning it. The modern view is that the objective is profit together with customer satisfaction.",
+  "why_wrong": {
+   "0": "Entertainment may be a business, as with cinema, but it is not the objective of business in general.",
+   "1": "Social service alone is the aim of a charitable body, not of a business. A business does have social responsibilities, but it must also earn.",
+   "3": "Charity is giving without return, which no business could sustain indefinitely."
+  }
+ }
+]

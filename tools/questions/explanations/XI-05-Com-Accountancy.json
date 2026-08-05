@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XI|Commerce|Accountancy|1",
+  "approved": false,
+  "why_correct": "Accounting is the process of identifying, recording, classifying and summarising financial transactions, and then communicating the results. Recording is the step the other three depend on.",
+  "why_wrong": {
+   "0": "Selling goods is a business activity. Accounting records the sale; it does not make it.",
+   "2": "Manufacturing is production. It creates transactions for accounting to record, but is not accounting itself.",
+   "3": "Advertising is marketing. Note the pattern: the three wrong options are all things a business does, while accounting is how a business keeps track of what it did."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|2",
+  "approved": false,
+  "why_correct": "The business entity concept treats the business as separate and distinct from its owner. That is why the owner's capital is shown as a liability of the business, and why drawings are recorded at all.",
+  "why_wrong": {
+   "0": "The money measurement concept says only what can be expressed in money is recorded, which is why staff morale never appears in the books.",
+   "2": "The cost concept records assets at their purchase price rather than their market value.",
+   "3": "The going concern concept assumes the business will continue for the foreseeable future, which is what justifies spreading an asset's cost over its life."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|3",
+  "approved": false,
+  "why_correct": "The journal is the book of original entry, where a transaction is recorded first, in date order, with its debit and credit. Only afterwards is it posted to the ledger.",
+  "why_wrong": {
+   "0": "The ledger is the book of final entry, holding the accounts to which journal entries are posted.",
+   "2": "The cash book is a subsidiary book for cash and bank transactions, and it does record them first. But it covers only one kind of transaction, whereas the journal is the general first record.",
+   "3": "The trial balance is not a book of entry at all. It is a statement drawn up from the ledger to test the arithmetic."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|4",
+  "approved": false,
+  "why_correct": "Debit the receiver, credit the giver is the golden rule for personal accounts, which are the accounts of persons, firms and institutions the business deals with.",
+  "why_wrong": {
+   "0": "For real accounts the rule is debit what comes in, credit what goes out.",
+   "2": "For nominal accounts the rule is debit all expenses and losses, credit all incomes and gains.",
+   "3": "Cash account is a real account, since cash is a thing rather than a person, so it follows the comes in and goes out rule."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|5",
+  "approved": false,
+  "why_correct": "The accounting equation is Assets equal Liabilities plus Capital. Everything the business owns has been financed either by outsiders, which is liabilities, or by the owner, which is capital.",
+  "why_wrong": {
+   "0": "Expenses reduce profit and so ultimately reduce capital. They are not a separate source of finance.",
+   "1": "Revenue increases capital through profit, but it is a flow over a period rather than a balance at a point in time.",
+   "3": "Profit is part of capital rather than a term alongside it, since undrawn profit is simply added to the owner's capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|6",
+  "approved": false,
+  "why_correct": "The trial balance checks the arithmetical accuracy of the ledger, by testing that total debits equal total credits. It confirms the books balance.",
+  "why_wrong": {
+   "0": "Profit is found from the trading and profit and loss account, which is prepared after the trial balance.",
+   "1": "The cash balance comes from the cash book and appears as one line in the trial balance, not as its purpose.",
+   "3": "Sales is likewise only one figure within it. Note the limit of the check: a transaction entered in the wrong account, or omitted entirely, still leaves the trial balance agreeing."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|7",
+  "approved": false,
+  "why_correct": "Goods bought with the intention of reselling them are stock, also called inventory or goods. Unsold stock at the year end appears as a current asset.",
+  "why_wrong": {
+   "0": "Assets is too broad. Stock is one kind of asset, but so are buildings and debtors, and the question asks for the specific term.",
+   "2": "Furniture bought for use in the business is a fixed asset. The same furniture bought by a furniture dealer for resale would be stock, which shows that the purpose decides the classification.",
+   "3": "Investments are made to earn income, not to be resold as part of the trade."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|8",
+  "approved": false,
+  "why_correct": "A bank overdraft means the business has drawn more from the bank than it had, so it owes the bank that amount. It is a current liability.",
+  "why_wrong": {
+   "0": "A favourable bank balance is an asset, but an overdraft is the opposite: the bank account has a credit balance in the firm's books.",
+   "2": "It is not income. No revenue has been earned by borrowing.",
+   "3": "The interest on an overdraft is an expense, but the overdraft itself is the amount owed, which is a liability."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|9",
+  "approved": false,
+  "why_correct": "Depreciation is the systematic allocation of the cost of a fixed asset over its useful life, so it is charged on fixed assets such as machinery, buildings and vehicles.",
+  "why_wrong": {
+   "0": "Current assets are held for a short period and are not depreciated. Debtors may be reduced by a provision for doubtful debts, but that is not depreciation.",
+   "2": "Cash does not wear out or become obsolete, so it cannot be depreciated.",
+   "3": "Stock is valued at cost or net realisable value, whichever is lower. A fall in its value is a valuation adjustment, not depreciation. Land is the one fixed asset normally excepted, since it has no limited life."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|10",
+  "approved": false,
+  "why_correct": "Outstanding expenses are expenses incurred but not yet paid, such as rent due at the year end. The business owes them, so they are a liability.",
+  "why_wrong": {
+   "0": "Prepaid expenses are the asset, being amounts paid in advance for a benefit still to come. Outstanding is the mirror image.",
+   "1": "Outstanding expenses are not income. They reduce profit rather than increase it.",
+   "3": "They are owed to outsiders, not to the owner, so they are a liability rather than capital."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|11",
+  "approved": false,
+  "why_correct": "The cost concept, or historical cost concept, requires assets to be recorded at the price actually paid for them, not at market value. It keeps the accounts objective and verifiable.",
+  "why_wrong": {
+   "0": "The matching concept requires expenses to be matched with the revenues they helped earn in the same period.",
+   "2": "The dual aspect concept says every transaction has two effects, and it is the basis of double entry.",
+   "3": "The going concern concept assumes the business will continue, which is part of why historical cost is acceptable, but it is not the rule about purchase price."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|12",
+  "approved": false,
+  "why_correct": "Depositing cash into the bank is a contra entry, affecting both cash and bank, and both columns sit in the cash book. It is marked with a C in the ledger folio column.",
+  "why_wrong": {
+   "0": "The purchase book records only credit purchases of goods.",
+   "1": "The sales book records only credit sales of goods.",
+   "3": "Journal proper records the entries that fit no subsidiary book, such as opening and closing entries. A contra entry has its own home in the cash book."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|13",
+  "approved": false,
+  "why_correct": "Capital is what the business owes its owner, so it is a liability of the business and normally carries a credit balance. Profits increase it and drawings reduce it.",
+  "why_wrong": {
+   "0": "A debit balance on capital would mean the owner owes the business, which happens only when losses and drawings have exceeded the capital introduced.",
+   "2": "A nil balance would mean the owner had no stake at all.",
+   "3": "Temporary balance is not a category. Capital is a permanent account, carried forward from year to year, unlike nominal accounts which are closed off each year."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|14",
+  "approved": false,
+  "why_correct": "One asset is exchanged for another. Furniture comes in and is debited, cash goes out and is credited, so furniture increases and cash decreases. The total of assets is unchanged.",
+  "why_wrong": {
+   "0": "Both cannot increase. The cash used to buy the furniture has left the business.",
+   "2": "Capital is unaffected, because nothing has been earned or introduced and nothing withdrawn.",
+   "3": "Liabilities would rise only if the furniture were bought on credit. Here it is paid for in cash."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|15",
+  "approved": false,
+  "why_correct": "Debtors are people who owe the business money for goods sold on credit, and they are expected to pay within the operating cycle. That short life is what makes them a current asset.",
+  "why_wrong": {
+   "0": "A building is a fixed asset, held for long-term use in the business.",
+   "1": "Machinery is likewise fixed, bought to be used rather than converted into cash.",
+   "3": "Land is a fixed asset too. The test is whether the asset is expected to be turned into cash within a year, and only debtors are."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|16",
+  "approved": false,
+  "why_correct": "Drawings are cash or goods taken by the owner for personal use, so they reduce the owner's stake in the business. Drawings are deducted from capital.",
+  "why_wrong": {
+   "0": "Assets do fall when cash is drawn out, so this is half true. But the question asks what drawings reduce in the accounting sense, and the matching reduction is in capital.",
+   "2": "Liabilities are amounts owed to outsiders and are untouched by the owner's withdrawals.",
+   "3": "Sales are unaffected. Goods taken by the owner are treated as drawings, not as a sale."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|17",
+  "approved": false,
+  "why_correct": "Buying goods on credit increases purchases, which is debited, and creates an amount owed to the supplier, so creditors are credited. No cash moves at the time.",
+  "why_wrong": {
+   "1": "Cash and purchases would be affected in a cash purchase. The word credit in the question is what rules this out.",
+   "2": "Sales and debtors are affected by a credit sale, which is the mirror transaction from the other side.",
+   "3": "Capital and cash are not involved. Capital changes only through profit, further investment or drawings."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|18",
+  "approved": false,
+  "why_correct": "Profit is the excess of income over expenses for a period. If expenses exceed income the result is a loss instead.",
+  "why_wrong": {
+   "0": "Loss is the opposite case, where expenses exceed income.",
+   "1": "Capital is the owner's stake, a balance at a point in time. Profit is added to it, but the two are not the same.",
+   "3": "An asset is a resource owned. Profit is a result of trading, not a resource."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|19",
+  "approved": false,
+  "why_correct": "Carriage paid to bring purchased goods into the business is carriage inward. It is a direct expense and is debited to the trading account, because it is part of the cost of getting the goods ready for sale.",
+  "why_wrong": {
+   "0": "Carriage outward is the cost of delivering goods to customers, and it goes to the profit and loss account as a selling expense. Inward against outward is exactly what this question tests.",
+   "1": "Freight income would be money earned from carrying goods for others, which is the opposite of paying it.",
+   "3": "Commission is a payment for services such as arranging a sale, not for transport."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|20",
+  "approved": false,
+  "why_correct": "Rent received is an income, and the nominal account rule is to credit all incomes and gains. So the rent account is credited while cash or bank is debited.",
+  "why_wrong": {
+   "1": "The cash account is debited, not credited, because cash has come in.",
+   "2": "Capital is not credited directly. The income raises profit, and profit is transferred to capital only at the year end.",
+   "3": "Drawings concern amounts taken out by the owner and have nothing to do with rent received."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|21",
+  "approved": false,
+  "why_correct": "Debtors are customers who owe money to the business, so they are an asset, not a liability. The other three are all amounts the business owes.",
+  "why_wrong": {
+   "0": "Creditors are suppliers the business owes money to, which is a liability.",
+   "1": "A bank loan is money borrowed and repayable, so it is a liability.",
+   "3": "Outstanding expenses are incurred but unpaid, so they too are owed. Debtors and creditors are the pair most often swapped: debtors owe you, you owe creditors."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|22",
+  "approved": false,
+  "why_correct": "The trial balance is prepared from the balances of the ledger accounts, listing each as either a debit or a credit. That is why it tests whether the ledger balances.",
+  "why_wrong": {
+   "0": "The journal is the first record, but entries must be posted to the ledger and balanced before a trial balance can be drawn up.",
+   "2": "The cash book alone would give only cash and bank balances, missing every other account.",
+   "3": "The balance sheet is prepared after the trial balance, not before, so it cannot be its source."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|23",
+  "approved": false,
+  "why_correct": "Salary is a cost incurred to earn revenue in the period, so it is an expense and is debited to the profit and loss account.",
+  "why_wrong": {
+   "0": "It is not an asset, because no future benefit remains once the work has been done and paid for.",
+   "2": "Salary that has been paid is not a liability. Only unpaid salary at the year end is shown as outstanding salary, which is a liability.",
+   "3": "Income is money coming in. Salary paid is money going out."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|24",
+  "approved": false,
+  "why_correct": "Real accounts are accounts of assets and properties, and machinery is a tangible asset. Real accounts are not closed at the year end but carried forward.",
+  "why_wrong": {
+   "0": "Ram's account is a personal account, since it belongs to a person.",
+   "1": "Salary account is a nominal account, being an expense.",
+   "3": "Capital account is a personal account, representing the owner. The three types are worth sorting by test: a person, a thing, or an expense or income."
+  }
+ },
+ {
+  "id": "XI|Commerce|Accountancy|25",
+  "approved": false,
+  "why_correct": "Ledger accounts are balanced at the end of the accounting period, so that the balances can be taken into the trial balance and then the final accounts.",
+  "why_wrong": {
+   "0": "Balancing after each transaction would be pointless labour, and the running balance is visible in the account anyway.",
+   "2": "Weekly balancing is not a requirement. Some businesses balance the cash book more often for control, but that is practice, not principle.",
+   "3": "Daily balancing is again done only for cash in some firms. The accounting period is what governs the ledger as a whole."
+  }
+ }
+]

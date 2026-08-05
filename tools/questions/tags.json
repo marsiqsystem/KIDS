@@ -1,0 +1,448 @@
+{
+ "_readme": [
+  "Which chapter each question belongs to. Written as chapter -> list of question",
+  "numbers, because that reads far better than 1000 separate lines and makes a",
+  "misplaced question easy to spot.",
+  "tag.py expands this to one row per question and refuses to run unless every",
+  "question is tagged exactly once, every name exists in chapters.json for that",
+  "bucket, and every chapter has caught at least one question."
+ ],
+
+ "IX|All|English": {
+  "Prose: All Summer in a Day": [1, 2, 3, 4],
+  "Poem: Mild the Mist upon the Hill": [5, 6, 7],
+  "Prose: Tom Loses a Tooth": [8, 9, 10, 11],
+  "Prose: His First Flight": [12, 13, 14],
+  "Grammar: Voice (Active and Passive)": [15]
+ },
+ "IX|All|General Knowledge": {
+  "GK: Space and the Natural World": [16, 19],
+  "GK: Indian National Symbols and Personalities": [17, 20, 22, 25],
+  "GK: Indian and World Geography": [18, 21, 24],
+  "GK: International Organisations": [23]
+ },
+ "IX|All|History": {
+  "Congress of Vienna and Revolutionary Europe (1815-1848)": [26, 27, 28, 29, 30, 31],
+  "Industrial Revolution, Colonialism and Imperialism": [32, 33, 34, 35],
+  "Russia: Tsarist Rule to the USSR": [36, 37, 38],
+  "Twentieth Century Europe: Depression, Fascism and Nazism": [39, 40]
+ },
+ "IX|All|Geography": {
+  "Latitude, Longitude and the Global Grid": [41, 42, 43, 44, 45, 46],
+  "Endogenetic Forces and Landform Building": [47, 48, 50, 51],
+  "Exogenetic Processes: Weathering and Erosion": [49, 55],
+  "Depositional Landforms: Rivers, Glaciers and Wind": [52, 53, 54]
+ },
+ "IX|All|Life Science": {
+  "Life and its Diversity: Levels of Organisation": [56, 58],
+  "Physiological Processes: Photosynthesis, Respiration and Transpiration": [59, 60, 61, 64, 65],
+  "Excretion in Plants and Animals": [57, 66],
+  "Human Health, Disease and Immunity": [67, 68, 69],
+  "Environment, Ecosystem and Natural Resources": [62, 63, 70]
+ },
+ "IX|All|Physical Science": {
+  "Measurement and SI Units": [73],
+  "Structure of the Atom": [72, 74, 79, 81],
+  "Solutions, Colloids and Mixtures": [77, 83],
+  "Acids, Bases, Salts and Water": [71, 80, 82, 85],
+  "Force, Work and Power": [78, 84],
+  "Sound": [75, 76]
+ },
+ "IX|All|Mathematics": {
+  "Real Numbers and Surds": [88],
+  "Laws of Indices and Algebraic Identities": [89, 90],
+  "Coordinate Geometry": [91],
+  "Euclid's Axioms, Lines and Angles": [86, 87, 92, 98],
+  "Triangles: Properties and Congruence": [93, 99],
+  "Mensuration: Cube, Cuboid and Sphere": [94, 95, 96, 97],
+  "Heron's Formula and Area of Triangles": [100]
+ },
+
+ "X|All|English": {
+  "Poem: My Own True Family": [1, 2, 3],
+  "Prose: Our Runaway Kite": [4, 5, 6],
+  "Poem: Sea Fever": [7, 8, 9],
+  "Grammar: Voice (Active and Passive)": [10],
+  "Grammar: Narration (Direct and Indirect Speech)": [11],
+  "Grammar: Articles, Prepositions and Parts of Speech": [12, 13, 14],
+  "Grammar: Conditional Sentences": [15]
+ },
+ "X|All|General Knowledge": {
+  "GK: Solar System and Space": [16],
+  "GK: Indian National Symbols and Personalities": [17, 21],
+  "GK: Indian and World Geography": [18, 22, 24],
+  "GK: International Organisations and Observances": [20, 23],
+  "GK: Science and SI Units": [19, 25]
+ },
+ "X|All|History": {
+  "Ideas of History and Historiography": [26],
+  "Print Culture, Press and Publishing in Bengal": [30, 31, 32],
+  "Nationalism, Reform and the Making of 'Bharat Mata'": [27, 28, 29],
+  "Science, Technical and National Education": [33, 34, 35],
+  "Peasant, Worker and Left Movements": [36, 37, 38, 39, 40]
+ },
+ "X|All|Geography": {
+  "Latitude, Longitude and the Global Grid": [41, 42, 43, 44, 45, 46],
+  "Endogenetic Forces and Landform Building": [47, 48, 50, 51],
+  "Exogenetic Processes: Weathering and Erosion": [49, 55],
+  "Depositional Landforms: Rivers, Glaciers and Wind": [52, 53, 54]
+ },
+ "X|All|Life Science": {
+  "Control and Coordination in Plants and Animals": [58, 67, 68],
+  "Continuity of Life: Cell Division and Reproduction": [56, 57, 65, 69],
+  "Heredity and Common Genetic Diseases": [63, 64, 66],
+  "Evolution and Adaptation": [70],
+  "Environment, Biodiversity and Conservation": [59, 60, 61, 62]
+ },
+ "X|All|Physical Science": {
+  "Concerns about our Environment": [72],
+  "Behaviour of Gases and the Mole Concept": [71],
+  "Thermal Phenomena: Expansion and Conductivity": [77, 85],
+  "Light: Refraction and Lenses": [78, 83],
+  "Periodic Table and Periodicity": [81],
+  "Chemical Bonding and Solubility": [79],
+  "Metallurgy and Extraction of Metals": [73, 75],
+  "Atomic Nucleus and Radioactivity": [82],
+  "Inorganic and Organic Chemistry in the Laboratory": [74, 76, 80, 84]
+ },
+ "X|All|Mathematics": {
+  "Real Numbers and Euclid's Division Lemma": [86],
+  "Polynomials": [87],
+  "Pair of Linear Equations in Two Variables": [88],
+  "Quadratic Equations": [89],
+  "Arithmetic Progression": [90, 91],
+  "Coordinate Geometry: Distance, Midpoint and Section": [93, 94],
+  "Circles and Tangents": [98, 99],
+  "Trigonometric Ratios and Identities": [95, 96],
+  "Heights and Distances": [97],
+  "Surface Area and Volume": [100],
+  "Triangles, Similarity and Pythagoras": [92]
+ },
+
+ "XI|All|English & General Knowledge": {
+  "Prose: An Astrologer's Day": [1, 2, 3],
+  "Prose: Sister Nivedita on Swami Vivekananda": [4, 5, 6, 7],
+  "Poem: Composed Upon Westminster Bridge": [8, 9, 10],
+  "Poem: The Bangle Sellers": [11, 12, 13],
+  "Poem: The Second Coming": [14, 15],
+  "GK: Indian Polity and the Constitution": [16, 23],
+  "GK: International Organisations": [17, 25],
+  "GK: Geography, Science and Awards": [18, 19, 20, 21, 22, 24]
+ },
+ "XI|Science|Physics": {
+  "Physical World, Units and Measurement": [1, 12, 22, 23],
+  "Errors and Significant Figures": [20, 21],
+  "Motion in a Straight Line and in a Plane": [6, 14, 15, 16, 24],
+  "Laws of Motion and Friction": [9, 10, 11, 13, 17, 25],
+  "Work, Energy and Power": [3, 5, 7, 8],
+  "System of Particles and Rotational Motion": [2, 18, 19],
+  "Circular Motion": [4]
+ },
+ "XI|Science|Chemistry": {
+  "Some Basic Concepts of Chemistry": [4, 8, 10],
+  "Structure of the Atom": [2, 14],
+  "Classification of Elements and Periodicity": [13],
+  "Chemical Bonding and Molecular Structure": [1, 6, 9, 11, 12],
+  "States of Matter: Gases and Liquids": [3, 7, 15, 23],
+  "The Solid State": [17],
+  "Hydrogen and its Compounds": [5, 16, 24],
+  "The s-Block Elements": [21, 22],
+  "The p-Block Elements": [18, 19, 20, 25]
+ },
+ "XI|Science|Biology": {
+  "The Living World and Biological Classification": [1, 2, 23, 24, 25],
+  "Plant Kingdom": [21, 22],
+  "Animal Kingdom": [18, 19, 20],
+  "Morphology and Anatomy of Flowering Plants": [13, 14, 15, 16, 17],
+  "Structural Organisation in Animals": [11, 12],
+  "Cell: The Unit of Life": [7, 8, 9, 10],
+  "Biomolecules": [5, 6],
+  "Cell Cycle and Cell Division": [3, 4]
+ },
+ "XI|Science|Mathematics": {
+  "Sets": [1, 2],
+  "Relations and Functions": [3, 4],
+  "Trigonometric Functions": [5, 6, 7, 8],
+  "Complex Numbers": [9, 10, 11],
+  "Quadratic Equations": [12, 13, 14],
+  "Linear Inequalities": [15, 16, 17],
+  "Permutations and Combinations": [18, 19, 20, 21],
+  "Limits and Derivatives": [22, 23, 24, 25]
+ },
+ "XI|Commerce|Accountancy": {
+  "Introduction to Accounting": [1, 7, 8, 15, 21],
+  "Accounting Concepts, Principles and Conventions": [2, 5, 11],
+  "Classification of Accounts and the Rules of Debit and Credit": [4, 13, 20, 24],
+  "Recording of Transactions: Journal and Ledger": [3, 14, 17, 19, 23, 25],
+  "Subsidiary Books and Bank Transactions": [12],
+  "Trial Balance": [6, 22],
+  "Depreciation": [9],
+  "Final Accounts and Adjustments": [10, 16, 18]
+ },
+ "XI|Commerce|Business Studies": {
+  "Nature and Purpose of Business": [1, 2, 3, 4, 8, 9, 25],
+  "Forms of Business Organisation": [11, 12, 13, 14, 15, 16, 17, 18],
+  "Trade, Commerce and Auxiliaries to Trade": [5, 6, 7],
+  "Business Services: Banking, Insurance, Transport and Warehousing": [10, 21, 22, 23],
+  "Emerging Modes of Business": [20],
+  "Social Responsibility and Consumer Protection": [19],
+  "Entrepreneurship": [24]
+ },
+ "XI|Commerce|Cost & Taxation": {
+  "Basic Concepts of Cost": [1, 2],
+  "Elements of Cost and Prime Cost": [5, 18, 22],
+  "Classification of Costs: Fixed, Variable, Direct and Indirect": [3, 4, 6, 7, 16],
+  "Objectives and Scope of Cost Accounting": [15, 20, 24],
+  "Introduction to Taxation": [8, 17, 23],
+  "Direct and Indirect Taxes": [11, 12, 13, 14, 19, 21, 25],
+  "GST: Concept and Introduction": [9, 10]
+ },
+ "XI|Commerce|Economics": {
+  "Introduction to Economics and the Central Problem": [1, 3, 4],
+  "Production Possibility Curve and Opportunity Cost": [2, 5],
+  "Consumer Behaviour: Utility Analysis": [6, 7, 8, 9],
+  "Demand and its Determinants": [10],
+  "Production Function and the Law of Variable Proportions": [11, 12, 13, 14, 15],
+  "Collection and Organisation of Data": [16, 17, 18, 19, 21],
+  "Presentation of Data: Diagrams and Graphs": [20, 22],
+  "Measures of Central Tendency": [23, 24, 25]
+ },
+ "XI|Arts|Economics": {
+  "Introduction to Economics and its Branches": [1, 2, 3, 25],
+  "Central Problems and the Production Possibility Curve": [4, 5, 6],
+  "Economic Systems": [7, 8],
+  "Consumer Behaviour: Utility": [9, 15, 16],
+  "Demand, Supply and Market Equilibrium": [10, 11, 12, 13, 14],
+  "Sectors of the Economy": [17],
+  "National Income and GDP": [18, 19],
+  "Money, Banking and the Reserve Bank of India": [21, 22, 23],
+  "Inflation and Unemployment": [20, 24]
+ },
+ "XI|Arts|History": {
+  "Sources of History: Archaeology and Dating Methods": [1, 2],
+  "Writing and City Life: Early Civilisations": [3],
+  "Travellers' Accounts of India": [4, 5, 7],
+  "Ancient Greece: City States and Democracy": [13, 17, 18],
+  "The Roman Empire: Society and Decline": [8, 9, 11, 14, 15],
+  "Slavery in the Ancient World": [10, 16],
+  "Ancient India: Mahajanapadas, Magadha and the Mauryas": [12, 19, 20, 21, 22, 24],
+  "The Gupta Age and Classical Literature": [23],
+  "Historians and Historiography": [6],
+  "The Ottoman Empire": [25]
+ },
+ "XI|Arts|Geography": {
+  "Geography as a Discipline": [1],
+  "Origin and Evolution of the Earth": [3, 4],
+  "Interior of the Earth and Seismic Waves": [5, 6, 7, 8],
+  "Endogenic and Exogenic Processes": [9, 10, 11],
+  "Weathering and Mass Wasting": [12],
+  "Atmosphere: Insolation, Pressure and the Greenhouse Effect": [13, 14, 15],
+  "Human Geography: Nature and Scope": [2, 16],
+  "Economic Activities: Primary to Quaternary": [17, 18],
+  "India: Location, Physiography and Drainage": [19, 20, 21, 22, 23, 24, 25]
+ },
+ "XI|Arts|Political Science": {
+  "The State: Meaning and Essential Elements": [1],
+  "Theories of the Origin of the State": [9, 10, 13, 19, 24],
+  "Social Contract Theory: Hobbes, Locke and Rousseau": [3, 5, 6, 17, 22],
+  "Sovereignty: Meaning and Characteristics": [8, 12, 15, 16, 25],
+  "Theories of Sovereignty: Monistic and Pluralist": [2, 7, 20, 21, 23],
+  "Political Thinkers: Aristotle, Austin and Laski": [4, 11, 14, 18]
+ },
+ "XI|Arts|Education": {
+  "Concept and Meaning of Education": [1, 2],
+  "Agencies of Education: Family, School and Informal": [4, 7, 15, 16],
+  "Philosophical Foundations: Idealism, Buddhism and Jainism": [10, 11, 19, 20, 21, 22],
+  "Indian and Western Educational Thinkers": [3, 12, 17, 18],
+  "Education and the Indian Constitution": [5, 6, 24],
+  "Educational Organisations: NCERT and NCTE": [8, 9, 13],
+  "Educational Psychology: Intelligence and IQ": [14],
+  "Government Schemes: Sarva Shiksha Abhiyan and RTE": [23, 25]
+ },
+ "XI|Arts|Environmental Science": {
+  "Environment: Concept and Dimensions": [1, 22],
+  "Sustainable Development": [2, 17],
+  "Natural Resources: Renewable and Non-renewable": [5, 7, 15, 20],
+  "Population, Poverty and the Environment": [6, 8, 9, 18],
+  "International Conferences: Stockholm, Rio and Agenda 21": [3, 4, 21],
+  "Environmental Conventions and Protocols": [11, 12, 16, 23],
+  "Climate Change and Global Warming": [10, 13],
+  "Environmental Education and Public Awareness": [14, 19, 24, 25]
+ },
+ "XI|Arts|Philosophy": {
+  "Branches of Philosophy: Epistemology and Metaphysics": [4, 12],
+  "Indian Philosophy: Charvaka": [17, 19, 22],
+  "Indian Philosophy: Buddhism and Jainism": [10, 20, 21],
+  "The Vedas and Vedanta": [18, 25],
+  "Western Thinkers: Plato and Locke": [13, 14, 15],
+  "Philosophy of Education and Educational Thinkers": [1, 2, 3, 5, 6, 8, 9, 11, 16, 23, 24],
+  "Theories of Learning": [7]
+ },
+
+ "XII|All|English & General Knowledge": {
+  "Prose: The Night Train at Deoli": [1, 2, 3, 4],
+  "Prose: Strong Roots": [5, 6, 7],
+  "Prose: The Bet": [8, 9, 10, 11, 12],
+  "Poem: Our Casuarina Tree": [13, 14, 15],
+  "GK: Indian Polity and Personalities": [16, 18, 21, 24],
+  "GK: International Organisations": [17, 19, 25],
+  "GK: Geography, Agriculture and Awards": [20, 22, 23]
+ },
+ "XII|Science|Physics": {
+  "Electric Charges, Fields and Gauss's Law": [3, 4],
+  "Electrostatic Potential and Capacitance": [5, 6, 23],
+  "Current Electricity: Ohm's Law, Kirchhoff and Wheatstone Bridge": [10, 19, 20, 21, 22, 24],
+  "Moving Charges and Magnetism": [11, 16, 17, 18],
+  "Magnetism and Matter": [9],
+  "Electromagnetic Induction": [8],
+  "Alternating Current and Transformers": [7, 12, 13, 25],
+  "Electromagnetic Waves": [1, 2, 14, 15]
+ },
+ "XII|Science|Chemistry": {
+  "Solutions and Colligative Properties": [14, 16, 24],
+  "Surface Chemistry": [9, 15],
+  "Chemical Bonding and Periodic Properties": [4, 5, 22],
+  "The p-Block Elements": [7, 8, 17, 21],
+  "Haloalkanes, Haloarenes and Grignard Reagents": [6, 19, 25],
+  "Alcohols, Phenols and Ethers": [18, 23],
+  "Aldehydes, Ketones and Carboxylic Acids": [13, 20],
+  "Biomolecules": [2, 3, 12],
+  "Polymers": [1, 10, 11]
+ },
+ "XII|Science|Biology": {
+  "Sexual Reproduction in Flowering Plants": [13, 14, 15, 16],
+  "Human Reproduction": [17, 20, 21, 22, 23],
+  "Principles of Inheritance and Variation": [8, 9, 10, 11, 12, 18, 19],
+  "Molecular Basis of Inheritance": [5, 6, 7, 25],
+  "Evolution": [1, 2, 3, 24],
+  "Biotechnology and its Applications": [4]
+ },
+ "XII|Science|Mathematics": {
+  "Relations and Functions": [1, 2, 3, 4],
+  "Inverse Trigonometric Functions": [5, 6],
+  "Matrices": [7],
+  "Determinants and Systems of Equations": [8, 9, 10],
+  "Continuity and Differentiability": [11, 12, 13, 14, 15, 16],
+  "Application of Derivatives": [17, 18, 19, 20, 21],
+  "Probability": [22, 23, 25],
+  "Statistics: Variance and Standard Deviation": [24]
+ },
+ "XII|Commerce|Accountancy": {
+  "Accounting for Partnership Firms: Fundamentals": [2, 3, 4, 20, 21],
+  "Goodwill, Retirement and Dissolution": [1, 10, 14, 22],
+  "Accounting for Share Capital": [6, 7, 11, 16, 17, 25],
+  "Accounting for Debentures": [5, 19],
+  "Financial Statements of a Company": [13, 18],
+  "Analysis of Financial Statements: Ratios": [9, 15, 24],
+  "Cash Flow Statement": [8, 12, 23]
+ },
+ "XII|Commerce|Business Studies": {
+  "Nature and Significance of Management": [1, 22],
+  "Principles of Management": [2, 8],
+  "Planning": [3, 11],
+  "Organising and Delegation": [4, 9, 10, 21],
+  "Staffing and Training": [5, 12, 23],
+  "Directing and Motivation": [6, 25],
+  "Controlling": [7],
+  "Financial Markets and SEBI": [13, 14, 15],
+  "Marketing Management": [16, 17, 18, 24],
+  "Consumer Protection": [19, 20]
+ },
+ "XII|Commerce|Cost & Taxation": {
+  "Cost Accounting: Nature and Objectives": [1, 23],
+  "Elements of Cost and the Cost Sheet": [3, 5, 17],
+  "Overheads: Factory, Administrative and Selling": [4, 6, 14, 15, 18, 22],
+  "Classification of Costs: Fixed and Variable": [2, 7],
+  "Cost Control": [20],
+  "Direct and Indirect Taxes": [10, 12, 16, 19, 21, 24, 25],
+  "GST: Structure and Classification": [8, 9, 11],
+  "Income Tax: Basic Concepts": [13]
+ },
+ "XII|Commerce|Economics": {
+  "National Income and its Aggregates": [2, 5, 11, 16, 23],
+  "Money and Banking": [3, 8, 9, 18, 22],
+  "Government Budget and Fiscal Policy": [6, 10, 12, 17, 19, 24],
+  "Balance of Payments and Exchange Rate": [13, 14, 21],
+  "Market Structures": [15],
+  "Sectors of the Indian Economy": [1],
+  "Liberalisation and Human Capital Formation": [20, 25],
+  "Introduction to Economics and the Central Problem": [4],
+  "Demand and its Determinants": [7]
+ },
+ "XII|Arts|Economics": {
+  "National Income and Related Aggregates": [1, 2, 3, 4, 5],
+  "Keynesian Theory: Consumption Function and the Multiplier": [6, 7, 8, 9, 10],
+  "Balance of Payments and Exchange Rate": [11, 12, 13, 14, 15],
+  "Indian Economy on the Eve of Independence": [16, 17, 18],
+  "Liberalisation, Privatisation and Globalisation": [19, 20, 21],
+  "Human Development and the HDI": [22],
+  "Agriculture and the Green Revolution": [23, 24, 25]
+ },
+ "XII|Arts|History": {
+  "Travellers' Accounts: Alberuni, Ibn Battuta and Bernier": [1, 2, 3, 4, 6, 7],
+  "Bhakti and Sufi Traditions": [8, 9, 10, 11],
+  "The Mughal Empire and its Chroniclers": [5, 12],
+  "The Age of Exploration": [13],
+  "Colonial Expansion: Company Rule and British Acts": [18, 19, 25],
+  "Colonial India: Viceroys, Acts and Reforms": [21, 22, 24],
+  "The Twentieth Century World: Versailles, Holocaust and Bretton Woods": [16, 17, 20, 23],
+  "Apartheid and Civil Rights Movements": [14, 15]
+ },
+ "XII|Arts|Geography": {
+  "Plate Tectonics and Landforms": [1, 2],
+  "Geomorphic Processes: Weathering, Karst and Fluvial": [3, 4, 5, 6],
+  "Atmospheric Circulation and Rainfall": [7, 8, 9],
+  "Oceanography: Salinity and Currents": [10, 11],
+  "Biodiversity and Biomes": [12, 13],
+  "Population: Density, Growth and Demographic Transition": [14, 15, 18],
+  "Human Settlements": [16, 17],
+  "Resources and Energy": [19, 20, 21],
+  "Agriculture and the Green Revolution": [22],
+  "Transport, Trade and International Organisations": [23, 24, 25]
+ },
+ "XII|Arts|Political Science": {
+  "The Cold War Era and Bipolarity": [1, 2],
+  "The Non-Aligned Movement": [3, 4],
+  "The United Nations and its Organs": [5, 6, 7, 8],
+  "Security in the Contemporary World": [9, 10, 12],
+  "Environment and Global Issues": [11],
+  "Challenges of Nation-Building in India": [13, 14, 15],
+  "Political Parties and Party Systems": [16, 17, 18, 19],
+  "India's Foreign Policy and Panchsheel": [20, 21, 22, 23, 24, 25]
+ },
+ "XII|Arts|Education": {
+  "Education Commissions: University, Mudaliar and Kothari": [1, 2, 18, 23],
+  "National Policy on Education and the Three-Language Formula": [4, 22],
+  "Indian Educational Thinkers: Tagore, Vivekananda and Gandhi": [5, 6, 8, 9],
+  "Western Educational Thinkers: Rousseau and Dewey": [7, 17],
+  "Delors Commission and the Four Pillars of Education": [11, 13],
+  "Right to Education Act and Constitutional Provisions": [14, 19, 21, 25],
+  "Inclusive and Special Education": [3, 10],
+  "Open and Distance Learning": [12],
+  "Educational Bodies: NCERT, NCTE and UNESCO": [16, 20, 24],
+  "School Programmes and Co-curricular Activities": [15]
+ },
+ "XII|Arts|Environmental Science": {
+  "Biodiversity and its Conservation": [1, 2, 21],
+  "In-situ and Ex-situ Conservation": [3, 4, 23],
+  "Environmental Movements in India": [5, 22],
+  "Environmental Impact Assessment": [6, 7],
+  "Environmental Legislation in India": [8, 9, 10, 24],
+  "Pollution Control Boards and Regulatory Bodies": [19, 20],
+  "Disaster and Disaster Management": [11, 12, 13, 14],
+  "Sustainable Development and 'Our Common Future'": [15, 16, 25],
+  "Ozone Depletion and Global Warming": [17, 18]
+ },
+ "XII|Arts|Philosophy": {
+  "Western Philosophy: Locke, Hume and Kant": [1],
+  "Causation: Western and Indian Theories": [2, 6],
+  "Advaita Vedanta of Shankara": [3, 4, 5, 7],
+  "The Theory of Liberation": [18, 19],
+  "Ethics and Morality": [8],
+  "Sociology: Society, Institutions and Social Groups": [9, 10, 11, 12, 13, 17],
+  "Educational Sociology": [14],
+  "Agencies of Education": [15, 16],
+  "Indian Educationists: Vivekananda, Gandhi and Aurobindo": [20, 21, 22, 23, 24],
+  "Nature and Meaning of Philosophy": [25]
+ }
+}

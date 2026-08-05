@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XI|Arts|Environmental Science|1",
+  "approved": false,
+  "why_correct": "The environment is usually described as having three dimensions: physical, biological and social or cultural. Financial is not among them, being a human institution rather than a component of the surroundings.",
+  "why_wrong": {
+   "0": "The physical dimension covers the non-living surroundings, that is land, water, air, light and temperature.",
+   "1": "The biological dimension covers all living things, from microbes to plants, animals and human beings.",
+   "2": "The social dimension covers the institutions, customs and relationships within which people live. Economic activity does affect the environment powerfully, but it acts through these three rather than forming a fourth."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|2",
+  "approved": false,
+  "why_correct": "Sustainable development means meeting the needs of the present without compromising the ability of future generations to meet their own needs. That is the Brundtland Commission's definition of 1987.",
+  "why_wrong": {
+   "0": "Unlimited use would exhaust resources and leave nothing for those who come after, which is exactly what the idea guards against.",
+   "1": "Ignoring the future is the opposite of sustainability. The concern for future generations is the heart of the definition.",
+   "3": "Rapid industrialisation alone often damages the environment. Sustainable development balances economic, social and environmental goals rather than pursuing one."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|3",
+  "approved": false,
+  "why_correct": "The Earth Summit is the United Nations Conference on Environment and Development, held at Rio de Janeiro in 1992. It produced Agenda 21, the Rio Declaration and the conventions on climate change and biodiversity.",
+  "why_wrong": {
+   "0": "The Stockholm Conference of 1972 was the first UN conference on the human environment, and it began the whole process, but the title Earth Summit belongs to Rio.",
+   "2": "The Kyoto Conference of 1997 produced the Kyoto Protocol on greenhouse gas emissions.",
+   "3": "The Paris Summit of 2015 produced the Paris Agreement on climate change."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|4",
+  "approved": false,
+  "why_correct": "The United Nations Conference on the Human Environment was held at Stockholm in 1972. It was the first world conference on the environment, and 5 June, its opening day, is now World Environment Day.",
+  "why_wrong": {
+   "0": "1962 is the year Rachel Carson published Silent Spring, which awakened public concern but was not a conference.",
+   "2": "1982 saw a review meeting in Nairobi, ten years on, but not the original conference.",
+   "3": "1992 is the Rio Earth Summit, twenty years after Stockholm. The pair to fix is Stockholm 1972 and Rio 1992."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|5",
+  "approved": false,
+  "why_correct": "Solar energy is renewable, since it is replenished continuously and cannot be exhausted by use. Wind, tidal, geothermal and biomass energy are renewable for the same reason.",
+  "why_wrong": {
+   "0": "Coal is a fossil fuel, formed over millions of years, so it is non-renewable on any human timescale.",
+   "1": "Petroleum is likewise a fossil fuel and finite.",
+   "3": "Natural gas is a fossil fuel too. Three of the four options are fossil fuels, which makes the odd one out easy to spot."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|6",
+  "approved": false,
+  "why_correct": "A growing population needs more food, water, fuel, housing and land, and produces more waste, so pressure on the environment rises directly with numbers.",
+  "why_wrong": {
+   "0": "Conservation becomes harder, not easier, as more people draw on the same resources.",
+   "2": "Biodiversity generally falls as population grows, because habitat is cleared for settlement and farming.",
+   "3": "Forest cover tends to shrink under population pressure, as land is taken for cultivation and building."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|7",
+  "approved": false,
+  "why_correct": "When trees are removed, their roots no longer bind the soil and their canopy no longer breaks the fall of rain, so the topsoil is washed or blown away. Soil erosion is the most immediate consequence of deforestation.",
+  "why_wrong": {
+   "0": "Biodiversity falls sharply when forests go, because habitat is destroyed.",
+   "2": "Rainfall usually decreases, since forests return moisture to the air by transpiration and help form clouds.",
+   "3": "Climate worsens rather than improves. Forests moderate temperature and absorb carbon dioxide, and removing them does the reverse."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|8",
+  "approved": false,
+  "why_correct": "The Green Revolution of the 1960s aimed at raising agricultural production, above all of wheat and rice, through high-yielding varieties, irrigation, fertilisers and pesticides. M. S. Swaminathan led it in India.",
+  "why_wrong": {
+   "0": "Industrial production is a separate matter, and the colour revolutions are all agricultural.",
+   "2": "Forest cover was not its aim, and in places the expansion of cropland reduced it.",
+   "3": "Population was not its target. Note the environmental cost that followed: falling water tables, soil salinity and pesticide residues."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|9",
+  "approved": false,
+  "why_correct": "Child labour is a social factor affecting development. It arises from poverty and lack of schooling, and it holds back development by denying children the education that would raise their future productivity.",
+  "why_wrong": {
+   "0": "Political factors concern governance and policy. Laws against child labour are political, but the practice itself is social and economic.",
+   "2": "Climatic factors are matters of weather and temperature.",
+   "3": "Geological factors concern the earth's structure and mineral resources."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|10",
+  "approved": false,
+  "why_correct": "The Intergovernmental Panel on Climate Change, set up in 1988 by the UN Environment Programme and the World Meteorological Organization, assesses the science of climate change and issues periodic assessment reports.",
+  "why_wrong": {
+   "0": "The World Health Organization deals with global public health.",
+   "1": "UNESCO deals with education, science and culture, including World Heritage sites.",
+   "3": "The International Monetary Fund deals with international monetary cooperation and financial stability."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|11",
+  "approved": false,
+  "why_correct": "The Ramsar Convention of 1971 is the treaty for the conservation and wise use of wetlands. India has many Ramsar sites, including the Sundarbans and Chilika Lake.",
+  "why_wrong": {
+   "0": "Forests are covered by other agreements, such as the forest principles agreed at Rio.",
+   "2": "Mountains have no single convention of this kind.",
+   "3": "Oceans are governed by the UN Convention on the Law of the Sea. Ramsar is named after the Iranian city where it was signed, and it deals only with wetlands."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|12",
+  "approved": false,
+  "why_correct": "The Kyoto Protocol of 1997 is an agreement under the climate change convention, binding industrialised countries to reduce their emissions of greenhouse gases.",
+  "why_wrong": {
+   "0": "Ozone depletion is the subject of the Montreal Protocol. Kyoto and Montreal are the pair most often swapped: Montreal for the ozone layer, Kyoto for the climate.",
+   "2": "Wildlife conservation is covered by CITES and by the Convention on Biological Diversity.",
+   "3": "Desertification has its own UN convention, agreed in 1994."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|13",
+  "approved": false,
+  "why_correct": "Carbon dioxide is the principal greenhouse gas responsible for global warming. Other gases trap more heat per molecule, but carbon dioxide is released in such volume by burning fossil fuels that its total effect is greatest.",
+  "why_wrong": {
+   "0": "Oxygen is essential to life and to combustion but does not trap infrared radiation.",
+   "1": "Nitrogen makes up most of the atmosphere yet is not a greenhouse gas at all.",
+   "3": "Hydrogen is barely present in the atmosphere and is not a greenhouse gas. Abundance in the air and warming effect are quite separate things."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|14",
+  "approved": false,
+  "why_correct": "All three work together. Eco-clubs involve students directly, formal education builds understanding over years, and campaigns reach the wider public quickly. Awareness needs all three channels.",
+  "why_wrong": {
+   "0": "Eco-clubs are effective but reach only those who join them.",
+   "1": "Education is powerful but slow, and it reaches those in school.",
+   "2": "Campaigns reach many people but their effect fades without the other two behind it. Each option is genuinely true, which is what makes all of these the answer."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|15",
+  "approved": false,
+  "why_correct": "Coal is non-renewable. It formed from plant matter buried over millions of years, and once burnt it cannot be replaced within any human timescale.",
+  "why_wrong": {
+   "0": "Wind energy is renewable, driven by the sun's uneven heating of the earth.",
+   "1": "Water is renewable through the water cycle, though it can be locally exhausted or polluted by overuse.",
+   "3": "Solar energy is renewable and effectively inexhaustible."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|16",
+  "approved": false,
+  "why_correct": "The Montreal Protocol of 1987 protects the ozone layer by phasing out chlorofluorocarbons and other ozone-depleting substances. It is the most successful environmental treaty so far, and the ozone hole is now shrinking.",
+  "why_wrong": {
+   "0": "Forests are not its subject.",
+   "2": "Rivers are covered by national laws and by basin-specific agreements.",
+   "3": "Wildlife is covered by CITES and the biodiversity convention. Keep Montreal for ozone and Kyoto for climate."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|17",
+  "approved": false,
+  "why_correct": "The Brundtland Commission, formally the World Commission on Environment and Development, popularised sustainable development in its 1987 report Our Common Future. It was chaired by Gro Harlem Brundtland of Norway.",
+  "why_wrong": {
+   "1": "The World Bank lends for development projects and has adopted the idea, but did not originate it.",
+   "2": "UNESCO works on education, science and culture.",
+   "3": "The IMF deals with monetary and financial stability. The report's title, Our Common Future, is worth remembering along with the commission's name."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|18",
+  "approved": false,
+  "why_correct": "Air pollution degrades the environment by lowering the quality of the air and harming health, crops and buildings. Environmental degradation means any deterioration in the quality of the environment.",
+  "why_wrong": {
+   "0": "Afforestation is planting trees on land that had none, which improves the environment.",
+   "1": "Rainwater harvesting conserves water and recharges groundwater.",
+   "3": "Recycling reduces waste and the demand for raw materials. Three of the four options are remedies, so the one that is a harm stands out."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|19",
+  "approved": false,
+  "why_correct": "Education does all three. It makes people aware of environmental problems, changes how they behave, and so leads to the actual conservation of resources. Awareness without behaviour would achieve nothing.",
+  "why_wrong": {
+   "0": "Raising awareness is real but is only the first step.",
+   "1": "Promoting responsible behaviour follows from awareness and is the second step.",
+   "2": "Conserving resources is the outcome of the first two. Since each is true and they form a chain, all of these is the answer."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|20",
+  "approved": false,
+  "why_correct": "Land reclamation means restoring degraded or unusable land to productive use, for instance by draining marsh, levelling mined ground or treating saline soil.",
+  "why_wrong": {
+   "0": "Destroying forests is deforestation, which makes land less productive rather than more.",
+   "2": "Mining degrades land and often creates the very damage that reclamation must later repair.",
+   "3": "Soil erosion is a form of degradation, so it is the problem rather than the remedy."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|21",
+  "approved": false,
+  "why_correct": "Agenda 21 was adopted at the Rio Earth Summit in 1992. It is a comprehensive action plan for sustainable development in the twenty-first century, to be carried out globally, nationally and locally.",
+  "why_wrong": {
+   "0": "The Stockholm Conference of 1972 produced a declaration and an action plan, but not Agenda 21.",
+   "2": "The Kyoto Conference produced the Kyoto Protocol on emissions.",
+   "3": "The Basel Convention concerns the movement of hazardous waste. The 21 in the name refers to the twenty-first century, which places it in 1992."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|22",
+  "approved": false,
+  "why_correct": "Human beings can think, foresee consequences and choose between courses of action, so they can take responsibility for the environment. That capacity for reasoned decision is what makes them rational partners rather than mere occupants.",
+  "why_wrong": {
+   "1": "Depending on machines is not rationality, and machines are themselves a product of human choices.",
+   "2": "Human beings affect the environment more than any other species, which is precisely why their choices matter.",
+   "3": "No one lives independently of nature. Human beings depend on air, water and soil like every other organism."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|23",
+  "approved": false,
+  "why_correct": "The Basel Convention of 1989 controls the transboundary movement of hazardous wastes and their disposal. It was framed to stop rich countries dumping toxic waste in poorer ones.",
+  "why_wrong": {
+   "0": "Biodiversity is covered by the Convention on Biological Diversity, agreed at Rio.",
+   "2": "Wetlands are covered by the Ramsar Convention.",
+   "3": "Population control is not the subject of any such convention. Each of these treaties is named after the city where it was signed, so they are best learnt as city and subject pairs."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|24",
+  "approved": false,
+  "why_correct": "All three are genuine forms of public participation. Tree planting, clean-up campaigns and eco-club work all involve ordinary citizens acting directly rather than leaving protection to the government.",
+  "why_wrong": {
+   "0": "Tree plantation drives are one good example among several.",
+   "1": "Community clean-ups are another, and they involve the wider neighbourhood.",
+   "2": "Eco-club activities are a third, based in schools. When several options are each true examples of the same idea, look carefully before rejecting all of these."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|25",
+  "approved": false,
+  "why_correct": "Environmental education aims to build awareness of environmental problems and to translate that awareness into responsible action. Knowledge that changes nothing would fall short of the objective.",
+  "why_wrong": {
+   "0": "Industrial growth is an economic aim, and unchecked growth is often part of the problem.",
+   "2": "Increasing population adds to environmental pressure.",
+   "3": "Encouraging excessive use of resources is the opposite of what the subject teaches."
+  }
+ }
+]

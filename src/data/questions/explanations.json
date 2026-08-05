@@ -2205,6 +2205,966 @@
   }
  },
  {
+  "id": "XI|Arts|Economics|1",
+  "approved": false,
+  "why_correct": "Economics studies how people behave when resources are scarce and wants are unlimited. Robbins defined it as the science of choice under scarcity, and choice is what the subject is really about.",
+  "why_wrong": {
+   "0": "Weather is the province of meteorology. Economics may study the effect of a monsoon on crops, but that is the human response, not the weather itself.",
+   "2": "Plants belong to botany. Agriculture is studied by economists only as an economic activity.",
+   "3": "Machines belong to engineering. An economist treats a machine as capital, that is as a factor of production."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|2",
+  "approved": false,
+  "why_correct": "Adam Smith is called the father of economics for An Inquiry into the Nature and Causes of the Wealth of Nations, published in 1776, which gave the subject its first systematic treatment and the idea of the invisible hand.",
+  "why_wrong": {
+   "0": "Karl Marx wrote Das Kapital and founded the socialist critique of capitalism, nearly a century later.",
+   "2": "J. M. Keynes founded modern macroeconomics with his General Theory of 1936, and is called the father of macroeconomics.",
+   "3": "Alfred Marshall is called the father of modern or neoclassical economics, for his Principles of Economics of 1890. Marshall and Smith are the two most often confused, and the word modern is what separates them."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|3",
+  "approved": false,
+  "why_correct": "Consumer behaviour concerns how an individual consumer allocates income among goods, so it is a microeconomic topic. Micro deals with individual units.",
+  "why_wrong": {
+   "0": "National income measures the output of the whole economy, so it is macroeconomic.",
+   "1": "Inflation is a rise in the general price level across the economy, again macro.",
+   "3": "Unemployment concerns the economy-wide labour market. All three wrong options describe the economy as a whole, which is exactly the dividing line."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|4",
+  "approved": false,
+  "why_correct": "The central problem arises because resources are scarce while wants are unlimited. If resources were plentiful enough for every want, no choice would be necessary and there would be no economic problem.",
+  "why_wrong": {
+   "0": "Resources are not unlimited. That is the very opposite of scarcity.",
+   "1": "Wants are unlimited, not limited. Satisfy one and another appears.",
+   "3": "Production is not easy, and even if it were, the inputs it needs would still be limited."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|5",
+  "approved": false,
+  "why_correct": "PPC is the Production Possibility Curve, which shows the different combinations of two goods an economy can produce with its resources fully and efficiently employed. It is also called the transformation curve.",
+  "why_wrong": {
+   "0": "Public Production Curve is not a term in economics.",
+   "2": "Price Production Curve is invented. There is a price consumption curve in consumer theory, which is a different thing.",
+   "3": "Product Planning Curve is not an economic concept either. The curve is about what is possible to produce, which is what the word possibility carries."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|6",
+  "approved": false,
+  "why_correct": "Opportunity cost is the next best alternative that must be given up to get something. It is the real cost of a choice, measured in what was forgone rather than in money.",
+  "why_wrong": {
+   "0": "Fixed cost is an accounting classification, a cost that does not vary with output.",
+   "1": "Extra income is a gain, not a cost.",
+   "3": "Market price is the money paid. A free good has a market price of zero but can still carry a heavy opportunity cost in time."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|7",
+  "approved": false,
+  "why_correct": "A capitalist economy is based on private ownership of the means of production, with decisions guided by the profit motive and the price mechanism. The United States is the usual example.",
+  "why_wrong": {
+   "0": "A socialist economy has state ownership of the means of production and central planning.",
+   "2": "A mixed economy has both private and public ownership side by side, so it is not based on private ownership alone.",
+   "3": "A planned economy is directed by the government's plan rather than by prices, and is another name for the socialist type."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|8",
+  "approved": false,
+  "why_correct": "In a mixed economy the public and private sectors coexist, with the state running key industries and providing services while private enterprise operates elsewhere. India is a mixed economy.",
+  "why_wrong": {
+   "0": "Government ownership alone describes a socialist or planned economy.",
+   "1": "A purely private sector describes capitalism.",
+   "3": "There is certainly a government in a mixed economy; indeed its participation is what makes the economy mixed."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|9",
+  "approved": false,
+  "why_correct": "Utility is the want-satisfying power of a commodity, that is the satisfaction a consumer gets from consuming it. It is subjective and differs from person to person.",
+  "why_wrong": {
+   "0": "Cost of production is what the producer spends, which is quite separate from what the consumer feels.",
+   "2": "Income earned is a receipt of money, not a satisfaction from consuming.",
+   "3": "Market demand is the total quantity buyers will purchase. Utility helps explain demand but is not the same as it."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|10",
+  "approved": false,
+  "why_correct": "In economics demand means desire backed by both the ability and the willingness to pay. A wish without purchasing power behind it is not demand.",
+  "why_wrong": {
+   "0": "Desire alone is not demand. A poor man may desire a car without adding anything to its demand.",
+   "2": "Need is not demand either. Many needs go unmet precisely because no purchasing power supports them.",
+   "3": "Supply is the seller's side of the market, the opposite of demand."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|11",
+  "approved": false,
+  "why_correct": "The law of demand says that, other things remaining equal, a rise in price causes a fall in quantity demanded and a fall in price causes a rise. Price and quantity move in opposite directions, which is why the demand curve slopes downward.",
+  "why_wrong": {
+   "0": "Moving together would give an upward sloping curve, which is the rare exception of Giffen and Veblen goods, not the law.",
+   "1": "Demand certainly changes, with price and with other factors.",
+   "3": "The law describes what happens when price changes, so a constant price would leave nothing to state."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|12",
+  "approved": false,
+  "why_correct": "A change in consumers' income shifts the whole demand curve, because at every price a different quantity is now demanded. Income is one of the other things held equal in the law of demand.",
+  "why_wrong": {
+   "0": "A change in the commodity's own price causes movement along the curve, not a shift of it. This is the single most important distinction in the topic.",
+   "2": "Quantity supplied belongs to the supply side and does not shift demand.",
+   "3": "Cost of production affects supply. Its effect on demand is only indirect, through the price it leads to."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|13",
+  "approved": false,
+  "why_correct": "Supply is the quantity of a commodity that sellers are willing and able to offer for sale at different prices in a given period. Like demand, it is a schedule of quantities against prices, not a single number.",
+  "why_wrong": {
+   "0": "Stock is what exists and is available, whereas supply is the part actually offered for sale at a given price. A trader may hold stock back if the price is poor.",
+   "2": "Total production is what has been made, and some of it may not be offered for sale.",
+   "3": "Demand is the buyer's side of the market."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|14",
+  "approved": false,
+  "why_correct": "Equilibrium is reached where the quantity demanded equals the quantity supplied. At that price there is neither surplus nor shortage, so there is no force pushing the price to change.",
+  "why_wrong": {
+   "0": "Demand exceeding supply is a shortage, and the price will be bid up until the gap closes.",
+   "1": "Supply exceeding demand is a surplus, and the price will fall.",
+   "3": "A price of zero would apply to a free good, which is not what equilibrium means."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|15",
+  "approved": false,
+  "why_correct": "Marginal utility is the addition to total satisfaction from consuming one more unit of a commodity. It is the change in total utility caused by a one-unit change in quantity.",
+  "why_wrong": {
+   "0": "Total utility is the whole satisfaction from all units taken together.",
+   "2": "Average utility is total utility divided by the number of units.",
+   "3": "Cost of production belongs to the producer's side and has nothing to do with the consumer's satisfaction."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|16",
+  "approved": false,
+  "why_correct": "The law says that as more units of a commodity are consumed, the satisfaction from each successive unit falls. The first cup of tea gives more pleasure than the fourth.",
+  "why_wrong": {
+   "0": "Utility always increasing is the opposite of the law. Total utility does keep rising for a while, but at a slowing rate, and it is marginal utility that falls.",
+   "1": "Constant utility would mean every unit gave the same satisfaction, which experience contradicts.",
+   "3": "The law is about satisfaction, not about prices, though it is the reason demand curves slope downward."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|17",
+  "approved": false,
+  "why_correct": "The primary sector covers activities that draw directly on nature: agriculture, fishing, forestry and mining. Farming is its central example.",
+  "why_wrong": {
+   "0": "The secondary sector manufactures, turning raw materials into finished goods.",
+   "1": "The tertiary sector provides services such as banking, transport and education.",
+   "3": "Service sector is another name for the tertiary sector, so it is the same wrong answer twice. Note that a flour mill is secondary even though it handles a farm product."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|18",
+  "approved": false,
+  "why_correct": "National income is the total income earned by all the factors of production of a country in a year, that is rent, wages, interest and profit taken together. It measures the whole economy's earnings, not the government's.",
+  "why_wrong": {
+   "0": "Government income is only one part, coming largely from taxes.",
+   "2": "Export earnings are one component of the flow of income from abroad, not the whole.",
+   "3": "Tax revenue is a transfer from citizens to the state and is not itself new income earned."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|19",
+  "approved": false,
+  "why_correct": "GDP is Gross Domestic Product, the money value of all final goods and services produced within a country's borders in a year, whoever produces them.",
+  "why_wrong": {
+   "1": "General Domestic Price is not a term. The general price level is a separate idea used in measuring inflation.",
+   "2": "Gross Development Plan is invented.",
+   "3": "Government Domestic Product is not a term either. Note the contrast with GNP, which counts what a country's nationals produce anywhere, while GDP counts what is produced inside its borders."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|20",
+  "approved": false,
+  "why_correct": "Inflation is a sustained rise in the general price level, which means each rupee buys less than before. It is measured by index numbers such as the Consumer Price Index.",
+  "why_wrong": {
+   "0": "A fall in prices is deflation, the opposite condition.",
+   "2": "An increase in production is growth, and it usually works against inflation by increasing the supply of goods.",
+   "3": "An increase in exports affects the balance of trade. The word general matters: a rise in the price of one commodity is not inflation."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|21",
+  "approved": false,
+  "why_correct": "Money is anything generally accepted as a medium of exchange. That function is its defining one, because it removes the double coincidence of wants that made barter so difficult.",
+  "why_wrong": {
+   "0": "A consumer good is used to satisfy a want directly. Money satisfies no want by itself; it is useful only for what it buys.",
+   "1": "A capital good is used to produce other goods, such as a machine.",
+   "3": "A luxury good is a classification of consumer goods by necessity. Money buys luxuries but is not one."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|22",
+  "approved": false,
+  "why_correct": "The Reserve Bank of India, established in 1935, is the central bank of the country. It issues currency, controls credit, acts as banker to the government and regulates the whole banking system.",
+  "why_wrong": {
+   "0": "Commercial banks such as the State Bank of India take deposits and lend to the public. The RBI is their regulator, not one of them.",
+   "2": "A foreign bank is one incorporated outside India but operating here.",
+   "3": "A cooperative bank is owned by its members and serves them, mainly in rural and semi-urban areas."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|23",
+  "approved": false,
+  "why_correct": "All three are functions of money. It is a medium of exchange for transactions, a measure of value for comparing goods, and a store of value that can be held over time. A fourth, the standard of deferred payment, is usually added.",
+  "why_wrong": {
+   "0": "Measure of value is a genuine function, but naming only one leaves the others out.",
+   "1": "Medium of exchange is the primary function, and still only one of them.",
+   "2": "Store of value is also correct on its own. When several options are each true and the last says all of these, check whether any is actually false before ruling it out."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|24",
+  "approved": false,
+  "why_correct": "Unemployment means people who are willing and able to work at the prevailing wage cannot find work. Willingness is essential to the definition, which is why students and retired people are not counted.",
+  "why_wrong": {
+   "0": "Working part time is underemployment, not unemployment, since the person does have work.",
+   "2": "Low income describes poverty. A person may work hard and still be poor, so the two problems are distinct.",
+   "3": "High prices describe inflation, a separate problem."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|25",
+  "approved": false,
+  "why_correct": "Economics has two main branches: microeconomics, which studies individual units, and macroeconomics, which studies the economy as a whole. The division is due to Ragnar Frisch.",
+  "why_wrong": {
+   "1": "Three branches would require a third division of the same kind, and there is none. Fields such as public finance are applications within these two.",
+   "2": "Four is not a recognised division.",
+   "3": "Five is not either. Do not confuse the two branches with the four factors of production or the three sectors of the economy."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|1",
+  "approved": false,
+  "why_correct": "Education is a Latin word. It comes from the Latin roots educare, educere and educatum, which is why the study of the term always begins with Latin.",
+  "why_wrong": {
+   "1": "French has shaped much English vocabulary, but this word reaches English from Latin.",
+   "2": "The word is used in English, but the question asks where it comes from, not where it is used.",
+   "3": "Greek gave philosophy many terms, such as metaphysics and pedagogy, but not this one."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|3",
+  "approved": false,
+  "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. The idea is that nothing is put into the child from outside; what is already there is uncovered.",
+  "why_wrong": {
+   "0": "Sri Aurobindo gave the philosophy of integral education, aiming at the full development of body, mind and spirit.",
+   "1": "Gandhi gave Basic Education, or Nai Talim, built round a craft and the mother tongue.",
+   "3": "Tagore founded Santiniketan and taught in the open air, close to nature. All four are Indian thinkers on education, so the definition itself must be recognised."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|4",
+  "approved": false,
+  "why_correct": "In the broader sense education is a lifelong process that begins at birth and ends only at death. The child begins learning from the family long before any institution is involved.",
+  "why_wrong": {
+   "0": "School is where formal education begins, which is the narrow sense of the word. The question specifies the broader sense.",
+   "2": "College comes later still in the formal ladder.",
+   "3": "University is later again. The narrow sense means deliberate instruction in an institution, while the broad sense means every influence that shapes a person."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|5",
+  "approved": false,
+  "why_correct": "The Constitution came into force on 26 January 1950, which is why that day is celebrated as Republic Day. The date was chosen to honour the Purna Swaraj declaration of 1930.",
+  "why_wrong": {
+   "1": "26 November 1949 is when the Constituent Assembly adopted the Constitution, and it is kept as Constitution Day. Adoption and commencement are two months apart, and that gap is exactly what this question tests.",
+   "2": "26 January 1949 is a year too early.",
+   "3": "26 November 1950 mixes the adoption date with the wrong year."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|6",
+  "approved": false,
+  "why_correct": "The 86th Constitutional Amendment of 2002 inserted Article 21A, making free and compulsory education for children aged six to fourteen a fundamental right.",
+  "why_wrong": {
+   "0": "2000 is when the Sarva Shiksha Abhiyan was being framed, but no amendment was made.",
+   "1": "2001 is when the Sarva Shiksha Abhiyan was launched. The scheme came first and the right the following year.",
+   "3": "2003 is after the amendment. Note that the Right to Education Act, which gave the right practical effect, came only in 2009 and took force in 2010."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|7",
+  "approved": false,
+  "why_correct": "The family is an informal agency of education. It teaches without any syllabus, timetable or deliberate plan, simply through daily living, and its influence is the earliest and deepest a child receives.",
+  "why_wrong": {
+   "0": "Formal agencies are schools, colleges and universities, with a fixed curriculum and a planned course.",
+   "2": "Non-formal agencies are organised but flexible, such as open schooling and adult literacy programmes. Organised but outside the school system, which is not the same as informal.",
+   "3": "The family belongs to one category only, and it is the informal one."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|8",
+  "approved": false,
+  "why_correct": "The National Council of Educational Research and Training was established in 1961, by merging seven existing national institutions, to advise the central and state governments on school education.",
+  "why_wrong": {
+   "1": "1960 is a year too early, and nothing of note was founded then in this field.",
+   "2": "1959 is two years too early. The institutions that were merged existed before this, but the Council itself did not.",
+   "3": "1962 is a year late. A useful anchor is that NCERT came shortly after the Secondary Education Commission and before the Kothari Commission of 1964."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|9",
+  "approved": false,
+  "why_correct": "NCTE is the National Council for Teacher Education, a statutory body set up in 1993 to plan and coordinate teacher education and to lay down norms for teacher training institutions.",
+  "why_wrong": {
+   "0": "Commission is wrong. A commission is usually a temporary body appointed to report, while a council is a permanent one.",
+   "2": "Training Education is not the name, and it reads oddly, since teacher education is the phrase used.",
+   "3": "Committee is wrong for the same reason as commission. Read such acronyms word by word: council, teacher, education."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|10",
+  "approved": false,
+  "why_correct": "Metaphysics is the branch of philosophy dealing with the ultimate nature of reality, asking what truly exists and what the universe is made of. In educational philosophy it shapes what a system takes to be real and therefore worth teaching.",
+  "why_wrong": {
+   "0": "Axiology is the study of values, covering ethics and aesthetics, and it shapes the aims of education.",
+   "1": "Ontology is the study of being and existence. It is close, but it is a division within metaphysics rather than the branch itself, and metaphysics is the broader term the question asks for.",
+   "3": "Epistemology is the study of knowledge, asking what we can know and how we come to know it, which shapes teaching method."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|11",
+  "approved": false,
+  "why_correct": "The Ashtangika Marga, or Noble Eightfold Path, is the Buddhist way to the cessation of suffering. It is the fourth of the Four Noble Truths and runs from right view to right concentration.",
+  "why_wrong": {
+   "0": "Jainism teaches the Triratna, the Three Jewels of right faith, right knowledge and right conduct, together with the five vows.",
+   "2": "Vedanta is based on the Upanishads and teaches the identity of the individual soul with Brahman.",
+   "3": "Nyaya is the school of logic and the means of valid knowledge."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|12",
+  "approved": false,
+  "why_correct": "Swami Vivekananda held that all knowledge, material and spiritual, is already within a person and is only hidden by ignorance. Education, on this view, removes the curtain rather than adding anything.",
+  "why_wrong": {
+   "0": "Plato held that learning is recollection of what the soul knew before birth, which is a related idea but from a different tradition and a different phrasing.",
+   "1": "Gandhi's emphasis was on education through craft and on character rather than on innate knowledge.",
+   "2": "Tagore stressed freedom, nature and creative self-expression. This saying belongs with Vivekananda's definition of education as manifestation of perfection, and the two go together."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|13",
+  "approved": false,
+  "why_correct": "NCERT's chief function is extension work with State Education Departments to improve school education, through curriculum design, textbooks, teacher training and research.",
+  "why_wrong": {
+   "0": "Higher education is the concern of the University Grants Commission.",
+   "2": "Secondary education is only one stage of school education. NCERT covers the whole school range from pre-primary upward, so this is too narrow.",
+   "3": "Technical education is looked after by the All India Council for Technical Education."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|14",
+  "approved": false,
+  "why_correct": "IQ is mental age divided by chronological age, multiplied by 100. So a ten-year-old with a mental age of twelve has an IQ of 120. The formula is due to William Stern.",
+  "why_wrong": {
+   "0": "Dividing mental age by 100 and then multiplying by 100 simply returns the mental age, and leaves chronological age out altogether.",
+   "1": "This inverts the fraction. Chronological age over mental age would give a bright child an IQ below 100, which is the wrong way round.",
+   "3": "This is the same inverted formula printed a second time. Whichever of the two you picked, the error is the same: mental age belongs on top."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|15",
+  "approved": false,
+  "why_correct": "The home is the main centre of informal education. It is where the child first learns language, habits, manners and values, and it works continuously without any deliberate teaching.",
+  "why_wrong": {
+   "1": "Society is an informal agency too, and a powerful one, but its influence comes later and is more diffuse than the home's.",
+   "2": "Radio and television are informal agencies of the modern kind, but they reach the child well after the home has begun its work.",
+   "3": "Newspapers are likewise an informal agency, and they require literacy the child must first acquire elsewhere."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|16",
+  "approved": false,
+  "why_correct": "The family educates informally, through imitation, affection and the routine of daily life, without a syllabus or a fixed method. The child learns without either party quite intending a lesson.",
+  "why_wrong": {
+   "0": "Formal teaching needs a planned curriculum and trained teachers, which the family does not have.",
+   "2": "Deliberately is wrong because most family learning is unplanned. Parents do teach some things on purpose, but that is not what characterises the agency.",
+   "3": "Regularly suggests a timetable. Family influence is constant rather than scheduled, and those are different things."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|17",
+  "approved": false,
+  "why_correct": "John Dewey described the school as a miniature society, holding that it should reproduce the life of the community in small so that the child learns democracy by living it. He is the leading figure of pragmatism in education.",
+  "why_wrong": {
+   "0": "B. F. Skinner developed operant conditioning and programmed instruction.",
+   "1": "E. L. Thorndike gave the laws of learning and the theory of trial and error.",
+   "2": "J. F. Herbart gave the five formal steps of teaching and the doctrine of apperception. The other three are learning theorists; Dewey is the social philosopher of education."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|18",
+  "approved": false,
+  "why_correct": "Plato set out his scheme of education in The Republic, which describes the ideal state and the long training of its guardians. It is the earliest systematic treatment of education in Western philosophy.",
+  "why_wrong": {
+   "1": "Educational Philosophy is not a work of Plato's.",
+   "2": "Education of Plato is not a book he wrote; if anything it names a topic others have written on.",
+   "3": "Emile is by Jean-Jacques Rousseau, published in 1762, and it is the other great classic of educational writing. Plato and Rousseau are the pair most often confused here."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|19",
+  "approved": false,
+  "why_correct": "Mahavira was the twenty-fourth and last Tirthankara of Jainism. He gave the faith its final form in the sixth century BCE and added the vow of chastity to the four taught by Parshvanatha.",
+  "why_wrong": {
+   "1": "Jinasena was a Jain scholar and author of the Adipurana, not a Tirthankara.",
+   "2": "Rishabhanatha was the first Tirthankara, at the opposite end of the list.",
+   "3": "Kshemendra was a Kashmiri poet and writer, not a Jain Tirthankara at all."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|20",
+  "approved": false,
+  "why_correct": "Rishabha, also called Rishabhanatha or Adinatha, was the first of the twenty-four Tirthankaras of Jainism. His symbol is the bull.",
+  "why_wrong": {
+   "0": "Mahavira was the twenty-fourth and last, so he is at the other end of the same list.",
+   "2": "Parshvanatha was the twenty-third, and the first for whom there is historical evidence.",
+   "3": "Padmaprabha was the sixth Tirthankara. The two worth fixing firmly are the first, Rishabha, and the last, Mahavira."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|21",
+  "approved": false,
+  "why_correct": "Patanjali is regarded as the founder of the Yoga school, having compiled the Yoga Sutras, which set out the eight limbs of yoga from yama to samadhi.",
+  "why_wrong": {
+   "1": "Kapila founded the Samkhya school, which is the philosophical partner of Yoga.",
+   "2": "Jaimini founded the Mimamsa school, concerned with the interpretation of Vedic ritual.",
+   "3": "Shankara was the great exponent of Advaita Vedanta. All four founded or led schools of Indian philosophy, so the association must be learnt pair by pair."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|23",
+  "approved": false,
+  "why_correct": "Article 21A, inserted by the 86th Amendment in 2002, makes free and compulsory education for children aged six to fourteen a fundamental right. It sits alongside Article 21, the right to life.",
+  "why_wrong": {
+   "0": "Article 16 guarantees equality of opportunity in public employment.",
+   "1": "Article 46 directs the state to promote the educational interests of the weaker sections, but it is a Directive Principle and so not enforceable in court.",
+   "2": "Article 45 originally directed the state to provide free education up to fourteen, again as a Directive Principle. The 86th Amendment moved that promise into the enforceable fundamental rights as 21A, and Article 45 now covers early childhood care."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|24",
+  "approved": false,
+  "why_correct": "Article 23 prohibits traffic in human beings, begar and other forms of forced labour. It falls under the Right against Exploitation, together with Article 24 on child labour.",
+  "why_wrong": {
+   "0": "Article 39 is a Directive Principle on the distribution of resources and on protecting children and workers.",
+   "1": "Article 15 prohibits discrimination on grounds of religion, race, caste, sex or place of birth.",
+   "2": "Article 16 concerns equality of opportunity in public employment. The block to remember is 23 and 24 for exploitation, with 24 barring the employment of children under fourteen in hazardous work."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|25",
+  "approved": false,
+  "why_correct": "Sarva Shiksha Abhiyan was launched in 2001 to universalise elementary education, aiming to bring every child aged six to fourteen into school.",
+  "why_wrong": {
+   "1": "2002 is the year of the 86th Amendment, which made education a fundamental right. The programme came first and the constitutional right the year after.",
+   "2": "2003 is after both the programme and the amendment, and marks neither of them.",
+   "3": "2004 is later still. The sequence worth holding is SSA in 2001, the amendment in 2002 and the RTE Act in 2009."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|1",
+  "approved": false,
+  "why_correct": "The environment is usually described as having three dimensions: physical, biological and social or cultural. Financial is not among them, being a human institution rather than a component of the surroundings.",
+  "why_wrong": {
+   "0": "The physical dimension covers the non-living surroundings, that is land, water, air, light and temperature.",
+   "1": "The biological dimension covers all living things, from microbes to plants, animals and human beings.",
+   "2": "The social dimension covers the institutions, customs and relationships within which people live. Economic activity does affect the environment powerfully, but it acts through these three rather than forming a fourth."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|2",
+  "approved": false,
+  "why_correct": "Sustainable development means meeting the needs of the present without compromising the ability of future generations to meet their own needs. That is the Brundtland Commission's definition of 1987.",
+  "why_wrong": {
+   "0": "Unlimited use would exhaust resources and leave nothing for those who come after, which is exactly what the idea guards against.",
+   "1": "Ignoring the future is the opposite of sustainability. The concern for future generations is the heart of the definition.",
+   "3": "Rapid industrialisation alone often damages the environment. Sustainable development balances economic, social and environmental goals rather than pursuing one."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|3",
+  "approved": false,
+  "why_correct": "The Earth Summit is the United Nations Conference on Environment and Development, held at Rio de Janeiro in 1992. It produced Agenda 21, the Rio Declaration and the conventions on climate change and biodiversity.",
+  "why_wrong": {
+   "0": "The Stockholm Conference of 1972 was the first UN conference on the human environment, and it began the whole process, but the title Earth Summit belongs to Rio.",
+   "2": "The Kyoto Conference of 1997 produced the Kyoto Protocol on greenhouse gas emissions.",
+   "3": "The Paris Summit of 2015 produced the Paris Agreement on climate change."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|4",
+  "approved": false,
+  "why_correct": "The United Nations Conference on the Human Environment was held at Stockholm in 1972. It was the first world conference on the environment, and 5 June, its opening day, is now World Environment Day.",
+  "why_wrong": {
+   "0": "1962 is the year Rachel Carson published Silent Spring, which awakened public concern but was not a conference.",
+   "2": "1982 saw a review meeting in Nairobi, ten years on, but not the original conference.",
+   "3": "1992 is the Rio Earth Summit, twenty years after Stockholm. The pair to fix is Stockholm 1972 and Rio 1992."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|5",
+  "approved": false,
+  "why_correct": "Solar energy is renewable, since it is replenished continuously and cannot be exhausted by use. Wind, tidal, geothermal and biomass energy are renewable for the same reason.",
+  "why_wrong": {
+   "0": "Coal is a fossil fuel, formed over millions of years, so it is non-renewable on any human timescale.",
+   "1": "Petroleum is likewise a fossil fuel and finite.",
+   "3": "Natural gas is a fossil fuel too. Three of the four options are fossil fuels, which makes the odd one out easy to spot."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|6",
+  "approved": false,
+  "why_correct": "A growing population needs more food, water, fuel, housing and land, and produces more waste, so pressure on the environment rises directly with numbers.",
+  "why_wrong": {
+   "0": "Conservation becomes harder, not easier, as more people draw on the same resources.",
+   "2": "Biodiversity generally falls as population grows, because habitat is cleared for settlement and farming.",
+   "3": "Forest cover tends to shrink under population pressure, as land is taken for cultivation and building."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|7",
+  "approved": false,
+  "why_correct": "When trees are removed, their roots no longer bind the soil and their canopy no longer breaks the fall of rain, so the topsoil is washed or blown away. Soil erosion is the most immediate consequence of deforestation.",
+  "why_wrong": {
+   "0": "Biodiversity falls sharply when forests go, because habitat is destroyed.",
+   "2": "Rainfall usually decreases, since forests return moisture to the air by transpiration and help form clouds.",
+   "3": "Climate worsens rather than improves. Forests moderate temperature and absorb carbon dioxide, and removing them does the reverse."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|8",
+  "approved": false,
+  "why_correct": "The Green Revolution of the 1960s aimed at raising agricultural production, above all of wheat and rice, through high-yielding varieties, irrigation, fertilisers and pesticides. M. S. Swaminathan led it in India.",
+  "why_wrong": {
+   "0": "Industrial production is a separate matter, and the colour revolutions are all agricultural.",
+   "2": "Forest cover was not its aim, and in places the expansion of cropland reduced it.",
+   "3": "Population was not its target. Note the environmental cost that followed: falling water tables, soil salinity and pesticide residues."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|9",
+  "approved": false,
+  "why_correct": "Child labour is a social factor affecting development. It arises from poverty and lack of schooling, and it holds back development by denying children the education that would raise their future productivity.",
+  "why_wrong": {
+   "0": "Political factors concern governance and policy. Laws against child labour are political, but the practice itself is social and economic.",
+   "2": "Climatic factors are matters of weather and temperature.",
+   "3": "Geological factors concern the earth's structure and mineral resources."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|10",
+  "approved": false,
+  "why_correct": "The Intergovernmental Panel on Climate Change, set up in 1988 by the UN Environment Programme and the World Meteorological Organization, assesses the science of climate change and issues periodic assessment reports.",
+  "why_wrong": {
+   "0": "The World Health Organization deals with global public health.",
+   "1": "UNESCO deals with education, science and culture, including World Heritage sites.",
+   "3": "The International Monetary Fund deals with international monetary cooperation and financial stability."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|11",
+  "approved": false,
+  "why_correct": "The Ramsar Convention of 1971 is the treaty for the conservation and wise use of wetlands. India has many Ramsar sites, including the Sundarbans and Chilika Lake.",
+  "why_wrong": {
+   "0": "Forests are covered by other agreements, such as the forest principles agreed at Rio.",
+   "2": "Mountains have no single convention of this kind.",
+   "3": "Oceans are governed by the UN Convention on the Law of the Sea. Ramsar is named after the Iranian city where it was signed, and it deals only with wetlands."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|12",
+  "approved": false,
+  "why_correct": "The Kyoto Protocol of 1997 is an agreement under the climate change convention, binding industrialised countries to reduce their emissions of greenhouse gases.",
+  "why_wrong": {
+   "0": "Ozone depletion is the subject of the Montreal Protocol. Kyoto and Montreal are the pair most often swapped: Montreal for the ozone layer, Kyoto for the climate.",
+   "2": "Wildlife conservation is covered by CITES and by the Convention on Biological Diversity.",
+   "3": "Desertification has its own UN convention, agreed in 1994."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|13",
+  "approved": false,
+  "why_correct": "Carbon dioxide is the principal greenhouse gas responsible for global warming. Other gases trap more heat per molecule, but carbon dioxide is released in such volume by burning fossil fuels that its total effect is greatest.",
+  "why_wrong": {
+   "0": "Oxygen is essential to life and to combustion but does not trap infrared radiation.",
+   "1": "Nitrogen makes up most of the atmosphere yet is not a greenhouse gas at all.",
+   "3": "Hydrogen is barely present in the atmosphere and is not a greenhouse gas. Abundance in the air and warming effect are quite separate things."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|14",
+  "approved": false,
+  "why_correct": "All three work together. Eco-clubs involve students directly, formal education builds understanding over years, and campaigns reach the wider public quickly. Awareness needs all three channels.",
+  "why_wrong": {
+   "0": "Eco-clubs are effective but reach only those who join them.",
+   "1": "Education is powerful but slow, and it reaches those in school.",
+   "2": "Campaigns reach many people but their effect fades without the other two behind it. Each option is genuinely true, which is what makes all of these the answer."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|15",
+  "approved": false,
+  "why_correct": "Coal is non-renewable. It formed from plant matter buried over millions of years, and once burnt it cannot be replaced within any human timescale.",
+  "why_wrong": {
+   "0": "Wind energy is renewable, driven by the sun's uneven heating of the earth.",
+   "1": "Water is renewable through the water cycle, though it can be locally exhausted or polluted by overuse.",
+   "3": "Solar energy is renewable and effectively inexhaustible."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|16",
+  "approved": false,
+  "why_correct": "The Montreal Protocol of 1987 protects the ozone layer by phasing out chlorofluorocarbons and other ozone-depleting substances. It is the most successful environmental treaty so far, and the ozone hole is now shrinking.",
+  "why_wrong": {
+   "0": "Forests are not its subject.",
+   "2": "Rivers are covered by national laws and by basin-specific agreements.",
+   "3": "Wildlife is covered by CITES and the biodiversity convention. Keep Montreal for ozone and Kyoto for climate."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|17",
+  "approved": false,
+  "why_correct": "The Brundtland Commission, formally the World Commission on Environment and Development, popularised sustainable development in its 1987 report Our Common Future. It was chaired by Gro Harlem Brundtland of Norway.",
+  "why_wrong": {
+   "1": "The World Bank lends for development projects and has adopted the idea, but did not originate it.",
+   "2": "UNESCO works on education, science and culture.",
+   "3": "The IMF deals with monetary and financial stability. The report's title, Our Common Future, is worth remembering along with the commission's name."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|18",
+  "approved": false,
+  "why_correct": "Air pollution degrades the environment by lowering the quality of the air and harming health, crops and buildings. Environmental degradation means any deterioration in the quality of the environment.",
+  "why_wrong": {
+   "0": "Afforestation is planting trees on land that had none, which improves the environment.",
+   "1": "Rainwater harvesting conserves water and recharges groundwater.",
+   "3": "Recycling reduces waste and the demand for raw materials. Three of the four options are remedies, so the one that is a harm stands out."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|19",
+  "approved": false,
+  "why_correct": "Education does all three. It makes people aware of environmental problems, changes how they behave, and so leads to the actual conservation of resources. Awareness without behaviour would achieve nothing.",
+  "why_wrong": {
+   "0": "Raising awareness is real but is only the first step.",
+   "1": "Promoting responsible behaviour follows from awareness and is the second step.",
+   "2": "Conserving resources is the outcome of the first two. Since each is true and they form a chain, all of these is the answer."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|20",
+  "approved": false,
+  "why_correct": "Land reclamation means restoring degraded or unusable land to productive use, for instance by draining marsh, levelling mined ground or treating saline soil.",
+  "why_wrong": {
+   "0": "Destroying forests is deforestation, which makes land less productive rather than more.",
+   "2": "Mining degrades land and often creates the very damage that reclamation must later repair.",
+   "3": "Soil erosion is a form of degradation, so it is the problem rather than the remedy."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|21",
+  "approved": false,
+  "why_correct": "Agenda 21 was adopted at the Rio Earth Summit in 1992. It is a comprehensive action plan for sustainable development in the twenty-first century, to be carried out globally, nationally and locally.",
+  "why_wrong": {
+   "0": "The Stockholm Conference of 1972 produced a declaration and an action plan, but not Agenda 21.",
+   "2": "The Kyoto Conference produced the Kyoto Protocol on emissions.",
+   "3": "The Basel Convention concerns the movement of hazardous waste. The 21 in the name refers to the twenty-first century, which places it in 1992."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|22",
+  "approved": false,
+  "why_correct": "Human beings can think, foresee consequences and choose between courses of action, so they can take responsibility for the environment. That capacity for reasoned decision is what makes them rational partners rather than mere occupants.",
+  "why_wrong": {
+   "1": "Depending on machines is not rationality, and machines are themselves a product of human choices.",
+   "2": "Human beings affect the environment more than any other species, which is precisely why their choices matter.",
+   "3": "No one lives independently of nature. Human beings depend on air, water and soil like every other organism."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|23",
+  "approved": false,
+  "why_correct": "The Basel Convention of 1989 controls the transboundary movement of hazardous wastes and their disposal. It was framed to stop rich countries dumping toxic waste in poorer ones.",
+  "why_wrong": {
+   "0": "Biodiversity is covered by the Convention on Biological Diversity, agreed at Rio.",
+   "2": "Wetlands are covered by the Ramsar Convention.",
+   "3": "Population control is not the subject of any such convention. Each of these treaties is named after the city where it was signed, so they are best learnt as city and subject pairs."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|24",
+  "approved": false,
+  "why_correct": "All three are genuine forms of public participation. Tree planting, clean-up campaigns and eco-club work all involve ordinary citizens acting directly rather than leaving protection to the government.",
+  "why_wrong": {
+   "0": "Tree plantation drives are one good example among several.",
+   "1": "Community clean-ups are another, and they involve the wider neighbourhood.",
+   "2": "Eco-club activities are a third, based in schools. When several options are each true examples of the same idea, look carefully before rejecting all of these."
+  }
+ },
+ {
+  "id": "XI|Arts|Environmental Science|25",
+  "approved": false,
+  "why_correct": "Environmental education aims to build awareness of environmental problems and to translate that awareness into responsible action. Knowledge that changes nothing would fall short of the objective.",
+  "why_wrong": {
+   "0": "Industrial growth is an economic aim, and unchecked growth is often part of the problem.",
+   "2": "Increasing population adds to environmental pressure.",
+   "3": "Encouraging excessive use of resources is the opposite of what the subject teaches."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|1",
+  "approved": false,
+  "why_correct": "Idealism holds that reality is ultimately spiritual and that the individual is part of a universal mind or spirit. On that view the child is an integral part of the ultimate universe, and education draws out the spiritual self already present.",
+  "why_wrong": {
+   "0": "Realism holds that the material world exists independently of the mind, and treats the child as one object among others in it.",
+   "1": "Pragmatism judges ideas by their practical consequences and sees no fixed ultimate reality to be part of.",
+   "2": "Existentialism begins from the individual's own freedom and choice, and resists absorbing the person into any larger whole."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|2",
+  "approved": false,
+  "why_correct": "Rabindranath Tagore taught that education must take place in communion with nature. At Santiniketan classes were held in the open air under the trees, because he believed a child shut indoors is cut off from the source of learning.",
+  "why_wrong": {
+   "0": "Vivekananda's emphasis was on man-making education and the manifestation of inner perfection.",
+   "1": "Sri Aurobindo taught integral education, aiming at the full development of the physical, vital, mental and spiritual being.",
+   "3": "Gandhi's Basic Education centred on a productive craft and the mother tongue. All four are Indian educationists, so the phrase itself is the clue."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|3",
+  "approved": false,
+  "why_correct": "Naturalism advocates discipline by natural or direct consequences, an idea from Rousseau. A child who breaks a window and must sit in the cold learns from the consequence itself rather than from punishment.",
+  "why_wrong": {
+   "0": "Existentialism emphasises self-chosen responsibility rather than a scheme of consequences.",
+   "1": "Pragmatism favours social discipline, learnt through group activity and shared purpose.",
+   "3": "Realism favours discipline through training and habit formation. Each philosophy has its own view of discipline, and natural consequences belong to the naturalists."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|4",
+  "approved": false,
+  "why_correct": "Epistemology is the theory of knowledge, dealing with what knowledge is, where it comes from and how it is validated. A teacher whose business is to promote knowledge is therefore directly concerned with it.",
+  "why_wrong": {
+   "0": "Values are the province of axiology, which shapes the aims of education rather than its content.",
+   "1": "Truth is close, and epistemology certainly examines it, but the teacher's day-to-day aim is stated as promoting knowledge, which is the wider term.",
+   "3": "Skills matter in teaching, but the branch of philosophy that studies them is not epistemology in the first instance."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|5",
+  "approved": false,
+  "why_correct": "Caste is named the major constraint on social change in India because it is a hereditary structure that fixes status, occupation and marriage from birth, and it resists change from within rather than merely slowing it.",
+  "why_wrong": {
+   "1": "Education is an agent of social change rather than a constraint on it, which makes it the odd one out here.",
+   "2": "Religion can obstruct change where it sanctions custom, so it is a genuine constraint. But religious belief itself has also driven reform, from Buddha to the Brahmo Samaj, so its effect runs both ways.",
+   "3": "Poverty is a real barrier too, and it keeps people from schooling and mobility. It is, however, a condition that change aims to remove, whereas caste is the structure that has most persistently resisted removal."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|6",
+  "approved": false,
+  "why_correct": "Buddhist education admitted students by interest and aptitude rather than by birth, opening the monasteries to all castes. That openness is one of the ways Buddhism broke with the Vedic order.",
+  "why_wrong": {
+   "0": "Islamic education was organised in maktabs and madrasas around religious instruction.",
+   "1": "Vedic education restricted study of the Vedas by caste, with the upper varnas alone admitted.",
+   "3": "Jainistic education was also open in spirit, but the phrase and the practice described here belong to the Buddhist system, with its great universities at Nalanda and Taxila."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|7",
+  "approved": false,
+  "why_correct": "Albert Bandura's social learning theory is also called observational learning or modelling. His Bobo doll experiment showed that children copy behaviour they have merely watched, without being rewarded for it themselves.",
+  "why_wrong": {
+   "0": "Insight learning is Kohler's, demonstrated with chimpanzees who solved a problem suddenly rather than by trial and error.",
+   "2": "Sign learning is Tolman's theory, in which the learner builds a cognitive map of signs leading to goals.",
+   "3": "Verbal learning concerns the acquisition of words and associations, studied by Ebbinghaus among others."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|8",
+  "approved": false,
+  "why_correct": "Pragmatism judges education by its usefulness in life, so it favours a vocational and activity-based curriculum. Learning by doing is its central method, and Dewey is its leading figure.",
+  "why_wrong": {
+   "0": "Realism emphasises scientific knowledge and the study of the material world.",
+   "1": "Naturalism emphasises free growth according to the child's own nature, without imposed ends.",
+   "3": "Idealism emphasises the humanities, moral and spiritual values, and would regard a purely vocational aim as too narrow."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|9",
+  "approved": false,
+  "why_correct": "The aim of idealistic education is self-realisation, that is the full unfolding of the spiritual self and its union with the ultimate reality. All other aims are subordinate to it.",
+  "why_wrong": {
+   "1": "Physical development is stressed by naturalism, which begins from the body and the senses.",
+   "2": "Intuition is valued in idealism, but as a means of apprehending reality rather than as the aim.",
+   "3": "Practical usefulness is the pragmatist aim, and idealism is often criticised for neglecting it."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|11",
+  "approved": false,
+  "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already existing in man. The teacher does not add anything but removes what obstructs, as a gardener does not make the plant grow but removes the weeds.",
+  "why_wrong": {
+   "0": "Gandhi defined education as an all-round drawing out of the best in child and man, in body, mind and spirit.",
+   "2": "Tagore stressed harmony with nature and freedom of the creative spirit.",
+   "3": "Sri Aurobindo taught integral education towards a higher consciousness. All four are close in spirit, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|12",
+  "approved": false,
+  "why_correct": "Epistemology is the branch of philosophy dealing with the nature, sources and validity of knowledge. It asks what we can know and how we come to know it.",
+  "why_wrong": {
+   "1": "Metaphysics deals with the nature of ultimate reality, asking what exists rather than how we know it.",
+   "2": "Logic deals with the principles of valid reasoning and correct inference.",
+   "3": "Ethics deals with right and wrong conduct, and belongs with aesthetics under axiology."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|13",
+  "approved": false,
+  "why_correct": "John Locke denied innate ideas in his Essay Concerning Human Understanding, arguing that all knowledge comes from experience through sensation and reflection. He is the founder of British empiricism.",
+  "why_wrong": {
+   "1": "David Hume was an empiricist too and pushed the position further into scepticism, but the explicit attack on innate ideas is Locke's.",
+   "2": "Descartes maintained the opposite, holding that certain ideas such as God and extension are innate.",
+   "3": "Leibniz also defended innate ideas, replying directly to Locke in his New Essays. The rationalists affirm innate ideas and the empiricists deny them, and that is the divide being tested."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|14",
+  "approved": false,
+  "why_correct": "John Locke described the mind at birth as a tabula rasa, a blank slate on which experience writes. It is the same doctrine as the denial of innate ideas, stated as an image.",
+  "why_wrong": {
+   "0": "Bishop Berkeley held that to be is to be perceived, a form of subjective idealism.",
+   "2": "Hume analysed the mind into impressions and ideas and denied a permanent self, which is a further step rather than this one.",
+   "3": "John Stuart Mill was a utilitarian and a logician of the following century."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|15",
+  "approved": false,
+  "why_correct": "Descartes took mathematics as the model of certain knowledge, because its truths are clear, distinct and independent of the senses. He built his whole method on that ideal.",
+  "why_wrong": {
+   "0": "Christian Wolff systematised Leibniz's philosophy but is not the source of this claim.",
+   "1": "Spinoza wrote his Ethics in geometrical form, so he certainly admired mathematical method, but the doctrine is credited to Descartes.",
+   "3": "Leibniz was a great mathematician and co-inventor of the calculus, yet the statement belongs to Descartes."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|16",
+  "approved": false,
+  "why_correct": "The playground is an informal agency of education. There is no syllabus and no teacher, yet a child learns cooperation, fair play, leadership and how to lose, simply by playing.",
+  "why_wrong": {
+   "1": "A library is part of the formal system, organised deliberately to support study.",
+   "2": "A seminar is a planned academic meeting, so it is formal.",
+   "3": "A classroom is the most formal agency of all. The test is whether the learning is planned and deliberate, and only the playground's is not."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|17",
+  "approved": false,
+  "why_correct": "Charvaka is materialist and holds that man is nothing but the physical body, formed from the four elements. Consciousness arises from that combination and ends with it, so there is no soul surviving death.",
+  "why_wrong": {
+   "1": "A self distinct from the body is what Charvaka expressly denies.",
+   "2": "Consciousness for Charvaka is a property that emerges from matter, like the intoxicating power that arises when ingredients ferment, not an independent reality.",
+   "3": "Charvaka has a definite answer here, so none of these is wrong."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|19",
+  "approved": false,
+  "why_correct": "Charvaka accepts perception alone as a valid means of knowledge and rejects both inference and testimony, because neither can be verified by the senses. That is what makes it the most radical of the Indian schools.",
+  "why_wrong": {
+   "0": "Inference is rejected, but so is testimony, so naming only one is incomplete.",
+   "1": "Testimony is rejected as well, and for the same reason.",
+   "3": "Charvaka certainly challenges both. Its whole epistemology reduces to pratyaksha, direct perception, which is why it can deny the soul, God and life after death."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|20",
+  "approved": false,
+  "why_correct": "Liberation in Buddhism is nirvana, the extinction of craving and thereby of suffering and rebirth. The word literally means blowing out, as of a flame.",
+  "why_wrong": {
+   "1": "Moksha is the term used in Hindu philosophy for release from the cycle of birth and death.",
+   "2": "Mukti is another Hindu term for the same release, used interchangeably with moksha.",
+   "3": "There is a proper term, so none of these is wrong. Each tradition has its own word, and matching word to tradition is what the question tests."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|21",
+  "approved": false,
+  "why_correct": "Jainism prescribes all three. Penance burns away accumulated karma, self-control prevents new karma from binding, and detachment from possessions and passions frees the soul. Together they lead to liberation.",
+  "why_wrong": {
+   "0": "Penance, or tapas, is essential in Jainism but is only one part of the path.",
+   "1": "Self-control through the vows is likewise necessary but not sufficient by itself.",
+   "2": "Detachment, aparigraha, is the third element. Since each is genuinely required, all of these is the answer, and the path is often summed up as the Three Jewels of right faith, right knowledge and right conduct."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|22",
+  "approved": false,
+  "why_correct": "Charvaka neglects liberation altogether. Being materialist, it denies the soul and rebirth, so there is nothing to be liberated and nothing to be liberated from. Its aim is pleasure in this life.",
+  "why_wrong": {
+   "1": "Jainism makes liberation central, achieved by shedding karma until the soul rises to the top of the universe.",
+   "2": "Buddhism makes nirvana its whole purpose, set out in the Four Noble Truths.",
+   "3": "Vedanta makes moksha the highest of the four ends of life. Charvaka is the one Indian school that rejects the framework entirely, which is why it is called nastika in the strongest sense."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|23",
+  "approved": false,
+  "why_correct": "Swami Vivekananda held that all knowledge, material and spiritual, is already within us and is merely veiled by ignorance. It follows that education uncovers rather than supplies.",
+  "why_wrong": {
+   "0": "Tagore's emphasis was on freedom, nature and creative expression.",
+   "2": "Gandhi's emphasis was on craft, character and self-reliance.",
+   "3": "Plato held that learning is recollection of what the soul knew before birth, which is a genuinely similar doctrine from another tradition. The Indian phrasing about the curtain of ignorance is Vivekananda's."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|24",
+  "approved": false,
+  "why_correct": "Rabindranath Tagore founded Santiniketan, beginning with a school in 1901 that grew into Visva-Bharati University in 1921. Teaching there was done in the open air, in close contact with nature.",
+  "why_wrong": {
+   "1": "Vivekananda founded the Ramakrishna Mission.",
+   "2": "Gandhi founded Sabarmati and Sevagram ashrams and the scheme of Basic Education.",
+   "3": "Sri Aurobindo founded the ashram at Pondicherry and its Centre of Education."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|25",
+  "approved": false,
+  "why_correct": "The Vedic view is that creation is without beginning and without end, an eternal cycle of creation, preservation and dissolution repeating without a first moment or a last.",
+  "why_wrong": {
+   "0": "Without beginning is only half the doctrine, and leaving out the second half changes the meaning.",
+   "1": "Without an end is the other half, and it is equally incomplete on its own.",
+   "3": "Creation at a particular moment is the view of the Semitic traditions, and it is precisely what the cyclical Vedic conception denies."
+  }
+ },
+ {
   "id": "XI|Commerce|Accountancy|1",
   "approved": false,
   "why_correct": "Accounting is the process of identifying, recording, classifying and summarising financial transactions, and then communicating the results. Recording is the step the other three depend on.",

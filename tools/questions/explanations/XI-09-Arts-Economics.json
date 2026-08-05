@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XI|Arts|Economics|1",
+  "approved": false,
+  "why_correct": "Economics studies how people behave when resources are scarce and wants are unlimited. Robbins defined it as the science of choice under scarcity, and choice is what the subject is really about.",
+  "why_wrong": {
+   "0": "Weather is the province of meteorology. Economics may study the effect of a monsoon on crops, but that is the human response, not the weather itself.",
+   "2": "Plants belong to botany. Agriculture is studied by economists only as an economic activity.",
+   "3": "Machines belong to engineering. An economist treats a machine as capital, that is as a factor of production."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|2",
+  "approved": false,
+  "why_correct": "Adam Smith is called the father of economics for An Inquiry into the Nature and Causes of the Wealth of Nations, published in 1776, which gave the subject its first systematic treatment and the idea of the invisible hand.",
+  "why_wrong": {
+   "0": "Karl Marx wrote Das Kapital and founded the socialist critique of capitalism, nearly a century later.",
+   "2": "J. M. Keynes founded modern macroeconomics with his General Theory of 1936, and is called the father of macroeconomics.",
+   "3": "Alfred Marshall is called the father of modern or neoclassical economics, for his Principles of Economics of 1890. Marshall and Smith are the two most often confused, and the word modern is what separates them."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|3",
+  "approved": false,
+  "why_correct": "Consumer behaviour concerns how an individual consumer allocates income among goods, so it is a microeconomic topic. Micro deals with individual units.",
+  "why_wrong": {
+   "0": "National income measures the output of the whole economy, so it is macroeconomic.",
+   "1": "Inflation is a rise in the general price level across the economy, again macro.",
+   "3": "Unemployment concerns the economy-wide labour market. All three wrong options describe the economy as a whole, which is exactly the dividing line."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|4",
+  "approved": false,
+  "why_correct": "The central problem arises because resources are scarce while wants are unlimited. If resources were plentiful enough for every want, no choice would be necessary and there would be no economic problem.",
+  "why_wrong": {
+   "0": "Resources are not unlimited. That is the very opposite of scarcity.",
+   "1": "Wants are unlimited, not limited. Satisfy one and another appears.",
+   "3": "Production is not easy, and even if it were, the inputs it needs would still be limited."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|5",
+  "approved": false,
+  "why_correct": "PPC is the Production Possibility Curve, which shows the different combinations of two goods an economy can produce with its resources fully and efficiently employed. It is also called the transformation curve.",
+  "why_wrong": {
+   "0": "Public Production Curve is not a term in economics.",
+   "2": "Price Production Curve is invented. There is a price consumption curve in consumer theory, which is a different thing.",
+   "3": "Product Planning Curve is not an economic concept either. The curve is about what is possible to produce, which is what the word possibility carries."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|6",
+  "approved": false,
+  "why_correct": "Opportunity cost is the next best alternative that must be given up to get something. It is the real cost of a choice, measured in what was forgone rather than in money.",
+  "why_wrong": {
+   "0": "Fixed cost is an accounting classification, a cost that does not vary with output.",
+   "1": "Extra income is a gain, not a cost.",
+   "3": "Market price is the money paid. A free good has a market price of zero but can still carry a heavy opportunity cost in time."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|7",
+  "approved": false,
+  "why_correct": "A capitalist economy is based on private ownership of the means of production, with decisions guided by the profit motive and the price mechanism. The United States is the usual example.",
+  "why_wrong": {
+   "0": "A socialist economy has state ownership of the means of production and central planning.",
+   "2": "A mixed economy has both private and public ownership side by side, so it is not based on private ownership alone.",
+   "3": "A planned economy is directed by the government's plan rather than by prices, and is another name for the socialist type."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|8",
+  "approved": false,
+  "why_correct": "In a mixed economy the public and private sectors coexist, with the state running key industries and providing services while private enterprise operates elsewhere. India is a mixed economy.",
+  "why_wrong": {
+   "0": "Government ownership alone describes a socialist or planned economy.",
+   "1": "A purely private sector describes capitalism.",
+   "3": "There is certainly a government in a mixed economy; indeed its participation is what makes the economy mixed."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|9",
+  "approved": false,
+  "why_correct": "Utility is the want-satisfying power of a commodity, that is the satisfaction a consumer gets from consuming it. It is subjective and differs from person to person.",
+  "why_wrong": {
+   "0": "Cost of production is what the producer spends, which is quite separate from what the consumer feels.",
+   "2": "Income earned is a receipt of money, not a satisfaction from consuming.",
+   "3": "Market demand is the total quantity buyers will purchase. Utility helps explain demand but is not the same as it."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|10",
+  "approved": false,
+  "why_correct": "In economics demand means desire backed by both the ability and the willingness to pay. A wish without purchasing power behind it is not demand.",
+  "why_wrong": {
+   "0": "Desire alone is not demand. A poor man may desire a car without adding anything to its demand.",
+   "2": "Need is not demand either. Many needs go unmet precisely because no purchasing power supports them.",
+   "3": "Supply is the seller's side of the market, the opposite of demand."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|11",
+  "approved": false,
+  "why_correct": "The law of demand says that, other things remaining equal, a rise in price causes a fall in quantity demanded and a fall in price causes a rise. Price and quantity move in opposite directions, which is why the demand curve slopes downward.",
+  "why_wrong": {
+   "0": "Moving together would give an upward sloping curve, which is the rare exception of Giffen and Veblen goods, not the law.",
+   "1": "Demand certainly changes, with price and with other factors.",
+   "3": "The law describes what happens when price changes, so a constant price would leave nothing to state."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|12",
+  "approved": false,
+  "why_correct": "A change in consumers' income shifts the whole demand curve, because at every price a different quantity is now demanded. Income is one of the other things held equal in the law of demand.",
+  "why_wrong": {
+   "0": "A change in the commodity's own price causes movement along the curve, not a shift of it. This is the single most important distinction in the topic.",
+   "2": "Quantity supplied belongs to the supply side and does not shift demand.",
+   "3": "Cost of production affects supply. Its effect on demand is only indirect, through the price it leads to."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|13",
+  "approved": false,
+  "why_correct": "Supply is the quantity of a commodity that sellers are willing and able to offer for sale at different prices in a given period. Like demand, it is a schedule of quantities against prices, not a single number.",
+  "why_wrong": {
+   "0": "Stock is what exists and is available, whereas supply is the part actually offered for sale at a given price. A trader may hold stock back if the price is poor.",
+   "2": "Total production is what has been made, and some of it may not be offered for sale.",
+   "3": "Demand is the buyer's side of the market."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|14",
+  "approved": false,
+  "why_correct": "Equilibrium is reached where the quantity demanded equals the quantity supplied. At that price there is neither surplus nor shortage, so there is no force pushing the price to change.",
+  "why_wrong": {
+   "0": "Demand exceeding supply is a shortage, and the price will be bid up until the gap closes.",
+   "1": "Supply exceeding demand is a surplus, and the price will fall.",
+   "3": "A price of zero would apply to a free good, which is not what equilibrium means."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|15",
+  "approved": false,
+  "why_correct": "Marginal utility is the addition to total satisfaction from consuming one more unit of a commodity. It is the change in total utility caused by a one-unit change in quantity.",
+  "why_wrong": {
+   "0": "Total utility is the whole satisfaction from all units taken together.",
+   "2": "Average utility is total utility divided by the number of units.",
+   "3": "Cost of production belongs to the producer's side and has nothing to do with the consumer's satisfaction."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|16",
+  "approved": false,
+  "why_correct": "The law says that as more units of a commodity are consumed, the satisfaction from each successive unit falls. The first cup of tea gives more pleasure than the fourth.",
+  "why_wrong": {
+   "0": "Utility always increasing is the opposite of the law. Total utility does keep rising for a while, but at a slowing rate, and it is marginal utility that falls.",
+   "1": "Constant utility would mean every unit gave the same satisfaction, which experience contradicts.",
+   "3": "The law is about satisfaction, not about prices, though it is the reason demand curves slope downward."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|17",
+  "approved": false,
+  "why_correct": "The primary sector covers activities that draw directly on nature: agriculture, fishing, forestry and mining. Farming is its central example.",
+  "why_wrong": {
+   "0": "The secondary sector manufactures, turning raw materials into finished goods.",
+   "1": "The tertiary sector provides services such as banking, transport and education.",
+   "3": "Service sector is another name for the tertiary sector, so it is the same wrong answer twice. Note that a flour mill is secondary even though it handles a farm product."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|18",
+  "approved": false,
+  "why_correct": "National income is the total income earned by all the factors of production of a country in a year, that is rent, wages, interest and profit taken together. It measures the whole economy's earnings, not the government's.",
+  "why_wrong": {
+   "0": "Government income is only one part, coming largely from taxes.",
+   "2": "Export earnings are one component of the flow of income from abroad, not the whole.",
+   "3": "Tax revenue is a transfer from citizens to the state and is not itself new income earned."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|19",
+  "approved": false,
+  "why_correct": "GDP is Gross Domestic Product, the money value of all final goods and services produced within a country's borders in a year, whoever produces them.",
+  "why_wrong": {
+   "1": "General Domestic Price is not a term. The general price level is a separate idea used in measuring inflation.",
+   "2": "Gross Development Plan is invented.",
+   "3": "Government Domestic Product is not a term either. Note the contrast with GNP, which counts what a country's nationals produce anywhere, while GDP counts what is produced inside its borders."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|20",
+  "approved": false,
+  "why_correct": "Inflation is a sustained rise in the general price level, which means each rupee buys less than before. It is measured by index numbers such as the Consumer Price Index.",
+  "why_wrong": {
+   "0": "A fall in prices is deflation, the opposite condition.",
+   "2": "An increase in production is growth, and it usually works against inflation by increasing the supply of goods.",
+   "3": "An increase in exports affects the balance of trade. The word general matters: a rise in the price of one commodity is not inflation."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|21",
+  "approved": false,
+  "why_correct": "Money is anything generally accepted as a medium of exchange. That function is its defining one, because it removes the double coincidence of wants that made barter so difficult.",
+  "why_wrong": {
+   "0": "A consumer good is used to satisfy a want directly. Money satisfies no want by itself; it is useful only for what it buys.",
+   "1": "A capital good is used to produce other goods, such as a machine.",
+   "3": "A luxury good is a classification of consumer goods by necessity. Money buys luxuries but is not one."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|22",
+  "approved": false,
+  "why_correct": "The Reserve Bank of India, established in 1935, is the central bank of the country. It issues currency, controls credit, acts as banker to the government and regulates the whole banking system.",
+  "why_wrong": {
+   "0": "Commercial banks such as the State Bank of India take deposits and lend to the public. The RBI is their regulator, not one of them.",
+   "2": "A foreign bank is one incorporated outside India but operating here.",
+   "3": "A cooperative bank is owned by its members and serves them, mainly in rural and semi-urban areas."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|23",
+  "approved": false,
+  "why_correct": "All three are functions of money. It is a medium of exchange for transactions, a measure of value for comparing goods, and a store of value that can be held over time. A fourth, the standard of deferred payment, is usually added.",
+  "why_wrong": {
+   "0": "Measure of value is a genuine function, but naming only one leaves the others out.",
+   "1": "Medium of exchange is the primary function, and still only one of them.",
+   "2": "Store of value is also correct on its own. When several options are each true and the last says all of these, check whether any is actually false before ruling it out."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|24",
+  "approved": false,
+  "why_correct": "Unemployment means people who are willing and able to work at the prevailing wage cannot find work. Willingness is essential to the definition, which is why students and retired people are not counted.",
+  "why_wrong": {
+   "0": "Working part time is underemployment, not unemployment, since the person does have work.",
+   "2": "Low income describes poverty. A person may work hard and still be poor, so the two problems are distinct.",
+   "3": "High prices describe inflation, a separate problem."
+  }
+ },
+ {
+  "id": "XI|Arts|Economics|25",
+  "approved": false,
+  "why_correct": "Economics has two main branches: microeconomics, which studies individual units, and macroeconomics, which studies the economy as a whole. The division is due to Ragnar Frisch.",
+  "why_wrong": {
+   "1": "Three branches would require a third division of the same kind, and there is none. Fields such as public finance are applications within these two.",
+   "2": "Four is not a recognised division.",
+   "3": "Five is not either. Do not confuse the two branches with the four factors of production or the three sectors of the economy."
+  }
+ }
+]

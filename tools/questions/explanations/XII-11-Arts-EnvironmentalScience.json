@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Arts|Environmental Science|1",
+  "approved": false,
+  "why_correct": "Biodiversity is the variety of living organisms, taken at three levels: genetic diversity within a species, species diversity within an area, and ecosystem diversity across a region.",
+  "why_wrong": {
+   "1": "Minerals are non-living, so they belong to the abiotic environment.",
+   "2": "Soils are abiotic too, though soil supports enormous biodiversity within it.",
+   "3": "Industries are human creations and have nothing to do with the term. The word bio in biodiversity is the clue: it is about life."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|2",
+  "approved": false,
+  "why_correct": "A biodiversity hotspot is a region exceptionally rich in species, with a high proportion found nowhere else, and under serious threat. India has four: the Himalayas, the Western Ghats, the Indo-Burma region and Sundaland.",
+  "why_wrong": {
+   "0": "Pollution has its own vocabulary of hotspots in casual use, but the technical term belongs to conservation.",
+   "2": "Mining often threatens hotspots but does not define them.",
+   "3": "Urbanisation is likewise a pressure on them rather than the meaning of the word. Norman Myers introduced the term, and a hotspot must be both rich and endangered."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|3",
+  "approved": false,
+  "why_correct": "A national park conserves species in their natural habitat, so it is in-situ conservation. In situ means in place, protecting the whole living community where it already is.",
+  "why_wrong": {
+   "0": "A zoo keeps animals away from their habitat, which is ex-situ.",
+   "1": "A botanical garden grows plants away from where they naturally occur, again ex-situ.",
+   "3": "A seed bank stores seeds under controlled conditions, the clearest ex-situ method of all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|4",
+  "approved": false,
+  "why_correct": "A botanical garden conserves plants away from their natural habitat, so it is ex-situ conservation. Zoos, seed banks and gene banks work the same way.",
+  "why_wrong": {
+   "0": "A wildlife sanctuary protects animals in their own habitat, so it is in-situ.",
+   "1": "A biosphere reserve protects a whole living landscape in place.",
+   "2": "A national park is in-situ too. Three of the four options are in-situ, so the odd one out is the answer, and this question is the mirror image of the one before it."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|5",
+  "approved": false,
+  "why_correct": "The Chipko Movement began in 1973 at Mandal in the Chamoli district of what is now Uttarakhand, then part of Uttar Pradesh. Villagers, mostly women, hugged trees to stop them being felled, and chipko means to cling.",
+  "why_wrong": {
+   "0": "West Bengal is not connected with Chipko.",
+   "1": "Gujarat had its own environmental movements but not this one.",
+   "3": "Kerala is associated with the Silent Valley movement of the late 1970s, which saved a rainforest from a dam. A different state and a different campaign."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|6",
+  "approved": false,
+  "why_correct": "Environmental Impact Assessment is carried out before a development project such as a dam, mine, road or factory is approved, so that its likely effects can be weighed and mitigated in advance.",
+  "why_wrong": {
+   "0": "Ordinary agricultural activity does not require an EIA, though very large irrigation projects do.",
+   "2": "Cultural programmes have no such requirement.",
+   "3": "Sports events are not covered either. The point of an EIA is to look ahead, before the damage is done rather than after."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|7",
+  "approved": false,
+  "why_correct": "The objective of an EIA is to identify and assess the environmental consequences of a proposed project in advance, so that harm can be avoided, reduced or compensated before work begins.",
+  "why_wrong": {
+   "0": "Increasing production is the project's aim, not the assessment's.",
+   "2": "Tourism promotion is unrelated.",
+   "3": "Population is not its subject. An EIA may recommend changes to a project, or that it not proceed at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|8",
+  "approved": false,
+  "why_correct": "The Water (Prevention and Control of Pollution) Act, 1974 is India's law for controlling water pollution. It set up the Central and State Pollution Control Boards.",
+  "why_wrong": {
+   "0": "The Wildlife Protection Act of 1972 protects species and creates protected areas.",
+   "1": "The Forest Conservation Act of 1980 restricts the diversion of forest land to other uses.",
+   "3": "The Environment (Protection) Act of 1986 is the umbrella law covering the environment generally, passed after Bhopal. It is broader, whereas this question asks specifically about water."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|9",
+  "approved": false,
+  "why_correct": "The Environment (Protection) Act was enacted in 1986, in the aftermath of the Bhopal gas tragedy of 1984. It is an umbrella law giving the central government wide powers over all aspects of the environment.",
+  "why_wrong": {
+   "0": "1972 is the Wildlife Protection Act, and also the Stockholm Conference.",
+   "1": "1974 is the Water Act, which deals with water pollution alone rather than the environment generally.",
+   "2": "1981 is the Air (Prevention and Control of Pollution) Act. The sequence runs water in 1974, air in 1981 and the general environment law in 1986."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|10",
+  "approved": false,
+  "why_correct": "The Wildlife (Protection) Act was passed in 1972, the same year as the Stockholm Conference. It created national parks and sanctuaries and listed protected species in schedules.",
+  "why_wrong": {
+   "1": "1986 is the Environment (Protection) Act.",
+   "2": "1991 saw an important amendment to the Wildlife Act, but not its passing.",
+   "3": "2002 saw another amendment, adding conservation reserves and community reserves. Project Tiger was launched in 1973, the year after the Act."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|11",
+  "approved": false,
+  "why_correct": "A disaster caused by natural processes such as earthquakes, floods, cyclones and droughts is a natural disaster. Human action may worsen its effects, but the trigger is natural.",
+  "why_wrong": {
+   "0": "Man-made disasters are caused by human action, such as the Bhopal gas leak or an industrial fire.",
+   "2": "Industrial disasters are a category of man-made disaster.",
+   "3": "Social disasters such as riots are also human in origin. The classification turns on the cause, not on the scale of the damage."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|12",
+  "approved": false,
+  "why_correct": "An earthquake is a natural disaster, caused by the sudden release of energy along a fault in the Earth's crust. It is a geological event that no human action initiates.",
+  "why_wrong": {
+   "0": "Biological disasters are epidemics and pest attacks.",
+   "1": "Technological disasters arise from the failure of machines or systems.",
+   "3": "Chemical disasters are leaks and spills of hazardous substances. Note that most earthquake deaths come from collapsing buildings, so how a society builds decides how disastrous the event is."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|13",
+  "approved": false,
+  "why_correct": "Floods are mainly caused by excessive rainfall, particularly heavy monsoon rain that a river cannot carry away. Silting of riverbeds, deforestation and poor drainage all make them worse.",
+  "why_wrong": {
+   "1": "Deforestation does contribute, by increasing runoff, but the word only makes this too narrow.",
+   "2": "Industrialisation is not a main cause of flooding.",
+   "3": "Urbanisation contributes by covering ground with concrete so that water cannot soak in, but again only makes this wrong. Watch for absolute words in options: they are usually what makes a half-true answer fail."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|14",
+  "approved": false,
+  "why_correct": "Preparedness comes first in the disaster management cycle, along with prevention and mitigation. Planning, training, early warning systems and drills are all done before a disaster strikes.",
+  "why_wrong": {
+   "0": "Relief comes immediately after the event, providing food, shelter and medical aid.",
+   "1": "Rehabilitation follows relief, restoring livelihoods and normal life.",
+   "3": "Reconstruction is the last stage, rebuilding what was destroyed. The cycle runs preparedness, response, relief, rehabilitation and reconstruction, and preparation is what most reduces the eventual loss."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|15",
+  "approved": false,
+  "why_correct": "Sustainable use means using resources wisely enough to meet present needs without destroying the ability of future generations to meet their own. It is use with restraint, not without it.",
+  "why_wrong": {
+   "0": "Unlimited exploitation would exhaust the resource and leave nothing behind.",
+   "1": "Ignoring the future is exactly what sustainability rules out.",
+   "3": "Complete prohibition is the opposite extreme, and it would leave present needs unmet. Sustainability is a balance between the two, not either end."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|16",
+  "approved": false,
+  "why_correct": "Solar energy is renewable, replenished continuously and impossible to exhaust by use. Wind, tidal, geothermal and biomass energy are renewable for the same reason.",
+  "why_wrong": {
+   "0": "Coal is a fossil fuel formed over millions of years, so it is non-renewable.",
+   "1": "Petroleum is likewise fossil and finite.",
+   "3": "Natural gas is a fossil fuel too. Three of the four options are fossil fuels, which makes the odd one out plain."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|17",
+  "approved": false,
+  "why_correct": "The ozone layer in the stratosphere absorbs most of the sun's ultraviolet radiation, which would otherwise cause skin cancer, cataracts and damage to crops and plankton.",
+  "why_wrong": {
+   "0": "Infrared is heat radiation, trapped by greenhouse gases rather than by ozone. Ozone depletion and global warming are separate problems, and confusing them is the usual error here.",
+   "2": "Radio waves pass through the atmosphere and are harmless.",
+   "3": "Sound waves are mechanical and do not travel through space at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|18",
+  "approved": false,
+  "why_correct": "Global warming is caused by greenhouse gases, chiefly carbon dioxide but also methane, nitrous oxide and CFCs. They absorb the infrared radiation the Earth emits and re-radiate it downwards.",
+  "why_wrong": {
+   "1": "Oxygen is essential to life and to burning but does not trap heat.",
+   "2": "Nitrogen makes up most of the atmosphere yet is not a greenhouse gas.",
+   "3": "Helium is inert and present only in traces. Abundance in the air and warming effect are quite separate things."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|19",
+  "approved": false,
+  "why_correct": "The Central Pollution Control Board is the national body for environmental regulation of pollution, set up under the Water Act of 1974. It sets standards and coordinates the state boards.",
+  "why_wrong": {
+   "0": "The Reserve Bank of India is the central bank.",
+   "1": "The UGC coordinates higher education.",
+   "3": "The UPSC conducts recruitment for the central services."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|20",
+  "approved": false,
+  "why_correct": "CPCB is the Central Pollution Control Board, constituted in 1974 under the Water Act and later given duties under the Air Act as well.",
+  "why_wrong": {
+   "1": "Public Conservation is not the phrase; the board's business is pollution.",
+   "2": "It is a board, not a bureau, and its work is control rather than conservation.",
+   "3": "Protection and bureau are both wrong. Read each letter: Central, Pollution, Control, Board."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|21",
+  "approved": false,
+  "why_correct": "Afforestation is planting trees on land that had no forest before, such as barren or waste land. It increases forest cover and helps check erosion and absorb carbon dioxide.",
+  "why_wrong": {
+   "0": "Cutting forests is deforestation, the opposite.",
+   "2": "Mining in forests destroys them.",
+   "3": "Building industries in forests likewise removes cover. Note the related term reforestation, which is replanting where forest once stood, whereas afforestation creates forest on land that had none."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|22",
+  "approved": false,
+  "why_correct": "The Bishnoi community of Rajasthan protects trees and wildlife as a matter of religious duty. In 1730 at Khejarli, Amrita Devi and more than three hundred Bishnois died hugging khejri trees to stop them being felled.",
+  "why_wrong": {
+   "0": "Rivers are the concern of movements such as Narmada Bachao.",
+   "2": "Wetlands are protected under the Ramsar Convention.",
+   "3": "Mountains are not the Bishnoi concern. The Khejarli sacrifice is regarded as the forerunner of the Chipko movement two and a half centuries later."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|23",
+  "approved": false,
+  "why_correct": "A biosphere reserve protects entire ecosystems, with a strictly protected core zone, a buffer zone for research and a transition zone where people live and work. It conserves plants, animals and human culture together.",
+  "why_wrong": {
+   "0": "Plants alone would be a botanical reserve.",
+   "1": "Animals alone would be a wildlife sanctuary.",
+   "3": "Forests alone would be a forest reserve. The breadth of the concept, including the people living in it, is what distinguishes a biosphere reserve."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|24",
+  "approved": false,
+  "why_correct": "Environmental legislation exists to protect the environment, by setting standards, restraining polluters and providing penalties. Everything else it does follows from that purpose.",
+  "why_wrong": {
+   "0": "Industrial growth is often restrained by such laws rather than promoted by them.",
+   "2": "Trade is not their object.",
+   "3": "Urbanisation is regulated by planning law. Such legislation gives effect to Article 48A and Article 51A(g) of the Constitution, which make protection of the environment a duty of both state and citizen."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|25",
+  "approved": false,
+  "why_correct": "Our Common Future was published in 1987 by the World Commission on Environment and Development, chaired by Gro Harlem Brundtland of Norway and therefore known as the Brundtland Commission. It gave sustainable development its standard definition.",
+  "why_wrong": {
+   "1": "UNEP is the UN Environment Programme, which set up the commission but did not write the report.",
+   "2": "UNESCO deals with education, science and culture.",
+   "3": "WWF is a conservation organisation working on species and habitats."
+  }
+ }
+]

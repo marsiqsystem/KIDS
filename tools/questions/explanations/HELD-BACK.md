@@ -289,7 +289,7 @@ still, so the keyed option is not even the second oldest of the four.
 
 ---
 
-# Part 3 — Class XII (in progress; Science, Commerce, common paper, 2 Arts done)
+# Part 3 — Class XII (in progress; Science, Commerce, common paper, 4 Arts done)
 
 ## 20. `XII|Science|Physics|16` — key error, that is an ammeter
 
@@ -390,6 +390,35 @@ date of any significance to the Act.
 paper correctly keys the year of *passing* as 2009, so the paper is testing the
 passed/commenced distinction deliberately — and then gets the second half wrong.
 
+## 27. `XII|Arts|Geography|21` — the key is out of date
+
+> The largest producer of coal in India is:
+> (a) Odisha (b) Chhattisgarh (c) Jharkhand (d) West Bengal
+> **Key: (c) Jharkhand**
+
+Jharkhand holds India's **largest coal reserves**, and that is what most
+textbooks say. But it has not been the largest **producer** for years —
+Chhattisgarh and Odisha have both out-produced it, each mining well over
+200 million tonnes a year against Jharkhand's ~130.
+
+**Recommendation: a teacher's ruling.** If the WB text says Jharkhand, keep the
+key — students answered what they were taught. But reserves and production are
+different things and the question should say which it means.
+
+## 28. `XII|Arts|Geography|23` — the key contradicts NCERT
+
+> Which mode of transport carries the highest volume of freight in India?
+> (a) Air (b) Water (c) Road (d) Rail
+> **Key: (d) Rail Transport**
+
+NCERT Class 12 Geography states plainly that **roads carry about 70 per cent of
+freight traffic** (and 85 per cent of passenger traffic). Road overtook rail
+decades ago; rail now carries roughly 30 per cent. The keyed answer was true of
+an earlier India.
+
+**Recommendation: correct the key to (c)**, unless the prescribed text says
+otherwise — in which case keep the mark and rewrite the question.
+
 ---
 
 ## Not held back, but worth noting
@@ -398,6 +427,10 @@ passed/commenced distinction deliberately — and then gets the second half wron
   **Fifteen** Seven". It is *Eighteen Fifty Seven*, by Surendra Nath Sen. The
   key is right and the typo misleads nobody, but it should be fixed before the
   question is republished as learning content.
+- `XII|Arts|Geography|10` — ocean salinity is 35 **parts per thousand**, but every
+  option is printed as a percentage. The number 35 is right and the relative
+  answer is unambiguous, so the explanation states the correct unit rather than
+  repeating the paper's. Fix the symbol before reuse.
 - `XI|Science|Mathematics|19` — "greater than 1000" is strict, so 1000 itself
   should be excluded and the true count is 374, not the keyed 375. Every
   standard textbook prints 375, and 374 is not on offer, so no student is

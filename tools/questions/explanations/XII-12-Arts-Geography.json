@@ -1,0 +1,232 @@
+[
+ {
+  "id": "XII|Arts|Geography|1",
+  "approved": false,
+  "why_correct": "Plate tectonic theory divides the lithosphere into seven major plates, together with a number of minor ones. The major plates are the Pacific, North American, South American, Eurasian, African, Indo-Australian and Antarctic.",
+  "why_wrong": {
+   "0": "5 is too few and leaves out the minor plates altogether.",
+   "2": "10 major plates overstates the count, and the word only wrongly excludes the minor ones.",
+   "3": "12 is the number sometimes given when several minor plates are counted as major, but the standard division is seven major plus minor. Every option except the answer contains the word only, which is what makes them wrong."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|2",
+  "approved": false,
+  "why_correct": "The Himalayas were raised by the collision of the Indo-Australian plate with the Eurasian plate, which crumpled the sediments of the Tethys Sea between them. The collision continues, so the range is still rising.",
+  "why_wrong": {
+   "0": "The African and Eurasian plates collided to form the Alps and the Atlas mountains.",
+   "2": "The Pacific plate meeting Eurasia produces the island arcs and trenches of Japan and the Philippines, a subduction rather than a continental collision.",
+   "3": "The Nazca plate subducting under South America produced the Andes."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|3",
+  "approved": false,
+  "why_correct": "Volcanism originates within the Earth, driven by internal heat, so it is an endogenic process. Endogenic processes build landforms up; exogenic ones wear them down.",
+  "why_wrong": {
+   "0": "Weathering acts at the surface through the atmosphere and water, so it is exogenic.",
+   "1": "Erosion is exogenic, carried out by rivers, wind, glaciers and waves.",
+   "3": "Mass wasting is the downslope movement of material under gravity, again a surface process. The dividing question is simply where the energy comes from."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|4",
+  "approved": false,
+  "why_correct": "Exfoliation is physical weathering: the outer layers of rock peel away in sheets as the surface expands and contracts with heating and cooling faster than the interior. No chemical change occurs.",
+  "why_wrong": {
+   "0": "Chemical weathering alters the composition of the rock, through processes such as oxidation, carbonation and hydrolysis.",
+   "1": "Biological weathering is caused by plants, animals and microbes, as when roots split rock.",
+   "3": "River erosion involves transport by water, whereas weathering breaks rock down where it stands."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|5",
+  "approved": false,
+  "why_correct": "Karst topography develops on limestone, which is dissolved by slightly acidic rainwater through carbonation. It produces caves, sinkholes, stalactites and underground drainage.",
+  "why_wrong": {
+   "0": "Granite is an igneous rock resistant to solution, weathering instead by exfoliation into rounded tors.",
+   "1": "Basalt is igneous too and does not dissolve in this way.",
+   "3": "Sandstone is porous but not soluble, so it does not form caverns of this kind. Solubility is the essential property, and only limestone has it."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|6",
+  "approved": false,
+  "why_correct": "A floodplain is built by deposition, as a river in flood spreads across its valley and drops the silt it can no longer carry. Levees and deltas are formed the same way.",
+  "why_wrong": {
+   "0": "A gorge is cut by vertical erosion in the youthful stage of a river.",
+   "1": "A waterfall is erosional, formed where the river crosses from hard rock to soft.",
+   "3": "A V-shaped valley is erosional too, the classic form of a young river. Erosional features belong to the upper course and depositional ones to the lower."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|7",
+  "approved": false,
+  "why_correct": "The Coriolis force arises from the rotation of the Earth, deflecting moving air and water to the right in the Northern Hemisphere and to the left in the Southern. It is zero at the Equator and greatest at the poles.",
+  "why_wrong": {
+   "0": "Revolution is the Earth's yearly orbit around the Sun, which gives the seasons rather than this deflection.",
+   "2": "The Moon's gravity causes tides.",
+   "3": "Solar radiation causes the pressure differences that make winds blow, but the deflection of those winds comes from rotation."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|8",
+  "approved": false,
+  "why_correct": "The doldrums, or equatorial low pressure belt, is the zone of calm near the Equator. Air rises there rather than blowing horizontally, so surface winds are light and variable, which once becalmed sailing ships for weeks.",
+  "why_wrong": {
+   "0": "The horse latitudes are the calm belts near 30 degrees north and south, under the subtropical highs. Also calm, but at a quite different latitude.",
+   "2": "The polar front is where cold polar air meets warmer westerlies, around 60 degrees, and it is a zone of storms rather than calm.",
+   "3": "The westerlies are strong winds blowing from the subtropical highs towards the poles."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|9",
+  "approved": false,
+  "why_correct": "Convectional rainfall dominates the equatorial region. Intense heating makes air rise rapidly, cool and condense, giving heavy afternoon thunderstorms almost daily.",
+  "why_wrong": {
+   "0": "Cyclonic rainfall is associated with depressions in temperate latitudes and with tropical cyclones.",
+   "1": "Orographic rainfall occurs where moist air is forced up over mountains, as on the windward slopes of the Western Ghats.",
+   "3": "Frontal rainfall occurs where warm and cold air masses meet, which is characteristic of temperate regions."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|10",
+  "approved": false,
+  "why_correct": "The average salinity of ocean water is about 35, meaning 35 grams of dissolved salt in every kilogram of sea water. It is properly written as 35 parts per thousand rather than as a percentage, which would be 3.5 per cent.",
+  "why_wrong": {
+   "0": "15 is far too low; such water is brackish, as in the Baltic Sea.",
+   "1": "25 is still well below the ocean average.",
+   "3": "45 is far too high; salinity approaches that only in enclosed seas with heavy evaporation, such as the Red Sea or the Dead Sea. The figure to hold is 35, and the unit is parts per thousand."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|11",
+  "approved": false,
+  "why_correct": "The Gulf Stream is the warm current flowing north-eastward along the eastern coast of North America and on across the Atlantic, where it keeps north-west Europe far milder than its latitude would suggest.",
+  "why_wrong": {
+   "0": "The Labrador Current is cold and flows south along the same coast further north. Where the two meet, off Newfoundland, fog and rich fishing grounds result.",
+   "1": "The California Current is cold and flows along the western coast of North America.",
+   "3": "The Peru or Humboldt Current is cold and flows along the western coast of South America."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|12",
+  "approved": false,
+  "why_correct": "A biodiversity hotspot is a region exceptionally rich in endemic species, that is species found nowhere else, and at the same time under serious threat of habitat loss. Both conditions must hold.",
+  "why_wrong": {
+   "0": "High temperature has nothing to do with it, despite the word hot.",
+   "2": "Deserts have low species richness and are not hotspots.",
+   "3": "Industrial zones threaten biodiversity rather than harbouring it. India's four hotspots are the Himalayas, the Western Ghats, Indo-Burma and Sundaland."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|13",
+  "approved": false,
+  "why_correct": "The tundra is characterised by permafrost, ground that stays frozen all year below a thin surface layer that thaws in summer. Only mosses, lichens and dwarf shrubs can grow there.",
+  "why_wrong": {
+   "0": "Tropical rainforest is hot and wet all year, with the richest biodiversity on Earth.",
+   "1": "Savanna is tropical grassland with a marked dry season.",
+   "3": "Mediterranean regions have hot dry summers and mild wet winters. Permafrost is the defining feature, and it needs a climate cold enough that the ground never fully thaws."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|14",
+  "approved": false,
+  "why_correct": "Population density is the number of people per unit area, usually per square kilometre. It measures how crowded a place is, whereas total population measures only how many people there are.",
+  "why_wrong": {
+   "0": "Birth rate minus death rate is the natural growth rate.",
+   "1": "Females per thousand males is the sex ratio.",
+   "3": "Workers as a proportion of population is the work participation rate. Each of these is a real measure, so the terms must be matched carefully."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|15",
+  "approved": false,
+  "why_correct": "The demographic transition model as taught here has five stages, running from high birth and death rates, through falling death rates and then falling birth rates, to low rates in both and finally a declining population.",
+  "why_wrong": {
+   "0": "3 stages is how the model is compressed in some textbooks, including NCERT, which treats it as high stationary, expanding and low stationary. Not baseless, but the fuller version separates the phases.",
+   "1": "4 stages is the classical version, which stops before the fifth declining stage now seen in Japan and much of Europe.",
+   "3": "6 stages is not a recognised form of the model."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|16",
+  "approved": false,
+  "why_correct": "Nucleated or compact settlements are typical of fertile alluvial plains, where good soil and water support dense farming and houses cluster closely together, often around a well, temple or crossroads.",
+  "why_wrong": {
+   "0": "Dispersed settlements are found in hilly, forested or infertile country, where farms are scattered.",
+   "1": "Isolated settlement is the extreme form of dispersal, a single dwelling standing alone.",
+   "3": "Linear settlements follow a road, river or canal, so their shape is set by the feature they line rather than by soil fertility."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|17",
+  "approved": false,
+  "why_correct": "A census town is one that meets the Census criteria without having a municipality: a population of at least 5,000, a density of at least 400 per square kilometre, and at least 75 per cent of male workers in non-agricultural work.",
+  "why_wrong": {
+   "0": "A metropolitan town has a population of more than a million.",
+   "1": "A statutory town is one with a municipality, corporation or cantonment board, defined by law rather than by these numbers. Statutory against census is exactly the pair this question tests.",
+   "3": "A municipality is a form of urban local government, which is what a census town by definition lacks."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|18",
+  "approved": false,
+  "why_correct": "Uttar Pradesh is India's most populous state, with about 200 million people at the 2011 Census, more than the population of most countries.",
+  "why_wrong": {
+   "0": "Maharashtra is second, with about 112 million.",
+   "2": "Bihar is third, with about 104 million, and has the highest population density among the large states.",
+   "3": "West Bengal is fourth, with about 91 million. Note the difference between total population and density: Bihar is far more crowded than Uttar Pradesh."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|19",
+  "approved": false,
+  "why_correct": "The Bhakra-Nangal project on the Sutlej is India's largest multipurpose river valley project. Bhakra dam is among the highest in the world, and the scheme provides irrigation, hydroelectricity and flood control to Punjab, Haryana and Rajasthan.",
+  "why_wrong": {
+   "0": "The Damodar Valley Project of 1948 was India's first multipurpose project, modelled on the Tennessee Valley Authority, but it is smaller. First and largest are different titles.",
+   "1": "The Hirakud project on the Mahanadi in Odisha has the longest earthen dam but is smaller overall.",
+   "3": "The Tehri dam on the Bhagirathi is India's tallest dam, completed much later and controversial for the town it submerged."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|20",
+  "approved": false,
+  "why_correct": "Solar energy is a non-conventional or renewable source, along with wind, tidal, geothermal and biomass. Non-conventional sources are inexhaustible and far less polluting.",
+  "why_wrong": {
+   "0": "Coal is a conventional fossil fuel.",
+   "1": "Petroleum is conventional and fossil too.",
+   "2": "Natural gas is likewise conventional. Three of the four are fossil fuels, which makes the odd one out plain."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|22",
+  "approved": false,
+  "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, assured irrigation, chemical fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
+  "why_wrong": {
+   "0": "Pulses were largely left out, and output per head actually fell, which remains a problem for Indian nutrition.",
+   "1": "Oilseeds were the subject of the later Yellow Revolution.",
+   "3": "Cotton is a commercial crop and was not the programme's focus. The narrowness of the gains, in crops and in regions, is one of the standard criticisms."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|24",
+  "approved": false,
+  "why_correct": "The World Trade Organization regulates international trade, framing the rules, hosting negotiations and settling disputes between member countries. It replaced GATT in 1995.",
+  "why_wrong": {
+   "0": "The IMF oversees the international monetary system and lends to countries in balance of payments difficulty.",
+   "1": "The World Bank lends for long-term development projects.",
+   "3": "UNDP works on human development and poverty reduction. All four are international bodies, so their functions must be learnt separately."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|25",
+  "approved": false,
+  "why_correct": "The balance of trade is the difference between a country's visible exports and visible imports, that is trade in goods alone. If imports exceed exports the balance is unfavourable.",
+  "why_wrong": {
+   "1": "Population against resources is a matter of carrying capacity, not trade.",
+   "2": "Total foreign investment received is a capital account item.",
+   "3": "Government income against expenditure is the budget deficit or surplus. Note that the balance of payments is wider than the balance of trade, since it includes services, income and capital flows as well."
+  }
+ }
+]

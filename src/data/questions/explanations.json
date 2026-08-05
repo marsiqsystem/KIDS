@@ -6537,6 +6537,486 @@
   }
  },
  {
+  "id": "XII|Arts|Environmental Science|1",
+  "approved": false,
+  "why_correct": "Biodiversity is the variety of living organisms, taken at three levels: genetic diversity within a species, species diversity within an area, and ecosystem diversity across a region.",
+  "why_wrong": {
+   "1": "Minerals are non-living, so they belong to the abiotic environment.",
+   "2": "Soils are abiotic too, though soil supports enormous biodiversity within it.",
+   "3": "Industries are human creations and have nothing to do with the term. The word bio in biodiversity is the clue: it is about life."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|2",
+  "approved": false,
+  "why_correct": "A biodiversity hotspot is a region exceptionally rich in species, with a high proportion found nowhere else, and under serious threat. India has four: the Himalayas, the Western Ghats, the Indo-Burma region and Sundaland.",
+  "why_wrong": {
+   "0": "Pollution has its own vocabulary of hotspots in casual use, but the technical term belongs to conservation.",
+   "2": "Mining often threatens hotspots but does not define them.",
+   "3": "Urbanisation is likewise a pressure on them rather than the meaning of the word. Norman Myers introduced the term, and a hotspot must be both rich and endangered."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|3",
+  "approved": false,
+  "why_correct": "A national park conserves species in their natural habitat, so it is in-situ conservation. In situ means in place, protecting the whole living community where it already is.",
+  "why_wrong": {
+   "0": "A zoo keeps animals away from their habitat, which is ex-situ.",
+   "1": "A botanical garden grows plants away from where they naturally occur, again ex-situ.",
+   "3": "A seed bank stores seeds under controlled conditions, the clearest ex-situ method of all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|4",
+  "approved": false,
+  "why_correct": "A botanical garden conserves plants away from their natural habitat, so it is ex-situ conservation. Zoos, seed banks and gene banks work the same way.",
+  "why_wrong": {
+   "0": "A wildlife sanctuary protects animals in their own habitat, so it is in-situ.",
+   "1": "A biosphere reserve protects a whole living landscape in place.",
+   "2": "A national park is in-situ too. Three of the four options are in-situ, so the odd one out is the answer, and this question is the mirror image of the one before it."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|5",
+  "approved": false,
+  "why_correct": "The Chipko Movement began in 1973 at Mandal in the Chamoli district of what is now Uttarakhand, then part of Uttar Pradesh. Villagers, mostly women, hugged trees to stop them being felled, and chipko means to cling.",
+  "why_wrong": {
+   "0": "West Bengal is not connected with Chipko.",
+   "1": "Gujarat had its own environmental movements but not this one.",
+   "3": "Kerala is associated with the Silent Valley movement of the late 1970s, which saved a rainforest from a dam. A different state and a different campaign."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|6",
+  "approved": false,
+  "why_correct": "Environmental Impact Assessment is carried out before a development project such as a dam, mine, road or factory is approved, so that its likely effects can be weighed and mitigated in advance.",
+  "why_wrong": {
+   "0": "Ordinary agricultural activity does not require an EIA, though very large irrigation projects do.",
+   "2": "Cultural programmes have no such requirement.",
+   "3": "Sports events are not covered either. The point of an EIA is to look ahead, before the damage is done rather than after."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|7",
+  "approved": false,
+  "why_correct": "The objective of an EIA is to identify and assess the environmental consequences of a proposed project in advance, so that harm can be avoided, reduced or compensated before work begins.",
+  "why_wrong": {
+   "0": "Increasing production is the project's aim, not the assessment's.",
+   "2": "Tourism promotion is unrelated.",
+   "3": "Population is not its subject. An EIA may recommend changes to a project, or that it not proceed at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|8",
+  "approved": false,
+  "why_correct": "The Water (Prevention and Control of Pollution) Act, 1974 is India's law for controlling water pollution. It set up the Central and State Pollution Control Boards.",
+  "why_wrong": {
+   "0": "The Wildlife Protection Act of 1972 protects species and creates protected areas.",
+   "1": "The Forest Conservation Act of 1980 restricts the diversion of forest land to other uses.",
+   "3": "The Environment (Protection) Act of 1986 is the umbrella law covering the environment generally, passed after Bhopal. It is broader, whereas this question asks specifically about water."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|9",
+  "approved": false,
+  "why_correct": "The Environment (Protection) Act was enacted in 1986, in the aftermath of the Bhopal gas tragedy of 1984. It is an umbrella law giving the central government wide powers over all aspects of the environment.",
+  "why_wrong": {
+   "0": "1972 is the Wildlife Protection Act, and also the Stockholm Conference.",
+   "1": "1974 is the Water Act, which deals with water pollution alone rather than the environment generally.",
+   "2": "1981 is the Air (Prevention and Control of Pollution) Act. The sequence runs water in 1974, air in 1981 and the general environment law in 1986."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|10",
+  "approved": false,
+  "why_correct": "The Wildlife (Protection) Act was passed in 1972, the same year as the Stockholm Conference. It created national parks and sanctuaries and listed protected species in schedules.",
+  "why_wrong": {
+   "1": "1986 is the Environment (Protection) Act.",
+   "2": "1991 saw an important amendment to the Wildlife Act, but not its passing.",
+   "3": "2002 saw another amendment, adding conservation reserves and community reserves. Project Tiger was launched in 1973, the year after the Act."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|11",
+  "approved": false,
+  "why_correct": "A disaster caused by natural processes such as earthquakes, floods, cyclones and droughts is a natural disaster. Human action may worsen its effects, but the trigger is natural.",
+  "why_wrong": {
+   "0": "Man-made disasters are caused by human action, such as the Bhopal gas leak or an industrial fire.",
+   "2": "Industrial disasters are a category of man-made disaster.",
+   "3": "Social disasters such as riots are also human in origin. The classification turns on the cause, not on the scale of the damage."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|12",
+  "approved": false,
+  "why_correct": "An earthquake is a natural disaster, caused by the sudden release of energy along a fault in the Earth's crust. It is a geological event that no human action initiates.",
+  "why_wrong": {
+   "0": "Biological disasters are epidemics and pest attacks.",
+   "1": "Technological disasters arise from the failure of machines or systems.",
+   "3": "Chemical disasters are leaks and spills of hazardous substances. Note that most earthquake deaths come from collapsing buildings, so how a society builds decides how disastrous the event is."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|13",
+  "approved": false,
+  "why_correct": "Floods are mainly caused by excessive rainfall, particularly heavy monsoon rain that a river cannot carry away. Silting of riverbeds, deforestation and poor drainage all make them worse.",
+  "why_wrong": {
+   "1": "Deforestation does contribute, by increasing runoff, but the word only makes this too narrow.",
+   "2": "Industrialisation is not a main cause of flooding.",
+   "3": "Urbanisation contributes by covering ground with concrete so that water cannot soak in, but again only makes this wrong. Watch for absolute words in options: they are usually what makes a half-true answer fail."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|14",
+  "approved": false,
+  "why_correct": "Preparedness comes first in the disaster management cycle, along with prevention and mitigation. Planning, training, early warning systems and drills are all done before a disaster strikes.",
+  "why_wrong": {
+   "0": "Relief comes immediately after the event, providing food, shelter and medical aid.",
+   "1": "Rehabilitation follows relief, restoring livelihoods and normal life.",
+   "3": "Reconstruction is the last stage, rebuilding what was destroyed. The cycle runs preparedness, response, relief, rehabilitation and reconstruction, and preparation is what most reduces the eventual loss."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|15",
+  "approved": false,
+  "why_correct": "Sustainable use means using resources wisely enough to meet present needs without destroying the ability of future generations to meet their own. It is use with restraint, not without it.",
+  "why_wrong": {
+   "0": "Unlimited exploitation would exhaust the resource and leave nothing behind.",
+   "1": "Ignoring the future is exactly what sustainability rules out.",
+   "3": "Complete prohibition is the opposite extreme, and it would leave present needs unmet. Sustainability is a balance between the two, not either end."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|16",
+  "approved": false,
+  "why_correct": "Solar energy is renewable, replenished continuously and impossible to exhaust by use. Wind, tidal, geothermal and biomass energy are renewable for the same reason.",
+  "why_wrong": {
+   "0": "Coal is a fossil fuel formed over millions of years, so it is non-renewable.",
+   "1": "Petroleum is likewise fossil and finite.",
+   "3": "Natural gas is a fossil fuel too. Three of the four options are fossil fuels, which makes the odd one out plain."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|17",
+  "approved": false,
+  "why_correct": "The ozone layer in the stratosphere absorbs most of the sun's ultraviolet radiation, which would otherwise cause skin cancer, cataracts and damage to crops and plankton.",
+  "why_wrong": {
+   "0": "Infrared is heat radiation, trapped by greenhouse gases rather than by ozone. Ozone depletion and global warming are separate problems, and confusing them is the usual error here.",
+   "2": "Radio waves pass through the atmosphere and are harmless.",
+   "3": "Sound waves are mechanical and do not travel through space at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|18",
+  "approved": false,
+  "why_correct": "Global warming is caused by greenhouse gases, chiefly carbon dioxide but also methane, nitrous oxide and CFCs. They absorb the infrared radiation the Earth emits and re-radiate it downwards.",
+  "why_wrong": {
+   "1": "Oxygen is essential to life and to burning but does not trap heat.",
+   "2": "Nitrogen makes up most of the atmosphere yet is not a greenhouse gas.",
+   "3": "Helium is inert and present only in traces. Abundance in the air and warming effect are quite separate things."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|19",
+  "approved": false,
+  "why_correct": "The Central Pollution Control Board is the national body for environmental regulation of pollution, set up under the Water Act of 1974. It sets standards and coordinates the state boards.",
+  "why_wrong": {
+   "0": "The Reserve Bank of India is the central bank.",
+   "1": "The UGC coordinates higher education.",
+   "3": "The UPSC conducts recruitment for the central services."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|20",
+  "approved": false,
+  "why_correct": "CPCB is the Central Pollution Control Board, constituted in 1974 under the Water Act and later given duties under the Air Act as well.",
+  "why_wrong": {
+   "1": "Public Conservation is not the phrase; the board's business is pollution.",
+   "2": "It is a board, not a bureau, and its work is control rather than conservation.",
+   "3": "Protection and bureau are both wrong. Read each letter: Central, Pollution, Control, Board."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|21",
+  "approved": false,
+  "why_correct": "Afforestation is planting trees on land that had no forest before, such as barren or waste land. It increases forest cover and helps check erosion and absorb carbon dioxide.",
+  "why_wrong": {
+   "0": "Cutting forests is deforestation, the opposite.",
+   "2": "Mining in forests destroys them.",
+   "3": "Building industries in forests likewise removes cover. Note the related term reforestation, which is replanting where forest once stood, whereas afforestation creates forest on land that had none."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|22",
+  "approved": false,
+  "why_correct": "The Bishnoi community of Rajasthan protects trees and wildlife as a matter of religious duty. In 1730 at Khejarli, Amrita Devi and more than three hundred Bishnois died hugging khejri trees to stop them being felled.",
+  "why_wrong": {
+   "0": "Rivers are the concern of movements such as Narmada Bachao.",
+   "2": "Wetlands are protected under the Ramsar Convention.",
+   "3": "Mountains are not the Bishnoi concern. The Khejarli sacrifice is regarded as the forerunner of the Chipko movement two and a half centuries later."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|23",
+  "approved": false,
+  "why_correct": "A biosphere reserve protects entire ecosystems, with a strictly protected core zone, a buffer zone for research and a transition zone where people live and work. It conserves plants, animals and human culture together.",
+  "why_wrong": {
+   "0": "Plants alone would be a botanical reserve.",
+   "1": "Animals alone would be a wildlife sanctuary.",
+   "3": "Forests alone would be a forest reserve. The breadth of the concept, including the people living in it, is what distinguishes a biosphere reserve."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|24",
+  "approved": false,
+  "why_correct": "Environmental legislation exists to protect the environment, by setting standards, restraining polluters and providing penalties. Everything else it does follows from that purpose.",
+  "why_wrong": {
+   "0": "Industrial growth is often restrained by such laws rather than promoted by them.",
+   "2": "Trade is not their object.",
+   "3": "Urbanisation is regulated by planning law. Such legislation gives effect to Article 48A and Article 51A(g) of the Constitution, which make protection of the environment a duty of both state and citizen."
+  }
+ },
+ {
+  "id": "XII|Arts|Environmental Science|25",
+  "approved": false,
+  "why_correct": "Our Common Future was published in 1987 by the World Commission on Environment and Development, chaired by Gro Harlem Brundtland of Norway and therefore known as the Brundtland Commission. It gave sustainable development its standard definition.",
+  "why_wrong": {
+   "1": "UNEP is the UN Environment Programme, which set up the commission but did not write the report.",
+   "2": "UNESCO deals with education, science and culture.",
+   "3": "WWF is a conservation organisation working on species and habitats."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|1",
+  "approved": false,
+  "why_correct": "Plate tectonic theory divides the lithosphere into seven major plates, together with a number of minor ones. The major plates are the Pacific, North American, South American, Eurasian, African, Indo-Australian and Antarctic.",
+  "why_wrong": {
+   "0": "5 is too few and leaves out the minor plates altogether.",
+   "2": "10 major plates overstates the count, and the word only wrongly excludes the minor ones.",
+   "3": "12 is the number sometimes given when several minor plates are counted as major, but the standard division is seven major plus minor. Every option except the answer contains the word only, which is what makes them wrong."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|2",
+  "approved": false,
+  "why_correct": "The Himalayas were raised by the collision of the Indo-Australian plate with the Eurasian plate, which crumpled the sediments of the Tethys Sea between them. The collision continues, so the range is still rising.",
+  "why_wrong": {
+   "0": "The African and Eurasian plates collided to form the Alps and the Atlas mountains.",
+   "2": "The Pacific plate meeting Eurasia produces the island arcs and trenches of Japan and the Philippines, a subduction rather than a continental collision.",
+   "3": "The Nazca plate subducting under South America produced the Andes."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|3",
+  "approved": false,
+  "why_correct": "Volcanism originates within the Earth, driven by internal heat, so it is an endogenic process. Endogenic processes build landforms up; exogenic ones wear them down.",
+  "why_wrong": {
+   "0": "Weathering acts at the surface through the atmosphere and water, so it is exogenic.",
+   "1": "Erosion is exogenic, carried out by rivers, wind, glaciers and waves.",
+   "3": "Mass wasting is the downslope movement of material under gravity, again a surface process. The dividing question is simply where the energy comes from."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|4",
+  "approved": false,
+  "why_correct": "Exfoliation is physical weathering: the outer layers of rock peel away in sheets as the surface expands and contracts with heating and cooling faster than the interior. No chemical change occurs.",
+  "why_wrong": {
+   "0": "Chemical weathering alters the composition of the rock, through processes such as oxidation, carbonation and hydrolysis.",
+   "1": "Biological weathering is caused by plants, animals and microbes, as when roots split rock.",
+   "3": "River erosion involves transport by water, whereas weathering breaks rock down where it stands."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|5",
+  "approved": false,
+  "why_correct": "Karst topography develops on limestone, which is dissolved by slightly acidic rainwater through carbonation. It produces caves, sinkholes, stalactites and underground drainage.",
+  "why_wrong": {
+   "0": "Granite is an igneous rock resistant to solution, weathering instead by exfoliation into rounded tors.",
+   "1": "Basalt is igneous too and does not dissolve in this way.",
+   "3": "Sandstone is porous but not soluble, so it does not form caverns of this kind. Solubility is the essential property, and only limestone has it."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|6",
+  "approved": false,
+  "why_correct": "A floodplain is built by deposition, as a river in flood spreads across its valley and drops the silt it can no longer carry. Levees and deltas are formed the same way.",
+  "why_wrong": {
+   "0": "A gorge is cut by vertical erosion in the youthful stage of a river.",
+   "1": "A waterfall is erosional, formed where the river crosses from hard rock to soft.",
+   "3": "A V-shaped valley is erosional too, the classic form of a young river. Erosional features belong to the upper course and depositional ones to the lower."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|7",
+  "approved": false,
+  "why_correct": "The Coriolis force arises from the rotation of the Earth, deflecting moving air and water to the right in the Northern Hemisphere and to the left in the Southern. It is zero at the Equator and greatest at the poles.",
+  "why_wrong": {
+   "0": "Revolution is the Earth's yearly orbit around the Sun, which gives the seasons rather than this deflection.",
+   "2": "The Moon's gravity causes tides.",
+   "3": "Solar radiation causes the pressure differences that make winds blow, but the deflection of those winds comes from rotation."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|8",
+  "approved": false,
+  "why_correct": "The doldrums, or equatorial low pressure belt, is the zone of calm near the Equator. Air rises there rather than blowing horizontally, so surface winds are light and variable, which once becalmed sailing ships for weeks.",
+  "why_wrong": {
+   "0": "The horse latitudes are the calm belts near 30 degrees north and south, under the subtropical highs. Also calm, but at a quite different latitude.",
+   "2": "The polar front is where cold polar air meets warmer westerlies, around 60 degrees, and it is a zone of storms rather than calm.",
+   "3": "The westerlies are strong winds blowing from the subtropical highs towards the poles."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|9",
+  "approved": false,
+  "why_correct": "Convectional rainfall dominates the equatorial region. Intense heating makes air rise rapidly, cool and condense, giving heavy afternoon thunderstorms almost daily.",
+  "why_wrong": {
+   "0": "Cyclonic rainfall is associated with depressions in temperate latitudes and with tropical cyclones.",
+   "1": "Orographic rainfall occurs where moist air is forced up over mountains, as on the windward slopes of the Western Ghats.",
+   "3": "Frontal rainfall occurs where warm and cold air masses meet, which is characteristic of temperate regions."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|10",
+  "approved": false,
+  "why_correct": "The average salinity of ocean water is about 35, meaning 35 grams of dissolved salt in every kilogram of sea water. It is properly written as 35 parts per thousand rather than as a percentage, which would be 3.5 per cent.",
+  "why_wrong": {
+   "0": "15 is far too low; such water is brackish, as in the Baltic Sea.",
+   "1": "25 is still well below the ocean average.",
+   "3": "45 is far too high; salinity approaches that only in enclosed seas with heavy evaporation, such as the Red Sea or the Dead Sea. The figure to hold is 35, and the unit is parts per thousand."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|11",
+  "approved": false,
+  "why_correct": "The Gulf Stream is the warm current flowing north-eastward along the eastern coast of North America and on across the Atlantic, where it keeps north-west Europe far milder than its latitude would suggest.",
+  "why_wrong": {
+   "0": "The Labrador Current is cold and flows south along the same coast further north. Where the two meet, off Newfoundland, fog and rich fishing grounds result.",
+   "1": "The California Current is cold and flows along the western coast of North America.",
+   "3": "The Peru or Humboldt Current is cold and flows along the western coast of South America."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|12",
+  "approved": false,
+  "why_correct": "A biodiversity hotspot is a region exceptionally rich in endemic species, that is species found nowhere else, and at the same time under serious threat of habitat loss. Both conditions must hold.",
+  "why_wrong": {
+   "0": "High temperature has nothing to do with it, despite the word hot.",
+   "2": "Deserts have low species richness and are not hotspots.",
+   "3": "Industrial zones threaten biodiversity rather than harbouring it. India's four hotspots are the Himalayas, the Western Ghats, Indo-Burma and Sundaland."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|13",
+  "approved": false,
+  "why_correct": "The tundra is characterised by permafrost, ground that stays frozen all year below a thin surface layer that thaws in summer. Only mosses, lichens and dwarf shrubs can grow there.",
+  "why_wrong": {
+   "0": "Tropical rainforest is hot and wet all year, with the richest biodiversity on Earth.",
+   "1": "Savanna is tropical grassland with a marked dry season.",
+   "3": "Mediterranean regions have hot dry summers and mild wet winters. Permafrost is the defining feature, and it needs a climate cold enough that the ground never fully thaws."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|14",
+  "approved": false,
+  "why_correct": "Population density is the number of people per unit area, usually per square kilometre. It measures how crowded a place is, whereas total population measures only how many people there are.",
+  "why_wrong": {
+   "0": "Birth rate minus death rate is the natural growth rate.",
+   "1": "Females per thousand males is the sex ratio.",
+   "3": "Workers as a proportion of population is the work participation rate. Each of these is a real measure, so the terms must be matched carefully."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|15",
+  "approved": false,
+  "why_correct": "The demographic transition model as taught here has five stages, running from high birth and death rates, through falling death rates and then falling birth rates, to low rates in both and finally a declining population.",
+  "why_wrong": {
+   "0": "3 stages is how the model is compressed in some textbooks, including NCERT, which treats it as high stationary, expanding and low stationary. Not baseless, but the fuller version separates the phases.",
+   "1": "4 stages is the classical version, which stops before the fifth declining stage now seen in Japan and much of Europe.",
+   "3": "6 stages is not a recognised form of the model."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|16",
+  "approved": false,
+  "why_correct": "Nucleated or compact settlements are typical of fertile alluvial plains, where good soil and water support dense farming and houses cluster closely together, often around a well, temple or crossroads.",
+  "why_wrong": {
+   "0": "Dispersed settlements are found in hilly, forested or infertile country, where farms are scattered.",
+   "1": "Isolated settlement is the extreme form of dispersal, a single dwelling standing alone.",
+   "3": "Linear settlements follow a road, river or canal, so their shape is set by the feature they line rather than by soil fertility."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|17",
+  "approved": false,
+  "why_correct": "A census town is one that meets the Census criteria without having a municipality: a population of at least 5,000, a density of at least 400 per square kilometre, and at least 75 per cent of male workers in non-agricultural work.",
+  "why_wrong": {
+   "0": "A metropolitan town has a population of more than a million.",
+   "1": "A statutory town is one with a municipality, corporation or cantonment board, defined by law rather than by these numbers. Statutory against census is exactly the pair this question tests.",
+   "3": "A municipality is a form of urban local government, which is what a census town by definition lacks."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|18",
+  "approved": false,
+  "why_correct": "Uttar Pradesh is India's most populous state, with about 200 million people at the 2011 Census, more than the population of most countries.",
+  "why_wrong": {
+   "0": "Maharashtra is second, with about 112 million.",
+   "2": "Bihar is third, with about 104 million, and has the highest population density among the large states.",
+   "3": "West Bengal is fourth, with about 91 million. Note the difference between total population and density: Bihar is far more crowded than Uttar Pradesh."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|19",
+  "approved": false,
+  "why_correct": "The Bhakra-Nangal project on the Sutlej is India's largest multipurpose river valley project. Bhakra dam is among the highest in the world, and the scheme provides irrigation, hydroelectricity and flood control to Punjab, Haryana and Rajasthan.",
+  "why_wrong": {
+   "0": "The Damodar Valley Project of 1948 was India's first multipurpose project, modelled on the Tennessee Valley Authority, but it is smaller. First and largest are different titles.",
+   "1": "The Hirakud project on the Mahanadi in Odisha has the longest earthen dam but is smaller overall.",
+   "3": "The Tehri dam on the Bhagirathi is India's tallest dam, completed much later and controversial for the town it submerged."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|20",
+  "approved": false,
+  "why_correct": "Solar energy is a non-conventional or renewable source, along with wind, tidal, geothermal and biomass. Non-conventional sources are inexhaustible and far less polluting.",
+  "why_wrong": {
+   "0": "Coal is a conventional fossil fuel.",
+   "1": "Petroleum is conventional and fossil too.",
+   "2": "Natural gas is likewise conventional. Three of the four are fossil fuels, which makes the odd one out plain."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|22",
+  "approved": false,
+  "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, assured irrigation, chemical fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
+  "why_wrong": {
+   "0": "Pulses were largely left out, and output per head actually fell, which remains a problem for Indian nutrition.",
+   "1": "Oilseeds were the subject of the later Yellow Revolution.",
+   "3": "Cotton is a commercial crop and was not the programme's focus. The narrowness of the gains, in crops and in regions, is one of the standard criticisms."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|24",
+  "approved": false,
+  "why_correct": "The World Trade Organization regulates international trade, framing the rules, hosting negotiations and settling disputes between member countries. It replaced GATT in 1995.",
+  "why_wrong": {
+   "0": "The IMF oversees the international monetary system and lends to countries in balance of payments difficulty.",
+   "1": "The World Bank lends for long-term development projects.",
+   "3": "UNDP works on human development and poverty reduction. All four are international bodies, so their functions must be learnt separately."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|25",
+  "approved": false,
+  "why_correct": "The balance of trade is the difference between a country's visible exports and visible imports, that is trade in goods alone. If imports exceed exports the balance is unfavourable.",
+  "why_wrong": {
+   "1": "Population against resources is a matter of carrying capacity, not trade.",
+   "2": "Total foreign investment received is a capital account item.",
+   "3": "Government income against expenditure is the budget deficit or surplus. Note that the balance of payments is wider than the balance of trade, since it includes services, income and capital flows as well."
+  }
+ },
+ {
   "id": "XII|Commerce|Accountancy|1",
   "approved": false,
   "why_correct": "Goodwill is an intangible asset. It has real value and can be bought and sold with the business, but it has no physical existence, being the reputation and earning capacity built up over time.",

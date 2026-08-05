@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Commerce|Business Studies|1",
+  "approved": false,
+  "why_correct": "Management is both an art and a science. It is a science in having a systematic body of principles built on observation, and an art in that applying those principles to a particular situation calls for personal skill and judgement.",
+  "why_wrong": {
+   "0": "Art only ignores the tested body of knowledge that management rests on.",
+   "1": "Science only ignores the practice and creativity that using it well demands. No two managers apply the same principle identically.",
+   "3": "It is certainly both. Management is often called an inexact science, because its principles are flexible rather than rigid like those of physics."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|2",
+  "approved": false,
+  "why_correct": "F. W. Taylor is the father of scientific management. He advocated replacing rule of thumb with science, and gave techniques such as time study, motion study and differential piece wage.",
+  "why_wrong": {
+   "0": "Henri Fayol is the father of general or administrative management, and gave the fourteen principles. Taylor and Fayol are the pair this chapter always contrasts: Taylor worked upward from the shop floor, Fayol downward from the top.",
+   "2": "Peter Drucker is the father of modern management and gave management by objectives.",
+   "3": "Elton Mayo led the Hawthorne experiments and founded the human relations approach."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|3",
+  "approved": false,
+  "why_correct": "Planning is deciding in advance what to do and how to do it, and it begins with setting objectives. It is the primary function, because every other function follows from the objectives set.",
+  "why_wrong": {
+   "0": "Organising arranges resources to carry out the plan already made.",
+   "2": "Staffing fills the posts that organising has created.",
+   "3": "Controlling checks performance against the standards that planning laid down, so it comes last rather than first."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|4",
+  "approved": false,
+  "why_correct": "Organising identifies the work to be done, groups it into jobs and departments, and assigns duties along with the authority needed to perform them. It creates the structure of relationships.",
+  "why_wrong": {
+   "0": "Setting goals belongs to planning.",
+   "2": "Recruiting belongs to staffing, which fills the posts organising has defined.",
+   "3": "Measuring performance belongs to controlling."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|5",
+  "approved": false,
+  "why_correct": "Staffing is the management of people: estimating manpower needs, recruiting, selecting, placing, training and appraising. Recruitment and selection are its central steps.",
+  "why_wrong": {
+   "0": "Financial planning is a finance function, not a staffing one.",
+   "2": "Advertising is a marketing function, though recruitment advertising is one small overlap.",
+   "3": "Production is an operations function. Staffing is often called the human resource function, and it puts the right person in the right job."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|6",
+  "approved": false,
+  "why_correct": "Motivation is one of the four elements of directing, along with supervision, communication and leadership. Directing is the function concerned with getting people to work.",
+  "why_wrong": {
+   "0": "Planning decides what is to be done, before any people are led.",
+   "1": "Organising creates the structure within which they work.",
+   "3": "Controlling checks what they achieved afterwards. Directing is the only function performed directly on and through people."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|7",
+  "approved": false,
+  "why_correct": "Controlling compares actual performance with the planned standards, finds the deviations and takes corrective action. It is what closes the loop back to planning.",
+  "why_wrong": {
+   "0": "Planning sets the standards that controlling later measures against, so the two are linked but distinct.",
+   "1": "Organising arranges the resources.",
+   "2": "Directing guides people while the work is being done. Planning and controlling are often called the twin functions, since neither is of use without the other."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|8",
+  "approved": false,
+  "why_correct": "Unity of command is one of Henri Fayol's fourteen principles: an employee should receive orders from one superior only, so that responsibility is clear and conflict is avoided.",
+  "why_wrong": {
+   "0": "Taylor's functional foremanship actually contradicts this, giving a worker eight bosses. That direct clash is why the question is asked.",
+   "2": "Elton Mayo worked on human relations, not on structural principles.",
+   "3": "Peter Drucker gave management by objectives. Do not confuse unity of command, one boss per employee, with unity of direction, one head and one plan per group of activities."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|9",
+  "approved": false,
+  "why_correct": "Span of management, or span of control, is the number of subordinates a manager can effectively supervise. A narrow span gives a tall structure with many levels; a wide span gives a flat one.",
+  "why_wrong": {
+   "0": "The number of departments is a matter of departmentation, not span.",
+   "2": "The number of managers follows from the span rather than defining it.",
+   "3": "Customers have nothing to do with internal structure."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|10",
+  "approved": false,
+  "why_correct": "Decentralisation is the systematic dispersal of decision-making authority to the lower levels of the organisation. It relieves top management and develops managers lower down.",
+  "why_wrong": {
+   "0": "Concentration of authority at the top is centralisation, the opposite.",
+   "2": "Authority is not eliminated but spread out; someone still decides.",
+   "3": "Central control only is again centralisation. Note that decentralisation is an extension of delegation, made a policy throughout the organisation."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|11",
+  "approved": false,
+  "why_correct": "Planning begins with setting objectives, because everything that follows depends on knowing what is to be achieved. Objectives should be clear and stated for every department.",
+  "why_wrong": {
+   "0": "Selecting an alternative comes much later, after alternatives have been developed and evaluated.",
+   "2": "Implementation is the last step, once the plan is settled.",
+   "3": "Follow-up action comes after implementation, to see whether the plan is working."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|12",
+  "approved": false,
+  "why_correct": "Recruitment is the process of searching for prospective employees and encouraging them to apply. It is a positive process, aiming to build up a large pool of candidates.",
+  "why_wrong": {
+   "0": "Selecting candidates is selection, which is a negative process because it rejects the unsuitable. Recruitment and selection are the pair being tested.",
+   "1": "Appointing is placement, which comes after selection.",
+   "3": "Training comes after appointment."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|13",
+  "approved": false,
+  "why_correct": "The labour market is a market for human effort, not for funds, so it is not a financial market. Financial markets deal in the transfer of money from those who have surplus to those who need it.",
+  "why_wrong": {
+   "0": "The money market deals in short-term funds, up to one year.",
+   "1": "The capital market deals in medium and long-term funds.",
+   "3": "The stock market is part of the capital market, dealing in shares and debentures."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|14",
+  "approved": false,
+  "why_correct": "SEBI is the Securities and Exchange Board of India, set up in 1988 and given statutory powers in 1992. It regulates the securities market and protects investors.",
+  "why_wrong": {
+   "1": "State is wrong; SEBI is a national body.",
+   "2": "It is a board, not a bank, and it does no banking business.",
+   "3": "Stock is narrower than securities, which cover shares, debentures, bonds and derivatives alike."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|15",
+  "approved": false,
+  "why_correct": "The primary market deals in new securities, issued for the first time, so the money goes directly to the company. It is also called the new issue market.",
+  "why_wrong": {
+   "0": "Old or existing securities are traded in the secondary market, where the money passes between investors rather than to the company. That is the distinction being tested.",
+   "2": "Foreign securities are not a separate market of this classification.",
+   "3": "Government securities may be issued in the primary market, but so may company securities, so the word only makes this wrong."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|16",
+  "approved": false,
+  "why_correct": "The marketing mix has four elements, the four Ps: product, price, place and promotion. They are the controllable variables a firm combines to serve its target market.",
+  "why_wrong": {
+   "0": "3 Ps leaves one of the four out, and no standard version of the mix has only three.",
+   "2": "5 Ps and beyond, adding people, process and physical evidence, belong to the extended mix for services. For the basic mix in this syllabus the answer is four.",
+   "3": "6 Ps is not a standard formulation either."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|17",
+  "approved": false,
+  "why_correct": "Recruitment is a staffing function, not a marketing one. Marketing functions concern getting the product to the customer and include branding, packaging, transport, storage, pricing and promotion.",
+  "why_wrong": {
+   "0": "Branding gives the product an identity and is a marketing function.",
+   "1": "Packaging protects the product and helps sell it.",
+   "3": "Transportation creates place utility and is one of the physical supply functions of marketing."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|18",
+  "approved": false,
+  "why_correct": "Advertising is one of the four tools of promotion, along with personal selling, sales promotion and public relations. Promotion is about communicating with the customer.",
+  "why_wrong": {
+   "0": "Product concerns what is offered, including quality, design and branding.",
+   "1": "Price concerns what the customer pays and how it is set.",
+   "3": "Place concerns distribution, that is channels and physical movement. Advertising informs and persuades, which is squarely a promotion activity."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|19",
+  "approved": false,
+  "why_correct": "The Consumer Protection Act exists to protect the interests of consumers, giving them rights and a machinery of district, state and national commissions to enforce them.",
+  "why_wrong": {
+   "0": "Producers are the party the Act regulates rather than protects.",
+   "2": "Taxation is not its subject.",
+   "3": "Export promotion is dealt with by trade policy. The Act of 2019 replaced the earlier Act of 1986 and added a central regulatory authority."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|20",
+  "approved": false,
+  "why_correct": "The Right to Safety protects a consumer against goods and services that are hazardous to life and property. It is why standards such as ISI and AGMARK exist.",
+  "why_wrong": {
+   "0": "The Right to Information entitles the consumer to know the quality, quantity, price and date of expiry.",
+   "2": "The Right to Choose entitles the consumer to a range of goods at competitive prices.",
+   "3": "The Right to Seek Redressal entitles the consumer to compensation after harm has occurred, whereas safety is about preventing it."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|21",
+  "approved": false,
+  "why_correct": "Delegation is the downward entrustment of authority together with the responsibility for carrying out the assigned work. Its three elements are authority, responsibility and accountability.",
+  "why_wrong": {
+   "0": "Responsibility alone would leave the subordinate unable to act, since no one can perform a duty without the power to make the necessary decisions.",
+   "2": "Accountability cannot be transferred at all. This is the important point in the chapter: a manager who delegates remains answerable to their own superior for the result.",
+   "3": "Ownership is not transferred by delegation; the manager delegating still holds the post."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|22",
+  "approved": false,
+  "why_correct": "Top level management, that is the board of directors and chief executives, frames the policies and overall objectives of the organisation and is answerable to the owners.",
+  "why_wrong": {
+   "0": "Lower level management supervises workers and carries out day-to-day operations.",
+   "1": "Middle level management interprets top-level policies and passes them down as departmental plans.",
+   "3": "Supervisory level is another name for the lower level. The three levels differ in the time horizon of their decisions, and policy is the longest."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|23",
+  "approved": false,
+  "why_correct": "On-the-job training teaches the employee at the actual workplace while doing the real work. It is cheap and directly relevant, and includes coaching, job rotation and internship.",
+  "why_wrong": {
+   "0": "Vestibule training uses a duplicate workplace away from the real one, so the trainee is not on the job.",
+   "1": "Apprenticeship training combines instruction with work over a long period under a master. It is a specific programme rather than the general term the question asks for.",
+   "3": "Internship links a school or college with a firm, and it is one method within on-the-job training rather than the category itself."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|24",
+  "approved": false,
+  "why_correct": "A trademark is a brand or part of a brand given legal protection, so it identifies the product as that of a particular seller and distinguishes it from others.",
+  "why_wrong": {
+   "0": "A trademark does not reduce cost; registering and defending one costs money.",
+   "2": "It does not affect production, though a strong mark may raise demand.",
+   "3": "It has nothing to do with hiring. Its whole purpose is identification and the exclusive right that goes with it."
+  }
+ },
+ {
+  "id": "XII|Commerce|Business Studies|25",
+  "approved": false,
+  "why_correct": "Motivation is the process of stimulating people to act willingly towards the organisation's goals. Willingly is the key word: a person can be ordered to work, but not ordered to want to.",
+  "why_wrong": {
+   "0": "Planning decides what is to be done.",
+   "1": "Organising arranges the resources to do it.",
+   "3": "Staffing puts people into the posts. Motivation is one of the elements of directing, and Maslow's hierarchy of needs is its best-known theory."
+  }
+ }
+]

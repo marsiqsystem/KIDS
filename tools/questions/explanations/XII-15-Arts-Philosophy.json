@@ -1,0 +1,222 @@
+[
+ {
+  "id": "XII|Arts|Philosophy|1",
+  "approved": false,
+  "why_correct": "Locke held that substance is the unknown substratum in which the primary qualities inhere. He called it a something, he knew not what, since we perceive qualities and never the thing that bears them.",
+  "why_wrong": {
+   "0": "Plato's reality is the world of Forms, which is quite a different account.",
+   "2": "Descartes defined substance as that which needs nothing else to exist, and admitted thinking and extended substance, but the substratum of primary qualities is Locke's formulation.",
+   "3": "Leibniz held that substances are monads, simple and windowless, with no material substratum at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|3",
+  "approved": false,
+  "why_correct": "Shankara is regarded as the first systematic preacher of Advaita Vedanta. In a short life in the eighth century he wrote commentaries on the Upanishads, the Gita and the Brahma Sutra, and founded four monasteries across India.",
+  "why_wrong": {
+   "1": "Ramanuja founded Vishishtadvaita, or qualified non-dualism, in the eleventh century.",
+   "2": "Gaudapada was Shankara's teacher's teacher and wrote the Mandukya Karika, so he prepared the ground. But it was Shankara who built the system and preached it across the country.",
+   "3": "Vacaspati Mishra was a later commentator on Shankara's work, founder of the Bhamati school."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|4",
+  "approved": false,
+  "why_correct": "Maya has two functions: avarana, which conceals the true nature of Brahman, and vikshepa, which projects the appearance of the world in its place. Together they explain why the one reality appears as many.",
+  "why_wrong": {
+   "0": "Brahman is what is concealed, not the concealer.",
+   "1": "Jiva is the individual soul, itself a product of Brahman appearing under maya.",
+   "2": "Jagat is the world, which is what maya projects. The rope-and-snake illustration captures both functions: the rope is hidden and the snake is thrown up in its place."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|6",
+  "approved": false,
+  "why_correct": "Hume argued that we never observe a necessary connection between cause and effect, only their constant conjunction. The sense of necessity is a habit of expectation formed in the mind, so the relation is psychological rather than logical.",
+  "why_wrong": {
+   "1": "Ewing was a twentieth-century philosopher who discussed such theories rather than originating this one.",
+   "2": "Kant answered Hume by making causality an a priori category of the understanding, which restores its necessity rather than reducing it to habit.",
+   "3": "Russell went further still and argued that mature science can dispense with the notion of cause altogether."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|7",
+  "approved": false,
+  "why_correct": "Advaita accepts the reality of Brahman alone. Brahman is real, the world is appearance, and the individual soul is not different from Brahman, which is the whole doctrine in one line.",
+  "why_wrong": {
+   "1": "The jiva, or individual soul, is ultimately identical with Brahman rather than a separate reality.",
+   "2": "The jagat, or world, is vyavaharika, real for practical purposes but not ultimately real.",
+   "3": "There is a definite answer, so none of these is wrong. Advaita means not two, and that is what the doctrine asserts."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|8",
+  "approved": false,
+  "why_correct": "Kant's ethics is deontological, judging an act by the duty behind it rather than by its results. His test is the categorical imperative: act only on a maxim you can will to become a universal law.",
+  "why_wrong": {
+   "0": "Teleological ethics judges by consequences, which is utilitarianism and precisely what Kant rejected.",
+   "2": "Kant does not combine the two. For him an act done for the sake of good results, rather than from duty, has no moral worth at all.",
+   "3": "There is a correct answer here. The word deon means duty, which fixes the term."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|9",
+  "approved": false,
+  "why_correct": "The family is the smallest unit of society. It is the first group a person belongs to and the one in which the basic habits, language and values are learnt.",
+  "why_wrong": {
+   "1": "A school is a secondary institution, entered later and left behind.",
+   "2": "A place of worship is a voluntary association.",
+   "3": "A university is a specialised institution of higher learning. The family is universal, found in every society, which the others are not."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|10",
+  "approved": false,
+  "why_correct": "MacIver defined society as a web of social relationships. The image is exact: society is not the people themselves but the network of relations among them.",
+  "why_wrong": {
+   "1": "Gisbert defined society as a group working together for common ends.",
+   "2": "Ginsberg defined it as a collection of individuals united by certain relations.",
+   "3": "Mackenzie also wrote on the subject. All four are sociologists offering definitions, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|12",
+  "approved": false,
+  "why_correct": "Ecology concerns the mutual interdependence of organisms with one another and with their surroundings. Animals, trees and plants form a single web in which each depends on the others.",
+  "why_wrong": {
+   "1": "Environmental ethics asks what our moral duties towards nature are, which is a question of value rather than a description of relationships.",
+   "2": "Deep ecology is a particular philosophical movement holding that all living things have intrinsic worth regardless of human use.",
+   "3": "Shallow ecology values nature for human benefit. Both deep and shallow ecology are ethical positions, whereas ecology itself describes how the web actually works."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|13",
+  "approved": false,
+  "why_correct": "In the strict sociological sense an institution is an established set of norms and procedures for meeting a social need, so marriage is an institution. Institutions are rules, not bodies of people.",
+  "why_wrong": {
+   "0": "The family is an association or group, that is people organised together. Marriage is the institution through which families are formed, which is exactly the distinction being drawn.",
+   "1": "A school is likewise an association, while education is the institution.",
+   "2": "The state is an association too, while government is the institution through which it acts."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|14",
+  "approved": false,
+  "why_correct": "Educational sociology is the application of sociological principles to education, using what is known about society to shape aims, curriculum and method.",
+  "why_wrong": {
+   "0": "Sociology of education studies education as a social institution, looking at it from outside. The direction of application is opposite, and that is the distinction.",
+   "2": "Social foundation of education is a broader descriptive phrase rather than this technical term.",
+   "3": "Social science of education is not an established term at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|15",
+  "approved": false,
+  "why_correct": "The family educates informally, through imitation, affection and the routine of daily life. There is no syllabus, no timetable and no trained teacher, yet the influence is the deepest a child receives.",
+  "why_wrong": {
+   "0": "Formal education needs a curriculum and an institution, which the family has not.",
+   "2": "Deliberate is wrong because most family learning is unplanned. Parents teach some things on purpose, but that is not what characterises the agency.",
+   "3": "Regular suggests a timetable. Family influence is constant rather than scheduled."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|16",
+  "approved": false,
+  "why_correct": "The school gives formal education: planned, deliberate, organised by a curriculum and delivered by trained teachers within a fixed timetable.",
+  "why_wrong": {
+   "1": "Informal education is what the home and the playground give, without any plan.",
+   "2": "Highly standardised describes one feature of schooling rather than naming the category.",
+   "3": "Traditional describes a style of teaching, not the type of agency. The category asked for is formal, and the other options describe qualities within it."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|17",
+  "approved": false,
+  "why_correct": "A social class is a group of people similar in certain respects, above all in income, occupation and education, who share a broadly similar position and way of life.",
+  "why_wrong": {
+   "0": "Social order is the general arrangement of a society that keeps it stable.",
+   "2": "Social hierarchy is the ranking of classes one above another, so it describes the arrangement rather than the group.",
+   "3": "A social system is the whole set of interrelated institutions. Class is distinguished from caste by being open: a person can move between classes but is born into a caste."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|18",
+  "approved": false,
+  "why_correct": "Advaita's theory of liberation rests mainly on the Upanishads, whose great sayings such as Tat tvam asi, that thou art, assert the identity of the individual soul with Brahman.",
+  "why_wrong": {
+   "0": "The Vedas in their earlier ritual portions deal with sacrifice and the fruits of action rather than with liberation.",
+   "2": "The Gita is one of the three foundational texts Shankara commented on, so it is not baseless, but the doctrine of identity comes from the Upanishads.",
+   "3": "The Brahma Sutra is the third of those texts and systematises Upanishadic teaching, again resting on it rather than replacing it."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|19",
+  "approved": false,
+  "why_correct": "Liberation in Advaita Vedanta is moksha, the realisation that the self is Brahman and the consequent release from the cycle of birth and death. It comes through knowledge rather than through works.",
+  "why_wrong": {
+   "0": "Nirvana is the Buddhist term, the extinction of craving and suffering.",
+   "1": "Apavarga is the term used in the Nyaya and Vaisheshika schools.",
+   "3": "There is a proper term, so none of these is wrong. Each tradition has its own word, and matching word to school is what the question tests."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|20",
+  "approved": false,
+  "why_correct": "India's present system of primary education draws mainly on Gandhi's philosophy, with its emphasis on the mother tongue, free and compulsory schooling, learning through a productive craft and education for character.",
+  "why_wrong": {
+   "0": "Tagore's Santiniketan model, teaching in the open air in communion with nature, has influenced particular schools rather than the national system.",
+   "1": "Vivekananda's man-making education shaped ideals more than institutional arrangements.",
+   "3": "Sri Aurobindo's integral education is practised at Pondicherry and in a few schools. Gandhi's Basic Education, or Nai Talim, was adopted as national policy after independence."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|21",
+  "approved": false,
+  "why_correct": "The centre of education at Pondicherry grew under Sri Aurobindo, who settled there in 1910 and founded his ashram, with the Mother carrying the work forward into the Sri Aurobindo International Centre of Education.",
+  "why_wrong": {
+   "0": "Gandhi founded ashrams at Sabarmati and Sevagram and the scheme of Basic Education.",
+   "2": "Tagore founded Visva-Bharati at Santiniketan in Bengal.",
+   "3": "Vivekananda founded the Ramakrishna Mission. Each of the four is associated with one place, and Pondicherry is Aurobindo's."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|22",
+  "approved": false,
+  "why_correct": "Vivekananda included religion, philosophy, the Upanishads and the Puranas in order to develop the child spiritually. For him education was the manifestation of the perfection already within, and that perfection is spiritual.",
+  "why_wrong": {
+   "1": "Intellectual development mattered to him, but these particular subjects were chosen for their spiritual content.",
+   "2": "Propagating Indian culture was a result he welcomed rather than the purpose of including them.",
+   "3": "Complete development of personality is a broader aim he certainly held, and it is the most tempting distractor. But the question asks what these specific subjects were included to achieve, and that is spiritual growth."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|23",
+  "approved": false,
+  "why_correct": "Vivekananda's philosophy came chiefly from Vedanta, which he interpreted as Practical Vedanta: the divinity within every person, and service to humanity as service to God.",
+  "why_wrong": {
+   "0": "He respected Buddhism and spoke of the Buddha with reverence, but his own position was Vedantic.",
+   "2": "Sankhya is a dualist school, quite unlike his non-dualism.",
+   "3": "Plato's idealism is Western and had no direct part in forming his thought. His teacher Ramakrishna is the other great influence on him."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|24",
+  "approved": false,
+  "why_correct": "Gandhi combined all three. He is a naturalist in trusting the child's natural growth, an idealist in making truth and non-violence the aims of education, and a pragmatist in teaching through a productive craft and learning by doing.",
+  "why_wrong": {
+   "0": "Naturalist alone captures only his trust in nature and free growth.",
+   "1": "Idealist alone captures only his moral and spiritual aims.",
+   "3": "Pragmatist alone captures only his craft-centred method. Each is true in part, which is exactly why the combined option is the answer."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|25",
+  "approved": false,
+  "why_correct": "Philosophy comes from the Greek philos, meaning love, and sophia, meaning wisdom or knowledge, so it literally means love of wisdom. The word is credited to Pythagoras.",
+  "why_wrong": {
+   "1": "Criticism is one activity of philosophy but not what the word means.",
+   "2": "A particular method is not the literal meaning either; philosophy uses several methods.",
+   "3": "There is a correct answer, so none of these is wrong. The literal sense matters: a philosopher is one who loves and seeks wisdom rather than one who possesses it."
+  }
+ }
+]

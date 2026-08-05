@@ -9,12 +9,20 @@ a ruling is still cheap to apply.
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the thirteen outright wrong keys** — `X|31`, `XI Physics 6`,
-`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`,
-`XII Physics 16`, `XII Chemistry 12`, `XII Chemistry 13`, `XII Maths 13`,
-`XII Biology 17`, `XII Education 25`. Each is
-demonstrably wrong rather than debatable, and two of them are contradicted
-by another question on the same paper. XI Mathematics alone has three.
+**Priority: the seventeen outright wrong keys.** Each is demonstrably wrong
+rather than debatable, and four of them are contradicted by another question on
+the same paper.
+
+**Start with `XII|Arts|History|15`** (Jim Crow, item 29). The others cost a
+mark; that one, published as learning content, would teach children that
+segregation laws promoted equality.
+
+The rest: `X|31`, `XI Physics 6`, `XI Physics 19`, `XI Maths 8`, `XI Maths 21`,
+`XI Maths 25`, `XI History 2`, `XII Physics 16`, `XII Chemistry 12`,
+`XII Chemistry 13`, `XII Maths 13`, `XII Biology 17`, `XII Education 25`,
+`XII Philosophy 2`, `XII Philosophy 5`, `XII Philosophy 11`.
+
+XI Mathematics and XII Philosophy have three each.
 
 ---
 
@@ -289,7 +297,7 @@ still, so the keyed option is not even the second oldest of the four.
 
 ---
 
-# Part 3 — Class XII (in progress; Science, Commerce, common paper, 4 Arts done)
+# Part 3 — Class XII (14 of 399; all 16 subjects done)
 
 ## 20. `XII|Science|Physics|16` — key error, that is an ammeter
 
@@ -418,6 +426,81 @@ an earlier India.
 
 **Recommendation: correct the key to (c)**, unless the prescribed text says
 otherwise — in which case keep the mark and rewrite the question.
+
+## 29. `XII|Arts|History|15` — key error, and it inverts the history
+
+> What was the main objective of Jim Crow Law?
+> (a) To promote the cause of Black American.
+> (b) To put an end to racial discrimination in America.
+> (c) To put the White and Black people of America on the same footing.
+> (d) To segregate and discriminate against Black Americans.
+> **Key: (c)**
+
+Jim Crow laws did the **opposite** of putting Black and White Americans on the
+same footing. They enforced racial segregation in schools, transport, housing
+and voting across the American South from the 1870s until the Civil Rights Act
+of 1964. Option **(d)** states their purpose exactly.
+
+**This is the most important correction in this file.** The other wrong keys
+cost a mark; this one, if published as learning content, would teach children
+that segregation laws promoted equality.
+
+**Recommendation: correct the key to (d), and treat as urgent.**
+
+## 30. `XII|Arts|History|20` — two options say the same thing
+
+> The Depression of 1929 brought a change in the attitude of imperial power.
+> (a) The days of free trade were gone.
+> (b) Protectionism became the new catchword. …
+> **Key: (b)**
+
+(a) and (b) describe the same historical shift in different words, and (a) is
+plainly true — Britain abandoned free trade after 1929, through the Import
+Duties Act of 1932 and the Ottawa agreements.
+
+**Recommendation: keep the key, publish no explanation.** Rewrite before reuse.
+
+## 31. `XII|Arts|Philosophy|2` — key error, contradicted by Q6
+
+> Which philosopher considered the cause–effect relation as a form of intellect?
+> (a) Locke (b) Hume (c) Ewing (d) Kant
+> **Key: (b) Hume**
+
+Treating causality as a **form of the intellect** — an a priori category of the
+understanding — is **Kant's** position, option (d). Hume's is the opposite: he
+denied any necessary connection and reduced it to psychological habit.
+**Question 6 on the same paper** keys Hume correctly for the *psychological*
+view, so the paper assigns two contradictory positions to the same man.
+
+**Recommendation: correct the key to (d).**
+
+## 32. `XII|Arts|Philosophy|5` — key error, that is Ramanuja
+
+> The Vedanta philosophy of Shankara is called:
+> (a) Kevaladvaitavada (b) Vishishtadvaitavada (c) Dvaitadvaitavada
+> (d) Dvaitavada
+> **Key: (b) Vishishtadvaitavada**
+
+**Vishishtadvaita** — qualified non-dualism — is **Ramanuja's** system.
+Shankara's is **Kevaladvaita**, absolute non-dualism, option (a). Dvaita is
+Madhva's and Dvaitadvaita is Nimbarka's, so the keyed option names the wrong
+philosopher of the four schools this question is built from.
+
+**Recommendation: correct the key to (a).**
+
+## 33. `XII|Arts|Philosophy|11` — key error, the option is meaningless
+
+> Human exploitation of nature has reached such a level that many countries are
+> facing the problem of:
+> (a) Individual crisis (b) Environmental crisis (c) Moral crisis
+> (d) Habitation crisis
+> **Key: (a) Individual crisis**
+
+Exploitation of nature produces an **environmental crisis**, option (b). An
+"individual crisis" is not a consequence of environmental damage in any sense
+the question could intend, and is not a term used in this chapter.
+
+**Recommendation: correct the key to (b).**
 
 ---
 

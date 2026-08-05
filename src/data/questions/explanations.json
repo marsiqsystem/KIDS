@@ -7017,6 +7017,696 @@
   }
  },
  {
+  "id": "XII|Arts|History|1",
+  "approved": false,
+  "why_correct": "Al-Qanun al-Mas'udi is Alberuni's great work on astronomy, dedicated to Sultan Mas'ud of Ghazni. It draws on Greek and Indian astronomy alike.",
+  "why_wrong": {
+   "1": "Kitab al-Manazir, the Book of Optics, was written by Ibn al-Haytham, a different scholar.",
+   "2": "The Book on Astronomy is not the title of any work of his.",
+   "3": "Alberuni's India, properly Tarikh al-Hind, is his famous account of Indian society, religion and science. His best known book, but not the astronomical one."
+  }
+ },
+ {
+  "id": "XII|Arts|History|2",
+  "approved": false,
+  "why_correct": "Marco Polo, passing along the Indian coast in the late thirteenth century, described the king of Gujarat among the rulers he encountered, along with the region's trade and piracy.",
+  "why_wrong": {
+   "0": "Kumaragupta was a Gupta emperor of the fifth century, some eight hundred years before Marco Polo.",
+   "2": "Srigupta founded the Gupta dynasty in the third century.",
+   "3": "Rajyavardhana was Harsha's elder brother, in the seventh century. All three wrong options are far too early, so the dates alone settle the question."
+  }
+ },
+ {
+  "id": "XII|Arts|History|3",
+  "approved": false,
+  "why_correct": "Muhammad bin Tughluq appointed Ibn Battuta qazi, or judge, of Delhi. The Moroccan traveller stayed several years and later served as envoy to China.",
+  "why_wrong": {
+   "0": "Ghiyasuddin Tughluq founded the dynasty and died in 1325, before Ibn Battuta arrived.",
+   "1": "Firoz Shah Tughlaq succeeded Muhammad bin Tughluq, by which time Ibn Battuta had left India.",
+   "3": "Abu Bakr Shah ruled briefly and much later. Ibn Battuta's Rihla is a major source for the period precisely because he served inside the administration."
+  }
+ },
+ {
+  "id": "XII|Arts|History|4",
+  "approved": false,
+  "why_correct": "Francois Bernier, the French physician who spent years at Aurangzeb's court, is regarded as the first European to visit Kashmir. He accompanied the emperor there and described the valley in his Travels in the Mogul Empire.",
+  "why_wrong": {
+   "1": "Marco Polo travelled along the Indian coast and through Central Asia but did not reach Kashmir.",
+   "2": "Vasco da Gama landed at Calicut in 1498, on the far southern coast.",
+   "3": "Niccolo Conti was a fifteenth-century Venetian who described Vijayanagara in the south."
+  }
+ },
+ {
+  "id": "XII|Arts|History|5",
+  "approved": false,
+  "why_correct": "Jean-Baptiste Tavernier, the French jeweller who made six voyages to the East, described the magnificence of Shah Jahan's court and famously reported on the Peacock Throne and the great diamonds.",
+  "why_wrong": {
+   "0": "Babur founded the empire in 1526 and died in 1530, long before Tavernier's time.",
+   "1": "Humayun ruled in the mid sixteenth century.",
+   "3": "Aurangzeb was on the throne during part of Tavernier's later visits, but the court he is famous for describing in its splendour is Shah Jahan's."
+  }
+ },
+ {
+  "id": "XII|Arts|History|6",
+  "approved": false,
+  "why_correct": "Niccolao Manucci's account is Storia do Mogor, a long and vivid history of the Mughals based on nearly sixty years spent in India as a soldier and physician.",
+  "why_wrong": {
+   "0": "A Passage to India is E. M. Forster's novel of 1924.",
+   "2": "The Wonder That Was India is A. L. Basham's modern history, published in 1954.",
+   "3": "The Voyage to India is not the title of his work. Manucci's value is that he wrote from long residence rather than a brief visit."
+  }
+ },
+ {
+  "id": "XII|Arts|History|7",
+  "approved": false,
+  "why_correct": "Manucci was Venetian and wrote Storia do Mogor chiefly in Italian, though the manuscript mixes in Portuguese and French, reflecting the many languages he used in India.",
+  "why_wrong": {
+   "0": "Spanish was not his language.",
+   "1": "Portuguese appears in the manuscript, since it was the common European language of trade in the East, but it is not the main one.",
+   "2": "French also appears, and the first published version was in French, which is why this is a fair guess. The author himself was Italian."
+  }
+ },
+ {
+  "id": "XII|Arts|History|8",
+  "approved": false,
+  "why_correct": "Karaikkal Ammaiyar is the female Bhakti saint named in the Tirumurai, the Tamil Shaiva canon. She is one of the sixty-three Nayanars and among the earliest of them.",
+  "why_wrong": {
+   "0": "Kanni Pannayar is not a recognised saint of this canon.",
+   "2": "Tilakavatiyar was the sister of the saint Appar, remembered for bringing him back to Shaivism, but she is not the figure named here.",
+   "3": "Iyarpagai Nacciyar is not among the Nayanars. Karaikkal Ammaiyar is remarkable for asking to be freed from her beauty so that she could worship as a devotee."
+  }
+ },
+ {
+  "id": "XII|Arts|History|9",
+  "approved": false,
+  "why_correct": "Guru Nanak was born in 1469 at Talwandi, in what is now Pakistan. The village was renamed Nankana Sahib in his honour and is a major place of Sikh pilgrimage.",
+  "why_wrong": {
+   "0": "Vehari is a town in Punjab, Pakistan, with no such association.",
+   "2": "Gojra is another Punjabi town unconnected with his birth.",
+   "3": "Kamalia is likewise unconnected. The name to remember is Talwandi, now Nankana Sahib."
+  }
+ },
+ {
+  "id": "XII|Arts|History|10",
+  "approved": false,
+  "why_correct": "Mirabai's devotional poems are addressed to Lord Krishna, whom she regarded as her husband. A Rajput princess, she abandoned rank and family for that devotion, and her padas are still sung.",
+  "why_wrong": {
+   "0": "Durga is not the object of her devotion, though she is worshipped widely in the Bhakti period.",
+   "1": "Lakshmi is not the deity she addresses.",
+   "2": "Saraswati is not either. Mirabai belongs to the Vaishnava saguna tradition, which worships God with form and attributes."
+  }
+ },
+ {
+  "id": "XII|Arts|History|11",
+  "approved": false,
+  "why_correct": "Baba Farid, or Fariduddin Ganjshakar, was a leading Chishti Sufi of the thirteenth century in Punjab and did much to spread Sufism in India. Some of his verses are included in the Guru Granth Sahib.",
+  "why_wrong": {
+   "0": "Abu Bakr was the first caliph of Islam and never came to India.",
+   "1": "Muhammad Iqbal was a twentieth-century poet and philosopher, far too late.",
+   "3": "Al-Bukhari was a ninth-century compiler of hadith in Central Asia. Only one of the four is an Indian Sufi, which settles the question."
+  }
+ },
+ {
+  "id": "XII|Arts|History|12",
+  "approved": false,
+  "why_correct": "Alauddin Hussain Shah, who ruled Bengal from 1494 to 1519, is called the Akbar of Bengal for his tolerance, his patronage of Bengali literature and the prosperity of his reign.",
+  "why_wrong": {
+   "0": "Sayyed Hussain is not the name by which this ruler is known.",
+   "1": "Shamsuddin Ilyas Shah founded the independent sultanate of Bengal in the fourteenth century and first united the region.",
+   "3": "Jalaluddin Muhammad Shah was a fifteenth-century sultan of Bengal, a convert and a patron of building, but not the one so called. Chaitanya lived during Hussain Shah's reign, which is part of why it is remembered as a golden age."
+  }
+ },
+ {
+  "id": "XII|Arts|History|13",
+  "approved": false,
+  "why_correct": "Magellan sailed under commission from the Spanish Crown, funded by King Charles I, to find a westward route to the Spice Islands. His expedition made the first circumnavigation of the globe, though he died on the way.",
+  "why_wrong": {
+   "0": "The British Crown sponsored other voyages but not this one.",
+   "2": "The French Crown was not involved.",
+   "3": "Magellan was himself Portuguese, which makes this the natural wrong answer, but Portugal refused to back him and he took his plan to Spain instead."
+  }
+ },
+ {
+  "id": "XII|Arts|History|14",
+  "approved": false,
+  "why_correct": "Nelson Mandela became South Africa's first black President in 1994, after the first elections held under universal franchise. He had spent twenty-seven years in prison under apartheid.",
+  "why_wrong": {
+   "0": "F. W. de Klerk was the last President under apartheid, who released Mandela and shared the Nobel Peace Prize with him.",
+   "2": "Jomo Kenyatta was the first President of Kenya.",
+   "3": "Kwame Nkrumah led Ghana to independence and was its first leader. All three are real figures of the same history, so the country must be matched carefully."
+  }
+ },
+ {
+  "id": "XII|Arts|History|16",
+  "approved": false,
+  "why_correct": "The Holocaust was carried out during the Second World War, between 1941 and 1945, when the Nazi regime systematically murdered around six million Jews along with Roma, disabled people and others.",
+  "why_wrong": {
+   "0": "The First World War ended in 1918, well before the Nazis came to power in 1933.",
+   "2": "The Soviet-Japanese conflict was a separate theatre of the same war in the Far East.",
+   "3": "The Battle of Sedan belongs to the Franco-Prussian War of 1870, though a second battle of that name was fought in 1940."
+  }
+ },
+ {
+  "id": "XII|Arts|History|17",
+  "approved": false,
+  "why_correct": "The World Bank was established in 1944 at the Bretton Woods Conference, alongside the International Monetary Fund. It began operations in 1946.",
+  "why_wrong": {
+   "1": "1945 is the year the United Nations was founded and the war ended.",
+   "2": "1946 is when the Bank actually began lending, so it is a fair guess. Established and began operations are two years apart here.",
+   "3": "1950 is well after both. Bretton Woods in 1944 is the anchor date for the whole post-war financial system."
+  }
+ },
+ {
+  "id": "XII|Arts|History|18",
+  "approved": false,
+  "why_correct": "Sir Thomas Roe was the first English ambassador to India, sent by James I to the court of Jahangir from 1615 to 1619. He secured trading rights for the East India Company.",
+  "why_wrong": {
+   "0": "William Norris was sent much later, in 1699, by a rival English company.",
+   "2": "James Fraser was an eighteenth-century traveller and scholar.",
+   "3": "William Hawkins reached Jahangir's court in 1609, before Roe, but he came as a Company representative rather than as an accredited royal ambassador. That distinction is what the question turns on."
+  }
+ },
+ {
+  "id": "XII|Arts|History|19",
+  "approved": false,
+  "why_correct": "Pitt's India Act of 1784 was introduced by William Pitt the Younger, then Prime Minister. It created the Board of Control, giving the British government authority over the East India Company's political affairs.",
+  "why_wrong": {
+   "0": "William Jones was a judge and orientalist who founded the Asiatic Society of Bengal.",
+   "2": "Warren Hastings was Governor-General in India at the time, not a British Prime Minister, and he was later impeached.",
+   "3": "William Pitt the Elder was his father, Prime Minister a generation earlier during the Seven Years War. Father and son are the trap here, and the Act belongs to the son."
+  }
+ },
+ {
+  "id": "XII|Arts|History|21",
+  "approved": false,
+  "why_correct": "Statements one and three are true. The Ilbert Bill of 1883 would have allowed Indian judges to try Europeans, which increased their powers and removed a racial distinction in the judicial service.",
+  "why_wrong": {
+   "1": "Statement two contradicts statement one, and it was powers being increased that caused the outcry.",
+   "2": "Statement four is false. The British community in India protested furiously and forced the bill to be watered down, which taught Indians the value of organised agitation.",
+   "3": "This reverses the truth entirely. The episode is often called a lesson in agitation that fed directly into the founding of the Congress in 1885."
+  }
+ },
+ {
+  "id": "XII|Arts|History|22",
+  "approved": false,
+  "why_correct": "Of these four, Lord Elgin came first. Elgin served as Viceroy in the 1860s, followed by Curzon from 1899, Wavell from 1943 and Mountbatten in 1947, who was the last.",
+  "why_wrong": {
+   "0": "Lord Wavell was Viceroy from 1943 to 1947, during the war and the negotiations that followed.",
+   "1": "Lord Mountbatten was the last Viceroy, overseeing the transfer of power in 1947, so he is the latest of the four.",
+   "3": "Lord Curzon was Viceroy from 1899 to 1905 and is remembered for the partition of Bengal. Placing the four in order gives Elgin, Curzon, Wavell, Mountbatten."
+  }
+ },
+ {
+  "id": "XII|Arts|History|23",
+  "approved": false,
+  "why_correct": "Both statements are true and the reason does explain the assertion. The Treaty of Versailles imposed crushing reparations, territorial losses and the war guilt clause, and the resentment that followed was exactly what Hitler exploited to build support.",
+  "why_wrong": {
+   "1": "The reason is not merely true alongside the assertion; it is the cause of it. In assertion-reason questions the more precise correct option is the answer.",
+   "2": "Both statements are correct, so this fails at once.",
+   "3": "The assertion is correct. The link between Versailles and the rise of Nazism is one of the best established explanations in modern history."
+  }
+ },
+ {
+  "id": "XII|Arts|History|25",
+  "approved": false,
+  "why_correct": "The passage says civil servants from all the presidencies trained at Fort William College before taking up their postings, so its aim was to prepare British civil servants for administrative work in India, chiefly by teaching them Indian languages.",
+  "why_wrong": {
+   "1": "The passage speaks of civil servants, not Indian leaders, and Indians were not being trained to govern.",
+   "2": "Merchants are not mentioned, and the College trained administrators rather than traders.",
+   "3": "The local population is not mentioned either. Answer a case-based question from the passage itself rather than from wider knowledge."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|1",
+  "approved": false,
+  "why_correct": "Locke held that substance is the unknown substratum in which the primary qualities inhere. He called it a something, he knew not what, since we perceive qualities and never the thing that bears them.",
+  "why_wrong": {
+   "0": "Plato's reality is the world of Forms, which is quite a different account.",
+   "2": "Descartes defined substance as that which needs nothing else to exist, and admitted thinking and extended substance, but the substratum of primary qualities is Locke's formulation.",
+   "3": "Leibniz held that substances are monads, simple and windowless, with no material substratum at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|3",
+  "approved": false,
+  "why_correct": "Shankara is regarded as the first systematic preacher of Advaita Vedanta. In a short life in the eighth century he wrote commentaries on the Upanishads, the Gita and the Brahma Sutra, and founded four monasteries across India.",
+  "why_wrong": {
+   "1": "Ramanuja founded Vishishtadvaita, or qualified non-dualism, in the eleventh century.",
+   "2": "Gaudapada was Shankara's teacher's teacher and wrote the Mandukya Karika, so he prepared the ground. But it was Shankara who built the system and preached it across the country.",
+   "3": "Vacaspati Mishra was a later commentator on Shankara's work, founder of the Bhamati school."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|4",
+  "approved": false,
+  "why_correct": "Maya has two functions: avarana, which conceals the true nature of Brahman, and vikshepa, which projects the appearance of the world in its place. Together they explain why the one reality appears as many.",
+  "why_wrong": {
+   "0": "Brahman is what is concealed, not the concealer.",
+   "1": "Jiva is the individual soul, itself a product of Brahman appearing under maya.",
+   "2": "Jagat is the world, which is what maya projects. The rope-and-snake illustration captures both functions: the rope is hidden and the snake is thrown up in its place."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|6",
+  "approved": false,
+  "why_correct": "Hume argued that we never observe a necessary connection between cause and effect, only their constant conjunction. The sense of necessity is a habit of expectation formed in the mind, so the relation is psychological rather than logical.",
+  "why_wrong": {
+   "1": "Ewing was a twentieth-century philosopher who discussed such theories rather than originating this one.",
+   "2": "Kant answered Hume by making causality an a priori category of the understanding, which restores its necessity rather than reducing it to habit.",
+   "3": "Russell went further still and argued that mature science can dispense with the notion of cause altogether."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|7",
+  "approved": false,
+  "why_correct": "Advaita accepts the reality of Brahman alone. Brahman is real, the world is appearance, and the individual soul is not different from Brahman, which is the whole doctrine in one line.",
+  "why_wrong": {
+   "1": "The jiva, or individual soul, is ultimately identical with Brahman rather than a separate reality.",
+   "2": "The jagat, or world, is vyavaharika, real for practical purposes but not ultimately real.",
+   "3": "There is a definite answer, so none of these is wrong. Advaita means not two, and that is what the doctrine asserts."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|8",
+  "approved": false,
+  "why_correct": "Kant's ethics is deontological, judging an act by the duty behind it rather than by its results. His test is the categorical imperative: act only on a maxim you can will to become a universal law.",
+  "why_wrong": {
+   "0": "Teleological ethics judges by consequences, which is utilitarianism and precisely what Kant rejected.",
+   "2": "Kant does not combine the two. For him an act done for the sake of good results, rather than from duty, has no moral worth at all.",
+   "3": "There is a correct answer here. The word deon means duty, which fixes the term."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|9",
+  "approved": false,
+  "why_correct": "The family is the smallest unit of society. It is the first group a person belongs to and the one in which the basic habits, language and values are learnt.",
+  "why_wrong": {
+   "1": "A school is a secondary institution, entered later and left behind.",
+   "2": "A place of worship is a voluntary association.",
+   "3": "A university is a specialised institution of higher learning. The family is universal, found in every society, which the others are not."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|10",
+  "approved": false,
+  "why_correct": "MacIver defined society as a web of social relationships. The image is exact: society is not the people themselves but the network of relations among them.",
+  "why_wrong": {
+   "1": "Gisbert defined society as a group working together for common ends.",
+   "2": "Ginsberg defined it as a collection of individuals united by certain relations.",
+   "3": "Mackenzie also wrote on the subject. All four are sociologists offering definitions, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|12",
+  "approved": false,
+  "why_correct": "Ecology concerns the mutual interdependence of organisms with one another and with their surroundings. Animals, trees and plants form a single web in which each depends on the others.",
+  "why_wrong": {
+   "1": "Environmental ethics asks what our moral duties towards nature are, which is a question of value rather than a description of relationships.",
+   "2": "Deep ecology is a particular philosophical movement holding that all living things have intrinsic worth regardless of human use.",
+   "3": "Shallow ecology values nature for human benefit. Both deep and shallow ecology are ethical positions, whereas ecology itself describes how the web actually works."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|13",
+  "approved": false,
+  "why_correct": "In the strict sociological sense an institution is an established set of norms and procedures for meeting a social need, so marriage is an institution. Institutions are rules, not bodies of people.",
+  "why_wrong": {
+   "0": "The family is an association or group, that is people organised together. Marriage is the institution through which families are formed, which is exactly the distinction being drawn.",
+   "1": "A school is likewise an association, while education is the institution.",
+   "2": "The state is an association too, while government is the institution through which it acts."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|14",
+  "approved": false,
+  "why_correct": "Educational sociology is the application of sociological principles to education, using what is known about society to shape aims, curriculum and method.",
+  "why_wrong": {
+   "0": "Sociology of education studies education as a social institution, looking at it from outside. The direction of application is opposite, and that is the distinction.",
+   "2": "Social foundation of education is a broader descriptive phrase rather than this technical term.",
+   "3": "Social science of education is not an established term at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|15",
+  "approved": false,
+  "why_correct": "The family educates informally, through imitation, affection and the routine of daily life. There is no syllabus, no timetable and no trained teacher, yet the influence is the deepest a child receives.",
+  "why_wrong": {
+   "0": "Formal education needs a curriculum and an institution, which the family has not.",
+   "2": "Deliberate is wrong because most family learning is unplanned. Parents teach some things on purpose, but that is not what characterises the agency.",
+   "3": "Regular suggests a timetable. Family influence is constant rather than scheduled."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|16",
+  "approved": false,
+  "why_correct": "The school gives formal education: planned, deliberate, organised by a curriculum and delivered by trained teachers within a fixed timetable.",
+  "why_wrong": {
+   "1": "Informal education is what the home and the playground give, without any plan.",
+   "2": "Highly standardised describes one feature of schooling rather than naming the category.",
+   "3": "Traditional describes a style of teaching, not the type of agency. The category asked for is formal, and the other options describe qualities within it."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|17",
+  "approved": false,
+  "why_correct": "A social class is a group of people similar in certain respects, above all in income, occupation and education, who share a broadly similar position and way of life.",
+  "why_wrong": {
+   "0": "Social order is the general arrangement of a society that keeps it stable.",
+   "2": "Social hierarchy is the ranking of classes one above another, so it describes the arrangement rather than the group.",
+   "3": "A social system is the whole set of interrelated institutions. Class is distinguished from caste by being open: a person can move between classes but is born into a caste."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|18",
+  "approved": false,
+  "why_correct": "Advaita's theory of liberation rests mainly on the Upanishads, whose great sayings such as Tat tvam asi, that thou art, assert the identity of the individual soul with Brahman.",
+  "why_wrong": {
+   "0": "The Vedas in their earlier ritual portions deal with sacrifice and the fruits of action rather than with liberation.",
+   "2": "The Gita is one of the three foundational texts Shankara commented on, so it is not baseless, but the doctrine of identity comes from the Upanishads.",
+   "3": "The Brahma Sutra is the third of those texts and systematises Upanishadic teaching, again resting on it rather than replacing it."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|19",
+  "approved": false,
+  "why_correct": "Liberation in Advaita Vedanta is moksha, the realisation that the self is Brahman and the consequent release from the cycle of birth and death. It comes through knowledge rather than through works.",
+  "why_wrong": {
+   "0": "Nirvana is the Buddhist term, the extinction of craving and suffering.",
+   "1": "Apavarga is the term used in the Nyaya and Vaisheshika schools.",
+   "3": "There is a proper term, so none of these is wrong. Each tradition has its own word, and matching word to school is what the question tests."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|20",
+  "approved": false,
+  "why_correct": "India's present system of primary education draws mainly on Gandhi's philosophy, with its emphasis on the mother tongue, free and compulsory schooling, learning through a productive craft and education for character.",
+  "why_wrong": {
+   "0": "Tagore's Santiniketan model, teaching in the open air in communion with nature, has influenced particular schools rather than the national system.",
+   "1": "Vivekananda's man-making education shaped ideals more than institutional arrangements.",
+   "3": "Sri Aurobindo's integral education is practised at Pondicherry and in a few schools. Gandhi's Basic Education, or Nai Talim, was adopted as national policy after independence."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|21",
+  "approved": false,
+  "why_correct": "The centre of education at Pondicherry grew under Sri Aurobindo, who settled there in 1910 and founded his ashram, with the Mother carrying the work forward into the Sri Aurobindo International Centre of Education.",
+  "why_wrong": {
+   "0": "Gandhi founded ashrams at Sabarmati and Sevagram and the scheme of Basic Education.",
+   "2": "Tagore founded Visva-Bharati at Santiniketan in Bengal.",
+   "3": "Vivekananda founded the Ramakrishna Mission. Each of the four is associated with one place, and Pondicherry is Aurobindo's."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|22",
+  "approved": false,
+  "why_correct": "Vivekananda included religion, philosophy, the Upanishads and the Puranas in order to develop the child spiritually. For him education was the manifestation of the perfection already within, and that perfection is spiritual.",
+  "why_wrong": {
+   "1": "Intellectual development mattered to him, but these particular subjects were chosen for their spiritual content.",
+   "2": "Propagating Indian culture was a result he welcomed rather than the purpose of including them.",
+   "3": "Complete development of personality is a broader aim he certainly held, and it is the most tempting distractor. But the question asks what these specific subjects were included to achieve, and that is spiritual growth."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|23",
+  "approved": false,
+  "why_correct": "Vivekananda's philosophy came chiefly from Vedanta, which he interpreted as Practical Vedanta: the divinity within every person, and service to humanity as service to God.",
+  "why_wrong": {
+   "0": "He respected Buddhism and spoke of the Buddha with reverence, but his own position was Vedantic.",
+   "2": "Sankhya is a dualist school, quite unlike his non-dualism.",
+   "3": "Plato's idealism is Western and had no direct part in forming his thought. His teacher Ramakrishna is the other great influence on him."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|24",
+  "approved": false,
+  "why_correct": "Gandhi combined all three. He is a naturalist in trusting the child's natural growth, an idealist in making truth and non-violence the aims of education, and a pragmatist in teaching through a productive craft and learning by doing.",
+  "why_wrong": {
+   "0": "Naturalist alone captures only his trust in nature and free growth.",
+   "1": "Idealist alone captures only his moral and spiritual aims.",
+   "3": "Pragmatist alone captures only his craft-centred method. Each is true in part, which is exactly why the combined option is the answer."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|25",
+  "approved": false,
+  "why_correct": "Philosophy comes from the Greek philos, meaning love, and sophia, meaning wisdom or knowledge, so it literally means love of wisdom. The word is credited to Pythagoras.",
+  "why_wrong": {
+   "1": "Criticism is one activity of philosophy but not what the word means.",
+   "2": "A particular method is not the literal meaning either; philosophy uses several methods.",
+   "3": "There is a correct answer, so none of these is wrong. The literal sense matters: a philosopher is one who loves and seeks wisdom rather than one who possesses it."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|1",
+  "approved": false,
+  "why_correct": "A bipolar world means power concentrated in two opposing military blocs, the Western alliance led by the United States and the Eastern bloc led by the Soviet Union. Most other states were drawn towards one pole or the other.",
+  "why_wrong": {
+   "1": "The division of Germany was a consequence and a symbol of bipolarity, not the meaning of the term.",
+   "2": "NATO and the UN were not rivals. NATO's rival was the Warsaw Pact, and the UN included both blocs.",
+   "3": "The two superpowers were not confined to Europe. Their rivalry was worldwide, from Korea and Vietnam to Cuba and Afghanistan, which is precisely what made the world bipolar rather than the continent."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|2",
+  "approved": false,
+  "why_correct": "The dissolution of the Soviet Union in December 1991 ended the Cold War, leaving the United States as the sole superpower and the world unipolar.",
+  "why_wrong": {
+   "0": "The Korean War of 1950 to 1953 was an early episode of the Cold War, not its end.",
+   "1": "The Vietnam War ended in 1975, with the Cold War continuing for another sixteen years.",
+   "3": "NATO was formed in 1949, at the beginning of the confrontation. The fall of the Berlin Wall in 1989 is the other event commonly cited, but the Soviet collapse is the formal end."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|3",
+  "approved": false,
+  "why_correct": "The Bandung Conference of 1955 brought together twenty-nine Asian and African states and is regarded as the precursor of the Non-Aligned Movement, which was formally founded at Belgrade in 1961.",
+  "why_wrong": {
+   "0": "NATO was formed in 1949 as a Western military alliance, the opposite of non-alignment.",
+   "1": "The Warsaw Pact was formed in 1955 as the Soviet bloc's answer to NATO, in the same year but for the opposite purpose.",
+   "3": "The European Union grew from the European Economic Community, an entirely separate development."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|4",
+  "approved": false,
+  "why_correct": "Ronald Reagan was President of the United States in the 1980s and a leader of one of the two blocs, so he could not be a founder of a movement defined by refusing to join either. The founders were Nehru, Tito, Nasser, Sukarno and Nkrumah.",
+  "why_wrong": {
+   "0": "Nehru of India was among the founders and gave the movement much of its philosophy.",
+   "1": "Tito of Yugoslavia hosted the first summit at Belgrade in 1961.",
+   "2": "Nasser of Egypt was the third of the central figures. All three belong to the 1950s and 1960s, while Reagan belongs to the 1980s and to the opposite camp."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|5",
+  "approved": false,
+  "why_correct": "The General Assembly may discuss and make recommendations on any matter within the scope of the Charter. All member states sit in it with one vote each, which makes it the most representative organ.",
+  "why_wrong": {
+   "0": "The Security Council deals specifically with international peace and security, and its scope is narrower even though its powers are stronger.",
+   "2": "The Secretariat is the administrative arm, headed by the Secretary-General.",
+   "3": "The International Court of Justice settles legal disputes between states and gives advisory opinions."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|6",
+  "approved": false,
+  "why_correct": "The Security Council has five permanent members: China, France, Russia, the United Kingdom and the United States. Each holds the power of veto.",
+  "why_wrong": {
+   "0": "10 is the number of non-permanent members, elected for two-year terms.",
+   "1": "12 is not a figure used in the Council's composition.",
+   "3": "15 is the total membership, that is 5 permanent plus 10 non-permanent. All three wrong options are real numbers from the same body, so the question is which one it asks for."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|7",
+  "approved": false,
+  "why_correct": "The International Court of Justice sits at the Peace Palace in The Hague, in the Netherlands. It is the only principal organ of the UN not based in New York.",
+  "why_wrong": {
+   "0": "Geneva houses the UN Office at Geneva, the WHO and the ILO.",
+   "1": "New York is the UN headquarters, where the other principal organs meet.",
+   "3": "Paris is the headquarters of UNESCO."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|8",
+  "approved": false,
+  "why_correct": "UNICEF, the United Nations Children's Fund, is the agency for children's welfare. It works on child health, nutrition, education and protection, and was set up in 1946 for children affected by the war.",
+  "why_wrong": {
+   "0": "The WHO deals with public health generally, for people of all ages.",
+   "1": "UNESCO deals with education, science and culture.",
+   "3": "The ILO deals with labour standards, including the abolition of child labour, which is a real overlap but a different mandate."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|9",
+  "approved": false,
+  "why_correct": "Human security shifts the focus from the state to the individual, holding that people should be secure from hunger, disease, poverty and violence, not merely that borders should be defended.",
+  "why_wrong": {
+   "0": "Military strength alone is the traditional conception of security, which human security was framed to broaden.",
+   "1": "Protecting borders is again the traditional state-centred view.",
+   "3": "Nuclear deterrence is a traditional security instrument. The whole point of the concept is that a state can be militarily secure while its people are not."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|10",
+  "approved": false,
+  "why_correct": "Climate change is a non-traditional security threat: it endangers lives and livelihoods without any armed attack, crosses borders freely, and cannot be met by military means. Epidemics, terrorism and human trafficking belong to the same category.",
+  "why_wrong": {
+   "0": "Border invasion is the classic traditional threat, one state attacking another.",
+   "1": "Nuclear war is traditional too, involving state armed force.",
+   "3": "A military coup is an internal use of armed force, still within the traditional frame. The test is whether the threat comes from military force between or within states."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|11",
+  "approved": false,
+  "why_correct": "Global warming is an environmental security threat. It endangers food supplies, coastlines and water resources without any use of force, and no country can meet it alone.",
+  "why_wrong": {
+   "0": "Traditional threats involve military force between states.",
+   "2": "Military security concerns armies and armed attack.",
+   "3": "Nuclear security concerns weapons and their proliferation. Rising seas may drown low-lying island states entirely, which is a threat to national survival by wholly non-military means."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|12",
+  "approved": false,
+  "why_correct": "Terrorism deliberately targets civilians to create fear and force political change, so it threatens both lives and the stability of governments. Its victims are chosen precisely because they are defenceless.",
+  "why_wrong": {
+   "0": "Terrorism may prompt cooperation against it, but that is a response rather than what makes it a challenge.",
+   "2": "It undermines democracy rather than promoting it, by driving states towards emergency powers.",
+   "3": "It raises international tensions rather than reducing them."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|13",
+  "approved": false,
+  "why_correct": "Linguistic reorganisation was an immediate challenge after independence. Agitation, notably Potti Sriramulu's fast unto death, led to Andhra Pradesh in 1953 and then to the States Reorganisation Act of 1956.",
+  "why_wrong": {
+   "0": "Cyber security is a twenty-first-century concern.",
+   "2": "Space exploration began for India with the founding of INCOSPAR in 1962 and ISRO in 1969.",
+   "3": "Artificial intelligence is a recent challenge altogether. The three challenges of nation-building in 1947 were territorial integration, refugee rehabilitation and the reorganisation of states."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|14",
+  "approved": false,
+  "why_correct": "Sardar Vallabhbhai Patel, as Deputy Prime Minister and Home Minister, integrated over five hundred princely states into the Indian Union, using persuasion, the instrument of accession and, in a few cases, force. He is called the Iron Man of India.",
+  "why_wrong": {
+   "0": "Nehru was Prime Minister and led foreign policy, leaving integration largely to Patel.",
+   "1": "Ambedkar chaired the Drafting Committee of the Constitution.",
+   "3": "Rajendra Prasad presided over the Constituent Assembly and became the first President. V. P. Menon worked closely with Patel as the civil servant who drafted the accession scheme."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|15",
+  "approved": false,
+  "why_correct": "NATO was formed in 1949 as a Western military alliance and had nothing to do with India's nation-building. It is an external event, not an internal challenge.",
+  "why_wrong": {
+   "0": "Refugee rehabilitation was an immense challenge after Partition displaced millions.",
+   "1": "National integration was a challenge, holding together a country of many languages, religions and regions.",
+   "2": "Reorganisation of states was the third great task, settled by the Act of 1956. The three genuine challenges are exactly the ones this question lists alongside the odd one out."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|16",
+  "approved": false,
+  "why_correct": "A political party is an organised group of people sharing a broad programme who seek to capture political power through elections. Seeking power itself, rather than merely influencing it, is what defines a party.",
+  "why_wrong": {
+   "0": "A pressure group seeks to influence those in power without contesting elections itself. That is exactly the distinction being tested.",
+   "2": "A social movement seeks change in society and may or may not enter politics.",
+   "3": "A government department is part of the administration, not a competitor for power."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|17",
+  "approved": false,
+  "why_correct": "The Indian National Congress dominated the first two decades after independence, winning the elections of 1952, 1957 and 1962 comfortably. Political scientists call this the era of one-party dominance.",
+  "why_wrong": {
+   "0": "The Bharatiya Jana Sangh, founded in 1951, was a small opposition party in this period.",
+   "1": "The Communist Party of India was the main opposition but never came close to power at the centre, though it formed a government in Kerala in 1957.",
+   "3": "The Swatantra Party was founded only in 1959. Dominance here came through free elections, which distinguishes it from a one-party state."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|18",
+  "approved": false,
+  "why_correct": "A multi-party system is one in which several parties compete for power, and governments are often formed by coalition. India has such a system, with national and state parties alike.",
+  "why_wrong": {
+   "0": "A single party describes a one-party system, as in China.",
+   "2": "Rule by military leaders is a military dictatorship, in which parties are usually banned.",
+   "3": "Without elections there is no party competition at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|19",
+  "approved": false,
+  "why_correct": "Judicial review is the power of the courts to examine whether laws conform to the Constitution. It belongs to the judiciary and is quite separate from the work of political parties.",
+  "why_wrong": {
+   "0": "Political recruitment is a party function, bringing people into politics and selecting candidates.",
+   "1": "Interest articulation is a party function too, gathering demands and voicing them.",
+   "3": "Political education is another, informing citizens and shaping opinion. Three of the four are textbook party functions, so the judicial one stands out."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|20",
+  "approved": false,
+  "why_correct": "India's foreign policy rests on constitutional values, including the promotion of international peace under Article 51, together with the national interest in security and development.",
+  "why_wrong": {
+   "0": "Colonial interests are what India's foreign policy was framed against, having emerged from colonial rule itself.",
+   "2": "Military alliances were deliberately avoided under non-alignment.",
+   "3": "Expansionism has never been an Indian objective. Article 51 is a Directive Principle, and it expressly directs the state to promote international peace and security."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|21",
+  "approved": false,
+  "why_correct": "Non-alignment has been the cornerstone of India's foreign policy since independence: refusing to join either Cold War bloc while retaining freedom to judge each issue on its merits. Nehru was its principal architect.",
+  "why_wrong": {
+   "0": "Colonialism is what India fought to end, and it supported anti-colonial movements elsewhere.",
+   "2": "Isolationism means withdrawing from world affairs, which India never did. Non-alignment is active engagement without alliance, and confusing the two is the common error here.",
+   "3": "Imperialism has never been an Indian policy."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|22",
+  "approved": false,
+  "why_correct": "The Panchsheel Agreement was signed in 1954 between India and China, in the agreement on trade with Tibet. Nehru and Zhou Enlai gave it the slogan Hindi-Chini bhai-bhai.",
+  "why_wrong": {
+   "0": "India and Pakistan signed the Indus Waters Treaty in 1960 and the Simla Agreement in 1972.",
+   "2": "No such agreement was made with the United States.",
+   "3": "India and the USSR signed a treaty of peace and friendship in 1971. The 1962 war with China showed how little the Panchsheel principles had secured."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|23",
+  "approved": false,
+  "why_correct": "The five principles are mutual respect for territorial integrity and sovereignty, mutual non-aggression, non-interference in each other's internal affairs, equality and mutual benefit, and peaceful coexistence. A military alliance is the opposite of all of them.",
+  "why_wrong": {
+   "0": "Mutual respect for territorial integrity is the first principle.",
+   "1": "Mutual non-aggression is the second.",
+   "3": "Peaceful coexistence is the fifth and the best known. An alliance against common enemies would contradict both non-aggression and non-alignment."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|24",
+  "approved": false,
+  "why_correct": "India supported anti-colonial struggles in Asia and Africa because it believed every people has the right to self-determination and freedom, a conviction drawn from its own experience of colonial rule.",
+  "why_wrong": {
+   "0": "Imperialism is the domination India opposed.",
+   "1": "Colonialism is what those struggles were against.",
+   "3": "Military expansion was never the aim. India's opposition to apartheid in South Africa, raised at the UN from 1946, is the clearest example of this commitment."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|25",
+  "approved": false,
+  "why_correct": "India's contemporary foreign policy pursues global cooperation together with strategic autonomy, engaging widely with many partners while keeping freedom of decision. It is non-alignment adapted to a world that is no longer bipolar.",
+  "why_wrong": {
+   "0": "Territorial expansion is no part of Indian policy.",
+   "2": "India joins groupings such as BRICS and the Quad but avoids binding military blocs.",
+   "3": "Political isolation is the opposite of the extensive engagement India now pursues."
+  }
+ },
+ {
   "id": "XII|Commerce|Accountancy|1",
   "approved": false,
   "why_correct": "Goodwill is an intangible asset. It has real value and can be bought and sold with the business, but it has no physical existence, being the reputation and earning capacity built up over time.",

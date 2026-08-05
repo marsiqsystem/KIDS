@@ -1,0 +1,222 @@
+[
+ {
+  "id": "XII|Arts|History|1",
+  "approved": false,
+  "why_correct": "Al-Qanun al-Mas'udi is Alberuni's great work on astronomy, dedicated to Sultan Mas'ud of Ghazni. It draws on Greek and Indian astronomy alike.",
+  "why_wrong": {
+   "1": "Kitab al-Manazir, the Book of Optics, was written by Ibn al-Haytham, a different scholar.",
+   "2": "The Book on Astronomy is not the title of any work of his.",
+   "3": "Alberuni's India, properly Tarikh al-Hind, is his famous account of Indian society, religion and science. His best known book, but not the astronomical one."
+  }
+ },
+ {
+  "id": "XII|Arts|History|2",
+  "approved": false,
+  "why_correct": "Marco Polo, passing along the Indian coast in the late thirteenth century, described the king of Gujarat among the rulers he encountered, along with the region's trade and piracy.",
+  "why_wrong": {
+   "0": "Kumaragupta was a Gupta emperor of the fifth century, some eight hundred years before Marco Polo.",
+   "2": "Srigupta founded the Gupta dynasty in the third century.",
+   "3": "Rajyavardhana was Harsha's elder brother, in the seventh century. All three wrong options are far too early, so the dates alone settle the question."
+  }
+ },
+ {
+  "id": "XII|Arts|History|3",
+  "approved": false,
+  "why_correct": "Muhammad bin Tughluq appointed Ibn Battuta qazi, or judge, of Delhi. The Moroccan traveller stayed several years and later served as envoy to China.",
+  "why_wrong": {
+   "0": "Ghiyasuddin Tughluq founded the dynasty and died in 1325, before Ibn Battuta arrived.",
+   "1": "Firoz Shah Tughlaq succeeded Muhammad bin Tughluq, by which time Ibn Battuta had left India.",
+   "3": "Abu Bakr Shah ruled briefly and much later. Ibn Battuta's Rihla is a major source for the period precisely because he served inside the administration."
+  }
+ },
+ {
+  "id": "XII|Arts|History|4",
+  "approved": false,
+  "why_correct": "Francois Bernier, the French physician who spent years at Aurangzeb's court, is regarded as the first European to visit Kashmir. He accompanied the emperor there and described the valley in his Travels in the Mogul Empire.",
+  "why_wrong": {
+   "1": "Marco Polo travelled along the Indian coast and through Central Asia but did not reach Kashmir.",
+   "2": "Vasco da Gama landed at Calicut in 1498, on the far southern coast.",
+   "3": "Niccolo Conti was a fifteenth-century Venetian who described Vijayanagara in the south."
+  }
+ },
+ {
+  "id": "XII|Arts|History|5",
+  "approved": false,
+  "why_correct": "Jean-Baptiste Tavernier, the French jeweller who made six voyages to the East, described the magnificence of Shah Jahan's court and famously reported on the Peacock Throne and the great diamonds.",
+  "why_wrong": {
+   "0": "Babur founded the empire in 1526 and died in 1530, long before Tavernier's time.",
+   "1": "Humayun ruled in the mid sixteenth century.",
+   "3": "Aurangzeb was on the throne during part of Tavernier's later visits, but the court he is famous for describing in its splendour is Shah Jahan's."
+  }
+ },
+ {
+  "id": "XII|Arts|History|6",
+  "approved": false,
+  "why_correct": "Niccolao Manucci's account is Storia do Mogor, a long and vivid history of the Mughals based on nearly sixty years spent in India as a soldier and physician.",
+  "why_wrong": {
+   "0": "A Passage to India is E. M. Forster's novel of 1924.",
+   "2": "The Wonder That Was India is A. L. Basham's modern history, published in 1954.",
+   "3": "The Voyage to India is not the title of his work. Manucci's value is that he wrote from long residence rather than a brief visit."
+  }
+ },
+ {
+  "id": "XII|Arts|History|7",
+  "approved": false,
+  "why_correct": "Manucci was Venetian and wrote Storia do Mogor chiefly in Italian, though the manuscript mixes in Portuguese and French, reflecting the many languages he used in India.",
+  "why_wrong": {
+   "0": "Spanish was not his language.",
+   "1": "Portuguese appears in the manuscript, since it was the common European language of trade in the East, but it is not the main one.",
+   "2": "French also appears, and the first published version was in French, which is why this is a fair guess. The author himself was Italian."
+  }
+ },
+ {
+  "id": "XII|Arts|History|8",
+  "approved": false,
+  "why_correct": "Karaikkal Ammaiyar is the female Bhakti saint named in the Tirumurai, the Tamil Shaiva canon. She is one of the sixty-three Nayanars and among the earliest of them.",
+  "why_wrong": {
+   "0": "Kanni Pannayar is not a recognised saint of this canon.",
+   "2": "Tilakavatiyar was the sister of the saint Appar, remembered for bringing him back to Shaivism, but she is not the figure named here.",
+   "3": "Iyarpagai Nacciyar is not among the Nayanars. Karaikkal Ammaiyar is remarkable for asking to be freed from her beauty so that she could worship as a devotee."
+  }
+ },
+ {
+  "id": "XII|Arts|History|9",
+  "approved": false,
+  "why_correct": "Guru Nanak was born in 1469 at Talwandi, in what is now Pakistan. The village was renamed Nankana Sahib in his honour and is a major place of Sikh pilgrimage.",
+  "why_wrong": {
+   "0": "Vehari is a town in Punjab, Pakistan, with no such association.",
+   "2": "Gojra is another Punjabi town unconnected with his birth.",
+   "3": "Kamalia is likewise unconnected. The name to remember is Talwandi, now Nankana Sahib."
+  }
+ },
+ {
+  "id": "XII|Arts|History|10",
+  "approved": false,
+  "why_correct": "Mirabai's devotional poems are addressed to Lord Krishna, whom she regarded as her husband. A Rajput princess, she abandoned rank and family for that devotion, and her padas are still sung.",
+  "why_wrong": {
+   "0": "Durga is not the object of her devotion, though she is worshipped widely in the Bhakti period.",
+   "1": "Lakshmi is not the deity she addresses.",
+   "2": "Saraswati is not either. Mirabai belongs to the Vaishnava saguna tradition, which worships God with form and attributes."
+  }
+ },
+ {
+  "id": "XII|Arts|History|11",
+  "approved": false,
+  "why_correct": "Baba Farid, or Fariduddin Ganjshakar, was a leading Chishti Sufi of the thirteenth century in Punjab and did much to spread Sufism in India. Some of his verses are included in the Guru Granth Sahib.",
+  "why_wrong": {
+   "0": "Abu Bakr was the first caliph of Islam and never came to India.",
+   "1": "Muhammad Iqbal was a twentieth-century poet and philosopher, far too late.",
+   "3": "Al-Bukhari was a ninth-century compiler of hadith in Central Asia. Only one of the four is an Indian Sufi, which settles the question."
+  }
+ },
+ {
+  "id": "XII|Arts|History|12",
+  "approved": false,
+  "why_correct": "Alauddin Hussain Shah, who ruled Bengal from 1494 to 1519, is called the Akbar of Bengal for his tolerance, his patronage of Bengali literature and the prosperity of his reign.",
+  "why_wrong": {
+   "0": "Sayyed Hussain is not the name by which this ruler is known.",
+   "1": "Shamsuddin Ilyas Shah founded the independent sultanate of Bengal in the fourteenth century and first united the region.",
+   "3": "Jalaluddin Muhammad Shah was a fifteenth-century sultan of Bengal, a convert and a patron of building, but not the one so called. Chaitanya lived during Hussain Shah's reign, which is part of why it is remembered as a golden age."
+  }
+ },
+ {
+  "id": "XII|Arts|History|13",
+  "approved": false,
+  "why_correct": "Magellan sailed under commission from the Spanish Crown, funded by King Charles I, to find a westward route to the Spice Islands. His expedition made the first circumnavigation of the globe, though he died on the way.",
+  "why_wrong": {
+   "0": "The British Crown sponsored other voyages but not this one.",
+   "2": "The French Crown was not involved.",
+   "3": "Magellan was himself Portuguese, which makes this the natural wrong answer, but Portugal refused to back him and he took his plan to Spain instead."
+  }
+ },
+ {
+  "id": "XII|Arts|History|14",
+  "approved": false,
+  "why_correct": "Nelson Mandela became South Africa's first black President in 1994, after the first elections held under universal franchise. He had spent twenty-seven years in prison under apartheid.",
+  "why_wrong": {
+   "0": "F. W. de Klerk was the last President under apartheid, who released Mandela and shared the Nobel Peace Prize with him.",
+   "2": "Jomo Kenyatta was the first President of Kenya.",
+   "3": "Kwame Nkrumah led Ghana to independence and was its first leader. All three are real figures of the same history, so the country must be matched carefully."
+  }
+ },
+ {
+  "id": "XII|Arts|History|16",
+  "approved": false,
+  "why_correct": "The Holocaust was carried out during the Second World War, between 1941 and 1945, when the Nazi regime systematically murdered around six million Jews along with Roma, disabled people and others.",
+  "why_wrong": {
+   "0": "The First World War ended in 1918, well before the Nazis came to power in 1933.",
+   "2": "The Soviet-Japanese conflict was a separate theatre of the same war in the Far East.",
+   "3": "The Battle of Sedan belongs to the Franco-Prussian War of 1870, though a second battle of that name was fought in 1940."
+  }
+ },
+ {
+  "id": "XII|Arts|History|17",
+  "approved": false,
+  "why_correct": "The World Bank was established in 1944 at the Bretton Woods Conference, alongside the International Monetary Fund. It began operations in 1946.",
+  "why_wrong": {
+   "1": "1945 is the year the United Nations was founded and the war ended.",
+   "2": "1946 is when the Bank actually began lending, so it is a fair guess. Established and began operations are two years apart here.",
+   "3": "1950 is well after both. Bretton Woods in 1944 is the anchor date for the whole post-war financial system."
+  }
+ },
+ {
+  "id": "XII|Arts|History|18",
+  "approved": false,
+  "why_correct": "Sir Thomas Roe was the first English ambassador to India, sent by James I to the court of Jahangir from 1615 to 1619. He secured trading rights for the East India Company.",
+  "why_wrong": {
+   "0": "William Norris was sent much later, in 1699, by a rival English company.",
+   "2": "James Fraser was an eighteenth-century traveller and scholar.",
+   "3": "William Hawkins reached Jahangir's court in 1609, before Roe, but he came as a Company representative rather than as an accredited royal ambassador. That distinction is what the question turns on."
+  }
+ },
+ {
+  "id": "XII|Arts|History|19",
+  "approved": false,
+  "why_correct": "Pitt's India Act of 1784 was introduced by William Pitt the Younger, then Prime Minister. It created the Board of Control, giving the British government authority over the East India Company's political affairs.",
+  "why_wrong": {
+   "0": "William Jones was a judge and orientalist who founded the Asiatic Society of Bengal.",
+   "2": "Warren Hastings was Governor-General in India at the time, not a British Prime Minister, and he was later impeached.",
+   "3": "William Pitt the Elder was his father, Prime Minister a generation earlier during the Seven Years War. Father and son are the trap here, and the Act belongs to the son."
+  }
+ },
+ {
+  "id": "XII|Arts|History|21",
+  "approved": false,
+  "why_correct": "Statements one and three are true. The Ilbert Bill of 1883 would have allowed Indian judges to try Europeans, which increased their powers and removed a racial distinction in the judicial service.",
+  "why_wrong": {
+   "1": "Statement two contradicts statement one, and it was powers being increased that caused the outcry.",
+   "2": "Statement four is false. The British community in India protested furiously and forced the bill to be watered down, which taught Indians the value of organised agitation.",
+   "3": "This reverses the truth entirely. The episode is often called a lesson in agitation that fed directly into the founding of the Congress in 1885."
+  }
+ },
+ {
+  "id": "XII|Arts|History|22",
+  "approved": false,
+  "why_correct": "Of these four, Lord Elgin came first. Elgin served as Viceroy in the 1860s, followed by Curzon from 1899, Wavell from 1943 and Mountbatten in 1947, who was the last.",
+  "why_wrong": {
+   "0": "Lord Wavell was Viceroy from 1943 to 1947, during the war and the negotiations that followed.",
+   "1": "Lord Mountbatten was the last Viceroy, overseeing the transfer of power in 1947, so he is the latest of the four.",
+   "3": "Lord Curzon was Viceroy from 1899 to 1905 and is remembered for the partition of Bengal. Placing the four in order gives Elgin, Curzon, Wavell, Mountbatten."
+  }
+ },
+ {
+  "id": "XII|Arts|History|23",
+  "approved": false,
+  "why_correct": "Both statements are true and the reason does explain the assertion. The Treaty of Versailles imposed crushing reparations, territorial losses and the war guilt clause, and the resentment that followed was exactly what Hitler exploited to build support.",
+  "why_wrong": {
+   "1": "The reason is not merely true alongside the assertion; it is the cause of it. In assertion-reason questions the more precise correct option is the answer.",
+   "2": "Both statements are correct, so this fails at once.",
+   "3": "The assertion is correct. The link between Versailles and the rise of Nazism is one of the best established explanations in modern history."
+  }
+ },
+ {
+  "id": "XII|Arts|History|25",
+  "approved": false,
+  "why_correct": "The passage says civil servants from all the presidencies trained at Fort William College before taking up their postings, so its aim was to prepare British civil servants for administrative work in India, chiefly by teaching them Indian languages.",
+  "why_wrong": {
+   "1": "The passage speaks of civil servants, not Indian leaders, and Indians were not being trained to govern.",
+   "2": "Merchants are not mentioned, and the College trained administrators rather than traders.",
+   "3": "The local population is not mentioned either. Answer a case-based question from the passage itself rather than from wider knowledge."
+  }
+ }
+]

@@ -182,9 +182,10 @@ Keys of `why_wrong` are option indices as strings, matching `questions.json`.
 A record may also carry `cloned_from`, which means the same question appears on
 two papers and the explanation was copied — see the IX/X Geography block.
 
-**Status: Class IX and X written, 194 of 200.** The six not written are
+**Status: COMPLETE — 963 of 996 written**, every class and subject. The 33 not
+written are
 defective questions, each documented with a recommendation in
-`explanations/HELD-BACK.md`. XI and XII are not started.
+`explanations/HELD-BACK.md`, which leads with the 17 outright wrong keys.
 
 Once the OMR scans exist, the review queue should be **ordered by how many
 students got each question wrong**, so review time goes to the questions that

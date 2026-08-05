@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Arts|Political Science|1",
+  "approved": false,
+  "why_correct": "A bipolar world means power concentrated in two opposing military blocs, the Western alliance led by the United States and the Eastern bloc led by the Soviet Union. Most other states were drawn towards one pole or the other.",
+  "why_wrong": {
+   "1": "The division of Germany was a consequence and a symbol of bipolarity, not the meaning of the term.",
+   "2": "NATO and the UN were not rivals. NATO's rival was the Warsaw Pact, and the UN included both blocs.",
+   "3": "The two superpowers were not confined to Europe. Their rivalry was worldwide, from Korea and Vietnam to Cuba and Afghanistan, which is precisely what made the world bipolar rather than the continent."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|2",
+  "approved": false,
+  "why_correct": "The dissolution of the Soviet Union in December 1991 ended the Cold War, leaving the United States as the sole superpower and the world unipolar.",
+  "why_wrong": {
+   "0": "The Korean War of 1950 to 1953 was an early episode of the Cold War, not its end.",
+   "1": "The Vietnam War ended in 1975, with the Cold War continuing for another sixteen years.",
+   "3": "NATO was formed in 1949, at the beginning of the confrontation. The fall of the Berlin Wall in 1989 is the other event commonly cited, but the Soviet collapse is the formal end."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|3",
+  "approved": false,
+  "why_correct": "The Bandung Conference of 1955 brought together twenty-nine Asian and African states and is regarded as the precursor of the Non-Aligned Movement, which was formally founded at Belgrade in 1961.",
+  "why_wrong": {
+   "0": "NATO was formed in 1949 as a Western military alliance, the opposite of non-alignment.",
+   "1": "The Warsaw Pact was formed in 1955 as the Soviet bloc's answer to NATO, in the same year but for the opposite purpose.",
+   "3": "The European Union grew from the European Economic Community, an entirely separate development."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|4",
+  "approved": false,
+  "why_correct": "Ronald Reagan was President of the United States in the 1980s and a leader of one of the two blocs, so he could not be a founder of a movement defined by refusing to join either. The founders were Nehru, Tito, Nasser, Sukarno and Nkrumah.",
+  "why_wrong": {
+   "0": "Nehru of India was among the founders and gave the movement much of its philosophy.",
+   "1": "Tito of Yugoslavia hosted the first summit at Belgrade in 1961.",
+   "2": "Nasser of Egypt was the third of the central figures. All three belong to the 1950s and 1960s, while Reagan belongs to the 1980s and to the opposite camp."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|5",
+  "approved": false,
+  "why_correct": "The General Assembly may discuss and make recommendations on any matter within the scope of the Charter. All member states sit in it with one vote each, which makes it the most representative organ.",
+  "why_wrong": {
+   "0": "The Security Council deals specifically with international peace and security, and its scope is narrower even though its powers are stronger.",
+   "2": "The Secretariat is the administrative arm, headed by the Secretary-General.",
+   "3": "The International Court of Justice settles legal disputes between states and gives advisory opinions."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|6",
+  "approved": false,
+  "why_correct": "The Security Council has five permanent members: China, France, Russia, the United Kingdom and the United States. Each holds the power of veto.",
+  "why_wrong": {
+   "0": "10 is the number of non-permanent members, elected for two-year terms.",
+   "1": "12 is not a figure used in the Council's composition.",
+   "3": "15 is the total membership, that is 5 permanent plus 10 non-permanent. All three wrong options are real numbers from the same body, so the question is which one it asks for."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|7",
+  "approved": false,
+  "why_correct": "The International Court of Justice sits at the Peace Palace in The Hague, in the Netherlands. It is the only principal organ of the UN not based in New York.",
+  "why_wrong": {
+   "0": "Geneva houses the UN Office at Geneva, the WHO and the ILO.",
+   "1": "New York is the UN headquarters, where the other principal organs meet.",
+   "3": "Paris is the headquarters of UNESCO."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|8",
+  "approved": false,
+  "why_correct": "UNICEF, the United Nations Children's Fund, is the agency for children's welfare. It works on child health, nutrition, education and protection, and was set up in 1946 for children affected by the war.",
+  "why_wrong": {
+   "0": "The WHO deals with public health generally, for people of all ages.",
+   "1": "UNESCO deals with education, science and culture.",
+   "3": "The ILO deals with labour standards, including the abolition of child labour, which is a real overlap but a different mandate."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|9",
+  "approved": false,
+  "why_correct": "Human security shifts the focus from the state to the individual, holding that people should be secure from hunger, disease, poverty and violence, not merely that borders should be defended.",
+  "why_wrong": {
+   "0": "Military strength alone is the traditional conception of security, which human security was framed to broaden.",
+   "1": "Protecting borders is again the traditional state-centred view.",
+   "3": "Nuclear deterrence is a traditional security instrument. The whole point of the concept is that a state can be militarily secure while its people are not."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|10",
+  "approved": false,
+  "why_correct": "Climate change is a non-traditional security threat: it endangers lives and livelihoods without any armed attack, crosses borders freely, and cannot be met by military means. Epidemics, terrorism and human trafficking belong to the same category.",
+  "why_wrong": {
+   "0": "Border invasion is the classic traditional threat, one state attacking another.",
+   "1": "Nuclear war is traditional too, involving state armed force.",
+   "3": "A military coup is an internal use of armed force, still within the traditional frame. The test is whether the threat comes from military force between or within states."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|11",
+  "approved": false,
+  "why_correct": "Global warming is an environmental security threat. It endangers food supplies, coastlines and water resources without any use of force, and no country can meet it alone.",
+  "why_wrong": {
+   "0": "Traditional threats involve military force between states.",
+   "2": "Military security concerns armies and armed attack.",
+   "3": "Nuclear security concerns weapons and their proliferation. Rising seas may drown low-lying island states entirely, which is a threat to national survival by wholly non-military means."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|12",
+  "approved": false,
+  "why_correct": "Terrorism deliberately targets civilians to create fear and force political change, so it threatens both lives and the stability of governments. Its victims are chosen precisely because they are defenceless.",
+  "why_wrong": {
+   "0": "Terrorism may prompt cooperation against it, but that is a response rather than what makes it a challenge.",
+   "2": "It undermines democracy rather than promoting it, by driving states towards emergency powers.",
+   "3": "It raises international tensions rather than reducing them."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|13",
+  "approved": false,
+  "why_correct": "Linguistic reorganisation was an immediate challenge after independence. Agitation, notably Potti Sriramulu's fast unto death, led to Andhra Pradesh in 1953 and then to the States Reorganisation Act of 1956.",
+  "why_wrong": {
+   "0": "Cyber security is a twenty-first-century concern.",
+   "2": "Space exploration began for India with the founding of INCOSPAR in 1962 and ISRO in 1969.",
+   "3": "Artificial intelligence is a recent challenge altogether. The three challenges of nation-building in 1947 were territorial integration, refugee rehabilitation and the reorganisation of states."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|14",
+  "approved": false,
+  "why_correct": "Sardar Vallabhbhai Patel, as Deputy Prime Minister and Home Minister, integrated over five hundred princely states into the Indian Union, using persuasion, the instrument of accession and, in a few cases, force. He is called the Iron Man of India.",
+  "why_wrong": {
+   "0": "Nehru was Prime Minister and led foreign policy, leaving integration largely to Patel.",
+   "1": "Ambedkar chaired the Drafting Committee of the Constitution.",
+   "3": "Rajendra Prasad presided over the Constituent Assembly and became the first President. V. P. Menon worked closely with Patel as the civil servant who drafted the accession scheme."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|15",
+  "approved": false,
+  "why_correct": "NATO was formed in 1949 as a Western military alliance and had nothing to do with India's nation-building. It is an external event, not an internal challenge.",
+  "why_wrong": {
+   "0": "Refugee rehabilitation was an immense challenge after Partition displaced millions.",
+   "1": "National integration was a challenge, holding together a country of many languages, religions and regions.",
+   "2": "Reorganisation of states was the third great task, settled by the Act of 1956. The three genuine challenges are exactly the ones this question lists alongside the odd one out."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|16",
+  "approved": false,
+  "why_correct": "A political party is an organised group of people sharing a broad programme who seek to capture political power through elections. Seeking power itself, rather than merely influencing it, is what defines a party.",
+  "why_wrong": {
+   "0": "A pressure group seeks to influence those in power without contesting elections itself. That is exactly the distinction being tested.",
+   "2": "A social movement seeks change in society and may or may not enter politics.",
+   "3": "A government department is part of the administration, not a competitor for power."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|17",
+  "approved": false,
+  "why_correct": "The Indian National Congress dominated the first two decades after independence, winning the elections of 1952, 1957 and 1962 comfortably. Political scientists call this the era of one-party dominance.",
+  "why_wrong": {
+   "0": "The Bharatiya Jana Sangh, founded in 1951, was a small opposition party in this period.",
+   "1": "The Communist Party of India was the main opposition but never came close to power at the centre, though it formed a government in Kerala in 1957.",
+   "3": "The Swatantra Party was founded only in 1959. Dominance here came through free elections, which distinguishes it from a one-party state."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|18",
+  "approved": false,
+  "why_correct": "A multi-party system is one in which several parties compete for power, and governments are often formed by coalition. India has such a system, with national and state parties alike.",
+  "why_wrong": {
+   "0": "A single party describes a one-party system, as in China.",
+   "2": "Rule by military leaders is a military dictatorship, in which parties are usually banned.",
+   "3": "Without elections there is no party competition at all."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|19",
+  "approved": false,
+  "why_correct": "Judicial review is the power of the courts to examine whether laws conform to the Constitution. It belongs to the judiciary and is quite separate from the work of political parties.",
+  "why_wrong": {
+   "0": "Political recruitment is a party function, bringing people into politics and selecting candidates.",
+   "1": "Interest articulation is a party function too, gathering demands and voicing them.",
+   "3": "Political education is another, informing citizens and shaping opinion. Three of the four are textbook party functions, so the judicial one stands out."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|20",
+  "approved": false,
+  "why_correct": "India's foreign policy rests on constitutional values, including the promotion of international peace under Article 51, together with the national interest in security and development.",
+  "why_wrong": {
+   "0": "Colonial interests are what India's foreign policy was framed against, having emerged from colonial rule itself.",
+   "2": "Military alliances were deliberately avoided under non-alignment.",
+   "3": "Expansionism has never been an Indian objective. Article 51 is a Directive Principle, and it expressly directs the state to promote international peace and security."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|21",
+  "approved": false,
+  "why_correct": "Non-alignment has been the cornerstone of India's foreign policy since independence: refusing to join either Cold War bloc while retaining freedom to judge each issue on its merits. Nehru was its principal architect.",
+  "why_wrong": {
+   "0": "Colonialism is what India fought to end, and it supported anti-colonial movements elsewhere.",
+   "2": "Isolationism means withdrawing from world affairs, which India never did. Non-alignment is active engagement without alliance, and confusing the two is the common error here.",
+   "3": "Imperialism has never been an Indian policy."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|22",
+  "approved": false,
+  "why_correct": "The Panchsheel Agreement was signed in 1954 between India and China, in the agreement on trade with Tibet. Nehru and Zhou Enlai gave it the slogan Hindi-Chini bhai-bhai.",
+  "why_wrong": {
+   "0": "India and Pakistan signed the Indus Waters Treaty in 1960 and the Simla Agreement in 1972.",
+   "2": "No such agreement was made with the United States.",
+   "3": "India and the USSR signed a treaty of peace and friendship in 1971. The 1962 war with China showed how little the Panchsheel principles had secured."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|23",
+  "approved": false,
+  "why_correct": "The five principles are mutual respect for territorial integrity and sovereignty, mutual non-aggression, non-interference in each other's internal affairs, equality and mutual benefit, and peaceful coexistence. A military alliance is the opposite of all of them.",
+  "why_wrong": {
+   "0": "Mutual respect for territorial integrity is the first principle.",
+   "1": "Mutual non-aggression is the second.",
+   "3": "Peaceful coexistence is the fifth and the best known. An alliance against common enemies would contradict both non-aggression and non-alignment."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|24",
+  "approved": false,
+  "why_correct": "India supported anti-colonial struggles in Asia and Africa because it believed every people has the right to self-determination and freedom, a conviction drawn from its own experience of colonial rule.",
+  "why_wrong": {
+   "0": "Imperialism is the domination India opposed.",
+   "1": "Colonialism is what those struggles were against.",
+   "3": "Military expansion was never the aim. India's opposition to apartheid in South Africa, raised at the UN from 1946, is the clearest example of this commitment."
+  }
+ },
+ {
+  "id": "XII|Arts|Political Science|25",
+  "approved": false,
+  "why_correct": "India's contemporary foreign policy pursues global cooperation together with strategic autonomy, engaging widely with many partners while keeping freedom of decision. It is non-alignment adapted to a world that is no longer bipolar.",
+  "why_wrong": {
+   "0": "Territorial expansion is no part of Indian policy.",
+   "2": "India joins groupings such as BRICS and the Quad but avoids binding military blocs.",
+   "3": "Political isolation is the opposite of the extensive engagement India now pursues."
+  }
+ }
+]

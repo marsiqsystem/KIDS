@@ -9,10 +9,10 @@ a ruling is still cheap to apply.
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the twelve outright wrong keys** — `X|31`, `XI Physics 6`,
+**Priority: the thirteen outright wrong keys** — `X|31`, `XI Physics 6`,
 `XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`,
 `XII Physics 16`, `XII Chemistry 12`, `XII Chemistry 13`, `XII Maths 13`,
-`XII Biology 17`. Each is
+`XII Biology 17`, `XII Education 25`. Each is
 demonstrably wrong rather than debatable, and two of them are contradicted
 by another question on the same paper. XI Mathematics alone has three.
 
@@ -289,7 +289,7 @@ still, so the keyed option is not even the second oldest of the four.
 
 ---
 
-# Part 3 — Class XII (in progress; 5 Science subjects + common paper done)
+# Part 3 — Class XII (in progress; Science, Commerce, common paper, 2 Arts done)
 
 ## 20. `XII|Science|Physics|16` — key error, that is an ammeter
 
@@ -375,6 +375,20 @@ NCERT states it explicitly: "the blastocyst becomes embedded in the
 endometrium."
 
 **Recommendation: correct the key to (c).**
+
+## 26. `XII|Arts|Education|25` — key error, wrong commencement date
+
+> The Right to Education (RTE) Act, 2009 came into effect from:
+> (a) 01.04.2010 (b) 01.01.2010 (c) 01.01.2009 (d) 31.01.2009
+> **Key: (b) 01.01.2010**
+
+The Right of Children to Free and Compulsory Education Act was passed in 2009
+and **came into force on 1 April 2010** — option (a). 1 January 2010 is not a
+date of any significance to the Act.
+
+**Recommendation: correct the key to (a).** Note that question 14 on the same
+paper correctly keys the year of *passing* as 2009, so the paper is testing the
+passed/commenced distinction deliberately — and then gets the second half wrong.
 
 ---
 

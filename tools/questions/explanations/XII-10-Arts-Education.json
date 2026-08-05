@@ -1,0 +1,244 @@
+[
+ {
+  "id": "XII|Arts|Education|1",
+  "approved": false,
+  "why_correct": "The University Education Commission was appointed in 1948 under Dr S. Radhakrishnan, the first education commission of independent India. It reported on the reform of higher education.",
+  "why_wrong": {
+   "0": "1950 is the year the Constitution came into force, not the year of this commission.",
+   "2": "1947 is the year of independence, and the commission followed a year later.",
+   "3": "1957 belongs to no major education commission. The sequence worth holding is Radhakrishnan 1948, Mudaliar 1952, Kothari 1964."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|2",
+  "approved": false,
+  "why_correct": "The Indian Education Commission, better known as the Kothari Commission, was appointed in 1964 under Dr D. S. Kothari and reported in 1966. It reviewed education at every stage and led to the first National Policy on Education in 1968.",
+  "why_wrong": {
+   "1": "1948 is the Radhakrishnan or University Education Commission, which dealt with higher education alone.",
+   "2": "1952 is the Mudaliar or Secondary Education Commission.",
+   "3": "1986 is the second National Policy on Education, not a commission."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|3",
+  "approved": false,
+  "why_correct": "EWS stands for Economically Weaker Section, the category used for reservation and for the free seats private schools must provide under the Right to Education Act.",
+  "why_wrong": {
+   "1": "Educationally weaker is not the term; the criterion is income, not schooling.",
+   "2": "Society is wrong as well as educationally, so this misses twice.",
+   "3": "Essentially is not the word. The word economically is what carries the meaning, since the classification is made by family income."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|4",
+  "approved": false,
+  "why_correct": "The three-language formula was recommended by the Kothari Commission of 1964 to 1966: the mother tongue or regional language, Hindi or another Indian language, and English.",
+  "why_wrong": {
+   "0": "The National Policy of 1986 endorsed and continued the formula but did not originate it.",
+   "1": "The Mudaliar Commission of 1952 dealt with secondary education and its diversified courses.",
+   "3": "The Radhakrishnan Commission of 1948 dealt with universities. The Kothari Commission is the source of most of the structural ideas still in use, including the 10+2+3 pattern."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|5",
+  "approved": false,
+  "why_correct": "Rabindranath Tagore founded Visva-Bharati at Santiniketan, beginning as a school in 1901 and becoming a university in 1921. It was declared a central university in 1951.",
+  "why_wrong": {
+   "0": "Rabindra Bharati University in Kolkata is named after Tagore but was founded in 1962, long after his death.",
+   "1": "Avinashilingam University in Tamil Nadu was founded by T. S. Avinashilingam.",
+   "3": "Calcutta University was established by the British in 1857. Named after and founded by are quite different, which is the trap in the first option."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|6",
+  "approved": false,
+  "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. On this view the teacher uncovers what is already present rather than adding anything from outside.",
+  "why_wrong": {
+   "0": "Gandhi defined education as an all-round drawing out of the best in child and man, in body, mind and spirit.",
+   "2": "Aurobindo taught integral education, aiming at a higher consciousness.",
+   "3": "Radhakrishnan was a philosopher and chaired the University Education Commission. All four wrote on education, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|7",
+  "approved": false,
+  "why_correct": "Emile, or On Education was written by Jean-Jacques Rousseau in 1762. It argues for natural education, letting the child develop freely according to his own nature, and is the founding text of naturalism in education.",
+  "why_wrong": {
+   "1": "John Dewey wrote Democracy and Education and The School and Society.",
+   "2": "Friedrich Frobel founded the kindergarten and wrote The Education of Man.",
+   "3": "Maria Montessori developed the Montessori method and wrote The Montessori Method."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|8",
+  "approved": false,
+  "why_correct": "Tagore held that nature is the child's best teacher, which is why classes at Santiniketan were held in the open air under the trees. He believed a child shut inside four walls is cut off from the source of learning.",
+  "why_wrong": {
+   "0": "Experience is central to Dewey's pragmatism rather than to Tagore's teaching.",
+   "1": "Elders have a place, but Tagore's emphasis was on freedom rather than authority.",
+   "3": "Discipline imposed from outside is precisely what Tagore resisted, preferring self-discipline grown in freedom."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|9",
+  "approved": false,
+  "why_correct": "Savitribai Phule is regarded as India's first woman teacher. With her husband Jyotirao Phule she opened a school for girls at Pune in 1848, facing heavy social opposition.",
+  "why_wrong": {
+   "1": "Pandita Ramabai was a scholar and reformer who founded the Sharada Sadan for widows, a generation later.",
+   "2": "Begum Rokeya pioneered girls' education among Muslims in Bengal in the early twentieth century.",
+   "3": "Tarabai Shinde wrote Stri Purush Tulana, an early feminist tract, but was not a teacher."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|10",
+  "approved": false,
+  "why_correct": "Inclusive education places children with special needs in ordinary classrooms and adapts the school to suit them, so that no child is separated out. It is the approach the Right to Education Act adopts.",
+  "why_wrong": {
+   "0": "Special schools educate such children separately, which segregates them from their peers.",
+   "1": "Integrated education places them in ordinary schools but expects the child to adjust to the school. Inclusion reverses that: the school adjusts to the child, and that reversal is the whole distinction.",
+   "3": "There is a correct answer, so none of these is wrong."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|11",
+  "approved": false,
+  "why_correct": "The Delors Commission named four pillars: learning to know, learning to do, learning to live together and learning to be. Learning to have is not among them, and its acquisitive sense runs against the report's spirit.",
+  "why_wrong": {
+   "0": "Learning to be is the fourth pillar, concerning the full development of the person.",
+   "2": "Learning to know is the first, concerning understanding and the tools of learning.",
+   "3": "Learning to live together is the third, concerning tolerance and interdependence. The missing fourth option, learning to do, completes the set."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|12",
+  "approved": false,
+  "why_correct": "Indira Gandhi National Open University was established in 1985 as India's first national open university, offering distance education across the country.",
+  "why_wrong": {
+   "1": "1986 is the National Policy on Education, which endorsed open learning but came a year after IGNOU.",
+   "2": "1988 is after its founding.",
+   "3": "1966 is the year the Kothari Commission reported. Note that Andhra Pradesh Open University, now Dr B. R. Ambedkar Open University, was founded in 1982 and was India's first open university, but not a national one."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|13",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The Delors Commission, formally the International Commission on Education for the Twenty-first Century, was constituted by UNESCO in 1993, and its report Learning: The Treasure Within appeared in 1996. Since 1993 is not among the options, no candidate could have answered correctly, so the question was withdrawn from scoring by Umar Iqbal's ruling of 5 August 2026.",
+  "why_wrong": {
+   "0": "1998 is two years after the report was even published.",
+   "1": "1994 is a year after the commission was set up.",
+   "2": "1996 is the year the report was published, which is why it is the most tempting of the four. Formation and publication are three years apart.",
+   "3": "1992 is a year before the commission was constituted."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|14",
+  "approved": false,
+  "why_correct": "The Right of Children to Free and Compulsory Education Act was passed by Parliament in 2009. It gives effect to Article 21A, which the 86th Amendment had inserted in 2002.",
+  "why_wrong": {
+   "0": "2007 is before the Act was passed.",
+   "2": "2010 is the year it came into force, which is a separate step from being passed. That gap is exactly what this question and the last one on the paper test together.",
+   "3": "2008 is a year early, and nothing of note in this chain of events happened then."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|15",
+  "approved": false,
+  "why_correct": "All four are objectives of the NCC. It aims to develop character, discipline and leadership, to encourage service to the community, and to provide organised recreation and adventure activity alongside them.",
+  "why_wrong": {
+   "0": "Entertainment sounds too light on its own, but adventure camps and organised recreation are genuinely part of the programme, so it cannot simply be dismissed.",
+   "1": "Leadership is one of the NCC's stated aims and a central one.",
+   "2": "Social welfare is another, through blood donation drives, tree planting and disaster relief.",
+   "3": "Discipline is perhaps the best known of all. When each option is separately true, the combined option is the answer, and note that this question uniquely offers five choices rather than four."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|16",
+  "approved": false,
+  "why_correct": "UNESCO is the United Nations Educational, Scientific and Cultural Organisation, founded in 1946 with its headquarters in Paris. It maintains the World Heritage list.",
+  "why_wrong": {
+   "1": "Economical is wrong; the E stands for Educational.",
+   "2": "Social is wrong; the S stands for Scientific.",
+   "3": "Children is wrong, and it belongs to UNICEF, the United Nations Children's Fund. Read the acronym letter by letter and each substitution shows itself."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|17",
+  "approved": false,
+  "why_correct": "For Dewey the teacher is a facilitator and guide, arranging experiences through which children learn by doing, rather than transmitting information to a passive class.",
+  "why_wrong": {
+   "0": "A delegator merely hands out tasks and steps back, which is not Dewey's active guiding role.",
+   "1": "An instructor delivering knowledge is the traditional model Dewey argued against.",
+   "3": "There is a correct answer here. Learning by doing is the phrase most associated with him."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|18",
+  "approved": false,
+  "why_correct": "The Kothari Commission's report of 1966 is titled Education and National Development. Its opening line is famous: the destiny of India is now being shaped in her classrooms.",
+  "why_wrong": {
+   "0": "Learning Without Burden is the Yash Pal Committee report of 1993, on the weight of the curriculum.",
+   "1": "An Enlightened and Humane Society is associated with the Acharya Ramamurti review of 1990.",
+   "2": "Education and the People of India is not the title of this report. The word development in the title reflects the commission's central argument, that education is an investment in the nation."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|19",
+  "approved": false,
+  "why_correct": "Education is in the Concurrent List, so both Parliament and the state legislatures can make laws on it. It was moved there from the State List by the 42nd Amendment in 1976.",
+  "why_wrong": {
+   "1": "Free and compulsory education for children aged six to fourteen is a fundamental right under Article 21A, but that is a right rather than a legislative list.",
+   "2": "The Constitution as a whole is not a list.",
+   "3": "Education was in the State List until 1976, which is why this remains the common wrong answer."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|20",
+  "approved": false,
+  "why_correct": "The National Council of Educational Research and Training was established in 1961, by merging seven existing national institutions, to advise governments on school education.",
+  "why_wrong": {
+   "0": "1956 is when the UGC was established as a statutory body.",
+   "1": "1960 is a year before NCERT was founded.",
+   "2": "1967 is well after. A useful anchor is that NCERT came between the Mudaliar Commission of 1952 and the Kothari Commission of 1964."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|21",
+  "approved": false,
+  "why_correct": "The Fundamental Rights guarantee this. Article 25 gives freedom of religion, and Articles 29 and 30 give minorities the right to conserve their culture and to establish and administer educational institutions of their choice.",
+  "why_wrong": {
+   "0": "Directive Principles guide state policy but are not enforceable in a court.",
+   "1": "The Concurrent List determines who may legislate on education, not what rights citizens hold.",
+   "3": "Democratic Right is not a category in the Constitution. Fundamental Rights are the enforceable part, which is what makes them the answer."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|22",
+  "approved": false,
+  "why_correct": "The National Policy on Education 1986 recommended a National System of Education, with a common educational structure of 10+2+3 and a common core curriculum across the country.",
+  "why_wrong": {
+   "1": "IGNOU is a university, not a policy-making body.",
+   "2": "NCTE regulates teacher education.",
+   "3": "The Kothari Commission proposed the 10+2+3 structure and much of the thinking behind it, but the phrase National System of Education belongs to the 1986 policy."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|23",
+  "approved": false,
+  "why_correct": "Wood's Despatch of 1854 is called the Magna Carta of English education in India. It laid down a complete scheme from primary school to university, recommended grants-in-aid and the founding of universities, and led to the three universities of 1857.",
+  "why_wrong": {
+   "1": "The Sergeant Report of 1944 was the last major colonial plan, proposing universal education within forty years.",
+   "2": "Macaulay's Minute of 1835 settled the medium as English but was a short polemic rather than a complete scheme.",
+   "3": "The Hunter Commission of 1882 reviewed the working of Wood's Despatch, so it came afterwards and built on it."
+  }
+ },
+ {
+  "id": "XII|Arts|Education|24",
+  "approved": false,
+  "why_correct": "The National Council for Teacher Education, given statutory status in 1993, is the apex body for teacher education. It lays down norms for teacher training institutions and grants them recognition.",
+  "why_wrong": {
+   "0": "The UGC is the apex body for higher education generally, coordinating universities and their standards.",
+   "1": "The ministry is the government department, not a professional regulator.",
+   "2": "NCERT advises on school education, curriculum and textbooks, but teacher education is NCTE's charge. All four are real bodies, so it is the scope of each that must be learnt."
+  }
+ }
+]

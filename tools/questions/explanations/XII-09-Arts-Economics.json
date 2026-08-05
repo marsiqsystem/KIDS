@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Arts|Economics|1",
+  "approved": false,
+  "why_correct": "Wheat produced during the current year is newly created output, so its value is part of this year's GDP. GDP counts only goods and services actually produced within the period.",
+  "why_wrong": {
+   "0": "Second-hand furniture was produced and counted in an earlier year. Reselling it transfers ownership without creating anything new.",
+   "1": "Buying shares is a financial transaction, an exchange of paper claims, not production.",
+   "3": "A pension is a transfer payment, made without any good or service being supplied in return."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|2",
+  "approved": false,
+  "why_correct": "Net means after allowing for the wearing out of capital, so NNP at market price is GNP at market price minus depreciation.",
+  "why_wrong": {
+   "0": "Adding depreciation moves the wrong way. Gross includes it and net excludes it, so going from gross to net means subtracting.",
+   "2": "Subtracting net factor income from abroad converts national to domestic, which is a different adjustment entirely.",
+   "3": "Adding subsidies to a factor cost figure moves towards market price, which is again a different step. Three separate adjustments run through these formulae: gross to net is depreciation, national to domestic is net factor income from abroad, and market price to factor cost is net indirect taxes."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|3",
+  "approved": false,
+  "why_correct": "A teacher's salary is paid in return for a service actually rendered, so it is a factor payment and is included in national income. It is not a transfer.",
+  "why_wrong": {
+   "0": "An old-age pension is paid without any current service in return, so it is a transfer.",
+   "1": "An unemployment allowance is likewise received without work being done.",
+   "3": "A scholarship is a transfer too. The test is whether something is given in exchange, and only the teacher gives anything."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|4",
+  "approved": false,
+  "why_correct": "Factor cost is what the factors of production actually receive, so indirect taxes are deducted from the market price and subsidies added back. National income is NNP at factor cost.",
+  "why_wrong": {
+   "1": "Adding depreciation to GDP gives a larger gross figure, not a net one at factor cost.",
+   "2": "GDP minus depreciation gives NDP, which is still domestic and still at market price.",
+   "3": "Adding net indirect taxes moves from factor cost towards market price, which is the wrong direction. Market price is higher than factor cost by the amount of net indirect taxes."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|5",
+  "approved": false,
+  "why_correct": "The final value method counts only the value of final goods and services, so the value of intermediate goods is not counted twice. The value added method achieves the same result from the other direction.",
+  "why_wrong": {
+   "1": "Wholesale prices are used to construct price indices, not to measure output.",
+   "2": "Retail prices are likewise used in price indices such as the CPI.",
+   "3": "Consumption is one component of the expenditure method, not a remedy for double counting."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|6",
+  "approved": false,
+  "why_correct": "Keynes held that employment depends on effective demand, that is on aggregate demand for goods and services. If demand is deficient, output and employment fall short of full employment.",
+  "why_wrong": {
+   "1": "Population determines the size of the labour force but not how much of it is employed.",
+   "2": "Interest affects investment and so demand, but only indirectly, and Keynes argued that demand rather than the rate of interest is the governing factor.",
+   "3": "Tax collection is one instrument of policy, not the determinant of employment. Keynes was writing against the classical view that supply creates its own demand."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|7",
+  "approved": false,
+  "why_correct": "The consumption function is C equals a plus bY, where a is autonomous consumption, spent even at zero income, and b is the marginal propensity to consume. It is a straight line with a positive intercept.",
+  "why_wrong": {
+   "1": "A squared term would make consumption rise ever faster with income, which contradicts the observed pattern.",
+   "2": "A negative slope would mean consumption falls as income rises, which is the reverse of what happens.",
+   "3": "Y minus a would make the marginal propensity to consume exactly 1, leaving no saving at any level of income."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|8",
+  "approved": false,
+  "why_correct": "The multiplier is 1 divided by 1 minus the MPC. With an MPC of 0.75 that is 1 over 0.25, which is 4. So a rise of one rupee in investment raises income by four.",
+  "why_wrong": {
+   "0": "2 corresponds to an MPC of 0.5.",
+   "1": "3 corresponds to an MPC of two thirds.",
+   "3": "5 corresponds to an MPC of 0.8. The multiplier is also 1 divided by the marginal propensity to save, which here is 0.25."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|9",
+  "approved": false,
+  "why_correct": "The average propensity to consume is total consumption divided by total income, C over Y. It shows what proportion of income is spent.",
+  "why_wrong": {
+   "1": "Y over C inverts the ratio and has no standard meaning.",
+   "2": "S over Y is the average propensity to save, the companion measure, and the two add to 1.",
+   "3": "The change in C over the change in Y is the marginal propensity to consume. Average uses totals, marginal uses changes, and that is the distinction being tested."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|10",
+  "approved": false,
+  "why_correct": "The break-even point is where consumption equals income, so nothing is left over and saving is exactly zero. Below it saving is negative and above it positive.",
+  "why_wrong": {
+   "0": "Saving is positive above the break-even level of income, not at it.",
+   "1": "Saving is negative below it, financed by past savings or borrowing.",
+   "3": "Investment is a separate variable and is not necessarily zero anywhere. At this point the consumption function crosses the 45 degree line."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|11",
+  "approved": false,
+  "why_correct": "Export of software services is an export of services, which belongs to the current account of the Balance of Payments. The current account records trade in goods and services, income and current transfers.",
+  "why_wrong": {
+   "0": "Foreign direct investment is a capital account item, since it creates an asset or a liability.",
+   "1": "Careful here. Import of machinery is trade in goods and does belong to the current account, so this option is arguably right too. The one the question intends is the service export, and either way the capital account items are the two clearly wrong ones.",
+   "3": "External commercial borrowing creates a liability, so it is a capital account item."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|12",
+  "approved": false,
+  "why_correct": "A deficit means the country's total payments to the rest of the world exceed its total receipts, so it must draw down reserves or borrow to meet the gap.",
+  "why_wrong": {
+   "0": "Receipts exceeding payments is a surplus, the opposite case.",
+   "2": "Exports equalling imports would be a balance in trade, and the Balance of Payments covers more than trade in any case.",
+   "3": "A deficit tends to weaken the currency rather than strengthen it."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|13",
+  "approved": false,
+  "why_correct": "Under a flexible or floating rate, the exchange rate is set by the demand for and supply of foreign exchange in the market, and it moves freely as those change.",
+  "why_wrong": {
+   "0": "Government order fixes the rate, which is the fixed exchange rate system.",
+   "1": "An RBI notification would again be an administered rate. In practice India has a managed float, where the RBI intervenes to smooth movements without setting the rate.",
+   "3": "Parliament does not set exchange rates."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|14",
+  "approved": false,
+  "why_correct": "Depreciation lowers the external value of the currency, so foreigners need less of their own money to buy the same goods. Exports therefore become cheaper abroad and more competitive.",
+  "why_wrong": {
+   "0": "Imports become more expensive, not exports.",
+   "2": "The effect is substantial, which is why depreciation is watched so closely.",
+   "3": "Nothing becomes illegal. Note the difference from devaluation: depreciation happens through the market, devaluation by official decision."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|15",
+  "approved": false,
+  "why_correct": "The Reserve Bank of India holds and manages the country's foreign exchange reserves, and intervenes in the currency market to keep movements orderly.",
+  "why_wrong": {
+   "0": "SEBI regulates the securities market.",
+   "1": "NABARD refinances rural and agricultural credit.",
+   "3": "NITI Aayog is a policy think tank and successor to the Planning Commission. Managing reserves is a classic central bank function, alongside issuing currency and acting as banker to the government."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|16",
+  "approved": false,
+  "why_correct": "British rule brought deindustrialisation. Indian handicrafts, above all textiles, were destroyed by competition from machine-made British goods and by policies that opened India to them, throwing artisans back on the land.",
+  "why_wrong": {
+   "0": "India was not rapidly industrialised. Modern industry grew slowly and late, and mainly where British interests were served.",
+   "2": "Capital formation stayed very low, one reason growth was near stagnant.",
+   "3": "Technology was imported and controlled from abroad, so self-reliance did not develop."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|17",
+  "approved": false,
+  "why_correct": "The railways are usually named as a positive legacy. They were built to serve British commercial and military needs, but they broke down geographical isolation and left India with a network it still uses.",
+  "why_wrong": {
+   "0": "The drain of wealth was a pure loss, the transfer of India's resources to Britain without any return.",
+   "2": "The decline of handicrafts destroyed livelihoods on a vast scale.",
+   "3": "Famines were frequent and devastating under colonial policy. The three wrong options are all straightforwardly harms, which makes the odd one out easy to see."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|18",
+  "approved": false,
+  "why_correct": "Dadabhai Naoroji developed the drain of wealth theory in Poverty and Un-British Rule in India, arguing that a large part of India's wealth was being drained to Britain each year without any equivalent return.",
+  "why_wrong": {
+   "1": "Gandhi criticised colonial economic policy and championed swadeshi, but the theory is Naoroji's.",
+   "2": "Nehru wrote on colonial exploitation in The Discovery of India, drawing on the idea rather than originating it.",
+   "3": "Ambedkar wrote on caste and on currency, but not this theory. Naoroji is also remembered as the Grand Old Man of India and as the first Indian in the British Parliament."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|19",
+  "approved": false,
+  "why_correct": "The tertiary or service sector contributes the largest share of India's GDP, well over half. India moved from agriculture to services without a large manufacturing phase in between, which is unusual.",
+  "why_wrong": {
+   "0": "The primary sector still employs the largest number of people, but contributes far less to output. That gap between employment share and output share is the important point.",
+   "1": "The secondary sector contributes less than services.",
+   "3": "Mining is a small part of the primary sector."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|20",
+  "approved": false,
+  "why_correct": "Liberalisation officially began in 1991 with the New Economic Policy, introduced during a severe balance of payments crisis. Industrial licensing was largely abolished and the economy opened to trade and foreign investment.",
+  "why_wrong": {
+   "0": "1947 is independence, after which India adopted planning and extensive controls, the opposite of liberalisation.",
+   "1": "1969 saw bank nationalisation, again a move towards state control.",
+   "3": "By 2000 liberalisation was already a decade old. The three strands of 1991 are liberalisation, privatisation and globalisation."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|21",
+  "approved": false,
+  "why_correct": "Liberalisation means removing restrictions, so increasing import restrictions is the opposite of it. Tariffs and quotas were reduced after 1991, not raised.",
+  "why_wrong": {
+   "0": "Reduction of licensing is central to liberalisation, dismantling the old permit system.",
+   "1": "Greater private participation is another of its features.",
+   "3": "Market-oriented reform is what the whole policy amounts to. Three of the four options loosen controls, so the one that tightens them stands out."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|22",
+  "approved": false,
+  "why_correct": "The Human Development Index combines three dimensions: a long and healthy life, measured by life expectancy; knowledge, measured by schooling; and a decent standard of living, measured by income per head. It was devised by Mahbub ul Haq and Amartya Sen.",
+  "why_wrong": {
+   "0": "Income alone was the older measure the HDI was designed to replace, precisely because income says too little about how people actually live.",
+   "2": "Inflation and unemployment are macroeconomic indicators but are not part of the HDI.",
+   "3": "Exports and imports concern external trade."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|23",
+  "approved": false,
+  "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, irrigation, fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
+  "why_wrong": {
+   "0": "Pulses were largely left out, and their output per head actually fell, which remains a problem for Indian nutrition.",
+   "2": "Cotton is a commercial crop and was not the focus.",
+   "3": "Tea is a plantation crop, untouched by the programme. The narrowness of the gains, in crops and in regions, is one of the standard criticisms."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|24",
+  "approved": false,
+  "why_correct": "Cooperative banks are an institutional source of agricultural credit, along with commercial banks, regional rural banks and NABARD. Institutional means regulated, with fair interest rates and proper terms.",
+  "why_wrong": {
+   "0": "The village moneylender is the classic non-institutional source, charging very high interest.",
+   "1": "Traders lend informally against the crop and are non-institutional.",
+   "3": "Landlords lending to tenants are non-institutional too. Expanding institutional credit was a main aim of bank nationalisation in 1969."
+  }
+ },
+ {
+  "id": "XII|Arts|Economics|25",
+  "approved": false,
+  "why_correct": "Indian agriculture depends heavily on the monsoon, since a large part of the cropped area is unirrigated. A weak or late monsoon can cut output sharply, which is why farming is often called a gamble in the rains.",
+  "why_wrong": {
+   "0": "Mechanisation is uneven and limited, not excessive everywhere. Small holdings make machinery uneconomic for many farmers.",
+   "2": "Irrigation is far from surplus; large areas have none at all.",
+   "3": "Labour is generally surplus in Indian agriculture rather than short, with much disguised unemployment."
+  }
+ }
+]

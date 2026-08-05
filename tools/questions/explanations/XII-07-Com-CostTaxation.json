@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Commerce|Cost & Taxation|1",
+  "approved": false,
+  "why_correct": "Cost accounting ascertains the cost of each product, process or department and then works to control it, by comparing actual costs against standards and investigating the differences.",
+  "why_wrong": {
+   "0": "Recording financial transactions is the work of financial accounting, which reports to outsiders.",
+   "2": "The balance sheet is a financial accounting statement, showing position to shareholders and lenders.",
+   "3": "Auditing is an independent examination of accounts already prepared, carried out by someone outside the accounting function."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|2",
+  "approved": false,
+  "why_correct": "A fixed cost stays the same in total whatever the level of output, within a relevant range. Rent and insurance are the standard examples, payable whether the factory runs or stands idle.",
+  "why_wrong": {
+   "0": "Variable cost rises and falls in direct proportion to output.",
+   "2": "Semi-variable cost has both a fixed and a variable part, as a telephone bill does with its rental and its call charges.",
+   "3": "Direct cost is a classification by traceability rather than by behaviour, so it answers a different question. A cost can be both direct and fixed."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|3",
+  "approved": false,
+  "why_correct": "Raw materials used in production can be traced directly to the finished product, so they are direct material cost. They form part of prime cost.",
+  "why_wrong": {
+   "0": "Office stationery is consumed by the office generally and is an administrative overhead.",
+   "2": "Office rent serves the whole business and cannot be traced to any unit of output.",
+   "3": "Advertising is a selling overhead. The test is traceability: if you cannot say which unit of output it belongs to, it is indirect."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|4",
+  "approved": false,
+  "why_correct": "Overheads are indirect costs, that is costs which cannot be traced to a particular unit of output. They are grouped as factory, administration, and selling and distribution overheads and are apportioned rather than traced.",
+  "why_wrong": {
+   "0": "Direct costs are precisely the ones that can be traced, and they make up prime cost.",
+   "2": "Selling price is what the customer pays, not a cost at all.",
+   "3": "Profit is the difference between selling price and cost."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|5",
+  "approved": false,
+  "why_correct": "Prime cost is direct material plus direct labour plus direct expenses. It is the first total in the cost sheet, and everything in it is directly traceable to the product.",
+  "why_wrong": {
+   "1": "Factory overheads are added after prime cost to give works cost, so they are the next stage rather than part of this one.",
+   "2": "Selling expenses come at the very end of the cost sheet, after production is complete.",
+   "3": "Administrative expenses are added to works cost to give cost of production. The cost sheet builds up in that order: prime, works, production, total."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|6",
+  "approved": false,
+  "why_correct": "Factory rent is fixed. It is payable in full whether output is high, low or nil, so its total does not change with the level of production.",
+  "why_wrong": {
+   "0": "A variable cost would rise and fall with output, which rent does not.",
+   "2": "Rent cannot be traced to any one unit of output, so it is indirect rather than direct.",
+   "3": "It is a factory cost, incurred in production, not a selling cost incurred after it. Note that fixed cost per unit does fall as output rises, even though the total stays the same."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|7",
+  "approved": false,
+  "why_correct": "A variable cost changes in direct proportion to the level of production. Double the output and the raw material cost doubles, which is what makes it variable.",
+  "why_wrong": {
+   "0": "Fixed cost stays constant in total regardless of output.",
+   "2": "Sunk cost is a past cost that cannot now be recovered, and it is irrelevant to future decisions.",
+   "3": "Historical cost is the actual cost incurred in the past, a basis of valuation rather than a pattern of behaviour."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|8",
+  "approved": false,
+  "why_correct": "GST is Goods and Services Tax, a single indirect tax on the supply of both goods and services that replaced a whole set of central and state levies.",
+  "why_wrong": {
+   "1": "General Sales Tax is not the expansion, and sales tax was one of the taxes GST subsumed.",
+   "2": "Government Service Tax is invented. Service tax existed separately before GST and was absorbed into it.",
+   "3": "Gross Sales Tax is not a real tax. The name matters because it shows the reform's point: goods and services taxed together under one law."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|9",
+  "approved": false,
+  "why_correct": "GST came into force on 1 July 2017, launched at a midnight session of Parliament. It replaced excise duty, service tax, VAT and several other taxes at once.",
+  "why_wrong": {
+   "0": "1 April 2016 is before even the Constitution amendment that made GST possible.",
+   "2": "1 January 2018 is after the launch, by which time GST was already running.",
+   "3": "1 April 2019 is much later. The dates to keep in order are the 101st Constitution Amendment in 2016 and the tax itself in 2017."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|10",
+  "approved": false,
+  "why_correct": "Income tax is a direct tax, levied on a person's income and borne by that same person. The burden cannot be shifted to anyone else.",
+  "why_wrong": {
+   "1": "An indirect tax is one whose burden is passed on, as GST is passed to the consumer.",
+   "2": "Service tax was an indirect tax and has been subsumed into GST.",
+   "3": "Excise duty is indirect, levied on manufacture and recovered in the price. The test for a direct tax is whether the person who pays it is the person who bears it."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|11",
+  "approved": false,
+  "why_correct": "GST is an indirect tax. The seller collects it and pays it to the government, but it is included in the price and finally borne by the consumer.",
+  "why_wrong": {
+   "0": "A direct tax is borne by the person who pays it in, which GST is not.",
+   "2": "Wealth tax was a direct tax on net wealth, abolished in 2015.",
+   "3": "Property tax is a direct tax levied by local bodies on the owner of property."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|12",
+  "approved": false,
+  "why_correct": "In an indirect tax the burden is shifted along the chain of supply until it reaches the final consumer, who pays it in the price and has no one further to pass it to.",
+  "why_wrong": {
+   "0": "The government receives the tax and does not bear it.",
+   "1": "The producer pays the tax at its stage but recovers it in the price charged to the next buyer, so the burden does not rest there. Impact and incidence fall on different people, and that is the whole idea.",
+   "3": "Employees bear income tax on their salaries, which is a direct tax and a separate matter."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|13",
+  "approved": false,
+  "why_correct": "Income tax is levied on a person's income from salary, house property, business, capital gains and other sources. It is administered by the Income Tax Department.",
+  "why_wrong": {
+   "0": "GST is levied on the supply of goods and services, that is on a transaction.",
+   "1": "Customs duty is levied on goods crossing the border.",
+   "3": "Excise duty was levied on the manufacture of goods. All three wrong options tax a transaction; only income tax taxes a person."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|14",
+  "approved": false,
+  "why_correct": "Factory electricity is consumed in the works while goods are being made, so it is a production or factory overhead. It is added to prime cost to arrive at works cost.",
+  "why_wrong": {
+   "1": "Sales commission is paid for securing orders, so it is a selling overhead.",
+   "2": "Advertisement is likewise a selling overhead, incurred after the goods exist.",
+   "3": "Office rent is an administrative overhead. The three overhead groups follow the stages of the business: making, administering, and selling."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|15",
+  "approved": false,
+  "why_correct": "Selling and distribution cost is incurred after production, to secure orders and deliver the goods. It covers advertising, salesmen's salaries, packing for despatch and carriage outward.",
+  "why_wrong": {
+   "0": "Prime cost is the direct cost of production, at the start of the cost sheet.",
+   "1": "Production cost is incurred while the goods are being made.",
+   "3": "Direct cost classifies by traceability rather than by stage, and most selling costs are indirect anyway."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|16",
+  "approved": false,
+  "why_correct": "The primary objective of taxation is to raise revenue for the government, so that it can provide defence, administration, infrastructure and welfare. Redistribution and the discouragement of harmful consumption are secondary aims.",
+  "why_wrong": {
+   "0": "No individual benefits personally from tax revenue; it is spent on the community.",
+   "2": "Increasing losses is not an objective of any policy.",
+   "3": "Reducing production is not the aim, though a tax may deliberately discourage particular goods such as tobacco."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|17",
+  "approved": false,
+  "why_correct": "A cost sheet is a statement showing the build-up of cost element by element, from prime cost through works cost and cost of production to total cost. Its purpose is to determine the total cost of production and the cost per unit.",
+  "why_wrong": {
+   "0": "Profit can be shown on a cost sheet if selling price is included, but calculating profit alone is not its purpose, and the word only makes this too narrow.",
+   "2": "The balance sheet is a financial statement, prepared separately.",
+   "3": "Auditing is an independent examination of accounts, not a use of the cost sheet."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|18",
+  "approved": false,
+  "why_correct": "Administrative expenses are the costs of running the office and directing the business generally: office salaries, office rent, printing, stationery and legal charges.",
+  "why_wrong": {
+   "0": "Direct expenses are traceable to the product and form part of prime cost.",
+   "2": "Selling expenses are incurred to obtain orders and deliver goods.",
+   "3": "Production expenses are incurred in the factory while the goods are made. Office management is what separates this group from the other two."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|19",
+  "approved": false,
+  "why_correct": "Income tax is paid directly by the taxpayer to the government, whether by deduction at source or by self-assessment. There is no intermediary collecting it in a price.",
+  "why_wrong": {
+   "0": "GST is collected by the seller from the buyer and then remitted.",
+   "1": "Customs duty is paid by the importer and recovered in the price of the goods.",
+   "3": "Sales tax likewise reached the government through the seller, and it has been replaced by GST."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|20",
+  "approved": false,
+  "why_correct": "Cost control makes each element of cost visible, so that waste and inefficiency can be identified and unnecessary expenses cut without harming quality or output.",
+  "why_wrong": {
+   "0": "Reducing wastage is the aim, not increasing it.",
+   "2": "Reducing sales is no part of it; better cost information usually supports pricing that helps sales.",
+   "3": "Cost control depends on accounting rather than avoiding it."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|21",
+  "approved": false,
+  "why_correct": "Excise duty is an indirect tax levied on the manufacture of goods. The manufacturer pays it but includes it in the price, so the consumer finally bears it. Most excise has now been subsumed into GST.",
+  "why_wrong": {
+   "0": "A direct tax cannot be shifted, and excise plainly is.",
+   "2": "Wealth tax was a direct tax on net wealth, abolished in 2015.",
+   "3": "Income tax is direct, levied on a person's income."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|22",
+  "approved": false,
+  "why_correct": "Sales commission is paid to secure orders, so it is a selling expense, charged after the goods are ready. It appears in the selling and distribution section of the cost sheet.",
+  "why_wrong": {
+   "0": "Factory wages are a direct labour cost, part of prime cost.",
+   "2": "Raw material cost is direct material, also part of prime cost.",
+   "3": "Machine depreciation is a factory overhead, incurred in production. Only sales commission arises after the goods exist."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|23",
+  "approved": false,
+  "why_correct": "Cost accounting tells management what each product, process or department actually costs, which supports decisions on pricing, on whether to make or buy, and on which lines to continue or drop.",
+  "why_wrong": {
+   "1": "Increasing taxes is not an objective, and better records may in fact reduce tax legitimately by establishing true profit.",
+   "2": "Reducing production is not an aim of any accounting system.",
+   "3": "Cost accounting supplements the financial records that audits examine rather than avoiding them."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|24",
+  "approved": false,
+  "why_correct": "Tax revenue funds public welfare and development: defence, roads, schools, hospitals and welfare schemes. It is spent on the community rather than returned to any individual payer.",
+  "why_wrong": {
+   "0": "No official's personal income is a legitimate use of tax money.",
+   "2": "Private companies are funded by their owners and lenders, though the state may support industry through policy.",
+   "3": "Business profits are not what tax revenue is for. The absence of any direct return to the individual payer is part of the very definition of a tax."
+  }
+ },
+ {
+  "id": "XII|Commerce|Cost & Taxation|25",
+  "approved": false,
+  "why_correct": "Income tax is a direct tax, since it is levied on and borne by the same person. India's other direct taxes include corporation tax and capital gains tax.",
+  "why_wrong": {
+   "0": "GST is indirect, its burden shifting to the consumer.",
+   "1": "Customs duty is indirect, passed into the price of imported goods.",
+   "3": "Excise duty is indirect too. Of the four, only income tax is levied on a person rather than on a transaction."
+  }
+ }
+]

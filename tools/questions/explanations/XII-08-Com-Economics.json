@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|Commerce|Economics|1",
+  "approved": false,
+  "why_correct": "Banking and insurance are services, so they belong to the tertiary sector. This sector does not produce goods but supports production and distribution, and it now contributes the largest share of India's GDP.",
+  "why_wrong": {
+   "0": "The primary sector draws directly on nature, through farming, fishing, forestry and mining.",
+   "1": "The secondary sector manufactures goods from raw materials.",
+   "3": "Agriculture is part of the primary sector, so this names the same wrong sector twice over."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|2",
+  "approved": false,
+  "why_correct": "GDP is Gross Domestic Product, the money value of all final goods and services produced within a country's borders in a year, whoever produces them.",
+  "why_wrong": {
+   "1": "General is not the word; gross means before deducting depreciation.",
+   "2": "Gross Development Plan is invented.",
+   "3": "Global would contradict domestic. The contrast to hold is GDP by territory against GNP by nationality."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|3",
+  "approved": false,
+  "why_correct": "The Reserve Bank of India has the sole right to issue currency notes, except the one rupee note, which is issued by the Ministry of Finance. It is the country's central bank.",
+  "why_wrong": {
+   "0": "The State Bank of India is the largest commercial bank but has no note-issuing power.",
+   "2": "NABARD refinances rural and agricultural credit.",
+   "3": "SEBI regulates the securities market. Note issue is a monopoly of the central bank everywhere."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|4",
+  "approved": false,
+  "why_correct": "The central problem is scarcity: resources are limited while wants are unlimited, so choices must be made about what to produce, how, and for whom.",
+  "why_wrong": {
+   "0": "Inflation is a particular macroeconomic problem, serious but not universal.",
+   "1": "Unemployment is likewise a specific problem arising from how the economy is run.",
+   "3": "Poverty is a consequence of how scarce resources are distributed. All three are problems within economics; scarcity is the reason economics exists."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|5",
+  "approved": false,
+  "why_correct": "National income is the total income earned by the normal residents of a country in a year, whether within the country or abroad. Formally it is net national product at factor cost.",
+  "why_wrong": {
+   "0": "Government income is only one part, coming largely from taxes.",
+   "1": "Income earned by foreign companies in India is part of domestic product but is excluded from national income, since those earners are not residents.",
+   "3": "Tax revenue is a transfer from citizens to the state rather than newly earned income."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|6",
+  "approved": false,
+  "why_correct": "Income tax is a direct tax: it is levied on a person's income and borne by that same person, so the burden cannot be shifted.",
+  "why_wrong": {
+   "0": "GST is indirect, passed on to the consumer in the price.",
+   "1": "Excise duty is indirect, levied on manufacture and recovered in the price.",
+   "3": "Customs duty is indirect, levied on goods crossing the border."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|7",
+  "approved": false,
+  "why_correct": "By the law of demand, other things being equal, quantity demanded falls when price rises. That inverse relationship is why the demand curve slopes downward.",
+  "why_wrong": {
+   "0": "Demand rising with price describes the exceptions, Giffen and Veblen goods, not the general law.",
+   "2": "Demand does change; a constant quantity would mean perfectly inelastic demand, which is a special case.",
+   "3": "Nothing doubles automatically. How much demand changes is a question of elasticity, which varies from good to good."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|8",
+  "approved": false,
+  "why_correct": "Inflation is a sustained rise in the general price level, which means each rupee buys less than before. It is measured by index numbers such as the Consumer Price Index.",
+  "why_wrong": {
+   "0": "A fall in prices is deflation, the opposite condition.",
+   "2": "An increase in exports affects the balance of trade.",
+   "3": "An increase in imports likewise concerns trade. The word general matters: a rise in the price of one commodity is not inflation."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|9",
+  "approved": false,
+  "why_correct": "The RBI is called the banker's bank because commercial banks keep deposits with it, borrow from it in difficulty, and clear their mutual claims through it. It is also the lender of last resort.",
+  "why_wrong": {
+   "0": "The State Bank of India is a commercial bank, even though it is government-owned and the largest.",
+   "1": "Punjab National Bank is also a commercial bank.",
+   "3": "ICICI is a private commercial bank. All three of the wrong options are banks that themselves bank with the RBI."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|10",
+  "approved": false,
+  "why_correct": "Fiscal policy is the government's policy on its own expenditure, taxation and borrowing. It is announced mainly through the annual Budget.",
+  "why_wrong": {
+   "0": "Money supply is the subject of monetary policy, run by the RBI. Fiscal against monetary is the distinction this question tests: fiscal is the government's money, monetary is the central bank's control of credit.",
+   "2": "Foreign trade is governed by trade policy.",
+   "3": "Agriculture has its own sectoral policies."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|11",
+  "approved": false,
+  "why_correct": "GDP is the value of all final goods and services produced within a country's territory in a year, regardless of who produces them.",
+  "why_wrong": {
+   "0": "NNP is net national product, that is GNP after deducting depreciation.",
+   "2": "GNP counts what a country's nationals produce anywhere in the world, so it uses nationality rather than territory.",
+   "3": "Personal income is what households actually receive, after corporate savings and taxes are taken out."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|12",
+  "approved": false,
+  "why_correct": "Tax revenue is a revenue receipt, because it neither creates a liability for the government nor reduces its assets. It is a regular and recurring source of income.",
+  "why_wrong": {
+   "0": "Borrowings create a liability, so they are a capital receipt.",
+   "1": "Recovery of loans reduces the government's assets, making it a capital receipt.",
+   "3": "Sale of assets also reduces assets and so is capital. The test is simple: does the receipt create a liability or reduce an asset? If neither, it is revenue."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|13",
+  "approved": false,
+  "why_correct": "The Balance of Payments is a systematic record of all economic transactions between the residents of a country and the rest of the world during a year, covering both the current and the capital account.",
+  "why_wrong": {
+   "0": "Internal transactions are recorded in national income accounts, not here.",
+   "2": "Government expenses appear in the Budget.",
+   "3": "Bank transactions alone are far narrower than the whole external account."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|14",
+  "approved": false,
+  "why_correct": "Devaluation lowers the external value of the currency, so foreigners pay less of their own money for the same goods. Exports therefore become cheaper abroad and more competitive.",
+  "why_wrong": {
+   "0": "Imports become dearer, not cheaper, so they usually fall.",
+   "1": "Exports increase rather than decrease, which is the whole purpose of devaluing.",
+   "3": "Production of export goods usually rises in response. Devaluation is used to correct a deficit in the balance of payments, by encouraging exports and discouraging imports together."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|15",
+  "approved": false,
+  "why_correct": "Monopoly is a market with a single seller and no close substitutes, so the seller is a price maker. Entry of rivals is blocked.",
+  "why_wrong": {
+   "0": "Perfect competition has very many sellers of an identical product, each a price taker.",
+   "2": "Oligopoly has a few large sellers, each watching the others.",
+   "3": "Monopolistic competition has many sellers of differentiated products, as in soaps or restaurants. The four are best remembered by the number of sellers."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|16",
+  "approved": false,
+  "why_correct": "The expenditure method is one of the three ways of measuring national income, adding consumption, investment, government spending and net exports. The other two are the income and product methods.",
+  "why_wrong": {
+   "0": "Inflation is measured by price index numbers.",
+   "2": "Poverty is measured against a poverty line based on calorie or consumption norms.",
+   "3": "Population is counted by the census. All three methods of national income must give the same total, which is a useful check."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|17",
+  "approved": false,
+  "why_correct": "GST is an indirect tax on the supply of goods and services. The seller collects it and remits it, but the consumer bears it in the price.",
+  "why_wrong": {
+   "0": "A direct tax is borne by the person who pays it in, which GST is not.",
+   "2": "Wealth tax was a direct tax on net wealth, abolished in 2015.",
+   "3": "Income tax is a direct tax on income."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|18",
+  "approved": false,
+  "why_correct": "The repo rate is the rate at which the RBI lends short-term funds to commercial banks against government securities. Raising it makes borrowing costlier and tightens credit in the economy.",
+  "why_wrong": {
+   "0": "The rate banks charge customers is the lending rate, based on the repo but not the same thing.",
+   "2": "Government borrowing from the RBI is a different arrangement altogether.",
+   "3": "The rate paid on public deposits is the deposit rate. The companion to remember is the reverse repo, at which the RBI borrows from banks."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|19",
+  "approved": false,
+  "why_correct": "Borrowings are a capital receipt because they create a liability for the government, which must be repaid with interest.",
+  "why_wrong": {
+   "0": "Income tax creates no liability and reduces no asset, so it is revenue.",
+   "1": "GST is likewise a revenue receipt.",
+   "3": "Fees collected are revenue receipts too. Only borrowing adds to what the government owes."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|20",
+  "approved": false,
+  "why_correct": "Human capital formation is the process of adding to people's productive capacity through education, training, health care and skills. It treats spending on people as an investment rather than consumption.",
+  "why_wrong": {
+   "0": "Building factories is physical capital formation.",
+   "2": "Roads are infrastructure, again physical capital.",
+   "3": "Machinery is physical capital too. The distinction is whether the investment is embodied in people or in things."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|21",
+  "approved": false,
+  "why_correct": "The current account of the Balance of Payments records exports and imports of goods and services, together with income and current transfers. It deals with flows that do not create claims.",
+  "why_wrong": {
+   "0": "Foreign loans belong to the capital account, since they create a claim.",
+   "1": "Foreign investment is also a capital account item.",
+   "3": "Government borrowing is capital account too. The dividing line is whether the transaction alters assets and liabilities: if it does, it is capital account."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|22",
+  "approved": false,
+  "why_correct": "Open market operations are the RBI's purchase and sale of government securities in the open market, used to expand or contract the money supply. They are a quantitative instrument of monetary policy.",
+  "why_wrong": {
+   "0": "Commercial banks trade in securities but do not conduct monetary policy.",
+   "2": "SEBI regulates the securities market rather than using it as a policy tool.",
+   "3": "NABARD refinances rural credit. The other quantitative instruments are the bank rate and the reserve ratios."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|23",
+  "approved": false,
+  "why_correct": "Intermediate goods are excluded from GDP because their value is already contained in the price of the final goods they go into. Counting both would inflate the total, which is the double counting problem.",
+  "why_wrong": {
+   "0": "Including them twice is exactly the error the exclusion prevents.",
+   "2": "Adding them separately would overstate the total for the same reason.",
+   "3": "There is no connection with exports. The alternative solution is the value added method, which counts only what each stage adds."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|24",
+  "approved": false,
+  "why_correct": "Deficit financing means the government spends more than it receives, meeting the gap by borrowing or by creating new money. It can stimulate a slack economy but risks inflation.",
+  "why_wrong": {
+   "0": "A cut in taxes may cause a deficit but is not itself deficit financing.",
+   "2": "Exports concern the external account rather than the budget.",
+   "3": "Imports likewise concern trade. The deficit here is between government revenue and expenditure, not between exports and imports."
+  }
+ },
+ {
+  "id": "XII|Commerce|Economics|25",
+  "approved": false,
+  "why_correct": "India's liberalisation began in 1991, under the New Economic Policy introduced during a severe balance of payments crisis. Licensing was dismantled and the economy opened to trade and foreign investment.",
+  "why_wrong": {
+   "0": "Some cautious loosening began in the 1980s, but the decisive reform came in 1991.",
+   "1": "1985 saw further partial steps under Rajiv Gandhi, again short of the full reform.",
+   "3": "By 2000 liberalisation was nearly a decade old. The three strands of 1991 are worth naming together: liberalisation, privatisation and globalisation."
+  }
+ }
+]

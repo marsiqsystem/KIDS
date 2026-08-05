@@ -1,0 +1,242 @@
+[
+ {
+  "id": "XII|Science|Physics|1",
+  "approved": false,
+  "why_correct": "X-rays have wavelengths short enough to pass through soft tissue but are absorbed by the calcium in bone, so bone casts a shadow on the film. That contrast is what shows a fracture.",
+  "why_wrong": {
+   "0": "Infrared is absorbed at the surface of the skin and cannot penetrate to the bone. It is used in thermal imaging and physiotherapy.",
+   "1": "Visible light does not pass through the body at all.",
+   "3": "Radio waves are used in MRI, but through nuclear magnetic resonance rather than by casting a shadow, and MRI images soft tissue rather than bone."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|2",
+  "approved": false,
+  "why_correct": "Infrared rays are the heat radiation that warm bodies emit and that greenhouse gases absorb, so both the greenhouse effect and thermal imaging depend on them.",
+  "why_wrong": {
+   "1": "X-rays are high energy and are used for imaging through matter, not for detecting heat.",
+   "2": "Beta rays are electrons emitted in radioactive decay, and they are not electromagnetic waves at all.",
+   "3": "Ultraviolet has shorter wavelengths than visible light and causes sunburn and ionisation, but it does not carry the heat signature a thermal camera reads."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|3",
+  "approved": false,
+  "why_correct": "Coulomb's law gives the force between two stationary point charges as proportional to the product of the charges and inversely proportional to the square of the distance between them.",
+  "why_wrong": {
+   "0": "Ohm's law relates current, voltage and resistance in a conductor, so it concerns charges in motion.",
+   "2": "Ampere's law relates magnetic field to the current producing it, again requiring motion.",
+   "3": "Faraday's law governs induced emf from a changing magnetic flux. The word stationary in the question rules out all three, since each of them involves moving charge."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|4",
+  "approved": false,
+  "why_correct": "By Gauss's law, the total electric flux through any closed surface is the enclosed charge divided by the permittivity of free space. The shape of the surface makes no difference.",
+  "why_wrong": {
+   "0": "Multiplying by the permittivity instead of dividing gives the wrong dimensions entirely.",
+   "2": "This inverts the whole expression, so doubling the charge would halve the flux, which is the opposite of what happens.",
+   "3": "Zero flux is the answer when the surface encloses no net charge. Here it encloses q, so the flux is not zero."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|5",
+  "approved": false,
+  "why_correct": "An equipotential surface has the same potential everywhere, so the potential difference between any two points on it is zero. Since work equals charge times potential difference, the work done is zero.",
+  "why_wrong": {
+   "0": "Positive work would require moving to a point of different potential.",
+   "1": "Negative work would likewise need a potential difference.",
+   "3": "The work is independent of path, because the electric field is conservative. In fact the field is always perpendicular to an equipotential surface, so no work is done along it."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|6",
+  "approved": false,
+  "why_correct": "The energy stored is half CV squared. It is the area under the charge-voltage graph, a triangle, because the voltage rises from zero to V as the capacitor charges.",
+  "why_wrong": {
+   "0": "Half CV has the dimensions of charge, not energy.",
+   "1": "Half C squared V squares the wrong quantity. Energy depends on the square of the voltage, not of the capacitance.",
+   "3": "CV squared is twice the correct value, which is what you get by treating the voltage as constant at V throughout the charging. It started at zero."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|7",
+  "approved": false,
+  "why_correct": "For a sinusoidal current the rms value is the peak divided by root 2, about 0.707 of the peak. It is the steady current that would produce the same heating effect.",
+  "why_wrong": {
+   "0": "The peak divided by 2 is the average of the magnitude over a half cycle in some treatments, but not the rms.",
+   "1": "Root 2 times the peak is larger than the peak itself, which is impossible for an rms value.",
+   "3": "Zero is the average of an alternating current over a full cycle, which is exactly why the rms value is needed instead."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|8",
+  "approved": false,
+  "why_correct": "Lenz's law says the induced current opposes the change that produced it. If it aided the change instead, the current would grow without limit and create energy from nothing, so the law follows from conservation of energy.",
+  "why_wrong": {
+   "0": "Charge conservation lies behind Kirchhoff's junction rule, not this.",
+   "1": "Mass conservation belongs to chemistry and classical mechanics, not to induction.",
+   "2": "Momentum conservation governs collisions. The mechanical work done against the opposing force is exactly what supplies the electrical energy, which is the point of the law."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|9",
+  "approved": false,
+  "why_correct": "Hysteresis is the lagging of magnetic induction behind the magnetising field, so that the material's state depends on its past. Taking a ferromagnet round a full cycle traces the hysteresis loop.",
+  "why_wrong": {
+   "0": "Susceptibility measures how readily a material is magnetised, a ratio rather than a lag.",
+   "2": "Retentivity is the induction left when the magnetising field is removed, which is one point on the loop.",
+   "3": "Coercivity is the reverse field needed to reduce that induction to zero, another point on the loop. Retentivity and coercivity are features of hysteresis, not names for it."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|10",
+  "approved": false,
+  "why_correct": "Conductivity is the reciprocal of resistivity, and resistivity is measured in ohm metre, so conductivity is measured in per ohm per metre. That unit is also called the siemens per metre.",
+  "why_wrong": {
+   "0": "Ohm metre is the unit of resistivity, which is conductivity's reciprocal.",
+   "2": "The ohm alone is the unit of resistance, not of a material property.",
+   "3": "Per ohm metre without the second inverse is dimensionally wrong. Invert the whole of ohm metre, both parts, and the answer follows."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|11",
+  "approved": false,
+  "why_correct": "The SI unit of magnetic field, or magnetic flux density, is the tesla. One tesla is one weber per square metre.",
+  "why_wrong": {
+   "0": "The ampere is the unit of current, which produces the field.",
+   "2": "The weber is the unit of magnetic flux, that is field times area, so it is one step away.",
+   "3": "The gauss is the CGS unit of magnetic field, and one tesla equals ten thousand gauss. A real unit, but not the SI one."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|12",
+  "approved": false,
+  "why_correct": "Input power is 220 times 0.5, that is 110 watts, and output power is 100 watts. Efficiency is output over input, which is 100 over 110, about 90 per cent.",
+  "why_wrong": {
+   "0": "11 per cent comes from dividing the wrong way somewhere. Efficiency must always be output divided by input.",
+   "1": "50 per cent would mean half the power was lost, which the figures do not show.",
+   "2": "80 per cent is a plausible-sounding figure but does not follow from 100 over 110. Work out both powers first, then divide."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|13",
+  "approved": false,
+  "why_correct": "A step-up transformer raises the voltage, so its secondary has more turns than its primary and the turns ratio is greater than one. The current is correspondingly reduced.",
+  "why_wrong": {
+   "0": "A ratio of exactly 1 gives an isolation transformer, which changes nothing.",
+   "2": "A ratio less than 1 describes a step-down transformer.",
+   "3": "One half is one particular ratio less than 1, so it too would step the voltage down."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|14",
+  "approved": false,
+  "why_correct": "Polarisation can occur only in transverse waves, since it depends on the vibration having a direction across the line of travel. That electromagnetic waves can be polarised is therefore conclusive proof that they are transverse.",
+  "why_wrong": {
+   "0": "Interference occurs in both transverse and longitudinal waves, so it proves the wave nature but not the transverse nature.",
+   "1": "Diffraction likewise occurs in all waves, including sound.",
+   "3": "Reflection occurs in all waves too, and even in particles. Only polarisation distinguishes transverse from longitudinal."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|15",
+  "approved": false,
+  "why_correct": "Maxwell introduced displacement current to make Ampere's law consistent for a charging capacitor, where no conduction current flows between the plates. It led directly to his prediction of electromagnetic waves.",
+  "why_wrong": {
+   "0": "Faraday discovered electromagnetic induction and provided the field concept Maxwell built on.",
+   "1": "Ampere gave the original law relating magnetic field to current, which Maxwell corrected.",
+   "3": "Hertz experimentally produced and detected the electromagnetic waves Maxwell had predicted, some twenty years later."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|17",
+  "approved": false,
+  "why_correct": "The Lorentz force is the sum of the electric force qE and the magnetic force q times v cross B. The electric part acts whether or not the charge moves; the magnetic part needs motion and is perpendicular to both v and B.",
+  "why_wrong": {
+   "0": "qE alone is the electric force and omits the magnetic contribution.",
+   "1": "The cross product term alone is the magnetic force and omits the electric contribution.",
+   "3": "This swaps E and B, which is dimensionally wrong as well as physically wrong. The cross product must be with the magnetic field, since only that force depends on velocity."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|18",
+  "approved": false,
+  "why_correct": "Inside a long solenoid the field is uniform and directed along the axis, with magnitude mu-nought n I. The fields of neighbouring turns reinforce along the axis and cancel elsewhere.",
+  "why_wrong": {
+   "0": "The field is zero outside a long ideal solenoid, not inside it.",
+   "1": "The field does weaken near the ends, but the question concerns the inside of a long solenoid, where it is taken as uniform.",
+   "3": "The field is along the axis, not perpendicular to it. A solenoid is used precisely because it gives a strong uniform field."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|19",
+  "approved": false,
+  "why_correct": "Cells in parallel do not add their emfs. Two identical cells of emf E give a combined emf of E, while the internal resistance halves to r over 2, so more current can be drawn.",
+  "why_wrong": {
+   "0": "2E is the result of connecting them in series, which is the arrangement this question is contrasted with.",
+   "1": "E over 2 would halve the driving voltage, which parallel connection does not do.",
+   "3": "Zero would apply only if the cells were connected in opposition. Series adds emf, parallel adds current capacity."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|20",
+  "approved": false,
+  "why_correct": "The balance condition is that the ratios of the two pairs of resistances are equal, and that condition does not involve the cell or the galvanometer. So interchanging them leaves the balance point unchanged.",
+  "why_wrong": {
+   "0": "Nothing changes, because the balance condition is purely a relation among the four resistances.",
+   "2": "The balance point does not move to zero. It stays exactly where it was.",
+   "3": "The bridge remains stable. This property is useful in practice, since it means the arms may be connected either way round."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|21",
+  "approved": false,
+  "why_correct": "Kirchhoff's first law, the junction rule, says the total current entering a junction equals the total leaving it. Charge cannot accumulate at a point, so the law expresses conservation of charge.",
+  "why_wrong": {
+   "0": "Energy conservation lies behind Kirchhoff's second law, the loop rule, where the sum of potential changes round a closed loop is zero.",
+   "1": "Momentum has no role in circuit analysis.",
+   "3": "Mass conservation is not involved. The pairing to remember is first law with charge, second law with energy."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|22",
+  "approved": false,
+  "why_correct": "In a metal, rising temperature makes the lattice ions vibrate more, so electrons collide more often and drift less freely. The resistance therefore increases with temperature.",
+  "why_wrong": {
+   "0": "Resistance decreases with temperature in semiconductors and insulators, where heating frees more charge carriers. That opposite behaviour is what the question is testing.",
+   "2": "Resistance is very nearly constant only in special alloys such as manganin, which is why they are used in standard resistors.",
+   "3": "There is a definite effect, so none of the above is wrong."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|23",
+  "approved": false,
+  "why_correct": "In series the reciprocals add, so the equivalent capacitance is the product over the sum. The result is always smaller than either capacitor, because the effective plate separation increases.",
+  "why_wrong": {
+   "0": "Adding the capacitances is the rule for parallel connection, and it is the opposite of this one.",
+   "2": "This inverts the correct expression and would give a value larger than either capacitor.",
+   "3": "The geometric mean is not the rule for any combination. Note that capacitors behave the reverse way to resistors: resistors add in series, capacitors add in parallel."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|24",
+  "approved": false,
+  "why_correct": "Electric current is defined as the rate of flow of charge through a cross-section, that is charge divided by time. Its SI unit, the ampere, is one coulomb per second.",
+  "why_wrong": {
+   "0": "Electric flux is the field passing through a surface, not a flow of charge.",
+   "1": "Electric potential is work per unit charge, measured in volts.",
+   "3": "Electric field is force per unit charge. It is what drives the current, but it is not the current."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|25",
+  "approved": false,
+  "why_correct": "Power factor is the cosine of the phase angle between voltage and current. In a purely resistive circuit they are in phase, so the angle is zero and the power factor is 1.",
+  "why_wrong": {
+   "0": "Zero is the power factor of a purely inductive or purely capacitive circuit, where the phase angle is 90 degrees and no average power is consumed.",
+   "1": "0.5 corresponds to a phase angle of 60 degrees, so some reactance would have to be present.",
+   "3": "The power factor is a cosine and so can never exceed 1."
+  }
+ }
+]

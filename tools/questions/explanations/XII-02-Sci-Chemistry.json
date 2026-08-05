@@ -1,0 +1,222 @@
+[
+ {
+  "id": "XII|Science|Chemistry|1",
+  "approved": false,
+  "why_correct": "Nylon-6,6 is made by condensation polymerisation of adipic acid with hexamethylenediamine, a small molecule of water being eliminated at each linkage.",
+  "why_wrong": {
+   "0": "Teflon is made by addition polymerisation of tetrafluoroethene, with nothing eliminated.",
+   "1": "Polyacrylonitrile is an addition polymer of acrylonitrile.",
+   "3": "Low density polyethene is an addition polymer of ethene. The test is whether a small molecule is lost during polymerisation, and only nylon loses one."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|2",
+  "approved": false,
+  "why_correct": "DNA contains adenine, thymine, guanine and cytosine. Uracil takes the place of thymine in RNA, so it is the base absent from DNA.",
+  "why_wrong": {
+   "1": "Adenine is present in DNA and pairs with thymine.",
+   "2": "Thymine is the base characteristic of DNA, and the one uracil replaces in RNA.",
+   "3": "Guanine is present in DNA and pairs with cytosine. The single swap to remember is thymine in DNA, uracil in RNA."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|3",
+  "approved": false,
+  "why_correct": "At the isoelectric point glycine exists as a zwitterion, with the amino group protonated and the carboxyl group deprotonated. The molecule carries both charges and is electrically neutral overall.",
+  "why_wrong": {
+   "0": "The fully un-ionised form does not exist in appreciable amount in aqueous solution, since the proton transfers internally.",
+   "1": "The anionic form dominates in alkaline solution, above the isoelectric point.",
+   "2": "The cationic form dominates in acidic solution, below the isoelectric point. The isoelectric point is precisely where the two charges balance."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|4",
+  "approved": false,
+  "why_correct": "XeF4 is square planar, with two lone pairs on xenon lying above and below the plane. The symmetry cancels every bond dipole, so the net dipole moment is zero.",
+  "why_wrong": {
+   "0": "XeF6 is distorted octahedral because of its lone pair, so it has a small but non-zero dipole moment.",
+   "1": "XeO3 is pyramidal with one lone pair, and the dipoles do not cancel.",
+   "3": "XeOF2 is T-shaped and contains two different bonded atoms, so it cannot be symmetrical. Symmetry is what makes a dipole moment vanish, and only the square planar shape here has it."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|5",
+  "approved": false,
+  "why_correct": "Oxygen has the lowest electron affinity of these four, at about 141 kJ per mole against sulphur's 200. Its atom is so small that the incoming electron meets strong repulsion from the electrons already crowded there.",
+  "why_wrong": {
+   "0": "Tellurium is the largest and its electron affinity is lower than sulphur's, but still higher than oxygen's.",
+   "1": "Selenium sits between sulphur and tellurium.",
+   "2": "Sulphur has the highest electron affinity in the group, which is the surprise the question is testing. The expected trend of decrease down the group holds from sulphur onward; oxygen is the exception at the top."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|6",
+  "approved": false,
+  "why_correct": "The Gattermann reaction converts a diazonium salt to an aryl halide using copper powder with the corresponding halogen acid, here HCl with Cu.",
+  "why_wrong": {
+   "0": "Cuprous chloride with HCl is the Sandmeyer reaction, the closely related alternative. Sandmeyer uses the copper salt, Gattermann uses copper metal, and that is the whole difference.",
+   "1": "Chlorine with iron is direct halogenation of the ring, not a diazonium reaction.",
+   "3": "Potassium chloride with HCl supplies no copper and would not bring about the substitution."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|7",
+  "approved": false,
+  "why_correct": "Both nitrogen dioxide and hydrogen peroxide can act either way, because the central element is in an intermediate oxidation state and so can be raised or lowered.",
+  "why_wrong": {
+   "0": "In sulphur trioxide the sulphur is already at its maximum, plus six, so it can only be reduced.",
+   "1": "In carbon dioxide the carbon is at its maximum, plus four, so it acts only as an oxidant.",
+   "3": "In dinitrogen pentoxide nitrogen is at its maximum, plus five, and ozone is a powerful oxidant only. The general rule is that an element in an intermediate state can go either way."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|8",
+  "approved": false,
+  "why_correct": "Pyrosulphuric acid, H2S2O7, has two sulphur atoms joined through an ordinary oxygen bridge, with no oxygen-oxygen bond. It is the acid present in oleum.",
+  "why_wrong": {
+   "0": "Hydrogen peroxide is the simplest peroxo compound of all, with a direct O-O bond.",
+   "1": "Caro's acid, H2SO5, contains one peroxo linkage.",
+   "3": "Marshall's acid, H2S2O8, contains a peroxo linkage joining its two sulphur-bearing halves. Counting the oxygens against the expected valency is the quickest way to spot the peroxo group."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|9",
+  "approved": false,
+  "why_correct": "Fog is tiny droplets of liquid water dispersed in air, so it is a liquid in a gas. That kind of colloid is called an aerosol.",
+  "why_wrong": {
+   "0": "Solid in gas describes smoke and dust.",
+   "2": "Gas in gas is not a colloid at all, since gases mix at the molecular level to form a true solution.",
+   "3": "Gas in liquid describes foam, such as whipped cream or soap lather."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|10",
+  "approved": false,
+  "why_correct": "Novolac is a phenol-formaldehyde resin, made with an excess of phenol under acidic conditions. Heating it with a hardener gives the cross-linked thermoset bakelite.",
+  "why_wrong": {
+   "1": "Isoprene is the monomer of natural rubber.",
+   "2": "Neoprene is the polymer of chloroprene, a synthetic rubber.",
+   "3": "Chloroprene is that monomer. Neoprene and chloroprene are polymer and monomer of the same pair, and neither is a phenolic resin."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|11",
+  "approved": false,
+  "why_correct": "Orlon, also called acrilan, is polyacrylonitrile, made by addition polymerisation of acrylonitrile. It is used as a substitute for wool.",
+  "why_wrong": {
+   "1": "Teflon is polytetrafluoroethene, whose monomer is tetrafluoroethene.",
+   "2": "Dacron is a polyester of ethylene glycol and terephthalic acid.",
+   "3": "Nylon is a polyamide from a diamine and a dicarboxylic acid. Learning each trade name with its monomer is what these questions test."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|14",
+  "approved": false,
+  "why_correct": "Ammonia does not obey Henry's law because it reacts with water rather than merely dissolving in it, forming ammonium and hydroxide ions. The law applies only to gases that dissolve without reacting.",
+  "why_wrong": {
+   "0": "Oxygen dissolves physically in water and follows the law well.",
+   "2": "Hydrogen is only sparingly soluble and follows the law closely.",
+   "3": "Nitrogen likewise dissolves without reacting. The conditions for the law are moderate pressure, moderate temperature and no chemical reaction, and ammonia fails the last."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|16",
+  "approved": false,
+  "why_correct": "Depression of freezing point depends on the number of particles, so on the van't Hoff factor times the molality. Magnesium chloride gives three ions per formula unit, the most of these, so its solution freezes lowest.",
+  "why_wrong": {
+   "0": "Sucrose is a non-electrolyte and gives one particle, so its factor is 1.",
+   "1": "Potassium chloride gives two ions, so its factor is 2, which is more than sucrose but less than magnesium chloride.",
+   "3": "Glucose is also a non-electrolyte with a factor of 1. All four are 1 molal, so only the number of particles distinguishes them."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|17",
+  "approved": false,
+  "why_correct": "Sulphur dioxide bleaches by reduction, in the presence of moisture, and the bleaching is temporary. The coloured substance is reduced rather than destroyed, and slowly reoxidises in air so the colour returns.",
+  "why_wrong": {
+   "0": "Chlorine bleaches by oxidation, and its action is permanent.",
+   "2": "Hydrogen peroxide also bleaches by oxidation, and permanently.",
+   "3": "Ozone bleaches by oxidation too. Sulphur dioxide is the only common reducing bleach, and reduction is exactly why its effect does not last."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|18",
+  "approved": false,
+  "why_correct": "Acid strength in the oxoacids of chlorine rises with the oxidation state of chlorine, because more oxygen atoms spread the negative charge of the anion and stabilise it. Perchloric acid, with chlorine at plus seven, is the strongest.",
+  "why_wrong": {
+   "1": "Chloric acid has chlorine at plus five and is strong but weaker than perchloric.",
+   "2": "Hypochlorous acid has chlorine at plus one and is the weakest of the four.",
+   "3": "Chlorous acid has chlorine at plus three. The order runs HOCl, HClO2, HClO3, HClO4, increasing with the number of oxygens."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|19",
+  "approved": false,
+  "why_correct": "R-MgX is the Grignard reagent, an alkyl or aryl magnesium halide prepared in dry ether. The carbon bonded to magnesium is strongly nucleophilic, which makes it one of the most useful reagents in organic synthesis.",
+  "why_wrong": {
+   "1": "Nessler's reagent is an alkaline solution of potassium tetraiodomercurate, used to test for ammonia.",
+   "2": "Tollens' reagent is ammoniacal silver nitrate, used to test for aldehydes.",
+   "3": "Collins reagent is a chromium trioxide-pyridine complex, used to oxidise primary alcohols to aldehydes."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|20",
+  "approved": false,
+  "why_correct": "Catalytic hydrogenation of an aldehyde over palladium adds hydrogen across the carbon-oxygen double bond, giving a primary alcohol, RCH2OH.",
+  "why_wrong": {
+   "0": "ROH has lost a carbon atom, and reduction does not shorten the chain.",
+   "1": "RCHOH is not a complete formula, since that carbon would have only three bonds.",
+   "3": "RCH3OH shows five bonds to the same carbon, which is impossible. Count the bonds on the carbon and only one option is chemically valid."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|21",
+  "approved": false,
+  "why_correct": "Dry chlorine passed over heated phosphorus gives phosphorus trichloride, a fuming liquid. With excess chlorine the product would be phosphorus pentachloride instead.",
+  "why_wrong": {
+   "0": "P2Cl2 is not a stable known chloride of phosphorus.",
+   "1": "P2Cl5 is not a recognised formula either; the pentachloride is PCl5.",
+   "2": "P2Cl gives phosphorus an impossible valency. Phosphorus forms PCl3 and PCl5, and which one you get depends on how much chlorine is present."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|22",
+  "approved": false,
+  "why_correct": "An outer configuration of ns2 np1 means three valence electrons, which places the element in Group 13, the boron family.",
+  "why_wrong": {
+   "1": "Group 17, the halogens, have ns2 np5, that is seven valence electrons.",
+   "2": "Group 15 has ns2 np3, five valence electrons.",
+   "3": "Group 18, the noble gases, have ns2 np6, a full octet. Count the valence electrons and add ten for the p-block: two plus one gives three, and three plus ten is thirteen."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|23",
+  "approved": false,
+  "why_correct": "Boiling point falls as the carbon chain shortens, because the molecule is smaller and the van der Waals forces between molecules are weaker, so less energy is needed to separate them.",
+  "why_wrong": {
+   "0": "Boiling point rises with a longer chain, not a shorter one.",
+   "2": "It does not stay constant, and the difference is large: methanol boils at 65 degrees and butanol at 118.",
+   "3": "There is a clear trend, so none of the above is wrong. Hydrogen bonding raises the boiling points of all alcohols, but chain length still governs the trend within the series."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|24",
+  "approved": false,
+  "why_correct": "Add the atomic masses: carbon 12.01 plus four chlorines at 35.45 each, that is 141.8, giving about 153.8 grams per mole.",
+  "why_wrong": {
+   "1": "15.38 is the right digits with the decimal point moved. Chlorine alone is 35.45, so the total must exceed that several times over.",
+   "2": "150.41 uses 34.6 for chlorine, which is not its atomic mass.",
+   "3": "1.53 is lighter than a carbon atom, which is impossible for a five-atom molecule."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|25",
+  "approved": false,
+  "why_correct": "The Sandmeyer reaction converts an aryl diazonium salt into an aryl halide, using cuprous chloride, bromide or cyanide. It is the standard route to aryl halides that cannot be made by direct substitution.",
+  "why_wrong": {
+   "0": "Alkyl halides are made from alcohols with hydrogen halides or phosphorus halides, not by this route.",
+   "1": "Alcohols are not the product; the diazonium group is replaced by halogen.",
+   "3": "Aryl nitrates are not formed. Diazonium salts come from aromatic amines, so the product must be aromatic, which rules out both alkyl options at once."
+  }
+ }
+]

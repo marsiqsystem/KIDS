@@ -1,0 +1,252 @@
+[
+ {
+  "id": "XII|All|English & General Knowledge|1",
+  "approved": false,
+  "why_correct": "Ruskin Bond's narrator first sees the girl on the platform at Deoli, during the brief halt his train makes there. The whole story turns on that platform, because it is the only place he ever meets her.",
+  "why_wrong": {
+   "0": "There is no marketplace scene. The narrator never leaves the station at Deoli.",
+   "2": "His college is where he travels from, not where he meets her.",
+   "3": "No fair appears in the story. The setting is deliberately narrow: a small station, a short halt, and a train that will not wait."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|2",
+  "approved": false,
+  "why_correct": "The narrator passes through Deoli on his way to Dehra Dun, travelling to his grandmother's house in the holidays. Deoli is simply a small station on that line where the train stops for ten minutes.",
+  "why_wrong": {
+   "0": "Delhi is not his destination in the story.",
+   "1": "Kolkata does not appear at all.",
+   "3": "Mumbai is not mentioned either. The journey to Dehra matters because it is a routine one, repeated every holiday, which is what makes the girl's disappearance so haunting."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|3",
+  "approved": false,
+  "why_correct": "The girl sells baskets on the platform. She carries them on her arm and moves along the train while it waits, which is how the narrator comes to speak to her.",
+  "why_wrong": {
+   "0": "She is not a flower seller.",
+   "1": "Tea is sold at Indian stations by others, but not by her.",
+   "2": "Fruit sellers are a common sight on platforms too, which is what makes these tempting. Bond is specific: baskets."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|4",
+  "approved": false,
+  "why_correct": "The girl simply disappears from the station. On later journeys she is not there, the stall keeper says he does not know what became of her, and the narrator never learns the truth.",
+  "why_wrong": {
+   "0": "He does not change his route. He goes on making the same journey and looking for her each time.",
+   "1": "The train continues to stop at Deoli, which is precisely why he keeps hoping.",
+   "3": "He never forgets her. He thinks of her for years, and the story ends with him choosing not to look further, so that the possibility remains alive."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|5",
+  "approved": false,
+  "why_correct": "In Strong Roots, A. P. J. Abdul Kalam describes his childhood home on Mosque Street in Rameswaram, close to both the mosque and the ancient Shiva temple. That closeness shaped his lifelong belief in shared living.",
+  "why_wrong": {
+   "0": "A railway station is not part of his description of the house.",
+   "2": "A marketplace is not what he emphasises. What he stresses is the nearness of two places of worship.",
+   "3": "There is no factory. Rameswaram in his childhood was a small pilgrim town."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|6",
+  "approved": false,
+  "why_correct": "Kalam's upbringing stressed hard work, honesty, self-discipline and generosity. His family was not wealthy, and he learned austerity and values rather than comfort.",
+  "why_wrong": {
+   "0": "Wealth and status were absent from his childhood. His father owned neither luxury nor position, though he was widely respected.",
+   "2": "Competition is not his theme. His father taught service and self-reliance rather than getting ahead of others.",
+   "3": "Political influence was never sought. His father declined the comforts that his standing could have brought."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|7",
+  "approved": false,
+  "why_correct": "Kalam's father held that adversity always presents opportunities for self-discovery, so difficulties help a person understand themselves better. Hardship, on this view, is instructive rather than merely painful.",
+  "why_wrong": {
+   "0": "Fame is not the point. His father lived quietly and sought no recognition.",
+   "1": "Earning money is not the lesson either, and his family lived simply by choice.",
+   "3": "Avoiding responsibility is the opposite of what he taught. His father's answer to difficulty was to face it and learn from it."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|8",
+  "approved": false,
+  "why_correct": "Chekhov's story opens at a party where the guests argue over capital punishment and life imprisonment. The banker calls the death penalty more humane, the lawyer says he would choose life imprisonment, and the bet follows from that disagreement.",
+  "why_wrong": {
+   "0": "Religion is discussed only later, when the lawyer reads theology during his confinement.",
+   "1": "Politics is not the subject of the argument.",
+   "3": "Education is not debated, though the lawyer's reading amounts to an education of a kind."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|9",
+  "approved": false,
+  "why_correct": "The lawyer agrees to fifteen years of solitary confinement. The banker had suggested five, and the lawyer raised it to fifteen himself, to make the point more forcefully.",
+  "why_wrong": {
+   "0": "5 years is what the banker first proposed, and the lawyer rejected it as too easy.",
+   "1": "10 years is not the figure agreed.",
+   "3": "20 years is too many. The detail matters because the lawyer walks out five hours before the fifteen years expire, forfeiting everything deliberately."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|10",
+  "approved": false,
+  "why_correct": "The bet is for two million rubles. The sum is large enough that losing it would ruin the banker, which is why he contemplates murder as the term draws to a close.",
+  "why_wrong": {
+   "0": "One million understates it.",
+   "2": "Five million is too high.",
+   "3": "Ten million is far too high. Chekhov's irony depends on the amount: the banker who once had money to throw away is nearly destroyed by the same sum fifteen years later."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|11",
+  "approved": false,
+  "why_correct": "The lawyer spends his confinement reading, working through languages, philosophy, history, theology and the natural sciences, and in the later years hundreds of volumes at a time.",
+  "why_wrong": {
+   "0": "He does not pass the years asleep. His activity is what makes the story's ending possible.",
+   "2": "He plays the piano in the early years, but games are not his occupation.",
+   "3": "Exercise is not described. His confinement is of the mind, and it is the reading that changes him."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|12",
+  "approved": false,
+  "why_correct": "Fifteen years of reading leave the lawyer contemptuous of everything the world values, including money. He renounces the two million to show his scorn, walking out hours before he would have won it.",
+  "why_wrong": {
+   "0": "He does not forget. His letter states his reasons at length and with great deliberation.",
+   "1": "He gains no wealth in confinement. He leaves with nothing, by choice.",
+   "3": "He knows nothing of the banker's murderous intention, since the banker enters and leaves without waking him."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|13",
+  "approved": false,
+  "why_correct": "Toru Dutt's casuarina tree is bound up with memories of childhood and of the brother and sister who played beneath it and are now dead. The tree is loved for their sake, not for its own.",
+  "why_wrong": {
+   "1": "There are no political events in the poem.",
+   "2": "Business has no place in it.",
+   "3": "War is not its subject. The poem is elegiac and personal, and its emotion comes from loss rather than from any public event."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|14",
+  "approved": false,
+  "why_correct": "A huge creeper winds round the tree like a python, scarring its trunk. Yet the tree bears the strangling grip and still flourishes, crowned with crimson flowers.",
+  "why_wrong": {
+   "0": "No rose vine appears in the poem.",
+   "2": "Bamboo is not mentioned anywhere in the poem, and it would not wind round a trunk as the creeper does.",
+   "3": "Ivy would suit an English poem, but Dutt's image is of a creeper compared to a python, which is a deliberately Indian picture."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|15",
+  "approved": false,
+  "why_correct": "The poet's memories are joyful and nostalgic. She recalls happy hours under the tree with her brother and sister, and the sweetness of that recollection is inseparable from the grief of having lost them.",
+  "why_wrong": {
+   "0": "There is no fear in the poem, though the creeper is likened to a python.",
+   "2": "There is no bitterness. Dutt writes with tenderness even about her loss.",
+   "3": "Indifference is impossible here. She wishes the tree to be consecrated in verse so that it may outlive her, which is the opposite of indifference."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|16",
+  "approved": false,
+  "why_correct": "India is the largest democracy in the world, with an electorate of over 900 million. It has held regular free elections under universal adult franchise since 1951.",
+  "why_wrong": {
+   "0": "The United States is the world's oldest continuous constitutional democracy, but its electorate is far smaller. Oldest and largest are different titles.",
+   "2": "Brazil is the largest democracy in South America but has under 150 million voters.",
+   "3": "Indonesia is the third largest democracy and the largest Muslim-majority one."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|17",
+  "approved": false,
+  "why_correct": "The World Health Organization has its headquarters in Geneva, Switzerland. It was established in 1948, and 7 April is observed as World Health Day.",
+  "why_wrong": {
+   "0": "New York is the headquarters of the United Nations itself.",
+   "1": "Paris is the headquarters of UNESCO.",
+   "3": "Vienna houses the International Atomic Energy Agency. Geneva is the UN's second great centre and holds the WHO, the ILO and the WTO."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|18",
+  "approved": false,
+  "why_correct": "Dr B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly and is called the Father of the Indian Constitution. He was also independent India's first Law Minister.",
+  "why_wrong": {
+   "0": "Dr Rajendra Prasad was President of the Constituent Assembly and later the first President of India. Presiding over the Assembly and drafting the Constitution are different roles, and this is the confusion the question rests on.",
+   "1": "Sardar Patel chaired the committees on fundamental rights and minorities and integrated the princely states.",
+   "3": "Nehru moved the Objectives Resolution, which became the basis of the Preamble, and was the first Prime Minister."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|19",
+  "approved": false,
+  "why_correct": "Germany is not a permanent member of the Security Council. The five permanent members are China, France, Russia, the United Kingdom and the United States, the victors of the Second World War.",
+  "why_wrong": {
+   "0": "China is permanent, its seat passing from the Republic of China to the People's Republic in 1971.",
+   "1": "France is permanent, and it is one of the two European members alongside the United Kingdom.",
+   "3": "Russia is permanent, having inherited the Soviet Union's seat in 1991. Germany and Japan, the defeated powers of 1945, both seek permanent seats along with India and Brazil, which is why Germany is the natural distractor."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|20",
+  "approved": false,
+  "why_correct": "The Green Revolution raised food grain production, above all wheat and rice, through high-yielding varieties, irrigation, fertilisers and pesticides. It made India self-sufficient in food grains.",
+  "why_wrong": {
+   "0": "Horticulture is the Golden Revolution.",
+   "1": "Fisheries are the Blue Revolution.",
+   "2": "Dairy is the White Revolution, or Operation Flood, led by Dr Verghese Kurien. The colour revolutions are worth learning as a set, and green is the one for grain."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|21",
+  "approved": false,
+  "why_correct": "Dr A. P. J. Abdul Kalam is called the Missile Man of India for his work on the Agni and Prithvi missiles and the integrated guided missile programme. He served as President from 2002 to 2007.",
+  "why_wrong": {
+   "0": "Dr Homi J. Bhabha is the father of India's nuclear programme.",
+   "1": "Dr Vikram Sarabhai is the father of India's space programme, and ISRO's founder.",
+   "3": "Dr C. V. Raman won the Nobel Prize in Physics in 1930 for the Raman effect. Note that Kalam also wrote Strong Roots, which appears earlier on this same paper."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|22",
+  "approved": false,
+  "why_correct": "The Kosi is called the Sorrow of Bihar. Carrying vast quantities of silt down from Nepal, it raises its own bed and shifts its channel, flooding wide tracts of north Bihar.",
+  "why_wrong": {
+   "0": "The Ganga floods too, but it does not carry this name.",
+   "2": "The Yamuna is the Ganga's longest tributary and flows through Delhi and Agra.",
+   "3": "The Son is another Bihar river but is not the one so called. The companion title is the Sorrow of Bengal, which belonged to the Damodar before it was dammed."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|23",
+  "approved": false,
+  "why_correct": "The Nobel Peace Prize is awarded in Oslo, Norway, by a committee appointed by the Norwegian Parliament. Alfred Nobel's will laid down this single exception.",
+  "why_wrong": {
+   "0": "Stockholm is where all the other Nobel Prizes are awarded, which makes it the natural wrong answer.",
+   "1": "Copenhagen has no role in the prizes.",
+   "2": "Helsinki has none either. Norway and Sweden were in union when Nobel wrote his will, which is thought to explain the arrangement."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|24",
+  "approved": false,
+  "why_correct": "Amartya Sen wrote The Argumentative Indian, a collection of essays on Indian history, culture and identity. He won the Nobel Prize in Economics in 1998 for his work on welfare economics.",
+  "why_wrong": {
+   "0": "Shashi Tharoor wrote The Great Indian Novel and An Era of Darkness, so he is a plausible guess among Indian writers on similar themes.",
+   "2": "R. K. Narayan wrote fiction set in Malgudi, including Swami and Friends and The Guide.",
+   "3": "Chetan Bhagat writes popular contemporary fiction."
+  }
+ },
+ {
+  "id": "XII|All|English & General Knowledge|25",
+  "approved": false,
+  "why_correct": "The International Civil Aviation Organization, a UN agency based in Montreal, sets the standards and regulations for international air navigation and safety.",
+  "why_wrong": {
+   "0": "UNESCO deals with education, science and culture.",
+   "1": "The ILO deals with labour standards and workers' rights.",
+   "3": "The WTO regulates international trade. Read the acronym out in full and the answer follows: International Civil Aviation Organization."
+  }
+ }
+]

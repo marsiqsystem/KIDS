@@ -9,9 +9,10 @@ a ruling is still cheap to apply.
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the seven outright wrong keys** — `X|31`, `XI Physics 6`,
-`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`. Each is
-demonstrably wrong rather than debatable, and two of the seven are contradicted
+**Priority: the ten outright wrong keys** — `X|31`, `XI Physics 6`,
+`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`,
+`XII Physics 16`, `XII Chemistry 12`, `XII Chemistry 13`. Each is
+demonstrably wrong rather than debatable, and two of them are contradicted
 by another question on the same paper. XI Mathematics alone has three.
 
 ---
@@ -284,6 +285,67 @@ inscriptions in India. The Allahabad pillar inscription of Samudragupta
 still, so the keyed option is not even the second oldest of the four.
 
 **Recommendation: correct the key to (a).**
+
+---
+
+# Part 3 — Class XII (in progress)
+
+## 20. `XII|Science|Physics|16` — key error, that is an ammeter
+
+> To convert a galvanometer into a voltmeter, we connect a —
+> (a) High resistance in series (b) Low resistance in parallel
+> (c) High resistance in parallel (d) Low resistance in series
+> **Key: (b) Low resistance in parallel**
+
+A voltmeter must draw almost no current and is placed across a component, so it
+needs a **high resistance in series** — option (a). A **low resistance in
+parallel** is the shunt that converts a galvanometer into an **ammeter**. The
+key has answered the opposite question.
+
+**Recommendation: correct the key to (a).**
+
+## 21. `XII|Science|Chemistry|12` — key error, both give a positive test
+
+> Which reagent helps to differentiate between glucose and fructose?
+> (a) Br2/H2O (b) Cl2/KOH (c) Tollen's reagent (d) Fehling's reagent
+> **Key: (c) Tollen's reagent**
+
+Fructose is a ketose, but in the alkaline conditions of Tollens' and Fehling's
+it isomerises to glucose and mannose, so it gives a **positive** test with both.
+That is precisely why neither distinguishes them. **Bromine water** — option (a)
+— is mildly acidic, causes no isomerisation, and oxidises the aldose glucose
+while leaving fructose untouched.
+
+**Recommendation: correct the key to (a).** Note that (d) is wrong for the same
+reason as the keyed (c), so a student who reasoned it out had no right answer
+unless they picked (a).
+
+## 22. `XII|Science|Chemistry|13` — key error, tertiary alcohol
+
+> Which one of the following gives a yellow precipitate with iodine and alkali?
+> (a) 2-Methyl-propan-2-ol (b) Propan-2-ol (c) Propanol (d) Methanol
+> **Key: (a) 2-Methyl-propan-2-ol**
+
+The iodoform test needs a CH₃CH(OH)– or CH₃CO– group. 2-Methylpropan-2-ol is
+(CH₃)₃C–OH, a **tertiary** alcohol with no hydrogen on the carbinol carbon, so
+it gives **no** iodoform. **Propan-2-ol**, CH₃CH(OH)CH₃, is the one that does —
+option (b). Propan-1-ol and methanol also fail, so (b) is the only positive.
+
+**Recommendation: correct the key to (b).**
+
+## 23. `XII|Science|Chemistry|15` — the process is the reverse of coagulation
+
+> Which of the following involves coagulation?
+> (a) Peptization (b) Sublimation (c) Condensation (d) Ozonation
+> **Key: (a) Peptization**
+
+Peptization is the **opposite** of coagulation: it disperses a precipitate back
+into a colloidal sol. The other three options are unrelated to colloids
+entirely, so (a) is the only option in the right area — but a student who knows
+the definition properly will reject it for exactly the right reason.
+
+**Recommendation: keep the key, publish no explanation.** Reword as "which is
+the reverse of coagulation" before reuse.
 
 ---
 

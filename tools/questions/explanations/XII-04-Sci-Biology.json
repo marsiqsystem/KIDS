@@ -1,0 +1,242 @@
+[
+ {
+  "id": "XII|Science|Biology|1",
+  "approved": false,
+  "why_correct": "Hugo de Vries proposed mutation theory from his work on the evening primrose, holding that evolution proceeds by sudden, large, random changes he called saltation, rather than by slow accumulation.",
+  "why_wrong": {
+   "0": "Recombination reshuffles existing genes during meiosis and produces variation, but not new alleles.",
+   "1": "Adaptation is the outcome of selection, not a source of variation.",
+   "3": "Gene flow is the movement of alleles between populations. The contrast de Vries drew was with Darwin's small, gradual, directional variations."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|2",
+  "approved": false,
+  "why_correct": "Penguin and dolphin flippers look alike and do the same job but have different embryonic origins, one a bird wing and the other a mammal forelimb. Similar function from different origin makes them analogous, an example of convergent evolution.",
+  "why_wrong": {
+   "0": "Homologous organs share a common origin but may differ in function, as a whale's flipper and a human arm do. That is the reverse case.",
+   "2": "Vestigial organs are reduced remnants with no present function, such as the human appendix.",
+   "3": "Atavism is the reappearance of an ancestral character, such as a human born with a tail."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|3",
+  "approved": false,
+  "why_correct": "Palaeontology is the study of fossils, the preserved remains or traces of past life. Fossils provide the direct evidence for evolution and for the sequence of life through geological time.",
+  "why_wrong": {
+   "0": "Embryology studies the development of the embryo, which gives indirect evidence of evolution.",
+   "1": "Herpetology is the study of reptiles and amphibians.",
+   "3": "Phylogeny is the evolutionary history of a group, which palaeontology helps to reconstruct but is not itself."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|4",
+  "approved": false,
+  "why_correct": "DNA fingerprinting uses satellite DNA, in particular variable number tandem repeats, because the number of repeats differs greatly between individuals while remaining the same in every cell of one person.",
+  "why_wrong": {
+   "0": "Exons are the coding regions and are highly conserved, so they vary too little between individuals to be useful.",
+   "1": "Introns are non-coding and do vary, but the specific repetitive sequences used are the satellite regions.",
+   "3": "Ribosomal RNA is highly conserved across species, which makes it useful for tracing evolutionary relationships but useless for telling two people apart."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|5",
+  "approved": false,
+  "why_correct": "The lac z gene codes for beta-galactosidase, the enzyme that hydrolyses lactose into glucose and galactose. It is the first of the three structural genes in the operon.",
+  "why_wrong": {
+   "0": "lac y codes for permease, which lets lactose into the cell.",
+   "2": "lac a codes for transacetylase.",
+   "3": "lac i is the regulatory gene, coding for the repressor protein. It is not a structural gene at all, which is the distinction the question is testing."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|6",
+  "approved": false,
+  "why_correct": "Transcription is the copying of genetic information from the template strand of DNA into a strand of RNA, carried out by RNA polymerase.",
+  "why_wrong": {
+   "0": "Replication copies DNA into DNA, doubling the genetic material before cell division.",
+   "1": "Translation converts the message in mRNA into a sequence of amino acids at the ribosome.",
+   "3": "Reverse transcription makes DNA from an RNA template, as retroviruses such as HIV do. Note the direction in each case: this question asks for DNA to RNA."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|7",
+  "approved": false,
+  "why_correct": "The purines are adenine and guanine, both double-ring bases. The pyrimidines, with a single ring, are cytosine and thymine in DNA.",
+  "why_wrong": {
+   "0": "Cytosine is a pyrimidine, not a purine.",
+   "1": "Both cytosine and thymine are pyrimidines, so this names the other class entirely.",
+   "3": "Guanine is right but uracil is a pyrimidine and belongs to RNA rather than DNA. A purine always pairs with a pyrimidine, which is what keeps the double helix a constant width."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|8",
+  "approved": false,
+  "why_correct": "A karyotype of 44 autosomes with XXY, giving 47 chromosomes in all, is Klinefelter's syndrome. The individual is male with an extra X, and shows some female characteristics with sterility.",
+  "why_wrong": {
+   "0": "Turner's syndrome is 44 plus XO, with 45 chromosomes. The individual is female and sterile, and it is a monosomy rather than a trisomy.",
+   "2": "Down's syndrome is trisomy of chromosome 21, an autosomal condition.",
+   "3": "Edward's syndrome is trisomy 18, also autosomal. Turner and Klinefelter are the sex-chromosome pair, and counting the X's tells them apart."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|9",
+  "approved": false,
+  "why_correct": "Down's syndrome is caused by an extra copy of chromosome 21, so the person has three of them and 47 chromosomes in all. It was first described by Langdon Down.",
+  "why_wrong": {
+   "0": "Trisomy 13 is Patau's syndrome.",
+   "1": "Trisomy 18 is Edward's syndrome.",
+   "3": "Trisomy 22 is a separate and much rarer condition. The three autosomal trisomies worth knowing are 21, 18 and 13, in that order of frequency."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|10",
+  "approved": false,
+  "why_correct": "Sutton and Boveri proposed the chromosomal theory of inheritance in 1902, noting that chromosomes behave in meiosis exactly as Mendel's factors must, and so concluding that the factors are carried on chromosomes.",
+  "why_wrong": {
+   "0": "Mendel gave the laws of inheritance in 1866, before chromosomes were understood at all.",
+   "1": "Morgan proved the theory experimentally with Drosophila and discovered linkage, but he confirmed it rather than proposing it.",
+   "3": "Watson and Crick gave the double helix structure of DNA in 1953, half a century later."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|11",
+  "approved": false,
+  "why_correct": "Human skin colour is controlled by several genes acting together, each adding a small amount of pigment, so the result is a continuous range rather than distinct types. That is polygenic inheritance.",
+  "why_wrong": {
+   "0": "Multiple allelism means one gene with more than two alleles, as in ABO blood groups. One gene, several forms, which is a different idea.",
+   "2": "Incomplete dominance gives an intermediate phenotype from a single gene pair, as in pink four o'clock flowers.",
+   "3": "Pleiotropy is one gene affecting several traits, which is the reverse of this."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|12",
+  "approved": false,
+  "why_correct": "Haemophilia is X-linked recessive, so it appears mostly in males, who have only one X. A female carrier passes it to half her sons, which is why it ran through European royal families.",
+  "why_wrong": {
+   "0": "Thalassemia is autosomal recessive, not sex-linked.",
+   "1": "Down's syndrome is a chromosomal disorder, not a single-gene one, and it is not inherited in this way.",
+   "3": "Sickle cell anaemia is autosomal recessive, on chromosome 11. Only haemophilia and colour blindness among the common examples are X-linked."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|13",
+  "approved": false,
+  "why_correct": "The anther is the microsporangium of a flower, where microspore mother cells divide by meiosis to produce pollen grains, the male gametophytes.",
+  "why_wrong": {
+   "0": "The ovule is the megasporangium, producing the female gametophyte.",
+   "2": "The filament merely supports the anther and produces nothing.",
+   "3": "The pollen grain is the microspore, that is the product of the microsporangium rather than the sporangium itself."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|14",
+  "approved": false,
+  "why_correct": "Double fertilisation is unique to angiosperms. One male gamete fuses with the egg to form the zygote, and the other fuses with two polar nuclei to form the triploid endosperm.",
+  "why_wrong": {
+   "0": "Bryophytes have a single fertilisation and no seeds at all.",
+   "1": "Pteridophytes likewise have single fertilisation and reproduce by spores.",
+   "2": "Gymnosperms have a single fertilisation, and their endosperm is haploid and formed before fertilisation. That contrast is what makes double fertilisation the defining angiosperm feature."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|15",
+  "approved": false,
+  "why_correct": "Apomixis is the formation of seeds without fertilisation, so the offspring are genetically identical to the parent. It is valuable in agriculture because hybrid vigour can then be preserved across generations.",
+  "why_wrong": {
+   "0": "Parthenocarpy is fruit without fertilisation, and such fruits are seedless. Seed against fruit is exactly what separates these two.",
+   "1": "Polyembryony is more than one embryo in a single seed, as in citrus.",
+   "3": "Budding is a form of asexual reproduction in animals such as Hydra and in yeast."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|16",
+  "approved": false,
+  "why_correct": "Parthenocarpy is the development of fruit without fertilisation, giving seedless fruit such as banana and some grapes. It can be induced with growth hormones.",
+  "why_wrong": {
+   "0": "Apomixis produces seeds without fertilisation, which is the paired term and the opposite way round.",
+   "2": "Polyembryony is several embryos in one seed.",
+   "3": "Outbreeding is crossing between unrelated individuals, a breeding practice rather than a developmental process."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|18",
+  "approved": false,
+  "why_correct": "In blood group AB both the A and the B alleles are fully expressed, so both antigens appear on the red cells. Neither masks the other, which is co-dominance.",
+  "why_wrong": {
+   "0": "Incomplete dominance would give a blend, some intermediate antigen between A and B, and no such thing exists. This is the distinction the question turns on.",
+   "2": "Pleiotropy is one gene affecting several traits.",
+   "3": "Polygenic inheritance involves several genes acting on one trait, whereas blood group is governed by a single gene with three alleles."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|19",
+  "approved": false,
+  "why_correct": "A pleiotropic gene produces several apparently unrelated phenotypic effects. Phenylketonuria is the standard example, causing mental retardation, reduced hair and skin pigmentation together.",
+  "why_wrong": {
+   "0": "Polygenic describes many genes acting on one trait, which is the reverse relationship.",
+   "1": "An epistatic gene masks the expression of a different gene.",
+   "3": "A codominant gene pair expresses both alleles equally, as in AB blood group. Pleiotropy is one gene to many traits; polygeny is many genes to one trait."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|20",
+  "approved": false,
+  "why_correct": "The interstitial cells of Leydig, lying between the seminiferous tubules, secrete testosterone under the influence of luteinising hormone.",
+  "why_wrong": {
+   "0": "Sertoli cells lie inside the tubules and nourish the developing sperm. They respond to FSH and secrete inhibin, not testosterone.",
+   "2": "Spermatogonia are the germ cells that divide to form sperm.",
+   "3": "Primary spermatocytes are a later stage of those germ cells. Leydig for hormone, Sertoli for nursing, and the two are the classic pair to keep straight."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|21",
+  "approved": false,
+  "why_correct": "A sharp surge of luteinising hormone at about the middle of the cycle ruptures the Graafian follicle and releases the ovum. The remains of the follicle then become the corpus luteum.",
+  "why_wrong": {
+   "0": "Rising oestrogen from the growing follicle is what triggers the LH surge, so it is the cause of the cause rather than the immediate trigger.",
+   "1": "Progesterone is secreted after ovulation by the corpus luteum, to maintain the endometrium.",
+   "3": "FSH stimulates follicles to grow in the first half of the cycle but does not itself release the ovum."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|22",
+  "approved": false,
+  "why_correct": "The signals for parturition come from both the fully developed foetus and the placenta, forming the foetal ejection reflex. This triggers oxytocin release from the maternal pituitary, which causes uterine contractions.",
+  "why_wrong": {
+   "0": "The placenta contributes, but it is only half the source.",
+   "1": "The foetus contributes too, and again only half. When two options are each partly right and a third combines them, the combination is usually the answer.",
+   "3": "The maternal pituitary releases the oxytocin that drives labour, but it acts in response to the signals rather than originating them."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|23",
+  "approved": false,
+  "why_correct": "Amniocentesis withdraws amniotic fluid to examine foetal cells for chromosomal and genetic abnormalities, such as Down's syndrome. It is legally restricted in India to prevent its misuse for sex determination.",
+  "why_wrong": {
+   "0": "Foetal age is estimated by ultrasound.",
+   "2": "The heartbeat is monitored by ultrasound or a foetal stethoscope.",
+   "3": "Weight is estimated by ultrasound measurements. All three wrong options are things ultrasound does, whereas amniocentesis examines cells."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|24",
+  "approved": false,
+  "why_correct": "Industrial melanism is directional selection. Soot darkened the tree trunks, so the dark moths were better camouflaged and the population shifted steadily towards one extreme of the range.",
+  "why_wrong": {
+   "1": "Disruptive selection favours both extremes and eliminates the middle, splitting the population in two.",
+   "2": "Stabilising selection favours the average and removes both extremes, which is the opposite of what happened here.",
+   "3": "Artificial selection is carried out deliberately by humans. Soot was a human product, but no one was choosing which moths survived, so the selection was natural."
+  }
+ },
+ {
+  "id": "XII|Science|Biology|25",
+  "approved": false,
+  "why_correct": "Hershey and Chase used radioactive phosphorus-32 to label DNA and sulphur-35 to label protein. Only the phosphorus entered the bacteria, proving DNA is the genetic material.",
+  "why_wrong": {
+   "0": "Carbon and nitrogen occur in both DNA and protein, so labelling them could not have separated the two.",
+   "2": "Hydrogen and carbon are likewise present in both.",
+   "3": "Phosphorus is right, but nitrogen occurs in protein as well as DNA. The experiment works precisely because phosphorus is in DNA but not protein, and sulphur is in protein but not DNA."
+  }
+ }
+]

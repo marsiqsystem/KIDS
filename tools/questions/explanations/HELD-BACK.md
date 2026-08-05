@@ -9,9 +9,10 @@ a ruling is still cheap to apply.
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the ten outright wrong keys** — `X|31`, `XI Physics 6`,
+**Priority: the twelve outright wrong keys** — `X|31`, `XI Physics 6`,
 `XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`, `XI History 2`,
-`XII Physics 16`, `XII Chemistry 12`, `XII Chemistry 13`. Each is
+`XII Physics 16`, `XII Chemistry 12`, `XII Chemistry 13`, `XII Maths 13`,
+`XII Biology 17`. Each is
 demonstrably wrong rather than debatable, and two of them are contradicted
 by another question on the same paper. XI Mathematics alone has three.
 
@@ -288,7 +289,7 @@ still, so the keyed option is not even the second oldest of the four.
 
 ---
 
-# Part 3 — Class XII (in progress)
+# Part 3 — Class XII (in progress; 5 Science subjects + common paper done)
 
 ## 20. `XII|Science|Physics|16` — key error, that is an ammeter
 
@@ -346,6 +347,34 @@ the definition properly will reject it for exactly the right reason.
 
 **Recommendation: keep the key, publish no explanation.** Reword as "which is
 the reverse of coagulation" before reuse.
+
+## 24. `XII|Science|Mathematics|13` — key error, sign
+
+> If f(2) = 4 and f'(2) = 4 then lim(x→2) [x·f(2) − 2·f(x)] / (x − 2) equals
+> (a) 2 (b) −2 (c) 4 (d) −4
+> **Key: (c) 4**
+
+The numerator is 0 at x = 2, so by L'Hôpital the limit is
+f(2) − 2f′(2) = 4 − 8 = **−4**, option (d).
+
+Concrete check with f(x) = 4x − 4, which satisfies f(2) = 4 and f′(2) = 4:
+[4x − 2(4x−4)] / (x−2) = (−4x + 8)/(x − 2) = **−4** exactly, for every x ≠ 2.
+
+**Recommendation: correct the key to (d).**
+
+## 25. `XII|Science|Biology|17` — key error, one stage too early
+
+> Human embryo implantation usually occurs at which stage?
+> (a) Zygote (b) Morula (c) Blastocyst (d) Gastrula
+> **Key: (b) Morula**
+
+The morula is what travels down the fallopian tube and reaches the uterus, but
+it does not implant. It first becomes a **blastocyst**, whose trophoblast
+attaches to and invades the endometrium — that is implantation, option (c).
+NCERT states it explicitly: "the blastocyst becomes embedded in the
+endometrium."
+
+**Recommendation: correct the key to (c).**
 
 ---
 

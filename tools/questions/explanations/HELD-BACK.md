@@ -1,13 +1,22 @@
 # Questions held back from Phase 2 — need Umar's ruling
 
-Six of the 200 Class IX and X questions have no explanation written, because
-writing one would mean teaching a child something untrue. Each is listed with
-what is wrong and what the options are. Nothing here changes any mark until a
-ruling is recorded — the mechanism is `key-overrides.json`, and the offline
-IX/X papers are not yet scored, so a ruling is still cheap to apply.
+These questions have no explanation written, because writing one would mean
+teaching a child something untrue. Each is listed with what is wrong and what
+the options are. Nothing here changes any mark until a ruling is recorded — the
+mechanism is `key-overrides.json`, and the offline papers are not yet scored, so
+a ruling is still cheap to apply.
 
 None of this affects the online exam, which was scored and published on
 different papers.
+
+**Priority: the six outright wrong keys** — `X|31`, `XI Physics 6`,
+`XI Physics 19`, `XI Maths 8`, `XI Maths 21`, `XI Maths 25`. Each is
+demonstrably wrong rather than debatable, and three of the six are contradicted
+by another question on the same paper. XI Mathematics alone has three.
+
+---
+
+# Part 1 — Classes IX and X (6 of 200)
 
 ---
 
@@ -103,12 +112,128 @@ self-evident from question 30 on the same page.
 
 ---
 
+# Part 2 — Class XI (8 so far, of the 4 subjects done)
+
+## 7. `XI|Science|Physics|6` — key error, contradicted by Q14
+
+> The slope of a displacement-time graph represents:
+> (a) Displacement (b) Acceleration (c) Velocity (d) Time
+> **Key: (b) Acceleration**
+
+The slope of a displacement-time graph is **velocity**, option (c).
+Acceleration is the slope of a *velocity*-time graph. **Question 14 on the same
+paper** asks the identical thing about a position-time graph and keys it
+correctly as velocity.
+
+**Recommendation: correct the key to (c).** Same situation as `X|31`.
+
+## 8. `XI|Science|Physics|19` — key error, wrong axis
+
+> The radius of gyration (k) of a uniform thin ring of radius R about its
+> central axis passing perpendicular to its plane is:
+> (a) R/2 (b) R/√2 (c) R (d) 2R
+> **Key: (b) R/√2**
+
+About the axis **perpendicular to its plane**, a thin ring has I = MR², so
+k = √(I/M) = **R**, option (c). R/√2 is the radius of gyration about a
+**diameter**, where I = ½MR². The key has answered for the wrong axis.
+
+**Recommendation: correct the key to (c).**
+
+## 9. `XI|Science|Chemistry|12` — two options name the same shape
+
+> NH3 and NF3 are:
+> (a) Pyramidal (b) Tetrahedral (c) Trigonal pyramidal (d) Linear
+> **Key: (c)**
+
+"Pyramidal" and "trigonal pyramidal" are the same shape, and every textbook
+describes NH₃ as pyramidal. Option (a) cannot be called wrong.
+
+**Recommendation: keep the key, publish no explanation.** Rewrite before reuse.
+
+## 10. `XI|Science|Chemistry|14` — the keyed value is not the right number
+
+> The frequency of yellow light having a wavelength of 5800 Å is:
+> (a) 3 × 10¹⁵ Hz (b) 5.08 × 10¹⁴ Hz (c) 50.08 × 10¹⁴ Hz (d) None of the above
+> **Key: (b)**
+
+c/λ = 3×10⁸ / 5.8×10⁻⁷ = **5.17 × 10¹⁴ Hz**, not 5.08. The keyed option is
+almost certainly a typo for 5.17. As printed, a student who calculated
+correctly finds no matching option and can justifiably choose (d).
+
+**Recommendation: accept (b) and (d), or grace.** The dispute is real: the
+better the student, the more likely they picked (d).
+
+## 11. `XI|Science|Mathematics|8` — key error
+
+> If α + β = π/2 and β + γ = α then tan α equals
+> (a) 2tanβ + 2tanγ (b) tanβ + 2tanγ (c) 2tanβ + tanγ (d) tanβ + tanγ
+> **Key: (d)**
+
+From the two conditions, α = π/2 − β and γ = π/2 − 2β, so tan α = cot β and
+tan γ = cot 2β. Then tanβ + 2tanγ = t + (1−t²)/t = 1/t = cot β = tan α, where
+t = tan β. So the answer is **(b)**.
+
+Numerical check with β = 30°: α = 60°, γ = 30°, and β + γ = 60° = α ✓.
+tan α = 1.732. Option (b) gives 0.577 + 1.155 = **1.732** ✓. Option (d) gives
+0.577 + 0.577 = 1.155 ✗.
+
+**Recommendation: correct the key to (b).**
+
+## 12. `XI|Science|Mathematics|15` — no option is correct
+
+> If 2x − 5 ≤ 5x + 4 < 19 where x ∈ I then the value of x is
+> (a) −2 ≤ x ≤ 3 (b) −2 ≤ x < 23 (c) −3 ≤ x ≤ 4 (d) −3 ≤ x ≤ 3
+> **Key: (d)**
+
+The left inequality gives x ≥ −3 and the right gives x < 3 **strictly**, since
+at x = 3 we get 19 < 19, which is false. So the answer is −3 ≤ x < 3, and no
+option says that. Option (d) has the right lower bound and the wrong
+inclusivity at the top.
+
+**Recommendation: grace**, or reprint with `< 3`.
+
+## 13. `XI|Science|Mathematics|21` — key error, plain formula
+
+> The number of diagonals that can be drawn by joining the vertices of a
+> heptagon is
+> (a) 7 (b) 21 (c) 14 (d) 13
+> **Key: (d) 13**
+
+Diagonals = n(n−3)/2 = 7 × 4 / 2 = **14**, option (c). (21 is the number of
+*lines* joining vertices, 7C2, of which 7 are sides.) 13 is not the answer to
+any reading of the question.
+
+**Recommendation: correct the key to (c).**
+
+## 14. `XI|Science|Mathematics|25` — key error, reciprocal
+
+> The value of lim(x→0) (e^(x²) − cos x) / x² is
+> (a) 1/4 (b) 2/3 (c) 3/2 (d) 1
+> **Key: (b) 2/3**
+
+e^(x²) = 1 + x² + …, cos x = 1 − x²/2 + …, so the numerator is
+x² + x²/2 = (3/2)x², and the limit is **3/2**, option (c). The key is the
+reciprocal of the right answer.
+
+**Recommendation: correct the key to (c).**
+
+---
+
 ## Not held back, but worth noting
 
 - `X|All|General Paper|26` — the stem prints the book title as "Eighteen
   **Fifteen** Seven". It is *Eighteen Fifty Seven*, by Surendra Nath Sen. The
   key is right and the typo misleads nobody, but it should be fixed before the
   question is republished as learning content.
+- `XI|Science|Mathematics|19` — "greater than 1000" is strict, so 1000 itself
+  should be excluded and the true count is 374, not the keyed 375. Every
+  standard textbook prints 375, and 374 is not on offer, so no student is
+  misled into a wrong pick. Explanation written; worth tightening at
+  paper-setting.
+- `XI|Science|Mathematics|18` — the quadratic has **two** roots, n = 6 and
+  n = 7. Only 6 is offered, so the key is answerable, but a student who found 7
+  first would be stuck. Explanation written.
 - `IX` and `X` questions 41–55 are the **same fifteen Geography questions**,
   identical in options and key (Q50 differs by one article). The X explanations
   are clones and carry `cloned_from`. That block cannot discriminate between

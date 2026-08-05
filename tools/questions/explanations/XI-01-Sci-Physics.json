@@ -1,0 +1,232 @@
+[
+ {
+  "id": "XI|Science|Physics|1",
+  "approved": false,
+  "why_correct": "Power is work divided by time. Work has dimensions ML2T−2, so dividing by T gives ML2T−3.",
+  "why_wrong": {
+   "1": "MLT is not the dimension of any standard quantity, and it carries no negative power of time, which every rate must have.",
+   "2": "ML2T2 has time in the numerator rather than the denominator. Power is energy per unit time, so T must appear as a negative power.",
+   "3": "M2LT3 squares the mass, and no mechanical quantity of this kind depends on mass squared."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|2",
+  "approved": false,
+  "why_correct": "Torque plays the same role in rotation that force plays in straight-line motion: it is what produces angular acceleration. The rotational form of Newton's second law is torque equals moment of inertia times angular acceleration.",
+  "why_wrong": {
+   "0": "The rotational analogue of mass is moment of inertia, since both measure resistance to a change of motion.",
+   "1": "The rotational analogue of linear momentum is angular momentum, not torque. Torque is what changes angular momentum, just as force changes momentum.",
+   "3": "Kinetic energy has a rotational form of its own, half I omega squared, but energy is not the analogue of torque."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|3",
+  "approved": false,
+  "why_correct": "Instantaneous power is the dot product of force and velocity, P equals F dot v. It follows from power being the rate of doing work and work being force dot displacement.",
+  "why_wrong": {
+   "0": "Mass times velocity is momentum, which is a vector, not power.",
+   "2": "Torque times time gives angular impulse, which equals the change in angular momentum.",
+   "3": "Force dot displacement is work itself, not power. Power is the rate at which that work is done, so a division by time is still needed."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|4",
+  "approved": false,
+  "why_correct": "To just complete a vertical loop the string must stay taut at the top, so the minimum speed there is root gr. Using energy conservation between top and bottom, with a height difference of 2r, gives the minimum speed at the lowest point as root 5gr.",
+  "why_wrong": {
+   "0": "Root gr is the minimum speed at the highest point, where gravity alone supplies the centripetal force. The question asks about the lowest point.",
+   "1": "Root 3gr is the minimum speed at the side of the loop, at the level of the centre.",
+   "3": "Root 2gr is the speed gained by falling through a height r, which is not the condition here. The three heights give three different answers, so identify the point first."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|5",
+  "approved": false,
+  "why_correct": "Friction is non-conservative because the work it does depends on the path taken, not just on the endpoints, and the energy it removes is lost as heat rather than stored.",
+  "why_wrong": {
+   "0": "Gravity is conservative. Work done against it is stored as potential energy and can be recovered in full.",
+   "1": "The electrostatic force is conservative too, with its own potential energy.",
+   "3": "The elastic force of a spring is conservative, storing energy as half k x squared and giving it back. The test is whether the work round a closed path is zero, and only friction fails it."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|7",
+  "approved": false,
+  "why_correct": "The work-energy theorem states that the net work done on a body equals the change in its kinetic energy. It follows directly from Newton's second law and holds whether the forces are conservative or not.",
+  "why_wrong": {
+   "0": "The change in potential energy equals the negative of the work done by a conservative force alone. The theorem concerns the net work of all forces.",
+   "2": "Change in momentum equals impulse, that is force times time, which is a different theorem.",
+   "3": "Acceleration is not an energy at all, so it cannot equal a quantity of work."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|8",
+  "approved": false,
+  "why_correct": "The spring force is kx, and it grows from zero as the spring stretches. The work done is the area under the force-extension graph, a triangle of base x and height kx, which gives half k x squared.",
+  "why_wrong": {
+   "0": "kx is the force at extension x, not the energy stored.",
+   "1": "Half kx has the dimensions of force, since the half changes nothing dimensionally. Energy needs x squared.",
+   "3": "kx squared is twice the correct value. It is what you would get by treating the force as constant at kx throughout, forgetting that it started at zero."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|9",
+  "approved": false,
+  "why_correct": "The angle of repose is the greatest incline on which a body just stays at rest, and setting the component of gravity along the slope equal to limiting friction gives tan of that angle equal to the coefficient of friction. Since the angle of friction has the same tangent, the two angles are equal.",
+  "why_wrong": {
+   "1": "90 degrees would be a vertical surface, on which nothing could rest by friction alone.",
+   "2": "0 degrees would mean nothing could rest even on level ground.",
+   "3": "The angle of banking concerns a road curved to help a vehicle turn. Related in that it also involves a tangent, but a different quantity."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|10",
+  "approved": false,
+  "why_correct": "Limiting friction is the largest value static friction can reach, just before the body begins to slide. Beyond that point the friction becomes kinetic and drops slightly.",
+  "why_wrong": {
+   "0": "Kinetic friction acts once the body is already sliding, and it is smaller than the limiting value.",
+   "1": "Rolling friction acts when one body rolls over another, and it is smaller again than either.",
+   "3": "Dynamic friction is another name for kinetic friction, so it names motion already under way rather than the threshold before it."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|11",
+  "approved": false,
+  "why_correct": "Static friction is self-adjusting: it takes whatever value is needed to balance the applied force and keep the body at rest, growing as the applied force grows, up to the limiting value.",
+  "why_wrong": {
+   "0": "Kinetic friction is very nearly constant once sliding begins, and does not adjust itself to the applied force.",
+   "2": "Rolling friction is also roughly constant for a given pair of surfaces.",
+   "3": "Sliding friction is another name for kinetic friction, and is likewise fixed rather than self-adjusting."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|12",
+  "approved": false,
+  "why_correct": "From E equals h nu, h is energy divided by frequency. Energy is ML2T−2 and frequency is T−1, so h has dimensions ML2T−1, which is the same as angular momentum.",
+  "why_wrong": {
+   "1": "MLT−2 is the dimension of force.",
+   "2": "ML2T−2 is energy itself, which is what you get by forgetting to divide by frequency.",
+   "3": "M2L2T−1 squares the mass, and nothing in E equals h nu introduces a mass squared."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|13",
+  "approved": false,
+  "why_correct": "A carousel is accelerating, since its riders are continually changing direction, so a frame fixed to it is non-inertial. Newton's laws do not hold in it unless pseudo-forces such as the centrifugal force are introduced.",
+  "why_wrong": {
+   "0": "An inertial frame is one at rest or moving with constant velocity. Circular motion involves centripetal acceleration, so the frame cannot be inertial.",
+   "2": "There is no absolute frame in mechanics. Newton proposed one, but it plays no part in this classification.",
+   "3": "Linear is not a category of reference frame. Frames are either inertial or non-inertial."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|14",
+  "approved": false,
+  "why_correct": "The slope of a position-time graph is the change in position divided by the change in time, which is precisely the definition of velocity.",
+  "why_wrong": {
+   "0": "Acceleration is the slope of a velocity-time graph, one derivative further on.",
+   "1": "Displacement is read off the vertical axis directly, not from the slope.",
+   "3": "Momentum is mass times velocity, and a graph of position against time carries no information about mass."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|15",
+  "approved": false,
+  "why_correct": "Constant speed in a straight line means the velocity is unchanging in both size and direction, so the rate of change of velocity is zero and there is no acceleration.",
+  "why_wrong": {
+   "0": "Positive acceleration would mean the speed was increasing, which contradicts constant speed.",
+   "1": "Negative acceleration would mean it was slowing down. Careful: constant speed on a curved path does involve acceleration, because the direction changes, but here the path is straight.",
+   "3": "Infinite acceleration has no physical meaning and would require an infinite force."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|16",
+  "approved": false,
+  "why_correct": "At the top of its path the projectile has stopped rising and has not yet begun to fall, so its vertical velocity is momentarily zero. The horizontal velocity, however, is unchanged throughout.",
+  "why_wrong": {
+   "0": "The vertical velocity is greatest at launch and at landing, not at the peak.",
+   "2": "The horizontal velocity does continue at the top, and it equals the initial horizontal component, but the question asks about the vertical velocity, which is zero.",
+   "3": "g is an acceleration, not a velocity. The acceleration at the top is still g downward, which is exactly why the projectile does not stay there."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|17",
+  "approved": false,
+  "why_correct": "The first law says a body continues at rest or in uniform motion unless a force acts on it. That statement defines force, as the thing that changes the state of motion, and introduces inertia, as the tendency to resist that change.",
+  "why_wrong": {
+   "1": "Momentum is defined in connection with the second law, which relates force to the rate of change of momentum.",
+   "2": "Kinetic energy comes from the work-energy theorem, not from any of Newton's three laws directly.",
+   "3": "Work is defined separately, as force times displacement along the force."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|18",
+  "approved": false,
+  "why_correct": "For a uniform solid cylinder about its own long axis the moment of inertia is half MR squared, the same as for a solid disc, since a cylinder is a stack of discs about the same axis.",
+  "why_wrong": {
+   "0": "MR squared is the moment of inertia of a thin ring or hollow cylinder, where all the mass sits at the rim. A solid cylinder has mass nearer the axis, so its value must be smaller.",
+   "2": "Two fifths MR squared belongs to a solid sphere.",
+   "3": "Two thirds MR squared belongs to a hollow sphere."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|20",
+  "approved": false,
+  "why_correct": "Leading zeros are never significant, but trailing zeros after a decimal point are. So in 0.005020 the digits 5, 0, 2 and the final 0 count, giving four significant figures.",
+  "why_wrong": {
+   "0": "3 comes from dropping the final zero. That zero is written deliberately after the decimal point and does carry information about precision.",
+   "2": "5 counts one of the leading zeros, which merely fix the position of the decimal point.",
+   "3": "6 counts every digit shown, including both leading zeros."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|21",
+  "approved": false,
+  "why_correct": "Volume goes as the cube of the radius, and for a product or power the percentage errors add with the power as a multiplier. So the error in volume is three times 2 per cent, that is 6 per cent.",
+  "why_wrong": {
+   "0": "2 per cent would be right if volume were proportional to radius itself.",
+   "1": "4 per cent corresponds to squaring, which is the error in surface area, not volume.",
+   "3": "8 per cent would come from cubing the error rather than multiplying it by three. The rule is to multiply the percentage error by the power, not to raise it to that power."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|22",
+  "approved": false,
+  "why_correct": "The candela is the SI base unit of luminous intensity. The seven base units are the metre, kilogram, second, ampere, kelvin, mole and candela.",
+  "why_wrong": {
+   "0": "The joule is a derived unit of energy, equal to a newton metre.",
+   "1": "The newton is derived, equal to kilogram metre per second squared.",
+   "3": "The watt is derived, equal to a joule per second. All three of the wrong options are named after scientists and are derived; the candela is the odd one out."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|23",
+  "approved": false,
+  "why_correct": "Torque is force times perpendicular distance, so its dimensions are ML2T−2, exactly those of work. The two are physically different, one a vector and the other a scalar, but dimensionally identical.",
+  "why_wrong": {
+   "0": "Momentum has dimensions MLT−1.",
+   "1": "Force has dimensions MLT−2, one power of length short.",
+   "2": "Power has an extra division by time, giving ML2T−3. This question is a reminder that equal dimensions do not mean equal quantities."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|24",
+  "approved": false,
+  "why_correct": "Starting from rest, s equals half a t squared, so displacement is proportional to the square of the time. Doubling the time quadruples the distance covered.",
+  "why_wrong": {
+   "0": "Displacement proportional to t describes uniform velocity, that is no acceleration at all.",
+   "2": "Root t would mean the body covered ground ever more slowly, which is the reverse of accelerating.",
+   "3": "t cubed would require the acceleration itself to be increasing steadily, but here it is uniform."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|25",
+  "approved": false,
+  "why_correct": "Drawing the hands back lengthens the time over which the ball is stopped. Since impulse equals force times time and the impulse is fixed by the ball's momentum, a longer time means a smaller force on the hands.",
+  "why_wrong": {
+   "0": "The impulse is not reduced. It is fixed by the change in the ball's momentum, which must be brought to zero however the catch is made.",
+   "2": "The ball's momentum is likewise fixed by its mass and speed on arrival, and all of it must be removed.",
+   "3": "The time of catch is increased, not reduced, and that increase is exactly the mechanism. This is the same principle as crumple zones in cars and mattresses under high jumpers."
+  }
+ }
+]

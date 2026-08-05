@@ -1953,5 +1953,1175 @@
    "2": "142496 is 200 too many. The three wrong options here differ only in the hundreds digit, so the arithmetic has to be carried right through rather than estimated.",
    "3": "142596 is 300 too many. Work with the radius of 0.25 cm, not the diameter of 0.5, since that single slip changes the answer eightfold."
   }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|1",
+  "approved": false,
+  "why_correct": "The astrologer had knifed a man in a village quarrel, thrown him into a well and fled, believing he had killed him. He never went home again, and that flight is what put him under the tamarind tree in a strange town.",
+  "why_wrong": {
+   "0": "He had no education and no interest in getting one. Narayan is careful to tell us he knew nothing of the stars and lived entirely by his wits.",
+   "2": "The army is never mentioned. His trade was chosen because it needed no capital and no training, not because of any service.",
+   "3": "He is not a priest and makes no claim to be. His turban, his vermilion and his cowrie shells are a costume for a business."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|2",
+  "approved": false,
+  "why_correct": "Narayan tells us plainly that the astrologer's success came from shrewd guesswork and a lifetime of studying faces and troubles. Within five minutes of listening he knew what a customer wanted to hear.",
+  "why_wrong": {
+   "0": "He had run away from the fields precisely to avoid a life of farming. His trade is the opposite of that.",
+   "1": "He had no magical power at all, and knew it. The story's irony is that a complete fraud delivers, by accident, the one true and life-changing reading of his career.",
+   "3": "He does not practise medicine. His prescriptions are sacred ash and charms, not remedies."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|3",
+  "approved": false,
+  "why_correct": "Guru Nayak had come looking for the man who stabbed him and left him for dead, meaning to kill him in return. The whole tension of the story is that he is sitting opposite that very man and does not know it.",
+  "why_wrong": {
+   "0": "He speaks of no lost wealth. He offers money rather than seeking it.",
+   "1": "There is no missing brother in the story. He seeks an enemy, not a relative.",
+   "3": "No child is involved. The astrologer's own wife and child appear only at the very end, at home."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|4",
+  "approved": false,
+  "why_correct": "Nivedita records that Swamiji's love of India was total and reverent. He spoke of her past with pride and of her future with hope, and he wished his disciples to feel the same devotion.",
+  "why_wrong": {
+   "0": "Indifference is the opposite of everything Nivedita describes. India was the subject he returned to constantly.",
+   "2": "He felt no fear for India. He was critical of her weaknesses, but criticism from love is not fear.",
+   "3": "He grieved over poverty and superstition, so there is a grain of truth in disappointment, but Nivedita's account is of pride and devotion, not despondency."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|5",
+  "approved": false,
+  "why_correct": "For Swamiji India was not a territory but the Divine Mother herself, an object of worship. Nivedita describes him teaching her to see the country in exactly that light.",
+  "why_wrong": {
+   "0": "A political unit is what a map shows. Swamiji's vision was religious, and he spoke of India as a living presence rather than a state.",
+   "1": "Commerce plays no part in his idea of India. He measured her by her spiritual inheritance.",
+   "3": "Military power is not his theme either. His call was to strength of character and of soul."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|6",
+  "approved": false,
+  "why_correct": "The Amarnath pilgrimage crosses high and difficult mountain country in Kashmir, and Nivedita's account dwells on the hard climbing, the cold and the exhaustion of the road.",
+  "why_wrong": {
+   "0": "There is no desert on the route. The hardship of Amarnath is altitude and ice, not sand.",
+   "2": "No sea is crossed. The whole journey is inland and upward.",
+   "3": "Forest is passed on the lower slopes, but what the pilgrims struggle with is the mountain path itself."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|7",
+  "approved": false,
+  "why_correct": "What struck Nivedita most deeply was Swamiji's own experience inside the cave. He came out shaken and transfigured, and she writes that he felt he had been granted a vision of Shiva.",
+  "why_wrong": {
+   "0": "No market figures in the account. The journey is a pilgrimage, not a visit to a town.",
+   "1": "The cave and its ice lingam are impressive, and she describes them, but her attention is fixed on what happened to Swamiji there. The question asks what impressed her most.",
+   "3": "Local rulers play no part in the episode."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|8",
+  "approved": false,
+  "why_correct": "Wordsworth sees London in the early morning before it wakes. The houses seem asleep and the mighty heart is lying still, so the city appears calm and at peace.",
+  "why_wrong": {
+   "0": "Noise and crowds are what London would be at any other hour, which is exactly the contrast the poet is drawing. He catches it at the one moment it is silent.",
+   "2": "The city is not dark. It is bright and bare in the smokeless air, glittering in the first sunlight.",
+   "3": "Smokeless is Wordsworth's own word. He is struck by how clean the air is at that hour."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|9",
+  "approved": false,
+  "why_correct": "The city wears the beauty of the morning like a garment. The image makes the beauty something put on, temporary and fitting, which is why the moment must be caught before the day begins.",
+  "why_wrong": {
+   "0": "No jewel appears in the poem. Wordsworth's images are of clothing, of open fields and of a sleeping body.",
+   "2": "The river glideth at his own sweet will, so the Thames is in the poem, but as one of the things seen rather than as the comparison for the city's beauty.",
+   "3": "Towers, domes, theatres and temples are listed, but they are the city itself and not what its beauty is likened to."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|10",
+  "approved": false,
+  "why_correct": "The whole sonnet is an act of stillness: silent, bare, calm, and a deep, sweet-tasting quiet. Serenity is the quality of nature that Wordsworth finds unexpectedly in the middle of a great city.",
+  "why_wrong": {
+   "0": "There is no violence anywhere in the poem.",
+   "1": "Restlessness is what a city normally offers and what the poem is a relief from. Judge by the words: calm, still, asleep.",
+   "3": "The scene is clear rather than mysterious. Wordsworth can see everything, all bright and glittering, which is part of the wonder."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|11",
+  "approved": false,
+  "why_correct": "Sarojini Naidu's silver and blue bangles are for the maiden, likened to mountain mist and the bud of a new-born leaf. They stand for a girl on the edge of womanhood.",
+  "why_wrong": {
+   "0": "Childhood is not one of the stages the poem sets out. It moves from maiden to bride to matron.",
+   "2": "The bangles are cheap glass, carried to a village fair. Wealth is not what they signify.",
+   "3": "The poem has no sorrow in it. Even the last stanza, on the older woman, is written with dignity and warmth."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|12",
+  "approved": false,
+  "why_correct": "The bride's bangles are flame-bright, likened to the fire of her marriage and to her bridal laughter and tears. Red and gold, they carry the colour of the wedding fire itself.",
+  "why_wrong": {
+   "0": "Mountain mist belongs to the maiden's silver and blue bangles, not the bride's.",
+   "1": "Flowers appear as images elsewhere in Naidu's work but not for the bride's bangles here.",
+   "3": "Morning clouds again suit the pale colours of the maiden's stanza. The bride's stanza is deliberately hot and bright by contrast."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|13",
+  "approved": false,
+  "why_correct": "The poem's three stanzas of bangles correspond to three stages of a woman's life: the maiden, the bride and the mother who has raised her children. The bangle seller's tray is a way of showing a whole life.",
+  "why_wrong": {
+   "0": "Nothing industrial appears. The bangles are handmade and sold at a village fair.",
+   "2": "There is no war and no heroism in the poem.",
+   "3": "Naidu was a political figure, but this poem is not political. Its subject is domestic life."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|14",
+  "approved": false,
+  "why_correct": "Yeats opens with the falcon turning in a widening gyre and unable to hear the falconer. The trained bird has lost touch with its master, which is his image for a civilisation that has lost its centre.",
+  "why_wrong": {
+   "0": "Falconry is the image, and the man who flies the bird is the falconer. A hunter is a different figure.",
+   "2": "There is no shepherd in the poem. The rough beast of the second stanza is the only animal besides the falcon.",
+   "3": "No king appears. The authority that has failed is not political but something deeper."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|15",
+  "approved": false,
+  "why_correct": "Things fall apart, the centre cannot hold. Yeats is describing a world whose old order is disintegrating, with anarchy loosed and the best lacking all conviction while the worst are full of passionate intensity.",
+  "why_wrong": {
+   "0": "Perfect order is precisely what the poem says has ended.",
+   "1": "The poem describes the opposite of stability. Written just after the First World War, it is a vision of collapse.",
+   "3": "There is no peace. The poem ends with a rough beast slouching towards Bethlehem, which is a threat rather than a consolation."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|16",
+  "approved": false,
+  "why_correct": "Article 14 guarantees equality before the law and the equal protection of the laws. It opens the Right to Equality, which runs from Article 14 to Article 18.",
+  "why_wrong": {
+   "1": "Article 19 gives the six freedoms, including speech and expression, and belongs to the Right to Freedom.",
+   "2": "Article 21 protects life and personal liberty, the article on which much of modern Indian rights law is built. Also under the Right to Freedom.",
+   "3": "Article 32 is the right to constitutional remedies, which Ambedkar called the heart and soul of the Constitution. It is the way to enforce the other rights, not a right to equality."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|17",
+  "approved": false,
+  "why_correct": "UNESCO has its headquarters in Paris, where it was founded in 1946. It is the UN agency for education, science and culture, and it maintains the World Heritage list.",
+  "why_wrong": {
+   "0": "Geneva houses the WHO, the ILO and the UN Office at Geneva, so it is a major UN city but not UNESCO's home.",
+   "1": "New York is the headquarters of the United Nations itself. The agency and the parent body are in different cities, which is the point of the question.",
+   "3": "Vienna hosts the International Atomic Energy Agency and the UN Office at Vienna."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|18",
+  "approved": false,
+  "why_correct": "Mars is the Red Planet, coloured by the iron oxide dust that covers its surface. That is simply rust, and it is visible even to the naked eye from Earth.",
+  "why_wrong": {
+   "0": "Venus is the hottest planet, veiled in thick sulphuric acid cloud, and appears whitish yellow.",
+   "2": "Jupiter is the largest planet and shows bands of cream and brown. Its Great Red Spot is a storm, not the planet's colour.",
+   "3": "Saturn is the ringed planet, pale gold in colour."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|19",
+  "approved": false,
+  "why_correct": "Mother Teresa won the Nobel Peace Prize in 1979 for her work with the destitute and dying in Kolkata. She was an Indian citizen, which is what makes her the first Indian woman to receive the prize.",
+  "why_wrong": {
+   "0": "Indira Gandhi was Prime Minister and won the Bharat Ratna, but never a Nobel Prize.",
+   "2": "Sarojini Naidu was a poet and freedom fighter called the Nightingale of India, and the first woman governor of an Indian state. Many firsts, but not this one.",
+   "3": "Kalpana Chawla was the first woman of Indian origin in space. An astronaut, not a Nobel laureate."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|20",
+  "approved": false,
+  "why_correct": "The Blue Revolution refers to the rapid growth of fish production and aquaculture in India. Blue for water, and it is associated with Dr Hiralal Chaudhuri.",
+  "why_wrong": {
+   "0": "Milk is the White Revolution, or Operation Flood, led by Dr Verghese Kurien. The best known of these colour revolutions and the usual wrong answer here.",
+   "2": "Oilseeds are the Yellow Revolution.",
+   "3": "Poultry and eggs are the Silver Revolution. It is worth learning the whole set together: green for food grains, white for milk, blue for fish, yellow for oilseeds."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|21",
+  "approved": false,
+  "why_correct": "Gujarat has the longest coastline of any Indian state, about 1,600 kilometres, because of the deeply indented shores of the Gulf of Kachchh and the Gulf of Khambhat.",
+  "why_wrong": {
+   "0": "Tamil Nadu has a long coast of roughly 1,000 kilometres, but a much straighter one.",
+   "1": "Andhra Pradesh is second at about 970 kilometres after the separation of Telangana.",
+   "3": "Maharashtra's Konkan coast runs about 720 kilometres. Note that the longest coastline of any Indian territory belongs to the Andaman and Nicobar Islands, but that is a union territory, not a state."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|22",
+  "approved": false,
+  "why_correct": "The currency of Japan is the yen. Its symbol is a Y with two strokes, and it is one of the most traded currencies in the world.",
+  "why_wrong": {
+   "0": "The won is the currency of South Korea and, separately, of North Korea.",
+   "1": "The yuan is the currency of China, more formally the renminbi. Yuan and yen are easily confused because both descend from the same Chinese word for a round coin.",
+   "3": "The ringgit is the currency of Malaysia."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|23",
+  "approved": false,
+  "why_correct": "Jawaharlal Nehru wrote The Discovery of India in 1944 while imprisoned at Ahmednagar Fort. He also wrote Glimpses of World History and an autobiography.",
+  "why_wrong": {
+   "0": "Gandhi wrote The Story of My Experiments with Truth and Hind Swaraj.",
+   "1": "Ambedkar wrote Annihilation of Caste and The Problem of the Rupee.",
+   "3": "Patel was not an author of note. Nehru is the one of these four remembered as much for his books as for his politics."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|24",
+  "approved": false,
+  "why_correct": "The Antarctic is the largest desert in the world, about 14 million square kilometres. A desert is defined by how little precipitation it receives, not by heat, and Antarctica is the driest place on Earth.",
+  "why_wrong": {
+   "0": "The Sahara, about 9 million square kilometres, is the largest hot desert, and that is the answer most people give. The question asks for the largest of all deserts, and the two polar deserts are bigger.",
+   "1": "The Gobi, in Mongolia and China, is a cold desert but far smaller, about 1.3 million square kilometres.",
+   "2": "The Arabian Desert is roughly 2.3 million square kilometres, large but well short of the Sahara, let alone Antarctica."
+  }
+ },
+ {
+  "id": "XI|All|English & General Knowledge|25",
+  "approved": false,
+  "why_correct": "The International Court of Justice sits at the Peace Palace in The Hague, in the Netherlands. It is the principal judicial organ of the United Nations and settles disputes between states.",
+  "why_wrong": {
+   "0": "Geneva houses many UN agencies but not the Court.",
+   "2": "Brussels is the seat of the European Union and of NATO, neither of which is a UN body.",
+   "3": "Washington D.C. is the headquarters of the World Bank and the IMF. Note that the ICJ is the only principal organ of the UN not based in New York."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|1",
+  "approved": false,
+  "why_correct": "Carl Linnaeus introduced binomial nomenclature in Species Plantarum in 1753, giving every organism a two-word Latin name of genus and species. He is called the father of taxonomy.",
+  "why_wrong": {
+   "0": "Aristotle made the earliest known attempt at classification, dividing animals by habitat and blood, but he used no two-word naming system.",
+   "2": "Robert Whittaker proposed the five kingdom classification in 1969, which is about grouping rather than naming.",
+   "3": "Charles Darwin explained how species arise through natural selection. He used the naming system rather than inventing it."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|2",
+  "approved": false,
+  "why_correct": "A herbarium is a store of plant specimens that have been dried, pressed and mounted on sheets, each with a label giving its name, place and date of collection. It is the reference collection a taxonomist works from.",
+  "why_wrong": {
+   "0": "A museum keeps preserved specimens of animals and plants generally, often in fluid or as skins, rather than pressed sheets.",
+   "1": "A botanical garden grows living plants for study and display. Living, not dried, which is the key difference.",
+   "3": "A zoological park keeps live animals."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|3",
+  "approved": false,
+  "why_correct": "Mitosis is called equational division because each daughter cell ends with the same chromosome number as the parent. It is how growth and repair take place.",
+  "why_wrong": {
+   "1": "Meiosis I is the reductional division, in which the chromosome number is halved.",
+   "2": "Meiosis II is equational in the sense that the number does not change again, but the cells entering it are already haploid, so it is not what this term names. The standard answer for equational division is mitosis.",
+   "3": "Amitosis is direct division without spindle or visible chromosomes, seen in some simple cells."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|4",
+  "approved": false,
+  "why_correct": "Crossing over takes place in pachytene, the third substage of prophase I. The homologous chromosomes are already paired, and the enzyme recombinase exchanges segments between non-sister chromatids.",
+  "why_wrong": {
+   "0": "In leptotene the chromosomes are only beginning to condense and have not yet paired, so there is nothing to cross over with.",
+   "1": "In zygotene the homologues pair up through synapsis. Pairing is the preparation for crossing over, not the event itself.",
+   "3": "In diplotene the paired chromosomes begin to separate and chiasmata become visible. Those chiasmata are the evidence that crossing over has already happened."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|5",
+  "approved": false,
+  "why_correct": "A nucleotide has three parts: a pentose sugar, a nitrogenous base and a phosphate group. The sugar and base alone make a nucleoside, and adding the phosphate makes it a nucleotide.",
+  "why_wrong": {
+   "0": "Sugar plus base is a nucleoside. This is the distinction the question is testing, and the phosphate is what completes it.",
+   "1": "Sugar plus phosphate forms the backbone of the chain, but without a base it carries no genetic information.",
+   "3": "Base plus phosphate is not a recognised unit. The sugar is what links the two together."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|6",
+  "approved": false,
+  "why_correct": "Amino acids join through peptide bonds, formed between the carboxyl group of one and the amino group of the next with the loss of a water molecule.",
+  "why_wrong": {
+   "0": "Glycosidic bonds link sugars into polysaccharides such as starch and cellulose.",
+   "1": "Phosphodiester bonds link nucleotides into DNA and RNA.",
+   "3": "Hydrogen bonds do hold proteins in shape, giving the alpha helix and beta sheet, but they are weak interactions and not what joins the amino acids in sequence."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|7",
+  "approved": false,
+  "why_correct": "Prokaryotic ribosomes are 70S, made of a 50S large subunit and a 30S small one. The S values do not add up arithmetically because they measure sedimentation rate, which depends on shape as well as mass.",
+  "why_wrong": {
+   "0": "80S ribosomes are found in eukaryotic cytoplasm. This is the pair to remember: 70S prokaryotic, 80S eukaryotic.",
+   "2": "60S is the large subunit of the eukaryotic 80S ribosome, not a whole ribosome.",
+   "3": "50S is the large subunit of the prokaryotic ribosome, so it is a part of the answer rather than the answer."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|8",
+  "approved": false,
+  "why_correct": "Mitochondria are the site of aerobic respiration. The Krebs cycle runs in the matrix and the electron transport chain sits in the inner membrane, which is why they are called the powerhouse of the cell.",
+  "why_wrong": {
+   "0": "Chloroplasts carry out photosynthesis, which stores energy rather than releasing it, and they occur only in plants.",
+   "1": "The endoplasmic reticulum handles protein and lipid synthesis and transport.",
+   "3": "The nucleolus makes ribosomal RNA. Note that glycolysis, the first stage of respiration, happens in the cytoplasm, but the aerobic stages are mitochondrial."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|9",
+  "approved": false,
+  "why_correct": "Lysosomes are called suicide bags because they are full of hydrolytic enzymes that can digest the cell's own contents if the membrane bursts. They also digest worn-out organelles and engulfed material.",
+  "why_wrong": {
+   "0": "The Golgi apparatus packages and dispatches proteins, and it is in fact where lysosomes are formed, which makes it a tempting answer.",
+   "2": "Mitochondria release energy and do have a role in programmed cell death, but they are not enzyme sacs.",
+   "3": "Ribosomes build proteins and have no membrane at all, so they could not contain enzymes in this way."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|10",
+  "approved": false,
+  "why_correct": "Singer and Nicolson proposed the fluid mosaic model in 1972, describing the membrane as a lipid bilayer in which proteins float like a mosaic and can move laterally.",
+  "why_wrong": {
+   "0": "Schleiden and Schwann gave the cell theory, that all plants and animals are made of cells.",
+   "2": "Robert Hooke first saw and named cells, in a slice of cork in 1665.",
+   "3": "Anton von Leeuwenhoek first observed living microorganisms with his own lenses. All three wrong options are much earlier, and membrane structure is a twentieth-century question."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|11",
+  "approved": false,
+  "why_correct": "The frog's heart has three chambers: two atria and a single ventricle. Because the ventricle is undivided, oxygenated and deoxygenated blood mix to some extent, which is typical of amphibians.",
+  "why_wrong": {
+   "1": "One atrium with two ventricles occurs in no vertebrate. It is the atria that are paired first in evolution.",
+   "2": "Two atria and two ventricles is the four-chambered heart of birds, mammals and crocodiles, which keeps the two bloodstreams completely separate.",
+   "3": "A single atrium with a single ventricle is the two-chambered heart of fishes."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|12",
+  "approved": false,
+  "why_correct": "Tendons and ligaments are dense connective tissue, in which collagen fibres are packed tightly and lie parallel. That arrangement gives great tensile strength in one direction.",
+  "why_wrong": {
+   "0": "Loose connective tissue, such as areolar tissue, has fibres scattered in abundant ground substance and fills spaces rather than bearing loads.",
+   "2": "Specialised connective tissue covers cartilage, bone, blood and adipose tissue.",
+   "3": "Vascular tissue in animals means blood and lymph. Note the difference between the two: tendons join muscle to bone, ligaments join bone to bone."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|13",
+  "approved": false,
+  "why_correct": "In a monocot stem the vascular bundles are scattered through the ground tissue and are closed, meaning they contain no cambium. Without cambium the stem cannot grow in thickness.",
+  "why_wrong": {
+   "0": "Open means cambium is present, which is a dicot feature. Scattered is right but open is wrong.",
+   "2": "Open and in a ring describes the dicot stem exactly, so this is the opposite of the answer.",
+   "3": "Closed is right but the ring is wrong. Take the two properties separately: scattered against ringed, and closed against open."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|14",
+  "approved": false,
+  "why_correct": "Lateral meristem, that is the vascular and cork cambium, produces secondary growth and so increases the girth of the stem.",
+  "why_wrong": {
+   "0": "Apical meristem sits at the tips of root and shoot and increases length, not girth.",
+   "1": "Intercalary meristem lies at the base of internodes, notably in grasses, and also adds length. It is why a lawn regrows after mowing.",
+   "3": "Parenchyma is a simple permanent tissue, not a meristem, so it does not divide to add new tissue."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|15",
+  "approved": false,
+  "why_correct": "In the pea the upper leaflets of the compound leaf are modified into tendrils, so it climbs by leaf tendrils. The rest of the leaf still photosynthesises.",
+  "why_wrong": {
+   "0": "Stem tendrils are found in plants such as the grapevine and passion flower, where the tendril arises in the axil rather than from the leaf.",
+   "2": "The pea's roots are ordinary except for their nitrogen-fixing nodules, and they play no part in climbing.",
+   "3": "Only one of these is true of the pea, so all of these is wrong."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|16",
+  "approved": false,
+  "why_correct": "The potato belongs to Solanaceae, the nightshade family, along with tomato, brinjal, chilli and tobacco. The edible potato is a stem tuber, not a root.",
+  "why_wrong": {
+   "0": "Fabaceae is the pea and bean family, whose members bear pods and fix nitrogen.",
+   "2": "Liliaceae is the lily family, which includes onion and garlic.",
+   "3": "Poaceae is the grass family, which includes rice, wheat and maize."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|17",
+  "approved": false,
+  "why_correct": "Inflorescence is the arrangement of flowers on the floral axis, and it is classified as racemose, cymose and so on according to how the axis grows.",
+  "why_wrong": {
+   "0": "Phyllotaxy is the arrangement of leaves on the stem, which is the same idea applied to leaves instead of flowers.",
+   "1": "Placentation is the arrangement of ovules inside the ovary.",
+   "3": "Venation is the pattern of veins in a leaf, reticulate in dicots and parallel in monocots."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|18",
+  "approved": false,
+  "why_correct": "Pneumatic bones, hollow and filled with air spaces connected to the lungs, are found in Aves. They reduce weight without much loss of strength and are one of the key adaptations for flight.",
+  "why_wrong": {
+   "0": "Amphibians have solid bones and no flight adaptations.",
+   "1": "Reptiles likewise have solid bones. Some extinct flying reptiles had air spaces, but the class as a whole does not.",
+   "3": "Mammals have solid bones, including bats, which fly with membranes and light limb bones but not pneumatic ones."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|19",
+  "approved": false,
+  "why_correct": "Annelids show true metameric segmentation, in which the body is divided into a series of similar segments both externally and internally. The earthworm is the standard example.",
+  "why_wrong": {
+   "0": "Platyhelminthes, the flatworms, are unsegmented, though tapeworms have repeating proglottids, which is a superficial resemblance rather than true segmentation.",
+   "1": "Aschelminthes, the roundworms, are unsegmented and have a pseudocoelom.",
+   "3": "Coelenterates such as Hydra and jellyfish have radial symmetry and no segmentation at all."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|20",
+  "approved": false,
+  "why_correct": "The water vascular system, a network of canals ending in tube feet, is unique to Echinodermata. Starfish use it for locomotion, feeding and gas exchange.",
+  "why_wrong": {
+   "0": "Porifera, the sponges, have a canal system of ostia and oscula for feeding, which is a different structure with a different purpose.",
+   "1": "Ctenophora, the comb jellies, move by rows of ciliary plates.",
+   "3": "Chordates have a closed blood vascular system, not a water vascular one."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|21",
+  "approved": false,
+  "why_correct": "In pteridophytes the sporophyte is the dominant, independent, photosynthetic plant, with true roots, stem and leaves. This is the reverse of bryophytes, where the gametophyte dominates.",
+  "why_wrong": {
+   "0": "The gametophyte in ferns is the small, short-lived prothallus, quite unlike the conspicuous fern plant.",
+   "2": "The prothallus is that gametophyte, so it is the same wrong answer named differently.",
+   "3": "The protonema is a juvenile stage of the moss gametophyte, belonging to bryophytes rather than pteridophytes."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|22",
+  "approved": false,
+  "why_correct": "Gymnosperm means naked seed. Their ovules are not enclosed in an ovary, so the seeds sit exposed on the scales of a cone, as in pine and cycad.",
+  "why_wrong": {
+   "0": "Angiosperms are the flowering plants, whose seeds are enclosed in a fruit developed from the ovary. Angio means vessel, which is the exact contrast.",
+   "2": "Pteridophytes, the ferns, produce spores and no seeds at all.",
+   "3": "Bryophytes, the mosses and liverworts, also reproduce by spores."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|23",
+  "approved": false,
+  "why_correct": "A lichen is a symbiosis of an alga and a fungus. The alga photosynthesises and feeds the partnership, while the fungus provides shelter, anchorage, water and minerals.",
+  "why_wrong": {
+   "0": "Viruses cannot live in symbiosis; they are obligate parasites and are not cellular.",
+   "2": "Fungi with the roots of higher plants form mycorrhiza, a different and equally important symbiosis. That is the classic distractor here.",
+   "3": "Lichens are indeed excellent bio-indicators of air quality, but that is a use we make of them, not the partnership they are made of."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|24",
+  "approved": false,
+  "why_correct": "R. H. Whittaker proposed the five kingdom system in 1969: Monera, Protista, Fungi, Plantae and Animalia. He used cell structure, body organisation and mode of nutrition as the criteria.",
+  "why_wrong": {
+   "0": "Carl Woese proposed the three domain system in 1990, adding Archaea as a separate domain.",
+   "1": "Ernst Mayr gave the biological species concept, defining a species by interbreeding.",
+   "3": "Alexander Fleming discovered penicillin, which is microbiology rather than taxonomy."
+  }
+ },
+ {
+  "id": "XI|Science|Biology|25",
+  "approved": false,
+  "why_correct": "Monera contains all the prokaryotes, that is bacteria, cyanobacteria, mycoplasma and archaebacteria. They have no true nucleus and no membrane-bound organelles.",
+  "why_wrong": {
+   "0": "Protista holds single-celled eukaryotes such as Amoeba, Paramecium and Euglena. Single-celled but nucleated, which is the distinction being tested.",
+   "2": "Fungi are eukaryotes with cell walls of chitin.",
+   "3": "Plantae are multicellular eukaryotes with cellulose walls and chlorophyll."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|1",
+  "approved": false,
+  "why_correct": "Boron trifluoride has three bond pairs and no lone pair on boron, so VSEPR gives a trigonal planar shape with the three fluorines spread evenly round the boron. That puts the bond angle at 120 degrees.",
+  "why_wrong": {
+   "0": "112 degrees corresponds to no regular geometry. Angles are squeezed below the ideal only when lone pairs are present, and boron here has none.",
+   "2": "104.5 degrees is the angle in water, where two lone pairs compress the bond angle.",
+   "3": "109.5 degrees is the tetrahedral angle, as in methane. Boron in BF3 has only three electron pairs, not four, so it is planar rather than tetrahedral."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|2",
+  "approved": false,
+  "why_correct": "The azimuthal quantum number l runs from 0 up to n minus 1. So for n equal to 3 the allowed values are 0, 1 and 2, giving the s, p and d subshells of the third shell.",
+  "why_wrong": {
+   "0": "Starting at 1 would leave out the s subshell, which has l equal to 0 and exists in every shell.",
+   "2": "1 to 2n gives far too many values. The number of subshells in a shell is n, not 2n.",
+   "3": "1 to n minus 2 gives no values at all for n equal to 1 or 2, yet both those shells certainly exist."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|3",
+  "approved": false,
+  "why_correct": "This is Dalton's law of partial pressures, and it is true for non-reactive gases. Each gas exerts the pressure it would exert alone, because in an ideal gas the molecules do not interact.",
+  "why_wrong": {
+   "1": "The statement is a standard gas law, not a falsehood. Note the qualifier non-reactive, which is what makes it hold.",
+   "2": "There is no partial truth here. Under the stated condition the law holds exactly for ideal gases.",
+   "3": "One of the options is correct, so none of the above does not apply."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|4",
+  "approved": false,
+  "why_correct": "Add the atomic masses: nitrogen 14.01, four hydrogens 4.03, oxygen 16.00 and the hydroxide hydrogen 1.008, giving about 35.04 amu.",
+  "why_wrong": {
+   "0": "3.50 amu is the right digits with the decimal point moved. A formula mass of 3.5 would be lighter than a lithium atom, which is impossible for a five-atom species.",
+   "1": "0.35 amu is lighter than a single hydrogen atom, so it can be ruled out on sight.",
+   "3": "3.05 amu is again far too small. A quick sanity check is worth doing: nitrogen alone is 14, so the total must be well above that."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|5",
+  "approved": false,
+  "why_correct": "In the dihydrogen molecule both electrons are paired in the sigma 1s bonding orbital, and a species with no unpaired electrons is diamagnetic, that is weakly repelled by a magnetic field.",
+  "why_wrong": {
+   "0": "Paramagnetism requires at least one unpaired electron. Oxygen is the classic paramagnetic gas; hydrogen is not.",
+   "2": "Ferrimagnetism is a property of certain solid compounds with opposed but unequal magnetic sublattices, not of a simple diatomic gas.",
+   "3": "One of the options is correct, so none of the above is wrong here."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|6",
+  "approved": false,
+  "why_correct": "F2 has 18 electrons and the peroxide ion O2 2− also has 18, so they are isoelectronic. Having the same number of electrons is why they share a bond order of 1.",
+  "why_wrong": {
+   "0": "Isomers have the same molecular formula but different arrangements. These two have different formulas altogether.",
+   "1": "Isotopes are atoms of the same element with different mass numbers. These are molecules and ions, not atoms of one element.",
+   "2": "Isotones are nuclides with the same number of neutrons. That is a nuclear classification, whereas the question is about electrons."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|7",
+  "approved": false,
+  "why_correct": "Surface tension arises because molecules at the surface are pulled inward by the attractive forces of the molecules below them, with nothing above to balance the pull. Stronger attractive forces therefore mean higher surface tension.",
+  "why_wrong": {
+   "0": "Repulsive forces act only at very short range and would tend to push a liquid apart, which is the opposite of what holds a drop together.",
+   "2": "Parallel is not a category of intermolecular force at all.",
+   "3": "Only the attractive forces determine the magnitude, so all of the above is wrong. Water's high surface tension comes from hydrogen bonding, which is strongly attractive."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|8",
+  "approved": false,
+  "why_correct": "Neon is monatomic, so 12 moles contain 12 times Avogadro's number of atoms. That is 12 times 6.022 times ten to the 23, which is 7.226 times ten to the 24.",
+  "why_wrong": {
+   "1": "72.26 times ten to the 24 is ten times too many. Check the power of ten after multiplying.",
+   "2": "0.722 times ten to the 24 is ten times too few, and it is also less than one mole's worth, which cannot be right for twelve moles.",
+   "3": "70.26 times ten to the 24 mixes up the digits as well as the power. Neon being monatomic matters here: for a diatomic gas the atom count would be doubled."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|9",
+  "approved": false,
+  "why_correct": "Carbon dioxide is O double bond C double bond O. Each double bond is two bond pairs, so there are four bond pairs in all, along with two lone pairs on each oxygen.",
+  "why_wrong": {
+   "0": "6 would be the count if all the pairs, bonding and non-bonding, on carbon and oxygen were added incorrectly. The question asks only for bond pairs.",
+   "2": "2 counts the bonds rather than the pairs. Each double bond contains two shared pairs.",
+   "3": "0 would mean the atoms were not bonded at all."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|10",
+  "approved": false,
+  "why_correct": "Molality is moles of solute per kilogram of solvent. Because it is defined by mass rather than volume, it does not change with temperature, which is why it is preferred for work over a range of temperatures.",
+  "why_wrong": {
+   "0": "Normality is gram equivalents of solute per litre of solution.",
+   "1": "Molarity is moles of solute per litre of solution. The pair to keep straight is molarity by volume of solution, molality by mass of solvent.",
+   "3": "One of the options is correct, so none of the above does not apply."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|11",
+  "approved": false,
+  "why_correct": "Four electron pairs around a central atom arrange themselves tetrahedrally, and that requires one s and three p orbitals to mix, giving sp3 hybridisation. Methane is the standard example.",
+  "why_wrong": {
+   "0": "d2sp is not a standard hybridisation, and involving d orbitals implies an expanded octet, which a simple tetrahedral molecule does not have.",
+   "2": "dsp likewise mixes in a d orbital unnecessarily. Count the electron pairs: four pairs need four orbitals, and s plus three p gives exactly four.",
+   "3": "dsp2 gives a square planar shape with four pairs, as in some transition metal complexes, but not the tetrahedral geometry asked about."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|13",
+  "approved": false,
+  "why_correct": "Across a period the nuclear charge increases while electrons are added to the same shell, so the added shielding is small and the stronger pull draws the electrons closer. The atomic radius therefore decreases from left to right.",
+  "why_wrong": {
+   "1": "Radius increases down a group, where each element adds a whole new shell. That is the trend for the other direction of the table.",
+   "2": "It does not stay constant, and the change is substantial: sodium is roughly twice the radius of chlorine.",
+   "3": "There is a clear trend, so none of the above is wrong."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|15",
+  "approved": false,
+  "why_correct": "Boyle's law states that at constant temperature the pressure of a fixed mass of gas is inversely proportional to its volume, so their product PV is constant.",
+  "why_wrong": {
+   "0": "Gay-Lussac's law relates pressure and temperature at constant volume, giving P over T constant.",
+   "1": "Avogadro's law relates volume to the number of moles, giving V over n constant.",
+   "2": "Charles's law relates volume and temperature at constant pressure, giving V over T constant. The way to tell them apart is to see which variable is missing: no T here means the temperature is held fixed, which is Boyle."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|16",
+  "approved": false,
+  "why_correct": "Sodium hydride is an ionic hydride, formed when a highly electropositive s-block metal transfers an electron to hydrogen, giving the hydride ion H minus. Such hydrides are crystalline solids.",
+  "why_wrong": {
+   "0": "Methane is a covalent hydride, formed between two non-metals of similar electronegativity.",
+   "2": "Water is also covalent, and a molecular hydride.",
+   "3": "Hydrogen peroxide is covalent as well. The pattern is that ionic hydrides come from group 1 and heavier group 2 metals, and only sodium qualifies here."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|17",
+  "approved": false,
+  "why_correct": "In a face-centred cubic cell the eight corner atoms each contribute an eighth, giving 1, and the six face atoms each contribute a half, giving 3. The total is 4 atoms per unit cell.",
+  "why_wrong": {
+   "0": "1 is the count for a simple cubic cell, which has atoms only at the corners.",
+   "1": "2 is the count for a body-centred cubic cell, one from the corners and one at the centre.",
+   "3": "6 counts the face atoms whole instead of halving them. Each face is shared between two neighbouring cells."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|18",
+  "approved": false,
+  "why_correct": "Diborane is B2H6. It is electron deficient and holds together through two three-centre two-electron banana bonds, in which a hydrogen bridges both boron atoms.",
+  "why_wrong": {
+   "0": "BH3 is borane, which does not exist as a stable free molecule and immediately dimerises to diborane.",
+   "2": "B4H10 is tetraborane, a higher member of the same family.",
+   "3": "B2O3 is boron trioxide, an oxide rather than a hydride."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|19",
+  "approved": false,
+  "why_correct": "Aluminium is amphoteric, so it dissolves in sodium hydroxide solution to give sodium aluminate and liberates hydrogen gas.",
+  "why_wrong": {
+   "0": "Oxygen is not released. There is no oxidising agent here capable of freeing it from water or hydroxide.",
+   "2": "Carbon dioxide would need a carbonate or a carbon source, and none is present.",
+   "3": "Nitrogen is not present in either reactant. Remember that most metals reacting with either an acid or an alkali give off hydrogen."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|20",
+  "approved": false,
+  "why_correct": "Lithium aluminium hydride is LiAlH4. The aluminium sits at the centre of a tetrahedral AlH4 minus ion, balanced by the lithium ion, and it is a powerful reducing agent.",
+  "why_wrong": {
+   "0": "LiAlH2 would leave aluminium with the wrong charge balance. Lithium is plus one and the complex ion must be minus one, which requires four hydrides.",
+   "2": "Li3Al2H6 does not balance to a neutral formula with aluminium in its usual plus three state.",
+   "3": "LiAlO2 is lithium aluminate, an oxide compound with no hydride at all, so it could not act as a hydride donor."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|21",
+  "approved": false,
+  "why_correct": "Lithium shows a diagonal relationship with magnesium, because moving one place right and one place down leaves the charge-to-size ratio nearly unchanged. Both form nitrides directly and both have carbonates that decompose on heating.",
+  "why_wrong": {
+   "0": "Sodium sits directly below lithium and is the next group 1 member, not the diagonal partner. Its diagonal partner would be calcium.",
+   "2": "Potassium is two places further down group 1 and is diagonally related to strontium.",
+   "3": "Rubidium is further down still. The diagonal pairs worth memorising are lithium with magnesium, beryllium with aluminium, and boron with silicon."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|22",
+  "approved": false,
+  "why_correct": "Calcium ions are essential to blood clotting, where they act as a cofactor in the clotting cascade, and calcium phosphate is the mineral that makes bone and teeth hard.",
+  "why_wrong": {
+   "0": "Magnesium ions are also biologically vital, as the centre of chlorophyll and a cofactor for many enzymes, but not for clotting or bone structure.",
+   "1": "Strontium can substitute for calcium in bone, which is why radioactive strontium is dangerous, but it plays no normal biological role.",
+   "3": "Barium ions are toxic. Barium sulphate is used as a radiographic meal only because it is insoluble and so never enters the blood."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|23",
+  "approved": false,
+  "why_correct": "Deviations appear at low temperature and high pressure. Under those conditions the molecules are close together and moving slowly, so the intermolecular attractions and the finite volume of the molecules, both ignored in the ideal gas equation, start to matter.",
+  "why_wrong": {
+   "0": "High temperature and low pressure is precisely when a real gas behaves most nearly ideally, so this has it exactly backwards.",
+   "2": "High temperature works against deviation, because fast molecules are little affected by attractions.",
+   "3": "Low pressure works against deviation too, since the molecules are then far apart. Both conditions must push the molecules together for deviation to show."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|24",
+  "approved": false,
+  "why_correct": "Hydrogen peroxide can act both ways. Oxygen in it is in the intermediate minus one state, so it can be reduced to minus two, making peroxide an oxidising agent, or oxidised to zero, making it a reducing agent.",
+  "why_wrong": {
+   "0": "Oxidising is only half the truth. Against a stronger oxidising agent such as potassium permanganate, peroxide is itself oxidised and gives off oxygen.",
+   "1": "Reducing is likewise only half. Against iodide, peroxide is the oxidising agent.",
+   "3": "One of the options is correct. The general rule is that an element in an intermediate oxidation state can usually go either way."
+  }
+ },
+ {
+  "id": "XI|Science|Chemistry|25",
+  "approved": false,
+  "why_correct": "Silicon tetrachloride hydrolyses rapidly because silicon has vacant d orbitals that let water attack it. The product is silicic acid, together with hydrogen chloride.",
+  "why_wrong": {
+   "0": "Silica, SiO2, is what remains after silicic acid is strongly heated and loses water. It is a later product, not the immediate one.",
+   "1": "Silica gel is a dried, porous form of silica used as a drying agent, further along the same path.",
+   "3": "Silicon carbide is made by heating silica with carbon at very high temperature and has nothing to do with hydrolysis. Note the contrast with carbon tetrachloride, which does not hydrolyse because carbon has no d orbitals."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|1",
+  "approved": false,
+  "why_correct": "A minus B is the part of A outside B, so the union is that part together with all of B, with no overlap between them. That gives n of A union B equal to 47 plus 326, which is 373.",
+  "why_wrong": {
+   "0": "173 is far too small. The union must be at least as large as B alone, which is already 326.",
+   "1": "273 is likewise smaller than B, so it can be ruled out without any calculation.",
+   "3": "There is a correct option, so none of these does not apply. Note that n of A is not needed at all here, and it is offered to tempt you into adding 115 and 326."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|2",
+  "approved": false,
+  "why_correct": "Statement 1 is true, since removing B from A removes exactly the elements of A that lie in B. Statement 2 is true, because every element of A either lies in B or does not. Statement 3 is false, so only 1 and 2 hold.",
+  "why_wrong": {
+   "0": "This includes statement 3, which is wrong. The correct identity is A minus B union C equals A minus B intersection A minus C, with an intersection rather than a union. This is one of De Morgan's laws for sets.",
+   "1": "Statement 2 is true, but so is statement 1, so only 2 is too narrow.",
+   "2": "This again accepts statement 3. Test it with a small example: take A as 1 and 2, B as 1 and C as 2, and the two sides come out different."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|3",
+  "approved": false,
+  "why_correct": "The domain of a relation is the set of first elements of its ordered pairs. Those first elements here are 1, 2 and 2, so the domain is the set containing 1 and 2.",
+  "why_wrong": {
+   "1": "2 and 3 mixes a first element with a second. 3 appears only as a second element, so it belongs to the range.",
+   "2": "1 and 3 makes the same mistake with 3.",
+   "3": "The whole of A would be the domain only if every element of A appeared as a first element, but 3 never does. The domain is a subset of A, not necessarily all of it."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|4",
+  "approved": false,
+  "why_correct": "The range is the set of second elements. Those are b, c and c, so the range is the set containing b and c.",
+  "why_wrong": {
+   "0": "a and b takes a as a range element, but a appears only in the first position, so it is in the domain.",
+   "2": "a and c makes the same error with a.",
+   "3": "All three would require a to appear as a second element somewhere, and it never does. Domain and range are read from opposite sides of the pairs."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|5",
+  "approved": false,
+  "why_correct": "Since cosec is the reciprocal of sin, a number plus its reciprocal equals 2 only when that number is 1. So sin theta is 1, and 1 to the hundredth plus 1 to the hundredth is 2.",
+  "why_wrong": {
+   "1": "2 to the power 100 would come from raising the whole given expression to the hundredth power, which is not what the question asks.",
+   "2": "2 to the power 99 is another version of the same mistake.",
+   "3": "There is a correct option. The key insight is that x plus 1 over x is at least 2 for positive x, with equality only at x equal to 1, so the condition pins sin theta exactly."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|6",
+  "approved": false,
+  "why_correct": "If 8 theta is pi then 7 theta is pi minus theta, and cos of pi minus theta is minus cos theta. So the sum is minus cos theta plus cos theta, which is 0.",
+  "why_wrong": {
+   "1": "Minus 1 would need the two terms to differ by 1 rather than cancel. They are exact opposites.",
+   "2": "1 would need them to be equal and each a half, which they are not.",
+   "3": "2 would need both to equal 1, which would require theta to be 0, contradicting 8 theta equal to pi. Using the supplementary identity is quicker than evaluating cos of pi over 8."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|7",
+  "approved": false,
+  "why_correct": "sin of 180 plus theta is minus sin theta, and sin of 180 minus theta is plus sin theta. Their product is minus sin squared theta, and multiplying by cosec squared theta, which is 1 over sin squared theta, gives minus 1.",
+  "why_wrong": {
+   "0": "0 would need one of the factors to vanish, but none does for general theta.",
+   "2": "1 comes from getting both signs positive. Only one of the two shifts changes the sign of sine: adding 180 does, subtracting from 180 does not.",
+   "3": "There is a definite answer, so none of these is wrong."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|9",
+  "approved": false,
+  "why_correct": "Multiplying by minus 1 rotates a complex number by half a turn. If the argument of z is negative, lying between minus pi and 0, then adding pi keeps the result within the principal range, so the difference of the arguments is pi.",
+  "why_wrong": {
+   "1": "Minus pi would be the answer if the argument of z were positive, since then pi would have to be subtracted to stay in the principal range. That is why the question specifies a negative argument.",
+   "2": "Pi over 2 is a quarter turn, which corresponds to multiplying by i, not by minus 1.",
+   "3": "Minus pi over 2 is a quarter turn the other way."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|10",
+  "approved": false,
+  "why_correct": "The modulus is a distance, so the condition says z is nearer to 4 than to 2. The dividing line is the perpendicular bisector of the segment joining them, at 3, and the nearer side to 4 is where the real part exceeds 3.",
+  "why_wrong": {
+   "0": "The real part being greater than 0 is far too wide. The point 1, for instance, satisfies it but is nearer to 2 than to 4.",
+   "1": "The real part being less than 0 is on the wrong side altogether.",
+   "3": "Greater than 2 includes points between 2 and 3, which are still nearer to 2. The boundary is the midpoint of 2 and 4, which is 3, not 2."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|11",
+  "approved": false,
+  "why_correct": "The number minus 4 lies on the negative real axis, so its amplitude, measured from the positive real axis, is pi.",
+  "why_wrong": {
+   "0": "Pi over 2 is the positive imaginary axis, which would be a purely imaginary number such as 4i.",
+   "1": "Pi over 3 would need equal-signed real and imaginary parts in a particular ratio, but this number has no imaginary part at all.",
+   "3": "Pi over 6 likewise requires an imaginary part. Sketching the point on the Argand plane settles this immediately."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|12",
+  "approved": false,
+  "why_correct": "The sum of the roots is 5, so beta is 5 minus alpha. Putting that into 3 alpha plus 2 beta equal to 12 gives alpha equal to 2, so beta is 3, and K is the product, 6.",
+  "why_wrong": {
+   "0": "5 is the sum of the roots, not their product. The coefficient of x gives the sum and the constant gives the product.",
+   "2": "8 would need roots multiplying to 8 and adding to 5, and no such pair satisfies the extra condition.",
+   "3": "10 similarly fails. Check any answer by confirming that both the sum condition and the given relation hold."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|13",
+  "approved": false,
+  "why_correct": "For every real x, x squared is at least 0 and 3 times the modulus of x is at least 0, so the left side is at least 2 and can never be 0. There are no real solutions.",
+  "why_wrong": {
+   "1": "1 would require the expression to touch zero exactly once, but its smallest value is 2, at x equal to 0.",
+   "2": "2 is what you would get by treating this as x squared plus 3x plus 2, forgetting the modulus. That version does have two roots, minus 1 and minus 2, but both are negative and the modulus rules them out.",
+   "3": "4 would be the count if the modulus produced two quadratics each with two roots, but neither branch has real roots here."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|14",
+  "approved": false,
+  "why_correct": "Let the roots be alpha and 2 alpha. Their sum is 3 alpha, which equals minus 2b over a, and their product is 2 alpha squared, which equals c over a. Eliminating alpha between the two gives 8b squared equal to 9ac.",
+  "why_wrong": {
+   "0": "4b squared equal to ac has the wrong numerical factors. Both the 3 from the sum and the 2 from the product must survive into the final relation.",
+   "1": "4b squared equal to 3ac is the result of squaring only part of the substitution.",
+   "2": "b squared equal to 9ac drops the factor from the doubled root in the product. A useful check is that the relation must reduce correctly when the two roots are equal, which is a separate condition."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|16",
+  "approved": false,
+  "why_correct": "The first inequality gives x between minus 4 and 6. The second gives x at most minus 2 or at least 2. Both must hold, so the answer is the part of minus 4 to 6 that survives, namely minus 4 to minus 2 together with 2 to 6.",
+  "why_wrong": {
+   "0": "The symbol here is intersection, but those two intervals have no point in common, so the intersection would be empty. The two pieces are joined by union.",
+   "2": "The empty set is wrong, since x equal to 3 satisfies both conditions.",
+   "3": "Only the negative piece leaves out the whole of 2 to 6, which also satisfies both. The modulus condition on x alone splits into two branches, and both must be kept."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|17",
+  "approved": false,
+  "why_correct": "The inequality says the modulus of x minus 4 is less than 2, which gives x between 2 and 6. Since x equal to 4 is excluded by the question, the solution is 2 to 4 together with 4 to 6.",
+  "why_wrong": {
+   "0": "The open interval from 2 to 6 forgets to remove 4, where the expression is undefined.",
+   "2": "Extending to infinity is wrong. Large values of x make the fraction small, so the inequality fails there.",
+   "3": "Extending to minus infinity is wrong for the same reason. Multiplying an inequality by a modulus is safe here because the modulus is positive, but the excluded point must still be removed."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|18",
+  "approved": false,
+  "why_correct": "Writing both permutations as factorials, the ratio simplifies to n plus 5 times n plus 4, all over 4. Setting that equal to 11 times n minus 1 over 2 gives the quadratic n squared minus 13n plus 42 equal to 0, whose roots are 6 and 7. Of these, 6 is the option offered.",
+  "why_wrong": {
+   "0": "5 does not satisfy the equation. Substituting it gives 90 over 4 on the left and 22 on the right.",
+   "2": "8 fails as well, since the quadratic factorises as n minus 6 times n minus 7.",
+   "3": "10 is far outside the solution set. Always simplify the permutation ratio to a small product before solving, rather than expanding the factorials."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|19",
+  "approved": false,
+  "why_correct": "Every such number has four digits with the thousands digit 1, 2 or 3, giving 3 choices. Each of the other three digits may be any of the five, giving 5 cubed, that is 125. So the count is 3 times 125, which is 375.",
+  "why_wrong": {
+   "0": "125 counts only one choice of leading digit instead of three.",
+   "1": "105 does not arise from any correct counting here and looks like an arithmetic slip.",
+   "3": "625 is 5 to the fourth, which would allow 0 and 4 as leading digits too. That would let in numbers below 1000 and at or above 4000, both excluded."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|20",
+  "approved": false,
+  "why_correct": "If nCr equals nCs with r not equal to s, then r plus s equals n. Here 2 plus 3 gives n equal to 5, and 5C4 is 5.",
+  "why_wrong": {
+   "0": "3 would be the answer if n were smaller, but the condition fixes n at 5.",
+   "1": "4 comes from confusing the answer with the lower index. 5C4 equals 5C1, which is 5.",
+   "3": "7 does not arise from any correct step. The identity to remember is nCr equals nC n minus r."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|22",
+  "approved": false,
+  "why_correct": "The function is 1 for positive x and minus 1 for negative x. So f of x and f of minus x are always opposite in sign, their difference is plus or minus 2, and its modulus is 2.",
+  "why_wrong": {
+   "0": "0 would require f to be an even function, taking the same value at x and minus x. This function is odd instead.",
+   "1": "1 is the value of the function itself for positive x, not of the difference.",
+   "2": "Minus 1 cannot be right, since the question takes a modulus and a modulus is never negative."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|23",
+  "approved": false,
+  "why_correct": "Approaching 0 from the right the expression is 1, and from the left it is minus 1. The one-sided limits differ, so the limit does not exist.",
+  "why_wrong": {
+   "0": "0 would need the function to approach zero, but it only ever takes the values 1 and minus 1.",
+   "1": "Minus 1 is the left-hand limit alone. A limit exists only if both sides agree.",
+   "2": "1 is the right-hand limit alone, and the same objection applies. Whenever a modulus sits over the variable at the point in question, check both sides separately."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|24",
+  "approved": false,
+  "why_correct": "At x equal to 3 the expression is 0 over 0, so rationalise the numerator. Multiplying above and below by the sum of the roots gives x squared minus 9 over x minus 3 times the sum, which cancels to x plus 3 over the sum, and at x equal to 3 that is 6 over 2 root 19, or 3 over root 19.",
+  "why_wrong": {
+   "0": "0 would be the answer only if the numerator vanished faster than the denominator, but here they vanish at the same rate.",
+   "1": "6 over root 19 forgets to halve when the two square roots in the denominator are added at x equal to 3. Each is root 19, so the sum is 2 root 19.",
+   "3": "Root 19 over 6 is the correct answer turned upside down."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|1",
+  "approved": false,
+  "why_correct": "Power is work divided by time. Work has dimensions ML2T−2, so dividing by T gives ML2T−3.",
+  "why_wrong": {
+   "1": "MLT is not the dimension of any standard quantity, and it carries no negative power of time, which every rate must have.",
+   "2": "ML2T2 has time in the numerator rather than the denominator. Power is energy per unit time, so T must appear as a negative power.",
+   "3": "M2LT3 squares the mass, and no mechanical quantity of this kind depends on mass squared."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|2",
+  "approved": false,
+  "why_correct": "Torque plays the same role in rotation that force plays in straight-line motion: it is what produces angular acceleration. The rotational form of Newton's second law is torque equals moment of inertia times angular acceleration.",
+  "why_wrong": {
+   "0": "The rotational analogue of mass is moment of inertia, since both measure resistance to a change of motion.",
+   "1": "The rotational analogue of linear momentum is angular momentum, not torque. Torque is what changes angular momentum, just as force changes momentum.",
+   "3": "Kinetic energy has a rotational form of its own, half I omega squared, but energy is not the analogue of torque."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|3",
+  "approved": false,
+  "why_correct": "Instantaneous power is the dot product of force and velocity, P equals F dot v. It follows from power being the rate of doing work and work being force dot displacement.",
+  "why_wrong": {
+   "0": "Mass times velocity is momentum, which is a vector, not power.",
+   "2": "Torque times time gives angular impulse, which equals the change in angular momentum.",
+   "3": "Force dot displacement is work itself, not power. Power is the rate at which that work is done, so a division by time is still needed."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|4",
+  "approved": false,
+  "why_correct": "To just complete a vertical loop the string must stay taut at the top, so the minimum speed there is root gr. Using energy conservation between top and bottom, with a height difference of 2r, gives the minimum speed at the lowest point as root 5gr.",
+  "why_wrong": {
+   "0": "Root gr is the minimum speed at the highest point, where gravity alone supplies the centripetal force. The question asks about the lowest point.",
+   "1": "Root 3gr is the minimum speed at the side of the loop, at the level of the centre.",
+   "3": "Root 2gr is the speed gained by falling through a height r, which is not the condition here. The three heights give three different answers, so identify the point first."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|5",
+  "approved": false,
+  "why_correct": "Friction is non-conservative because the work it does depends on the path taken, not just on the endpoints, and the energy it removes is lost as heat rather than stored.",
+  "why_wrong": {
+   "0": "Gravity is conservative. Work done against it is stored as potential energy and can be recovered in full.",
+   "1": "The electrostatic force is conservative too, with its own potential energy.",
+   "3": "The elastic force of a spring is conservative, storing energy as half k x squared and giving it back. The test is whether the work round a closed path is zero, and only friction fails it."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|7",
+  "approved": false,
+  "why_correct": "The work-energy theorem states that the net work done on a body equals the change in its kinetic energy. It follows directly from Newton's second law and holds whether the forces are conservative or not.",
+  "why_wrong": {
+   "0": "The change in potential energy equals the negative of the work done by a conservative force alone. The theorem concerns the net work of all forces.",
+   "2": "Change in momentum equals impulse, that is force times time, which is a different theorem.",
+   "3": "Acceleration is not an energy at all, so it cannot equal a quantity of work."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|8",
+  "approved": false,
+  "why_correct": "The spring force is kx, and it grows from zero as the spring stretches. The work done is the area under the force-extension graph, a triangle of base x and height kx, which gives half k x squared.",
+  "why_wrong": {
+   "0": "kx is the force at extension x, not the energy stored.",
+   "1": "Half kx has the dimensions of force, since the half changes nothing dimensionally. Energy needs x squared.",
+   "3": "kx squared is twice the correct value. It is what you would get by treating the force as constant at kx throughout, forgetting that it started at zero."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|9",
+  "approved": false,
+  "why_correct": "The angle of repose is the greatest incline on which a body just stays at rest, and setting the component of gravity along the slope equal to limiting friction gives tan of that angle equal to the coefficient of friction. Since the angle of friction has the same tangent, the two angles are equal.",
+  "why_wrong": {
+   "1": "90 degrees would be a vertical surface, on which nothing could rest by friction alone.",
+   "2": "0 degrees would mean nothing could rest even on level ground.",
+   "3": "The angle of banking concerns a road curved to help a vehicle turn. Related in that it also involves a tangent, but a different quantity."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|10",
+  "approved": false,
+  "why_correct": "Limiting friction is the largest value static friction can reach, just before the body begins to slide. Beyond that point the friction becomes kinetic and drops slightly.",
+  "why_wrong": {
+   "0": "Kinetic friction acts once the body is already sliding, and it is smaller than the limiting value.",
+   "1": "Rolling friction acts when one body rolls over another, and it is smaller again than either.",
+   "3": "Dynamic friction is another name for kinetic friction, so it names motion already under way rather than the threshold before it."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|11",
+  "approved": false,
+  "why_correct": "Static friction is self-adjusting: it takes whatever value is needed to balance the applied force and keep the body at rest, growing as the applied force grows, up to the limiting value.",
+  "why_wrong": {
+   "0": "Kinetic friction is very nearly constant once sliding begins, and does not adjust itself to the applied force.",
+   "2": "Rolling friction is also roughly constant for a given pair of surfaces.",
+   "3": "Sliding friction is another name for kinetic friction, and is likewise fixed rather than self-adjusting."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|12",
+  "approved": false,
+  "why_correct": "From E equals h nu, h is energy divided by frequency. Energy is ML2T−2 and frequency is T−1, so h has dimensions ML2T−1, which is the same as angular momentum.",
+  "why_wrong": {
+   "1": "MLT−2 is the dimension of force.",
+   "2": "ML2T−2 is energy itself, which is what you get by forgetting to divide by frequency.",
+   "3": "M2L2T−1 squares the mass, and nothing in E equals h nu introduces a mass squared."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|13",
+  "approved": false,
+  "why_correct": "A carousel is accelerating, since its riders are continually changing direction, so a frame fixed to it is non-inertial. Newton's laws do not hold in it unless pseudo-forces such as the centrifugal force are introduced.",
+  "why_wrong": {
+   "0": "An inertial frame is one at rest or moving with constant velocity. Circular motion involves centripetal acceleration, so the frame cannot be inertial.",
+   "2": "There is no absolute frame in mechanics. Newton proposed one, but it plays no part in this classification.",
+   "3": "Linear is not a category of reference frame. Frames are either inertial or non-inertial."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|14",
+  "approved": false,
+  "why_correct": "The slope of a position-time graph is the change in position divided by the change in time, which is precisely the definition of velocity.",
+  "why_wrong": {
+   "0": "Acceleration is the slope of a velocity-time graph, one derivative further on.",
+   "1": "Displacement is read off the vertical axis directly, not from the slope.",
+   "3": "Momentum is mass times velocity, and a graph of position against time carries no information about mass."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|15",
+  "approved": false,
+  "why_correct": "Constant speed in a straight line means the velocity is unchanging in both size and direction, so the rate of change of velocity is zero and there is no acceleration.",
+  "why_wrong": {
+   "0": "Positive acceleration would mean the speed was increasing, which contradicts constant speed.",
+   "1": "Negative acceleration would mean it was slowing down. Careful: constant speed on a curved path does involve acceleration, because the direction changes, but here the path is straight.",
+   "3": "Infinite acceleration has no physical meaning and would require an infinite force."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|16",
+  "approved": false,
+  "why_correct": "At the top of its path the projectile has stopped rising and has not yet begun to fall, so its vertical velocity is momentarily zero. The horizontal velocity, however, is unchanged throughout.",
+  "why_wrong": {
+   "0": "The vertical velocity is greatest at launch and at landing, not at the peak.",
+   "2": "The horizontal velocity does continue at the top, and it equals the initial horizontal component, but the question asks about the vertical velocity, which is zero.",
+   "3": "g is an acceleration, not a velocity. The acceleration at the top is still g downward, which is exactly why the projectile does not stay there."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|17",
+  "approved": false,
+  "why_correct": "The first law says a body continues at rest or in uniform motion unless a force acts on it. That statement defines force, as the thing that changes the state of motion, and introduces inertia, as the tendency to resist that change.",
+  "why_wrong": {
+   "1": "Momentum is defined in connection with the second law, which relates force to the rate of change of momentum.",
+   "2": "Kinetic energy comes from the work-energy theorem, not from any of Newton's three laws directly.",
+   "3": "Work is defined separately, as force times displacement along the force."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|18",
+  "approved": false,
+  "why_correct": "For a uniform solid cylinder about its own long axis the moment of inertia is half MR squared, the same as for a solid disc, since a cylinder is a stack of discs about the same axis.",
+  "why_wrong": {
+   "0": "MR squared is the moment of inertia of a thin ring or hollow cylinder, where all the mass sits at the rim. A solid cylinder has mass nearer the axis, so its value must be smaller.",
+   "2": "Two fifths MR squared belongs to a solid sphere.",
+   "3": "Two thirds MR squared belongs to a hollow sphere."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|20",
+  "approved": false,
+  "why_correct": "Leading zeros are never significant, but trailing zeros after a decimal point are. So in 0.005020 the digits 5, 0, 2 and the final 0 count, giving four significant figures.",
+  "why_wrong": {
+   "0": "3 comes from dropping the final zero. That zero is written deliberately after the decimal point and does carry information about precision.",
+   "2": "5 counts one of the leading zeros, which merely fix the position of the decimal point.",
+   "3": "6 counts every digit shown, including both leading zeros."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|21",
+  "approved": false,
+  "why_correct": "Volume goes as the cube of the radius, and for a product or power the percentage errors add with the power as a multiplier. So the error in volume is three times 2 per cent, that is 6 per cent.",
+  "why_wrong": {
+   "0": "2 per cent would be right if volume were proportional to radius itself.",
+   "1": "4 per cent corresponds to squaring, which is the error in surface area, not volume.",
+   "3": "8 per cent would come from cubing the error rather than multiplying it by three. The rule is to multiply the percentage error by the power, not to raise it to that power."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|22",
+  "approved": false,
+  "why_correct": "The candela is the SI base unit of luminous intensity. The seven base units are the metre, kilogram, second, ampere, kelvin, mole and candela.",
+  "why_wrong": {
+   "0": "The joule is a derived unit of energy, equal to a newton metre.",
+   "1": "The newton is derived, equal to kilogram metre per second squared.",
+   "3": "The watt is derived, equal to a joule per second. All three of the wrong options are named after scientists and are derived; the candela is the odd one out."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|23",
+  "approved": false,
+  "why_correct": "Torque is force times perpendicular distance, so its dimensions are ML2T−2, exactly those of work. The two are physically different, one a vector and the other a scalar, but dimensionally identical.",
+  "why_wrong": {
+   "0": "Momentum has dimensions MLT−1.",
+   "1": "Force has dimensions MLT−2, one power of length short.",
+   "2": "Power has an extra division by time, giving ML2T−3. This question is a reminder that equal dimensions do not mean equal quantities."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|24",
+  "approved": false,
+  "why_correct": "Starting from rest, s equals half a t squared, so displacement is proportional to the square of the time. Doubling the time quadruples the distance covered.",
+  "why_wrong": {
+   "0": "Displacement proportional to t describes uniform velocity, that is no acceleration at all.",
+   "2": "Root t would mean the body covered ground ever more slowly, which is the reverse of accelerating.",
+   "3": "t cubed would require the acceleration itself to be increasing steadily, but here it is uniform."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|25",
+  "approved": false,
+  "why_correct": "Drawing the hands back lengthens the time over which the ball is stopped. Since impulse equals force times time and the impulse is fixed by the ball's momentum, a longer time means a smaller force on the hands.",
+  "why_wrong": {
+   "0": "The impulse is not reduced. It is fixed by the change in the ball's momentum, which must be brought to zero however the catch is made.",
+   "2": "The ball's momentum is likewise fixed by its mass and speed on arrival, and all of it must be removed.",
+   "3": "The time of catch is increased, not reduced, and that increase is exactly the mechanism. This is the same principle as crumple zones in cars and mattresses under high jumpers."
+  }
  }
 ]

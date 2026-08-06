@@ -6,8 +6,10 @@
   "trick": "Every longitude sum reduces to one number: four minutes. The Earth turns 360 degrees in 24 hours, so one degree of longitude is four minutes of time. Multiply the difference in degrees by four and you have the difference in minutes, every time.",
   "video": {
    "query": "latitude longitude time zones standard meridian calculation class 9 geography",
-   "video_id": null,
-   "approved": false
+   "video_id": "mar1mJv_mdM",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "15 min"
   },
   "interactive": {
    "template": "step-solve",
@@ -66,8 +68,10 @@
   "trick": "Endo means inside, exo means outside. Anything driven by heat and movement inside the Earth, folding, faulting, volcanoes, earthquakes, is endogenetic and builds land up. Anything driven by weather at the surface wears it down.",
   "video": {
    "query": "endogenetic and exogenetic forces folding faulting volcanoes class 9 geography",
-   "video_id": null,
-   "approved": false
+   "video_id": "uGtz5DtQJGg",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "10 min"
   },
   "interactive": {
    "template": "odd-one-out",

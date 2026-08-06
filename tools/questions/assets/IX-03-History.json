@@ -4,18 +4,43 @@
   "chapter": "Congress of Vienna and Revolutionary Europe (1815-1848)",
   "approved": false,
   "trick": "Three dates carry this whole chapter: 1815 Vienna puts the old kings back, 1830 shakes them, 1848 nearly sweeps them away. Metternich is the thread running through all three, and when he flees in 1848 the age he built ends with him.",
-  "video": { "query": "Congress of Vienna 1815 Metternich revolutions of 1830 and 1848 explained", "video_id": null, "approved": false },
+  "video": {
+   "query": "Congress of Vienna 1815 Metternich revolutions of 1830 and 1848 explained",
+   "video_id": "HyN78-m3arE",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "02:30",
+   "start": "02:30"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put these events of revolutionary Europe back into chronological order.",
     "items": [
-     { "label": "Napoleon is defeated at Waterloo", "note": "1815" },
-     { "label": "The Congress of Vienna redraws the map of Europe", "note": "1815, under Metternich, on the principles of legitimacy and balance of power" },
-     { "label": "Greece wins independence from the Ottoman Empire", "note": "Recognised 1832, after a war begun in 1821" },
-     { "label": "The July Revolution overthrows Charles X in France", "note": "1830" },
-     { "label": "The February Revolution makes France a republic again", "note": "1848" },
-     { "label": "Metternich is driven from Vienna and flees to England", "note": "1848, the year of revolutions across Europe" }
+     {
+      "label": "Napoleon is defeated at Waterloo",
+      "note": "1815"
+     },
+     {
+      "label": "The Congress of Vienna redraws the map of Europe",
+      "note": "1815, under Metternich, on the principles of legitimacy and balance of power"
+     },
+     {
+      "label": "Greece wins independence from the Ottoman Empire",
+      "note": "Recognised 1832, after a war begun in 1821"
+     },
+     {
+      "label": "The July Revolution overthrows Charles X in France",
+      "note": "1830"
+     },
+     {
+      "label": "The February Revolution makes France a republic again",
+      "note": "1848"
+     },
+     {
+      "label": "Metternich is driven from Vienna and flees to England",
+      "note": "1848, the year of revolutions across Europe"
+     }
     ]
    }
   }
@@ -25,18 +50,42 @@
   "chapter": "Industrial Revolution, Colonialism and Imperialism",
   "approved": false,
   "trick": "Follow the cotton and the chain explains itself. Machines in Britain needed raw cotton, so colonies were made to grow it; the same machines made cloth faster than Britain could wear, so colonies were made to buy it. Industry created the empire, not the other way round.",
-  "video": { "query": "Industrial Revolution inventions colonialism and imperialism class 9 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "Industrial Revolution inventions colonialism and imperialism class 9 history",
+   "video_id": "s5FL8By5we8",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "45 min"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each invention of the Industrial Revolution with the person who made it.",
     "pairs": [
-     { "left": "Spinning Jenny", "right": "James Hargreaves" },
-     { "left": "Water frame", "right": "Richard Arkwright" },
-     { "left": "Improved steam engine", "right": "James Watt" },
-     { "left": "Power loom", "right": "Edmund Cartwright" },
-     { "left": "Cotton gin", "right": "Eli Whitney" },
-     { "left": "Steam locomotive Rocket", "right": "George Stephenson" }
+     {
+      "left": "Spinning Jenny",
+      "right": "James Hargreaves"
+     },
+     {
+      "left": "Water frame",
+      "right": "Richard Arkwright"
+     },
+     {
+      "left": "Improved steam engine",
+      "right": "James Watt"
+     },
+     {
+      "left": "Power loom",
+      "right": "Edmund Cartwright"
+     },
+     {
+      "left": "Cotton gin",
+      "right": "Eli Whitney"
+     },
+     {
+      "left": "Steam locomotive Rocket",
+      "right": "George Stephenson"
+     }
     ]
    }
   }
@@ -46,14 +95,36 @@
   "chapter": "Russia: Tsarist Rule to the USSR",
   "approved": false,
   "trick": "Russia has two revolutions in one year and students lose marks by merging them. February 1917 removes the Tsar and gives a Provisional Government; October 1917 removes that government and gives the Bolsheviks. February ends the monarchy, October begins communism.",
-  "video": { "query": "Russian Revolution 1917 February October Bolsheviks Lenin class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "Russian Revolution 1917 February October Bolsheviks Lenin class 9",
+   "video_id": "1UoqMwaY_fg",
+   "approved": true,
+   "language": "HINDI",
+   "duration": "20 min"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete the account of the Russian Revolution. Two words in the bank are decoys.",
     "text": "The Russian parliament created after 1905 was called the {1}. Workers and soldiers organised themselves into councils known as {2}. The radical party led by Lenin was the {3}, whose slogan promised peace, land and {4}. Wealthy peasants, whom the state later attacked, were called {5}. In 1921 Lenin allowed a limited return to private trade under the {6}.",
-    "answers": ["Duma", "soviets", "Bolsheviks", "bread", "kulaks", "New Economic Policy"],
-    "bank": ["Duma", "soviets", "Bolsheviks", "bread", "kulaks", "New Economic Policy", "Mensheviks", "Politburo"]
+    "answers": [
+     "Duma",
+     "soviets",
+     "Bolsheviks",
+     "bread",
+     "kulaks",
+     "New Economic Policy"
+    ],
+    "bank": [
+     "Duma",
+     "soviets",
+     "Bolsheviks",
+     "bread",
+     "kulaks",
+     "New Economic Policy",
+     "Mensheviks",
+     "Politburo"
+    ]
    }
   }
  },
@@ -62,21 +133,54 @@
   "chapter": "Twentieth Century Europe: Depression, Fascism and Nazism",
   "approved": false,
   "trick": "Keep the two dictators apart by country and by word. Mussolini, Italy, Fascism, the Blackshirts, Il Duce, 1922. Hitler, Germany, Nazism, the Brownshirts, Der Fuhrer, 1933. Mussolini comes first and Hitler copies him.",
-  "video": { "query": "rise of fascism in Italy and nazism in Germany great depression class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "rise of fascism in Italy and nazism in Germany great depression class 9",
+   "video_id": "v7yZ4a4NLig",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "50 min"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Italy or Germany? Sort each detail into the right bin.",
-    "bins": ["Mussolini's Italy", "Hitler's Germany"],
+    "bins": [
+     "Mussolini's Italy",
+     "Hitler's Germany"
+    ],
     "items": [
-     { "label": "The March on Rome brought the leader to power in 1922", "bin": "Mussolini's Italy" },
-     { "label": "The leader was called Il Duce", "bin": "Mussolini's Italy" },
-     { "label": "The party militia were the Blackshirts", "bin": "Mussolini's Italy" },
-     { "label": "The leader became Chancellor in 1933", "bin": "Hitler's Germany" },
-     { "label": "The leader was called Der Fuhrer", "bin": "Hitler's Germany" },
-     { "label": "The Nuremberg Laws stripped Jews of citizenship", "bin": "Hitler's Germany" },
-     { "label": "The Treaty of Versailles and its war guilt clause fed the leader's rise", "bin": "Hitler's Germany" },
-     { "label": "The party militia were the Brownshirts", "bin": "Hitler's Germany" }
+     {
+      "label": "The March on Rome brought the leader to power in 1922",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The leader was called Il Duce",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The party militia were the Blackshirts",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The leader became Chancellor in 1933",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The leader was called Der Fuhrer",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The Nuremberg Laws stripped Jews of citizenship",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The Treaty of Versailles and its war guilt clause fed the leader's rise",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The party militia were the Brownshirts",
+      "bin": "Hitler's Germany"
+     }
     ]
    }
   }

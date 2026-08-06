@@ -4,18 +4,40 @@
   "chapter": "Control and Coordination in Plants and Animals",
   "approved": false,
   "trick": "Nerves are fast and local, hormones are slow and everywhere. Touch a hot pan and the nerve answers in milliseconds; grow taller and a hormone has been at work for years. If the response is instant, look for a nerve; if it lasts, look for a hormone.",
-  "video": { "query": "control and coordination hormones nervous system class 10 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "control and coordination hormones nervous system class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each hormone with what it does.",
     "pairs": [
-     { "left": "Insulin", "right": "Lowers blood glucose; too little causes diabetes" },
-     { "left": "Thyroxine", "right": "Controls the rate of metabolism; needs iodine" },
-     { "left": "Adrenaline", "right": "The emergency hormone of fight or flight" },
-     { "left": "Auxin", "right": "Plant hormone behind bending towards light" },
-     { "left": "Gibberellin", "right": "Plant hormone causing stems to elongate" },
-     { "left": "Abscisic acid", "right": "Plant hormone of stress; closes stomata and drops leaves" }
+     {
+      "left": "Insulin",
+      "right": "Lowers blood glucose; too little causes diabetes"
+     },
+     {
+      "left": "Thyroxine",
+      "right": "Controls the rate of metabolism; needs iodine"
+     },
+     {
+      "left": "Adrenaline",
+      "right": "The emergency hormone of fight or flight"
+     },
+     {
+      "left": "Auxin",
+      "right": "Plant hormone behind bending towards light"
+     },
+     {
+      "left": "Gibberellin",
+      "right": "Plant hormone causing stems to elongate"
+     },
+     {
+      "left": "Abscisic acid",
+      "right": "Plant hormone of stress; closes stomata and drops leaves"
+     }
     ]
    }
   }
@@ -25,18 +47,42 @@
   "chapter": "Continuity of Life: Cell Division and Reproduction",
   "approved": false,
   "trick": "Mitosis copies, meiosis halves. Mitosis makes two cells identical to the parent for growth and repair; meiosis makes four cells with half the chromosomes, for gametes. Count the products and the chromosome number and you can never confuse them.",
-  "video": { "query": "mitosis meiosis stages prophase metaphase anaphase telophase class 10 biology", "video_id": null, "approved": false },
+  "video": {
+   "query": "mitosis meiosis stages prophase metaphase anaphase telophase class 10 biology",
+   "video_id": "wDw7svOz17s",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the stages of mitosis into the order they happen.",
     "items": [
-     { "label": "Interphase", "note": "The cell grows and the DNA is copied; not part of division proper" },
-     { "label": "Prophase", "note": "Chromosomes condense and become visible; the nuclear membrane starts to break down" },
-     { "label": "Metaphase", "note": "Chromosomes line up along the equator of the cell" },
-     { "label": "Anaphase", "note": "Sister chromatids are pulled apart to opposite poles" },
-     { "label": "Telophase", "note": "Two new nuclear membranes form around the separated sets" },
-     { "label": "Cytokinesis", "note": "The cytoplasm divides and two daughter cells exist" }
+     {
+      "label": "Interphase",
+      "note": "The cell grows and the DNA is copied; not part of division proper"
+     },
+     {
+      "label": "Prophase",
+      "note": "Chromosomes condense and become visible; the nuclear membrane starts to break down"
+     },
+     {
+      "label": "Metaphase",
+      "note": "Chromosomes line up along the equator of the cell"
+     },
+     {
+      "label": "Anaphase",
+      "note": "Sister chromatids are pulled apart to opposite poles"
+     },
+     {
+      "label": "Telophase",
+      "note": "Two new nuclear membranes form around the separated sets"
+     },
+     {
+      "label": "Cytokinesis",
+      "note": "The cytoplasm divides and two daughter cells exist"
+     }
     ]
    }
   }
@@ -46,7 +92,11 @@
   "chapter": "Heredity and Common Genetic Diseases",
   "approved": false,
   "trick": "Draw the Punnett square every time, even when you think you know. Two minutes of grid beats a guessed ratio, and the two ratios worth knowing by heart are 3:1 for a monohybrid cross and 9:3:3:1 for a dihybrid.",
-  "video": { "query": "Mendel monohybrid cross Punnett square 3:1 ratio class 10 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "Mendel monohybrid cross Punnett square 3:1 ratio class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -55,25 +105,41 @@
     "steps": [
      {
       "ask": "What are the genotypes of the F1 plants?",
-      "options": ["All TT", "All Tt", "Half TT and half tt"],
+      "options": [
+       "All TT",
+       "All Tt",
+       "Half TT and half tt"
+      ],
       "correct": 1,
       "why": "Each parent can give only one kind of gamete, T from TT and t from tt, so every F1 plant must be Tt."
      },
      {
       "ask": "So what do all the F1 plants look like?",
-      "options": ["All tall", "All dwarf", "Half tall, half dwarf"],
+      "options": [
+       "All tall",
+       "All dwarf",
+       "Half tall, half dwarf"
+      ],
       "correct": 0,
       "why": "T is dominant over t, so a Tt plant is tall. The dwarf character has not vanished, only been masked."
      },
      {
       "ask": "Crossing Tt with Tt, what genotypes appear in the F2?",
-      "options": ["TT, Tt, Tt, tt", "TT and tt only", "All Tt"],
+      "options": [
+       "TT, Tt, Tt, tt",
+       "TT and tt only",
+       "All Tt"
+      ],
       "correct": 0,
       "why": "The Punnett square of Tt × Tt gives one TT, two Tt and one tt, that is a genotypic ratio of 1:2:1."
      },
      {
       "ask": "What is the ratio of tall to dwarf plants?",
-      "options": ["1:1", "3:1", "9:3:3:1"],
+      "options": [
+       "1:1",
+       "3:1",
+       "9:3:3:1"
+      ],
       "correct": 1,
       "why": "TT, Tt and Tt are all tall and only tt is dwarf, so three tall to one dwarf. Note the genotypic ratio is 1:2:1 but the phenotypic ratio is 3:1; questions ask for one or the other, so read carefully."
      }
@@ -87,17 +153,41 @@
   "chapter": "Evolution and Adaptation",
   "approved": false,
   "trick": "Nothing evolves because it wants to. Variation comes first, by chance, and the environment then decides which variations survive. Any explanation that has an animal deciding to change is Lamarck's, and Lamarck was wrong.",
-  "video": { "query": "evolution Darwin natural selection adaptation class 10 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "evolution Darwin natural selection adaptation class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about evolution.",
     "items": [
-     { "statement": "Darwin's theory explains evolution by natural selection acting on existing variation.", "is_true": true, "why": "Variation arises first and by chance; the environment then selects. This is the heart of On the Origin of Species, 1859." },
-     { "statement": "A giraffe's neck grew long because its ancestors kept stretching for high leaves.", "is_true": false, "why": "That is Lamarck's inheritance of acquired characters, which is rejected. Stretching in one lifetime does not change the gametes." },
-     { "statement": "Homologous organs have the same basic structure but may do different jobs.", "is_true": true, "why": "A human arm, a bat's wing and a whale's flipper share a bone plan, which is evidence of common ancestry." },
-     { "statement": "Analogous organs are evidence of common ancestry.", "is_true": false, "why": "Analogous organs do the same job with quite different structures, such as an insect's wing and a bird's wing. They show convergent evolution, not shared descent." },
-     { "statement": "Fossils are direct evidence for evolution.", "is_true": true, "why": "The deeper the layer, the older and usually the simpler the fossil, which shows life changing across time." }
+     {
+      "statement": "Darwin's theory explains evolution by natural selection acting on existing variation.",
+      "is_true": true,
+      "why": "Variation arises first and by chance; the environment then selects. This is the heart of On the Origin of Species, 1859."
+     },
+     {
+      "statement": "A giraffe's neck grew long because its ancestors kept stretching for high leaves.",
+      "is_true": false,
+      "why": "That is Lamarck's inheritance of acquired characters, which is rejected. Stretching in one lifetime does not change the gametes."
+     },
+     {
+      "statement": "Homologous organs have the same basic structure but may do different jobs.",
+      "is_true": true,
+      "why": "A human arm, a bat's wing and a whale's flipper share a bone plan, which is evidence of common ancestry."
+     },
+     {
+      "statement": "Analogous organs are evidence of common ancestry.",
+      "is_true": false,
+      "why": "Analogous organs do the same job with quite different structures, such as an insect's wing and a bird's wing. They show convergent evolution, not shared descent."
+     },
+     {
+      "statement": "Fossils are direct evidence for evolution.",
+      "is_true": true,
+      "why": "The deeper the layer, the older and usually the simpler the fossil, which shows life changing across time."
+     }
     ]
    }
   }
@@ -107,21 +197,52 @@
   "chapter": "Environment, Biodiversity and Conservation",
   "approved": false,
   "trick": "In-situ means in its own place, ex-situ means out of it. A national park or a sanctuary protects an animal where it already lives; a zoo, a seed bank or a botanical garden protects it somewhere else. The Latin tells you the answer.",
-  "video": { "query": "biodiversity conservation in situ ex situ national parks class 10 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "biodiversity conservation in situ ex situ national parks class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "In-situ or ex-situ conservation? Sort each one.",
-    "bins": ["In-situ, in its own habitat", "Ex-situ, away from the habitat"],
+    "bins": [
+     "In-situ, in its own habitat",
+     "Ex-situ, away from the habitat"
+    ],
     "items": [
-     { "label": "Sundarbans National Park", "bin": "In-situ, in its own habitat" },
-     { "label": "Kaziranga Wildlife Sanctuary", "bin": "In-situ, in its own habitat" },
-     { "label": "A biosphere reserve", "bin": "In-situ, in its own habitat" },
-     { "label": "A sacred grove protected by a village", "bin": "In-situ, in its own habitat" },
-     { "label": "A zoological garden", "bin": "Ex-situ, away from the habitat" },
-     { "label": "A seed bank", "bin": "Ex-situ, away from the habitat" },
-     { "label": "A botanical garden", "bin": "Ex-situ, away from the habitat" },
-     { "label": "A captive breeding programme in a research centre", "bin": "Ex-situ, away from the habitat" }
+     {
+      "label": "Sundarbans National Park",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "Kaziranga Wildlife Sanctuary",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A biosphere reserve",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A sacred grove protected by a village",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A zoological garden",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A seed bank",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A botanical garden",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A captive breeding programme in a research centre",
+      "bin": "Ex-situ, away from the habitat"
+     }
     ]
    }
   }

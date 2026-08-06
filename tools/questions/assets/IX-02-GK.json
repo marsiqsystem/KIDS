@@ -4,17 +4,43 @@
   "chapter": "GK: Space and the Natural World",
   "approved": false,
   "trick": "Sort the planets by what makes each one famous rather than by name alone: the hottest is Venus, the largest is Jupiter, the red one is Mars, the ringed one is Saturn. Examiners ask for the superlative, so learn the superlatives.",
-  "video": { "query": "solar system planets facts largest hottest general knowledge for students", "video_id": null, "approved": false },
+  "video": {
+   "query": "solar system planets facts largest hottest general knowledge for students",
+   "video_id": "0YKzBG4ndCc",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "3.5 min"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about space and the natural world.",
     "items": [
-     { "statement": "Jupiter is the largest planet in the solar system.", "is_true": true, "why": "It is bigger than all the other planets put together, and its Great Red Spot is a storm wider than the Earth." },
-     { "statement": "Mercury is the hottest planet because it is nearest the Sun.", "is_true": false, "why": "Venus is hotter. Its thick carbon dioxide atmosphere traps heat, while Mercury has almost no atmosphere to hold any." },
-     { "statement": "The Sun is a star.", "is_true": true, "why": "It is an ordinary star that only looks different because it is so much nearer to us than the rest." },
-     { "statement": "Light from the Sun reaches the Earth in about eight minutes.", "is_true": true, "why": "The Sun is about 150 million kilometres away and light travels 300,000 kilometres a second." },
-     { "statement": "The Moon makes its own light.", "is_true": false, "why": "The Moon only reflects sunlight, which is why we see phases as the lit half turns towards or away from us." }
+     {
+      "statement": "Jupiter is the largest planet in the solar system.",
+      "is_true": true,
+      "why": "It is bigger than all the other planets put together, and its Great Red Spot is a storm wider than the Earth."
+     },
+     {
+      "statement": "Mercury is the hottest planet because it is nearest the Sun.",
+      "is_true": false,
+      "why": "Venus is hotter. Its thick carbon dioxide atmosphere traps heat, while Mercury has almost no atmosphere to hold any."
+     },
+     {
+      "statement": "The Sun is a star.",
+      "is_true": true,
+      "why": "It is an ordinary star that only looks different because it is so much nearer to us than the rest."
+     },
+     {
+      "statement": "Light from the Sun reaches the Earth in about eight minutes.",
+      "is_true": true,
+      "why": "The Sun is about 150 million kilometres away and light travels 300,000 kilometres a second."
+     },
+     {
+      "statement": "The Moon makes its own light.",
+      "is_true": false,
+      "why": "The Moon only reflects sunlight, which is why we see phases as the lit half turns towards or away from us."
+     }
     ]
    }
   }
@@ -24,14 +50,36 @@
   "chapter": "GK: Indian National Symbols and Personalities",
   "approved": false,
   "trick": "The two commonest traps are a pair each. Bird is the peacock but animal is the tiger; the anthem is Jana Gana Mana but the song is Vande Mataram. Learn them as pairs and the questions stop being able to catch you.",
-  "video": { "query": "national symbols of India list bird animal flower song anthem", "video_id": null, "approved": false },
+  "video": {
+   "query": "national symbols of India list bird animal flower song anthem",
+   "video_id": "huTb3m83Dwg",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "4.5 min"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete the list of national symbols. Two words in the bank are decoys.",
     "text": "The national bird of India is the {1} and the national animal is the {2}. The national flower is the {3} and the national fruit is the {4}. The national anthem is {5}, written by Rabindranath Tagore, while the national song is {6}, written by Bankim Chandra Chattopadhyay.",
-    "answers": ["peacock", "tiger", "lotus", "mango", "Jana Gana Mana", "Vande Mataram"],
-    "bank": ["peacock", "tiger", "lotus", "mango", "Jana Gana Mana", "Vande Mataram", "lion", "banyan"]
+    "answers": [
+     "peacock",
+     "tiger",
+     "lotus",
+     "mango",
+     "Jana Gana Mana",
+     "Vande Mataram"
+    ],
+    "bank": [
+     "peacock",
+     "tiger",
+     "lotus",
+     "mango",
+     "Jana Gana Mana",
+     "Vande Mataram",
+     "lion",
+     "banyan"
+    ]
    }
   }
  },
@@ -40,21 +88,53 @@
   "chapter": "GK: Indian and World Geography",
   "approved": false,
   "trick": "Before you answer, ask whether the superlative is Indian or worldwide. The longest river in India is the Ganga, in the world the Nile; the highest peak in India is Kangchenjunga, in the world Everest. Same question, two answers.",
-  "video": { "query": "Indian and world geography longest river highest mountain largest desert facts", "video_id": null, "approved": false },
+  "video": {
+   "query": "Indian and world geography longest river highest mountain largest desert facts",
+   "video_id": "MjHSFJb1_hQ",
+   "approved": true,
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Is each superlative true of India or of the world? Sort them.",
-    "bins": ["Within India", "In the world"],
+    "bins": [
+     "Within India",
+     "In the world"
+    ],
     "items": [
-     { "label": "The Ganga is the longest river", "bin": "Within India" },
-     { "label": "The Nile is the longest river", "bin": "In the world" },
-     { "label": "Kangchenjunga is the highest peak", "bin": "Within India" },
-     { "label": "Mount Everest is the highest peak", "bin": "In the world" },
-     { "label": "The Thar is the largest desert", "bin": "Within India" },
-     { "label": "The Sahara is the largest hot desert", "bin": "In the world" },
-     { "label": "Rajasthan is the largest state by area", "bin": "Within India" },
-     { "label": "Russia is the largest country by area", "bin": "In the world" }
+     {
+      "label": "The Ganga is the longest river",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Nile is the longest river",
+      "bin": "In the world"
+     },
+     {
+      "label": "Kangchenjunga is the highest peak",
+      "bin": "Within India"
+     },
+     {
+      "label": "Mount Everest is the highest peak",
+      "bin": "In the world"
+     },
+     {
+      "label": "The Thar is the largest desert",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Sahara is the largest hot desert",
+      "bin": "In the world"
+     },
+     {
+      "label": "Rajasthan is the largest state by area",
+      "bin": "Within India"
+     },
+     {
+      "label": "Russia is the largest country by area",
+      "bin": "In the world"
+     }
     ]
    }
   }
@@ -64,18 +144,41 @@
   "chapter": "GK: International Organisations",
   "approved": false,
   "trick": "Most of these questions are really headquarters questions. Learn the city with the body: New York for the UN, Paris for UNESCO, Geneva for the WHO, Washington for the World Bank and the IMF. The odd one out is the International Court of Justice, at The Hague.",
-  "video": { "query": "United Nations UNESCO WHO headquarters and functions general knowledge", "video_id": null, "approved": false },
+  "video": {
+   "query": "United Nations UNESCO WHO headquarters and functions general knowledge",
+   "video_id": "E5O9Nx0OuRA",
+   "approved": true,
+   "duration": "18 min"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each international organisation with the city where it has its headquarters.",
     "pairs": [
-     { "left": "United Nations", "right": "New York" },
-     { "left": "UNESCO", "right": "Paris" },
-     { "left": "World Health Organization", "right": "Geneva" },
-     { "left": "International Court of Justice", "right": "The Hague" },
-     { "left": "International Monetary Fund", "right": "Washington DC" },
-     { "left": "UNICEF", "right": "New York" }
+     {
+      "left": "United Nations",
+      "right": "New York"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Paris"
+     },
+     {
+      "left": "World Health Organization",
+      "right": "Geneva"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "The Hague"
+     },
+     {
+      "left": "International Monetary Fund",
+      "right": "Washington DC"
+     },
+     {
+      "left": "UNICEF",
+      "right": "New York"
+     }
     ]
    }
   }

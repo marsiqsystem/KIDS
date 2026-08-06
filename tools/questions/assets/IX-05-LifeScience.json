@@ -4,17 +4,36 @@
   "chapter": "Life and its Diversity: Levels of Organisation",
   "approved": false,
   "trick": "Climb the ladder in one direction only: cell, tissue, organ, organ system, organism. Every level is made of the one below it, so if you can say what a thing is made of, you know where it sits.",
-  "video": { "query": "levels of biological organisation cell tissue organ system class 9 biology", "video_id": null, "approved": false },
+  "video": {
+   "query": "levels of biological organisation cell tissue organ system class 9 biology",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Arrange the levels of organisation from the simplest upwards.",
     "items": [
-     { "label": "Cell", "note": "The smallest unit that can be called living" },
-     { "label": "Tissue", "note": "A group of similar cells doing one job, such as muscle tissue" },
-     { "label": "Organ", "note": "Several tissues working together, such as the heart" },
-     { "label": "Organ system", "note": "Organs working together, such as the circulatory system" },
-     { "label": "Organism", "note": "All the systems together, making one living individual" }
+     {
+      "label": "Cell",
+      "note": "The smallest unit that can be called living"
+     },
+     {
+      "label": "Tissue",
+      "note": "A group of similar cells doing one job, such as muscle tissue"
+     },
+     {
+      "label": "Organ",
+      "note": "Several tissues working together, such as the heart"
+     },
+     {
+      "label": "Organ system",
+      "note": "Organs working together, such as the circulatory system"
+     },
+     {
+      "label": "Organism",
+      "note": "All the systems together, making one living individual"
+     }
     ]
    }
   }
@@ -24,21 +43,55 @@
   "chapter": "Physiological Processes: Photosynthesis, Respiration and Transpiration",
   "approved": false,
   "trick": "Photosynthesis and respiration are the same equation read backwards. One takes in carbon dioxide and water and stores energy in glucose; the other burns glucose and gives the carbon dioxide and water back. Write one and you can write the other by reversing the arrow.",
-  "video": { "query": "photosynthesis respiration transpiration difference class 9 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "photosynthesis respiration transpiration difference class 9 life science",
+   "video_id": "JwTizw1RLKs",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which process does each statement describe?",
-    "bins": ["Photosynthesis", "Respiration", "Transpiration"],
+    "bins": [
+     "Photosynthesis",
+     "Respiration",
+     "Transpiration"
+    ],
     "items": [
-     { "label": "Carbon dioxide is taken in and oxygen given out", "bin": "Photosynthesis" },
-     { "label": "Oxygen is taken in and carbon dioxide given out", "bin": "Respiration" },
-     { "label": "Happens only in the presence of light", "bin": "Photosynthesis" },
-     { "label": "Goes on day and night in every living cell", "bin": "Respiration" },
-     { "label": "Energy is stored in glucose", "bin": "Photosynthesis" },
-     { "label": "Energy is released as ATP", "bin": "Respiration" },
-     { "label": "Water vapour escapes through the stomata", "bin": "Transpiration" },
-     { "label": "Creates the pull that draws water up the stem", "bin": "Transpiration" }
+     {
+      "label": "Carbon dioxide is taken in and oxygen given out",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Oxygen is taken in and carbon dioxide given out",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Happens only in the presence of light",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Goes on day and night in every living cell",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Energy is stored in glucose",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Energy is released as ATP",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Water vapour escapes through the stomata",
+      "bin": "Transpiration"
+     },
+     {
+      "label": "Creates the pull that draws water up the stem",
+      "bin": "Transpiration"
+     }
     ]
    }
   }
@@ -48,18 +101,40 @@
   "chapter": "Excretion in Plants and Animals",
   "approved": false,
   "trick": "Animals have an organ for waste; plants simply store it or throw it away with a leaf. Among animals the excretory product tells you where the creature lives: plenty of water means ammonia, land means urea or uric acid, because saving water costs the animal energy.",
-  "video": { "query": "excretion in plants and animals ammonotelic ureotelic uricotelic class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "excretion in plants and animals ammonotelic ureotelic uricotelic class 9",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each organism or plant part with the waste it gets rid of.",
     "pairs": [
-     { "left": "Freshwater fish", "right": "Ammonia" },
-     { "left": "Human being", "right": "Urea" },
-     { "left": "Bird and reptile", "right": "Uric acid" },
-     { "left": "Rubber tree", "right": "Latex" },
-     { "left": "Pine tree", "right": "Resin" },
-     { "left": "Acacia", "right": "Gum" }
+     {
+      "left": "Freshwater fish",
+      "right": "Ammonia"
+     },
+     {
+      "left": "Human being",
+      "right": "Urea"
+     },
+     {
+      "left": "Bird and reptile",
+      "right": "Uric acid"
+     },
+     {
+      "left": "Rubber tree",
+      "right": "Latex"
+     },
+     {
+      "left": "Pine tree",
+      "right": "Resin"
+     },
+     {
+      "left": "Acacia",
+      "right": "Gum"
+     }
     ]
    }
   }
@@ -69,18 +144,42 @@
   "chapter": "Human Health, Disease and Immunity",
   "approved": false,
   "trick": "Name the pathogen group before you name the cure. Antibiotics work on bacteria and do nothing at all to a virus, which is why a doctor will not give them for a common cold. If the question mentions a vaccine, it is about prevention, not treatment.",
-  "video": { "query": "communicable diseases pathogens immunity vaccination class 9 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "communicable diseases pathogens immunity vaccination class 9 life science",
+   "video_id": "mU1uEOvegNY",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "12 min"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each disease with the kind of organism that causes it.",
     "pairs": [
-     { "left": "Tuberculosis", "right": "Bacterium" },
-     { "left": "Typhoid", "right": "Bacterium" },
-     { "left": "Polio", "right": "Virus" },
-     { "left": "Dengue", "right": "Virus" },
-     { "left": "Malaria", "right": "Protozoan" },
-     { "left": "Ringworm", "right": "Fungus" }
+     {
+      "left": "Tuberculosis",
+      "right": "Bacterium"
+     },
+     {
+      "left": "Typhoid",
+      "right": "Bacterium"
+     },
+     {
+      "left": "Polio",
+      "right": "Virus"
+     },
+     {
+      "left": "Dengue",
+      "right": "Virus"
+     },
+     {
+      "left": "Malaria",
+      "right": "Protozoan"
+     },
+     {
+      "left": "Ringworm",
+      "right": "Fungus"
+     }
     ]
    }
   }
@@ -90,14 +189,36 @@
   "chapter": "Environment, Ecosystem and Natural Resources",
   "approved": false,
   "trick": "Energy in a food chain only ever moves one way and mostly gets lost. About a tenth passes to the next level, which is why chains are short and why there are always far more plants than tigers.",
-  "video": { "query": "ecosystem food chain trophic levels energy flow class 9 life science", "video_id": null, "approved": false },
+  "video": {
+   "query": "ecosystem food chain trophic levels energy flow class 9 life science",
+   "video_id": "D4jgipI1KJc",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "4 min"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete the account of an ecosystem. Two words in the bank are decoys.",
     "text": "Green plants make their own food and are therefore called {1}. Animals that eat them are {2} consumers, and the animals that eat those are {3} consumers. Bacteria and fungi break dead matter down and are called {4}. Each feeding level is known as a {5} level, and only about {6} per cent of the energy passes from one to the next.",
-    "answers": ["producers", "primary", "secondary", "decomposers", "trophic", "ten"],
-    "bank": ["producers", "primary", "secondary", "decomposers", "trophic", "ten", "ninety", "predators"]
+    "answers": [
+     "producers",
+     "primary",
+     "secondary",
+     "decomposers",
+     "trophic",
+     "ten"
+    ],
+    "bank": [
+     "producers",
+     "primary",
+     "secondary",
+     "decomposers",
+     "trophic",
+     "ten",
+     "ninety",
+     "predators"
+    ]
    }
   }
  }

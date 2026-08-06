@@ -4,7 +4,12 @@
   "chapter": "Real Numbers and Surds",
   "approved": false,
   "trick": "To rationalise, multiply by the conjugate: change the sign in the middle. The middle terms then cancel and the surd disappears, because (a + b)(a − b) = a² − b². That one identity is the whole method.",
-  "video": { "query": "rationalising the denominator surds conjugate class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "rationalising the denominator surds conjugate class 9 maths",
+   "video_id": "hzQpqZ5yhz0",
+   "approved": true,
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -13,19 +18,31 @@
     "steps": [
      {
       "ask": "What should we multiply the top and the bottom by?",
-      "options": ["√5 − 2", "√5 + 2", "√5"],
+      "options": [
+       "√5 − 2",
+       "√5 + 2",
+       "√5"
+      ],
       "correct": 1,
       "why": "The conjugate is the same expression with the middle sign changed. Multiplying by √5 − 2 again would only make matters worse."
      },
      {
       "ask": "What does the denominator (√5 − 2)(√5 + 2) come to?",
-      "options": ["1", "5 − 4 = 1", "5 + 4 = 9"],
+      "options": [
+       "1",
+       "5 − 4 = 1",
+       "5 + 4 = 9"
+      ],
       "correct": 1,
       "why": "Using a² − b², it is (√5)² − 2², that is 5 − 4, which is 1. The surd has gone, which was the whole point."
      },
      {
       "ask": "So the rationalised form is",
-      "options": ["√5 + 2", "√5 − 2", "(√5 + 2) ÷ 9"],
+      "options": [
+       "√5 + 2",
+       "√5 − 2",
+       "(√5 + 2) ÷ 9"
+      ],
       "correct": 0,
       "why": "The numerator is 1 × (√5 + 2) and the denominator is 1, so the answer is simply √5 + 2."
      }
@@ -39,14 +56,36 @@
   "chapter": "Laws of Indices and Algebraic Identities",
   "approved": false,
   "trick": "Multiplying adds the powers, dividing subtracts them, a power of a power multiplies them. Say it as add, subtract, multiply and you will never mix the three up. And anything at all to the power zero is 1, except zero itself.",
-  "video": { "query": "laws of indices and algebraic identities class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "laws of indices and algebraic identities class 9 maths",
+   "video_id": "PFC1DU13VR0",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "45 min"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete the laws and identities. Two entries in the bank are decoys.",
     "text": "When powers of the same base are multiplied, the indices are {1}. When they are divided, the indices are {2}. For a power raised to a power, the indices are {3}. Any non-zero number raised to the power zero equals {4}. The identity (a + b)² expands to a² + {5} + b², and (a + b)(a − b) equals {6}.",
-    "answers": ["added", "subtracted", "multiplied", "1", "2ab", "a² − b²"],
-    "bank": ["added", "subtracted", "multiplied", "1", "2ab", "a² − b²", "0", "a² + b²"]
+    "answers": [
+     "added",
+     "subtracted",
+     "multiplied",
+     "1",
+     "2ab",
+     "a² − b²"
+    ],
+    "bank": [
+     "added",
+     "subtracted",
+     "multiplied",
+     "1",
+     "2ab",
+     "a² − b²",
+     "0",
+     "a² + b²"
+    ]
    }
   }
  },
@@ -55,18 +94,44 @@
   "chapter": "Coordinate Geometry",
   "approved": false,
   "trick": "Number the quadrants anticlockwise starting at the top right, and read the signs off the axes rather than memorising them. If the point is left of the vertical axis, x is negative; if it is below the horizontal axis, y is negative. That is all a quadrant is.",
-  "video": { "query": "coordinate geometry quadrants signs of x and y class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "coordinate geometry quadrants signs of x and y class 9 maths",
+   "video_id": "gh1TNZHLL9k",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "4 min"
+  },
   "interactive": {
    "template": "label-diagram",
    "data": {
     "prompt": "Place each label in the right region of the coordinate plane.",
     "svg": "<svg viewBox=\"0 0 100 100\"><line x1=\"50\" y1=\"6\" x2=\"50\" y2=\"94\" stroke=\"currentColor\" stroke-width=\"0.8\"/><line x1=\"6\" y1=\"50\" x2=\"94\" y2=\"50\" stroke=\"currentColor\" stroke-width=\"0.8\"/><circle cx=\"50\" cy=\"50\" r=\"1.8\" fill=\"currentColor\"/><path d=\"M50 6 l-2.5 5 h5 z\" fill=\"currentColor\"/><path d=\"M94 50 l-5 -2.5 v5 z\" fill=\"currentColor\"/></svg>",
     "labels": [
-     { "label": "Quadrant I, where x and y are both positive", "x": 74, "y": 26 },
-     { "label": "Quadrant II, where x is negative and y positive", "x": 26, "y": 26 },
-     { "label": "Quadrant III, where x and y are both negative", "x": 26, "y": 74 },
-     { "label": "Quadrant IV, where x is positive and y negative", "x": 74, "y": 74 },
-     { "label": "The origin, (0, 0)", "x": 50, "y": 50 }
+     {
+      "label": "Quadrant I, where x and y are both positive",
+      "x": 74,
+      "y": 26
+     },
+     {
+      "label": "Quadrant II, where x is negative and y positive",
+      "x": 26,
+      "y": 26
+     },
+     {
+      "label": "Quadrant III, where x and y are both negative",
+      "x": 26,
+      "y": 74
+     },
+     {
+      "label": "Quadrant IV, where x is positive and y negative",
+      "x": 74,
+      "y": 74
+     },
+     {
+      "label": "The origin, (0, 0)",
+      "x": 50,
+      "y": 50
+     }
     ]
    }
   }
@@ -76,17 +141,43 @@
   "chapter": "Euclid's Axioms, Lines and Angles",
   "approved": false,
   "trick": "Euclid's axioms are the obvious truths that hold everywhere in mathematics; his postulates are the assumptions particular to geometry. If the statement would be just as true about numbers or weights, it is an axiom.",
-  "video": { "query": "Euclid axioms postulates lines and angles class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "Euclid axioms postulates lines and angles class 9 maths",
+   "video_id": "BEheVMlK-lc",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "8 min"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement.",
     "items": [
-     { "statement": "Things which are equal to the same thing are equal to one another.", "is_true": true, "why": "This is Euclid's first axiom, and it is true of anything measurable, not only of geometry." },
-     { "statement": "A straight line can be drawn joining any two points.", "is_true": true, "why": "This is Euclid's first postulate. Note it is a postulate, not an axiom, because it is a claim about geometry in particular." },
-     { "statement": "Two lines that are parallel to the same line may still meet each other.", "is_true": false, "why": "Lines parallel to the same line are parallel to one another, so they never meet." },
-     { "statement": "The sum of the angles on a straight line is 180 degrees.", "is_true": true, "why": "This is the linear pair property, and it is the starting point of most angle chases." },
-     { "statement": "Vertically opposite angles add up to 180 degrees.", "is_true": false, "why": "Vertically opposite angles are equal, not supplementary. It is adjacent angles on a line that add to 180." }
+     {
+      "statement": "Things which are equal to the same thing are equal to one another.",
+      "is_true": true,
+      "why": "This is Euclid's first axiom, and it is true of anything measurable, not only of geometry."
+     },
+     {
+      "statement": "A straight line can be drawn joining any two points.",
+      "is_true": true,
+      "why": "This is Euclid's first postulate. Note it is a postulate, not an axiom, because it is a claim about geometry in particular."
+     },
+     {
+      "statement": "Two lines that are parallel to the same line may still meet each other.",
+      "is_true": false,
+      "why": "Lines parallel to the same line are parallel to one another, so they never meet."
+     },
+     {
+      "statement": "The sum of the angles on a straight line is 180 degrees.",
+      "is_true": true,
+      "why": "This is the linear pair property, and it is the starting point of most angle chases."
+     },
+     {
+      "statement": "Vertically opposite angles add up to 180 degrees.",
+      "is_true": false,
+      "why": "Vertically opposite angles are equal, not supplementary. It is adjacent angles on a line that add to 180."
+     }
     ]
    }
   }
@@ -96,12 +187,24 @@
   "chapter": "Triangles: Properties and Congruence",
   "approved": false,
   "trick": "There are four congruence rules and one famous impostor. SSS, SAS, ASA and RHS all work; SSA does not, because two different triangles can be built from the same two sides and a non-included angle. If the angle is not between the two sides, stop.",
-  "video": { "query": "triangle congruence criteria SSS SAS ASA RHS why SSA fails class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "triangle congruence criteria SSS SAS ASA RHS why SSA fails class 9",
+   "video_id": "aoSW8RY4XKw",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "odd-one-out",
    "data": {
     "prompt": "One of these is not a valid criterion for congruence. Which, and why?",
-    "items": ["SSS", "SAS", "ASA", "SSA", "RHS"],
+    "items": [
+     "SSS",
+     "SAS",
+     "ASA",
+     "SSA",
+     "RHS"
+    ],
     "odd": 3,
     "because": "The other four each fix a triangle completely. SSA does not: given two sides and an angle that is not between them, two genuinely different triangles can be drawn, so it proves nothing. RHS is the one exception, and it works only because the right angle removes the ambiguity."
    }
@@ -112,7 +215,13 @@
   "chapter": "Mensuration: Cube, Cuboid and Sphere",
   "approved": false,
   "trick": "Check the dimension before you check the formula. Anything measuring area must have length squared in it, anything measuring volume must have length cubed. That single check throws out most wrong options without any calculation.",
-  "video": { "query": "surface area and volume of cube cuboid sphere formulas class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "surface area and volume of cube cuboid sphere formulas class 9 maths",
+   "video_id": "R0ajg1jO-H0",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "18 min"
+  },
   "interactive": {
    "template": "formula-pick",
    "data": {
@@ -121,25 +230,37 @@
      {
       "ask": "Total surface area of a cube of edge a",
       "correct": "6a²",
-      "wrong": ["a³", "4a²"],
+      "wrong": [
+       "a³",
+       "4a²"
+      ],
       "why": "A cube has six identical square faces, each of area a². a³ is the volume, and you can tell at a glance because it is a length cubed."
      },
      {
       "ask": "Volume of a cuboid with edges l, b and h",
       "correct": "l × b × h",
-      "wrong": ["2(lb + bh + hl)", "l + b + h"],
+      "wrong": [
+       "2(lb + bh + hl)",
+       "l + b + h"
+      ],
       "why": "Volume is the product of the three edges. The second option is the total surface area, which is a sum of areas, so it is a length squared."
      },
      {
       "ask": "Surface area of a sphere of radius r",
       "correct": "4πr²",
-      "wrong": ["(4/3)πr³", "2πr"],
+      "wrong": [
+       "(4/3)πr³",
+       "2πr"
+      ],
       "why": "The surface area is 4πr² and the volume is (4/3)πr³. Remember which is which by the cube: the one with r³ must be the volume."
      },
      {
       "ask": "Curved surface area of a hemisphere of radius r",
       "correct": "2πr²",
-      "wrong": ["3πr²", "4πr²"],
+      "wrong": [
+       "3πr²",
+       "4πr²"
+      ],
       "why": "Half a sphere gives half its surface, 2πr². The 3πr² is the total surface of a hemisphere, curved part plus the flat circular face."
      }
     ]
@@ -151,7 +272,13 @@
   "chapter": "Heron's Formula and Area of Triangles",
   "approved": false,
   "trick": "Heron's formula is for when you know all three sides and no height. Always compute s, the half perimeter, first and write it down; most mistakes in this topic are people using the full perimeter by accident.",
-  "video": { "query": "Heron's formula area of triangle examples class 9 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "Heron's formula area of triangle examples class 9 maths",
+   "video_id": "SJILCa2KzQw",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "6 min"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -160,25 +287,41 @@
     "steps": [
      {
       "ask": "First find s, the semi-perimeter.",
-      "options": ["42 cm", "21 cm", "26 cm"],
+      "options": [
+       "42 cm",
+       "21 cm",
+       "26 cm"
+      ],
       "correct": 1,
       "why": "The perimeter is 13 + 14 + 15 = 42, and s is half of that, so 21. Taking 42 itself is the commonest slip in this topic."
      },
      {
       "ask": "Now find s − a, s − b and s − c.",
-      "options": ["8, 7 and 6", "13, 14 and 15", "21, 21 and 21"],
+      "options": [
+       "8, 7 and 6",
+       "13, 14 and 15",
+       "21, 21 and 21"
+      ],
       "correct": 0,
       "why": "21 − 13 = 8, 21 − 14 = 7 and 21 − 15 = 6. A useful check: these three must add up to s itself, and 8 + 7 + 6 = 21."
      },
      {
       "ask": "What is the product s(s − a)(s − b)(s − c)?",
-      "options": ["7056", "2730", "84"],
+      "options": [
+       "7056",
+       "2730",
+       "84"
+      ],
       "correct": 0,
       "why": "21 × 8 × 7 × 6 = 7056. The 84 is the answer itself, not the product under the root."
      },
      {
       "ask": "So the area is the square root of that, which is",
-      "options": ["84 cm²", "88 cm²", "76 cm²"],
+      "options": [
+       "84 cm²",
+       "88 cm²",
+       "76 cm²"
+      ],
       "correct": 0,
       "why": "√7056 = 84, since 84 × 84 = 7056. The 13-14-15 triangle is worth remembering: it always gives 84."
      }

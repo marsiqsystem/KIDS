@@ -4,18 +4,40 @@
   "chapter": "Concerns about our Environment",
   "approved": false,
   "trick": "Keep the two big problems apart. The ozone hole is caused by CFCs and lets ultraviolet through; the greenhouse effect is caused by carbon dioxide and methane and traps heat. They are different gases, different layers and different harms, and mixing them costs marks every year.",
-  "video": { "query": "ozone depletion greenhouse effect global warming acid rain class 10 science", "video_id": null, "approved": false },
+  "video": {
+   "query": "ozone depletion greenhouse effect global warming acid rain class 10 science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each gas with the environmental effect it is responsible for.",
     "pairs": [
-     { "left": "Chlorofluorocarbons (CFCs)", "right": "Destroy stratospheric ozone, creating the ozone hole" },
-     { "left": "Carbon dioxide", "right": "The chief greenhouse gas behind global warming" },
-     { "left": "Methane", "right": "A greenhouse gas from paddy fields, cattle and landfills" },
-     { "left": "Sulphur dioxide", "right": "Dissolves in rain to give acid rain" },
-     { "left": "Carbon monoxide", "right": "Binds to haemoglobin and starves the body of oxygen" },
-     { "left": "Ozone in the stratosphere", "right": "Absorbs harmful ultraviolet radiation from the Sun" }
+     {
+      "left": "Chlorofluorocarbons (CFCs)",
+      "right": "Destroy stratospheric ozone, creating the ozone hole"
+     },
+     {
+      "left": "Carbon dioxide",
+      "right": "The chief greenhouse gas behind global warming"
+     },
+     {
+      "left": "Methane",
+      "right": "A greenhouse gas from paddy fields, cattle and landfills"
+     },
+     {
+      "left": "Sulphur dioxide",
+      "right": "Dissolves in rain to give acid rain"
+     },
+     {
+      "left": "Carbon monoxide",
+      "right": "Binds to haemoglobin and starves the body of oxygen"
+     },
+     {
+      "left": "Ozone in the stratosphere",
+      "right": "Absorbs harmful ultraviolet radiation from the Sun"
+     }
     ]
    }
   }
@@ -25,7 +47,11 @@
   "chapter": "Behaviour of Gases and the Mole Concept",
   "approved": false,
   "trick": "A mole is just a counting word, like a dozen, only very much bigger: 6.022 × 10²³ of anything. One mole of a substance weighs its molecular mass in grams and, if it is a gas at STP, occupies 22.4 litres. Those three facts answer nearly every mole question.",
-  "video": { "query": "mole concept Avogadro number molar volume numericals class 10 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "mole concept Avogadro number molar volume numericals class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -34,25 +60,41 @@
     "steps": [
      {
       "ask": "First, what is the molecular mass of CO2?",
-      "options": ["28", "44", "56"],
+      "options": [
+       "28",
+       "44",
+       "56"
+      ],
       "correct": 1,
       "why": "Carbon 12 plus two oxygens at 16 each, that is 12 + 32 = 44."
      },
      {
       "ask": "So how many moles are there in 88 g?",
-      "options": ["2 moles", "0.5 mole", "44 moles"],
+      "options": [
+       "2 moles",
+       "0.5 mole",
+       "44 moles"
+      ],
       "correct": 0,
       "why": "Moles equal mass divided by molar mass, so 88 ÷ 44 = 2. Dividing the wrong way round is the usual slip here."
      },
      {
       "ask": "How many molecules is that?",
-      "options": ["6.022 × 10²³", "1.204 × 10²⁴", "3.011 × 10²³"],
+      "options": [
+       "6.022 × 10²³",
+       "1.204 × 10²⁴",
+       "3.011 × 10²³"
+      ],
       "correct": 1,
       "why": "Multiply the moles by Avogadro's number: 2 × 6.022 × 10²³ = 1.204 × 10²⁴ molecules."
      },
      {
       "ask": "What volume would this occupy at STP?",
-      "options": ["22.4 litres", "44.8 litres", "11.2 litres"],
+      "options": [
+       "22.4 litres",
+       "44.8 litres",
+       "11.2 litres"
+      ],
       "correct": 1,
       "why": "One mole of any gas occupies 22.4 litres at STP, so two moles occupy 44.8 litres. Note this holds for any gas, whatever its molecular mass."
      }
@@ -66,17 +108,41 @@
   "chapter": "Thermal Phenomena: Expansion and Conductivity",
   "approved": false,
   "trick": "Almost everything expands on heating, and water between 0 and 4 degrees is the famous exception that contracts instead. That single anomaly is why ice floats and why fish survive a frozen pond, and it is asked about far more often than ordinary expansion.",
-  "video": { "query": "thermal expansion anomalous expansion of water conductivity class 10 physics", "video_id": null, "approved": false },
+  "video": {
+   "query": "thermal expansion anomalous expansion of water conductivity class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about heat.",
     "items": [
-     { "statement": "Water contracts when heated from 0 to 4 degrees Celsius.", "is_true": true, "why": "This is the anomalous expansion of water. It is densest at 4 degrees, which is why ice floats and why a pond freezes from the top down." },
-     { "statement": "Metals are generally better conductors of heat than non-metals.", "is_true": true, "why": "Free electrons carry the energy through the metal, which is why a metal spoon in hot tea heats along its length and a wooden one does not." },
-     { "statement": "A gap is left between rails so that the train runs more quietly.", "is_true": false, "why": "The gap allows for expansion in summer heat. Without it the rails would buckle." },
-     { "statement": "Heat always flows from a body of higher temperature to one of lower temperature.", "is_true": true, "why": "Temperature, not the amount of heat contained, decides the direction of flow. A large cold object still gives heat to nothing hotter than itself." },
-     { "statement": "Air is a good conductor of heat.", "is_true": false, "why": "Air is a poor conductor, which is exactly why woollen clothes, which trap air, keep us warm." }
+     {
+      "statement": "Water contracts when heated from 0 to 4 degrees Celsius.",
+      "is_true": true,
+      "why": "This is the anomalous expansion of water. It is densest at 4 degrees, which is why ice floats and why a pond freezes from the top down."
+     },
+     {
+      "statement": "Metals are generally better conductors of heat than non-metals.",
+      "is_true": true,
+      "why": "Free electrons carry the energy through the metal, which is why a metal spoon in hot tea heats along its length and a wooden one does not."
+     },
+     {
+      "statement": "A gap is left between rails so that the train runs more quietly.",
+      "is_true": false,
+      "why": "The gap allows for expansion in summer heat. Without it the rails would buckle."
+     },
+     {
+      "statement": "Heat always flows from a body of higher temperature to one of lower temperature.",
+      "is_true": true,
+      "why": "Temperature, not the amount of heat contained, decides the direction of flow. A large cold object still gives heat to nothing hotter than itself."
+     },
+     {
+      "statement": "Air is a good conductor of heat.",
+      "is_true": false,
+      "why": "Air is a poor conductor, which is exactly why woollen clothes, which trap air, keep us warm."
+     }
     ]
    }
   }
@@ -86,19 +152,47 @@
   "chapter": "Light: Refraction and Lenses",
   "approved": false,
   "trick": "Light bends towards the normal going into a denser medium and away from it coming out. And in the lens formula, the sign convention does most of the work: distances measured against the incoming light are negative, so u is nearly always negative. Write the signs down before you put numbers in.",
-  "video": { "query": "refraction of light lens formula ray diagrams convex concave class 10 physics", "video_id": null, "approved": false },
+  "video": {
+   "query": "refraction of light lens formula ray diagrams convex concave class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "label-diagram",
    "data": {
     "prompt": "Label the parts of this convex lens diagram.",
     "svg": "<svg viewBox=\"0 0 100 100\"><line x1=\"5\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"currentColor\" stroke-width=\"0.6\"/><ellipse cx=\"50\" cy=\"50\" rx=\"6.5\" ry=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"50\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><circle cx=\"72\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><circle cx=\"28\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><line x1=\"8\" y1=\"36\" x2=\"50\" y2=\"36\" stroke=\"currentColor\" stroke-width=\"0.6\"/><line x1=\"50\" y1=\"36\" x2=\"88\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"0.6\"/></svg>",
     "labels": [
-     { "label": "Optical centre (O)", "x": 50, "y": 50 },
-     { "label": "Principal focus (F), where parallel rays meet", "x": 72, "y": 50 },
-     { "label": "The second focus, on the object side", "x": 28, "y": 50 },
-     { "label": "Principal axis", "x": 12, "y": 50 },
-     { "label": "A ray parallel to the principal axis", "x": 20, "y": 36 },
-     { "label": "The convex (converging) lens", "x": 50, "y": 24 }
+     {
+      "label": "Optical centre (O)",
+      "x": 50,
+      "y": 50
+     },
+     {
+      "label": "Principal focus (F), where parallel rays meet",
+      "x": 72,
+      "y": 50
+     },
+     {
+      "label": "The second focus, on the object side",
+      "x": 28,
+      "y": 50
+     },
+     {
+      "label": "Principal axis",
+      "x": 12,
+      "y": 50
+     },
+     {
+      "label": "A ray parallel to the principal axis",
+      "x": 20,
+      "y": 36
+     },
+     {
+      "label": "The convex (converging) lens",
+      "x": 50,
+      "y": 24
+     }
     ]
    }
   }
@@ -108,21 +202,52 @@
   "chapter": "Periodic Table and Periodicity",
   "approved": false,
   "trick": "Across a period the nucleus pulls harder while the shell stays the same, so atoms get smaller and grip their electrons more tightly. Every trend across a period follows from that one sentence, so derive them rather than memorising eight separate facts.",
-  "video": { "query": "periodic table trends atomic size electronegativity across period class 10 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "periodic table trends atomic size electronegativity across period class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Moving from left to right across a period, does each property increase or decrease?",
-    "bins": ["Increases across a period", "Decreases across a period"],
+    "bins": [
+     "Increases across a period",
+     "Decreases across a period"
+    ],
     "items": [
-     { "label": "Nuclear charge", "bin": "Increases across a period" },
-     { "label": "Atomic size", "bin": "Decreases across a period" },
-     { "label": "Ionisation energy", "bin": "Increases across a period" },
-     { "label": "Electronegativity", "bin": "Increases across a period" },
-     { "label": "Metallic character", "bin": "Decreases across a period" },
-     { "label": "Non-metallic character", "bin": "Increases across a period" },
-     { "label": "Number of valence electrons", "bin": "Increases across a period" },
-     { "label": "Ease of losing an electron", "bin": "Decreases across a period" }
+     {
+      "label": "Nuclear charge",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Atomic size",
+      "bin": "Decreases across a period"
+     },
+     {
+      "label": "Ionisation energy",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Electronegativity",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Metallic character",
+      "bin": "Decreases across a period"
+     },
+     {
+      "label": "Non-metallic character",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Number of valence electrons",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Ease of losing an electron",
+      "bin": "Decreases across a period"
+     }
     ]
    }
   }
@@ -132,12 +257,22 @@
   "chapter": "Chemical Bonding and Solubility",
   "approved": false,
   "trick": "Metal plus non-metal usually means electrons are transferred, so the bond is ionic; non-metal plus non-metal means they are shared, so it is covalent. Ionic compounds then dissolve in water and conduct when molten, and covalent ones generally do neither.",
-  "video": { "query": "ionic and covalent bonding properties solubility class 10 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "ionic and covalent bonding properties solubility class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "odd-one-out",
    "data": {
     "prompt": "One of these compounds is not ionic. Which, and why?",
-    "items": ["NaCl", "KCl", "MgO", "CH4", "CaCl2"],
+    "items": [
+     "NaCl",
+     "KCl",
+     "MgO",
+     "CH4",
+     "CaCl2"
+    ],
     "odd": 3,
     "because": "The other four are each a metal joined to a non-metal, so electrons are transferred and the bond is ionic. Methane is carbon and hydrogen, two non-metals, so the electrons are shared and the bond is covalent — which is why methane is a gas at room temperature while the other four are hard, high-melting solids."
    }
@@ -148,17 +283,38 @@
   "chapter": "Metallurgy and Extraction of Metals",
   "approved": false,
   "trick": "Every extraction runs the same way: get rid of the rock, turn the ore into an oxide, take the oxygen off, then clean up. Concentration, roasting or calcination, reduction, refining. Once you know the sequence you can place any named process in it.",
-  "video": { "query": "metallurgy extraction of metals roasting calcination reduction class 10 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "metallurgy extraction of metals roasting calcination reduction class 10 chemistry",
+   "video_id": "V67eJZ5YFsQ",
+   "approved": true,
+   "language": "HINDI",
+   "duration": "15 min"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the stages of extracting a metal from its ore into order.",
     "items": [
-     { "label": "Crushing and grinding the ore", "note": "Breaking the lumps down so the later steps can work" },
-     { "label": "Concentration of the ore", "note": "Removing the gangue, by froth flotation or magnetic separation" },
-     { "label": "Roasting or calcination", "note": "Heating to convert the ore into the oxide; roasting in air for sulphides, calcination without air for carbonates" },
-     { "label": "Reduction of the oxide to the metal", "note": "With carbon, or by electrolysis for the very reactive metals" },
-     { "label": "Refining the crude metal", "note": "Usually electrolytic refining, to get the pure metal" }
+     {
+      "label": "Crushing and grinding the ore",
+      "note": "Breaking the lumps down so the later steps can work"
+     },
+     {
+      "label": "Concentration of the ore",
+      "note": "Removing the gangue, by froth flotation or magnetic separation"
+     },
+     {
+      "label": "Roasting or calcination",
+      "note": "Heating to convert the ore into the oxide; roasting in air for sulphides, calcination without air for carbonates"
+     },
+     {
+      "label": "Reduction of the oxide to the metal",
+      "note": "With carbon, or by electrolysis for the very reactive metals"
+     },
+     {
+      "label": "Refining the crude metal",
+      "note": "Usually electrolytic refining, to get the pure metal"
+     }
     ]
    }
   }
@@ -168,18 +324,40 @@
   "chapter": "Atomic Nucleus and Radioactivity",
   "approved": false,
   "trick": "Rank the three radiations by how far they get and everything else follows. Alpha is the heaviest, so it ionises most and is stopped by paper; gamma is massless, so it ionises least and needs lead. Penetration and ionising power always run opposite ways.",
-  "video": { "query": "radioactivity alpha beta gamma rays properties half life class 10 physics", "video_id": null, "approved": false },
+  "video": {
+   "query": "radioactivity alpha beta gamma rays properties half life class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it means.",
     "pairs": [
-     { "left": "Alpha particle", "right": "A helium nucleus; stopped by a sheet of paper" },
-     { "left": "Beta particle", "right": "A fast electron; stopped by a few millimetres of aluminium" },
-     { "left": "Gamma ray", "right": "Electromagnetic radiation; needs thick lead or concrete" },
-     { "left": "Half-life", "right": "The time for half the radioactive nuclei present to decay" },
-     { "left": "Isotopes", "right": "Atoms of one element with the same protons but different neutrons" },
-     { "left": "Nuclear fission", "right": "A heavy nucleus splitting into lighter ones, releasing energy" }
+     {
+      "left": "Alpha particle",
+      "right": "A helium nucleus; stopped by a sheet of paper"
+     },
+     {
+      "left": "Beta particle",
+      "right": "A fast electron; stopped by a few millimetres of aluminium"
+     },
+     {
+      "left": "Gamma ray",
+      "right": "Electromagnetic radiation; needs thick lead or concrete"
+     },
+     {
+      "left": "Half-life",
+      "right": "The time for half the radioactive nuclei present to decay"
+     },
+     {
+      "left": "Isotopes",
+      "right": "Atoms of one element with the same protons but different neutrons"
+     },
+     {
+      "left": "Nuclear fission",
+      "right": "A heavy nucleus splitting into lighter ones, releasing energy"
+     }
     ]
    }
   }
@@ -189,14 +367,34 @@
   "chapter": "Inorganic and Organic Chemistry in the Laboratory",
   "approved": false,
   "trick": "The gas tests are worth learning as a set of six, because they come up every year and each takes one line. Lime water milky, burning splint pop, glowing splint relights, rotten eggs, brown fumes, moist red litmus turning blue.",
-  "video": { "query": "laboratory tests for gases carbon dioxide hydrogen oxygen ammonia class 10", "video_id": null, "approved": false },
+  "video": {
+   "query": "laboratory tests for gases carbon dioxide hydrogen oxygen ammonia class 10",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Name the gas in each test. Two entries in the bank are decoys.",
     "text": "The gas that turns lime water milky is {1}. The gas that burns with a squeaky pop is {2}. The gas that relights a glowing splint is {3}. The gas smelling of rotten eggs is {4}. The reddish brown gas with a sharp smell is {5}. The gas that turns moist red litmus paper blue is {6}.",
-    "answers": ["carbon dioxide", "hydrogen", "oxygen", "hydrogen sulphide", "nitrogen dioxide", "ammonia"],
-    "bank": ["carbon dioxide", "hydrogen", "oxygen", "hydrogen sulphide", "nitrogen dioxide", "ammonia", "chlorine", "sulphur dioxide"]
+    "answers": [
+     "carbon dioxide",
+     "hydrogen",
+     "oxygen",
+     "hydrogen sulphide",
+     "nitrogen dioxide",
+     "ammonia"
+    ],
+    "bank": [
+     "carbon dioxide",
+     "hydrogen",
+     "oxygen",
+     "hydrogen sulphide",
+     "nitrogen dioxide",
+     "ammonia",
+     "chlorine",
+     "sulphur dioxide"
+    ]
    }
   }
  }

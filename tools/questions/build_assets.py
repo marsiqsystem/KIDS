@@ -263,8 +263,20 @@ def check_video(video, where: str, errors: list[str]) -> None:
         errors.append(f"{where}: 'video' must be an object")
         return
     for name in video:
-        if name not in {"query", "video_id", "approved", "title"}:
+        if name not in {"query", "video_id", "approved", "title",
+                        "language", "duration", "start"}:
             errors.append(f"{where}: video has unexpected key {name!r}")
+
+    # The written content is English-medium, but video was never covered by that
+    # ruling, so a page carrying a Bengali or Hindi video must say so up front.
+    lang = video.get("language")
+    if lang is not None and lang not in {"ENGLISH", "BENGALI", "HINDI"}:
+        errors.append(f"{where}: video.language must be ENGLISH, BENGALI or HINDI, not {lang!r}")
+    for field in ("duration", "start"):
+        if field in video and not isinstance(video[field], str):
+            errors.append(f"{where}: video.{field} must be a string such as '12 min' or '07:16'")
+    if video.get("start") and not video.get("video_id"):
+        errors.append(f"{where}: video.start is set but there is no video to start")
 
     _str(video.get("query"), where, "video.query", errors, MIN_QUERY)
     for field in ("query", "title"):

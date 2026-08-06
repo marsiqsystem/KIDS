@@ -4,18 +4,41 @@
   "chapter": "Prose: All Summer in a Day",
   "approved": false,
   "trick": "The whole story hangs on one ratio: seven years of rain against one hour of sun. Fix that in your head and everything else follows, including why the children could not believe Margot and why shutting her in the cupboard was so cruel.",
-  "video": { "query": "All Summer in a Day Ray Bradbury story summary class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "All Summer in a Day Ray Bradbury story summary class 9",
+   "video_id": "b94MYrmcNow",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "3.5 min"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the events of All Summer in a Day back into the order Bradbury tells them.",
     "items": [
-     { "label": "The class waits, knowing the sun is due after seven years of rain", "note": "Venus, where it has rained without stopping" },
-     { "label": "Margot tells them the sun is like a penny, like a fire in the stove", "note": "She alone remembers it, from Earth" },
-     { "label": "The children refuse to believe her and push her into a cupboard", "note": "They lock the door and run off" },
-     { "label": "The rain stops and the sun blazes for one hour", "note": "The jungle steams and the children play" },
-     { "label": "The rain begins again and the children go back indoors" },
-     { "label": "They remember Margot, and stand a long time before opening the door", "note": "Bradbury ends here and does not tell us what she said" }
+     {
+      "label": "The class waits, knowing the sun is due after seven years of rain",
+      "note": "Venus, where it has rained without stopping"
+     },
+     {
+      "label": "Margot tells them the sun is like a penny, like a fire in the stove",
+      "note": "She alone remembers it, from Earth"
+     },
+     {
+      "label": "The children refuse to believe her and push her into a cupboard",
+      "note": "They lock the door and run off"
+     },
+     {
+      "label": "The rain stops and the sun blazes for one hour",
+      "note": "The jungle steams and the children play"
+     },
+     {
+      "label": "The rain begins again and the children go back indoors"
+     },
+     {
+      "label": "They remember Margot, and stand a long time before opening the door",
+      "note": "Bradbury ends here and does not tell us what she said"
+     }
     ]
    }
   }
@@ -25,14 +48,31 @@
   "chapter": "Poem: Mild the Mist upon the Hill",
   "approved": false,
   "trick": "Read the weather as the poet's mood. The mist is mild, the storms are over, the day has already wept its fill. Brontë is describing a calm that comes after grief, not before it, and that is why the poem feels peaceful rather than gloomy.",
-  "video": { "query": "Mild the Mist upon the Hill Emily Bronte poem explanation class 9", "video_id": null, "approved": false },
+  "video": {
+   "query": "Mild the Mist upon the Hill Emily Bronte poem explanation class 9",
+   "video_id": "zWNBwCWlygc",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "12 min"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Fill the gaps in the opening stanza. Three words in the bank are not used.",
     "text": "Mild the {1} upon the hill, Telling not of storms {2}; No, the day has wept its fill, Spent its store of silent {3}.",
-    "answers": ["mist", "tomorrow", "sorrow"],
-    "bank": ["mist", "tomorrow", "sorrow", "rain", "yesterday", "laughter"]
+    "answers": [
+     "mist",
+     "tomorrow",
+     "sorrow"
+    ],
+    "bank": [
+     "mist",
+     "tomorrow",
+     "sorrow",
+     "rain",
+     "yesterday",
+     "laughter"
+    ]
    }
   }
  },
@@ -41,17 +81,43 @@
   "chapter": "Prose: Tom Loses a Tooth",
   "approved": false,
   "trick": "Tom's plan fails and succeeds at the same time. He does not get out of school, but he walks in with a gap he can spit through, and that gap makes him the most admired boy in the yard. Twain's joke is that Tom always lands on his feet.",
-  "video": { "query": "Tom Loses a Tooth Mark Twain chapter summary class 9 English", "video_id": null, "approved": false },
+  "video": {
+   "query": "Tom Loses a Tooth Mark Twain chapter summary class 9 English",
+   "video_id": "Pqf_-d0zAJI",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "18 min"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about Tom Loses a Tooth.",
     "items": [
-     { "statement": "Tom first pretends that his toe is mortified, hoping to be kept home from school.", "is_true": true, "why": "He groans about the toe until Aunt Polly loses patience, and only then does the loose tooth come out in conversation." },
-     { "statement": "Aunt Polly pulls the tooth out with a pair of pliers.", "is_true": false, "why": "She ties one end of a silk thread to the tooth and the other to the bedpost, then thrusts a piece of fire almost in his face so that he jerks back." },
-     { "statement": "Tom is delighted once the tooth is out, because the gap lets him spit in a new way.", "is_true": true, "why": "The new accomplishment draws a following of admiring boys, so his loss turns into fame." },
-     { "statement": "Tom is glad that his plan to miss school has worked perfectly.", "is_true": false, "why": "The plan fails: Aunt Polly sends him to school anyway, and the tooth is gone into the bargain." },
-     { "statement": "On his way to school Tom meets Huckleberry Finn.", "is_true": true, "why": "Huck, the boy every mother in the town disliked and every boy envied, is on his way with a dead cat." }
+     {
+      "statement": "Tom first pretends that his toe is mortified, hoping to be kept home from school.",
+      "is_true": true,
+      "why": "He groans about the toe until Aunt Polly loses patience, and only then does the loose tooth come out in conversation."
+     },
+     {
+      "statement": "Aunt Polly pulls the tooth out with a pair of pliers.",
+      "is_true": false,
+      "why": "She ties one end of a silk thread to the tooth and the other to the bedpost, then thrusts a piece of fire almost in his face so that he jerks back."
+     },
+     {
+      "statement": "Tom is delighted once the tooth is out, because the gap lets him spit in a new way.",
+      "is_true": true,
+      "why": "The new accomplishment draws a following of admiring boys, so his loss turns into fame."
+     },
+     {
+      "statement": "Tom is glad that his plan to miss school has worked perfectly.",
+      "is_true": false,
+      "why": "The plan fails: Aunt Polly sends him to school anyway, and the tooth is gone into the bargain."
+     },
+     {
+      "statement": "On his way to school Tom meets Huckleberry Finn.",
+      "is_true": true,
+      "why": "Huck, the boy every mother in the town disliked and every boy envied, is on his way with a dead cat."
+     }
     ]
    }
   }
@@ -61,20 +127,50 @@
   "chapter": "Prose: His First Flight",
   "approved": false,
   "trick": "The seagull does not choose to fly. He is starved into it, and he only notices he is flying after his wings have already caught the air. That is the point of the story: fear ends the moment you act, not before.",
-  "video": { "query": "His First Flight Liam O Flaherty summary class 9 English", "video_id": null, "approved": false },
+  "video": {
+   "query": "His First Flight Liam O Flaherty summary class 9 English",
+   "video_id": "gfjUGThicF8",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "14 min"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Who does what in His First Flight? Sort each detail into the right bin.",
-    "bins": ["The young seagull", "His family"],
+    "bins": [
+     "The young seagull",
+     "His family"
+    ],
     "items": [
-     { "label": "Alone on the ledge for twenty-four hours, too afraid to jump", "bin": "The young seagull" },
-     { "label": "Ran back and forth on the ledge, threatening to fly and never doing it", "bin": "The young seagull" },
-     { "label": "Flew off and left him, calling to him from the sea below", "bin": "His family" },
-     { "label": "Held a piece of fish just out of reach until hunger did the rest", "bin": "His family" },
-     { "label": "Dived at the fish and found the air holding him up", "bin": "The young seagull" },
-     { "label": "Came around him, screaming and praising, and offered him more food", "bin": "His family" },
-     { "label": "Landed on the green sea and was afraid he would sink", "bin": "The young seagull" }
+     {
+      "label": "Alone on the ledge for twenty-four hours, too afraid to jump",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Ran back and forth on the ledge, threatening to fly and never doing it",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Flew off and left him, calling to him from the sea below",
+      "bin": "His family"
+     },
+     {
+      "label": "Held a piece of fish just out of reach until hunger did the rest",
+      "bin": "His family"
+     },
+     {
+      "label": "Dived at the fish and found the air holding him up",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Came around him, screaming and praising, and offered him more food",
+      "bin": "His family"
+     },
+     {
+      "label": "Landed on the green sea and was afraid he would sink",
+      "bin": "The young seagull"
+     }
     ]
    }
   }
@@ -84,18 +180,44 @@
   "chapter": "Grammar: Voice (Active and Passive)",
   "approved": false,
   "trick": "Three moves, always the same three. The object comes to the front, the verb becomes a form of BE plus the past participle, and the old subject goes to the back after 'by'. If you cannot find an object in the active sentence, it usually cannot be made passive at all.",
-  "video": { "query": "active and passive voice rules with examples class 9 English grammar", "video_id": null, "approved": false },
+  "video": {
+   "query": "active and passive voice rules with examples class 9 English grammar",
+   "video_id": "fo46yFWIJzU",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "12 min"
+  },
   "interactive": {
    "template": "transform",
    "data": {
     "prompt": "Change each sentence from the active voice into the passive.",
     "rule": "Change the sentence from the active voice to the passive voice, keeping the tense the same.",
     "items": [
-     { "from": "The gardener waters the plants every morning.", "to": "The plants are watered by the gardener every morning.", "hint": "Simple present, plural object, so the verb becomes 'are watered'." },
-     { "from": "Rabindranath Tagore wrote Gitanjali.", "to": "Gitanjali was written by Rabindranath Tagore.", "hint": "Simple past, singular object, so 'was' plus the past participle." },
-     { "from": "The children are singing a song.", "to": "A song is being sung by the children.", "hint": "A continuous tense needs 'being' in the passive as well." },
-     { "from": "Someone has stolen my bicycle.", "to": "My bicycle has been stolen.", "hint": "When the doer is unknown or unimportant, drop the 'by' phrase altogether." },
-     { "from": "Open the window.", "to": "Let the window be opened.", "hint": "An imperative turns into 'Let ... be ...' in the passive." }
+     {
+      "from": "The gardener waters the plants every morning.",
+      "to": "The plants are watered by the gardener every morning.",
+      "hint": "Simple present, plural object, so the verb becomes 'are watered'."
+     },
+     {
+      "from": "Rabindranath Tagore wrote Gitanjali.",
+      "to": "Gitanjali was written by Rabindranath Tagore.",
+      "hint": "Simple past, singular object, so 'was' plus the past participle."
+     },
+     {
+      "from": "The children are singing a song.",
+      "to": "A song is being sung by the children.",
+      "hint": "A continuous tense needs 'being' in the passive as well."
+     },
+     {
+      "from": "Someone has stolen my bicycle.",
+      "to": "My bicycle has been stolen.",
+      "hint": "When the doer is unknown or unimportant, drop the 'by' phrase altogether."
+     },
+     {
+      "from": "Open the window.",
+      "to": "Let the window be opened.",
+      "hint": "An imperative turns into 'Let ... be ...' in the passive."
+     }
     ]
    }
   }

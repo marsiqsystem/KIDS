@@ -1,0 +1,352 @@
+[
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "Prose: An Astrologer's Day",
+  "approved": false,
+  "trick": "The astrologer knows nothing about the stars and everything about people. Narayan's twist is that the one true prediction he ever makes is about his own past, and it saves him — the fraud is rescued by the one fact he actually knows.",
+  "video": {
+   "query": "An Astrologer's Day R K Narayan summary class 11 English",
+   "video_id": "3D43hIPiZjc",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "12 min"
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of An Astrologer's Day into order.",
+    "items": [
+     {
+      "label": "The astrologer sets up under the tamarind tree in the Town Hall Park",
+      "note": "With his cowrie shells, palmyra writing and saffron turban"
+     },
+     {
+      "label": "A stranger challenges him, offering money if he can tell the truth"
+     },
+     {
+      "label": "The astrologer glimpses the man's face in the flare of a cheroot"
+     },
+     {
+      "label": "He tells the stranger he was once left for dead, stabbed and thrown into a well"
+     },
+     {
+      "label": "He says the man who did it was crushed under a lorry and is dead"
+     },
+     {
+      "label": "The stranger leaves satisfied, and the astrologer tells his wife he is the man who stabbed him"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "Prose: Sister Nivedita on Swami Vivekananda",
+  "approved": false,
+  "trick": "This is a portrait written by a disciple, so watch what she chooses to show. Nivedita gives us Vivekananda's ordinary moments — his talk, his laughter, his restlessness — because she is arguing that greatness showed in the daily man, not only on the platform at Chicago.",
+  "video": {
+   "query": "Sister Nivedita on Swami Vivekananda prose summary class 11 English",
+   "video_id": "NC0EBK26p4I",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "14 min"
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement.",
+    "items": [
+     {
+      "statement": "Sister Nivedita was born Margaret Noble, in Ireland.",
+      "is_true": true,
+      "why": "She came to India in 1898 and was given the name Nivedita, meaning 'the dedicated one', by Vivekananda."
+     },
+     {
+      "statement": "The piece is written as a distant, formal biography.",
+      "is_true": false,
+      "why": "It is a personal recollection by someone who knew him daily, which is why it turns on small observed moments rather than dates."
+     },
+     {
+      "statement": "Vivekananda addressed the Parliament of Religions in Chicago in 1893.",
+      "is_true": true,
+      "why": "His opening words, 'Sisters and Brothers of America', are the most quoted moment of his life."
+     },
+     {
+      "statement": "Nivedita presents him as a man interested only in religion.",
+      "is_true": false,
+      "why": "She stresses his concern with India's poverty, education and self-respect; for him service to people was itself worship."
+     },
+     {
+      "statement": "Vivekananda founded the Ramakrishna Mission.",
+      "is_true": true,
+      "why": "He founded it in 1897 in the name of his teacher, Ramakrishna Paramahamsa."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "Poem: Composed Upon Westminster Bridge",
+  "approved": false,
+  "trick": "A Romantic poet who wrote about lakes and daffodils is here astonished by a city — and only because it is asleep. London moves him at dawn, before the smoke and the crowds start, so the poem praises the city by catching it at the one hour it resembles nature.",
+  "video": {
+   "query": "Composed Upon Westminster Bridge Wordsworth sonnet explanation class 11",
+   "video_id": "Kd8BV2GYn4w",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "11 min"
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the sonnet.",
+    "items": [
+     {
+      "statement": "The poem is a Petrarchan sonnet of fourteen lines.",
+      "is_true": true,
+      "why": "It runs octave then sestet, with the turn coming as the poet moves from what he sees to what he feels."
+     },
+     {
+      "statement": "Wordsworth is describing London at sunrise.",
+      "is_true": true,
+      "why": "The date in the title is early September 1802, and the city is caught in the early morning, before it wakes."
+     },
+     {
+      "statement": "He finds the city ugly compared with the countryside.",
+      "is_true": false,
+      "why": "The opening claim is the opposite: earth has not anything to show more fair. That a Romantic poet says this of a city is the whole surprise of the poem."
+     },
+     {
+      "statement": "The city is described as wearing the morning like a garment.",
+      "is_true": true,
+      "why": "The image makes the city almost a living body, which is why the closing line can speak of its mighty heart lying still."
+     },
+     {
+      "statement": "The poem ends with the city noisy and busy.",
+      "is_true": false,
+      "why": "It ends in stillness — the houses asleep and the heart of the city not yet beating."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "Poem: The Bangle Sellers",
+  "approved": false,
+  "trick": "The colours are the poem. Silver and blue for the unmarried girl, yellow and gold for the bride, purple and grey for the older woman — Sarojini Naidu maps a whole Indian woman's life onto the colours of glass, so learn the colours and you have learnt the stanzas.",
+  "video": {
+   "query": "The Bangle Sellers Sarojini Naidu poem explanation class 11 English",
+   "video_id": "O-UExLUA9mA",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "13 min"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each set of bangle colours with the stage of life it stands for.",
+    "pairs": [
+     {
+      "left": "Silver and blue, like mountain mist",
+      "right": "The unmarried maiden"
+     },
+     {
+      "left": "Flushed like the buds that dream",
+      "right": "Youth and the hope of love"
+     },
+     {
+      "left": "Yellow, like fields of sunlit corn",
+      "right": "The bride on her wedding morning"
+     },
+     {
+      "left": "Red, like the flame of her marriage fire",
+      "right": "The bride's passion and new life"
+     },
+     {
+      "left": "Purple and gold-flecked grey",
+      "right": "The middle-aged woman who has raised her sons"
+     },
+     {
+      "left": "The bangle sellers themselves",
+      "right": "Wandering vendors carrying a whole life's stages to the fair"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "Poem: The Second Coming",
+  "approved": false,
+  "trick": "Written just after the First World War, so read every image as a world coming apart: the falcon cannot hear the falconer, the centre cannot hold. Yeats then twists the Christian idea of a Second Coming — what is slouching towards Bethlehem is not a saviour.",
+  "video": {
+   "query": "The Second Coming W B Yeats poem analysis class 11 English",
+   "video_id": "PArzgXaO1K4",
+   "approved": true,
+   "duration": "10 min"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each image in the poem with what it suggests.",
+    "pairs": [
+     {
+      "left": "The widening gyre",
+      "right": "History spiralling out of its old pattern"
+     },
+     {
+      "left": "The falcon cannot hear the falconer",
+      "right": "Authority and tradition losing their hold"
+     },
+     {
+      "left": "Things fall apart; the centre cannot hold",
+      "right": "The collapse of any shared order"
+     },
+     {
+      "left": "The best lack all conviction",
+      "right": "Good people paralysed while extremists act"
+     },
+     {
+      "left": "A shape with lion body and the head of a man",
+      "right": "A monstrous new age, not a saviour"
+     },
+     {
+      "left": "Slouches towards Bethlehem to be born",
+      "right": "The Second Coming turned into something dreadful"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "GK: Indian Polity and the Constitution",
+  "approved": false,
+  "trick": "Learn the Constitution by its borrowings and its numbers. Fundamental Rights from the USA, Directive Principles from Ireland, parliamentary government from Britain. And three numbers cover most questions: adopted 26 November 1949, in force 26 January 1950, drafting committee chaired by Dr B. R. Ambedkar.",
+  "video": {
+   "query": "Indian Constitution fundamental rights directive principles general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each feature of the Constitution with where it was borrowed from.",
+    "pairs": [
+     {
+      "left": "Fundamental Rights",
+      "right": "United States of America"
+     },
+     {
+      "left": "Directive Principles of State Policy",
+      "right": "Ireland"
+     },
+     {
+      "left": "Parliamentary form of government",
+      "right": "United Kingdom"
+     },
+     {
+      "left": "Federal structure with a strong centre",
+      "right": "Canada"
+     },
+     {
+      "left": "Concurrent List",
+      "right": "Australia"
+     },
+     {
+      "left": "Fundamental Duties",
+      "right": "Soviet Union (USSR)"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "GK: International Organisations",
+  "approved": false,
+  "trick": "Most marks here are headquarters marks. New York for the UN and UNICEF, Paris for UNESCO, Geneva for the WHO and the WTO, Washington for the World Bank and the IMF, The Hague for the International Court of Justice.",
+  "video": {
+   "query": "United Nations UNESCO WHO IMF headquarters functions general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each organisation with its headquarters.",
+    "pairs": [
+     {
+      "left": "United Nations",
+      "right": "New York"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Paris"
+     },
+     {
+      "left": "World Health Organization",
+      "right": "Geneva"
+     },
+     {
+      "left": "World Trade Organization",
+      "right": "Geneva"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "The Hague"
+     },
+     {
+      "left": "World Bank",
+      "right": "Washington DC"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|All|English & General Knowledge",
+  "chapter": "GK: Geography, Science and Awards",
+  "approved": false,
+  "trick": "For awards, fix the field to the prize: Bharat Ratna is the highest civilian award, Param Vir Chakra the highest military one, Dronacharya for coaches and Khel Ratna for players. Confusing the sportsman's award with the coach's is the commonest slip.",
+  "video": {
+   "query": "Indian civilian and gallantry awards Bharat Ratna Param Vir Chakra general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each award with what it is given for.",
+    "pairs": [
+     {
+      "left": "Bharat Ratna",
+      "right": "The highest civilian honour of India"
+     },
+     {
+      "left": "Param Vir Chakra",
+      "right": "The highest wartime gallantry award"
+     },
+     {
+      "left": "Major Dhyan Chand Khel Ratna",
+      "right": "The highest award for a sportsperson"
+     },
+     {
+      "left": "Dronacharya Award",
+      "right": "For outstanding coaches"
+     },
+     {
+      "left": "Jnanpith Award",
+      "right": "The highest literary honour in India"
+     },
+     {
+      "left": "Ashoka Chakra",
+      "right": "The highest peacetime gallantry award"
+     }
+    ]
+   }
+  }
+ }
+]

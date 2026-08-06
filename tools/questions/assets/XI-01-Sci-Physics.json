@@ -1,0 +1,333 @@
+[
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Physical World, Units and Measurement",
+  "approved": false,
+  "trick": "Dimensional analysis is a free check on every formula you write. Both sides of an equation must have the same dimensions, so if they do not, the formula is wrong before you have put a single number in. It cannot prove a formula right, but it catches most mistakes.",
+  "video": {
+   "query": "units and measurement dimensional analysis class 11 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each quantity with its dimensional formula.",
+    "pairs": [
+     {
+      "left": "Force",
+      "right": "MLT⁻²"
+     },
+     {
+      "left": "Work and energy",
+      "right": "ML²T⁻²"
+     },
+     {
+      "left": "Power",
+      "right": "ML²T⁻³"
+     },
+     {
+      "left": "Pressure",
+      "right": "ML⁻¹T⁻²"
+     },
+     {
+      "left": "Momentum",
+      "right": "MLT⁻¹"
+     },
+     {
+      "left": "Frequency",
+      "right": "T⁻¹"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Errors and Significant Figures",
+  "approved": false,
+  "trick": "Errors add in a fixed way: for a sum or difference you add the absolute errors, for a product or quotient you add the relative errors, and a power multiplies the relative error by that power. So a quantity that is squared contributes twice as much error as one that is not.",
+  "video": {
+   "query": "errors in measurement significant figures propagation class 11 physics",
+   "video_id": "9q0q8OdgEQQ",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "13 min"
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about errors and significant figures.",
+    "items": [
+     {
+      "statement": "When quantities are added, their absolute errors add.",
+      "is_true": true,
+      "why": "Errors never cancel in your favour, so even in a subtraction the absolute errors are added."
+     },
+     {
+      "statement": "When quantities are multiplied, their absolute errors add.",
+      "is_true": false,
+      "why": "For products and quotients it is the relative or percentage errors that add, not the absolute ones."
+     },
+     {
+      "statement": "The number 0.00340 has three significant figures.",
+      "is_true": true,
+      "why": "Leading zeros never count; the trailing zero after a decimal point does. So 3, 4 and the final 0."
+     },
+     {
+      "statement": "A systematic error can be reduced by taking many readings.",
+      "is_true": false,
+      "why": "Repeating readings averages out random error only. A systematic error, like a zero error in the instrument, shifts every reading the same way."
+     },
+     {
+      "statement": "If a quantity is squared in a formula, its relative error is doubled.",
+      "is_true": true,
+      "why": "A power n multiplies the relative error by n, which is why the most-powered quantity deserves the most careful measurement."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Motion in a Straight Line and in a Plane",
+  "approved": false,
+  "trick": "In projectile motion the horizontal and vertical parts are completely independent. Horizontally the velocity never changes; vertically it is ordinary free fall. Solve two simple problems rather than one hard one, and gravity never touches the horizontal.",
+  "video": {
+   "query": "projectile motion kinematics equations class 11 physics",
+   "video_id": "WTWuMBr0zsE",
+   "approved": true,
+   "language": "HINDI",
+   "duration": "15 min"
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right relation for each case.",
+    "items": [
+     {
+      "ask": "Velocity after time t under constant acceleration",
+      "correct": "v = u + at",
+      "wrong": [
+       "v = u + at²",
+       "v² = u + 2as"
+      ],
+      "why": "The first equation of motion. Check it dimensionally: at is acceleration times time, which is a velocity."
+     },
+     {
+      "ask": "Displacement after time t under constant acceleration",
+      "correct": "s = ut + ½at²",
+      "wrong": [
+       "s = ut + at²",
+       "s = ut + ½at"
+      ],
+      "why": "The half belongs to the acceleration term because the extra velocity builds up gradually, so its average contribution is half the final one."
+     },
+     {
+      "ask": "Maximum height of a projectile launched at angle θ with speed u",
+      "correct": "u² sin²θ / 2g",
+      "wrong": [
+       "u² sin2θ / g",
+       "u² sinθ / 2g"
+      ],
+      "why": "Height depends only on the vertical component u sinθ. The second option is the range, which uses sin 2θ — the single most confused pair in this chapter."
+     },
+     {
+      "ask": "Range of a projectile on level ground",
+      "correct": "u² sin2θ / g",
+      "wrong": [
+       "u² sin²θ / g",
+       "2u sinθ / g"
+      ],
+      "why": "Range uses sin 2θ, which is why 45° gives the maximum range and why 30° and 60° give the same one. The third option is the time of flight."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Laws of Motion and Friction",
+  "approved": false,
+  "trick": "Draw the free-body diagram before writing a single equation. Most errors in this chapter are not algebra but a force left off the picture, and the commonest one left off is friction acting against the motion, not along it.",
+  "video": {
+   "query": "Newton laws of motion friction free body diagram class 11 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about motion and friction.",
+    "items": [
+     {
+      "statement": "Newton's third law pair of forces act on two different bodies.",
+      "is_true": true,
+      "why": "That is why they never cancel each other. Action and reaction on the same body would leave nothing ever able to accelerate."
+     },
+     {
+      "statement": "Limiting friction is greater than kinetic friction.",
+      "is_true": true,
+      "why": "It takes more force to start something sliding than to keep it sliding, which is why an object jerks into motion."
+     },
+     {
+      "statement": "Friction depends on the area of contact.",
+      "is_true": false,
+      "why": "To a good approximation it depends only on the normal reaction and the nature of the surfaces, not on how much area is touching."
+     },
+     {
+      "statement": "A body in uniform circular motion has no acceleration.",
+      "is_true": false,
+      "why": "Its speed is constant but its direction changes constantly, so there is a centripetal acceleration directed at the centre."
+     },
+     {
+      "statement": "Momentum is conserved in every collision, elastic or not.",
+      "is_true": true,
+      "why": "Momentum is always conserved when no external force acts. It is kinetic energy that is conserved only in an elastic collision."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Work, Energy and Power",
+  "approved": false,
+  "trick": "Work needs a displacement along the force. Carrying a bag horizontally does no work against gravity, because gravity points down and the motion is sideways, and the angle between them is 90 degrees, whose cosine is zero.",
+  "video": {
+   "query": "work energy theorem power conservation of energy class 11 physics",
+   "video_id": "Gz0y32fXqss",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "15 min"
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Use the work-energy theorem, one step at a time.",
+    "problem": "A 2 kg body at rest is pulled by a constant horizontal force of 10 N over a frictionless floor for 5 m. What is its final speed?",
+    "steps": [
+     {
+      "ask": "How much work does the force do?",
+      "options": [
+       "50 J",
+       "2 J",
+       "20 J"
+      ],
+      "correct": 0,
+      "why": "W = F × s = 10 × 5 = 50 joules, since the force is along the motion and cos 0° = 1."
+     },
+     {
+      "ask": "By the work-energy theorem, what does that work equal?",
+      "options": [
+       "The change in kinetic energy",
+       "The change in momentum",
+       "The power delivered"
+      ],
+      "correct": 0,
+      "why": "Net work done equals the change in kinetic energy. This is often quicker than finding the acceleration first."
+     },
+     {
+      "ask": "The body started at rest, so ½mv² = 50. What is v?",
+      "options": [
+       "5 m/s",
+       "7.07 m/s",
+       "50 m/s"
+      ],
+      "correct": 1,
+      "why": "½ × 2 × v² = 50 gives v² = 50, so v = √50 ≈ 7.07 m/s. Answering 5 means forgetting to take the square root."
+     }
+    ],
+    "answer": "About 7.07 m/s, that is √50 m/s."
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "System of Particles and Rotational Motion",
+  "approved": false,
+  "trick": "Every linear quantity has a rotational twin: mass becomes moment of inertia, force becomes torque, momentum becomes angular momentum, and F = ma becomes τ = Iα. Learn the translations and half the chapter is already familiar.",
+  "video": {
+   "query": "rotational motion moment of inertia torque angular momentum class 11 physics",
+   "video_id": "kl41_72VvTI",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "14 min"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each linear quantity with its rotational counterpart.",
+    "pairs": [
+     {
+      "left": "Mass",
+      "right": "Moment of inertia"
+     },
+     {
+      "left": "Force",
+      "right": "Torque"
+     },
+     {
+      "left": "Linear momentum",
+      "right": "Angular momentum"
+     },
+     {
+      "left": "Linear acceleration",
+      "right": "Angular acceleration"
+     },
+     {
+      "left": "F = ma",
+      "right": "τ = Iα"
+     },
+     {
+      "left": "½mv²",
+      "right": "½Iω²"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Physics",
+  "chapter": "Circular Motion",
+  "approved": false,
+  "trick": "Centripetal force is not a new force. It is the name for whatever is already pulling the body towards the centre — tension for a stone on a string, friction for a car on a bend, gravity for a satellite. Always ask which real force is playing that part.",
+  "video": {
+   "query": "circular motion centripetal force banking of roads class 11 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "In each case, which real force provides the centripetal force?",
+    "pairs": [
+     {
+      "left": "A stone whirled on a string",
+      "right": "Tension in the string"
+     },
+     {
+      "left": "A car turning on a flat road",
+      "right": "Friction between the tyres and the road"
+     },
+     {
+      "left": "A satellite orbiting the Earth",
+      "right": "Gravitational attraction"
+     },
+     {
+      "left": "An electron in an atom, on the Bohr picture",
+      "right": "Electrostatic attraction to the nucleus"
+     },
+     {
+      "left": "A car on a banked road with no friction",
+      "right": "The horizontal component of the normal reaction"
+     },
+     {
+      "left": "A bucket of water swung in a vertical circle at the top",
+      "right": "Gravity, plus any push from the bucket"
+     }
+    ]
+   }
+  }
+ }
+]

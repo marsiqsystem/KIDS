@@ -200,6 +200,16 @@
   }
  },
  {
+  "id": "XI|Arts|Education|22",
+  "approved": false,
+  "why_correct": "Buddha, in the sixth century BCE, taught that a person's worth comes from their conduct and not from the family they are born into. His Sangha admitted men and women of every caste, and that open order is what is counted as the first organised challenge to the caste system.",
+  "why_wrong": {
+   "1": "Tilak was a nationalist leader of the late nineteenth and early twentieth centuries. His fight was against British rule, more than two thousand years after the period this question is about.",
+   "2": "Gandhi campaigned hard against untouchability, but in the twentieth century. Had the question asked who fought untouchability he would be the answer; it asks who was first, and he comes far too late for that.",
+   "3": "Mahavira also rejected birth-based hierarchy, and he and Buddha belonged to the same Sramana movement, so this is the one option a well-read student may want to defend. The answer expected here is Buddha, because the Sangha was the first order to open its doors to every caste as a matter of rule."
+  }
+ },
+ {
   "id": "XI|Arts|Education|23",
   "approved": false,
   "why_correct": "Article 21A, inserted by the 86th Amendment in 2002, makes free and compulsory education for children aged six to fourteen a fundamental right. It sits alongside Article 21, the right to life.",

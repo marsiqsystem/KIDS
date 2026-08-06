@@ -840,6 +840,16 @@
   }
  },
  {
+  "id": "IX|All|General Paper|89",
+  "approved": false,
+  "why_correct": "Work outwards from the inside. The cube root of x squared is x to the power two thirds. Taking the fourth root of that divides the power by four again, and two thirds divided by four is one sixth. So the value is x to the power one sixth, the sixth root of x. A quicker route is to multiply the three indices at once: two, divided by three, divided by four.",
+  "why_wrong": {
+   "0": "x on its own is x to the power one, which is what is left if the two root signs are ignored and only the square is cancelled. Every root sign divides the power, so the answer has to come out far smaller than x itself.",
+   "1": "x to the power one half is the square root of x. There is no square root in this question at all: the signs are a cube root inside a fourth root, and the square is on the x, not on the root.",
+   "2": "x to the power one third is the cube root of x. This uses the inner cube root but loses one of the other two steps along the way, so the working has been stopped early. Both roots and the square must all be applied."
+  }
+ },
+ {
   "id": "IX|All|General Paper|90",
   "approved": false,
   "why_correct": "Use the identity a cubed minus b cubed equals the cube of the difference plus three times the difference, when ab is 1. So x cubed minus 1 over x cubed equals the cube of root 3 plus 3 times root 3, which is 3 root 3 plus 3 root 3, giving 6 root 3.",
@@ -2652,6 +2662,16 @@
    "1": "Kapila founded the Samkhya school, which is the philosophical partner of Yoga.",
    "2": "Jaimini founded the Mimamsa school, concerned with the interpretation of Vedic ritual.",
    "3": "Shankara was the great exponent of Advaita Vedanta. All four founded or led schools of Indian philosophy, so the association must be learnt pair by pair."
+  }
+ },
+ {
+  "id": "XI|Arts|Education|22",
+  "approved": false,
+  "why_correct": "Buddha, in the sixth century BCE, taught that a person's worth comes from their conduct and not from the family they are born into. His Sangha admitted men and women of every caste, and that open order is what is counted as the first organised challenge to the caste system.",
+  "why_wrong": {
+   "1": "Tilak was a nationalist leader of the late nineteenth and early twentieth centuries. His fight was against British rule, more than two thousand years after the period this question is about.",
+   "2": "Gandhi campaigned hard against untouchability, but in the twentieth century. Had the question asked who fought untouchability he would be the answer; it asks who was first, and he comes far too late for that.",
+   "3": "Mahavira also rejected birth-based hierarchy, and he and Buddha belonged to the same Sramana movement, so this is the one option a well-read student may want to defend. The answer expected here is Buddha, because the Sangha was the first order to open its doors to every caste as a matter of rule."
   }
  },
  {
@@ -5235,6 +5255,16 @@
   }
  },
  {
+  "id": "XI|Science|Chemistry|12",
+  "approved": false,
+  "why_correct": "Nitrogen in both NH3 and NF3 carries three bond pairs and one lone pair. Four electron pairs arrange themselves tetrahedrally, but the shape of a molecule is named from the atoms alone, and three atoms below one nitrogen make a trigonal pyramid.",
+  "why_wrong": {
+   "0": "Pyramidal is the same shape named loosely, and chemists often shorten it that way in speech. When both terms are on offer, take the full name: trigonal pyramidal also tells you the base is a triangle.",
+   "1": "Tetrahedral describes how the four electron pairs are arranged, not the shape of the molecule. Shape counts atoms only, and the lone pair has no atom at its end.",
+   "3": "Linear needs the bonded atoms in a straight line through the centre, as in CO2. Nitrogen here is bonded to three atoms, so a line is impossible."
+  }
+ },
+ {
   "id": "XI|Science|Chemistry|13",
   "approved": false,
   "why_correct": "Across a period the nuclear charge increases while electrons are added to the same shell, so the added shielding is small and the stronger pull draws the electrons closer. The atomic radius therefore decreases from left to right.",
@@ -7194,6 +7224,16 @@
    "0": "William Jones was a judge and orientalist who founded the Asiatic Society of Bengal.",
    "2": "Warren Hastings was Governor-General in India at the time, not a British Prime Minister, and he was later impeached.",
    "3": "William Pitt the Elder was his father, Prime Minister a generation earlier during the Seven Years War. Father and son are the trap here, and the Act belongs to the son."
+  }
+ },
+ {
+  "id": "XII|Arts|History|20",
+  "approved": false,
+  "why_correct": "After 1929 the imperial powers turned inward and taxed imports to shield their own producers, Britain through the Import Duties Act of 1932 and the Ottawa agreements with the dominions. Protectionism is the word for that new policy, and it is the change in attitude the question is after.",
+  "why_wrong": {
+   "0": "This is the same shift seen from the other side, and it is true that Britain gave up free trade after 1929. What the question wants named is the policy that took its place, and that policy is protectionism.",
+   "2": "Decolonisation did not follow immediately. India became independent in 1947 and most African colonies only in the 1950s and 1960s, two decades and more after the Depression.",
+   "3": "The Reserve Bank of India was set up under the RBI Act of 1934 and began work in 1935, on the recommendation of the Hilton Young Commission of 1926. It was planned well before the Depression, not caused by it."
   }
  },
  {

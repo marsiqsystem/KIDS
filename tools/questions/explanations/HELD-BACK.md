@@ -1,28 +1,55 @@
-# Questions held back from Phase 2 — need Umar's ruling
+# Questions held back from Phase 2 — ALL RULED, 6 August 2026
 
-These questions have no explanation written, because writing one would mean
-teaching a child something untrue. Each is listed with what is wrong and what
-the options are. Nothing here changes any mark until a ruling is recorded — the
-mechanism is `key-overrides.json`, and the offline papers are not yet scored, so
-a ruling is still cheap to apply.
+**This file is now a record, not a queue.** Every question in it has been ruled
+on and every ruling is applied. What follows is the evidence behind each one —
+keep it, because it is the only place the reasoning is written down, and someone
+will eventually ask why a child's mark changed.
 
 None of this affects the online exam, which was scored and published on
 different papers.
 
-**Priority: the seventeen outright wrong keys.** Each is demonstrably wrong
-rather than debatable, and four of them are contradicted by another question on
-the same paper.
+---
 
-**Start with `XII|Arts|History|15`** (Jim Crow, item 29). The others cost a
-mark; that one, published as learning content, would teach children that
-segregation laws promoted equality.
+## Status — 6 August 2026: APPLIED
 
-The rest: `X|31`, `XI Physics 6`, `XI Physics 19`, `XI Maths 8`, `XI Maths 21`,
-`XI Maths 25`, `XI History 2`, `XII Physics 16`, `XII Chemistry 12`,
-`XII Chemistry 13`, `XII Maths 13`, `XII Biology 17`, `XII Education 25`,
-`XII Philosophy 2`, `XII Philosophy 5`, `XII Philosophy 11`.
+The 33 held-back questions resolved as follows.
 
-XI Mathematics and XII Philosophy have three each.
+**29 went to the institution** as a formal correction letter — 6 for grace, 23
+for a change of key — and **the institution approved all 29**. They are now in
+`key-overrides.json` and applied to `src/data/questions/questions.json`:
+
+- **6 graced** (`answer` is now `null`): `IX|62`, `IX|77`, `IX|87`,
+  `XI Chemistry 14`, `XI Maths 15`, `XI Philosophy 10`. Plus
+  `XII|Arts|Education|13` (Delors), graced earlier — **7 graced records in
+  total.** Scoring must award the mark to every candidate, blanks included.
+- **23 keys corrected**, each carrying `key_corrected` with the old letter, the
+  reason, and who ruled.
+
+Re-running `extract.py` changed exactly 29 records and nothing else — verified
+against the previous `questions.json`.
+
+**Explanations can now be written for all 29.** They were held back only because
+the key was wrong; with the key right, there is nothing untrue left to teach.
+The 6 graced ones need `why_graced` and a `why_wrong` covering **every** option,
+not `why_correct` — the build enforces this.
+
+**4 needed no letter, because no mark moves** — ruled by Umar Iqbal, key stands
+unchanged in all four. Marked **RULED** below:
+
+| item | question | ruling |
+| --- | --- | --- |
+| 5 | `IX\|89` | key (d) confirmed correct — and the paper was never defective; the garbling is `extract.py`'s, not the printed page's |
+| 9 | `XI Chemistry 12` | key (c) confirmed; "trigonal pyramidal" is the precise term and is preferred when both appear |
+| 16 | `XI Education 22` | key (a) Buddha confirmed as the taught answer |
+| 30 | `XII History 20` | key (b) confirmed |
+
+Explanations have now been written for all four.
+
+A caution this file has to carry: item 5 was listed here on the strength of the
+extracted text alone, and the printed page turned out to be perfectly legible.
+**Check the paper before calling a question defective** — `extract.py` loses
+stacked radicals, fractional exponents and subscripts, and none of that is the
+paper's fault.
 
 ---
 
@@ -88,7 +115,7 @@ follow, and no option is derivable.
 **Recommendation: grace**, for the same reason as item 1 — the defect is in the
 stem.
 
-## 5. `IX|All|General Paper|89` — option text is unreadable
+## 5. `IX|All|General Paper|89` — extraction damage, not a paper defect — **RULED: key stands**
 
 > The value of √√x2 is: 4 3
 > (a) x (b) 1 x2 (c) 1 x3 (d) 1 x6
@@ -100,10 +127,24 @@ x^(1/6). The mathematics is recoverable — the fourth root of the cube root of
 x² is x^(1/6), so the key is **correct** — but no child can read the options as
 printed.
 
-**Recommendation: retype the stem and options by hand**, then the explanation
-can be written normally. This is the same class of problem as the four
-match-the-column History questions already carrying `needs_review`, and it
-should probably carry that flag too.
+**Ruled 6 Aug 2026 (Umar Iqbal): the key (d) is correct — no override, no mark
+moves. This was never a defective question.** Umar produced the printed page:
+it sets the stem as ⁴√(³√(x²)) and the options as x, x^(1/2), x^(1/3), x^(1/6),
+all typeset correctly. The candidates read it without difficulty. Everything
+above describes damage done by `extract.py` to text that was fine on paper, and
+the entry was wrong to file it as a paper defect at all.
+
+**Explanation written**, naming the options by their true values. Not listed as
+held back any more.
+
+**Outstanding, and it is a tooling job:** `questions.json` still carries the
+mangled option text, so any page rendering from the data — the learning page,
+the response grid — shows "1 x2" where the paper shows x^(1/2). Retyping it by
+hand does not survive, because `questions.json` is regenerated by `extract.py`
+from the PDFs. Correct option text needs somewhere to live that the extractor
+reapplies, the way `key-overrides.json` is reapplied to keys. **Not built —
+Umar's call.** The four match-the-column History questions carrying
+`needs_review` need the same thing.
 
 ## 6. `X|All|General Paper|31` — key error, contradicted by Q30
 
@@ -150,7 +191,7 @@ k = √(I/M) = **R**, option (c). R/√2 is the radius of gyration about a
 
 **Recommendation: correct the key to (c).**
 
-## 9. `XI|Science|Chemistry|12` — two options name the same shape
+## 9. `XI|Science|Chemistry|12` — two options name the same shape — **RULED: key stands**
 
 > NH3 and NF3 are:
 > (a) Pyramidal (b) Tetrahedral (c) Trigonal pyramidal (d) Linear
@@ -160,6 +201,12 @@ k = √(I/M) = **R**, option (c). R/√2 is the radius of gyration about a
 describes NH₃ as pyramidal. Option (a) cannot be called wrong.
 
 **Recommendation: keep the key, publish no explanation.** Rewrite before reuse.
+
+**Ruled 6 Aug 2026 (Umar Iqbal): key (c) stands.** "Pyramidal" is the shortened
+form chemists use in speech; "trigonal pyramidal" is the molecular geometry as
+NCERT, CBSE and ISC name it, and when both are on the page the precise term is
+the one to pick. Explanation written on that footing — it says plainly that (a)
+is the same shape said loosely, rather than pretending it is wrong.
 
 ## 10. `XI|Science|Chemistry|14` — the keyed value is not the right number
 
@@ -240,7 +287,7 @@ gives at least two of them. Only (d) is clearly wrong.
 **Recommendation: keep the key, publish no explanation.** Rewrite as "which
 root means…" before reuse.
 
-## 16. `XI|Arts|Education|22` — disputed priority
+## 16. `XI|Arts|Education|22` — disputed priority — **RULED: key stands**
 
 > The first to challenge the caste system was:
 > (a) Buddha (b) B.G. Tilak (c) Mahatma Gandhi (d) Mahavira
@@ -252,6 +299,13 @@ conventionally credit Buddha, but a well-read student can defend (d).
 
 **Recommendation: a teacher's ruling.** Either confirm (a) as the taught
 answer, or accept both.
+
+**Ruled 6 Aug 2026 (Umar Iqbal): key (a) Buddha stands.** The chronology above
+is right — Mahavira is traditionally dated earlier and both belonged to the
+Sramana movement — but "the first to challenge the caste system" is not a
+precise historical claim, and in this syllabus the expected answer is Buddha,
+whose Sangha was the first order to admit every caste by rule. The explanation
+says so openly and credits Mahavira rather than calling him wrong.
 
 ## 17. `XI|Arts|Philosophy|10` — both religions have five
 
@@ -447,7 +501,7 @@ that segregation laws promoted equality.
 
 **Recommendation: correct the key to (d), and treat as urgent.**
 
-## 30. `XII|Arts|History|20` — two options say the same thing
+## 30. `XII|Arts|History|20` — two options say the same thing — **RULED: key stands**
 
 > The Depression of 1929 brought a change in the attitude of imperial power.
 > (a) The days of free trade were gone.
@@ -459,6 +513,11 @@ plainly true — Britain abandoned free trade after 1929, through the Import
 Duties Act of 1932 and the Ottawa agreements.
 
 **Recommendation: keep the key, publish no explanation.** Rewrite before reuse.
+
+**Ruled 6 Aug 2026 (Umar Iqbal): key (b) stands.** Explanation written: (a) is
+acknowledged as true, and the reason (b) is the answer is that the question
+asks for the policy that replaced free trade, which protectionism names and (a)
+does not.
 
 ## 31. `XII|Arts|Philosophy|2` — key error, contradicted by Q6
 

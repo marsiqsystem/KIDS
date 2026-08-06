@@ -6,5 +6,260 @@
   "reason": "Delors Commission was formed in 1993. The paper offers 1998/1994/1996/1992, so the correct answer was never on the page and no candidate could have chosen it.",
   "ruled_by": "Umar Iqbal",
   "ruled_on": "2026-08-05"
+ },
+ {
+  "id": "IX|All|General Paper|62",
+  "action": "grace",
+  "was": "C",
+  "reason": "The stem prints a double negative — 'not a non-renewable' — so as printed three of the four options are correct: solar, wind and forest timber are all renewable. The defect is in the stem, so no change of key can fix it.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "IX|All|General Paper|77",
+  "action": "grace",
+  "was": "C",
+  "reason": "Every option is a genuine colloid: blood is a colloid, cheese a gel, milk an emulsion and paint a sol. Milk was intended, but no candidate could be told the other three are wrong.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "IX|All|General Paper|87",
+  "action": "grace",
+  "was": "B",
+  "reason": "NCERT's condition 'such that AC = BC' is missing from the stem. 'Between' does not mean 'midway', so AC = 1/2 AB does not follow and no option is derivable from what was printed.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Chemistry|14",
+  "action": "grace",
+  "was": "B",
+  "reason": "c/lambda = 3e8 / 5.8e-7 = 5.17e14 Hz. The keyed 5.08e14 is a typo, and a candidate who calculated correctly found no matching option and could justifiably choose (D) None of the above — so the better the candidate, the more likely the keyed answer was missed.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Mathematics|15",
+  "action": "grace",
+  "was": "D",
+  "reason": "5x + 4 < 19 is strict, so x < 3 and x = 3 is not a solution: the integer answer is -3 <= x < 3. The keyed (D) prints -3 <= x <= 3 and wrongly includes 3. No option states the correct set. Verified against the printed paper, which does print '<' and not '<='.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Arts|Philosophy|10",
+  "action": "grace",
+  "was": "C",
+  "reason": "Jainism has the five vows (pancha mahavrata) and Buddhism the five precepts (pancasila). Both are literally five principles of conduct, so (A) cannot be called wrong.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "IX|All|General Paper|71",
+  "action": "correct",
+  "was": "B",
+  "to": "D",
+  "reason": "In the brown ring test the ring is the nitrosyl complex [Fe(H2O)5NO]2+, and the gas that forms it is nitric oxide, NO.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "X|All|General Paper|31",
+  "action": "correct",
+  "was": "B",
+  "to": "D",
+  "reason": "Digdarshan was the first Bengali monthly — which question 30 on the same paper states. Samachar Darpan was the first weekly. The first Bengali daily was Sambad Prabhakar, a daily from 1839 under Iswar Chandra Gupta.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Physics|6",
+  "action": "correct",
+  "was": "B",
+  "to": "C",
+  "reason": "The slope of a displacement-time graph is velocity; acceleration is the slope of a velocity-time graph. Question 14 on the same paper keys the identical idea correctly as velocity.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Physics|19",
+  "action": "correct",
+  "was": "B",
+  "to": "C",
+  "reason": "About the axis perpendicular to its plane a thin ring has I = MR^2, so k = sqrt(I/M) = R. R/sqrt(2) is the radius of gyration about a diameter — the key answered for the wrong axis.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Mathematics|8",
+  "action": "correct",
+  "was": "D",
+  "to": "B",
+  "reason": "alpha = pi/2 - beta and gamma = pi/2 - 2beta, so tan beta + 2 tan gamma = t + (1-t^2)/t = 1/t = cot beta = tan alpha. Check at beta = 30: tan alpha = 1.732, and (B) gives 0.577 + 1.155 = 1.732 while (D) gives 1.155.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Mathematics|21",
+  "action": "correct",
+  "was": "D",
+  "to": "C",
+  "reason": "Diagonals = n(n-3)/2 = 7 x 4 / 2 = 14. (21 is 7C2, the lines joining vertices, of which 7 are sides.) 13 answers no reading of the question.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Science|Mathematics|25",
+  "action": "correct",
+  "was": "B",
+  "to": "C",
+  "reason": "e^(x^2) = 1 + x^2 + ... and cos x = 1 - x^2/2 + ..., so the numerator is (3/2)x^2 and the limit is 3/2. The keyed 2/3 is its reciprocal.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Arts|History|2",
+  "action": "correct",
+  "was": "C",
+  "to": "A",
+  "reason": "The Mehrauli iron pillar inscription dates to about 400 CE. The Ashokan edicts are c. 250 BCE — six and a half centuries older, and universally described as the oldest deciphered inscriptions in India.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Arts|Education|2",
+  "action": "correct",
+  "was": "A",
+  "to": "C",
+  "reason": "Educere means 'to lead out', and that is the sense the syllabus teaches for what education means. Ruled in favour of (C) on the correction letter.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XI|Arts|Philosophy|18",
+  "action": "correct",
+  "was": "A",
+  "to": "D",
+  "reason": "For Shankara the Self is Brahman, and Brahman is also eternal and transcendent, so (B) and (C) are true of the Self as well. 'All of These' is therefore the complete answer.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|History|15",
+  "action": "correct",
+  "was": "C",
+  "to": "D",
+  "reason": "Jim Crow laws enforced racial segregation in schools, transport, housing and voting across the American South from the 1870s until the Civil Rights Act of 1964. They did the opposite of putting Black and White Americans on the same footing.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Philosophy|5",
+  "action": "correct",
+  "was": "B",
+  "to": "A",
+  "reason": "Vishishtadvaita — qualified non-dualism — is Ramanuja's system. Shankara's is Kevaladvaita, absolute non-dualism. Dvaita is Madhva's and Dvaitadvaita Nimbarka's.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Philosophy|2",
+  "action": "correct",
+  "was": "B",
+  "to": "D",
+  "reason": "Treating causality as a form of the intellect — an a priori category of the understanding — is Kant's position. Hume's is the opposite, that it is psychological habit, and question 6 on the same paper keys Hume correctly for that view.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Philosophy|11",
+  "action": "correct",
+  "was": "A",
+  "to": "B",
+  "reason": "Exploitation of nature produces an environmental crisis. 'Individual crisis' is not a consequence of environmental damage in any sense the chapter intends.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Education|25",
+  "action": "correct",
+  "was": "B",
+  "to": "A",
+  "reason": "The Right of Children to Free and Compulsory Education Act was passed in 2009 and came into force on 1 April 2010. Question 14 on the same paper keys the year of passing correctly, so the paper tests the passed/commenced distinction deliberately.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Geography|21",
+  "action": "correct",
+  "was": "C",
+  "to": "B",
+  "reason": "Jharkhand holds the largest coal reserves, but Chhattisgarh is the largest producer, mining well over 200 million tonnes a year against Jharkhand's ~130. Reserves and production are different things; the institution has ruled for production.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Arts|Geography|23",
+  "action": "correct",
+  "was": "D",
+  "to": "C",
+  "reason": "NCERT Class 12 Geography states that roads carry about 70 per cent of freight traffic. Road overtook rail decades ago; rail now carries roughly 30 per cent.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Chemistry|12",
+  "action": "correct",
+  "was": "C",
+  "to": "A",
+  "reason": "Fructose isomerises to glucose in the alkaline conditions of Tollens' and Fehling's, so both give a positive test with either sugar and neither distinguishes them. Bromine water is mildly acidic, causes no isomerisation, and oxidises only the aldose glucose.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Mathematics|13",
+  "action": "correct",
+  "was": "C",
+  "to": "D",
+  "reason": "The numerator is 0 at x = 2, so the limit is f(2) - 2f'(2) = 4 - 8 = -4. Check with f(x) = 4x - 4: the quotient is exactly -4 for every x != 2.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Physics|16",
+  "action": "correct",
+  "was": "B",
+  "to": "A",
+  "reason": "A voltmeter draws almost no current and sits across a component, so it needs a high resistance in series. A low resistance in parallel is the shunt that makes an ammeter — the key answered the opposite question.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Chemistry|13",
+  "action": "correct",
+  "was": "A",
+  "to": "B",
+  "reason": "The iodoform test needs a CH3CH(OH)- or CH3CO- group. 2-Methylpropan-2-ol is a tertiary alcohol with no hydrogen on the carbinol carbon and gives no iodoform; propan-2-ol does. Propan-1-ol and methanol also fail.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Biology|17",
+  "action": "correct",
+  "was": "B",
+  "to": "C",
+  "reason": "The morula reaches the uterus but does not implant. It first becomes a blastocyst, whose trophoblast attaches to and invades the endometrium — NCERT: 'the blastocyst becomes embedded in the endometrium.'",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
+ },
+ {
+  "id": "XII|Science|Chemistry|15",
+  "action": "correct",
+  "was": "A",
+  "to": "D",
+  "reason": "Ruled by the institution on the correction letter. Note for paper-setting: peptization is the reverse of coagulation, and the question needs rewording before it is reused.",
+  "ruled_by": "Institution (KIDS correction letter of 6 Aug 2026, submitted by Umar Iqbal)",
+  "ruled_on": "2026-08-06"
  }
 ]

@@ -110,6 +110,16 @@
   }
  },
  {
+  "id": "XI|Science|Chemistry|12",
+  "approved": false,
+  "why_correct": "Nitrogen in both NH3 and NF3 carries three bond pairs and one lone pair. Four electron pairs arrange themselves tetrahedrally, but the shape of a molecule is named from the atoms alone, and three atoms below one nitrogen make a trigonal pyramid.",
+  "why_wrong": {
+   "0": "Pyramidal is the same shape named loosely, and chemists often shorten it that way in speech. When both terms are on offer, take the full name: trigonal pyramidal also tells you the base is a triangle.",
+   "1": "Tetrahedral describes how the four electron pairs are arranged, not the shape of the molecule. Shape counts atoms only, and the lone pair has no atom at its end.",
+   "3": "Linear needs the bonded atoms in a straight line through the centre, as in CO2. Nitrogen here is bonded to three atoms, so a line is impossible."
+  }
+ },
+ {
   "id": "XI|Science|Chemistry|13",
   "approved": false,
   "why_correct": "Across a period the nuclear charge increases while electrons are added to the same shell, so the added shielding is small and the stronger pull draws the electrons closer. The atomic radius therefore decreases from left to right.",

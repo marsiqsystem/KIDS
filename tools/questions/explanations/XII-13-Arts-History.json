@@ -180,6 +180,16 @@
   }
  },
  {
+  "id": "XII|Arts|History|20",
+  "approved": false,
+  "why_correct": "After 1929 the imperial powers turned inward and taxed imports to shield their own producers, Britain through the Import Duties Act of 1932 and the Ottawa agreements with the dominions. Protectionism is the word for that new policy, and it is the change in attitude the question is after.",
+  "why_wrong": {
+   "0": "This is the same shift seen from the other side, and it is true that Britain gave up free trade after 1929. What the question wants named is the policy that took its place, and that policy is protectionism.",
+   "2": "Decolonisation did not follow immediately. India became independent in 1947 and most African colonies only in the 1950s and 1960s, two decades and more after the Depression.",
+   "3": "The Reserve Bank of India was set up under the RBI Act of 1934 and began work in 1935, on the recommendation of the Hilton Young Commission of 1926. It was planned well before the Depression, not caused by it."
+  }
+ },
+ {
   "id": "XII|Arts|History|21",
   "approved": false,
   "why_correct": "Statements one and three are true. The Ilbert Bill of 1883 would have allowed Indian judges to try Europeans, which increased their powers and removed a racial distinction in the judicial service.",

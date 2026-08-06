@@ -20,6 +20,16 @@
   }
  },
  {
+  "id": "IX|All|General Paper|89",
+  "approved": false,
+  "why_correct": "Work outwards from the inside. The cube root of x squared is x to the power two thirds. Taking the fourth root of that divides the power by four again, and two thirds divided by four is one sixth. So the value is x to the power one sixth, the sixth root of x. A quicker route is to multiply the three indices at once: two, divided by three, divided by four.",
+  "why_wrong": {
+   "0": "x on its own is x to the power one, which is what is left if the two root signs are ignored and only the square is cancelled. Every root sign divides the power, so the answer has to come out far smaller than x itself.",
+   "1": "x to the power one half is the square root of x. There is no square root in this question at all: the signs are a cube root inside a fourth root, and the square is on the x, not on the root.",
+   "2": "x to the power one third is the cube root of x. This uses the inner cube root but loses one of the other two steps along the way, so the working has been stopped early. Both roots and the square must all be applied."
+  }
+ },
+ {
   "id": "IX|All|General Paper|90",
   "approved": false,
   "why_correct": "Use the identity a cubed minus b cubed equals the cube of the difference plus three times the difference, when ab is 1. So x cubed minus 1 over x cubed equals the cube of root 3 plus 3 times root 3, which is 3 root 3 plus 3 root 3, giving 6 root 3.",

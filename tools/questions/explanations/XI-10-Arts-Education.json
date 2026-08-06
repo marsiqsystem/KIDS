@@ -10,6 +10,16 @@
   }
  },
  {
+  "id": "XI|Arts|Education|2",
+  "approved": false,
+  "why_correct": "The word education comes from the Latin educere, meaning to lead out or to draw out. The idea is that the child already carries powers and possibilities within, and the teacher's work is to bring them out rather than to supply them from outside. This is the sense the syllabus asks for, and it is the sense on which the whole modern child centred view of education rests.",
+  "why_wrong": {
+   "0": "To nourish is the sense of the related Latin word educare. It is a genuine root of the word, and it is why some books gloss education as nourishing the child, but it is not the meaning this question is after.",
+   "1": "To bring up is again educare, the upbringing and rearing of the child. It is close, and it was the printed key, but the term the syllabus wants here is the drawing out one.",
+   "3": "To put in is the exact opposite idea, the old picture of the child as an empty vessel into which information is poured. The educere definition exists precisely to reject it."
+  }
+ },
+ {
   "id": "XI|Arts|Education|3",
   "approved": false,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. The idea is that nothing is put into the child from outside; what is already there is uncovered.",

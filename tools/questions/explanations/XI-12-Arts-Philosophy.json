@@ -90,6 +90,17 @@
   }
  },
  {
+  "id": "XI|Arts|Philosophy|10",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. Jainism has the five great vows, the pancha mahavrata, and Buddhism has the five precepts, the panchashila, and both are literally five principles of conduct. Jainism was the intended answer, but Buddhism cannot honestly be called wrong, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Buddhism has the panchashila, the five precepts binding on every lay follower: to abstain from killing, from stealing, from sexual misconduct, from false speech and from intoxicants. That is a set of five principles of conduct, so this option is defensible as printed.",
+   "1": "The Vedic tradition has no comparable fixed set of five rules of conduct. Its ethical scheme runs through the purusharthas and the duties of the ashramas, which are four, not five.",
+   "2": "Jainism has the pancha mahavrata: ahimsa, satya, asteya, brahmacharya and aparigraha. This is the answer the setter intended, and it is correct.",
+   "3": "Islam has the five pillars, but those are obligations of faith and worship, the creed, prayer, alms, fasting and the pilgrimage, rather than the ethical restraints the phrase principles of conduct points to. That a third option can be argued for at all is a further reason the question was withdrawn."
+  }
+ },
+ {
   "id": "XI|Arts|Philosophy|11",
   "approved": false,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already existing in man. The teacher does not add anything but removes what obstructs, as a gardener does not make the plant grow but removes the weeds.",
@@ -157,6 +168,16 @@
    "1": "A self distinct from the body is what Charvaka expressly denies.",
    "2": "Consciousness for Charvaka is a property that emerges from matter, like the intoxicating power that arises when ingredients ferment, not an independent reality.",
    "3": "Charvaka has a definite answer here, so none of these is wrong."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|18",
+  "approved": false,
+  "why_correct": "For Shankara the Self is Brahman, exactly as the mahavakya ayam atma brahma declares. And Brahman is eternal, without birth or death, and transcendent, beyond the whole empirical world. So each of the three descriptions is true of the Self, and All of These is the only complete answer.",
+  "why_wrong": {
+   "0": "Brahman is a true description of the Self and is the heart of Shankara's teaching, and it was the printed key. But it is not the whole of what the options offer. When a question ends with All of These, test every statement before settling on the first true one.",
+   "1": "Eternal is likewise true. The Self is unborn, undying and unchanging. But by itself it is incomplete.",
+   "2": "Transcendent is also true, since the Self as Brahman is beyond the world of name and form. Again incomplete on its own."
   }
  },
  {

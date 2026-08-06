@@ -70,6 +70,16 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|8",
+  "approved": false,
+  "why_correct": "From alpha plus beta equal to pi over 2 we get alpha equal to pi over 2 minus beta, and putting that into beta plus gamma equal to alpha gives gamma equal to pi over 2 minus 2 beta. So tan gamma is cot 2 beta. Writing t for tan beta, cot 2 beta is one minus t squared over 2t, so tan beta plus twice tan gamma is t plus one minus t squared over t, which collapses to one over t. And one over tan beta is cot beta, which is tan of pi over 2 minus beta, that is tan alpha. Check it with beta equal to 20 degrees: alpha is 70 and gamma is 50, tan alpha is 2.747, and tan 20 plus twice tan 50 is 0.364 plus 2.384, which is 2.747.",
+  "why_wrong": {
+   "0": "Twice tan beta plus twice tan gamma doubles both terms. At beta equal to 20 degrees it gives 3.111 against the true value 2.747.",
+   "2": "Twice tan beta plus tan gamma puts the factor 2 on the wrong term. Beware of testing this one at beta equal to 30 degrees, because then gamma is also 30 and the two expressions happen to agree by accident. Take beta equal to 20 instead and it gives 1.920 against 2.747. When you check an identity numerically, avoid the angle that makes two of the quantities equal.",
+   "3": "Tan beta plus tan gamma is what you get if the factor 2 is dropped altogether. At beta equal to 20 degrees it gives 1.556, not 2.747."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|9",
   "approved": false,
   "why_correct": "Multiplying by minus 1 rotates a complex number by half a turn. If the argument of z is negative, lying between minus pi and 0, then adding pi keeps the result within the principal range, so the difference of the arguments is pi.",
@@ -130,6 +140,17 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|15",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The double inequality splits into two. From 2x minus 5 less than or equal to 5x plus 4 we get minus 9 less than or equal to 3x, that is x greater than or equal to minus 3. From 5x plus 4 strictly less than 19 we get 5x less than 15, that is x strictly less than 3. So the solution over the integers is minus 3 less than or equal to x less than 3, which is the integers from minus 3 to 2. The paper prints no option that says this, because the intended option writes the right hand end as less than or equal to 3 and so wrongly admits x equal to 3. The printed paper was checked and it really does print the strict sign, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Minus 2 less than or equal to x less than or equal to 3 is wrong at both ends. The left hand inequality gives minus 3, not minus 2, and the right hand one is strict.",
+   "1": "Minus 2 less than or equal to x less than 23 has the strictness right but both numbers wrong. The 23 comes from mishandling the right hand inequality.",
+   "2": "Minus 3 less than or equal to x less than or equal to 4 has the left hand end right but stretches the right hand end well past 3. Substituting x equal to 4 gives 24, which is not less than 19.",
+   "3": "Minus 3 less than or equal to x less than or equal to 3 is the intended answer and is correct except for one integer. Put x equal to 3 into the middle expression: 5 times 3 plus 4 is 19, and the question demands strictly less than 19, so 3 is not a solution."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|16",
   "approved": false,
   "why_correct": "The first inequality gives x between minus 4 and 6. The second gives x at most minus 2 or at least 2. Both must hold, so the answer is the part of minus 4 to 6 that survives, namely minus 4 to minus 2 together with 2 to 6.",
@@ -180,6 +201,16 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|21",
+  "approved": false,
+  "why_correct": "From each vertex of an n sided polygon you can draw a diagonal to every vertex except itself and its two neighbours, which is n minus 3 of them. Doing that at all n vertices counts every diagonal twice, so the number of diagonals is n times n minus 3, all divided by 2. For a heptagon that is 7 times 4 over 2, which is 14.",
+  "why_wrong": {
+   "0": "7 is the number of vertices, and also the number of sides. It is the count you start from, not the answer.",
+   "1": "21 is 7 choose 2, the number of straight lines joining any two of the seven vertices. That total includes the 7 sides, which are not diagonals; 21 minus 7 gives the 14 we want. This was the printed key.",
+   "3": "13 corresponds to no reading of the question. If you reached it, recount with the formula rather than by drawing, since diagonals are very easy to miss or double count in a sketch."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|22",
   "approved": false,
   "why_correct": "The function is 1 for positive x and minus 1 for negative x. So f of x and f of minus x are always opposite in sign, their difference is plus or minus 2, and its modulus is 2.",
@@ -207,6 +238,16 @@
    "0": "0 would be the answer only if the numerator vanished faster than the denominator, but here they vanish at the same rate.",
    "1": "6 over root 19 forgets to halve when the two square roots in the denominator are added at x equal to 3. Each is root 19, so the sum is 2 root 19.",
    "3": "Root 19 over 6 is the correct answer turned upside down."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|25",
+  "approved": false,
+  "why_correct": "Expand both terms about zero. e to the x squared is 1 plus x squared plus higher powers, and cos x is 1 minus x squared over 2 plus higher powers. Subtracting, the ones cancel and the numerator is three halves of x squared plus higher powers, so dividing by x squared and letting x tend to zero gives three halves. L'Hopital agrees: differentiating top and bottom once gives 2x times e to the x squared plus sin x, over 2x, which is e to the x squared plus sin x over 2x, tending to 1 plus one half, that is three halves.",
+  "why_wrong": {
+   "0": "One quarter does not come out of any correct step here. If you reached it, redo the problem by L'Hopital's rule, which needs no series at all.",
+   "1": "Two thirds is the reciprocal of the right answer, and it was the printed key. If your working produced three halves, do not turn it upside down at the last moment.",
+   "3": "1 is what you get if you expand the exponential but treat cos x as simply 1, forgetting the minus x squared over 2 term. That term contributes the extra one half, and leaving it out is the commonest slip in this question."
   }
  }
 ]

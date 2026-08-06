@@ -10,6 +10,17 @@
   }
  },
  {
+  "id": "IX|All|General Paper|87",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The textbook statement is that if C lies between A and B such that AC equals BC, then AC is half of AB. The condition AC equals BC has dropped out of the printed stem, and without it C is merely somewhere between A and B, not necessarily at the midpoint. Between does not mean midway, so no fixed relation between AC and AB follows and none of the four options can be derived from what was printed.",
+  "why_wrong": {
+   "0": "AC equals AB would mean C has reached B itself, which contradicts C lying between A and B.",
+   "1": "AC equals half of AB is the intended answer, and it is true when C is the midpoint. That is exactly the condition the printed stem forgot to state, so as the question stands you cannot conclude it.",
+   "2": "AB equals half of AC is impossible whatever C does. AC is a part of AB, so AC can never exceed AB, let alone be twice as long.",
+   "3": "AC equals one third of AB is true for one particular position of C and false for every other, exactly like the half, so it has no better claim than option B."
+  }
+ },
+ {
   "id": "IX|All|General Paper|88",
   "approved": false,
   "why_correct": "The square root of 2 cannot be written as a fraction of two integers, so it is irrational. The other three are perfect squares, and the square root of a perfect square is always a whole number.",

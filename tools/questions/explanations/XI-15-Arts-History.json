@@ -10,6 +10,16 @@
   }
  },
  {
+  "id": "XI|Arts|History|2",
+  "approved": false,
+  "why_correct": "The rock and pillar edicts of Ashoka, cut in the middle of the third century BCE, are the oldest deciphered inscriptions found in India. They were read for the first time in 1837, when James Prinsep worked out the Brahmi script, and they are the foundation of everything we know about the Mauryan empire from its own words.",
+  "why_wrong": {
+   "1": "The Allahabad inscription, the Prayag Prashasti composed by Harisena in praise of Samudragupta, dates from about 350 CE. It is also engraved on an Ashokan pillar, which is a useful reminder of which of the two came first.",
+   "2": "The Mehrauli iron pillar inscription of Chandra dates from about 400 CE, some six and a half centuries later than the Ashokan edicts. The pillar is famous for resisting rust, not for its age, and this was the printed key.",
+   "3": "The Aihole inscription of Pulakeshin the Second, composed by Ravikirti in 634 CE, is the latest of the four by a wide margin."
+  }
+ },
+ {
   "id": "XI|Arts|History|3",
   "approved": false,
   "why_correct": "The Mesopotamians invented writing first, developing cuneiform in Sumer around 3400 BCE. It began as pictographic records of grain and cattle pressed into clay with a reed stylus.",

@@ -110,6 +110,26 @@
   }
  },
  {
+  "id": "XII|Science|Chemistry|12",
+  "approved": false,
+  "why_correct": "Glucose is an aldose and fructose a ketose, and the aldehyde group is the one thing they do not share. Bromine water is mildly acidic and a mild oxidising agent, so it oxidises the aldehyde group of glucose to gluconic acid and is itself decolourised, while fructose, having no aldehyde group and no acid to isomerise it, does not react. The colour either goes or it stays, and that tells the two sugars apart.",
+  "why_wrong": {
+   "1": "Chlorine in potassium hydroxide is both alkaline and a vigorous oxidant. It attacks both sugars, so it distinguishes nothing.",
+   "2": "Tollens' reagent is alkaline, and in alkali fructose rearranges to glucose through the enediol intermediate, the Lobry de Bruyn van Ekenstein rearrangement. So fructose gives the silver mirror too, and the test cannot separate them. This was the printed key.",
+   "3": "Fehling's solution is alkaline for the same reason and fails for the same reason: both sugars give the red precipitate of copper(I) oxide. Any test carried out in alkali is disqualified here."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|13",
+  "approved": false,
+  "why_correct": "The iodoform test needs either a methyl ketone grouping or an alcohol carrying a methyl group and a hydrogen on the carbon bearing the hydroxyl, since the alkaline iodine first oxidises that alcohol to the methyl ketone. Propan-2-ol has exactly that arrangement: it is oxidised to acetone, the three hydrogens of one methyl group are then replaced by iodine and the carbon chain is cleaved by the alkali, giving the yellow precipitate of iodoform.",
+  "why_wrong": {
+   "0": "2-Methylpropan-2-ol is a tertiary alcohol. The carbon bearing the hydroxyl group has no hydrogen on it at all, so it cannot be oxidised to a ketone, and without a methyl ketone there is no iodoform. This was the printed key.",
+   "2": "Propan-1-ol is a primary alcohol and oxidises to propanal and then propanoic acid, neither of which is a methyl ketone. Note that ethanol does give iodoform, because oxidising it produces acetaldehyde, which has the methyl group next to the carbonyl. Ethanol is the exception that makes this option tempting.",
+   "3": "Methanol has a single carbon, so there is no methyl group attached to a carbonyl or carbinol carbon for the reaction to work on. It is the one alcohol that cannot possibly give the test."
+  }
+ },
+ {
   "id": "XII|Science|Chemistry|14",
   "approved": false,
   "why_correct": "Ammonia does not obey Henry's law because it reacts with water rather than merely dissolving in it, forming ammonium and hydroxide ions. The law applies only to gases that dissolve without reacting.",
@@ -117,6 +137,16 @@
    "0": "Oxygen dissolves physically in water and follows the law well.",
    "2": "Hydrogen is only sparingly soluble and follows the law closely.",
    "3": "Nitrogen likewise dissolves without reacting. The conditions for the law are moderate pressure, moderate temperature and no chemical reaction, and ammonia fails the last."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|15",
+  "approved": false,
+  "why_correct": "The institution has ruled for ozonation. The connection the question is reaching for is the treatment of water: in a water works, coagulation, in which alum is added so that fine suspended particles clump into a floc heavy enough to settle, is one stage of purification and ozonation, in which ozone is used to disinfect, is another. Of the four processes listed, ozonation is the one carried out alongside coagulation.",
+  "why_wrong": {
+   "0": "Peptization is the most tempting option, because it is the process taught next to coagulation in every account of colloids. But it is coagulation's exact reverse: peptization breaks a fresh precipitate back up into a colloidal sol by adding a suitable electrolyte, whereas coagulation destroys a sol into a precipitate.",
+   "1": "Sublimation is a solid passing straight into vapour without melting. It is a change of state of a pure substance and has nothing to do with colloids or with the clumping of dispersed particles.",
+   "2": "Condensation does have a colloid connection, since condensation methods are one of the two ways of preparing a sol, as when hydrogen sulphide is passed into a solution of arsenious oxide. But that is the making of a colloid, which is the opposite of coagulating one."
   }
  },
  {

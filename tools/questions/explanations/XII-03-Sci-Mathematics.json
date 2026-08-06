@@ -120,6 +120,16 @@
   }
  },
  {
+  "id": "XII|Science|Mathematics|13",
+  "approved": false,
+  "why_correct": "At x equal to 2 the numerator is 2 times f of 2 minus 2 times f of 2, which is zero, so this is a zero over zero limit. Rewrite the numerator by adding and subtracting 2 times f of 2: it becomes f of 2 times x minus 2, minus 2 times the quantity f of x minus f of 2. Dividing by x minus 2 gives f of 2, minus 2 times the difference quotient of f at 2, and letting x tend to 2 gives f of 2 minus twice f dashed of 2, that is 4 minus 8, which is minus 4.",
+  "why_wrong": {
+   "0": "2 is half of f of 2 and arises from no step in the derivation. A useful check for all of these: the function f of x equal to 4x minus 4 satisfies both conditions given, and substituting it makes the whole quotient exactly minus 4 for every x other than 2.",
+   "1": "Minus 2 has the right sign but the wrong size. It is what f of 2 over 2 minus f dashed of 2 would give, so check the factor 2 on each term.",
+   "2": "4 is f of 2 standing alone, which is what remains if the minus twice f dashed of 2 term is dropped, or if the subtraction is done the wrong way round as 8 minus 4. This was the printed key, and the concrete function f of x equal to 4x minus 4 settles the sign beyond argument."
+  }
+ },
+ {
   "id": "XII|Science|Mathematics|14",
   "approved": false,
   "why_correct": "Take logarithms: log y equals x log x. Differentiating gives one over y times dy by dx equal to log x plus 1, so the derivative is x to the x times 1 plus log x.",

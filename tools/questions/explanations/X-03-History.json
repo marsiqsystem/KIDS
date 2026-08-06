@@ -50,6 +50,16 @@
   }
  },
  {
+  "id": "X|All|General Paper|31",
+  "approved": false,
+  "why_correct": "Sambad Prabhakar was started by Iswar Chandra Gupta in 1831 as a weekly and became a daily in 1839, making it the first Bengali daily newspaper. It became the training ground of a whole generation of Bengali writers, Bankim Chandra Chattopadhyay and Dinabandhu Mitra among them.",
+  "why_wrong": {
+   "0": "Bengal Gazette, brought out by James Augustus Hicky in 1780, was the first printed newspaper in India, but it was in English, not Bengali, and it was a weekly.",
+   "1": "Digdarshan, published from Serampore in 1818, was the first Bengali monthly magazine, and question 30 on this very paper says so. A monthly magazine cannot also be the first daily newspaper.",
+   "2": "Samachar Darpan, also from Serampore in 1818, was the first Bengali weekly newspaper, and it is easy to confuse first weekly with first daily. This was the printed key and it has been corrected."
+  }
+ },
+ {
   "id": "X|All|General Paper|32",
   "approved": false,
   "why_correct": "Panchanan Karmakar is called the Gutenberg of Bengal. He cut the first Bengali movable metal types at Serampore, which is what made printing in Bengali possible at all.",

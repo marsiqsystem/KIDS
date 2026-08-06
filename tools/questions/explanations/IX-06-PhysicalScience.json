@@ -1,5 +1,15 @@
 [
  {
+  "id": "IX|All|General Paper|71",
+  "approved": false,
+  "why_correct": "In the brown ring test for a nitrate, freshly prepared iron(II) sulphate solution is added to the sample and concentrated sulphuric acid is poured carefully down the side of the tube. The acid liberates nitric acid, which the iron(II) reduces to nitric oxide, NO. That NO is what binds to another iron(II) ion to form the nitrosyl complex [Fe(H2O)5NO]2+, and it is that complex which appears as the brown ring at the junction of the two layers.",
+  "why_wrong": {
+   "0": "Sulphur dioxide is the gas of the sulphite and bisulphite tests: it turns acidified potassium dichromate green and decolourises potassium permanganate. It plays no part in the ring test, and it forms no coloured complex with iron(II).",
+   "1": "Nitrogen dioxide is the tempting answer, because brown fumes of NO2 are what you see when a nitrate is heated or when copper reacts with concentrated nitric acid, and the ring itself is brown. But in the ring test the reduction stops at NO, and it is NO, not NO2, that co-ordinates to iron(II). This was the printed key and it has been corrected.",
+   "2": "Water is not a gas under the conditions of the test, and in any case concentrated sulphuric acid is present precisely to remove water. Nothing about steam would produce a coloured ring."
+  }
+ },
+ {
   "id": "IX|All|General Paper|72",
   "approved": false,
   "why_correct": "A neutral sodium atom has 11 electrons. The plus sign means it has lost one, so Na+ has 10 electrons. That gives it the stable configuration of neon, which is why sodium forms this ion so readily.",
@@ -47,6 +57,17 @@
    "0": "Vibration is what produces sound in the first place, at the source. It is the cause of sound, not a result of reflection.",
    "1": "Oscillation is the same idea as vibration, a to-and-fro motion, and again it describes how sound is made.",
    "3": "Compression is a region of a sound wave where the particles are crowded together. It is a part of the wave itself, not an effect of reflecting it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|77",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. All four options are genuine colloids. Blood is a colloidal suspension of proteins and cells in plasma, cheese is a gel, milk is an emulsion of liquid fat in water and paint is a sol of solid pigment in a liquid. Milk is the textbook example and was the intended answer, but no candidate could fairly be told that the other three are wrong, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Blood is a colloid: the plasma proteins are dispersed in water at colloidal size, which is why blood shows the Tyndall effect and why it cannot be separated by ordinary filtration. Correct as printed.",
+   "1": "Cheese is a colloid of the gel type, a liquid dispersed in a solid. Correct as printed.",
+   "2": "Milk is an emulsion, tiny droplets of liquid fat dispersed in water and kept apart by casein acting as the emulsifying agent. This is the answer the setter intended and the one the textbook gives.",
+   "3": "Paint is a sol, solid pigment particles dispersed in a liquid medium. Correct as printed."
   }
  },
  {

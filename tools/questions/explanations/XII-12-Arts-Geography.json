@@ -200,6 +200,16 @@
   }
  },
  {
+  "id": "XII|Arts|Geography|21",
+  "approved": false,
+  "why_correct": "Chhattisgarh is the largest producer of coal in India, mining well over two hundred million tonnes a year, chiefly from the Korba coalfield. Note carefully that the question asks about production, which is how much is dug out in a year, and not about reserves, which is how much lies underground.",
+  "why_wrong": {
+   "0": "Odisha is a close second in production, with the Talcher and Ib valley fields, and it also holds very large reserves. It is the nearest rival to the right answer, but not the leader.",
+   "2": "Jharkhand holds the largest coal reserves in the country and it is where Indian coal mining began, at Raniganj and Jharia, so many books call it the leading coal state. But its annual output is now below that of Chhattisgarh. Reserves and production are different things, and this was the printed key.",
+   "3": "West Bengal has the Raniganj field, the oldest coalfield in India, but its present output is far behind the top three."
+  }
+ },
+ {
   "id": "XII|Arts|Geography|22",
   "approved": false,
   "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, assured irrigation, chemical fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
@@ -207,6 +217,16 @@
    "0": "Pulses were largely left out, and output per head actually fell, which remains a problem for Indian nutrition.",
    "1": "Oilseeds were the subject of the later Yellow Revolution.",
    "3": "Cotton is a commercial crop and was not the programme's focus. The narrowness of the gains, in crops and in regions, is one of the standard criticisms."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|23",
+  "approved": false,
+  "why_correct": "Road transport carries by far the largest volume of freight in India, about seventy per cent of it, as the NCERT textbook states. Roads reach places no railway line does, they allow door to door delivery without transhipment, and they suit the small consignments and short hauls that make up most of the country's traffic.",
+  "why_wrong": {
+   "0": "Air transport is the fastest but carries the smallest volume of all, a tiny fraction of one per cent. It is used for goods that are light, valuable or urgent, not for bulk.",
+   "1": "Water transport is the cheapest per tonne kilometre and is why it dominates India's overseas trade, but the inland waterways are little developed and carry very little of the country's internal freight.",
+   "3": "Rail transport did carry the largest share until the 1980s and it still moves the heavy bulk goods, coal, iron ore, cement and foodgrains, over long distances. Road overtook it decades ago, and rail now carries roughly thirty per cent. This was the printed key."
   }
  },
  {

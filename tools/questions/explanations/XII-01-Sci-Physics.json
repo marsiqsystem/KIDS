@@ -150,6 +150,16 @@
   }
  },
  {
+  "id": "XII|Science|Physics|16",
+  "approved": false,
+  "why_correct": "A voltmeter is connected across the component whose potential difference is being measured, and it must disturb that circuit as little as possible, which means drawing almost no current. So it needs a very high resistance, and the way to get one is to put a large resistance in series with the galvanometer coil. The series resistance also limits the current through the delicate coil, and choosing its value sets the range of the voltmeter. The ideal voltmeter has infinite resistance.",
+  "why_wrong": {
+   "1": "A low resistance in parallel is the shunt, and that is how a galvanometer is converted into an ammeter, not a voltmeter. It gives most of the current a path around the coil. This was the printed key, and it answers the opposite conversion.",
+   "2": "A high resistance in parallel would carry hardly any current, so it would neither protect the coil nor usefully change the range. A parallel path only does its job when it is the easier path.",
+   "3": "A low resistance in series leaves the meter's total resistance low, so it would draw appreciable current, load the circuit and read wrongly, and it would not extend the range either."
+  }
+ },
+ {
   "id": "XII|Science|Physics|17",
   "approved": false,
   "why_correct": "The Lorentz force is the sum of the electric force qE and the magnetic force q times v cross B. The electric part acts whether or not the charge moves; the magnetic part needs motion and is perpendicular to both v and B.",

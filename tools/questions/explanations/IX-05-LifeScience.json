@@ -60,6 +60,17 @@
   }
  },
  {
+  "id": "IX|All|General Paper|62",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The stem carries a double negative. \"Not a non-renewable resource\" means simply \"a renewable resource\", and three of the four options are renewable: solar energy, wind energy and forest timber. The setter meant to ask which one is non-renewable, and coal and petroleum was the intended answer, but that is not the question that was printed. No change of key can repair a defect that lies in the stem, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Solar energy is renewable, so as the question was actually printed this is a correct answer. It is listed here only because the whole question was withdrawn, not because there is anything wrong with the reasoning.",
+   "1": "Wind energy is likewise renewable, and is in fact driven by solar heating of the atmosphere. Again correct as printed.",
+   "2": "Coal and petroleum are the fossil fuels, formed from buried organic matter over millions of years and consumed far faster than they form, so they are the non-renewable pair. This is what the setter had in mind, but the double negative makes it the one option that does not answer the printed stem.",
+   "3": "Forest timber is renewable so long as felling is matched by replanting, which is why sustainable forestry is possible at all. Correct as printed."
+  }
+ },
+ {
   "id": "IX|All|General Paper|63",
   "approved": false,
   "why_correct": "Decomposers, mainly bacteria and fungi, break dead plants and animals down into simple nutrients that return to the soil for producers to use again. They are what closes the nutrient cycle.",

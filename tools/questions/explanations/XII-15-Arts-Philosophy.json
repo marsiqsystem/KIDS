@@ -10,6 +10,16 @@
   }
  },
  {
+  "id": "XII|Arts|Philosophy|2",
+  "approved": false,
+  "why_correct": "For Kant, causality is one of the twelve categories of the understanding, an a priori form the mind itself brings to experience rather than something it reads off from the world. We do not find the causal connection in what we observe; we supply it, and that is why the causal law can be both necessary and universal. This was Kant's answer to Hume, who he said had woken him from his dogmatic slumber.",
+  "why_wrong": {
+   "0": "Locke holds that the mind begins as a blank slate and that every idea, causality included, comes from experience. That is the opposite of treating it as a form the intellect already possesses.",
+   "1": "Hume is the tempting answer because he is the philosopher most associated with the problem of causation, and this was the printed key. But his view is that we observe only constant conjunction and that the idea of necessary connection is a habit of expectation in the mind, a psychological association rather than a form of the intellect. Question 6 on this same paper keys Hume correctly for that view.",
+   "2": "Ewing is a modern writer whose survey of the theories of causation appears in this chapter, so his name is familiar from the same pages. But the doctrine that causality is an a priori form of the understanding is Kant's; Ewing discusses it rather than originating it."
+  }
+ },
+ {
   "id": "XII|Arts|Philosophy|3",
   "approved": false,
   "why_correct": "Shankara is regarded as the first systematic preacher of Advaita Vedanta. In a short life in the eighth century he wrote commentaries on the Upanishads, the Gita and the Brahma Sutra, and founded four monasteries across India.",
@@ -27,6 +37,16 @@
    "0": "Brahman is what is concealed, not the concealer.",
    "1": "Jiva is the individual soul, itself a product of Brahman appearing under maya.",
    "2": "Jagat is the world, which is what maya projects. The rope-and-snake illustration captures both functions: the rope is hidden and the snake is thrown up in its place."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|5",
+  "approved": false,
+  "why_correct": "Shankara's system is Kevaladvaitavada, absolute or unqualified non-dualism. Brahman alone is real, the world of appearances is maya, and the individual self is not merely similar to Brahman but identical with it. The prefix kevala, meaning only or absolute, is what marks it off from the other Vedanta schools.",
+  "why_wrong": {
+   "1": "Vishishtadvaitavada, qualified non-dualism, is Ramanuja's. Brahman is real and one, but the souls and matter are equally real and form its body, so the unity is a qualified one. This was the printed key.",
+   "2": "Dvaitadvaitavada, dualistic non-dualism, is Nimbarka's, on which the soul is both different from and non-different from Brahman.",
+   "3": "Dvaitavada, dualism, is Madhva's, on which Brahman and the individual soul are eternally and completely distinct. It is the furthest of the four from Shankara."
   }
  },
  {
@@ -77,6 +97,16 @@
    "1": "Gisbert defined society as a group working together for common ends.",
    "2": "Ginsberg defined it as a collection of individuals united by certain relations.",
    "3": "Mackenzie also wrote on the subject. All four are sociologists offering definitions, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|11",
+  "approved": false,
+  "why_correct": "The unchecked exploitation of nature, through deforestation, over-extraction of resources, pollution of air and water and the burning of fossil fuels, has produced what is called the environmental crisis: global warming, loss of biodiversity, shrinking water supplies and degraded land. It is the term the chapter uses, and it names the whole of the damage rather than one part of it.",
+  "why_wrong": {
+   "0": "An individual crisis is a crisis in a single person's life. It is not what follows from a country exploiting its natural resources, and nothing in the chapter connects the two. This was the printed key.",
+   "2": "There is a real moral dimension here, and the chapter does argue that our treatment of nature is an ethical failure and that we owe a duty to future generations. But the problem countries are described as facing is the environmental crisis itself; the moral question is why it arose, not what it is.",
+   "3": "Loss of habitat is genuinely one part of the damage, for wildlife and for displaced people alike. It is too narrow, though: environmental crisis is the wider term that includes it along with pollution, climate change and resource depletion."
   }
  },
  {

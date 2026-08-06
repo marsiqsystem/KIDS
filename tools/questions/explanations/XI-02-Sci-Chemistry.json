@@ -130,6 +130,17 @@
   }
  },
  {
+  "id": "XI|Science|Chemistry|14",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The arithmetic is straightforward. 5800 angstrom is 5.8 times ten to the minus seven metres, and frequency equals c over lambda, which is 3 times ten to the eight divided by 5.8 times ten to the minus seven, or 5.17 times ten to the fourteen hertz. The paper offers 5.08 times ten to the fourteen, which is not that number. A candidate who worked it out properly found no matching option and could reasonably choose None of the above, so the better the candidate, the more likely they missed the keyed answer. With two options each having a real claim, the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "3 times ten to the fifteen hertz is about six times too large. Notice that it is simply c written with its own exponent, which is what you get if the division goes wrong.",
+   "1": "5.08 times ten to the fourteen is the intended answer and is close enough to 5.17 to pass a glance, which is why it was keyed. It is not, however, what c over lambda comes to.",
+   "2": "50.08 times ten to the fourteen is 5.008 times ten to the fifteen, ten times too big. A slip of one decimal place in converting angstrom to metres produces exactly this.",
+   "3": "None of the above is what a candidate who did the arithmetic correctly would be driven to choose, since 5.17 times ten to the fourteen is not on the paper. That is the reason the question was graced rather than simply re-keyed."
+  }
+ },
+ {
   "id": "XI|Science|Chemistry|15",
   "approved": false,
   "why_correct": "Boyle's law states that at constant temperature the pressure of a fixed mass of gas is inversely proportional to its volume, so their product PV is constant.",

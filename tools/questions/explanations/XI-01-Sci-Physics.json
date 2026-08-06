@@ -50,6 +50,16 @@
   }
  },
  {
+  "id": "XI|Science|Physics|6",
+  "approved": false,
+  "why_correct": "The slope of a graph is the rate of change of the quantity on the vertical axis with respect to the one on the horizontal axis. On a displacement time graph that is the rate of change of displacement with time, which is precisely the definition of velocity. A steeper line means a faster body, and a horizontal line means the body is at rest.",
+  "why_wrong": {
+   "0": "Displacement is what the graph reads off the vertical axis at a given instant, not what its slope measures. The height and the steepness are two different pieces of information.",
+   "1": "Acceleration is the slope of a velocity time graph, one differentiation further on. On a displacement time graph acceleration shows up in the curvature, not the slope. This was the printed key, and question 14 on this same paper asks the same idea and keys it correctly as velocity.",
+   "3": "Time is the horizontal axis. An axis variable is never what a slope represents."
+  }
+ },
+ {
   "id": "XI|Science|Physics|7",
   "approved": false,
   "why_correct": "The work-energy theorem states that the net work done on a body equals the change in its kinetic energy. It follows directly from Newton's second law and holds whether the forces are conservative or not.",
@@ -167,6 +177,16 @@
    "0": "MR squared is the moment of inertia of a thin ring or hollow cylinder, where all the mass sits at the rim. A solid cylinder has mass nearer the axis, so its value must be smaller.",
    "2": "Two fifths MR squared belongs to a solid sphere.",
    "3": "Two thirds MR squared belongs to a hollow sphere."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|19",
+  "approved": false,
+  "why_correct": "The radius of gyration k is defined by I equal to Mk squared, so k is the square root of I over M. For a thin ring about the central axis perpendicular to its plane, every particle of the ring sits at exactly the same distance R from the axis, so I equals MR squared with no numerical factor at all. Hence k equals R. This is the one case where the radius of gyration is obvious without any integration.",
+  "why_wrong": {
+   "0": "R over 2 is the radius of gyration of a circular disc about a diameter, where I equals MR squared over 4. It belongs to a different body and a different axis.",
+   "1": "R over root 2 is the answer for a ring about a diameter, where the perpendicular axis theorem gives I equal to MR squared over 2. This was the printed key: it is the right calculation for the wrong axis. The question asks about the central perpendicular axis, not a diameter.",
+   "3": "2R is impossible for any body about an axis through its centre. Every particle lies within R of that axis, so k, being a kind of average of those distances, can never be larger than R."
   }
  },
  {

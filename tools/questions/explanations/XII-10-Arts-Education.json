@@ -240,5 +240,15 @@
    "1": "The ministry is the government department, not a professional regulator.",
    "2": "NCERT advises on school education, curriculum and textbooks, but teacher education is NCTE's charge. All four are real bodies, so it is the scope of each that must be learnt."
   }
+ },
+ {
+  "id": "XII|Arts|Education|25",
+  "approved": false,
+  "why_correct": "The Right of Children to Free and Compulsory Education Act was passed by Parliament in August 2009 and received the President's assent that month, but it was brought into force on 1 April 2010, the beginning of the financial and academic year. India thus became one of the countries in which elementary education is a fundamental right of every child between six and fourteen.",
+  "why_wrong": {
+   "1": "1 January 2010 is not the commencement date. Acts of this kind are normally brought into force at the start of an academic or financial year, not in the middle of one.",
+   "2": "1 January 2009 falls before the Act was even passed, which was in August of that year. A law cannot take effect before it exists.",
+   "3": "31 January 2009 is likewise months before the Act was passed. Take care to separate the year of passing, which question 14 on this same paper asks about, from the date of coming into force, which is what this question asks."
+  }
  }
 ]

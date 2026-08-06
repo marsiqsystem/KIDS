@@ -160,6 +160,16 @@
   }
  },
  {
+  "id": "XII|Science|Biology|17",
+  "approved": false,
+  "why_correct": "After fertilisation in the fallopian tube the zygote divides repeatedly to form the morula, which travels down to the uterus. There it develops a fluid filled cavity and becomes the blastocyst, with an inner cell mass and an outer trophoblast. It is the trophoblast that attaches to and invades the uterine lining, and NCERT puts it plainly: the blastocyst becomes embedded in the endometrium. Implantation is therefore a blastocyst stage event.",
+  "why_wrong": {
+   "0": "The zygote is a single cell and is still in the fallopian tube. It has not even reached the uterus, let alone attached to it.",
+   "1": "The morula is genuinely the stage that arrives in the uterus, which is why this option is tempting and why it was the printed key. But it floats free in the uterine cavity; it must first cavitate into a blastocyst, because it is the trophoblast of the blastocyst that does the attaching.",
+   "3": "The gastrula comes after implantation, not before. Gastrulation, the formation of the three germ layers, takes place in an embryo that is already embedded in the endometrium."
+  }
+ },
+ {
   "id": "XII|Science|Biology|18",
   "approved": false,
   "why_correct": "In blood group AB both the A and the B alleles are fully expressed, so both antigens appear on the red cells. Neither masks the other, which is co-dominance.",

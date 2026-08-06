@@ -140,6 +140,16 @@
   }
  },
  {
+  "id": "XII|Arts|History|15",
+  "approved": false,
+  "why_correct": "The Jim Crow laws, enacted across the southern United States from the 1870s and in force until the Civil Rights Act of 1964, required Black and White Americans to be kept apart in schools, railway carriages, buses, waiting rooms, restaurants and even drinking fountains, and they stripped Black citizens of the vote through literacy tests, poll taxes and grandfather clauses. Their purpose was segregation and the maintenance of White supremacy. The name itself comes from a mocking stage caricature of a Black man, which tells you the spirit in which the laws were made.",
+  "why_wrong": {
+   "0": "The laws did the opposite of promoting the cause of Black Americans. They were passed in the decades after Reconstruction precisely to undo the political and civil gains Black Americans had just won.",
+   "1": "Ending racial discrimination was the work of the movement that fought these laws, of Rosa Parks, Martin Luther King and the Montgomery boycott, and it was achieved by the Civil Rights Act of 1964 and the Voting Rights Act of 1965, which dismantled Jim Crow.",
+   "2": "This is the separate but equal formula upheld by the Supreme Court in Plessy versus Ferguson in 1896, the very words the laws hid behind. The separation was real and the equality was not: Black schools, carriages and hospitals were deliberately starved of funds. In Brown versus Board of Education in 1954 the Court held that separate is inherently unequal and overturned the doctrine. This was the printed key, and it has been corrected, because to leave it standing would be to teach that segregation promoted equality."
+  }
+ },
+ {
   "id": "XII|Arts|History|16",
   "approved": false,
   "why_correct": "The Holocaust was carried out during the Second World War, between 1941 and 1945, when the Nazi regime systematically murdered around six million Jews along with Roma, disabled people and others.",

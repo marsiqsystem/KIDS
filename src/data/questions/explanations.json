@@ -610,6 +610,17 @@
   }
  },
  {
+  "id": "IX|All|General Paper|62",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The stem carries a double negative. \"Not a non-renewable resource\" means simply \"a renewable resource\", and three of the four options are renewable: solar energy, wind energy and forest timber. The setter meant to ask which one is non-renewable, and coal and petroleum was the intended answer, but that is not the question that was printed. No change of key can repair a defect that lies in the stem, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Solar energy is renewable, so as the question was actually printed this is a correct answer. It is listed here only because the whole question was withdrawn, not because there is anything wrong with the reasoning.",
+   "1": "Wind energy is likewise renewable, and is in fact driven by solar heating of the atmosphere. Again correct as printed.",
+   "2": "Coal and petroleum are the fossil fuels, formed from buried organic matter over millions of years and consumed far faster than they form, so they are the non-renewable pair. This is what the setter had in mind, but the double negative makes it the one option that does not answer the printed stem.",
+   "3": "Forest timber is renewable so long as felling is matched by replanting, which is why sustainable forestry is possible at all. Correct as printed."
+  }
+ },
+ {
   "id": "IX|All|General Paper|63",
   "approved": false,
   "why_correct": "Decomposers, mainly bacteria and fungi, break dead plants and animals down into simple nutrients that return to the soil for producers to use again. They are what closes the nutrient cycle.",
@@ -690,6 +701,16 @@
   }
  },
  {
+  "id": "IX|All|General Paper|71",
+  "approved": false,
+  "why_correct": "In the brown ring test for a nitrate, freshly prepared iron(II) sulphate solution is added to the sample and concentrated sulphuric acid is poured carefully down the side of the tube. The acid liberates nitric acid, which the iron(II) reduces to nitric oxide, NO. That NO is what binds to another iron(II) ion to form the nitrosyl complex [Fe(H2O)5NO]2+, and it is that complex which appears as the brown ring at the junction of the two layers.",
+  "why_wrong": {
+   "0": "Sulphur dioxide is the gas of the sulphite and bisulphite tests: it turns acidified potassium dichromate green and decolourises potassium permanganate. It plays no part in the ring test, and it forms no coloured complex with iron(II).",
+   "1": "Nitrogen dioxide is the tempting answer, because brown fumes of NO2 are what you see when a nitrate is heated or when copper reacts with concentrated nitric acid, and the ring itself is brown. But in the ring test the reduction stops at NO, and it is NO, not NO2, that co-ordinates to iron(II). This was the printed key and it has been corrected.",
+   "2": "Water is not a gas under the conditions of the test, and in any case concentrated sulphuric acid is present precisely to remove water. Nothing about steam would produce a coloured ring."
+  }
+ },
+ {
   "id": "IX|All|General Paper|72",
   "approved": false,
   "why_correct": "A neutral sodium atom has 11 electrons. The plus sign means it has lost one, so Na+ has 10 electrons. That gives it the stable configuration of neon, which is why sodium forms this ion so readily.",
@@ -737,6 +758,17 @@
    "0": "Vibration is what produces sound in the first place, at the source. It is the cause of sound, not a result of reflection.",
    "1": "Oscillation is the same idea as vibration, a to-and-fro motion, and again it describes how sound is made.",
    "3": "Compression is a region of a sound wave where the particles are crowded together. It is a part of the wave itself, not an effect of reflecting it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|77",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. All four options are genuine colloids. Blood is a colloidal suspension of proteins and cells in plasma, cheese is a gel, milk is an emulsion of liquid fat in water and paint is a sol of solid pigment in a liquid. Milk is the textbook example and was the intended answer, but no candidate could fairly be told that the other three are wrong, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Blood is a colloid: the plasma proteins are dispersed in water at colloidal size, which is why blood shows the Tyndall effect and why it cannot be separated by ordinary filtration. Correct as printed.",
+   "1": "Cheese is a colloid of the gel type, a liquid dispersed in a solid. Correct as printed.",
+   "2": "Milk is an emulsion, tiny droplets of liquid fat dispersed in water and kept apart by casein acting as the emulsifying agent. This is the answer the setter intended and the one the textbook gives.",
+   "3": "Paint is a sol, solid pigment particles dispersed in a liquid medium. Correct as printed."
   }
  },
  {
@@ -827,6 +859,17 @@
    "1": "Curves bound surfaces, not solids. They are one step further down the ladder.",
    "2": "Lines also bound surfaces. Think of the edges of a page: they bound the flat sheet, not a block.",
    "3": "Points bound lines, and they are at the very bottom of the ladder, two steps below what a solid needs."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|87",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The textbook statement is that if C lies between A and B such that AC equals BC, then AC is half of AB. The condition AC equals BC has dropped out of the printed stem, and without it C is merely somewhere between A and B, not necessarily at the midpoint. Between does not mean midway, so no fixed relation between AC and AB follows and none of the four options can be derived from what was printed.",
+  "why_wrong": {
+   "0": "AC equals AB would mean C has reached B itself, which contradicts C lying between A and B.",
+   "1": "AC equals half of AB is the intended answer, and it is true when C is the midpoint. That is exactly the condition the printed stem forgot to state, so as the question stands you cannot conclude it.",
+   "2": "AB equals half of AC is impossible whatever C does. AC is a part of AB, so AC can never exceed AB, let alone be twice as long.",
+   "3": "AC equals one third of AB is true for one particular position of C and false for every other, exactly like the half, so it has no better claim than option B."
   }
  },
  {
@@ -1257,6 +1300,16 @@
    "0": "James Augustus Hickey brought out the Bengal Gazette in 1780, the first newspaper in India, but it was in English.",
    "1": "William Carey was the Serampore missionary and printer, a central figure in Bengali printing, but not the editor of this journal.",
    "3": "Joshua Marshman was John Clark Marshman's father and another of the Serampore trio. Father and son are easily confused, and the editor here was the son."
+  }
+ },
+ {
+  "id": "X|All|General Paper|31",
+  "approved": false,
+  "why_correct": "Sambad Prabhakar was started by Iswar Chandra Gupta in 1831 as a weekly and became a daily in 1839, making it the first Bengali daily newspaper. It became the training ground of a whole generation of Bengali writers, Bankim Chandra Chattopadhyay and Dinabandhu Mitra among them.",
+  "why_wrong": {
+   "0": "Bengal Gazette, brought out by James Augustus Hicky in 1780, was the first printed newspaper in India, but it was in English, not Bengali, and it was a weekly.",
+   "1": "Digdarshan, published from Serampore in 1818, was the first Bengali monthly magazine, and question 30 on this very paper says so. A monthly magazine cannot also be the first daily newspaper.",
+   "2": "Samachar Darpan, also from Serampore in 1818, was the first Bengali weekly newspaper, and it is easy to confuse first weekly with first daily. This was the printed key and it has been corrected."
   }
  },
  {
@@ -2475,6 +2528,16 @@
   }
  },
  {
+  "id": "XI|Arts|Education|2",
+  "approved": false,
+  "why_correct": "The word education comes from the Latin educere, meaning to lead out or to draw out. The idea is that the child already carries powers and possibilities within, and the teacher's work is to bring them out rather than to supply them from outside. This is the sense the syllabus asks for, and it is the sense on which the whole modern child centred view of education rests.",
+  "why_wrong": {
+   "0": "To nourish is the sense of the related Latin word educare. It is a genuine root of the word, and it is why some books gloss education as nourishing the child, but it is not the meaning this question is after.",
+   "1": "To bring up is again educare, the upbringing and rearing of the child. It is close, and it was the printed key, but the term the syllabus wants here is the drawing out one.",
+   "3": "To put in is the exact opposite idea, the old picture of the child as an empty vessel into which information is poured. The educere definition exists precisely to reject it."
+  }
+ },
+ {
   "id": "XI|Arts|Education|3",
   "approved": false,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. The idea is that nothing is put into the child from outside; what is already there is uncovered.",
@@ -3215,6 +3278,16 @@
   }
  },
  {
+  "id": "XI|Arts|History|2",
+  "approved": false,
+  "why_correct": "The rock and pillar edicts of Ashoka, cut in the middle of the third century BCE, are the oldest deciphered inscriptions found in India. They were read for the first time in 1837, when James Prinsep worked out the Brahmi script, and they are the foundation of everything we know about the Mauryan empire from its own words.",
+  "why_wrong": {
+   "1": "The Allahabad inscription, the Prayag Prashasti composed by Harisena in praise of Samudragupta, dates from about 350 CE. It is also engraved on an Ashokan pillar, which is a useful reminder of which of the two came first.",
+   "2": "The Mehrauli iron pillar inscription of Chandra dates from about 400 CE, some six and a half centuries later than the Ashokan edicts. The pillar is famous for resisting rust, not for its age, and this was the printed key.",
+   "3": "The Aihole inscription of Pulakeshin the Second, composed by Ravikirti in 634 CE, is the latest of the four by a wide margin."
+  }
+ },
+ {
   "id": "XI|Arts|History|3",
   "approved": false,
   "why_correct": "The Mesopotamians invented writing first, developing cuneiform in Sumer around 3400 BCE. It began as pictographic records of grain and cattle pressed into clay with a reed stylus.",
@@ -3505,6 +3578,17 @@
   }
  },
  {
+  "id": "XI|Arts|Philosophy|10",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. Jainism has the five great vows, the pancha mahavrata, and Buddhism has the five precepts, the panchashila, and both are literally five principles of conduct. Jainism was the intended answer, but Buddhism cannot honestly be called wrong, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Buddhism has the panchashila, the five precepts binding on every lay follower: to abstain from killing, from stealing, from sexual misconduct, from false speech and from intoxicants. That is a set of five principles of conduct, so this option is defensible as printed.",
+   "1": "The Vedic tradition has no comparable fixed set of five rules of conduct. Its ethical scheme runs through the purusharthas and the duties of the ashramas, which are four, not five.",
+   "2": "Jainism has the pancha mahavrata: ahimsa, satya, asteya, brahmacharya and aparigraha. This is the answer the setter intended, and it is correct.",
+   "3": "Islam has the five pillars, but those are obligations of faith and worship, the creed, prayer, alms, fasting and the pilgrimage, rather than the ethical restraints the phrase principles of conduct points to. That a third option can be argued for at all is a further reason the question was withdrawn."
+  }
+ },
+ {
   "id": "XI|Arts|Philosophy|11",
   "approved": false,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already existing in man. The teacher does not add anything but removes what obstructs, as a gardener does not make the plant grow but removes the weeds.",
@@ -3572,6 +3656,16 @@
    "1": "A self distinct from the body is what Charvaka expressly denies.",
    "2": "Consciousness for Charvaka is a property that emerges from matter, like the intoxicating power that arises when ingredients ferment, not an independent reality.",
    "3": "Charvaka has a definite answer here, so none of these is wrong."
+  }
+ },
+ {
+  "id": "XI|Arts|Philosophy|18",
+  "approved": false,
+  "why_correct": "For Shankara the Self is Brahman, exactly as the mahavakya ayam atma brahma declares. And Brahman is eternal, without birth or death, and transcendent, beyond the whole empirical world. So each of the three descriptions is true of the Self, and All of These is the only complete answer.",
+  "why_wrong": {
+   "0": "Brahman is a true description of the Self and is the heart of Shankara's teaching, and it was the printed key. But it is not the whole of what the options offer. When a question ends with All of These, test every statement before settling on the first true one.",
+   "1": "Eternal is likewise true. The Self is unborn, undying and unchanging. But by itself it is incomplete.",
+   "2": "Transcendent is also true, since the Self as Brahman is beyond the world of name and form. Again incomplete on its own."
   }
  },
  {
@@ -5275,6 +5369,17 @@
   }
  },
  {
+  "id": "XI|Science|Chemistry|14",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The arithmetic is straightforward. 5800 angstrom is 5.8 times ten to the minus seven metres, and frequency equals c over lambda, which is 3 times ten to the eight divided by 5.8 times ten to the minus seven, or 5.17 times ten to the fourteen hertz. The paper offers 5.08 times ten to the fourteen, which is not that number. A candidate who worked it out properly found no matching option and could reasonably choose None of the above, so the better the candidate, the more likely they missed the keyed answer. With two options each having a real claim, the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "3 times ten to the fifteen hertz is about six times too large. Notice that it is simply c written with its own exponent, which is what you get if the division goes wrong.",
+   "1": "5.08 times ten to the fourteen is the intended answer and is close enough to 5.17 to pass a glance, which is why it was keyed. It is not, however, what c over lambda comes to.",
+   "2": "50.08 times ten to the fourteen is 5.008 times ten to the fifteen, ten times too big. A slip of one decimal place in converting angstrom to metres produces exactly this.",
+   "3": "None of the above is what a candidate who did the arithmetic correctly would be driven to choose, since 5.17 times ten to the fourteen is not on the paper. That is the reason the question was graced rather than simply re-keyed."
+  }
+ },
+ {
   "id": "XI|Science|Chemistry|15",
   "approved": false,
   "why_correct": "Boyle's law states that at constant temperature the pressure of a fixed mass of gas is inversely proportional to its volume, so their product PV is constant.",
@@ -5455,6 +5560,16 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|8",
+  "approved": false,
+  "why_correct": "From alpha plus beta equal to pi over 2 we get alpha equal to pi over 2 minus beta, and putting that into beta plus gamma equal to alpha gives gamma equal to pi over 2 minus 2 beta. So tan gamma is cot 2 beta. Writing t for tan beta, cot 2 beta is one minus t squared over 2t, so tan beta plus twice tan gamma is t plus one minus t squared over t, which collapses to one over t. And one over tan beta is cot beta, which is tan of pi over 2 minus beta, that is tan alpha. Check it with beta equal to 20 degrees: alpha is 70 and gamma is 50, tan alpha is 2.747, and tan 20 plus twice tan 50 is 0.364 plus 2.384, which is 2.747.",
+  "why_wrong": {
+   "0": "Twice tan beta plus twice tan gamma doubles both terms. At beta equal to 20 degrees it gives 3.111 against the true value 2.747.",
+   "2": "Twice tan beta plus tan gamma puts the factor 2 on the wrong term. Beware of testing this one at beta equal to 30 degrees, because then gamma is also 30 and the two expressions happen to agree by accident. Take beta equal to 20 instead and it gives 1.920 against 2.747. When you check an identity numerically, avoid the angle that makes two of the quantities equal.",
+   "3": "Tan beta plus tan gamma is what you get if the factor 2 is dropped altogether. At beta equal to 20 degrees it gives 1.556, not 2.747."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|9",
   "approved": false,
   "why_correct": "Multiplying by minus 1 rotates a complex number by half a turn. If the argument of z is negative, lying between minus pi and 0, then adding pi keeps the result within the principal range, so the difference of the arguments is pi.",
@@ -5515,6 +5630,17 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|15",
+  "approved": false,
+  "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The double inequality splits into two. From 2x minus 5 less than or equal to 5x plus 4 we get minus 9 less than or equal to 3x, that is x greater than or equal to minus 3. From 5x plus 4 strictly less than 19 we get 5x less than 15, that is x strictly less than 3. So the solution over the integers is minus 3 less than or equal to x less than 3, which is the integers from minus 3 to 2. The paper prints no option that says this, because the intended option writes the right hand end as less than or equal to 3 and so wrongly admits x equal to 3. The printed paper was checked and it really does print the strict sign, so the question was withdrawn from scoring.",
+  "why_wrong": {
+   "0": "Minus 2 less than or equal to x less than or equal to 3 is wrong at both ends. The left hand inequality gives minus 3, not minus 2, and the right hand one is strict.",
+   "1": "Minus 2 less than or equal to x less than 23 has the strictness right but both numbers wrong. The 23 comes from mishandling the right hand inequality.",
+   "2": "Minus 3 less than or equal to x less than or equal to 4 has the left hand end right but stretches the right hand end well past 3. Substituting x equal to 4 gives 24, which is not less than 19.",
+   "3": "Minus 3 less than or equal to x less than or equal to 3 is the intended answer and is correct except for one integer. Put x equal to 3 into the middle expression: 5 times 3 plus 4 is 19, and the question demands strictly less than 19, so 3 is not a solution."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|16",
   "approved": false,
   "why_correct": "The first inequality gives x between minus 4 and 6. The second gives x at most minus 2 or at least 2. Both must hold, so the answer is the part of minus 4 to 6 that survives, namely minus 4 to minus 2 together with 2 to 6.",
@@ -5565,6 +5691,16 @@
   }
  },
  {
+  "id": "XI|Science|Mathematics|21",
+  "approved": false,
+  "why_correct": "From each vertex of an n sided polygon you can draw a diagonal to every vertex except itself and its two neighbours, which is n minus 3 of them. Doing that at all n vertices counts every diagonal twice, so the number of diagonals is n times n minus 3, all divided by 2. For a heptagon that is 7 times 4 over 2, which is 14.",
+  "why_wrong": {
+   "0": "7 is the number of vertices, and also the number of sides. It is the count you start from, not the answer.",
+   "1": "21 is 7 choose 2, the number of straight lines joining any two of the seven vertices. That total includes the 7 sides, which are not diagonals; 21 minus 7 gives the 14 we want. This was the printed key.",
+   "3": "13 corresponds to no reading of the question. If you reached it, recount with the formula rather than by drawing, since diagonals are very easy to miss or double count in a sketch."
+  }
+ },
+ {
   "id": "XI|Science|Mathematics|22",
   "approved": false,
   "why_correct": "The function is 1 for positive x and minus 1 for negative x. So f of x and f of minus x are always opposite in sign, their difference is plus or minus 2, and its modulus is 2.",
@@ -5592,6 +5728,16 @@
    "0": "0 would be the answer only if the numerator vanished faster than the denominator, but here they vanish at the same rate.",
    "1": "6 over root 19 forgets to halve when the two square roots in the denominator are added at x equal to 3. Each is root 19, so the sum is 2 root 19.",
    "3": "Root 19 over 6 is the correct answer turned upside down."
+  }
+ },
+ {
+  "id": "XI|Science|Mathematics|25",
+  "approved": false,
+  "why_correct": "Expand both terms about zero. e to the x squared is 1 plus x squared plus higher powers, and cos x is 1 minus x squared over 2 plus higher powers. Subtracting, the ones cancel and the numerator is three halves of x squared plus higher powers, so dividing by x squared and letting x tend to zero gives three halves. L'Hopital agrees: differentiating top and bottom once gives 2x times e to the x squared plus sin x, over 2x, which is e to the x squared plus sin x over 2x, tending to 1 plus one half, that is three halves.",
+  "why_wrong": {
+   "0": "One quarter does not come out of any correct step here. If you reached it, redo the problem by L'Hopital's rule, which needs no series at all.",
+   "1": "Two thirds is the reciprocal of the right answer, and it was the printed key. If your working produced three halves, do not turn it upside down at the last moment.",
+   "3": "1 is what you get if you expand the exponential but treat cos x as simply 1, forgetting the minus x squared over 2 term. That term contributes the extra one half, and leaving it out is the commonest slip in this question."
   }
  },
  {
@@ -5642,6 +5788,16 @@
    "0": "Gravity is conservative. Work done against it is stored as potential energy and can be recovered in full.",
    "1": "The electrostatic force is conservative too, with its own potential energy.",
    "3": "The elastic force of a spring is conservative, storing energy as half k x squared and giving it back. The test is whether the work round a closed path is zero, and only friction fails it."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|6",
+  "approved": false,
+  "why_correct": "The slope of a graph is the rate of change of the quantity on the vertical axis with respect to the one on the horizontal axis. On a displacement time graph that is the rate of change of displacement with time, which is precisely the definition of velocity. A steeper line means a faster body, and a horizontal line means the body is at rest.",
+  "why_wrong": {
+   "0": "Displacement is what the graph reads off the vertical axis at a given instant, not what its slope measures. The height and the steepness are two different pieces of information.",
+   "1": "Acceleration is the slope of a velocity time graph, one differentiation further on. On a displacement time graph acceleration shows up in the curvature, not the slope. This was the printed key, and question 14 on this same paper asks the same idea and keys it correctly as velocity.",
+   "3": "Time is the horizontal axis. An axis variable is never what a slope represents."
   }
  },
  {
@@ -5762,6 +5918,16 @@
    "0": "MR squared is the moment of inertia of a thin ring or hollow cylinder, where all the mass sits at the rim. A solid cylinder has mass nearer the axis, so its value must be smaller.",
    "2": "Two fifths MR squared belongs to a solid sphere.",
    "3": "Two thirds MR squared belongs to a hollow sphere."
+  }
+ },
+ {
+  "id": "XI|Science|Physics|19",
+  "approved": false,
+  "why_correct": "The radius of gyration k is defined by I equal to Mk squared, so k is the square root of I over M. For a thin ring about the central axis perpendicular to its plane, every particle of the ring sits at exactly the same distance R from the axis, so I equals MR squared with no numerical factor at all. Hence k equals R. This is the one case where the radius of gyration is obvious without any integration.",
+  "why_wrong": {
+   "0": "R over 2 is the radius of gyration of a circular disc about a diameter, where I equals MR squared over 4. It belongs to a different body and a different axis.",
+   "1": "R over root 2 is the answer for a ring about a diameter, where the perpendicular axis theorem gives I equal to MR squared over 2. This was the printed key: it is the right calculation for the wrong axis. The question asks about the central perpendicular axis, not a diameter.",
+   "3": "2R is impossible for any body about an axis through its centre. Every particle lies within R of that axis, so k, being a kind of average of those distances, can never be larger than R."
   }
  },
  {
@@ -6567,6 +6733,16 @@
   }
  },
  {
+  "id": "XII|Arts|Education|25",
+  "approved": false,
+  "why_correct": "The Right of Children to Free and Compulsory Education Act was passed by Parliament in August 2009 and received the President's assent that month, but it was brought into force on 1 April 2010, the beginning of the financial and academic year. India thus became one of the countries in which elementary education is a fundamental right of every child between six and fourteen.",
+  "why_wrong": {
+   "1": "1 January 2010 is not the commencement date. Acts of this kind are normally brought into force at the start of an academic or financial year, not in the middle of one.",
+   "2": "1 January 2009 falls before the Act was even passed, which was in August of that year. A law cannot take effect before it exists.",
+   "3": "31 January 2009 is likewise months before the Act was passed. Take care to separate the year of passing, which question 14 on this same paper asks about, from the date of coming into force, which is what this question asks."
+  }
+ },
+ {
   "id": "XII|Arts|Environmental Science|1",
   "approved": false,
   "why_correct": "Biodiversity is the variety of living organisms, taken at three levels: genetic diversity within a species, species diversity within an area, and ecosystem diversity across a region.",
@@ -7017,6 +7193,16 @@
   }
  },
  {
+  "id": "XII|Arts|Geography|21",
+  "approved": false,
+  "why_correct": "Chhattisgarh is the largest producer of coal in India, mining well over two hundred million tonnes a year, chiefly from the Korba coalfield. Note carefully that the question asks about production, which is how much is dug out in a year, and not about reserves, which is how much lies underground.",
+  "why_wrong": {
+   "0": "Odisha is a close second in production, with the Talcher and Ib valley fields, and it also holds very large reserves. It is the nearest rival to the right answer, but not the leader.",
+   "2": "Jharkhand holds the largest coal reserves in the country and it is where Indian coal mining began, at Raniganj and Jharia, so many books call it the leading coal state. But its annual output is now below that of Chhattisgarh. Reserves and production are different things, and this was the printed key.",
+   "3": "West Bengal has the Raniganj field, the oldest coalfield in India, but its present output is far behind the top three."
+  }
+ },
+ {
   "id": "XII|Arts|Geography|22",
   "approved": false,
   "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, assured irrigation, chemical fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
@@ -7024,6 +7210,16 @@
    "0": "Pulses were largely left out, and output per head actually fell, which remains a problem for Indian nutrition.",
    "1": "Oilseeds were the subject of the later Yellow Revolution.",
    "3": "Cotton is a commercial crop and was not the programme's focus. The narrowness of the gains, in crops and in regions, is one of the standard criticisms."
+  }
+ },
+ {
+  "id": "XII|Arts|Geography|23",
+  "approved": false,
+  "why_correct": "Road transport carries by far the largest volume of freight in India, about seventy per cent of it, as the NCERT textbook states. Roads reach places no railway line does, they allow door to door delivery without transhipment, and they suit the small consignments and short hauls that make up most of the country's traffic.",
+  "why_wrong": {
+   "0": "Air transport is the fastest but carries the smallest volume of all, a tiny fraction of one per cent. It is used for goods that are light, valuable or urgent, not for bulk.",
+   "1": "Water transport is the cheapest per tonne kilometre and is why it dominates India's overseas trade, but the inland waterways are little developed and carry very little of the country's internal freight.",
+   "3": "Rail transport did carry the largest share until the 1980s and it still moves the heavy bulk goods, coal, iron ore, cement and foodgrains, over long distances. Road overtook it decades ago, and rail now carries roughly thirty per cent. This was the printed key."
   }
  },
  {
@@ -7187,6 +7383,16 @@
   }
  },
  {
+  "id": "XII|Arts|History|15",
+  "approved": false,
+  "why_correct": "The Jim Crow laws, enacted across the southern United States from the 1870s and in force until the Civil Rights Act of 1964, required Black and White Americans to be kept apart in schools, railway carriages, buses, waiting rooms, restaurants and even drinking fountains, and they stripped Black citizens of the vote through literacy tests, poll taxes and grandfather clauses. Their purpose was segregation and the maintenance of White supremacy. The name itself comes from a mocking stage caricature of a Black man, which tells you the spirit in which the laws were made.",
+  "why_wrong": {
+   "0": "The laws did the opposite of promoting the cause of Black Americans. They were passed in the decades after Reconstruction precisely to undo the political and civil gains Black Americans had just won.",
+   "1": "Ending racial discrimination was the work of the movement that fought these laws, of Rosa Parks, Martin Luther King and the Montgomery boycott, and it was achieved by the Civil Rights Act of 1964 and the Voting Rights Act of 1965, which dismantled Jim Crow.",
+   "2": "This is the separate but equal formula upheld by the Supreme Court in Plessy versus Ferguson in 1896, the very words the laws hid behind. The separation was real and the equality was not: Black schools, carriages and hospitals were deliberately starved of funds. In Brown versus Board of Education in 1954 the Court held that separate is inherently unequal and overturned the doctrine. This was the printed key, and it has been corrected, because to leave it standing would be to teach that segregation promoted equality."
+  }
+ },
+ {
   "id": "XII|Arts|History|16",
   "approved": false,
   "why_correct": "The Holocaust was carried out during the Second World War, between 1941 and 1945, when the Nazi regime systematically murdered around six million Jews along with Roma, disabled people and others.",
@@ -7287,6 +7493,16 @@
   }
  },
  {
+  "id": "XII|Arts|Philosophy|2",
+  "approved": false,
+  "why_correct": "For Kant, causality is one of the twelve categories of the understanding, an a priori form the mind itself brings to experience rather than something it reads off from the world. We do not find the causal connection in what we observe; we supply it, and that is why the causal law can be both necessary and universal. This was Kant's answer to Hume, who he said had woken him from his dogmatic slumber.",
+  "why_wrong": {
+   "0": "Locke holds that the mind begins as a blank slate and that every idea, causality included, comes from experience. That is the opposite of treating it as a form the intellect already possesses.",
+   "1": "Hume is the tempting answer because he is the philosopher most associated with the problem of causation, and this was the printed key. But his view is that we observe only constant conjunction and that the idea of necessary connection is a habit of expectation in the mind, a psychological association rather than a form of the intellect. Question 6 on this same paper keys Hume correctly for that view.",
+   "2": "Ewing is a modern writer whose survey of the theories of causation appears in this chapter, so his name is familiar from the same pages. But the doctrine that causality is an a priori form of the understanding is Kant's; Ewing discusses it rather than originating it."
+  }
+ },
+ {
   "id": "XII|Arts|Philosophy|3",
   "approved": false,
   "why_correct": "Shankara is regarded as the first systematic preacher of Advaita Vedanta. In a short life in the eighth century he wrote commentaries on the Upanishads, the Gita and the Brahma Sutra, and founded four monasteries across India.",
@@ -7304,6 +7520,16 @@
    "0": "Brahman is what is concealed, not the concealer.",
    "1": "Jiva is the individual soul, itself a product of Brahman appearing under maya.",
    "2": "Jagat is the world, which is what maya projects. The rope-and-snake illustration captures both functions: the rope is hidden and the snake is thrown up in its place."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|5",
+  "approved": false,
+  "why_correct": "Shankara's system is Kevaladvaitavada, absolute or unqualified non-dualism. Brahman alone is real, the world of appearances is maya, and the individual self is not merely similar to Brahman but identical with it. The prefix kevala, meaning only or absolute, is what marks it off from the other Vedanta schools.",
+  "why_wrong": {
+   "1": "Vishishtadvaitavada, qualified non-dualism, is Ramanuja's. Brahman is real and one, but the souls and matter are equally real and form its body, so the unity is a qualified one. This was the printed key.",
+   "2": "Dvaitadvaitavada, dualistic non-dualism, is Nimbarka's, on which the soul is both different from and non-different from Brahman.",
+   "3": "Dvaitavada, dualism, is Madhva's, on which Brahman and the individual soul are eternally and completely distinct. It is the furthest of the four from Shankara."
   }
  },
  {
@@ -7354,6 +7580,16 @@
    "1": "Gisbert defined society as a group working together for common ends.",
    "2": "Ginsberg defined it as a collection of individuals united by certain relations.",
    "3": "Mackenzie also wrote on the subject. All four are sociologists offering definitions, so the exact wording must be matched to its author."
+  }
+ },
+ {
+  "id": "XII|Arts|Philosophy|11",
+  "approved": false,
+  "why_correct": "The unchecked exploitation of nature, through deforestation, over-extraction of resources, pollution of air and water and the burning of fossil fuels, has produced what is called the environmental crisis: global warming, loss of biodiversity, shrinking water supplies and degraded land. It is the term the chapter uses, and it names the whole of the damage rather than one part of it.",
+  "why_wrong": {
+   "0": "An individual crisis is a crisis in a single person's life. It is not what follows from a country exploiting its natural resources, and nothing in the chapter connects the two. This was the printed key.",
+   "2": "There is a real moral dimension here, and the chapter does argue that our treatment of nature is an ethical failure and that we owe a duty to future generations. But the problem countries are described as facing is the environmental crisis itself; the moral question is why it arose, not what it is.",
+   "3": "Loss of habitat is genuinely one part of the damage, for wildlife and for displaced people alike. It is too narrow, though: environmental crisis is the wider term that includes it along with pollution, climate change and resource depletion."
   }
  },
  {
@@ -8907,6 +9143,16 @@
   }
  },
  {
+  "id": "XII|Science|Biology|17",
+  "approved": false,
+  "why_correct": "After fertilisation in the fallopian tube the zygote divides repeatedly to form the morula, which travels down to the uterus. There it develops a fluid filled cavity and becomes the blastocyst, with an inner cell mass and an outer trophoblast. It is the trophoblast that attaches to and invades the uterine lining, and NCERT puts it plainly: the blastocyst becomes embedded in the endometrium. Implantation is therefore a blastocyst stage event.",
+  "why_wrong": {
+   "0": "The zygote is a single cell and is still in the fallopian tube. It has not even reached the uterus, let alone attached to it.",
+   "1": "The morula is genuinely the stage that arrives in the uterus, which is why this option is tempting and why it was the printed key. But it floats free in the uterine cavity; it must first cavitate into a blastocyst, because it is the trophoblast of the blastocyst that does the attaching.",
+   "3": "The gastrula comes after implantation, not before. Gastrulation, the formation of the three germ layers, takes place in an embryo that is already embedded in the endometrium."
+  }
+ },
+ {
   "id": "XII|Science|Biology|18",
   "approved": false,
   "why_correct": "In blood group AB both the A and the B alleles are fully expressed, so both antigens appear on the red cells. Neither masks the other, which is co-dominance.",
@@ -9097,6 +9343,26 @@
   }
  },
  {
+  "id": "XII|Science|Chemistry|12",
+  "approved": false,
+  "why_correct": "Glucose is an aldose and fructose a ketose, and the aldehyde group is the one thing they do not share. Bromine water is mildly acidic and a mild oxidising agent, so it oxidises the aldehyde group of glucose to gluconic acid and is itself decolourised, while fructose, having no aldehyde group and no acid to isomerise it, does not react. The colour either goes or it stays, and that tells the two sugars apart.",
+  "why_wrong": {
+   "1": "Chlorine in potassium hydroxide is both alkaline and a vigorous oxidant. It attacks both sugars, so it distinguishes nothing.",
+   "2": "Tollens' reagent is alkaline, and in alkali fructose rearranges to glucose through the enediol intermediate, the Lobry de Bruyn van Ekenstein rearrangement. So fructose gives the silver mirror too, and the test cannot separate them. This was the printed key.",
+   "3": "Fehling's solution is alkaline for the same reason and fails for the same reason: both sugars give the red precipitate of copper(I) oxide. Any test carried out in alkali is disqualified here."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|13",
+  "approved": false,
+  "why_correct": "The iodoform test needs either a methyl ketone grouping or an alcohol carrying a methyl group and a hydrogen on the carbon bearing the hydroxyl, since the alkaline iodine first oxidises that alcohol to the methyl ketone. Propan-2-ol has exactly that arrangement: it is oxidised to acetone, the three hydrogens of one methyl group are then replaced by iodine and the carbon chain is cleaved by the alkali, giving the yellow precipitate of iodoform.",
+  "why_wrong": {
+   "0": "2-Methylpropan-2-ol is a tertiary alcohol. The carbon bearing the hydroxyl group has no hydrogen on it at all, so it cannot be oxidised to a ketone, and without a methyl ketone there is no iodoform. This was the printed key.",
+   "2": "Propan-1-ol is a primary alcohol and oxidises to propanal and then propanoic acid, neither of which is a methyl ketone. Note that ethanol does give iodoform, because oxidising it produces acetaldehyde, which has the methyl group next to the carbonyl. Ethanol is the exception that makes this option tempting.",
+   "3": "Methanol has a single carbon, so there is no methyl group attached to a carbonyl or carbinol carbon for the reaction to work on. It is the one alcohol that cannot possibly give the test."
+  }
+ },
+ {
   "id": "XII|Science|Chemistry|14",
   "approved": false,
   "why_correct": "Ammonia does not obey Henry's law because it reacts with water rather than merely dissolving in it, forming ammonium and hydroxide ions. The law applies only to gases that dissolve without reacting.",
@@ -9104,6 +9370,16 @@
    "0": "Oxygen dissolves physically in water and follows the law well.",
    "2": "Hydrogen is only sparingly soluble and follows the law closely.",
    "3": "Nitrogen likewise dissolves without reacting. The conditions for the law are moderate pressure, moderate temperature and no chemical reaction, and ammonia fails the last."
+  }
+ },
+ {
+  "id": "XII|Science|Chemistry|15",
+  "approved": false,
+  "why_correct": "The institution has ruled for ozonation. The connection the question is reaching for is the treatment of water: in a water works, coagulation, in which alum is added so that fine suspended particles clump into a floc heavy enough to settle, is one stage of purification and ozonation, in which ozone is used to disinfect, is another. Of the four processes listed, ozonation is the one carried out alongside coagulation.",
+  "why_wrong": {
+   "0": "Peptization is the most tempting option, because it is the process taught next to coagulation in every account of colloids. But it is coagulation's exact reverse: peptization breaks a fresh precipitate back up into a colloidal sol by adding a suitable electrolyte, whereas coagulation destroys a sol into a precipitate.",
+   "1": "Sublimation is a solid passing straight into vapour without melting. It is a change of state of a pure substance and has nothing to do with colloids or with the clumping of dispersed particles.",
+   "2": "Condensation does have a colloid connection, since condensation methods are one of the two ways of preparing a sol, as when hydrogen sulphide is passed into a solution of arsenious oxide. But that is the making of a colloid, which is the opposite of coagulating one."
   }
  },
  {
@@ -9324,6 +9600,16 @@
    "0": "2 would give a limit of 2, four times too large.",
    "1": "Minus 2 gives the same limit as 2, since the answer depends on p squared, and it is likewise too large.",
    "3": "There is a correct option. Note that both signs of p work, because cosine is an even function."
+  }
+ },
+ {
+  "id": "XII|Science|Mathematics|13",
+  "approved": false,
+  "why_correct": "At x equal to 2 the numerator is 2 times f of 2 minus 2 times f of 2, which is zero, so this is a zero over zero limit. Rewrite the numerator by adding and subtracting 2 times f of 2: it becomes f of 2 times x minus 2, minus 2 times the quantity f of x minus f of 2. Dividing by x minus 2 gives f of 2, minus 2 times the difference quotient of f at 2, and letting x tend to 2 gives f of 2 minus twice f dashed of 2, that is 4 minus 8, which is minus 4.",
+  "why_wrong": {
+   "0": "2 is half of f of 2 and arises from no step in the derivation. A useful check for all of these: the function f of x equal to 4x minus 4 satisfies both conditions given, and substituting it makes the whole quotient exactly minus 4 for every x other than 2.",
+   "1": "Minus 2 has the right sign but the wrong size. It is what f of 2 over 2 minus f dashed of 2 would give, so check the factor 2 on each term.",
+   "2": "4 is f of 2 standing alone, which is what remains if the minus twice f dashed of 2 term is dropped, or if the subtraction is done the wrong way round as 8 minus 4. This was the printed key, and the concrete function f of x equal to 4x minus 4 settles the sign beyond argument."
   }
  },
  {
@@ -9594,6 +9880,16 @@
    "0": "Faraday discovered electromagnetic induction and provided the field concept Maxwell built on.",
    "1": "Ampere gave the original law relating magnetic field to current, which Maxwell corrected.",
    "3": "Hertz experimentally produced and detected the electromagnetic waves Maxwell had predicted, some twenty years later."
+  }
+ },
+ {
+  "id": "XII|Science|Physics|16",
+  "approved": false,
+  "why_correct": "A voltmeter is connected across the component whose potential difference is being measured, and it must disturb that circuit as little as possible, which means drawing almost no current. So it needs a very high resistance, and the way to get one is to put a large resistance in series with the galvanometer coil. The series resistance also limits the current through the delicate coil, and choosing its value sets the range of the voltmeter. The ideal voltmeter has infinite resistance.",
+  "why_wrong": {
+   "1": "A low resistance in parallel is the shunt, and that is how a galvanometer is converted into an ammeter, not a voltmeter. It gives most of the current a path around the coil. This was the printed key, and it answers the opposite conversion.",
+   "2": "A high resistance in parallel would carry hardly any current, so it would neither protect the coil nor usefully change the range. A parallel path only does its job when it is the easier path.",
+   "3": "A low resistance in series leaves the meter's total resistance low, so it would draw appreciable current, load the circuit and read wrongly, and it would not extend the range either."
   }
  },
  {

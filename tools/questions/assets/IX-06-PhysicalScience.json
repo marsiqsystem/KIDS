@@ -1,0 +1,162 @@
+[
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Measurement and SI Units",
+  "approved": false,
+  "trick": "Learn the seven base units first and every other unit is built from them. Newton, joule and watt are not extra facts to memorise: a newton is kilogram metre per second squared, a joule is a newton metre, a watt is a joule per second. Build them, do not learn them.",
+  "video": { "query": "SI units base and derived units measurement class 9 physical science", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each physical quantity with its SI unit.",
+    "pairs": [
+     { "left": "Length", "right": "metre" },
+     { "left": "Mass", "right": "kilogram" },
+     { "left": "Time", "right": "second" },
+     { "left": "Force", "right": "newton" },
+     { "left": "Work and energy", "right": "joule" },
+     { "left": "Power", "right": "watt" },
+     { "left": "Temperature", "right": "kelvin" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Structure of the Atom",
+  "approved": false,
+  "trick": "Almost all the mass sits in almost none of the space. The nucleus holds the protons and neutrons and therefore the mass; the electrons hold the volume. That single sentence answers most questions in this chapter, including why Rutherford's alpha particles mostly went straight through.",
+  "video": { "query": "structure of atom Rutherford Bohr model protons neutrons electrons class 9", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Label the parts of the atom on this diagram.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.7\"/><circle cx=\"50\" cy=\"50\" r=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.7\"/><circle cx=\"46\" cy=\"48\" r=\"4.5\" fill=\"currentColor\" opacity=\"0.85\"/><circle cx=\"54\" cy=\"52\" r=\"4.5\" fill=\"currentColor\" opacity=\"0.4\"/><circle cx=\"90\" cy=\"50\" r=\"2.6\" fill=\"currentColor\"/><circle cx=\"50\" cy=\"28\" r=\"2.6\" fill=\"currentColor\"/></svg>",
+    "labels": [
+     { "label": "Proton, positively charged", "x": 46, "y": 48 },
+     { "label": "Neutron, no charge", "x": 54, "y": 52 },
+     { "label": "K shell, the first orbit", "x": 50, "y": 28 },
+     { "label": "L shell, the second orbit", "x": 90, "y": 50 }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Solutions, Colloids and Mixtures",
+  "approved": false,
+  "trick": "Two tests separate all three. Does it scatter a beam of light, the Tyndall effect? Does it settle or filter out? A true solution does neither, a colloid scatters but will not settle, a suspension does both.",
+  "video": { "query": "true solution colloid suspension Tyndall effect class 9 chemistry", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "True solution, colloid or suspension? Sort each description or example.",
+    "bins": ["True solution", "Colloid", "Suspension"],
+    "items": [
+     { "label": "Particles smaller than 1 nanometre and never visible", "bin": "True solution" },
+     { "label": "Salt stirred into water", "bin": "True solution" },
+     { "label": "Shows the Tyndall effect but never settles on standing", "bin": "Colloid" },
+     { "label": "Milk, an emulsion of fat in water", "bin": "Colloid" },
+     { "label": "Particles large enough to be seen and to settle on standing", "bin": "Suspension" },
+     { "label": "Chalk powder shaken up in water", "bin": "Suspension" },
+     { "label": "Can be separated by ordinary filter paper", "bin": "Suspension" },
+     { "label": "Passes through filter paper but is held back by parchment", "bin": "Colloid" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Acids, Bases, Salts and Water",
+  "approved": false,
+  "trick": "Read pH as a distance from 7. Below 7 acidic, above 7 basic, and each step is ten times, not one step. So pH 3 is not a little more acidic than pH 5, it is a hundred times more.",
+  "video": { "query": "acids bases salts pH scale indicators neutralisation class 9 chemistry", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about acids, bases and salts.",
+    "items": [
+     { "statement": "An acid turns blue litmus red.", "is_true": true, "why": "Acids turn blue litmus red; bases turn red litmus blue. Litmus is the one indicator that works both ways." },
+     { "statement": "A pH of 7 means the solution is strongly basic.", "is_true": false, "why": "A pH of 7 is neutral, which is pure water. Basic solutions lie above 7." },
+     { "statement": "An acid reacting with a base gives a salt and water.", "is_true": true, "why": "This is neutralisation, and it is why an antacid settles an upset stomach." },
+     { "statement": "Acid should be poured into water, never water into acid.", "is_true": true, "why": "Dilution releases a great deal of heat. Adding acid slowly to water lets the water absorb it; the other way round can boil and spit acid out." },
+     { "statement": "All bases are alkalis.", "is_true": false, "why": "Only the bases that dissolve in water are called alkalis. Copper oxide is a base but not an alkali." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Force, Work and Power",
+  "approved": false,
+  "trick": "Work needs movement in the direction of the force. Hold a heavy bag still for an hour and you have done no work at all in physics, however tired you are. And power is not how much work but how fast, so the same work done in half the time is double the power.",
+  "video": { "query": "work energy and power formula numericals class 9 physics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right relation for each quantity, and see why the others do not fit.",
+    "items": [
+     {
+      "ask": "Work done by a constant force along the direction of motion",
+      "correct": "W = F × s",
+      "wrong": ["W = F ÷ s", "W = F × t"],
+      "why": "Work is force multiplied by the distance moved in the direction of the force. Time does not enter it at all, which is why holding something still does no work."
+     },
+     {
+      "ask": "Power",
+      "correct": "P = W ÷ t",
+      "wrong": ["P = W × t", "P = F × s"],
+      "why": "Power is the rate of doing work, so work divided by time. Multiplying by time would make a slow worker the more powerful one."
+     },
+     {
+      "ask": "Kinetic energy of a moving body",
+      "correct": "KE = ½ m v²",
+      "wrong": ["KE = m g h", "KE = ½ m v"],
+      "why": "Kinetic energy depends on the square of the speed, so doubling the speed gives four times the energy. m g h is potential energy, which depends on height instead."
+     },
+     {
+      "ask": "Force, by Newton's second law",
+      "correct": "F = m × a",
+      "wrong": ["F = m ÷ a", "F = m × v"],
+      "why": "Force is mass times acceleration, not mass times velocity. Mass times velocity is momentum, a different quantity with different units."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Sound",
+  "approved": false,
+  "trick": "Sound needs a material to travel through, so there is no sound in a vacuum. And one relation carries every numerical: speed equals frequency times wavelength. Write v = f λ at the top of the page before you read the question.",
+  "video": { "query": "sound wave speed frequency wavelength echo class 9 physics numericals", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work this wavelength out one step at a time.",
+    "problem": "A tuning fork of frequency 500 Hz makes a sound that travels through air at 340 metres per second. Find the wavelength.",
+    "steps": [
+     {
+      "ask": "Which relation connects speed, frequency and wavelength?",
+      "options": ["v = f λ", "v = f ÷ λ", "v = λ ÷ f"],
+      "correct": 0,
+      "why": "Speed equals frequency times wavelength. Check it with units: hertz is per second, metres times per second gives metres per second."
+     },
+     {
+      "ask": "Rearranged for the wavelength, that gives",
+      "options": ["λ = v × f", "λ = v ÷ f", "λ = f ÷ v"],
+      "correct": 1,
+      "why": "Divide both sides by the frequency."
+     },
+     {
+      "ask": "So the wavelength is",
+      "options": ["0.68 m", "1.47 m", "170000 m"],
+      "correct": 0,
+      "why": "340 divided by 500 is 0.68 metres, that is 68 centimetres. The third option is what you get by multiplying instead of dividing."
+     }
+    ],
+    "answer": "0.68 metres, or 68 centimetres."
+   }
+  }
+ }
+]

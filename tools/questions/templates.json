@@ -1,0 +1,113 @@
+{
+  "_readme": [
+    "The interactive vocabulary for Phase 3. Ten reusable, data-driven templates.",
+    "A chapter's interactive declares a template name and the data that fills it;",
+    "nobody builds a bespoke game for a chapter. build_assets.py validates each",
+    "chapter's data against the shape declared here and refuses to write if it",
+    "does not fit, so a template typo is an error rather than a blank panel.",
+    "",
+    "Adding a template is a real decision, not a shortcut around awkward data:",
+    "if a chapter does not fit any of the ten, the honest move is usually to pick",
+    "the nearest fit and simplify the content, because every new template is a",
+    "new front-end component to build, test and maintain."
+  ],
+
+  "match-pairs": {
+    "what": "Two columns to be paired up. The match-the-column question type the papers already use.",
+    "suits": "term and definition, person and work, god and domain, kingdom and capital, scientist and discovery",
+    "data": {
+      "prompt": "str",
+      "pairs": "list[2..8] of {left: str, right: str}"
+    }
+  },
+
+  "timeline-order": {
+    "what": "Drag items into the right order. Order can be chronological or procedural.",
+    "suits": "history dates, the stages of a process, the accounting cycle, the steps of cell division",
+    "data": {
+      "prompt": "str",
+      "items": "list[3..8] of {label: str, note: str?}  — authored in the CORRECT order; the front end shuffles"
+    }
+  },
+
+  "sort-bins": {
+    "what": "Drop each item into one of a few labelled bins.",
+    "suits": "renewable vs non-renewable, assets vs liabilities, metals vs non-metals, direct vs indirect tax",
+    "data": {
+      "prompt": "str",
+      "bins": "list[2..4] of str",
+      "items": "list[4..12] of {label: str, bin: str}  — bin must name one of bins"
+    }
+  },
+
+  "odd-one-out": {
+    "what": "Four or five items, one of which does not belong, and the child must say which.",
+    "suits": "classification, spotting the exception, any 'which of these is not a...' idea",
+    "data": {
+      "prompt": "str",
+      "items": "list[3..6] of str",
+      "odd": "int  — index into items",
+      "because": "str  — the rule the other items share"
+    }
+  },
+
+  "fill-blank": {
+    "what": "A short passage with gaps, filled from a shared word bank. The bank may hold decoys.",
+    "suits": "grammar, definitions, formulae stated in words, any paragraph of connected fact",
+    "data": {
+      "prompt": "str",
+      "text": "str  — gaps written as {1}, {2}, ... numbered from 1",
+      "answers": "list[1..8] of str  — answers[0] fills {1}",
+      "bank": "list of str  — must contain every answer, and may contain decoys"
+    }
+  },
+
+  "transform": {
+    "what": "Rewrite a given sentence under a stated rule, then compare against the model answer.",
+    "suits": "active and passive, direct and indirect speech, tense change, degree of comparison",
+    "data": {
+      "prompt": "str",
+      "rule": "str  — the transformation being practised, e.g. 'Change to passive voice'",
+      "items": "list[2..8] of {from: str, to: str, hint: str?}"
+    }
+  },
+
+  "label-diagram": {
+    "what": "Place labels onto a diagram at given points. The diagram is an inline SVG stored with the asset.",
+    "suits": "cell parts, the human eye, a circuit, map features, an account format",
+    "data": {
+      "prompt": "str",
+      "svg": "str  — self-contained inline SVG, viewBox 0 0 100 100, no external refs",
+      "labels": "list[2..8] of {label: str, x: num 0..100, y: num 0..100}"
+    }
+  },
+
+  "formula-pick": {
+    "what": "Given a quantity or situation, choose the formula that applies, and see why the others do not.",
+    "suits": "physics quantities, mensuration, cost sheets, ratio analysis",
+    "data": {
+      "prompt": "str",
+      "items": "list[2..6] of {ask: str, correct: str, wrong: list[1..3] of str, why: str}"
+    }
+  },
+
+  "step-solve": {
+    "what": "One worked problem advanced a step at a time; the child picks the next step before seeing it.",
+    "suits": "any numerical — maths, physics, accountancy, cost sheets",
+    "data": {
+      "prompt": "str",
+      "problem": "str",
+      "steps": "list[2..6] of {ask: str, options: list[2..4] of str, correct: int, why: str}",
+      "answer": "str"
+    }
+  },
+
+  "true-false": {
+    "what": "A short set of statements to mark true or false, each with a one-line reason either way.",
+    "suits": "the universal fallback — any chapter whose content resists the other nine",
+    "data": {
+      "prompt": "str",
+      "items": "list[3..8] of {statement: str, is_true: bool, why: str}"
+    }
+  }
+}

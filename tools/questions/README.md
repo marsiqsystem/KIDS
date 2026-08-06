@@ -9,6 +9,7 @@ python tools/questions/check_chapters.py # every section has a chapter list
 python tools/questions/tag.py            # tags.json     -> question-chapters.json
 python tools/questions/chapters_page.py out.html   # the reviewable chapter map
 python tools/questions/build_explanations.py --status   # Phase 2 coverage
+python tools/questions/build_assets.py --status         # Phase 3 coverage
 ```
 
 Reads from `Desktop\Offline question papers\` (PDFs stay outside the repo).
@@ -182,14 +183,82 @@ Keys of `why_wrong` are option indices as strings, matching `questions.json`.
 A record may also carry `cloned_from`, which means the same question appears on
 two papers and the explanation was copied — see the IX/X Geography block.
 
-**Status: COMPLETE — 963 of 996 written**, every class and subject. The 33 not
-written are
-defective questions, each documented with a recommendation in
-`explanations/HELD-BACK.md`, which leads with the 17 outright wrong keys.
+**Status: COMPLETE — 996 of 996 written and approved.** The only questions
+without an explanation are the four match-the-column ones carrying
+`needs_review`; the builder refuses to explain those, and `--status` leaves
+them out of the denominator, so 996 is the whole eligible set.
+
+`HELD-BACK.md` remains as the record of why 29 marks moved and why four
+contested keys were allowed to stand. It is history now, not a queue.
+
+**Note on the approval flag.** Umar approved all 996 in one go on 7 Aug 2026
+without a per-item review. The flag therefore records *his authorisation to
+publish*, not that a subject teacher has read the text. If a teacher ever does
+review, the defensible-distractor cases are where to start.
 
 Once the OMR scans exist, the review queue should be **ordered by how many
 students got each question wrong**, so review time goes to the questions that
 hurt most.
+
+## Phase 3 — per-chapter assets
+
+Explanations teach one question. Assets teach the **chapter**, and there are
+342 chapter entries across 46 buckets against 1,000 questions, so this is the
+layer where the effort actually pays off. Each chapter gets three things:
+
+- **the trick** — the one hook that makes the chapter stick (four minutes per
+  degree of longitude; February removed the Tsar, October brought the
+  Bolsheviks; work needs movement, so holding a bag still is no work at all);
+- **the video** — see the rule below;
+- **the interactive** — a `template` name plus the `data` that fills it.
+
+```
+python tools/questions/build_assets.py --status
+```
+
+Authored by hand into `assets/`, one file per bucket, merged into
+`src/data/questions/chapter-assets.json`.
+
+### Ten templates, no bespoke games
+
+`templates.json` holds the vocabulary: `match-pairs`, `timeline-order`,
+`sort-bins`, `odd-one-out`, `fill-blank`, `transform`, `label-diagram`,
+`formula-pick`, `step-solve`, `true-false`. A chapter declares one of the ten
+and supplies its data; nobody builds a game for a single chapter. Every new
+template is a new front-end component to build and maintain, so if a chapter
+fits none of the ten, the honest move is usually to simplify the content, not
+to add an eleventh.
+
+`build_assets.py` validates each chapter's data **against the shape its
+template declares** and writes nothing if anything is off. Beyond the obvious
+type checks it refuses a `sort-bins` with a bin nothing goes into, a
+`fill-blank` whose gaps do not run 1..n or whose answer is missing from the
+word bank, a `true-false` where every statement has the same truth value, a
+`formula-pick` listing the correct formula among the wrong ones, a `transform`
+whose sentence is unchanged, and a `label-diagram` whose SVG is not
+self-contained or whose labels fall outside the viewBox. Diagram SVGs carry no
+`xmlns` on purpose — inline SVG does not need one, and leaving it out lets the
+URL check stay strict.
+
+### The video rule — the important one
+
+**A model must never emit a YouTube URL.** The flow is: whitelist → API search
+→ Umar approves → store the id. So an authored record carries a search *query*
+and a null `video_id`:
+
+```json
+"video": { "query": "Heron's formula area of triangle class 9 maths",
+           "video_id": null, "approved": false }
+```
+
+The validator rejects anything URL-shaped in the video block outright, rejects
+a `video_id` that is not an 11-character id, and — the part that matters —
+**rejects a `video_id` that is not accompanied by `approved: true`.** A video
+id may only be written once a human has watched the video. `--status` prints
+how many chapters are still waiting on one.
+
+**Status: 35 of 342 written** — all of Class IX, exercising all ten templates.
+No video approved yet, so nothing may render a video.
 
 ## Findings for Umar
 

@@ -1,0 +1,1574 @@
+[
+ {
+  "bucket": "IX|All|English",
+  "chapter": "Prose: All Summer in a Day",
+  "approved": false,
+  "trick": "The whole story hangs on one ratio: seven years of rain against one hour of sun. Fix that in your head and everything else follows, including why the children could not believe Margot and why shutting her in the cupboard was so cruel.",
+  "video": {
+   "query": "All Summer in a Day Ray Bradbury story summary class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of All Summer in a Day back into the order Bradbury tells them.",
+    "items": [
+     {
+      "label": "The class waits, knowing the sun is due after seven years of rain",
+      "note": "Venus, where it has rained without stopping"
+     },
+     {
+      "label": "Margot tells them the sun is like a penny, like a fire in the stove",
+      "note": "She alone remembers it, from Earth"
+     },
+     {
+      "label": "The children refuse to believe her and push her into a cupboard",
+      "note": "They lock the door and run off"
+     },
+     {
+      "label": "The rain stops and the sun blazes for one hour",
+      "note": "The jungle steams and the children play"
+     },
+     {
+      "label": "The rain begins again and the children go back indoors"
+     },
+     {
+      "label": "They remember Margot, and stand a long time before opening the door",
+      "note": "Bradbury ends here and does not tell us what she said"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|English",
+  "chapter": "Poem: Mild the Mist upon the Hill",
+  "approved": false,
+  "trick": "Read the weather as the poet's mood. The mist is mild, the storms are over, the day has already wept its fill. Brontë is describing a calm that comes after grief, not before it, and that is why the poem feels peaceful rather than gloomy.",
+  "video": {
+   "query": "Mild the Mist upon the Hill Emily Bronte poem explanation class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill the gaps in the opening stanza. Three words in the bank are not used.",
+    "text": "Mild the {1} upon the hill, Telling not of storms {2}; No, the day has wept its fill, Spent its store of silent {3}.",
+    "answers": [
+     "mist",
+     "tomorrow",
+     "sorrow"
+    ],
+    "bank": [
+     "mist",
+     "tomorrow",
+     "sorrow",
+     "rain",
+     "yesterday",
+     "laughter"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|English",
+  "chapter": "Prose: Tom Loses a Tooth",
+  "approved": false,
+  "trick": "Tom's plan fails and succeeds at the same time. He does not get out of school, but he walks in with a gap he can spit through, and that gap makes him the most admired boy in the yard. Twain's joke is that Tom always lands on his feet.",
+  "video": {
+   "query": "Tom Loses a Tooth Mark Twain chapter summary class 9 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about Tom Loses a Tooth.",
+    "items": [
+     {
+      "statement": "Tom first pretends that his toe is mortified, hoping to be kept home from school.",
+      "is_true": true,
+      "why": "He groans about the toe until Aunt Polly loses patience, and only then does the loose tooth come out in conversation."
+     },
+     {
+      "statement": "Aunt Polly pulls the tooth out with a pair of pliers.",
+      "is_true": false,
+      "why": "She ties one end of a silk thread to the tooth and the other to the bedpost, then thrusts a piece of fire almost in his face so that he jerks back."
+     },
+     {
+      "statement": "Tom is delighted once the tooth is out, because the gap lets him spit in a new way.",
+      "is_true": true,
+      "why": "The new accomplishment draws a following of admiring boys, so his loss turns into fame."
+     },
+     {
+      "statement": "Tom is glad that his plan to miss school has worked perfectly.",
+      "is_true": false,
+      "why": "The plan fails: Aunt Polly sends him to school anyway, and the tooth is gone into the bargain."
+     },
+     {
+      "statement": "On his way to school Tom meets Huckleberry Finn.",
+      "is_true": true,
+      "why": "Huck, the boy every mother in the town disliked and every boy envied, is on his way with a dead cat."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|English",
+  "chapter": "Prose: His First Flight",
+  "approved": false,
+  "trick": "The seagull does not choose to fly. He is starved into it, and he only notices he is flying after his wings have already caught the air. That is the point of the story: fear ends the moment you act, not before.",
+  "video": {
+   "query": "His First Flight Liam O Flaherty summary class 9 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Who does what in His First Flight? Sort each detail into the right bin.",
+    "bins": [
+     "The young seagull",
+     "His family"
+    ],
+    "items": [
+     {
+      "label": "Alone on the ledge for twenty-four hours, too afraid to jump",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Ran back and forth on the ledge, threatening to fly and never doing it",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Flew off and left him, calling to him from the sea below",
+      "bin": "His family"
+     },
+     {
+      "label": "Held a piece of fish just out of reach until hunger did the rest",
+      "bin": "His family"
+     },
+     {
+      "label": "Dived at the fish and found the air holding him up",
+      "bin": "The young seagull"
+     },
+     {
+      "label": "Came around him, screaming and praising, and offered him more food",
+      "bin": "His family"
+     },
+     {
+      "label": "Landed on the green sea and was afraid he would sink",
+      "bin": "The young seagull"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|English",
+  "chapter": "Grammar: Voice (Active and Passive)",
+  "approved": false,
+  "trick": "Three moves, always the same three. The object comes to the front, the verb becomes a form of BE plus the past participle, and the old subject goes to the back after 'by'. If you cannot find an object in the active sentence, it usually cannot be made passive at all.",
+  "video": {
+   "query": "active and passive voice rules with examples class 9 English grammar",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "transform",
+   "data": {
+    "prompt": "Change each sentence from the active voice into the passive.",
+    "rule": "Change the sentence from the active voice to the passive voice, keeping the tense the same.",
+    "items": [
+     {
+      "from": "The gardener waters the plants every morning.",
+      "to": "The plants are watered by the gardener every morning.",
+      "hint": "Simple present, plural object, so the verb becomes 'are watered'."
+     },
+     {
+      "from": "Rabindranath Tagore wrote Gitanjali.",
+      "to": "Gitanjali was written by Rabindranath Tagore.",
+      "hint": "Simple past, singular object, so 'was' plus the past participle."
+     },
+     {
+      "from": "The children are singing a song.",
+      "to": "A song is being sung by the children.",
+      "hint": "A continuous tense needs 'being' in the passive as well."
+     },
+     {
+      "from": "Someone has stolen my bicycle.",
+      "to": "My bicycle has been stolen.",
+      "hint": "When the doer is unknown or unimportant, drop the 'by' phrase altogether."
+     },
+     {
+      "from": "Open the window.",
+      "to": "Let the window be opened.",
+      "hint": "An imperative turns into 'Let ... be ...' in the passive."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|General Knowledge",
+  "chapter": "GK: Space and the Natural World",
+  "approved": false,
+  "trick": "Sort the planets by what makes each one famous rather than by name alone: the hottest is Venus, the largest is Jupiter, the red one is Mars, the ringed one is Saturn. Examiners ask for the superlative, so learn the superlatives.",
+  "video": {
+   "query": "solar system planets facts largest hottest general knowledge for students",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about space and the natural world.",
+    "items": [
+     {
+      "statement": "Jupiter is the largest planet in the solar system.",
+      "is_true": true,
+      "why": "It is bigger than all the other planets put together, and its Great Red Spot is a storm wider than the Earth."
+     },
+     {
+      "statement": "Mercury is the hottest planet because it is nearest the Sun.",
+      "is_true": false,
+      "why": "Venus is hotter. Its thick carbon dioxide atmosphere traps heat, while Mercury has almost no atmosphere to hold any."
+     },
+     {
+      "statement": "The Sun is a star.",
+      "is_true": true,
+      "why": "It is an ordinary star that only looks different because it is so much nearer to us than the rest."
+     },
+     {
+      "statement": "Light from the Sun reaches the Earth in about eight minutes.",
+      "is_true": true,
+      "why": "The Sun is about 150 million kilometres away and light travels 300,000 kilometres a second."
+     },
+     {
+      "statement": "The Moon makes its own light.",
+      "is_true": false,
+      "why": "The Moon only reflects sunlight, which is why we see phases as the lit half turns towards or away from us."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|General Knowledge",
+  "chapter": "GK: Indian National Symbols and Personalities",
+  "approved": false,
+  "trick": "The two commonest traps are a pair each. Bird is the peacock but animal is the tiger; the anthem is Jana Gana Mana but the song is Vande Mataram. Learn them as pairs and the questions stop being able to catch you.",
+  "video": {
+   "query": "national symbols of India list bird animal flower song anthem",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete the list of national symbols. Two words in the bank are decoys.",
+    "text": "The national bird of India is the {1} and the national animal is the {2}. The national flower is the {3} and the national fruit is the {4}. The national anthem is {5}, written by Rabindranath Tagore, while the national song is {6}, written by Bankim Chandra Chattopadhyay.",
+    "answers": [
+     "peacock",
+     "tiger",
+     "lotus",
+     "mango",
+     "Jana Gana Mana",
+     "Vande Mataram"
+    ],
+    "bank": [
+     "peacock",
+     "tiger",
+     "lotus",
+     "mango",
+     "Jana Gana Mana",
+     "Vande Mataram",
+     "lion",
+     "banyan"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|General Knowledge",
+  "chapter": "GK: Indian and World Geography",
+  "approved": false,
+  "trick": "Before you answer, ask whether the superlative is Indian or worldwide. The longest river in India is the Ganga, in the world the Nile; the highest peak in India is Kangchenjunga, in the world Everest. Same question, two answers.",
+  "video": {
+   "query": "Indian and world geography longest river highest mountain largest desert facts",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Is each superlative true of India or of the world? Sort them.",
+    "bins": [
+     "Within India",
+     "In the world"
+    ],
+    "items": [
+     {
+      "label": "The Ganga is the longest river",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Nile is the longest river",
+      "bin": "In the world"
+     },
+     {
+      "label": "Kangchenjunga is the highest peak",
+      "bin": "Within India"
+     },
+     {
+      "label": "Mount Everest is the highest peak",
+      "bin": "In the world"
+     },
+     {
+      "label": "The Thar is the largest desert",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Sahara is the largest hot desert",
+      "bin": "In the world"
+     },
+     {
+      "label": "Rajasthan is the largest state by area",
+      "bin": "Within India"
+     },
+     {
+      "label": "Russia is the largest country by area",
+      "bin": "In the world"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|General Knowledge",
+  "chapter": "GK: International Organisations",
+  "approved": false,
+  "trick": "Most of these questions are really headquarters questions. Learn the city with the body: New York for the UN, Paris for UNESCO, Geneva for the WHO, Washington for the World Bank and the IMF. The odd one out is the International Court of Justice, at The Hague.",
+  "video": {
+   "query": "United Nations UNESCO WHO headquarters and functions general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each international organisation with the city where it has its headquarters.",
+    "pairs": [
+     {
+      "left": "United Nations",
+      "right": "New York"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Paris"
+     },
+     {
+      "left": "World Health Organization",
+      "right": "Geneva"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "The Hague"
+     },
+     {
+      "left": "International Monetary Fund",
+      "right": "Washington DC"
+     },
+     {
+      "left": "UNICEF",
+      "right": "New York"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|History",
+  "chapter": "Congress of Vienna and Revolutionary Europe (1815-1848)",
+  "approved": false,
+  "trick": "Three dates carry this whole chapter: 1815 Vienna puts the old kings back, 1830 shakes them, 1848 nearly sweeps them away. Metternich is the thread running through all three, and when he flees in 1848 the age he built ends with him.",
+  "video": {
+   "query": "Congress of Vienna 1815 Metternich revolutions of 1830 and 1848 explained",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put these events of revolutionary Europe back into chronological order.",
+    "items": [
+     {
+      "label": "Napoleon is defeated at Waterloo",
+      "note": "1815"
+     },
+     {
+      "label": "The Congress of Vienna redraws the map of Europe",
+      "note": "1815, under Metternich, on the principles of legitimacy and balance of power"
+     },
+     {
+      "label": "Greece wins independence from the Ottoman Empire",
+      "note": "Recognised 1832, after a war begun in 1821"
+     },
+     {
+      "label": "The July Revolution overthrows Charles X in France",
+      "note": "1830"
+     },
+     {
+      "label": "The February Revolution makes France a republic again",
+      "note": "1848"
+     },
+     {
+      "label": "Metternich is driven from Vienna and flees to England",
+      "note": "1848, the year of revolutions across Europe"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|History",
+  "chapter": "Industrial Revolution, Colonialism and Imperialism",
+  "approved": false,
+  "trick": "Follow the cotton and the chain explains itself. Machines in Britain needed raw cotton, so colonies were made to grow it; the same machines made cloth faster than Britain could wear, so colonies were made to buy it. Industry created the empire, not the other way round.",
+  "video": {
+   "query": "Industrial Revolution inventions colonialism and imperialism class 9 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each invention of the Industrial Revolution with the person who made it.",
+    "pairs": [
+     {
+      "left": "Spinning Jenny",
+      "right": "James Hargreaves"
+     },
+     {
+      "left": "Water frame",
+      "right": "Richard Arkwright"
+     },
+     {
+      "left": "Improved steam engine",
+      "right": "James Watt"
+     },
+     {
+      "left": "Power loom",
+      "right": "Edmund Cartwright"
+     },
+     {
+      "left": "Cotton gin",
+      "right": "Eli Whitney"
+     },
+     {
+      "left": "Steam locomotive Rocket",
+      "right": "George Stephenson"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|History",
+  "chapter": "Russia: Tsarist Rule to the USSR",
+  "approved": false,
+  "trick": "Russia has two revolutions in one year and students lose marks by merging them. February 1917 removes the Tsar and gives a Provisional Government; October 1917 removes that government and gives the Bolsheviks. February ends the monarchy, October begins communism.",
+  "video": {
+   "query": "Russian Revolution 1917 February October Bolsheviks Lenin class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete the account of the Russian Revolution. Two words in the bank are decoys.",
+    "text": "The Russian parliament created after 1905 was called the {1}. Workers and soldiers organised themselves into councils known as {2}. The radical party led by Lenin was the {3}, whose slogan promised peace, land and {4}. Wealthy peasants, whom the state later attacked, were called {5}. In 1921 Lenin allowed a limited return to private trade under the {6}.",
+    "answers": [
+     "Duma",
+     "soviets",
+     "Bolsheviks",
+     "bread",
+     "kulaks",
+     "New Economic Policy"
+    ],
+    "bank": [
+     "Duma",
+     "soviets",
+     "Bolsheviks",
+     "bread",
+     "kulaks",
+     "New Economic Policy",
+     "Mensheviks",
+     "Politburo"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|History",
+  "chapter": "Twentieth Century Europe: Depression, Fascism and Nazism",
+  "approved": false,
+  "trick": "Keep the two dictators apart by country and by word. Mussolini, Italy, Fascism, the Blackshirts, Il Duce, 1922. Hitler, Germany, Nazism, the Brownshirts, Der Fuhrer, 1933. Mussolini comes first and Hitler copies him.",
+  "video": {
+   "query": "rise of fascism in Italy and nazism in Germany great depression class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Italy or Germany? Sort each detail into the right bin.",
+    "bins": [
+     "Mussolini's Italy",
+     "Hitler's Germany"
+    ],
+    "items": [
+     {
+      "label": "The March on Rome brought the leader to power in 1922",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The leader was called Il Duce",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The party militia were the Blackshirts",
+      "bin": "Mussolini's Italy"
+     },
+     {
+      "label": "The leader became Chancellor in 1933",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The leader was called Der Fuhrer",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The Nuremberg Laws stripped Jews of citizenship",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The Treaty of Versailles and its war guilt clause fed the leader's rise",
+      "bin": "Hitler's Germany"
+     },
+     {
+      "label": "The party militia were the Brownshirts",
+      "bin": "Hitler's Germany"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Geography",
+  "chapter": "Latitude, Longitude and the Global Grid",
+  "approved": false,
+  "trick": "Every longitude sum reduces to one number: four minutes. The Earth turns 360 degrees in 24 hours, so one degree of longitude is four minutes of time. Multiply the difference in degrees by four and you have the difference in minutes, every time.",
+  "video": {
+   "query": "latitude longitude time zones standard meridian calculation class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out a local time difference one step at a time.",
+    "problem": "India's standard meridian is 82.5 degrees East and the Prime Meridian is 0 degrees. When it is 12 noon in Greenwich, what is the Indian Standard Time?",
+    "steps": [
+     {
+      "ask": "First, how many degrees of longitude lie between the two meridians?",
+      "options": [
+       "82.5 degrees",
+       "180 degrees",
+       "97.5 degrees"
+      ],
+      "correct": 0,
+      "why": "Simply the difference between 82.5 East and 0, since they are on the same side of the grid."
+     },
+     {
+      "ask": "How much time does one degree of longitude represent?",
+      "options": [
+       "1 minute",
+       "4 minutes",
+       "15 minutes"
+      ],
+      "correct": 1,
+      "why": "The Earth turns 360 degrees in 24 hours, that is 1440 minutes, and 1440 divided by 360 is 4 minutes per degree."
+     },
+     {
+      "ask": "So what is the total time difference?",
+      "options": [
+       "3 hours 30 minutes",
+       "5 hours 30 minutes",
+       "6 hours"
+      ],
+      "correct": 1,
+      "why": "82.5 multiplied by 4 is 330 minutes, and 330 minutes is 5 hours 30 minutes."
+     },
+     {
+      "ask": "Is India ahead of Greenwich or behind it?",
+      "options": [
+       "Ahead, because it lies east",
+       "Behind, because it lies east"
+      ],
+      "correct": 0,
+      "why": "The Sun rises in the east, so places east of the Prime Meridian are ahead in time. East means add, west means subtract."
+     }
+    ],
+    "answer": "5.30 pm. India is 5 hours 30 minutes ahead of Greenwich."
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Geography",
+  "chapter": "Endogenetic Forces and Landform Building",
+  "approved": false,
+  "trick": "Endo means inside, exo means outside. Anything driven by heat and movement inside the Earth, folding, faulting, volcanoes, earthquakes, is endogenetic and builds land up. Anything driven by weather at the surface wears it down.",
+  "video": {
+   "query": "endogenetic and exogenetic forces folding faulting volcanoes class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not an endogenetic process. Which, and why?",
+    "items": [
+     "Folding of rock layers",
+     "Faulting along a crack",
+     "Volcanic eruption",
+     "River erosion",
+     "Earthquake"
+    ],
+    "odd": 3,
+    "because": "The other four are all driven by forces inside the Earth and build landforms up. River erosion is exogenetic: it is powered by rain and gravity at the surface and wears landforms down."
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Geography",
+  "chapter": "Exogenetic Processes: Weathering and Erosion",
+  "approved": false,
+  "trick": "Weathering breaks rock where it stands; erosion carries the pieces away. If nothing has moved, it is weathering. And within weathering, ask whether the rock has merely cracked, which is physical, or actually changed into a new substance, which is chemical.",
+  "video": {
+   "query": "physical and chemical weathering types erosion class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Physical or chemical weathering? Sort each process.",
+    "bins": [
+     "Physical weathering",
+     "Chemical weathering"
+    ],
+    "items": [
+     {
+      "label": "Water freezes in a crack and splits the rock apart",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rock heats by day and cools by night until its outer layer peels",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rainwater with dissolved carbon dioxide slowly dissolves limestone",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Iron in the rock reacts with oxygen and the surface rusts red",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Tree roots widen a joint until a block breaks free",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Feldspar takes up water and turns into soft clay",
+      "bin": "Chemical weathering"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Geography",
+  "chapter": "Depositional Landforms: Rivers, Glaciers and Wind",
+  "approved": false,
+  "trick": "Name the agent first and the landform follows. Rivers drop their load flat and wide, glaciers dump theirs in unsorted ridges, wind piles its load into dunes and blankets of loess. Ask what carried it, and the answer names itself.",
+  "video": {
+   "query": "depositional landforms delta moraine sand dune loess class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each depositional landform with the agent that built it.",
+    "pairs": [
+     {
+      "left": "Delta",
+      "right": "River"
+     },
+     {
+      "left": "Flood plain",
+      "right": "River"
+     },
+     {
+      "left": "Moraine",
+      "right": "Glacier"
+     },
+     {
+      "left": "Drumlin",
+      "right": "Glacier"
+     },
+     {
+      "left": "Barchan dune",
+      "right": "Wind"
+     },
+     {
+      "left": "Loess",
+      "right": "Wind"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Life and its Diversity: Levels of Organisation",
+  "approved": false,
+  "trick": "Climb the ladder in one direction only: cell, tissue, organ, organ system, organism. Every level is made of the one below it, so if you can say what a thing is made of, you know where it sits.",
+  "video": {
+   "query": "levels of biological organisation cell tissue organ system class 9 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Arrange the levels of organisation from the simplest upwards.",
+    "items": [
+     {
+      "label": "Cell",
+      "note": "The smallest unit that can be called living"
+     },
+     {
+      "label": "Tissue",
+      "note": "A group of similar cells doing one job, such as muscle tissue"
+     },
+     {
+      "label": "Organ",
+      "note": "Several tissues working together, such as the heart"
+     },
+     {
+      "label": "Organ system",
+      "note": "Organs working together, such as the circulatory system"
+     },
+     {
+      "label": "Organism",
+      "note": "All the systems together, making one living individual"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Physiological Processes: Photosynthesis, Respiration and Transpiration",
+  "approved": false,
+  "trick": "Photosynthesis and respiration are the same equation read backwards. One takes in carbon dioxide and water and stores energy in glucose; the other burns glucose and gives the carbon dioxide and water back. Write one and you can write the other by reversing the arrow.",
+  "video": {
+   "query": "photosynthesis respiration transpiration difference class 9 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which process does each statement describe?",
+    "bins": [
+     "Photosynthesis",
+     "Respiration",
+     "Transpiration"
+    ],
+    "items": [
+     {
+      "label": "Carbon dioxide is taken in and oxygen given out",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Oxygen is taken in and carbon dioxide given out",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Happens only in the presence of light",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Goes on day and night in every living cell",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Energy is stored in glucose",
+      "bin": "Photosynthesis"
+     },
+     {
+      "label": "Energy is released as ATP",
+      "bin": "Respiration"
+     },
+     {
+      "label": "Water vapour escapes through the stomata",
+      "bin": "Transpiration"
+     },
+     {
+      "label": "Creates the pull that draws water up the stem",
+      "bin": "Transpiration"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Excretion in Plants and Animals",
+  "approved": false,
+  "trick": "Animals have an organ for waste; plants simply store it or throw it away with a leaf. Among animals the excretory product tells you where the creature lives: plenty of water means ammonia, land means urea or uric acid, because saving water costs the animal energy.",
+  "video": {
+   "query": "excretion in plants and animals ammonotelic ureotelic uricotelic class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each organism or plant part with the waste it gets rid of.",
+    "pairs": [
+     {
+      "left": "Freshwater fish",
+      "right": "Ammonia"
+     },
+     {
+      "left": "Human being",
+      "right": "Urea"
+     },
+     {
+      "left": "Bird and reptile",
+      "right": "Uric acid"
+     },
+     {
+      "left": "Rubber tree",
+      "right": "Latex"
+     },
+     {
+      "left": "Pine tree",
+      "right": "Resin"
+     },
+     {
+      "left": "Acacia",
+      "right": "Gum"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Human Health, Disease and Immunity",
+  "approved": false,
+  "trick": "Name the pathogen group before you name the cure. Antibiotics work on bacteria and do nothing at all to a virus, which is why a doctor will not give them for a common cold. If the question mentions a vaccine, it is about prevention, not treatment.",
+  "video": {
+   "query": "communicable diseases pathogens immunity vaccination class 9 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each disease with the kind of organism that causes it.",
+    "pairs": [
+     {
+      "left": "Tuberculosis",
+      "right": "Bacterium"
+     },
+     {
+      "left": "Typhoid",
+      "right": "Bacterium"
+     },
+     {
+      "left": "Polio",
+      "right": "Virus"
+     },
+     {
+      "left": "Dengue",
+      "right": "Virus"
+     },
+     {
+      "left": "Malaria",
+      "right": "Protozoan"
+     },
+     {
+      "left": "Ringworm",
+      "right": "Fungus"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Environment, Ecosystem and Natural Resources",
+  "approved": false,
+  "trick": "Energy in a food chain only ever moves one way and mostly gets lost. About a tenth passes to the next level, which is why chains are short and why there are always far more plants than tigers.",
+  "video": {
+   "query": "ecosystem food chain trophic levels energy flow class 9 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete the account of an ecosystem. Two words in the bank are decoys.",
+    "text": "Green plants make their own food and are therefore called {1}. Animals that eat them are {2} consumers, and the animals that eat those are {3} consumers. Bacteria and fungi break dead matter down and are called {4}. Each feeding level is known as a {5} level, and only about {6} per cent of the energy passes from one to the next.",
+    "answers": [
+     "producers",
+     "primary",
+     "secondary",
+     "decomposers",
+     "trophic",
+     "ten"
+    ],
+    "bank": [
+     "producers",
+     "primary",
+     "secondary",
+     "decomposers",
+     "trophic",
+     "ten",
+     "ninety",
+     "predators"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Measurement and SI Units",
+  "approved": false,
+  "trick": "Learn the seven base units first and every other unit is built from them. Newton, joule and watt are not extra facts to memorise: a newton is kilogram metre per second squared, a joule is a newton metre, a watt is a joule per second. Build them, do not learn them.",
+  "video": {
+   "query": "SI units base and derived units measurement class 9 physical science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each physical quantity with its SI unit.",
+    "pairs": [
+     {
+      "left": "Length",
+      "right": "metre"
+     },
+     {
+      "left": "Mass",
+      "right": "kilogram"
+     },
+     {
+      "left": "Time",
+      "right": "second"
+     },
+     {
+      "left": "Force",
+      "right": "newton"
+     },
+     {
+      "left": "Work and energy",
+      "right": "joule"
+     },
+     {
+      "left": "Power",
+      "right": "watt"
+     },
+     {
+      "left": "Temperature",
+      "right": "kelvin"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Structure of the Atom",
+  "approved": false,
+  "trick": "Almost all the mass sits in almost none of the space. The nucleus holds the protons and neutrons and therefore the mass; the electrons hold the volume. That single sentence answers most questions in this chapter, including why Rutherford's alpha particles mostly went straight through.",
+  "video": {
+   "query": "structure of atom Rutherford Bohr model protons neutrons electrons class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Label the parts of the atom on this diagram.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.7\"/><circle cx=\"50\" cy=\"50\" r=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.7\"/><circle cx=\"46\" cy=\"48\" r=\"4.5\" fill=\"currentColor\" opacity=\"0.85\"/><circle cx=\"54\" cy=\"52\" r=\"4.5\" fill=\"currentColor\" opacity=\"0.4\"/><circle cx=\"90\" cy=\"50\" r=\"2.6\" fill=\"currentColor\"/><circle cx=\"50\" cy=\"28\" r=\"2.6\" fill=\"currentColor\"/></svg>",
+    "labels": [
+     {
+      "label": "Proton, positively charged",
+      "x": 46,
+      "y": 48
+     },
+     {
+      "label": "Neutron, no charge",
+      "x": 54,
+      "y": 52
+     },
+     {
+      "label": "K shell, the first orbit",
+      "x": 50,
+      "y": 28
+     },
+     {
+      "label": "L shell, the second orbit",
+      "x": 90,
+      "y": 50
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Solutions, Colloids and Mixtures",
+  "approved": false,
+  "trick": "Two tests separate all three. Does it scatter a beam of light, the Tyndall effect? Does it settle or filter out? A true solution does neither, a colloid scatters but will not settle, a suspension does both.",
+  "video": {
+   "query": "true solution colloid suspension Tyndall effect class 9 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "True solution, colloid or suspension? Sort each description or example.",
+    "bins": [
+     "True solution",
+     "Colloid",
+     "Suspension"
+    ],
+    "items": [
+     {
+      "label": "Particles smaller than 1 nanometre and never visible",
+      "bin": "True solution"
+     },
+     {
+      "label": "Salt stirred into water",
+      "bin": "True solution"
+     },
+     {
+      "label": "Shows the Tyndall effect but never settles on standing",
+      "bin": "Colloid"
+     },
+     {
+      "label": "Milk, an emulsion of fat in water",
+      "bin": "Colloid"
+     },
+     {
+      "label": "Particles large enough to be seen and to settle on standing",
+      "bin": "Suspension"
+     },
+     {
+      "label": "Chalk powder shaken up in water",
+      "bin": "Suspension"
+     },
+     {
+      "label": "Can be separated by ordinary filter paper",
+      "bin": "Suspension"
+     },
+     {
+      "label": "Passes through filter paper but is held back by parchment",
+      "bin": "Colloid"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Acids, Bases, Salts and Water",
+  "approved": false,
+  "trick": "Read pH as a distance from 7. Below 7 acidic, above 7 basic, and each step is ten times, not one step. So pH 3 is not a little more acidic than pH 5, it is a hundred times more.",
+  "video": {
+   "query": "acids bases salts pH scale indicators neutralisation class 9 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about acids, bases and salts.",
+    "items": [
+     {
+      "statement": "An acid turns blue litmus red.",
+      "is_true": true,
+      "why": "Acids turn blue litmus red; bases turn red litmus blue. Litmus is the one indicator that works both ways."
+     },
+     {
+      "statement": "A pH of 7 means the solution is strongly basic.",
+      "is_true": false,
+      "why": "A pH of 7 is neutral, which is pure water. Basic solutions lie above 7."
+     },
+     {
+      "statement": "An acid reacting with a base gives a salt and water.",
+      "is_true": true,
+      "why": "This is neutralisation, and it is why an antacid settles an upset stomach."
+     },
+     {
+      "statement": "Acid should be poured into water, never water into acid.",
+      "is_true": true,
+      "why": "Dilution releases a great deal of heat. Adding acid slowly to water lets the water absorb it; the other way round can boil and spit acid out."
+     },
+     {
+      "statement": "All bases are alkalis.",
+      "is_true": false,
+      "why": "Only the bases that dissolve in water are called alkalis. Copper oxide is a base but not an alkali."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Force, Work and Power",
+  "approved": false,
+  "trick": "Work needs movement in the direction of the force. Hold a heavy bag still for an hour and you have done no work at all in physics, however tired you are. And power is not how much work but how fast, so the same work done in half the time is double the power.",
+  "video": {
+   "query": "work energy and power formula numericals class 9 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right relation for each quantity, and see why the others do not fit.",
+    "items": [
+     {
+      "ask": "Work done by a constant force along the direction of motion",
+      "correct": "W = F × s",
+      "wrong": [
+       "W = F ÷ s",
+       "W = F × t"
+      ],
+      "why": "Work is force multiplied by the distance moved in the direction of the force. Time does not enter it at all, which is why holding something still does no work."
+     },
+     {
+      "ask": "Power",
+      "correct": "P = W ÷ t",
+      "wrong": [
+       "P = W × t",
+       "P = F × s"
+      ],
+      "why": "Power is the rate of doing work, so work divided by time. Multiplying by time would make a slow worker the more powerful one."
+     },
+     {
+      "ask": "Kinetic energy of a moving body",
+      "correct": "KE = ½ m v²",
+      "wrong": [
+       "KE = m g h",
+       "KE = ½ m v"
+      ],
+      "why": "Kinetic energy depends on the square of the speed, so doubling the speed gives four times the energy. m g h is potential energy, which depends on height instead."
+     },
+     {
+      "ask": "Force, by Newton's second law",
+      "correct": "F = m × a",
+      "wrong": [
+       "F = m ÷ a",
+       "F = m × v"
+      ],
+      "why": "Force is mass times acceleration, not mass times velocity. Mass times velocity is momentum, a different quantity with different units."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Sound",
+  "approved": false,
+  "trick": "Sound needs a material to travel through, so there is no sound in a vacuum. And one relation carries every numerical: speed equals frequency times wavelength. Write v = f λ at the top of the page before you read the question.",
+  "video": {
+   "query": "sound wave speed frequency wavelength echo class 9 physics numericals",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work this wavelength out one step at a time.",
+    "problem": "A tuning fork of frequency 500 Hz makes a sound that travels through air at 340 metres per second. Find the wavelength.",
+    "steps": [
+     {
+      "ask": "Which relation connects speed, frequency and wavelength?",
+      "options": [
+       "v = f λ",
+       "v = f ÷ λ",
+       "v = λ ÷ f"
+      ],
+      "correct": 0,
+      "why": "Speed equals frequency times wavelength. Check it with units: hertz is per second, metres times per second gives metres per second."
+     },
+     {
+      "ask": "Rearranged for the wavelength, that gives",
+      "options": [
+       "λ = v × f",
+       "λ = v ÷ f",
+       "λ = f ÷ v"
+      ],
+      "correct": 1,
+      "why": "Divide both sides by the frequency."
+     },
+     {
+      "ask": "So the wavelength is",
+      "options": [
+       "0.68 m",
+       "1.47 m",
+       "170000 m"
+      ],
+      "correct": 0,
+      "why": "340 divided by 500 is 0.68 metres, that is 68 centimetres. The third option is what you get by multiplying instead of dividing."
+     }
+    ],
+    "answer": "0.68 metres, or 68 centimetres."
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Real Numbers and Surds",
+  "approved": false,
+  "trick": "To rationalise, multiply by the conjugate: change the sign in the middle. The middle terms then cancel and the surd disappears, because (a + b)(a − b) = a² − b². That one identity is the whole method.",
+  "video": {
+   "query": "rationalising the denominator surds conjugate class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Rationalise the denominator, one step at a time.",
+    "problem": "Rationalise the denominator of 1 ÷ (√5 − 2).",
+    "steps": [
+     {
+      "ask": "What should we multiply the top and the bottom by?",
+      "options": [
+       "√5 − 2",
+       "√5 + 2",
+       "√5"
+      ],
+      "correct": 1,
+      "why": "The conjugate is the same expression with the middle sign changed. Multiplying by √5 − 2 again would only make matters worse."
+     },
+     {
+      "ask": "What does the denominator (√5 − 2)(√5 + 2) come to?",
+      "options": [
+       "1",
+       "5 − 4 = 1",
+       "5 + 4 = 9"
+      ],
+      "correct": 1,
+      "why": "Using a² − b², it is (√5)² − 2², that is 5 − 4, which is 1. The surd has gone, which was the whole point."
+     },
+     {
+      "ask": "So the rationalised form is",
+      "options": [
+       "√5 + 2",
+       "√5 − 2",
+       "(√5 + 2) ÷ 9"
+      ],
+      "correct": 0,
+      "why": "The numerator is 1 × (√5 + 2) and the denominator is 1, so the answer is simply √5 + 2."
+     }
+    ],
+    "answer": "√5 + 2"
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Laws of Indices and Algebraic Identities",
+  "approved": false,
+  "trick": "Multiplying adds the powers, dividing subtracts them, a power of a power multiplies them. Say it as add, subtract, multiply and you will never mix the three up. And anything at all to the power zero is 1, except zero itself.",
+  "video": {
+   "query": "laws of indices and algebraic identities class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete the laws and identities. Two entries in the bank are decoys.",
+    "text": "When powers of the same base are multiplied, the indices are {1}. When they are divided, the indices are {2}. For a power raised to a power, the indices are {3}. Any non-zero number raised to the power zero equals {4}. The identity (a + b)² expands to a² + {5} + b², and (a + b)(a − b) equals {6}.",
+    "answers": [
+     "added",
+     "subtracted",
+     "multiplied",
+     "1",
+     "2ab",
+     "a² − b²"
+    ],
+    "bank": [
+     "added",
+     "subtracted",
+     "multiplied",
+     "1",
+     "2ab",
+     "a² − b²",
+     "0",
+     "a² + b²"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Coordinate Geometry",
+  "approved": false,
+  "trick": "Number the quadrants anticlockwise starting at the top right, and read the signs off the axes rather than memorising them. If the point is left of the vertical axis, x is negative; if it is below the horizontal axis, y is negative. That is all a quadrant is.",
+  "video": {
+   "query": "coordinate geometry quadrants signs of x and y class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Place each label in the right region of the coordinate plane.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><line x1=\"50\" y1=\"6\" x2=\"50\" y2=\"94\" stroke=\"currentColor\" stroke-width=\"0.8\"/><line x1=\"6\" y1=\"50\" x2=\"94\" y2=\"50\" stroke=\"currentColor\" stroke-width=\"0.8\"/><circle cx=\"50\" cy=\"50\" r=\"1.8\" fill=\"currentColor\"/><path d=\"M50 6 l-2.5 5 h5 z\" fill=\"currentColor\"/><path d=\"M94 50 l-5 -2.5 v5 z\" fill=\"currentColor\"/></svg>",
+    "labels": [
+     {
+      "label": "Quadrant I, where x and y are both positive",
+      "x": 74,
+      "y": 26
+     },
+     {
+      "label": "Quadrant II, where x is negative and y positive",
+      "x": 26,
+      "y": 26
+     },
+     {
+      "label": "Quadrant III, where x and y are both negative",
+      "x": 26,
+      "y": 74
+     },
+     {
+      "label": "Quadrant IV, where x is positive and y negative",
+      "x": 74,
+      "y": 74
+     },
+     {
+      "label": "The origin, (0, 0)",
+      "x": 50,
+      "y": 50
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Euclid's Axioms, Lines and Angles",
+  "approved": false,
+  "trick": "Euclid's axioms are the obvious truths that hold everywhere in mathematics; his postulates are the assumptions particular to geometry. If the statement would be just as true about numbers or weights, it is an axiom.",
+  "video": {
+   "query": "Euclid axioms postulates lines and angles class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement.",
+    "items": [
+     {
+      "statement": "Things which are equal to the same thing are equal to one another.",
+      "is_true": true,
+      "why": "This is Euclid's first axiom, and it is true of anything measurable, not only of geometry."
+     },
+     {
+      "statement": "A straight line can be drawn joining any two points.",
+      "is_true": true,
+      "why": "This is Euclid's first postulate. Note it is a postulate, not an axiom, because it is a claim about geometry in particular."
+     },
+     {
+      "statement": "Two lines that are parallel to the same line may still meet each other.",
+      "is_true": false,
+      "why": "Lines parallel to the same line are parallel to one another, so they never meet."
+     },
+     {
+      "statement": "The sum of the angles on a straight line is 180 degrees.",
+      "is_true": true,
+      "why": "This is the linear pair property, and it is the starting point of most angle chases."
+     },
+     {
+      "statement": "Vertically opposite angles add up to 180 degrees.",
+      "is_true": false,
+      "why": "Vertically opposite angles are equal, not supplementary. It is adjacent angles on a line that add to 180."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Triangles: Properties and Congruence",
+  "approved": false,
+  "trick": "There are four congruence rules and one famous impostor. SSS, SAS, ASA and RHS all work; SSA does not, because two different triangles can be built from the same two sides and a non-included angle. If the angle is not between the two sides, stop.",
+  "video": {
+   "query": "triangle congruence criteria SSS SAS ASA RHS why SSA fails class 9",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not a valid criterion for congruence. Which, and why?",
+    "items": [
+     "SSS",
+     "SAS",
+     "ASA",
+     "SSA",
+     "RHS"
+    ],
+    "odd": 3,
+    "because": "The other four each fix a triangle completely. SSA does not: given two sides and an angle that is not between them, two genuinely different triangles can be drawn, so it proves nothing. RHS is the one exception, and it works only because the right angle removes the ambiguity."
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Mensuration: Cube, Cuboid and Sphere",
+  "approved": false,
+  "trick": "Check the dimension before you check the formula. Anything measuring area must have length squared in it, anything measuring volume must have length cubed. That single check throws out most wrong options without any calculation.",
+  "video": {
+   "query": "surface area and volume of cube cuboid sphere formulas class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Pick the right formula, and see how the dimension check rules out the others.",
+    "items": [
+     {
+      "ask": "Total surface area of a cube of edge a",
+      "correct": "6a²",
+      "wrong": [
+       "a³",
+       "4a²"
+      ],
+      "why": "A cube has six identical square faces, each of area a². a³ is the volume, and you can tell at a glance because it is a length cubed."
+     },
+     {
+      "ask": "Volume of a cuboid with edges l, b and h",
+      "correct": "l × b × h",
+      "wrong": [
+       "2(lb + bh + hl)",
+       "l + b + h"
+      ],
+      "why": "Volume is the product of the three edges. The second option is the total surface area, which is a sum of areas, so it is a length squared."
+     },
+     {
+      "ask": "Surface area of a sphere of radius r",
+      "correct": "4πr²",
+      "wrong": [
+       "(4/3)πr³",
+       "2πr"
+      ],
+      "why": "The surface area is 4πr² and the volume is (4/3)πr³. Remember which is which by the cube: the one with r³ must be the volume."
+     },
+     {
+      "ask": "Curved surface area of a hemisphere of radius r",
+      "correct": "2πr²",
+      "wrong": [
+       "3πr²",
+       "4πr²"
+      ],
+      "why": "Half a sphere gives half its surface, 2πr². The 3πr² is the total surface of a hemisphere, curved part plus the flat circular face."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|Mathematics",
+  "chapter": "Heron's Formula and Area of Triangles",
+  "approved": false,
+  "trick": "Heron's formula is for when you know all three sides and no height. Always compute s, the half perimeter, first and write it down; most mistakes in this topic are people using the full perimeter by accident.",
+  "video": {
+   "query": "Heron's formula area of triangle examples class 9 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find the area with Heron's formula, one step at a time.",
+    "problem": "A triangle has sides 13 cm, 14 cm and 15 cm. Find its area.",
+    "steps": [
+     {
+      "ask": "First find s, the semi-perimeter.",
+      "options": [
+       "42 cm",
+       "21 cm",
+       "26 cm"
+      ],
+      "correct": 1,
+      "why": "The perimeter is 13 + 14 + 15 = 42, and s is half of that, so 21. Taking 42 itself is the commonest slip in this topic."
+     },
+     {
+      "ask": "Now find s − a, s − b and s − c.",
+      "options": [
+       "8, 7 and 6",
+       "13, 14 and 15",
+       "21, 21 and 21"
+      ],
+      "correct": 0,
+      "why": "21 − 13 = 8, 21 − 14 = 7 and 21 − 15 = 6. A useful check: these three must add up to s itself, and 8 + 7 + 6 = 21."
+     },
+     {
+      "ask": "What is the product s(s − a)(s − b)(s − c)?",
+      "options": [
+       "7056",
+       "2730",
+       "84"
+      ],
+      "correct": 0,
+      "why": "21 × 8 × 7 × 6 = 7056. The 84 is the answer itself, not the product under the root."
+     },
+     {
+      "ask": "So the area is the square root of that, which is",
+      "options": [
+       "84 cm²",
+       "88 cm²",
+       "76 cm²"
+      ],
+      "correct": 0,
+      "why": "√7056 = 84, since 84 × 84 = 7056. The 13-14-15 triangle is worth remembering: it always gives 84."
+     }
+    ],
+    "answer": "84 square centimetres."
+   }
+  }
+ }
+]

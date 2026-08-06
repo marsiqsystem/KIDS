@@ -105,17 +105,46 @@ a narrow, commented repair for one real defect in the source PDFs:
 The answer key is the validator, not an afterthought: every question must join to
 exactly one key row and every key row to exactly one question.
 
-## Known gaps — need a human
+## Retyped text — `text-overrides.json`
 
-Four match-the-column questions have unusable **option text**. Their answers like
-`(i-d), (ii-c), (iii-a), (iv-b)` contain `d)` and `(a)`, which the splitter reads
-as option markers and shreds. Stems and answers are correct; only the four choices
-need retyping from the paper:
+Some questions cannot be parsed correctly however careful the splitter is.
+Match-the-column answers like `(i-d), (ii-c), (iii-a), (iv-b)` contain `d)` and
+`(a)`, which read as option markers and shred the four choices; stacked radicals
+and fractional exponents were never encoded as such in the PDF at all. The only
+repair is for a human to read the printed paper and type the text in.
 
-- `XI|Arts|History|5`, `XI|Arts|History|14`, `XI|Arts|History|24`
-- `XII|Arts|History|24`
+Hand-editing `questions.json` does not survive the next run of `extract.py`, so
+retyped text lives in `text-overrides.json`, alongside `key-overrides.json` and
+under the same discipline — provenance on every entry, and a stale or no-op
+override is an error rather than something silently skipped:
 
-These carry `needs_review` in `questions.json`.
+```json
+{ "id": "XI|Arts|History|5",
+  "options": ["(i-d), (ii-c), (iii-a), (iv-b)", "..."],
+  "typed_by": "Umar Iqbal", "typed_on": "2026-08-07",
+  "source": "photograph of the printed paper", "note": "..." }
+```
+
+Applying an override **clears `needs_review`** — that flag says "the options on
+screen are not the options the child sat", and once they are, it no longer
+holds. The builder also refuses a retype that leaves fewer options than the
+answer key points at, which is how a dropped line would otherwise aim the key
+at the wrong choice.
+
+**Settled 7 Aug 2026:** all four match-the-column questions
+(`XI|Arts|History` 5, 14, 24 and `XII|Arts|History|24`) were retyped from
+photographs of the paper, and all four keys were worked independently and
+found correct. Nothing now carries `needs_review`, and the explanation bank is
+1000/1000.
+
+Still open: `IX|89`, whose stacked-radical options — ⁴√(³√(x²)) with choices
+x, x^(1/2), x^(1/3), x^(1/6) — are garbled in the extract. The key is correct
+and an explanation is written, but the option text a child would see is still
+the mangled version. It needs one entry in `text-overrides.json`.
+
+**Never call a question defective from the extracted text alone.** `IX|89` was
+filed as defective on the strength of the garbled extract and was nothing of
+the sort — the printed page is perfectly clear. Look at the paper first.
 
 ## Phase 1 — the chapter map
 

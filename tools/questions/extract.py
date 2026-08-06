@@ -467,6 +467,68 @@ def apply_overrides(rows: list[dict], problems: list[dict]) -> None:
                              "issue": f"unknown override action {ov['action']!r}"})
 
 
+def apply_text_overrides(rows: list[dict], problems: list[dict]) -> None:
+    """Restore question text that the parser could not recover from the PDF.
+
+    Some questions cannot be parsed correctly no matter how careful the splitter
+    is -- match-the-column options whose "(i-d)" reads as an option marker, and
+    stacked radicals that the PDF never encoded as such. The only fix is for a
+    human to read the printed paper and type the text in.
+
+    Hand-editing questions.json does not survive the next run of this script, so
+    retyped text lives in text-overrides.json instead, with who typed it and
+    from what. Applying one clears the question's needs_review flag: that flag
+    exists precisely to say "the options on screen are not the options the child
+    sat", and once they are, it no longer applies.
+
+    A stale override -- naming a question that does not exist, or one whose text
+    already matches -- is an error, exactly as for the key overrides.
+    """
+    path = Path(__file__).with_name("text-overrides.json")
+    if not path.exists():
+        return
+    overrides = json.loads(path.read_text(encoding="utf-8"))
+    by_id = {r["id"]: r for r in rows}
+
+    for ov in overrides:
+        row = by_id.get(ov["id"])
+        if row is None:
+            problems.append({"q": ov["id"].split("|"),
+                             "issue": "text override names a question that does not exist",
+                             "line": ov.get("note", "")[:90]})
+            continue
+
+        opts = ov.get("options")
+        if opts is not None:
+            if not isinstance(opts, list) or not 2 <= len(opts) <= 5 \
+                    or not all(isinstance(o, str) and o.strip() for o in opts):
+                problems.append({"q": ov["id"].split("|"),
+                                 "issue": "text override options must be 2 to 5 non-empty strings"})
+                continue
+            # The key is an index into these options, so a retype that drops one
+            # would silently point the answer at the wrong line.
+            if row["answer"] is not None and row["answer"] >= len(opts):
+                problems.append({"q": ov["id"].split("|"),
+                                 "issue": f"text override leaves only {len(opts)} options but the "
+                                          f"key points at option {'ABCDE'[row['answer']]}"})
+                continue
+            if opts == row["options"]:
+                problems.append({"q": ov["id"].split("|"),
+                                 "issue": "text override changes nothing; the parser already "
+                                          "reads these options correctly"})
+                continue
+            row["options"] = opts
+
+        stem = ov.get("stem")
+        if stem:
+            row["stem"] = stem
+
+        row["text_retyped"] = {"typed_by": ov["typed_by"], "typed_on": ov["typed_on"],
+                               "source": ov["source"]}
+        # The options on screen are now the options the child sat.
+        row.pop("needs_review", None)
+
+
 def load_key() -> tuple[dict, list[str]]:
     wb = openpyxl.load_workbook(SRC / "SET_2026-27_Answer_Keys.xlsx")
     ws = wb["Master Key"]
@@ -597,6 +659,10 @@ def main() -> int:
             # Carried in the data too, so nothing downstream can render these
             # broken options to a student before someone has retyped them.
             r["needs_review"] = "options unreliable — retype from the paper"
+
+    # Runs after the shredded-option check above, because a retyped question is
+    # exactly one that should no longer carry needs_review.
+    apply_text_overrides(rows, problems)
 
     parsed_keys = {tuple(r["id"].split("|")[:3]) + (int(r["id"].split("|")[3]),) for r in rows}
     for k in sorted(key):

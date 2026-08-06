@@ -40,6 +40,16 @@
   }
  },
  {
+  "id": "XI|Arts|History|5",
+  "approved": true,
+  "why_correct": "Take them one at a time. Ibn Battuta was the Moroccan traveller from Tangier who spent years at the court of Muhammad bin Tughlaq. Thomas Coryat was the Englishman who walked much of the way to India and wrote about Jahangir's court. Niccolo Manucci was the Italian who served the Mughals as a soldier and then a physician, and left the Storia do Mogor. Alfonso de Albuquerque was the Portuguese governor who took Goa in 1510. So the pairing is i-d, ii-c, iii-a, iv-b.",
+  "why_wrong": {
+   "1": "This gives Ibn Battuta to England and Albuquerque to Italy. Ibn Battuta set out from Tangier in Morocco, and Albuquerque is the most firmly Portuguese figure in the whole list, since Goa was the capital of Portuguese India.",
+   "2": "This starts correctly with Ibn Battuta and Morocco, then goes wrong: it sends Thomas Coryat to Italy and Manucci to Portugal. Coryat is famous precisely as an English eccentric, and Manucci was a Venetian.",
+   "3": "This gives Ibn Battuta to Portugal, which swaps him with Albuquerque. If you are unsure of the rest, anchor on those two: the Moroccan traveller and the Portuguese governor of Goa are the two safest pairs on the paper."
+  }
+ },
+ {
   "id": "XI|Arts|History|6",
   "approved": true,
   "why_correct": "Statements two and four are true and one and three are false. Marx did urge intellectuals to join the working-class movement, and he interpreted history materially, through the economic base of society.",
@@ -117,6 +127,16 @@
    "1": "This reverses the truth, making the Greek cities false and the Italian ones Greek.",
    "2": "Venice is not a Greek city-state, and Athens certainly is.",
    "3": "Milan is not a Greek city-state, and Athens again is. Athens and Sparta are the two whose rivalry produced the Peloponnesian War, which fixes them firmly in Greece."
+  }
+ },
+ {
+  "id": "XI|Arts|History|14",
+  "approved": true,
+  "why_correct": "The Roman gods keep the roles their Greek counterparts had. Jupiter, the Roman Zeus, is king of the gods; Mars, the Roman Ares, is the god of war; Venus, the Roman Aphrodite, is the goddess of love; Minerva, the Roman Athena, is the goddess of wisdom. That gives i-c, ii-b, iii-d, iv-a.",
+  "why_wrong": {
+   "0": "This makes Jupiter the god of love and Venus the king of the gods, which reverses the two best known names on the list. Venus is where the word venereal comes from, and Jupiter is the planet named for the greatest of the gods.",
+   "1": "This makes Jupiter the god of war and Mars the goddess of wisdom. Mars is the one to hold on to: the month of March and the Red Planet are both named for the god of war.",
+   "3": "This makes Jupiter the goddess of wisdom and Mars the goddess of love, swapping the two male gods into female roles. Minerva is the wisdom figure, which is why an owl, the bird of Athena, is her emblem."
   }
  },
  {
@@ -207,6 +227,16 @@
    "0": "This makes statement one true, but Pali belongs to the earlier Buddhist literature, whereas the Gupta age is the great age of Sanskrit.",
    "1": "This makes statement four true, but Latin was the language of Rome and had no currency in India.",
    "2": "This again accepts statement four. The quickest way through is to spot that Latin in India is impossible, which eliminates every option that calls statement four true."
+  }
+ },
+ {
+  "id": "XI|Arts|History|24",
+  "approved": true,
+  "why_correct": "These are four of the sixteen mahajanapadas with their capitals. Malla had its capital at Kushinagar, where the Buddha died; Chedi at Suktimati; Kuru at Hastinapur, the city of the Mahabharata; and Vatsa at Kausambi, on the Yamuna. So the pairing is i-b, ii-d, iii-a, iv-c.",
+  "why_wrong": {
+   "1": "This gives Malla to Kausambi and Kuru to Kushinagar. Kuru and Hastinapur is the pair to anchor on, since Hastinapur is the capital of the Kauravas in the Mahabharata and belongs to no other janapada.",
+   "2": "This option is malformed as printed: it uses (d) twice, for both Malla and Kuru, so it cannot be a one-to-one matching at all. Even without knowing the capitals you can eliminate it on sight, and checking that each letter appears exactly once is a quick first test on any match-the-column question.",
+   "3": "This gives Malla to Kausambi and Vatsa to Kushinagar, in effect swapping the two. Kushinagar is remembered as the place of the Buddha's mahaparinirvana, in Malla territory."
   }
  },
  {

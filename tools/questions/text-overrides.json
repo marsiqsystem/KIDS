@@ -1,0 +1,54 @@
+[
+ {
+  "id": "XI|Arts|History|5",
+  "options": [
+   "(i-d), (ii-c), (iii-a), (iv-b)",
+   "(i-c), (ii-d), (iii-b), (iv-a)",
+   "(i-d), (ii-a), (iii-b), (iv-c)",
+   "(i-b), (ii-d), (iii-a), (iv-c)"
+  ],
+  "typed_by": "Umar Iqbal",
+  "typed_on": "2026-08-07",
+  "source": "photograph of the printed paper",
+  "note": "Match the pair. A: (I) Ibn Battuta (II) Thomas Coryat (III) Niccolo Manucci (IV) Albuquerque. B: (a) Italy (b) Portugal (c) England (d) Morocco. Key (a) verified independently: Ibn Battuta Morocco, Coryat England, Manucci Italy, Albuquerque Portugal."
+ },
+ {
+  "id": "XI|Arts|History|14",
+  "options": [
+   "(i-d), (ii-b), (iii-c), (iv-a)",
+   "(i-b), (ii-a), (iii-d), (iv-c)",
+   "(i-c), (ii-b), (iii-d), (iv-a)",
+   "(i-a), (ii-d), (iii-b), (iv-c)"
+  ],
+  "typed_by": "Umar Iqbal",
+  "typed_on": "2026-08-07",
+  "source": "photograph of the printed paper",
+  "note": "Match the columns. A: (i) Jupiter (ii) Mars (iii) Venus (iv) Minerva. B: (a) Goddess of wisdom (b) God of war (c) King of the Gods (d) Goddess of love. Key (C) verified independently."
+ },
+ {
+  "id": "XI|Arts|History|24",
+  "options": [
+   "(i-b), (ii-d), (iii-a), (iv-c)",
+   "(i-c), (ii-a), (iii-b), (iv-d)",
+   "(i-d), (ii-a), (iii-d), (iv-b)",
+   "(i-c), (ii-a), (iii-d), (iv-b)"
+  ],
+  "typed_by": "Umar Iqbal",
+  "typed_on": "2026-08-07",
+  "source": "photograph of the printed paper",
+  "note": "Match the column. A: (i) Malla (ii) Chedi (iii) Kuru (iv) Vatsa. B: (a) Hastinapur (b) Kushinagar (c) Kausambi (d) Suktimati. Key (A) verified independently. Note for paper-setting: option (C) as printed uses 'd' twice, (i-d) and (iii-d), so it is a malformed distractor; and option (B) prints a doubled opening bracket. Both normalised here."
+ },
+ {
+  "id": "XII|Arts|History|24",
+  "options": [
+   "(i-b), (ii-c), (iii-d), (iv-a)",
+   "(i-d), (ii-c), (iii-a), (iv-b)",
+   "(i-c), (ii-d), (iii-a), (iv-b)",
+   "(i-d), (ii-a), (iii-b), (iv-c)"
+  ],
+  "typed_by": "Umar Iqbal",
+  "typed_on": "2026-08-07",
+  "source": "photograph of the printed paper",
+  "note": "Match the column. A: (i) Lord Wellesley (ii) Lord Cornwallis (iii) Lord Dalhousie (iv) William Bentinck. B: (a) Doctrine of Lapse (b) Social Reforms (c) Permanent Settlement (d) Subsidiary Alliance. Key (B) verified independently. Option (B) prints a doubled opening bracket on the paper; normalised here."
+ }
+]

@@ -230,6 +230,16 @@
   }
  },
  {
+  "id": "XII|Arts|History|24",
+  "approved": true,
+  "why_correct": "Each Governor-General is remembered for one signature policy. Wellesley built the empire through the Subsidiary Alliance, by which a state kept British troops and lost its foreign policy. Cornwallis fixed the land revenue of Bengal for ever by the Permanent Settlement of 1793. Dalhousie annexed states whose rulers died without a natural heir under the Doctrine of Lapse. Bentinck is remembered for social reform, above all the abolition of sati in 1829. So the pairing is i-d, ii-c, iii-a, iv-b.",
+  "why_wrong": {
+   "0": "This gives Wellesley the social reforms and Bentinck the Doctrine of Lapse. Bentinck is the reformer of the four, and the Doctrine of Lapse belongs to Dalhousie, whose use of it against Jhansi and Satara helped bring on the revolt of 1857.",
+   "2": "This gives Wellesley the Permanent Settlement and Cornwallis the Subsidiary Alliance, swapping the two. Remember Cornwallis with 1793 and Bengal's zamindars; Wellesley came later, from 1798, and his instrument was the alliance.",
+   "3": "This starts correctly with Wellesley and the Subsidiary Alliance, then gives Cornwallis the Doctrine of Lapse and Dalhousie the social reforms. Dalhousie's name goes with annexation and with the first railway, not with reform."
+  }
+ },
+ {
   "id": "XII|Arts|History|25",
   "approved": true,
   "why_correct": "The passage says civil servants from all the presidencies trained at Fort William College before taking up their postings, so its aim was to prepare British civil servants for administrative work in India, chiefly by teaching them Indian languages.",

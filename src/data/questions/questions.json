@@ -1612,15 +1612,20 @@
   "section": "Mathematics",
   "q_no": 89,
   "context": null,
-  "stem": "The value of √√x2 is: 4 3",
+  "stem": "The value of ⁴√(³√(x²)) is:",
   "options": [
    "x",
-   "1 x2",
-   "1 x3",
-   "1 x6"
+   "x^(1/2)",
+   "x^(1/3)",
+   "x^(1/6)"
   ],
   "answer": 3,
-  "source_page": 10
+  "source_page": 10,
+  "text_retyped": {
+   "typed_by": "Umar Iqbal",
+   "typed_on": "2026-08-06",
+   "source": "photograph of the printed paper"
+  }
  },
  {
   "id": "IX|All|General Paper|90",

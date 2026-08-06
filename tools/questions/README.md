@@ -137,14 +137,19 @@ photographs of the paper, and all four keys were worked independently and
 found correct. Nothing now carries `needs_review`, and the explanation bank is
 1000/1000.
 
-Still open: `IX|89`, whose stacked-radical options — ⁴√(³√(x²)) with choices
-x, x^(1/2), x^(1/3), x^(1/6) — are garbled in the extract. The key is correct
-and an explanation is written, but the option text a child would see is still
-the mangled version. It needs one entry in `text-overrides.json`.
+`IX|89` is retyped too. Its stem came out as `√√x2 is: 4 3`, the radical
+indices having sorted to the end of the row, and its options as `1 x2` for
+x^(1/2). It now reads ⁴√(³√(x²)) with choices x, x^(1/2), x^(1/3), x^(1/6),
+and the key (d) is correct: ³√(x²) = x^(2/3), and the fourth root of that is
+x^(2/12) = x^(1/6).
 
 **Never call a question defective from the extracted text alone.** `IX|89` was
 filed as defective on the strength of the garbled extract and was nothing of
 the sort — the printed page is perfectly clear. Look at the paper first.
+
+**Nothing in the dataset carries `needs_review` any longer.** `review.json`
+still lists the five parse defects, and should: it is the record of why each
+override exists, not a queue.
 
 ## Phase 1 — the chapter map
 

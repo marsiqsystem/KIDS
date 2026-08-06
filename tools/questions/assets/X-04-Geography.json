@@ -1,0 +1,178 @@
+[
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Latitude, Longitude and the Global Grid",
+  "approved": false,
+  "trick": "Every longitude sum reduces to one number: four minutes. The Earth turns 360 degrees in 24 hours, so one degree of longitude is four minutes of time. Multiply the difference in degrees by four and you have the difference in minutes, every time.",
+  "video": {
+   "query": "latitude longitude time zones standard meridian calculation class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out a local time difference one step at a time.",
+    "problem": "India's standard meridian is 82.5 degrees East and the Prime Meridian is 0 degrees. When it is 12 noon in Greenwich, what is the Indian Standard Time?",
+    "steps": [
+     {
+      "ask": "First, how many degrees of longitude lie between the two meridians?",
+      "options": [
+       "82.5 degrees",
+       "180 degrees",
+       "97.5 degrees"
+      ],
+      "correct": 0,
+      "why": "Simply the difference between 82.5 East and 0, since they are on the same side of the grid."
+     },
+     {
+      "ask": "How much time does one degree of longitude represent?",
+      "options": [
+       "1 minute",
+       "4 minutes",
+       "15 minutes"
+      ],
+      "correct": 1,
+      "why": "The Earth turns 360 degrees in 24 hours, that is 1440 minutes, and 1440 divided by 360 is 4 minutes per degree."
+     },
+     {
+      "ask": "So what is the total time difference?",
+      "options": [
+       "3 hours 30 minutes",
+       "5 hours 30 minutes",
+       "6 hours"
+      ],
+      "correct": 1,
+      "why": "82.5 multiplied by 4 is 330 minutes, and 330 minutes is 5 hours 30 minutes."
+     },
+     {
+      "ask": "Is India ahead of Greenwich or behind it?",
+      "options": [
+       "Ahead, because it lies east",
+       "Behind, because it lies east"
+      ],
+      "correct": 0,
+      "why": "The Sun rises in the east, so places east of the Prime Meridian are ahead in time. East means add, west means subtract."
+     }
+    ],
+    "answer": "5.30 pm. India is 5 hours 30 minutes ahead of Greenwich."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Endogenetic Forces and Landform Building",
+  "approved": false,
+  "trick": "Endo means inside, exo means outside. Anything driven by heat and movement inside the Earth, folding, faulting, volcanoes, earthquakes, is endogenetic and builds land up. Anything driven by weather at the surface wears it down.",
+  "video": {
+   "query": "endogenetic and exogenetic forces folding faulting volcanoes class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not an endogenetic process. Which, and why?",
+    "items": [
+     "Folding of rock layers",
+     "Faulting along a crack",
+     "Volcanic eruption",
+     "River erosion",
+     "Earthquake"
+    ],
+    "odd": 3,
+    "because": "The other four are all driven by forces inside the Earth and build landforms up. River erosion is exogenetic: it is powered by rain and gravity at the surface and wears landforms down."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Exogenetic Processes: Weathering and Erosion",
+  "approved": false,
+  "trick": "Weathering breaks rock where it stands; erosion carries the pieces away. If nothing has moved, it is weathering. And within weathering, ask whether the rock has merely cracked, which is physical, or actually changed into a new substance, which is chemical.",
+  "video": {
+   "query": "physical and chemical weathering types erosion class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Physical or chemical weathering? Sort each process.",
+    "bins": [
+     "Physical weathering",
+     "Chemical weathering"
+    ],
+    "items": [
+     {
+      "label": "Water freezes in a crack and splits the rock apart",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rock heats by day and cools by night until its outer layer peels",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rainwater with dissolved carbon dioxide slowly dissolves limestone",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Iron in the rock reacts with oxygen and the surface rusts red",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Tree roots widen a joint until a block breaks free",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Feldspar takes up water and turns into soft clay",
+      "bin": "Chemical weathering"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Depositional Landforms: Rivers, Glaciers and Wind",
+  "approved": false,
+  "trick": "Name the agent first and the landform follows. Rivers drop their load flat and wide, glaciers dump theirs in unsorted ridges, wind piles its load into dunes and blankets of loess. Ask what carried it, and the answer names itself.",
+  "video": {
+   "query": "depositional landforms delta moraine sand dune loess class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each depositional landform with the agent that built it.",
+    "pairs": [
+     {
+      "left": "Delta",
+      "right": "River"
+     },
+     {
+      "left": "Flood plain",
+      "right": "River"
+     },
+     {
+      "left": "Moraine",
+      "right": "Glacier"
+     },
+     {
+      "left": "Drumlin",
+      "right": "Glacier"
+     },
+     {
+      "left": "Barchan dune",
+      "right": "Wind"
+     },
+     {
+      "left": "Loess",
+      "right": "Wind"
+     }
+    ]
+   }
+  }
+ }
+]

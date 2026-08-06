@@ -1,0 +1,342 @@
+[
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Real Numbers and Euclid's Division Lemma",
+  "approved": false,
+  "trick": "Euclid's algorithm is one instruction repeated: divide, then replace the pair by the divisor and the remainder. Stop when the remainder is zero, and the last divisor is the HCF. You never need to factorise anything.",
+  "video": { "query": "Euclid division lemma HCF algorithm class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find an HCF by Euclid's algorithm, one step at a time.",
+    "problem": "Use Euclid's division lemma to find the HCF of 867 and 255.",
+    "steps": [
+     {
+      "ask": "Divide 867 by 255. What is the remainder?",
+      "options": ["102", "51", "0"],
+      "correct": 0,
+      "why": "255 × 3 = 765, and 867 − 765 = 102. So 867 = 255 × 3 + 102."
+     },
+     {
+      "ask": "Now repeat with 255 and 102. What is the remainder?",
+      "options": ["102", "51", "3"],
+      "correct": 1,
+      "why": "102 × 2 = 204, and 255 − 204 = 51. So 255 = 102 × 2 + 51. The rule is always: the old divisor becomes the new dividend."
+     },
+     {
+      "ask": "Repeat once more with 102 and 51.",
+      "options": ["Remainder 51", "Remainder 0", "Remainder 1"],
+      "correct": 1,
+      "why": "51 divides 102 exactly twice, so 102 = 51 × 2 + 0. A remainder of zero means we stop."
+     },
+     {
+      "ask": "So what is the HCF?",
+      "options": ["51", "102", "3"],
+      "correct": 0,
+      "why": "The HCF is the last divisor used before the remainder became zero, which is 51. Check: 867 = 51 × 17 and 255 = 51 × 5."
+     }
+    ],
+    "answer": "51"
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Polynomials",
+  "approved": false,
+  "trick": "You can read the sum and product of the zeros straight off the coefficients without solving anything: the sum is minus b over a and the product is c over a. Remember the minus sign belongs to the sum, never to the product.",
+  "video": { "query": "polynomials zeros sum and product of roots class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete these facts about polynomials. Two entries in the bank are decoys.",
+    "text": "For a quadratic polynomial ax² + bx + c, the sum of the zeros is {1} and the product of the zeros is {2}. A quadratic polynomial has at most {3} zeros and a cubic has at most {4}. The zeros are the points where the graph cuts the {5} axis. If the discriminant b² − 4ac is {6}, there are no real zeros at all.",
+    "answers": ["−b/a", "c/a", "two", "three", "x", "negative"],
+    "bank": ["−b/a", "c/a", "two", "three", "x", "negative", "b/a", "positive"]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Pair of Linear Equations in Two Variables",
+  "approved": false,
+  "trick": "Compare the three ratios before you solve anything. If a1/a2 differs from b1/b2 the lines cross once. If the first two ratios agree but the third differs, the lines are parallel and there is no solution. If all three agree, the lines are the same line.",
+  "video": { "query": "pair of linear equations consistent inconsistent ratio condition class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "How many solutions does each pair have? Sort by the ratio test.",
+    "bins": ["Unique solution: lines cross", "No solution: lines parallel", "Infinitely many: same line"],
+    "items": [
+     { "label": "a1/a2 ≠ b1/b2", "bin": "Unique solution: lines cross" },
+     { "label": "a1/a2 = b1/b2 ≠ c1/c2", "bin": "No solution: lines parallel" },
+     { "label": "a1/a2 = b1/b2 = c1/c2", "bin": "Infinitely many: same line" },
+     { "label": "x + y = 5 and 2x − y = 1", "bin": "Unique solution: lines cross" },
+     { "label": "2x − y = 5 and x + y = 4", "bin": "Unique solution: lines cross" },
+     { "label": "x + 2y = 4 and 2x + 4y = 12", "bin": "No solution: lines parallel" },
+     { "label": "x − y = 8 and 3x − 3y = 16", "bin": "No solution: lines parallel" },
+     { "label": "2x + 3y = 6 and 4x + 6y = 12", "bin": "Infinitely many: same line" },
+     { "label": "3x − y = 2 and 6x − 2y = 4", "bin": "Infinitely many: same line" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Quadratic Equations",
+  "approved": false,
+  "trick": "Compute the discriminant first, every time. It tells you what kind of answer to expect before you spend any effort: positive means two different real roots, zero means one repeated root, negative means none at all. Finding a root after computing a negative discriminant means the arithmetic went wrong.",
+  "video": { "query": "quadratic equations discriminant nature of roots quadratic formula class 10", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Solve a quadratic, one step at a time.",
+    "problem": "Solve 2x² − 7x + 3 = 0.",
+    "steps": [
+     {
+      "ask": "Identify a, b and c.",
+      "options": ["a = 2, b = −7, c = 3", "a = 2, b = 7, c = 3", "a = 7, b = 2, c = 3"],
+      "correct": 0,
+      "why": "The sign travels with the coefficient, so b is −7, not 7. Dropping that minus is the commonest error in this whole topic."
+     },
+     {
+      "ask": "What is the discriminant b² − 4ac?",
+      "options": ["25", "−25", "73"],
+      "correct": 0,
+      "why": "(−7)² − 4 × 2 × 3 = 49 − 24 = 25. Note (−7)² is +49; squaring removes the sign."
+     },
+     {
+      "ask": "What does a discriminant of 25 tell you?",
+      "options": ["Two distinct real roots", "One repeated root", "No real roots"],
+      "correct": 0,
+      "why": "It is positive, so there are two distinct real roots. Better still, 25 is a perfect square, so the roots will be rational and the equation could have been factorised."
+     },
+     {
+      "ask": "So what are the roots?",
+      "options": ["3 and 1/2", "−3 and −1/2", "7 and 5"],
+      "correct": 0,
+      "why": "x = (7 ± 5) ÷ 4, giving 12/4 = 3 and 2/4 = 1/2. Check with the sum and product: 3 + 1/2 = 7/2 = −b/a, and 3 × 1/2 = 3/2 = c/a."
+     }
+    ],
+    "answer": "x = 3 or x = 1/2"
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Arithmetic Progression",
+  "approved": false,
+  "trick": "The nth term uses n minus 1, not n, because the first term needs no step at all. That single off-by-one is behind most wrong answers in this chapter, so write a + (n − 1)d out in full before substituting.",
+  "video": { "query": "arithmetic progression nth term sum of n terms formula class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work through an AP, one step at a time.",
+    "problem": "For the AP 3, 8, 13, 18, ... find the 20th term and the sum of the first 20 terms.",
+    "steps": [
+     {
+      "ask": "What are the first term a and the common difference d?",
+      "options": ["a = 3, d = 5", "a = 3, d = 8", "a = 5, d = 3"],
+      "correct": 0,
+      "why": "The first term is 3, and d is any term minus the one before it: 8 − 3 = 5."
+     },
+     {
+      "ask": "Using a + (n − 1)d, what is the 20th term?",
+      "options": ["103", "98", "100"],
+      "correct": 1,
+      "why": "3 + 19 × 5 = 3 + 95 = 98. Using 20 instead of 19 gives 103, which is the classic off-by-one slip."
+     },
+     {
+      "ask": "Which form of the sum formula is easiest here?",
+      "options": ["S = n/2 × (a + l), since we now know the last term", "S = n × a × d", "S = a + (n − 1)d"],
+      "correct": 0,
+      "why": "We have already found the last term l = 98, so the average-of-the-ends form is quickest. The other standard form, n/2 × (2a + (n−1)d), gives the same answer."
+     },
+     {
+      "ask": "So what is the sum of the first 20 terms?",
+      "options": ["1010", "980", "2020"],
+      "correct": 0,
+      "why": "20/2 × (3 + 98) = 10 × 101 = 1010."
+     }
+    ],
+    "answer": "The 20th term is 98 and the sum of the first 20 terms is 1010."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Coordinate Geometry: Distance, Midpoint and Section",
+  "approved": false,
+  "trick": "The midpoint formula is just the section formula with the ratio 1:1, so there is really only one formula to know. And the distance formula is Pythagoras in disguise: the difference in x and the difference in y are the two legs of a right triangle.",
+  "video": { "query": "distance formula midpoint section formula coordinate geometry class 10", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right formula for each task.",
+    "items": [
+     {
+      "ask": "The distance between (x₁, y₁) and (x₂, y₂)",
+      "correct": "√[(x₂ − x₁)² + (y₂ − y₁)²]",
+      "wrong": ["(x₂ − x₁)² + (y₂ − y₁)²", "√[(x₂ + x₁)² + (y₂ + y₁)²]"],
+      "why": "Take the differences, square them, add and take the square root. Forgetting the root leaves you with the square of the distance, which is a common slip when the numbers come out neatly."
+     },
+     {
+      "ask": "The midpoint of the segment joining (x₁, y₁) and (x₂, y₂)",
+      "correct": "((x₁ + x₂)/2, (y₁ + y₂)/2)",
+      "wrong": ["((x₂ − x₁)/2, (y₂ − y₁)/2)", "((x₁ + x₂), (y₁ + y₂))"],
+      "why": "The midpoint is the average of the coordinates, so you add and halve. Subtracting gives you half the displacement, not the point."
+     },
+     {
+      "ask": "The point dividing the join of (x₁, y₁) and (x₂, y₂) in the ratio m:n internally",
+      "correct": "((mx₂ + nx₁)/(m + n), (my₂ + ny₁)/(m + n))",
+      "wrong": ["((mx₁ + nx₂)/(m + n), (my₁ + ny₂)/(m + n))", "((mx₂ − nx₁)/(m − n), (my₂ − ny₁)/(m − n))"],
+      "why": "The m goes with the second point and the n with the first — cross over, not straight across. Check it by putting m = n = 1: you should get the midpoint back."
+     },
+     {
+      "ask": "The area of a triangle with vertices (x₁, y₁), (x₂, y₂), (x₃, y₃)",
+      "correct": "½ |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|",
+      "wrong": ["x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)", "½ (x₁ + x₂ + x₃)(y₁ + y₂ + y₃)"],
+      "why": "The half and the modulus both matter: area is never negative, so if your value comes out negative, take its size. An area of zero means the three points are collinear, which is how this formula is often used."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Circles and Tangents",
+  "approved": false,
+  "trick": "Whenever a tangent appears, draw the radius to the point of contact at once. It is perpendicular to the tangent, so it turns almost every tangent problem into a right-angled triangle and lets Pythagoras finish the job.",
+  "video": { "query": "circles tangents theorems length of tangent class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about circles.",
+    "items": [
+     { "statement": "A tangent is perpendicular to the radius drawn to the point of contact.", "is_true": true, "why": "This is the central theorem of the chapter, and it is what turns tangent problems into right-triangle problems." },
+     { "statement": "The two tangents drawn to a circle from an outside point are equal in length.", "is_true": true, "why": "The two right triangles formed share the radius and the distance to the centre, so they are congruent by RHS." },
+     { "statement": "A tangent meets the circle at two points.", "is_true": false, "why": "A tangent touches at exactly one point. A line meeting a circle at two points is a secant." },
+     { "statement": "A perpendicular drawn from the centre to a chord bisects that chord.", "is_true": true, "why": "It splits the chord into two congruent right triangles, so the two halves are equal." },
+     { "statement": "The angle in a semicircle is 60 degrees.", "is_true": false, "why": "The angle in a semicircle is a right angle, 90 degrees — Thales' theorem." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Trigonometric Ratios and Identities",
+  "approved": false,
+  "trick": "You only need to memorise the sine row: 0, ½, 1/√2, √3/2, 1 for 0, 30, 45, 60 and 90 degrees. The cosine row is the same list backwards, and tangent is sine divided by cosine. One row, and the whole table follows.",
+  "video": { "query": "trigonometric ratios table standard angles identities class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each trigonometric expression with its value.",
+    "pairs": [
+     { "left": "sin 30°", "right": "1/2" },
+     { "left": "cos 30°", "right": "√3/2" },
+     { "left": "tan 45°", "right": "1" },
+     { "left": "tan 60°", "right": "√3" },
+     { "left": "sin 0°", "right": "0" },
+     { "left": "cosec 30°", "right": "2" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Heights and Distances",
+  "approved": false,
+  "trick": "Draw the picture and mark the angle at the eye, not at the top of the tower. The angle of elevation is always measured from the horizontal, and once the right triangle is drawn the only decision left is which ratio connects the side you know to the side you want.",
+  "video": { "query": "heights and distances angle of elevation problems class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find the height of the tower, one step at a time.",
+    "problem": "From a point 30 m away from the foot of a tower, the angle of elevation of its top is 30°. Find the height of the tower.",
+    "steps": [
+     {
+      "ask": "In the right triangle, which sides do we know and want?",
+      "options": ["We know the adjacent side and want the opposite", "We know the hypotenuse and want the opposite", "We know the opposite and want the adjacent"],
+      "correct": 0,
+      "why": "The 30 m along the ground is adjacent to the angle, and the height of the tower is opposite it."
+     },
+     {
+      "ask": "So which ratio should be used?",
+      "options": ["sin", "cos", "tan"],
+      "correct": 2,
+      "why": "Tangent is opposite over adjacent, which is exactly the pair we have. Choosing the ratio by what you know, rather than by habit, is the whole skill here."
+     },
+     {
+      "ask": "tan 30° equals what?",
+      "options": ["1/√3", "√3", "1/2"],
+      "correct": 0,
+      "why": "tan 30° = 1/√3. It is √3 that belongs to tan 60°, and swapping the two is the usual error."
+     },
+     {
+      "ask": "So the height is",
+      "options": ["30√3 m", "10√3 m", "15 m"],
+      "correct": 1,
+      "why": "height = 30 × tan 30° = 30/√3 = 30√3/3 = 10√3, about 17.32 m. Sensible too: at 30° the tower should be well shorter than the 30 m distance."
+     }
+    ],
+    "answer": "10√3 metres, about 17.32 m."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Surface Area and Volume",
+  "approved": false,
+  "trick": "Check the power of the length before anything else: an area formula must be a length squared, a volume a length cubed. And for a cone remember the slant height l, not the vertical height h, goes into the curved surface area.",
+  "video": { "query": "surface area and volume cylinder cone sphere formulas class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Pick the right formula, and see what rules the others out.",
+    "items": [
+     {
+      "ask": "Curved surface area of a cylinder of radius r and height h",
+      "correct": "2πrh",
+      "wrong": ["πr²h", "2πr(r + h)"],
+      "why": "Unroll the curved surface and you get a rectangle of width 2πr and height h. πr²h is the volume, and 2πr(r + h) is the total surface area including both circular ends."
+     },
+     {
+      "ask": "Curved surface area of a cone of radius r, height h and slant height l",
+      "correct": "πrl",
+      "wrong": ["πrh", "⅓πr²h"],
+      "why": "The curved surface uses the slant height l, not the vertical height h, where l² = r² + h². The third option is the volume."
+     },
+     {
+      "ask": "Volume of a sphere of radius r",
+      "correct": "(4/3)πr³",
+      "wrong": ["4πr²", "(2/3)πr³"],
+      "why": "The one with r³ must be the volume; 4πr² is its surface area. (2/3)πr³ is the volume of a hemisphere, which is half of it."
+     },
+     {
+      "ask": "Total surface area of a hemisphere of radius r",
+      "correct": "3πr²",
+      "wrong": ["2πr²", "4πr²"],
+      "why": "Half the sphere's curved surface is 2πr², and the flat circular face adds another πr², making 3πr². If a question asks only for the curved surface, the answer is 2πr² — read which one is wanted."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Triangles, Similarity and Pythagoras",
+  "approved": false,
+  "trick": "Similar means same shape, congruent means same shape and same size. In similar triangles the angles are equal and the sides are in proportion, and the ratio of their areas is the square of the ratio of their sides — that square catches people out constantly.",
+  "video": { "query": "similar triangles criteria Pythagoras theorem class 10 maths", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not a Pythagorean triplet. Which, and why?",
+    "items": ["3, 4, 5", "5, 12, 13", "8, 15, 17", "7, 9, 12", "9, 40, 41"],
+    "odd": 3,
+    "because": "In every other set the squares of the two smaller numbers add up to the square of the largest: 9 + 16 = 25, 25 + 144 = 169, 64 + 225 = 289, 81 + 1600 = 1681. For 7, 9 and 12 it fails: 49 + 81 = 130, but 12² is 144. So that triangle is not right-angled."
+   }
+  }
+ }
+]

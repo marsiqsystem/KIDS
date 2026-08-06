@@ -1,0 +1,104 @@
+[
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Solar System and Space",
+  "approved": false,
+  "trick": "Learn the superlatives, because that is what gets asked. Largest Jupiter, hottest Venus, smallest and nearest to the Sun Mercury, red Mars, ringed Saturn, tilted on its side Uranus. And the Sun is a star, which quietly answers a surprising number of questions.",
+  "video": { "query": "solar system planets facts space missions general knowledge class 10", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the solar system and space.",
+    "items": [
+     { "statement": "Venus is the hottest planet in the solar system.", "is_true": true, "why": "Its thick carbon dioxide atmosphere traps heat, so it is hotter than Mercury even though Mercury is nearer the Sun." },
+     { "statement": "Pluto is counted as the ninth planet of the solar system.", "is_true": false, "why": "It was reclassified as a dwarf planet in 2006, so the solar system has eight planets." },
+     { "statement": "Neil Armstrong was the first human being to walk on the Moon.", "is_true": true, "why": "He stepped onto the surface on 20 July 1969 during the Apollo 11 mission." },
+     { "statement": "Chandrayaan and Mangalyaan are missions of ISRO.", "is_true": true, "why": "Chandrayaan went to the Moon and Mangalyaan to Mars, making India the first country to reach Mars orbit on its first attempt." },
+     { "statement": "A light year measures time, not distance.", "is_true": false, "why": "Despite the name it measures distance: how far light travels in one year, about 9.46 million million kilometres." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Indian National Symbols and Personalities",
+  "approved": false,
+  "trick": "The nicknames are worth more marks than they look. Bapu and Father of the Nation are Gandhi, Netaji is Subhas Chandra Bose, Chacha is Nehru, the Iron Man is Patel, the Missile Man is Kalam. Examiners ask by title far more often than by name.",
+  "video": { "query": "Indian national symbols and famous personalities titles general knowledge", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each personality with the title they are known by.",
+    "pairs": [
+     { "left": "Mahatma Gandhi", "right": "Bapu, Father of the Nation" },
+     { "left": "Subhas Chandra Bose", "right": "Netaji" },
+     { "left": "Jawaharlal Nehru", "right": "Chacha Nehru" },
+     { "left": "Sardar Vallabhbhai Patel", "right": "Iron Man of India" },
+     { "left": "A. P. J. Abdul Kalam", "right": "Missile Man of India" },
+     { "left": "Rabindranath Tagore", "right": "Gurudev" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Indian and World Geography",
+  "approved": false,
+  "trick": "Always ask whether the superlative is Indian or worldwide before you answer. Longest river: Ganga in India, Nile in the world. Highest peak: Kangchenjunga in India, Everest in the world. Same question, two different answers.",
+  "video": { "query": "Indian and world geography superlatives rivers mountains deserts general knowledge", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Is each superlative true of India or of the world? Sort them.",
+    "bins": ["Within India", "In the world"],
+    "items": [
+     { "label": "The Ganga is the longest river", "bin": "Within India" },
+     { "label": "The Nile is the longest river", "bin": "In the world" },
+     { "label": "Kangchenjunga is the highest peak", "bin": "Within India" },
+     { "label": "Mount Everest is the highest peak", "bin": "In the world" },
+     { "label": "The Thar is the largest desert", "bin": "Within India" },
+     { "label": "The Sahara is the largest hot desert", "bin": "In the world" },
+     { "label": "The Sundarbans is the largest mangrove forest", "bin": "In the world" },
+     { "label": "Rajasthan is the largest state by area", "bin": "Within India" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: International Organisations and Observances",
+  "approved": false,
+  "trick": "Observance days cluster around their subject: environment days fall in June, health days in April, and the education ones in the school year. If you cannot recall a date, recall the season and the theme, and the options usually narrow to one.",
+  "video": { "query": "important international days and organisations list general knowledge", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each observance with its date.",
+    "pairs": [
+     { "left": "World Environment Day", "right": "5 June" },
+     { "left": "World Health Day", "right": "7 April" },
+     { "left": "International Yoga Day", "right": "21 June" },
+     { "left": "World Water Day", "right": "22 March" },
+     { "left": "United Nations Day", "right": "24 October" },
+     { "left": "National Science Day, India", "right": "28 February" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Science and SI Units",
+  "approved": false,
+  "trick": "Instrument questions answer themselves if you read the name. A barometer measures baros, weight or pressure; a thermometer measures therme, heat; a seismograph writes down seismos, an earthquake. The Greek root is the answer.",
+  "video": { "query": "scientific instruments and their uses SI units general knowledge", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete each statement. Two entries in the bank are decoys.",
+    "text": "Atmospheric pressure is measured with a {1}. Earthquakes are recorded by a {2}. Humidity is measured with a {3}. The SI unit of electric current is the {4}, and the SI unit of pressure is the {5}. The unit of loudness of sound is the {6}.",
+    "answers": ["barometer", "seismograph", "hygrometer", "ampere", "pascal", "decibel"],
+    "bank": ["barometer", "seismograph", "hygrometer", "ampere", "pascal", "decibel", "thermometer", "newton"]
+   }
+  }
+ }
+]

@@ -1,0 +1,145 @@
+[
+ {
+  "bucket": "X|All|English",
+  "chapter": "Poem: My Own True Family",
+  "approved": false,
+  "trick": "The boy walks into the oakwood as a hunter and comes out as kin. Hughes never says 'protect the forest' anywhere in the poem; he makes the boy dream himself into a tree instead, and the warning lands harder for never being stated.",
+  "video": { "query": "My Own True Family Ted Hughes poem explanation class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about My Own True Family.",
+    "items": [
+     { "statement": "The boy goes into the oakwood looking for a stag.", "is_true": true, "why": "He enters hunting, which is exactly the attitude the poem sets out to change." },
+     { "statement": "He meets an old woman who is carrying a bag.", "is_true": true, "why": "She wakes from the roots of an oak and her sack turns out to hold something far stranger than firewood." },
+     { "statement": "The old woman warns him that oaks will be cut down unless he acts.", "is_true": true, "why": "She makes him swear an oath to protect the oaks, and the price of refusing is what the rest of the poem shows him." },
+     { "statement": "The boy sees his own family inside the old woman's bag.", "is_true": false, "why": "He sees twisted oak trees that are the trees' own children, and among them his own face — the poem's turning point." },
+     { "statement": "He walks out of the wood exactly as he walked in.", "is_true": false, "why": "He leaves with a tree's heart beating in him, half boy and half oak, which is the point of the title." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Prose: Our Runaway Kite",
+  "approved": false,
+  "trick": "The kite is a postman. It carries a name out to sea, and the whole reunion happens because a child wrote something down and let it go. Follow the kite and you have followed the plot.",
+  "video": { "query": "Our Runaway Kite L M Montgomery summary class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of Our Runaway Kite back into order.",
+    "items": [
+     { "label": "The children make a kite and write their names on its tail", "note": "Philippa and Claude, at Big Half Moon" },
+     { "label": "The string breaks and the kite is carried away over the sea" },
+     { "label": "The kite comes down far away and is found by strangers" },
+     { "label": "A letter arrives at the lighthouse asking about the names on the tail" },
+     { "label": "The letter reveals that the writer is a relative long thought lost" },
+     { "label": "The family is reunited because of a kite that ran away" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Poem: Sea Fever",
+  "approved": false,
+  "trick": "Masefield never argues that the sea is beautiful; he simply lists what he wants, over and over, until the wanting becomes the poem. Every stanza opens with the same demand to go back down to the sea, and that repetition is the fever of the title.",
+  "video": { "query": "Sea Fever John Masefield poem explanation class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each image from the poem with what it appeals to.",
+    "pairs": [
+     { "left": "A tall ship and a star to steer her by", "right": "The need for direction and purpose" },
+     { "left": "The wheel's kick and the wind's song", "right": "The physical feel of sailing" },
+     { "left": "The grey mist on the sea's face", "right": "Sight, and the mystery of the unseen" },
+     { "left": "The call of the running tide", "right": "A summons that cannot be refused" },
+     { "left": "A merry yarn from a laughing fellow-rover", "right": "Companionship at sea" },
+     { "left": "Quiet sleep and a sweet dream when the long trick's over", "right": "Rest at the end of a life's voyage" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Voice (Active and Passive)",
+  "approved": false,
+  "trick": "Three moves, always the same three: the object comes to the front, the verb becomes a form of BE plus the past participle, and the old subject goes to the back after 'by'. No object in the active sentence usually means no passive at all.",
+  "video": { "query": "active and passive voice all tenses rules class 10 English grammar", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "transform",
+   "data": {
+    "prompt": "Change each sentence from the active voice into the passive.",
+    "rule": "Change the sentence from the active voice to the passive voice, keeping the tense unchanged.",
+    "items": [
+     { "from": "The postman delivers the letters at nine.", "to": "The letters are delivered by the postman at nine.", "hint": "Simple present with a plural object, so 'are delivered'." },
+     { "from": "The storm had damaged the roof.", "to": "The roof had been damaged by the storm.", "hint": "Past perfect needs 'had been' plus the past participle." },
+     { "from": "They will announce the results tomorrow.", "to": "The results will be announced tomorrow.", "hint": "Future simple gives 'will be'. 'They' is vague, so the by-phrase can go." },
+     { "from": "Who wrote this letter?", "to": "By whom was this letter written?", "hint": "A question keeps its question form; 'who' becomes 'by whom'." },
+     { "from": "One should keep one's promises.", "to": "One's promises should be kept.", "hint": "A modal keeps the modal, then adds 'be' and the past participle." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Narration (Direct and Indirect Speech)",
+  "approved": false,
+  "trick": "Change four things and nothing else: the tense goes one step back, the pronouns shift to the reporter's point of view, the time and place words move away from 'here and now', and the inverted commas go. Work through those four in order and narration stops being guesswork.",
+  "video": { "query": "direct and indirect speech rules narration change class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "transform",
+   "data": {
+    "prompt": "Turn each sentence from direct into indirect speech.",
+    "rule": "Change the sentence from direct speech to indirect speech.",
+    "items": [
+     { "from": "He said, \"I am tired.\"", "to": "He said that he was tired.", "hint": "Present becomes past, and 'I' becomes 'he'." },
+     { "from": "She said to me, \"I will help you tomorrow.\"", "to": "She told me that she would help me the next day.", "hint": "'Said to' becomes 'told', 'will' becomes 'would', and 'tomorrow' becomes 'the next day'." },
+     { "from": "The teacher said, \"The earth moves round the sun.\"", "to": "The teacher said that the earth moves round the sun.", "hint": "A universal truth keeps its present tense. This is the one exception students most often miss." },
+     { "from": "He asked me, \"Where do you live?\"", "to": "He asked me where I lived.", "hint": "A question word stays, the word order becomes statement order, and the question mark goes." },
+     { "from": "She said to him, \"Please close the door.\"", "to": "She requested him to close the door.", "hint": "A request becomes 'requested ... to'; an order becomes 'ordered ... to'." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Articles, Prepositions and Parts of Speech",
+  "approved": false,
+  "trick": "For articles, listen rather than look: 'a' or 'an' follows the sound, not the letter. It is an hour because the h is silent and a university because it begins with a 'yu' sound. For prepositions, learn them stuck to their verb, because there is no rule behind them worth memorising.",
+  "video": { "query": "articles a an the prepositions rules with examples class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill each gap. Two entries in the bank are decoys.",
+    "text": "He waited for {1} hour at the station. She is {2} university student in Kolkata. Please put the book {3} the table. The train arrived {4} time despite the rain. He has been living here {5} 2019. I congratulated her {6} her success.",
+    "answers": ["an", "a", "on", "in", "since", "on"],
+    "bank": ["an", "a", "on", "in", "since", "the", "for"]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Conditional Sentences",
+  "approved": false,
+  "trick": "Ask one question: is this possible, unlikely, or too late? Possible gives 'if + present, will'. Unlikely gives 'if + past, would'. Too late gives 'if + had, would have'. And never put 'will' or 'would' in the if-clause itself.",
+  "video": { "query": "conditional sentences type 1 2 3 if clauses rules class 10 English", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which type of conditional is each sentence?",
+    "bins": ["Type 1: possible", "Type 2: unlikely or unreal now", "Type 3: too late, unreal past"],
+    "items": [
+     { "label": "If it rains, we will stay indoors.", "bin": "Type 1: possible" },
+     { "label": "If you study hard, you will pass.", "bin": "Type 1: possible" },
+     { "label": "If I were a bird, I would fly to the hills.", "bin": "Type 2: unlikely or unreal now" },
+     { "label": "If he had money, he would buy a car.", "bin": "Type 2: unlikely or unreal now" },
+     { "label": "If she had left earlier, she would have caught the train.", "bin": "Type 3: too late, unreal past" },
+     { "label": "If I had known, I would have told you.", "bin": "Type 3: too late, unreal past" },
+     { "label": "If you heat ice, it melts.", "bin": "Type 1: possible" }
+    ]
+   }
+  }
+ }
+]

@@ -1570,5 +1570,2140 @@
     "answer": "84 square centimetres."
    }
   }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Poem: My Own True Family",
+  "approved": false,
+  "trick": "The boy walks into the oakwood as a hunter and comes out as kin. Hughes never says 'protect the forest' anywhere in the poem; he makes the boy dream himself into a tree instead, and the warning lands harder for never being stated.",
+  "video": {
+   "query": "My Own True Family Ted Hughes poem explanation class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about My Own True Family.",
+    "items": [
+     {
+      "statement": "The boy goes into the oakwood looking for a stag.",
+      "is_true": true,
+      "why": "He enters hunting, which is exactly the attitude the poem sets out to change."
+     },
+     {
+      "statement": "He meets an old woman who is carrying a bag.",
+      "is_true": true,
+      "why": "She wakes from the roots of an oak and her sack turns out to hold something far stranger than firewood."
+     },
+     {
+      "statement": "The old woman warns him that oaks will be cut down unless he acts.",
+      "is_true": true,
+      "why": "She makes him swear an oath to protect the oaks, and the price of refusing is what the rest of the poem shows him."
+     },
+     {
+      "statement": "The boy sees his own family inside the old woman's bag.",
+      "is_true": false,
+      "why": "He sees twisted oak trees that are the trees' own children, and among them his own face — the poem's turning point."
+     },
+     {
+      "statement": "He walks out of the wood exactly as he walked in.",
+      "is_true": false,
+      "why": "He leaves with a tree's heart beating in him, half boy and half oak, which is the point of the title."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Prose: Our Runaway Kite",
+  "approved": false,
+  "trick": "The kite is a postman. It carries a name out to sea, and the whole reunion happens because a child wrote something down and let it go. Follow the kite and you have followed the plot.",
+  "video": {
+   "query": "Our Runaway Kite L M Montgomery summary class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of Our Runaway Kite back into order.",
+    "items": [
+     {
+      "label": "The children make a kite and write their names on its tail",
+      "note": "Philippa and Claude, at Big Half Moon"
+     },
+     {
+      "label": "The string breaks and the kite is carried away over the sea"
+     },
+     {
+      "label": "The kite comes down far away and is found by strangers"
+     },
+     {
+      "label": "A letter arrives at the lighthouse asking about the names on the tail"
+     },
+     {
+      "label": "The letter reveals that the writer is a relative long thought lost"
+     },
+     {
+      "label": "The family is reunited because of a kite that ran away"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Poem: Sea Fever",
+  "approved": false,
+  "trick": "Masefield never argues that the sea is beautiful; he simply lists what he wants, over and over, until the wanting becomes the poem. Every stanza opens with the same demand to go back down to the sea, and that repetition is the fever of the title.",
+  "video": {
+   "query": "Sea Fever John Masefield poem explanation class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each image from the poem with what it appeals to.",
+    "pairs": [
+     {
+      "left": "A tall ship and a star to steer her by",
+      "right": "The need for direction and purpose"
+     },
+     {
+      "left": "The wheel's kick and the wind's song",
+      "right": "The physical feel of sailing"
+     },
+     {
+      "left": "The grey mist on the sea's face",
+      "right": "Sight, and the mystery of the unseen"
+     },
+     {
+      "left": "The call of the running tide",
+      "right": "A summons that cannot be refused"
+     },
+     {
+      "left": "A merry yarn from a laughing fellow-rover",
+      "right": "Companionship at sea"
+     },
+     {
+      "left": "Quiet sleep and a sweet dream when the long trick's over",
+      "right": "Rest at the end of a life's voyage"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Voice (Active and Passive)",
+  "approved": false,
+  "trick": "Three moves, always the same three: the object comes to the front, the verb becomes a form of BE plus the past participle, and the old subject goes to the back after 'by'. No object in the active sentence usually means no passive at all.",
+  "video": {
+   "query": "active and passive voice all tenses rules class 10 English grammar",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "transform",
+   "data": {
+    "prompt": "Change each sentence from the active voice into the passive.",
+    "rule": "Change the sentence from the active voice to the passive voice, keeping the tense unchanged.",
+    "items": [
+     {
+      "from": "The postman delivers the letters at nine.",
+      "to": "The letters are delivered by the postman at nine.",
+      "hint": "Simple present with a plural object, so 'are delivered'."
+     },
+     {
+      "from": "The storm had damaged the roof.",
+      "to": "The roof had been damaged by the storm.",
+      "hint": "Past perfect needs 'had been' plus the past participle."
+     },
+     {
+      "from": "They will announce the results tomorrow.",
+      "to": "The results will be announced tomorrow.",
+      "hint": "Future simple gives 'will be'. 'They' is vague, so the by-phrase can go."
+     },
+     {
+      "from": "Who wrote this letter?",
+      "to": "By whom was this letter written?",
+      "hint": "A question keeps its question form; 'who' becomes 'by whom'."
+     },
+     {
+      "from": "One should keep one's promises.",
+      "to": "One's promises should be kept.",
+      "hint": "A modal keeps the modal, then adds 'be' and the past participle."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Narration (Direct and Indirect Speech)",
+  "approved": false,
+  "trick": "Change four things and nothing else: the tense goes one step back, the pronouns shift to the reporter's point of view, the time and place words move away from 'here and now', and the inverted commas go. Work through those four in order and narration stops being guesswork.",
+  "video": {
+   "query": "direct and indirect speech rules narration change class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "transform",
+   "data": {
+    "prompt": "Turn each sentence from direct into indirect speech.",
+    "rule": "Change the sentence from direct speech to indirect speech.",
+    "items": [
+     {
+      "from": "He said, \"I am tired.\"",
+      "to": "He said that he was tired.",
+      "hint": "Present becomes past, and 'I' becomes 'he'."
+     },
+     {
+      "from": "She said to me, \"I will help you tomorrow.\"",
+      "to": "She told me that she would help me the next day.",
+      "hint": "'Said to' becomes 'told', 'will' becomes 'would', and 'tomorrow' becomes 'the next day'."
+     },
+     {
+      "from": "The teacher said, \"The earth moves round the sun.\"",
+      "to": "The teacher said that the earth moves round the sun.",
+      "hint": "A universal truth keeps its present tense. This is the one exception students most often miss."
+     },
+     {
+      "from": "He asked me, \"Where do you live?\"",
+      "to": "He asked me where I lived.",
+      "hint": "A question word stays, the word order becomes statement order, and the question mark goes."
+     },
+     {
+      "from": "She said to him, \"Please close the door.\"",
+      "to": "She requested him to close the door.",
+      "hint": "A request becomes 'requested ... to'; an order becomes 'ordered ... to'."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Articles, Prepositions and Parts of Speech",
+  "approved": false,
+  "trick": "For articles, listen rather than look: 'a' or 'an' follows the sound, not the letter. It is an hour because the h is silent and a university because it begins with a 'yu' sound. For prepositions, learn them stuck to their verb, because there is no rule behind them worth memorising.",
+  "video": {
+   "query": "articles a an the prepositions rules with examples class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill each gap. Two entries in the bank are decoys.",
+    "text": "He waited for {1} hour at the station. She is {2} university student in Kolkata. Please put the book {3} the table. The train arrived {4} time despite the rain. He has been living here {5} 2019. I congratulated her {6} her success.",
+    "answers": [
+     "an",
+     "a",
+     "on",
+     "in",
+     "since",
+     "on"
+    ],
+    "bank": [
+     "an",
+     "a",
+     "on",
+     "in",
+     "since",
+     "the",
+     "for"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Conditional Sentences",
+  "approved": false,
+  "trick": "Ask one question: is this possible, unlikely, or too late? Possible gives 'if + present, will'. Unlikely gives 'if + past, would'. Too late gives 'if + had, would have'. And never put 'will' or 'would' in the if-clause itself.",
+  "video": {
+   "query": "conditional sentences type 1 2 3 if clauses rules class 10 English",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which type of conditional is each sentence?",
+    "bins": [
+     "Type 1: possible",
+     "Type 2: unlikely or unreal now",
+     "Type 3: too late, unreal past"
+    ],
+    "items": [
+     {
+      "label": "If it rains, we will stay indoors.",
+      "bin": "Type 1: possible"
+     },
+     {
+      "label": "If you study hard, you will pass.",
+      "bin": "Type 1: possible"
+     },
+     {
+      "label": "If I were a bird, I would fly to the hills.",
+      "bin": "Type 2: unlikely or unreal now"
+     },
+     {
+      "label": "If he had money, he would buy a car.",
+      "bin": "Type 2: unlikely or unreal now"
+     },
+     {
+      "label": "If she had left earlier, she would have caught the train.",
+      "bin": "Type 3: too late, unreal past"
+     },
+     {
+      "label": "If I had known, I would have told you.",
+      "bin": "Type 3: too late, unreal past"
+     },
+     {
+      "label": "If you heat ice, it melts.",
+      "bin": "Type 1: possible"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Solar System and Space",
+  "approved": false,
+  "trick": "Learn the superlatives, because that is what gets asked. Largest Jupiter, hottest Venus, smallest and nearest to the Sun Mercury, red Mars, ringed Saturn, tilted on its side Uranus. And the Sun is a star, which quietly answers a surprising number of questions.",
+  "video": {
+   "query": "solar system planets facts space missions general knowledge class 10",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the solar system and space.",
+    "items": [
+     {
+      "statement": "Venus is the hottest planet in the solar system.",
+      "is_true": true,
+      "why": "Its thick carbon dioxide atmosphere traps heat, so it is hotter than Mercury even though Mercury is nearer the Sun."
+     },
+     {
+      "statement": "Pluto is counted as the ninth planet of the solar system.",
+      "is_true": false,
+      "why": "It was reclassified as a dwarf planet in 2006, so the solar system has eight planets."
+     },
+     {
+      "statement": "Neil Armstrong was the first human being to walk on the Moon.",
+      "is_true": true,
+      "why": "He stepped onto the surface on 20 July 1969 during the Apollo 11 mission."
+     },
+     {
+      "statement": "Chandrayaan and Mangalyaan are missions of ISRO.",
+      "is_true": true,
+      "why": "Chandrayaan went to the Moon and Mangalyaan to Mars, making India the first country to reach Mars orbit on its first attempt."
+     },
+     {
+      "statement": "A light year measures time, not distance.",
+      "is_true": false,
+      "why": "Despite the name it measures distance: how far light travels in one year, about 9.46 million million kilometres."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Indian National Symbols and Personalities",
+  "approved": false,
+  "trick": "The nicknames are worth more marks than they look. Bapu and Father of the Nation are Gandhi, Netaji is Subhas Chandra Bose, Chacha is Nehru, the Iron Man is Patel, the Missile Man is Kalam. Examiners ask by title far more often than by name.",
+  "video": {
+   "query": "Indian national symbols and famous personalities titles general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each personality with the title they are known by.",
+    "pairs": [
+     {
+      "left": "Mahatma Gandhi",
+      "right": "Bapu, Father of the Nation"
+     },
+     {
+      "left": "Subhas Chandra Bose",
+      "right": "Netaji"
+     },
+     {
+      "left": "Jawaharlal Nehru",
+      "right": "Chacha Nehru"
+     },
+     {
+      "left": "Sardar Vallabhbhai Patel",
+      "right": "Iron Man of India"
+     },
+     {
+      "left": "A. P. J. Abdul Kalam",
+      "right": "Missile Man of India"
+     },
+     {
+      "left": "Rabindranath Tagore",
+      "right": "Gurudev"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Indian and World Geography",
+  "approved": false,
+  "trick": "Always ask whether the superlative is Indian or worldwide before you answer. Longest river: Ganga in India, Nile in the world. Highest peak: Kangchenjunga in India, Everest in the world. Same question, two different answers.",
+  "video": {
+   "query": "Indian and world geography superlatives rivers mountains deserts general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Is each superlative true of India or of the world? Sort them.",
+    "bins": [
+     "Within India",
+     "In the world"
+    ],
+    "items": [
+     {
+      "label": "The Ganga is the longest river",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Nile is the longest river",
+      "bin": "In the world"
+     },
+     {
+      "label": "Kangchenjunga is the highest peak",
+      "bin": "Within India"
+     },
+     {
+      "label": "Mount Everest is the highest peak",
+      "bin": "In the world"
+     },
+     {
+      "label": "The Thar is the largest desert",
+      "bin": "Within India"
+     },
+     {
+      "label": "The Sahara is the largest hot desert",
+      "bin": "In the world"
+     },
+     {
+      "label": "The Sundarbans is the largest mangrove forest",
+      "bin": "In the world"
+     },
+     {
+      "label": "Rajasthan is the largest state by area",
+      "bin": "Within India"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: International Organisations and Observances",
+  "approved": false,
+  "trick": "Observance days cluster around their subject: environment days fall in June, health days in April, and the education ones in the school year. If you cannot recall a date, recall the season and the theme, and the options usually narrow to one.",
+  "video": {
+   "query": "important international days and organisations list general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each observance with its date.",
+    "pairs": [
+     {
+      "left": "World Environment Day",
+      "right": "5 June"
+     },
+     {
+      "left": "World Health Day",
+      "right": "7 April"
+     },
+     {
+      "left": "International Yoga Day",
+      "right": "21 June"
+     },
+     {
+      "left": "World Water Day",
+      "right": "22 March"
+     },
+     {
+      "left": "United Nations Day",
+      "right": "24 October"
+     },
+     {
+      "left": "National Science Day, India",
+      "right": "28 February"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Science and SI Units",
+  "approved": false,
+  "trick": "Instrument questions answer themselves if you read the name. A barometer measures baros, weight or pressure; a thermometer measures therme, heat; a seismograph writes down seismos, an earthquake. The Greek root is the answer.",
+  "video": {
+   "query": "scientific instruments and their uses SI units general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete each statement. Two entries in the bank are decoys.",
+    "text": "Atmospheric pressure is measured with a {1}. Earthquakes are recorded by a {2}. Humidity is measured with a {3}. The SI unit of electric current is the {4}, and the SI unit of pressure is the {5}. The unit of loudness of sound is the {6}.",
+    "answers": [
+     "barometer",
+     "seismograph",
+     "hygrometer",
+     "ampere",
+     "pascal",
+     "decibel"
+    ],
+    "bank": [
+     "barometer",
+     "seismograph",
+     "hygrometer",
+     "ampere",
+     "pascal",
+     "decibel",
+     "thermometer",
+     "newton"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Ideas of History and Historiography",
+  "approved": false,
+  "trick": "The whole chapter turns on one shift: history used to mean kings, wars and treaties, and now it also means food, clothes, sport, cinema and the environment. Ask of any topic, 'whose life does this describe?', and you can place it at once.",
+  "video": {
+   "query": "new social history branches historiography class 10 madhyamik history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which branch of history does each topic belong to?",
+    "bins": [
+     "History of food and clothing",
+     "History of sport and recreation",
+     "Environmental history",
+     "Traditional political history"
+    ],
+    "items": [
+     {
+      "label": "How the potato spread across the world",
+      "bin": "History of food and clothing"
+     },
+     {
+      "label": "The changing sari and the coming of the blouse",
+      "bin": "History of food and clothing"
+     },
+     {
+      "label": "How cricket came to India through the Parsis",
+      "bin": "History of sport and recreation"
+     },
+     {
+      "label": "The growth of football clubs in colonial Calcutta",
+      "bin": "History of sport and recreation"
+     },
+     {
+      "label": "Deforestation in the Sundarbans",
+      "bin": "Environmental history"
+     },
+     {
+      "label": "The making of the Damodar Valley Corporation",
+      "bin": "Environmental history"
+     },
+     {
+      "label": "The Treaty of Vienna and its terms",
+      "bin": "Traditional political history"
+     },
+     {
+      "label": "The reigns and conquests of the Mughal emperors",
+      "bin": "Traditional political history"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Print Culture, Press and Publishing in Bengal",
+  "approved": false,
+  "trick": "Keep the three firsts apart, because the paper tests exactly this. Bengal Gazette 1780 was the first newspaper in India but in English; Digdarshan 1818 was the first Bengali monthly; Samachar Darpan 1818 the first Bengali weekly; Sambad Prabhakar the first Bengali daily, from 1839.",
+  "video": {
+   "query": "print culture press in Bengal Bengal Gazette Samachar Darpan class 10 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put these landmarks of printing and the press in order.",
+    "items": [
+     {
+      "label": "Hicky's Bengal Gazette, the first newspaper printed in India",
+      "note": "1780, in English"
+     },
+     {
+      "label": "The Serampore Mission Press begins printing in Bengali",
+      "note": "From 1800, under Carey, Marshman and Ward"
+     },
+     {
+      "label": "Digdarshan, the first Bengali monthly magazine",
+      "note": "1818"
+     },
+     {
+      "label": "Samachar Darpan, the first Bengali weekly newspaper",
+      "note": "1818"
+     },
+     {
+      "label": "Sambad Prabhakar becomes the first Bengali daily",
+      "note": "Begun 1831 as a weekly by Iswar Chandra Gupta, daily from 1839"
+     },
+     {
+      "label": "The Vernacular Press Act muzzles Indian-language newspapers",
+      "note": "1878, under Lytton"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Nationalism, Reform and the Making of 'Bharat Mata'",
+  "approved": false,
+  "trick": "Nationalism needed a face before it needed an argument. Bankim wrote the song, Abanindranath painted the figure, and between them an idea became something people could sing and hang on a wall. That is why this chapter puts art and literature at the centre of politics.",
+  "video": {
+   "query": "Bharat Mata Bankim Chandra Abanindranath Tagore nationalism class 10 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each figure with what they contributed.",
+    "pairs": [
+     {
+      "left": "Bankim Chandra Chattopadhyay",
+      "right": "Wrote Vande Mataram, in the novel Anandamath"
+     },
+     {
+      "left": "Abanindranath Tagore",
+      "right": "Painted the figure of Bharat Mata"
+     },
+     {
+      "left": "Raja Rammohan Roy",
+      "right": "Campaigned against sati and founded the Brahmo Sabha"
+     },
+     {
+      "left": "Iswar Chandra Vidyasagar",
+      "right": "Won the legal right of widows to remarry"
+     },
+     {
+      "left": "Rabindranath Tagore",
+      "right": "Wrote the song that became the national anthem"
+     },
+     {
+      "left": "Swami Vivekananda",
+      "right": "Founded the Ramakrishna Mission"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Science, Technical and National Education",
+  "approved": false,
+  "trick": "Colonial education was designed to produce clerks, and the national education movement was the answer to that. Every institution in this chapter exists because Indians wanted science and technical training the government would not provide.",
+  "video": {
+   "query": "national education movement technical education Bengal class 10 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement.",
+    "items": [
+     {
+      "statement": "Macaulay's Minute of 1835 favoured English education over Indian learning.",
+      "is_true": true,
+      "why": "It argued for producing a class Indian in blood but English in taste, and set the direction of colonial education for a century."
+     },
+     {
+      "statement": "The Indian Association for the Cultivation of Science was founded by Mahendralal Sarkar.",
+      "is_true": true,
+      "why": "Founded in 1876, it was the first institution in India devoted to original scientific research by Indians."
+     },
+     {
+      "statement": "The Bengal Technical Institute grew out of the Swadeshi movement.",
+      "is_true": true,
+      "why": "The national education movement of 1905–06 created it, and it later became Jadavpur University."
+     },
+     {
+      "statement": "Calcutta University was founded in the twentieth century.",
+      "is_true": false,
+      "why": "It was founded in 1857, along with Bombay and Madras, on the recommendation of Wood's Despatch of 1854."
+     },
+     {
+      "statement": "The Serampore College was set up by the British government.",
+      "is_true": false,
+      "why": "It was founded in 1818 by the Baptist missionaries Carey, Marshman and Ward, not by the government."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Peasant, Worker and Left Movements",
+  "approved": false,
+  "trick": "Attach every movement to its demand and its place, not to a date. Tebhaga wanted two thirds of the crop, in Bengal. Bakasht wanted tenancy land back, in Bihar. Once the demand is fixed the name stops being a bare word to memorise.",
+  "video": {
+   "query": "Tebhaga movement peasant and worker movements class 10 madhyamik history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each movement with what it demanded or where it happened.",
+    "pairs": [
+     {
+      "left": "Tebhaga movement",
+      "right": "Bengal, 1946: sharecroppers demanded two thirds of the crop"
+     },
+     {
+      "left": "Bakasht movement",
+      "right": "Bihar: tenants demanded the return of resumed land"
+     },
+     {
+      "left": "Eka movement",
+      "right": "Awadh: peasants against excessive rent and eviction"
+     },
+     {
+      "left": "Telangana movement",
+      "right": "Hyderabad: peasants against the Nizam and the landlords"
+     },
+     {
+      "left": "All India Trade Union Congress",
+      "right": "Founded 1920, the first national body of industrial workers"
+     },
+     {
+      "left": "Communist Party of India",
+      "right": "Founded 1925, organiser of much of the later left movement"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Latitude, Longitude and the Global Grid",
+  "approved": false,
+  "trick": "Every longitude sum reduces to one number: four minutes. The Earth turns 360 degrees in 24 hours, so one degree of longitude is four minutes of time. Multiply the difference in degrees by four and you have the difference in minutes, every time.",
+  "video": {
+   "query": "latitude longitude time zones standard meridian calculation class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out a local time difference one step at a time.",
+    "problem": "India's standard meridian is 82.5 degrees East and the Prime Meridian is 0 degrees. When it is 12 noon in Greenwich, what is the Indian Standard Time?",
+    "steps": [
+     {
+      "ask": "First, how many degrees of longitude lie between the two meridians?",
+      "options": [
+       "82.5 degrees",
+       "180 degrees",
+       "97.5 degrees"
+      ],
+      "correct": 0,
+      "why": "Simply the difference between 82.5 East and 0, since they are on the same side of the grid."
+     },
+     {
+      "ask": "How much time does one degree of longitude represent?",
+      "options": [
+       "1 minute",
+       "4 minutes",
+       "15 minutes"
+      ],
+      "correct": 1,
+      "why": "The Earth turns 360 degrees in 24 hours, that is 1440 minutes, and 1440 divided by 360 is 4 minutes per degree."
+     },
+     {
+      "ask": "So what is the total time difference?",
+      "options": [
+       "3 hours 30 minutes",
+       "5 hours 30 minutes",
+       "6 hours"
+      ],
+      "correct": 1,
+      "why": "82.5 multiplied by 4 is 330 minutes, and 330 minutes is 5 hours 30 minutes."
+     },
+     {
+      "ask": "Is India ahead of Greenwich or behind it?",
+      "options": [
+       "Ahead, because it lies east",
+       "Behind, because it lies east"
+      ],
+      "correct": 0,
+      "why": "The Sun rises in the east, so places east of the Prime Meridian are ahead in time. East means add, west means subtract."
+     }
+    ],
+    "answer": "5.30 pm. India is 5 hours 30 minutes ahead of Greenwich."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Endogenetic Forces and Landform Building",
+  "approved": false,
+  "trick": "Endo means inside, exo means outside. Anything driven by heat and movement inside the Earth, folding, faulting, volcanoes, earthquakes, is endogenetic and builds land up. Anything driven by weather at the surface wears it down.",
+  "video": {
+   "query": "endogenetic and exogenetic forces folding faulting volcanoes class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not an endogenetic process. Which, and why?",
+    "items": [
+     "Folding of rock layers",
+     "Faulting along a crack",
+     "Volcanic eruption",
+     "River erosion",
+     "Earthquake"
+    ],
+    "odd": 3,
+    "because": "The other four are all driven by forces inside the Earth and build landforms up. River erosion is exogenetic: it is powered by rain and gravity at the surface and wears landforms down."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Exogenetic Processes: Weathering and Erosion",
+  "approved": false,
+  "trick": "Weathering breaks rock where it stands; erosion carries the pieces away. If nothing has moved, it is weathering. And within weathering, ask whether the rock has merely cracked, which is physical, or actually changed into a new substance, which is chemical.",
+  "video": {
+   "query": "physical and chemical weathering types erosion class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Physical or chemical weathering? Sort each process.",
+    "bins": [
+     "Physical weathering",
+     "Chemical weathering"
+    ],
+    "items": [
+     {
+      "label": "Water freezes in a crack and splits the rock apart",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rock heats by day and cools by night until its outer layer peels",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Rainwater with dissolved carbon dioxide slowly dissolves limestone",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Iron in the rock reacts with oxygen and the surface rusts red",
+      "bin": "Chemical weathering"
+     },
+     {
+      "label": "Tree roots widen a joint until a block breaks free",
+      "bin": "Physical weathering"
+     },
+     {
+      "label": "Feldspar takes up water and turns into soft clay",
+      "bin": "Chemical weathering"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Depositional Landforms: Rivers, Glaciers and Wind",
+  "approved": false,
+  "trick": "Name the agent first and the landform follows. Rivers drop their load flat and wide, glaciers dump theirs in unsorted ridges, wind piles its load into dunes and blankets of loess. Ask what carried it, and the answer names itself.",
+  "video": {
+   "query": "depositional landforms delta moraine sand dune loess class 9 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each depositional landform with the agent that built it.",
+    "pairs": [
+     {
+      "left": "Delta",
+      "right": "River"
+     },
+     {
+      "left": "Flood plain",
+      "right": "River"
+     },
+     {
+      "left": "Moraine",
+      "right": "Glacier"
+     },
+     {
+      "left": "Drumlin",
+      "right": "Glacier"
+     },
+     {
+      "left": "Barchan dune",
+      "right": "Wind"
+     },
+     {
+      "left": "Loess",
+      "right": "Wind"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Control and Coordination in Plants and Animals",
+  "approved": false,
+  "trick": "Nerves are fast and local, hormones are slow and everywhere. Touch a hot pan and the nerve answers in milliseconds; grow taller and a hormone has been at work for years. If the response is instant, look for a nerve; if it lasts, look for a hormone.",
+  "video": {
+   "query": "control and coordination hormones nervous system class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each hormone with what it does.",
+    "pairs": [
+     {
+      "left": "Insulin",
+      "right": "Lowers blood glucose; too little causes diabetes"
+     },
+     {
+      "left": "Thyroxine",
+      "right": "Controls the rate of metabolism; needs iodine"
+     },
+     {
+      "left": "Adrenaline",
+      "right": "The emergency hormone of fight or flight"
+     },
+     {
+      "left": "Auxin",
+      "right": "Plant hormone behind bending towards light"
+     },
+     {
+      "left": "Gibberellin",
+      "right": "Plant hormone causing stems to elongate"
+     },
+     {
+      "left": "Abscisic acid",
+      "right": "Plant hormone of stress; closes stomata and drops leaves"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Continuity of Life: Cell Division and Reproduction",
+  "approved": false,
+  "trick": "Mitosis copies, meiosis halves. Mitosis makes two cells identical to the parent for growth and repair; meiosis makes four cells with half the chromosomes, for gametes. Count the products and the chromosome number and you can never confuse them.",
+  "video": {
+   "query": "mitosis meiosis stages prophase metaphase anaphase telophase class 10 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages of mitosis into the order they happen.",
+    "items": [
+     {
+      "label": "Interphase",
+      "note": "The cell grows and the DNA is copied; not part of division proper"
+     },
+     {
+      "label": "Prophase",
+      "note": "Chromosomes condense and become visible; the nuclear membrane starts to break down"
+     },
+     {
+      "label": "Metaphase",
+      "note": "Chromosomes line up along the equator of the cell"
+     },
+     {
+      "label": "Anaphase",
+      "note": "Sister chromatids are pulled apart to opposite poles"
+     },
+     {
+      "label": "Telophase",
+      "note": "Two new nuclear membranes form around the separated sets"
+     },
+     {
+      "label": "Cytokinesis",
+      "note": "The cytoplasm divides and two daughter cells exist"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Heredity and Common Genetic Diseases",
+  "approved": false,
+  "trick": "Draw the Punnett square every time, even when you think you know. Two minutes of grid beats a guessed ratio, and the two ratios worth knowing by heart are 3:1 for a monohybrid cross and 9:3:3:1 for a dihybrid.",
+  "video": {
+   "query": "Mendel monohybrid cross Punnett square 3:1 ratio class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work a monohybrid cross through, one step at a time.",
+    "problem": "A tall pea plant (TT) is crossed with a dwarf one (tt). The F1 plants are then self-pollinated. What is the ratio of tall to dwarf plants in the F2 generation?",
+    "steps": [
+     {
+      "ask": "What are the genotypes of the F1 plants?",
+      "options": [
+       "All TT",
+       "All Tt",
+       "Half TT and half tt"
+      ],
+      "correct": 1,
+      "why": "Each parent can give only one kind of gamete, T from TT and t from tt, so every F1 plant must be Tt."
+     },
+     {
+      "ask": "So what do all the F1 plants look like?",
+      "options": [
+       "All tall",
+       "All dwarf",
+       "Half tall, half dwarf"
+      ],
+      "correct": 0,
+      "why": "T is dominant over t, so a Tt plant is tall. The dwarf character has not vanished, only been masked."
+     },
+     {
+      "ask": "Crossing Tt with Tt, what genotypes appear in the F2?",
+      "options": [
+       "TT, Tt, Tt, tt",
+       "TT and tt only",
+       "All Tt"
+      ],
+      "correct": 0,
+      "why": "The Punnett square of Tt × Tt gives one TT, two Tt and one tt, that is a genotypic ratio of 1:2:1."
+     },
+     {
+      "ask": "What is the ratio of tall to dwarf plants?",
+      "options": [
+       "1:1",
+       "3:1",
+       "9:3:3:1"
+      ],
+      "correct": 1,
+      "why": "TT, Tt and Tt are all tall and only tt is dwarf, so three tall to one dwarf. Note the genotypic ratio is 1:2:1 but the phenotypic ratio is 3:1; questions ask for one or the other, so read carefully."
+     }
+    ],
+    "answer": "3 tall : 1 dwarf, with an underlying genotypic ratio of 1 TT : 2 Tt : 1 tt."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Evolution and Adaptation",
+  "approved": false,
+  "trick": "Nothing evolves because it wants to. Variation comes first, by chance, and the environment then decides which variations survive. Any explanation that has an animal deciding to change is Lamarck's, and Lamarck was wrong.",
+  "video": {
+   "query": "evolution Darwin natural selection adaptation class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about evolution.",
+    "items": [
+     {
+      "statement": "Darwin's theory explains evolution by natural selection acting on existing variation.",
+      "is_true": true,
+      "why": "Variation arises first and by chance; the environment then selects. This is the heart of On the Origin of Species, 1859."
+     },
+     {
+      "statement": "A giraffe's neck grew long because its ancestors kept stretching for high leaves.",
+      "is_true": false,
+      "why": "That is Lamarck's inheritance of acquired characters, which is rejected. Stretching in one lifetime does not change the gametes."
+     },
+     {
+      "statement": "Homologous organs have the same basic structure but may do different jobs.",
+      "is_true": true,
+      "why": "A human arm, a bat's wing and a whale's flipper share a bone plan, which is evidence of common ancestry."
+     },
+     {
+      "statement": "Analogous organs are evidence of common ancestry.",
+      "is_true": false,
+      "why": "Analogous organs do the same job with quite different structures, such as an insect's wing and a bird's wing. They show convergent evolution, not shared descent."
+     },
+     {
+      "statement": "Fossils are direct evidence for evolution.",
+      "is_true": true,
+      "why": "The deeper the layer, the older and usually the simpler the fossil, which shows life changing across time."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Environment, Biodiversity and Conservation",
+  "approved": false,
+  "trick": "In-situ means in its own place, ex-situ means out of it. A national park or a sanctuary protects an animal where it already lives; a zoo, a seed bank or a botanical garden protects it somewhere else. The Latin tells you the answer.",
+  "video": {
+   "query": "biodiversity conservation in situ ex situ national parks class 10 life science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "In-situ or ex-situ conservation? Sort each one.",
+    "bins": [
+     "In-situ, in its own habitat",
+     "Ex-situ, away from the habitat"
+    ],
+    "items": [
+     {
+      "label": "Sundarbans National Park",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "Kaziranga Wildlife Sanctuary",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A biosphere reserve",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A sacred grove protected by a village",
+      "bin": "In-situ, in its own habitat"
+     },
+     {
+      "label": "A zoological garden",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A seed bank",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A botanical garden",
+      "bin": "Ex-situ, away from the habitat"
+     },
+     {
+      "label": "A captive breeding programme in a research centre",
+      "bin": "Ex-situ, away from the habitat"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Concerns about our Environment",
+  "approved": false,
+  "trick": "Keep the two big problems apart. The ozone hole is caused by CFCs and lets ultraviolet through; the greenhouse effect is caused by carbon dioxide and methane and traps heat. They are different gases, different layers and different harms, and mixing them costs marks every year.",
+  "video": {
+   "query": "ozone depletion greenhouse effect global warming acid rain class 10 science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each gas with the environmental effect it is responsible for.",
+    "pairs": [
+     {
+      "left": "Chlorofluorocarbons (CFCs)",
+      "right": "Destroy stratospheric ozone, creating the ozone hole"
+     },
+     {
+      "left": "Carbon dioxide",
+      "right": "The chief greenhouse gas behind global warming"
+     },
+     {
+      "left": "Methane",
+      "right": "A greenhouse gas from paddy fields, cattle and landfills"
+     },
+     {
+      "left": "Sulphur dioxide",
+      "right": "Dissolves in rain to give acid rain"
+     },
+     {
+      "left": "Carbon monoxide",
+      "right": "Binds to haemoglobin and starves the body of oxygen"
+     },
+     {
+      "left": "Ozone in the stratosphere",
+      "right": "Absorbs harmful ultraviolet radiation from the Sun"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Behaviour of Gases and the Mole Concept",
+  "approved": false,
+  "trick": "A mole is just a counting word, like a dozen, only very much bigger: 6.022 × 10²³ of anything. One mole of a substance weighs its molecular mass in grams and, if it is a gas at STP, occupies 22.4 litres. Those three facts answer nearly every mole question.",
+  "video": {
+   "query": "mole concept Avogadro number molar volume numericals class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work this mole calculation through, one step at a time.",
+    "problem": "How many moles are there in 88 g of carbon dioxide, and how many molecules is that? (C = 12, O = 16)",
+    "steps": [
+     {
+      "ask": "First, what is the molecular mass of CO2?",
+      "options": [
+       "28",
+       "44",
+       "56"
+      ],
+      "correct": 1,
+      "why": "Carbon 12 plus two oxygens at 16 each, that is 12 + 32 = 44."
+     },
+     {
+      "ask": "So how many moles are there in 88 g?",
+      "options": [
+       "2 moles",
+       "0.5 mole",
+       "44 moles"
+      ],
+      "correct": 0,
+      "why": "Moles equal mass divided by molar mass, so 88 ÷ 44 = 2. Dividing the wrong way round is the usual slip here."
+     },
+     {
+      "ask": "How many molecules is that?",
+      "options": [
+       "6.022 × 10²³",
+       "1.204 × 10²⁴",
+       "3.011 × 10²³"
+      ],
+      "correct": 1,
+      "why": "Multiply the moles by Avogadro's number: 2 × 6.022 × 10²³ = 1.204 × 10²⁴ molecules."
+     },
+     {
+      "ask": "What volume would this occupy at STP?",
+      "options": [
+       "22.4 litres",
+       "44.8 litres",
+       "11.2 litres"
+      ],
+      "correct": 1,
+      "why": "One mole of any gas occupies 22.4 litres at STP, so two moles occupy 44.8 litres. Note this holds for any gas, whatever its molecular mass."
+     }
+    ],
+    "answer": "2 moles, which is 1.204 × 10²⁴ molecules and 44.8 litres at STP."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Thermal Phenomena: Expansion and Conductivity",
+  "approved": false,
+  "trick": "Almost everything expands on heating, and water between 0 and 4 degrees is the famous exception that contracts instead. That single anomaly is why ice floats and why fish survive a frozen pond, and it is asked about far more often than ordinary expansion.",
+  "video": {
+   "query": "thermal expansion anomalous expansion of water conductivity class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about heat.",
+    "items": [
+     {
+      "statement": "Water contracts when heated from 0 to 4 degrees Celsius.",
+      "is_true": true,
+      "why": "This is the anomalous expansion of water. It is densest at 4 degrees, which is why ice floats and why a pond freezes from the top down."
+     },
+     {
+      "statement": "Metals are generally better conductors of heat than non-metals.",
+      "is_true": true,
+      "why": "Free electrons carry the energy through the metal, which is why a metal spoon in hot tea heats along its length and a wooden one does not."
+     },
+     {
+      "statement": "A gap is left between rails so that the train runs more quietly.",
+      "is_true": false,
+      "why": "The gap allows for expansion in summer heat. Without it the rails would buckle."
+     },
+     {
+      "statement": "Heat always flows from a body of higher temperature to one of lower temperature.",
+      "is_true": true,
+      "why": "Temperature, not the amount of heat contained, decides the direction of flow. A large cold object still gives heat to nothing hotter than itself."
+     },
+     {
+      "statement": "Air is a good conductor of heat.",
+      "is_true": false,
+      "why": "Air is a poor conductor, which is exactly why woollen clothes, which trap air, keep us warm."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Light: Refraction and Lenses",
+  "approved": false,
+  "trick": "Light bends towards the normal going into a denser medium and away from it coming out. And in the lens formula, the sign convention does most of the work: distances measured against the incoming light are negative, so u is nearly always negative. Write the signs down before you put numbers in.",
+  "video": {
+   "query": "refraction of light lens formula ray diagrams convex concave class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Label the parts of this convex lens diagram.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><line x1=\"5\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"currentColor\" stroke-width=\"0.6\"/><ellipse cx=\"50\" cy=\"50\" rx=\"6.5\" ry=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><circle cx=\"50\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><circle cx=\"72\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><circle cx=\"28\" cy=\"50\" r=\"1.6\" fill=\"currentColor\"/><line x1=\"8\" y1=\"36\" x2=\"50\" y2=\"36\" stroke=\"currentColor\" stroke-width=\"0.6\"/><line x1=\"50\" y1=\"36\" x2=\"88\" y2=\"58\" stroke=\"currentColor\" stroke-width=\"0.6\"/></svg>",
+    "labels": [
+     {
+      "label": "Optical centre (O)",
+      "x": 50,
+      "y": 50
+     },
+     {
+      "label": "Principal focus (F), where parallel rays meet",
+      "x": 72,
+      "y": 50
+     },
+     {
+      "label": "The second focus, on the object side",
+      "x": 28,
+      "y": 50
+     },
+     {
+      "label": "Principal axis",
+      "x": 12,
+      "y": 50
+     },
+     {
+      "label": "A ray parallel to the principal axis",
+      "x": 20,
+      "y": 36
+     },
+     {
+      "label": "The convex (converging) lens",
+      "x": 50,
+      "y": 24
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Periodic Table and Periodicity",
+  "approved": false,
+  "trick": "Across a period the nucleus pulls harder while the shell stays the same, so atoms get smaller and grip their electrons more tightly. Every trend across a period follows from that one sentence, so derive them rather than memorising eight separate facts.",
+  "video": {
+   "query": "periodic table trends atomic size electronegativity across period class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Moving from left to right across a period, does each property increase or decrease?",
+    "bins": [
+     "Increases across a period",
+     "Decreases across a period"
+    ],
+    "items": [
+     {
+      "label": "Nuclear charge",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Atomic size",
+      "bin": "Decreases across a period"
+     },
+     {
+      "label": "Ionisation energy",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Electronegativity",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Metallic character",
+      "bin": "Decreases across a period"
+     },
+     {
+      "label": "Non-metallic character",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Number of valence electrons",
+      "bin": "Increases across a period"
+     },
+     {
+      "label": "Ease of losing an electron",
+      "bin": "Decreases across a period"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Chemical Bonding and Solubility",
+  "approved": false,
+  "trick": "Metal plus non-metal usually means electrons are transferred, so the bond is ionic; non-metal plus non-metal means they are shared, so it is covalent. Ionic compounds then dissolve in water and conduct when molten, and covalent ones generally do neither.",
+  "video": {
+   "query": "ionic and covalent bonding properties solubility class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these compounds is not ionic. Which, and why?",
+    "items": [
+     "NaCl",
+     "KCl",
+     "MgO",
+     "CH4",
+     "CaCl2"
+    ],
+    "odd": 3,
+    "because": "The other four are each a metal joined to a non-metal, so electrons are transferred and the bond is ionic. Methane is carbon and hydrogen, two non-metals, so the electrons are shared and the bond is covalent — which is why methane is a gas at room temperature while the other four are hard, high-melting solids."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Metallurgy and Extraction of Metals",
+  "approved": false,
+  "trick": "Every extraction runs the same way: get rid of the rock, turn the ore into an oxide, take the oxygen off, then clean up. Concentration, roasting or calcination, reduction, refining. Once you know the sequence you can place any named process in it.",
+  "video": {
+   "query": "metallurgy extraction of metals roasting calcination reduction class 10 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages of extracting a metal from its ore into order.",
+    "items": [
+     {
+      "label": "Crushing and grinding the ore",
+      "note": "Breaking the lumps down so the later steps can work"
+     },
+     {
+      "label": "Concentration of the ore",
+      "note": "Removing the gangue, by froth flotation or magnetic separation"
+     },
+     {
+      "label": "Roasting or calcination",
+      "note": "Heating to convert the ore into the oxide; roasting in air for sulphides, calcination without air for carbonates"
+     },
+     {
+      "label": "Reduction of the oxide to the metal",
+      "note": "With carbon, or by electrolysis for the very reactive metals"
+     },
+     {
+      "label": "Refining the crude metal",
+      "note": "Usually electrolytic refining, to get the pure metal"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Atomic Nucleus and Radioactivity",
+  "approved": false,
+  "trick": "Rank the three radiations by how far they get and everything else follows. Alpha is the heaviest, so it ionises most and is stopped by paper; gamma is massless, so it ionises least and needs lead. Penetration and ionising power always run opposite ways.",
+  "video": {
+   "query": "radioactivity alpha beta gamma rays properties half life class 10 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     {
+      "left": "Alpha particle",
+      "right": "A helium nucleus; stopped by a sheet of paper"
+     },
+     {
+      "left": "Beta particle",
+      "right": "A fast electron; stopped by a few millimetres of aluminium"
+     },
+     {
+      "left": "Gamma ray",
+      "right": "Electromagnetic radiation; needs thick lead or concrete"
+     },
+     {
+      "left": "Half-life",
+      "right": "The time for half the radioactive nuclei present to decay"
+     },
+     {
+      "left": "Isotopes",
+      "right": "Atoms of one element with the same protons but different neutrons"
+     },
+     {
+      "left": "Nuclear fission",
+      "right": "A heavy nucleus splitting into lighter ones, releasing energy"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Inorganic and Organic Chemistry in the Laboratory",
+  "approved": false,
+  "trick": "The gas tests are worth learning as a set of six, because they come up every year and each takes one line. Lime water milky, burning splint pop, glowing splint relights, rotten eggs, brown fumes, moist red litmus turning blue.",
+  "video": {
+   "query": "laboratory tests for gases carbon dioxide hydrogen oxygen ammonia class 10",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Name the gas in each test. Two entries in the bank are decoys.",
+    "text": "The gas that turns lime water milky is {1}. The gas that burns with a squeaky pop is {2}. The gas that relights a glowing splint is {3}. The gas smelling of rotten eggs is {4}. The reddish brown gas with a sharp smell is {5}. The gas that turns moist red litmus paper blue is {6}.",
+    "answers": [
+     "carbon dioxide",
+     "hydrogen",
+     "oxygen",
+     "hydrogen sulphide",
+     "nitrogen dioxide",
+     "ammonia"
+    ],
+    "bank": [
+     "carbon dioxide",
+     "hydrogen",
+     "oxygen",
+     "hydrogen sulphide",
+     "nitrogen dioxide",
+     "ammonia",
+     "chlorine",
+     "sulphur dioxide"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Real Numbers and Euclid's Division Lemma",
+  "approved": false,
+  "trick": "Euclid's algorithm is one instruction repeated: divide, then replace the pair by the divisor and the remainder. Stop when the remainder is zero, and the last divisor is the HCF. You never need to factorise anything.",
+  "video": {
+   "query": "Euclid division lemma HCF algorithm class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find an HCF by Euclid's algorithm, one step at a time.",
+    "problem": "Use Euclid's division lemma to find the HCF of 867 and 255.",
+    "steps": [
+     {
+      "ask": "Divide 867 by 255. What is the remainder?",
+      "options": [
+       "102",
+       "51",
+       "0"
+      ],
+      "correct": 0,
+      "why": "255 × 3 = 765, and 867 − 765 = 102. So 867 = 255 × 3 + 102."
+     },
+     {
+      "ask": "Now repeat with 255 and 102. What is the remainder?",
+      "options": [
+       "102",
+       "51",
+       "3"
+      ],
+      "correct": 1,
+      "why": "102 × 2 = 204, and 255 − 204 = 51. So 255 = 102 × 2 + 51. The rule is always: the old divisor becomes the new dividend."
+     },
+     {
+      "ask": "Repeat once more with 102 and 51.",
+      "options": [
+       "Remainder 51",
+       "Remainder 0",
+       "Remainder 1"
+      ],
+      "correct": 1,
+      "why": "51 divides 102 exactly twice, so 102 = 51 × 2 + 0. A remainder of zero means we stop."
+     },
+     {
+      "ask": "So what is the HCF?",
+      "options": [
+       "51",
+       "102",
+       "3"
+      ],
+      "correct": 0,
+      "why": "The HCF is the last divisor used before the remainder became zero, which is 51. Check: 867 = 51 × 17 and 255 = 51 × 5."
+     }
+    ],
+    "answer": "51"
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Polynomials",
+  "approved": false,
+  "trick": "You can read the sum and product of the zeros straight off the coefficients without solving anything: the sum is minus b over a and the product is c over a. Remember the minus sign belongs to the sum, never to the product.",
+  "video": {
+   "query": "polynomials zeros sum and product of roots class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete these facts about polynomials. Two entries in the bank are decoys.",
+    "text": "For a quadratic polynomial ax² + bx + c, the sum of the zeros is {1} and the product of the zeros is {2}. A quadratic polynomial has at most {3} zeros and a cubic has at most {4}. The zeros are the points where the graph cuts the {5} axis. If the discriminant b² − 4ac is {6}, there are no real zeros at all.",
+    "answers": [
+     "−b/a",
+     "c/a",
+     "two",
+     "three",
+     "x",
+     "negative"
+    ],
+    "bank": [
+     "−b/a",
+     "c/a",
+     "two",
+     "three",
+     "x",
+     "negative",
+     "b/a",
+     "positive"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Pair of Linear Equations in Two Variables",
+  "approved": false,
+  "trick": "Compare the three ratios before you solve anything. If a1/a2 differs from b1/b2 the lines cross once. If the first two ratios agree but the third differs, the lines are parallel and there is no solution. If all three agree, the lines are the same line.",
+  "video": {
+   "query": "pair of linear equations consistent inconsistent ratio condition class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "How many solutions does each pair have? Sort by the ratio test.",
+    "bins": [
+     "Unique solution: lines cross",
+     "No solution: lines parallel",
+     "Infinitely many: same line"
+    ],
+    "items": [
+     {
+      "label": "a1/a2 ≠ b1/b2",
+      "bin": "Unique solution: lines cross"
+     },
+     {
+      "label": "a1/a2 = b1/b2 ≠ c1/c2",
+      "bin": "No solution: lines parallel"
+     },
+     {
+      "label": "a1/a2 = b1/b2 = c1/c2",
+      "bin": "Infinitely many: same line"
+     },
+     {
+      "label": "x + y = 5 and 2x − y = 1",
+      "bin": "Unique solution: lines cross"
+     },
+     {
+      "label": "2x − y = 5 and x + y = 4",
+      "bin": "Unique solution: lines cross"
+     },
+     {
+      "label": "x + 2y = 4 and 2x + 4y = 12",
+      "bin": "No solution: lines parallel"
+     },
+     {
+      "label": "x − y = 8 and 3x − 3y = 16",
+      "bin": "No solution: lines parallel"
+     },
+     {
+      "label": "2x + 3y = 6 and 4x + 6y = 12",
+      "bin": "Infinitely many: same line"
+     },
+     {
+      "label": "3x − y = 2 and 6x − 2y = 4",
+      "bin": "Infinitely many: same line"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Quadratic Equations",
+  "approved": false,
+  "trick": "Compute the discriminant first, every time. It tells you what kind of answer to expect before you spend any effort: positive means two different real roots, zero means one repeated root, negative means none at all. Finding a root after computing a negative discriminant means the arithmetic went wrong.",
+  "video": {
+   "query": "quadratic equations discriminant nature of roots quadratic formula class 10",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Solve a quadratic, one step at a time.",
+    "problem": "Solve 2x² − 7x + 3 = 0.",
+    "steps": [
+     {
+      "ask": "Identify a, b and c.",
+      "options": [
+       "a = 2, b = −7, c = 3",
+       "a = 2, b = 7, c = 3",
+       "a = 7, b = 2, c = 3"
+      ],
+      "correct": 0,
+      "why": "The sign travels with the coefficient, so b is −7, not 7. Dropping that minus is the commonest error in this whole topic."
+     },
+     {
+      "ask": "What is the discriminant b² − 4ac?",
+      "options": [
+       "25",
+       "−25",
+       "73"
+      ],
+      "correct": 0,
+      "why": "(−7)² − 4 × 2 × 3 = 49 − 24 = 25. Note (−7)² is +49; squaring removes the sign."
+     },
+     {
+      "ask": "What does a discriminant of 25 tell you?",
+      "options": [
+       "Two distinct real roots",
+       "One repeated root",
+       "No real roots"
+      ],
+      "correct": 0,
+      "why": "It is positive, so there are two distinct real roots. Better still, 25 is a perfect square, so the roots will be rational and the equation could have been factorised."
+     },
+     {
+      "ask": "So what are the roots?",
+      "options": [
+       "3 and 1/2",
+       "−3 and −1/2",
+       "7 and 5"
+      ],
+      "correct": 0,
+      "why": "x = (7 ± 5) ÷ 4, giving 12/4 = 3 and 2/4 = 1/2. Check with the sum and product: 3 + 1/2 = 7/2 = −b/a, and 3 × 1/2 = 3/2 = c/a."
+     }
+    ],
+    "answer": "x = 3 or x = 1/2"
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Arithmetic Progression",
+  "approved": false,
+  "trick": "The nth term uses n minus 1, not n, because the first term needs no step at all. That single off-by-one is behind most wrong answers in this chapter, so write a + (n − 1)d out in full before substituting.",
+  "video": {
+   "query": "arithmetic progression nth term sum of n terms formula class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work through an AP, one step at a time.",
+    "problem": "For the AP 3, 8, 13, 18, ... find the 20th term and the sum of the first 20 terms.",
+    "steps": [
+     {
+      "ask": "What are the first term a and the common difference d?",
+      "options": [
+       "a = 3, d = 5",
+       "a = 3, d = 8",
+       "a = 5, d = 3"
+      ],
+      "correct": 0,
+      "why": "The first term is 3, and d is any term minus the one before it: 8 − 3 = 5."
+     },
+     {
+      "ask": "Using a + (n − 1)d, what is the 20th term?",
+      "options": [
+       "103",
+       "98",
+       "100"
+      ],
+      "correct": 1,
+      "why": "3 + 19 × 5 = 3 + 95 = 98. Using 20 instead of 19 gives 103, which is the classic off-by-one slip."
+     },
+     {
+      "ask": "Which form of the sum formula is easiest here?",
+      "options": [
+       "S = n/2 × (a + l), since we now know the last term",
+       "S = n × a × d",
+       "S = a + (n − 1)d"
+      ],
+      "correct": 0,
+      "why": "We have already found the last term l = 98, so the average-of-the-ends form is quickest. The other standard form, n/2 × (2a + (n−1)d), gives the same answer."
+     },
+     {
+      "ask": "So what is the sum of the first 20 terms?",
+      "options": [
+       "1010",
+       "980",
+       "2020"
+      ],
+      "correct": 0,
+      "why": "20/2 × (3 + 98) = 10 × 101 = 1010."
+     }
+    ],
+    "answer": "The 20th term is 98 and the sum of the first 20 terms is 1010."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Coordinate Geometry: Distance, Midpoint and Section",
+  "approved": false,
+  "trick": "The midpoint formula is just the section formula with the ratio 1:1, so there is really only one formula to know. And the distance formula is Pythagoras in disguise: the difference in x and the difference in y are the two legs of a right triangle.",
+  "video": {
+   "query": "distance formula midpoint section formula coordinate geometry class 10",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right formula for each task.",
+    "items": [
+     {
+      "ask": "The distance between (x₁, y₁) and (x₂, y₂)",
+      "correct": "√[(x₂ − x₁)² + (y₂ − y₁)²]",
+      "wrong": [
+       "(x₂ − x₁)² + (y₂ − y₁)²",
+       "√[(x₂ + x₁)² + (y₂ + y₁)²]"
+      ],
+      "why": "Take the differences, square them, add and take the square root. Forgetting the root leaves you with the square of the distance, which is a common slip when the numbers come out neatly."
+     },
+     {
+      "ask": "The midpoint of the segment joining (x₁, y₁) and (x₂, y₂)",
+      "correct": "((x₁ + x₂)/2, (y₁ + y₂)/2)",
+      "wrong": [
+       "((x₂ − x₁)/2, (y₂ − y₁)/2)",
+       "((x₁ + x₂), (y₁ + y₂))"
+      ],
+      "why": "The midpoint is the average of the coordinates, so you add and halve. Subtracting gives you half the displacement, not the point."
+     },
+     {
+      "ask": "The point dividing the join of (x₁, y₁) and (x₂, y₂) in the ratio m:n internally",
+      "correct": "((mx₂ + nx₁)/(m + n), (my₂ + ny₁)/(m + n))",
+      "wrong": [
+       "((mx₁ + nx₂)/(m + n), (my₁ + ny₂)/(m + n))",
+       "((mx₂ − nx₁)/(m − n), (my₂ − ny₁)/(m − n))"
+      ],
+      "why": "The m goes with the second point and the n with the first — cross over, not straight across. Check it by putting m = n = 1: you should get the midpoint back."
+     },
+     {
+      "ask": "The area of a triangle with vertices (x₁, y₁), (x₂, y₂), (x₃, y₃)",
+      "correct": "½ |x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)|",
+      "wrong": [
+       "x₁(y₂ − y₃) + x₂(y₃ − y₁) + x₃(y₁ − y₂)",
+       "½ (x₁ + x₂ + x₃)(y₁ + y₂ + y₃)"
+      ],
+      "why": "The half and the modulus both matter: area is never negative, so if your value comes out negative, take its size. An area of zero means the three points are collinear, which is how this formula is often used."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Circles and Tangents",
+  "approved": false,
+  "trick": "Whenever a tangent appears, draw the radius to the point of contact at once. It is perpendicular to the tangent, so it turns almost every tangent problem into a right-angled triangle and lets Pythagoras finish the job.",
+  "video": {
+   "query": "circles tangents theorems length of tangent class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about circles.",
+    "items": [
+     {
+      "statement": "A tangent is perpendicular to the radius drawn to the point of contact.",
+      "is_true": true,
+      "why": "This is the central theorem of the chapter, and it is what turns tangent problems into right-triangle problems."
+     },
+     {
+      "statement": "The two tangents drawn to a circle from an outside point are equal in length.",
+      "is_true": true,
+      "why": "The two right triangles formed share the radius and the distance to the centre, so they are congruent by RHS."
+     },
+     {
+      "statement": "A tangent meets the circle at two points.",
+      "is_true": false,
+      "why": "A tangent touches at exactly one point. A line meeting a circle at two points is a secant."
+     },
+     {
+      "statement": "A perpendicular drawn from the centre to a chord bisects that chord.",
+      "is_true": true,
+      "why": "It splits the chord into two congruent right triangles, so the two halves are equal."
+     },
+     {
+      "statement": "The angle in a semicircle is 60 degrees.",
+      "is_true": false,
+      "why": "The angle in a semicircle is a right angle, 90 degrees — Thales' theorem."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Trigonometric Ratios and Identities",
+  "approved": false,
+  "trick": "You only need to memorise the sine row: 0, ½, 1/√2, √3/2, 1 for 0, 30, 45, 60 and 90 degrees. The cosine row is the same list backwards, and tangent is sine divided by cosine. One row, and the whole table follows.",
+  "video": {
+   "query": "trigonometric ratios table standard angles identities class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each trigonometric expression with its value.",
+    "pairs": [
+     {
+      "left": "sin 30°",
+      "right": "1/2"
+     },
+     {
+      "left": "cos 30°",
+      "right": "√3/2"
+     },
+     {
+      "left": "tan 45°",
+      "right": "1"
+     },
+     {
+      "left": "tan 60°",
+      "right": "√3"
+     },
+     {
+      "left": "sin 0°",
+      "right": "0"
+     },
+     {
+      "left": "cosec 30°",
+      "right": "2"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Heights and Distances",
+  "approved": false,
+  "trick": "Draw the picture and mark the angle at the eye, not at the top of the tower. The angle of elevation is always measured from the horizontal, and once the right triangle is drawn the only decision left is which ratio connects the side you know to the side you want.",
+  "video": {
+   "query": "heights and distances angle of elevation problems class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find the height of the tower, one step at a time.",
+    "problem": "From a point 30 m away from the foot of a tower, the angle of elevation of its top is 30°. Find the height of the tower.",
+    "steps": [
+     {
+      "ask": "In the right triangle, which sides do we know and want?",
+      "options": [
+       "We know the adjacent side and want the opposite",
+       "We know the hypotenuse and want the opposite",
+       "We know the opposite and want the adjacent"
+      ],
+      "correct": 0,
+      "why": "The 30 m along the ground is adjacent to the angle, and the height of the tower is opposite it."
+     },
+     {
+      "ask": "So which ratio should be used?",
+      "options": [
+       "sin",
+       "cos",
+       "tan"
+      ],
+      "correct": 2,
+      "why": "Tangent is opposite over adjacent, which is exactly the pair we have. Choosing the ratio by what you know, rather than by habit, is the whole skill here."
+     },
+     {
+      "ask": "tan 30° equals what?",
+      "options": [
+       "1/√3",
+       "√3",
+       "1/2"
+      ],
+      "correct": 0,
+      "why": "tan 30° = 1/√3. It is √3 that belongs to tan 60°, and swapping the two is the usual error."
+     },
+     {
+      "ask": "So the height is",
+      "options": [
+       "30√3 m",
+       "10√3 m",
+       "15 m"
+      ],
+      "correct": 1,
+      "why": "height = 30 × tan 30° = 30/√3 = 30√3/3 = 10√3, about 17.32 m. Sensible too: at 30° the tower should be well shorter than the 30 m distance."
+     }
+    ],
+    "answer": "10√3 metres, about 17.32 m."
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Surface Area and Volume",
+  "approved": false,
+  "trick": "Check the power of the length before anything else: an area formula must be a length squared, a volume a length cubed. And for a cone remember the slant height l, not the vertical height h, goes into the curved surface area.",
+  "video": {
+   "query": "surface area and volume cylinder cone sphere formulas class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Pick the right formula, and see what rules the others out.",
+    "items": [
+     {
+      "ask": "Curved surface area of a cylinder of radius r and height h",
+      "correct": "2πrh",
+      "wrong": [
+       "πr²h",
+       "2πr(r + h)"
+      ],
+      "why": "Unroll the curved surface and you get a rectangle of width 2πr and height h. πr²h is the volume, and 2πr(r + h) is the total surface area including both circular ends."
+     },
+     {
+      "ask": "Curved surface area of a cone of radius r, height h and slant height l",
+      "correct": "πrl",
+      "wrong": [
+       "πrh",
+       "⅓πr²h"
+      ],
+      "why": "The curved surface uses the slant height l, not the vertical height h, where l² = r² + h². The third option is the volume."
+     },
+     {
+      "ask": "Volume of a sphere of radius r",
+      "correct": "(4/3)πr³",
+      "wrong": [
+       "4πr²",
+       "(2/3)πr³"
+      ],
+      "why": "The one with r³ must be the volume; 4πr² is its surface area. (2/3)πr³ is the volume of a hemisphere, which is half of it."
+     },
+     {
+      "ask": "Total surface area of a hemisphere of radius r",
+      "correct": "3πr²",
+      "wrong": [
+       "2πr²",
+       "4πr²"
+      ],
+      "why": "Half the sphere's curved surface is 2πr², and the flat circular face adds another πr², making 3πr². If a question asks only for the curved surface, the answer is 2πr² — read which one is wanted."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Triangles, Similarity and Pythagoras",
+  "approved": false,
+  "trick": "Similar means same shape, congruent means same shape and same size. In similar triangles the angles are equal and the sides are in proportion, and the ratio of their areas is the square of the ratio of their sides — that square catches people out constantly.",
+  "video": {
+   "query": "similar triangles criteria Pythagoras theorem class 10 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not a Pythagorean triplet. Which, and why?",
+    "items": [
+     "3, 4, 5",
+     "5, 12, 13",
+     "8, 15, 17",
+     "7, 9, 12",
+     "9, 40, 41"
+    ],
+    "odd": 3,
+    "because": "In every other set the squares of the two smaller numbers add up to the square of the largest: 9 + 16 = 25, 25 + 144 = 169, 64 + 225 = 289, 81 + 1600 = 1681. For 7, 9 and 12 it fails: 49 + 81 = 130, but 12² is 144. So that triangle is not right-angled."
+   }
+  }
  }
 ]

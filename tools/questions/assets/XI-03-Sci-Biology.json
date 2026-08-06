@@ -1,0 +1,173 @@
+[
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "The Living World and Biological Classification",
+  "approved": false,
+  "trick": "The taxonomic hierarchy narrows as you go down, and the mnemonic King Philip Came Over For Good Soup gives you Kingdom, Phylum, Class, Order, Family, Genus, Species. As you descend, the number of organisms falls and the shared characters rise.",
+  "video": { "query": "the living world taxonomy five kingdom classification class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Arrange the taxonomic categories from the widest to the narrowest.",
+    "items": [
+     { "label": "Kingdom", "note": "The broadest group, such as Animalia" },
+     { "label": "Phylum", "note": "Chordata, for animals with a notochord" },
+     { "label": "Class", "note": "Mammalia" },
+     { "label": "Order", "note": "Primates" },
+     { "label": "Family", "note": "Hominidae" },
+     { "label": "Genus", "note": "Homo — the first word of the scientific name" },
+     { "label": "Species", "note": "sapiens — the narrowest group, and the second word of the name" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Plant Kingdom",
+  "approved": false,
+  "trick": "Follow two questions down the plant kingdom: does it have vascular tissue, and does it make seeds? Algae have neither, bryophytes neither, pteridophytes have vessels but no seeds, gymnosperms have naked seeds, angiosperms have seeds inside a fruit.",
+  "video": { "query": "plant kingdom algae bryophytes pteridophytes gymnosperms class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which group does each plant or feature belong to?",
+    "bins": ["Bryophytes", "Pteridophytes", "Gymnosperms", "Angiosperms"],
+    "items": [
+     { "label": "Moss and liverwort", "bin": "Bryophytes" },
+     { "label": "The amphibians of the plant kingdom; need water for fertilisation", "bin": "Bryophytes" },
+     { "label": "Ferns", "bin": "Pteridophytes" },
+     { "label": "First plants with proper vascular tissue but still no seeds", "bin": "Pteridophytes" },
+     { "label": "Pine and cycad", "bin": "Gymnosperms" },
+     { "label": "Seeds are naked, not enclosed in a fruit", "bin": "Gymnosperms" },
+     { "label": "Mango and grass", "bin": "Angiosperms" },
+     { "label": "Seeds enclosed in a fruit; double fertilisation occurs", "bin": "Angiosperms" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Animal Kingdom",
+  "approved": false,
+  "trick": "Classify by body plan, not by looks. Symmetry, body cavity and segmentation decide the phylum, which is why a starfish and a jellyfish sit far apart despite both living in the sea, and why a whale is grouped with a bat.",
+  "video": { "query": "animal kingdom classification phyla porifera arthropoda class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each phylum with an example and its key feature.",
+    "pairs": [
+     { "left": "Porifera", "right": "Sponges; body with pores, no true tissues" },
+     { "left": "Cnidaria", "right": "Jellyfish and Hydra; stinging cells and radial symmetry" },
+     { "left": "Platyhelminthes", "right": "Tapeworm; flat, bilaterally symmetrical, no body cavity" },
+     { "left": "Annelida", "right": "Earthworm; segmented body with a true coelom" },
+     { "left": "Arthropoda", "right": "Insects; jointed legs and a chitin exoskeleton, the largest phylum" },
+     { "left": "Echinodermata", "right": "Starfish; spiny skin and a water vascular system" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Morphology and Anatomy of Flowering Plants",
+  "approved": false,
+  "trick": "The flower is four whorls from the outside in: sepals, petals, stamens, carpels. Green protection first, colourful attraction next, then male, then female. Learn the order once and any flower diagram labels itself.",
+  "video": { "query": "morphology of flowering plants parts of a flower class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Label the parts of this flower.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><path d=\"M50 86 L50 40\" stroke=\"currentColor\" stroke-width=\"1.2\" fill=\"none\"/><ellipse cx=\"50\" cy=\"36\" rx=\"7\" ry=\"3.5\" fill=\"currentColor\" opacity=\"0.6\"/><ellipse cx=\"50\" cy=\"80\" rx=\"10\" ry=\"8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><path d=\"M38 84 Q30 62 29 47\" stroke=\"currentColor\" stroke-width=\"0.9\" fill=\"none\"/><ellipse cx=\"29\" cy=\"42\" rx=\"3.5\" ry=\"5.5\" fill=\"currentColor\" opacity=\"0.5\"/><path d=\"M62 84 Q70 62 71 47\" stroke=\"currentColor\" stroke-width=\"0.9\" fill=\"none\"/><ellipse cx=\"71\" cy=\"42\" rx=\"3.5\" ry=\"5.5\" fill=\"currentColor\" opacity=\"0.5\"/><path d=\"M40 88 Q14 74 16 52\" stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\"/><path d=\"M60 88 Q86 74 84 52\" stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\"/><path d=\"M40 90 Q28 94 22 90\" stroke=\"currentColor\" stroke-width=\"0.8\" fill=\"none\"/></svg>",
+    "labels": [
+     { "label": "Stigma, where pollen lands", "x": 50, "y": 36 },
+     { "label": "Style, the stalk of the carpel", "x": 50, "y": 58 },
+     { "label": "Ovary, which becomes the fruit", "x": 50, "y": 80 },
+     { "label": "Anther, which makes the pollen", "x": 29, "y": 42 },
+     { "label": "Filament, the stalk of the stamen", "x": 33, "y": 64 },
+     { "label": "Petal, the corolla that attracts pollinators", "x": 84, "y": 60 },
+     { "label": "Sepal, the green calyx that protected the bud", "x": 24, "y": 90 }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Structural Organisation in Animals",
+  "approved": false,
+  "trick": "There are only four animal tissue types, and every organ is built from them: epithelial covers, connective supports and joins, muscular contracts, nervous conducts. Ask what the tissue is doing and its type names itself.",
+  "video": { "query": "animal tissues epithelial connective muscular nervous class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about animal tissues.",
+    "items": [
+     { "statement": "Blood is a connective tissue.", "is_true": true, "why": "It has cells suspended in a fluid matrix, plasma, which is exactly the connective tissue plan. This surprises most students." },
+     { "statement": "Epithelial tissue always has a free surface.", "is_true": true, "why": "One side faces a cavity or the outside and the other rests on a basement membrane, which is why it lines and covers." },
+     { "statement": "Cardiac muscle is under voluntary control.", "is_true": false, "why": "Cardiac muscle is involuntary, though it is striated like skeletal muscle. It is the one striated muscle you cannot command." },
+     { "statement": "Neurons can divide to replace themselves easily.", "is_true": false, "why": "Most mature neurons lose the ability to divide, which is why nerve damage heals so poorly." },
+     { "statement": "Tendons join muscle to bone and ligaments join bone to bone.", "is_true": true, "why": "Both are dense connective tissue, and mixing the two up is the classic slip." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Cell: The Unit of Life",
+  "approved": false,
+  "trick": "Learn the organelles by their job, not their shape. Mitochondrion the power house, ribosome the protein factory, lysosome the suicide bag, Golgi the packaging and dispatch department. The nickname is usually what the question is really asking for.",
+  "video": { "query": "cell the unit of life organelles structure and functions class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each organelle with what it does.",
+    "pairs": [
+     { "left": "Mitochondrion", "right": "Releases energy as ATP; the power house of the cell" },
+     { "left": "Ribosome", "right": "Builds proteins; found free or on rough ER" },
+     { "left": "Lysosome", "right": "Digestive enzymes; the suicide bag" },
+     { "left": "Golgi apparatus", "right": "Modifies, packages and dispatches proteins" },
+     { "left": "Chloroplast", "right": "Carries out photosynthesis; only in plant cells" },
+     { "left": "Nucleus", "right": "Holds the DNA and controls the cell's activity" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Biomolecules",
+  "approved": false,
+  "trick": "Identify a biomolecule by its building block. Amino acids make proteins, monosaccharides make carbohydrates, nucleotides make nucleic acids, fatty acids and glycerol make fats. Name the monomer and you have named the family.",
+  "video": { "query": "biomolecules carbohydrates proteins lipids nucleic acids enzymes class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which class of biomolecule does each belong to?",
+    "bins": ["Carbohydrate", "Protein", "Lipid", "Nucleic acid"],
+    "items": [
+     { "label": "Glucose", "bin": "Carbohydrate" },
+     { "label": "Starch and cellulose", "bin": "Carbohydrate" },
+     { "label": "Made of amino acids joined by peptide bonds", "bin": "Protein" },
+     { "label": "Enzymes and haemoglobin", "bin": "Protein" },
+     { "label": "Made of glycerol and fatty acids", "bin": "Lipid" },
+     { "label": "Cholesterol and the cell membrane's phospholipids", "bin": "Lipid" },
+     { "label": "DNA and RNA", "bin": "Nucleic acid" },
+     { "label": "Built from nucleotides, each a sugar, a phosphate and a base", "bin": "Nucleic acid" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Biology",
+  "chapter": "Cell Cycle and Cell Division",
+  "approved": false,
+  "trick": "Meiosis is two divisions but only one round of DNA copying, which is exactly why the chromosome number halves. Mitosis copies once and divides once, so the number stays. Count copies against divisions and the two can never be confused.",
+  "video": { "query": "cell cycle mitosis meiosis phases class 11 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not a stage of mitosis. Which, and why?",
+    "items": ["Prophase", "Metaphase", "Pachytene", "Anaphase", "Telophase"],
+    "odd": 2,
+    "because": "The other four are the four stages of mitosis in order. Pachytene belongs to prophase I of meiosis, where it is the substage in which crossing over takes place. Its five substages — leptotene, zygotene, pachytene, diplotene and diakinesis — exist only in meiosis, because only meiosis has to pair homologous chromosomes."
+   }
+  }
+ }
+]

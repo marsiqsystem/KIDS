@@ -1,0 +1,415 @@
+[
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "Some Basic Concepts of Chemistry",
+  "approved": false,
+  "trick": "The empirical formula is always found the same way: divide the percentage of each element by its atomic mass, then divide every answer by the smallest of them. Percentage, divide by mass, divide by smallest — three steps, every time.",
+  "video": {
+   "query": "mole concept empirical and molecular formula class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find an empirical formula, one step at a time.",
+    "problem": "A compound contains 40% carbon, 6.7% hydrogen and 53.3% oxygen by mass. Find its empirical formula. (C = 12, H = 1, O = 16)",
+    "steps": [
+     {
+      "ask": "Divide each percentage by the atomic mass. What do you get?",
+      "options": [
+       "C 3.33, H 6.7, O 3.33",
+       "C 40, H 6.7, O 53.3",
+       "C 0.3, H 0.15, O 0.3"
+      ],
+      "correct": 0,
+      "why": "40/12 = 3.33, 6.7/1 = 6.7 and 53.3/16 = 3.33. These are the relative numbers of moles."
+     },
+     {
+      "ask": "Now divide each by the smallest of the three.",
+      "options": [
+       "C 1, H 2, O 1",
+       "C 1, H 1, O 1",
+       "C 2, H 4, O 2"
+      ],
+      "correct": 0,
+      "why": "The smallest is 3.33, so 3.33/3.33 = 1, 6.7/3.33 = 2, 3.33/3.33 = 1."
+     },
+     {
+      "ask": "So what is the empirical formula?",
+      "options": [
+       "CH2O",
+       "C2H4O2",
+       "CHO"
+      ],
+      "correct": 0,
+      "why": "CH2O. Note that this is the empirical formula only: glucose, C6H12O6, has the same one, which is why a molecular mass is needed to go further."
+     }
+    ],
+    "answer": "CH2O"
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "Structure of the Atom",
+  "approved": false,
+  "trick": "Each model exists because the one before it failed at a particular experiment. Thomson could not explain the gold foil scattering, Rutherford could not explain why the electron does not spiral in, Bohr could not explain many-electron atoms. Learn the failure and the next model makes sense.",
+  "video": {
+   "query": "structure of atom Bohr model quantum numbers class 11 chemistry",
+   "video_id": "0UqHoagKXts",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "15 min"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each scientist or idea with what it contributed.",
+    "pairs": [
+     {
+      "left": "J. J. Thomson",
+      "right": "Discovered the electron; the plum pudding model"
+     },
+     {
+      "left": "Rutherford",
+      "right": "Gold foil experiment; the nucleus is tiny and dense"
+     },
+     {
+      "left": "Niels Bohr",
+      "right": "Electrons in fixed energy levels, absorbing or emitting quanta"
+     },
+     {
+      "left": "Heisenberg",
+      "right": "Position and momentum cannot both be known exactly"
+     },
+     {
+      "left": "Pauli exclusion principle",
+      "right": "No two electrons in an atom share all four quantum numbers"
+     },
+     {
+      "left": "Hund's rule",
+      "right": "Orbitals of equal energy fill singly before any pairs up"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "Classification of Elements and Periodicity",
+  "approved": false,
+  "trick": "Across a period the nuclear charge rises while the shell stays the same, so atoms shrink and hold their electrons tighter. Down a group a new shell is added, so atoms grow and lose electrons more easily. Two sentences, and every trend follows from one of them.",
+  "video": {
+   "query": "periodic classification periodicity atomic radius ionisation enthalpy class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each statement by whether it describes going across a period or down a group.",
+    "bins": [
+     "True across a period, left to right",
+     "True down a group"
+    ],
+    "items": [
+     {
+      "label": "Atomic radius decreases",
+      "bin": "True across a period, left to right"
+     },
+     {
+      "label": "Atomic radius increases",
+      "bin": "True down a group"
+     },
+     {
+      "label": "Ionisation enthalpy increases",
+      "bin": "True across a period, left to right"
+     },
+     {
+      "label": "Ionisation enthalpy decreases",
+      "bin": "True down a group"
+     },
+     {
+      "label": "Electronegativity increases",
+      "bin": "True across a period, left to right"
+     },
+     {
+      "label": "Metallic character increases",
+      "bin": "True down a group"
+     },
+     {
+      "label": "The number of shells stays the same",
+      "bin": "True across a period, left to right"
+     },
+     {
+      "label": "The number of valence electrons stays the same",
+      "bin": "True down a group"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "Chemical Bonding and Molecular Structure",
+  "approved": false,
+  "trick": "Count the lone pairs, because they decide the shape. Ammonia and methane both have four electron pairs around the central atom, but ammonia's lone pair pushes the bonds closer, so methane is tetrahedral and ammonia is trigonal pyramidal. Always give the shape of the atoms, not of the electron pairs.",
+  "video": {
+   "query": "chemical bonding VSEPR shapes of molecules hybridisation class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each molecule with its shape.",
+    "pairs": [
+     {
+      "left": "CH4, methane",
+      "right": "Tetrahedral, no lone pair on carbon"
+     },
+     {
+      "left": "NH3, ammonia",
+      "right": "Trigonal pyramidal, one lone pair on nitrogen"
+     },
+     {
+      "left": "H2O, water",
+      "right": "Bent or V-shaped, two lone pairs on oxygen"
+     },
+     {
+      "left": "BF3, boron trifluoride",
+      "right": "Trigonal planar, no lone pair on boron"
+     },
+     {
+      "left": "CO2, carbon dioxide",
+      "right": "Linear, no lone pair on carbon"
+     },
+     {
+      "left": "PCl5, phosphorus pentachloride",
+      "right": "Trigonal bipyramidal"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "States of Matter: Gases and Liquids",
+  "approved": false,
+  "trick": "Every gas law is the ideal gas equation with something held constant. Hold temperature and you get Boyle, hold pressure and you get Charles, hold volume and you get Gay-Lussac. Learn PV = nRT and derive the rest rather than memorising four laws.",
+  "video": {
+   "query": "gas laws Boyle Charles ideal gas equation class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the right relation for each gas law.",
+    "items": [
+     {
+      "ask": "Boyle's law, at constant temperature",
+      "correct": "P₁V₁ = P₂V₂",
+      "wrong": [
+       "V₁/T₁ = V₂/T₂",
+       "P₁/T₁ = P₂/T₂"
+      ],
+      "why": "Pressure and volume are inversely proportional at fixed temperature: squeeze a gas and the pressure rises."
+     },
+     {
+      "ask": "Charles's law, at constant pressure",
+      "correct": "V₁/T₁ = V₂/T₂",
+      "wrong": [
+       "P₁V₁ = P₂V₂",
+       "V₁T₁ = V₂T₂"
+      ],
+      "why": "Volume is directly proportional to absolute temperature. T must be in kelvin — using Celsius here is the standard mistake."
+     },
+     {
+      "ask": "The ideal gas equation",
+      "correct": "PV = nRT",
+      "wrong": [
+       "PV = mRT",
+       "P/V = nRT"
+      ],
+      "why": "n is the number of moles, not the mass in grams. If you are given grams, divide by the molar mass first."
+     },
+     {
+      "ask": "Dalton's law of partial pressures",
+      "correct": "P_total = P₁ + P₂ + P₃ + ...",
+      "wrong": [
+       "P_total = P₁ × P₂ × P₃",
+       "P_total = (P₁ + P₂)/2"
+      ],
+      "why": "Each gas in a mixture exerts the pressure it would exert alone, and those pressures simply add."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "The Solid State",
+  "approved": false,
+  "trick": "Crystalline solids have a sharp melting point because every bond is the same length and they all break at once. Amorphous solids soften over a range because their bonds vary. If a question mentions a definite melting point, it is crystalline.",
+  "video": {
+   "query": "solid state crystalline amorphous unit cell class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "One of these is not a crystalline solid. Which, and why?",
+    "items": [
+     "Sodium chloride",
+     "Diamond",
+     "Glass",
+     "Quartz",
+     "Ice"
+    ],
+    "odd": 2,
+    "because": "The other four have their particles in a regular repeating lattice, so each has a sharp melting point and a definite geometry. Glass is amorphous: its particles are disordered, it softens over a range instead of melting at one temperature, and it is sometimes described as a supercooled liquid. Note that quartz and glass are both silicon dioxide — the difference is arrangement, not composition."
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "Hydrogen and its Compounds",
+  "approved": false,
+  "trick": "Hydrogen sits awkwardly in the periodic table because it behaves like two families at once: it loses an electron like an alkali metal and gains one like a halogen. Every question about its position is really about that double resemblance.",
+  "video": {
+   "query": "hydrogen isotopes hydrides hard and soft water class 11 chemistry",
+   "video_id": "6bYJsTIfI_Y",
+   "approved": true,
+   "language": "ENGLISH",
+   "duration": "11 min"
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about hydrogen.",
+    "items": [
+     {
+      "statement": "Hydrogen resembles both the alkali metals and the halogens.",
+      "is_true": true,
+      "why": "It has one valence electron like an alkali metal, and needs one more to fill its shell like a halogen. That is why its position is debated."
+     },
+     {
+      "statement": "Deuterium and tritium are isotopes of hydrogen.",
+      "is_true": true,
+      "why": "Protium has no neutron, deuterium one and tritium two. Tritium is radioactive."
+     },
+     {
+      "statement": "Hard water lathers easily with soap.",
+      "is_true": false,
+      "why": "Hard water contains calcium and magnesium salts which form a scum with soap. It is soft water that lathers well."
+     },
+     {
+      "statement": "Hydrogen peroxide acts only as an oxidising agent.",
+      "is_true": false,
+      "why": "It can act as both an oxidising and a reducing agent, which is why it is used to bleach and also to reduce in some reactions."
+     },
+     {
+      "statement": "Temporary hardness can be removed by boiling.",
+      "is_true": true,
+      "why": "Boiling decomposes the bicarbonates into insoluble carbonates. Permanent hardness, from sulphates and chlorides, needs washing soda or an ion exchanger."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "The s-Block Elements",
+  "approved": false,
+  "trick": "The s-block metals are so reactive that none is found free in nature, and reactivity increases down the group because the outer electron gets further from the nucleus. That single rule predicts almost everything, including why caesium reacts violently with water and lithium only fizzes.",
+  "video": {
+   "query": "s block elements alkali alkaline earth metals properties class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete these facts about the s-block. Two entries in the bank are decoys.",
+    "text": "Group 1 elements are called the {1} metals and group 2 the {2} metals. Reactivity {3} as you go down each group. Sodium is kept under {4} to stop it reacting with air and moisture. Washing soda is sodium {5}, and quicklime is calcium {6}.",
+    "answers": [
+     "alkali",
+     "alkaline earth",
+     "increases",
+     "kerosene",
+     "carbonate",
+     "oxide"
+    ],
+    "bank": [
+     "alkali",
+     "alkaline earth",
+     "increases",
+     "kerosene",
+     "carbonate",
+     "oxide",
+     "decreases",
+     "hydroxide"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Science|Chemistry",
+  "chapter": "The p-Block Elements",
+  "approved": false,
+  "trick": "The group number tells you the valence electrons: group 13 has three, group 14 four, group 15 five. And the first element of every p-block group behaves oddly compared with the rest, because it is small and has no d orbitals — boron, carbon and nitrogen are all exceptions to their own families.",
+  "video": {
+   "query": "p block elements group 13 14 15 boron carbon family class 11 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which p-block group does each element belong to?",
+    "bins": [
+     "Group 13, boron family",
+     "Group 14, carbon family",
+     "Group 15, nitrogen family"
+    ],
+    "items": [
+     {
+      "label": "Boron",
+      "bin": "Group 13, boron family"
+     },
+     {
+      "label": "Aluminium",
+      "bin": "Group 13, boron family"
+     },
+     {
+      "label": "Carbon",
+      "bin": "Group 14, carbon family"
+     },
+     {
+      "label": "Silicon",
+      "bin": "Group 14, carbon family"
+     },
+     {
+      "label": "Tin",
+      "bin": "Group 14, carbon family"
+     },
+     {
+      "label": "Nitrogen",
+      "bin": "Group 15, nitrogen family"
+     },
+     {
+      "label": "Phosphorus",
+      "bin": "Group 15, nitrogen family"
+     },
+     {
+      "label": "Bismuth",
+      "bin": "Group 15, nitrogen family"
+     }
+    ]
+   }
+  }
+ }
+]

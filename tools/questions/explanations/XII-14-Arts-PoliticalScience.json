@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Arts|Political Science|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "A bipolar world means power concentrated in two opposing military blocs, the Western alliance led by the United States and the Eastern bloc led by the Soviet Union. Most other states were drawn towards one pole or the other.",
   "why_wrong": {
    "1": "The division of Germany was a consequence and a symbol of bipolarity, not the meaning of the term.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Arts|Political Science|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The dissolution of the Soviet Union in December 1991 ended the Cold War, leaving the United States as the sole superpower and the world unipolar.",
   "why_wrong": {
    "0": "The Korean War of 1950 to 1953 was an early episode of the Cold War, not its end.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Arts|Political Science|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Bandung Conference of 1955 brought together twenty-nine Asian and African states and is regarded as the precursor of the Non-Aligned Movement, which was formally founded at Belgrade in 1961.",
   "why_wrong": {
    "0": "NATO was formed in 1949 as a Western military alliance, the opposite of non-alignment.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Arts|Political Science|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Ronald Reagan was President of the United States in the 1980s and a leader of one of the two blocs, so he could not be a founder of a movement defined by refusing to join either. The founders were Nehru, Tito, Nasser, Sukarno and Nkrumah.",
   "why_wrong": {
    "0": "Nehru of India was among the founders and gave the movement much of its philosophy.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Arts|Political Science|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The General Assembly may discuss and make recommendations on any matter within the scope of the Charter. All member states sit in it with one vote each, which makes it the most representative organ.",
   "why_wrong": {
    "0": "The Security Council deals specifically with international peace and security, and its scope is narrower even though its powers are stronger.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Arts|Political Science|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Security Council has five permanent members: China, France, Russia, the United Kingdom and the United States. Each holds the power of veto.",
   "why_wrong": {
    "0": "10 is the number of non-permanent members, elected for two-year terms.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Arts|Political Science|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The International Court of Justice sits at the Peace Palace in The Hague, in the Netherlands. It is the only principal organ of the UN not based in New York.",
   "why_wrong": {
    "0": "Geneva houses the UN Office at Geneva, the WHO and the ILO.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Arts|Political Science|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "UNICEF, the United Nations Children's Fund, is the agency for children's welfare. It works on child health, nutrition, education and protection, and was set up in 1946 for children affected by the war.",
   "why_wrong": {
    "0": "The WHO deals with public health generally, for people of all ages.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Arts|Political Science|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Human security shifts the focus from the state to the individual, holding that people should be secure from hunger, disease, poverty and violence, not merely that borders should be defended.",
   "why_wrong": {
    "0": "Military strength alone is the traditional conception of security, which human security was framed to broaden.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Arts|Political Science|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Climate change is a non-traditional security threat: it endangers lives and livelihoods without any armed attack, crosses borders freely, and cannot be met by military means. Epidemics, terrorism and human trafficking belong to the same category.",
   "why_wrong": {
    "0": "Border invasion is the classic traditional threat, one state attacking another.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Arts|Political Science|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Global warming is an environmental security threat. It endangers food supplies, coastlines and water resources without any use of force, and no country can meet it alone.",
   "why_wrong": {
    "0": "Traditional threats involve military force between states.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Arts|Political Science|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Terrorism deliberately targets civilians to create fear and force political change, so it threatens both lives and the stability of governments. Its victims are chosen precisely because they are defenceless.",
   "why_wrong": {
    "0": "Terrorism may prompt cooperation against it, but that is a response rather than what makes it a challenge.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Arts|Political Science|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "Linguistic reorganisation was an immediate challenge after independence. Agitation, notably Potti Sriramulu's fast unto death, led to Andhra Pradesh in 1953 and then to the States Reorganisation Act of 1956.",
   "why_wrong": {
    "0": "Cyber security is a twenty-first-century concern.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Arts|Political Science|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sardar Vallabhbhai Patel, as Deputy Prime Minister and Home Minister, integrated over five hundred princely states into the Indian Union, using persuasion, the instrument of accession and, in a few cases, force. He is called the Iron Man of India.",
   "why_wrong": {
    "0": "Nehru was Prime Minister and led foreign policy, leaving integration largely to Patel.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Arts|Political Science|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "NATO was formed in 1949 as a Western military alliance and had nothing to do with India's nation-building. It is an external event, not an internal challenge.",
   "why_wrong": {
    "0": "Refugee rehabilitation was an immense challenge after Partition displaced millions.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Arts|Political Science|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "A political party is an organised group of people sharing a broad programme who seek to capture political power through elections. Seeking power itself, rather than merely influencing it, is what defines a party.",
   "why_wrong": {
    "0": "A pressure group seeks to influence those in power without contesting elections itself. That is exactly the distinction being tested.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Arts|Political Science|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Indian National Congress dominated the first two decades after independence, winning the elections of 1952, 1957 and 1962 comfortably. Political scientists call this the era of one-party dominance.",
   "why_wrong": {
    "0": "The Bharatiya Jana Sangh, founded in 1951, was a small opposition party in this period.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Arts|Political Science|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "A multi-party system is one in which several parties compete for power, and governments are often formed by coalition. India has such a system, with national and state parties alike.",
   "why_wrong": {
    "0": "A single party describes a one-party system, as in China.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Arts|Political Science|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Judicial review is the power of the courts to examine whether laws conform to the Constitution. It belongs to the judiciary and is quite separate from the work of political parties.",
   "why_wrong": {
    "0": "Political recruitment is a party function, bringing people into politics and selecting candidates.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Arts|Political Science|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "India's foreign policy rests on constitutional values, including the promotion of international peace under Article 51, together with the national interest in security and development.",
   "why_wrong": {
    "0": "Colonial interests are what India's foreign policy was framed against, having emerged from colonial rule itself.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Arts|Political Science|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Non-alignment has been the cornerstone of India's foreign policy since independence: refusing to join either Cold War bloc while retaining freedom to judge each issue on its merits. Nehru was its principal architect.",
   "why_wrong": {
    "0": "Colonialism is what India fought to end, and it supported anti-colonial movements elsewhere.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Arts|Political Science|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Panchsheel Agreement was signed in 1954 between India and China, in the agreement on trade with Tibet. Nehru and Zhou Enlai gave it the slogan Hindi-Chini bhai-bhai.",
   "why_wrong": {
    "0": "India and Pakistan signed the Indus Waters Treaty in 1960 and the Simla Agreement in 1972.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Arts|Political Science|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "The five principles are mutual respect for territorial integrity and sovereignty, mutual non-aggression, non-interference in each other's internal affairs, equality and mutual benefit, and peaceful coexistence. A military alliance is the opposite of all of them.",
   "why_wrong": {
    "0": "Mutual respect for territorial integrity is the first principle.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Arts|Political Science|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "India supported anti-colonial struggles in Asia and Africa because it believed every people has the right to self-determination and freedom, a conviction drawn from its own experience of colonial rule.",
   "why_wrong": {
    "0": "Imperialism is the domination India opposed.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Arts|Political Science|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "India's contemporary foreign policy pursues global cooperation together with strategic autonomy, engaging widely with many partners while keeping freedom of decision. It is non-alignment adapted to a world that is no longer bipolar.",
   "why_wrong": {
    "0": "Territorial expansion is no part of Indian policy.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "IX|All|General Paper|71",
-  "approved": false,
+  "approved": true,
   "why_correct": "In the brown ring test for a nitrate, freshly prepared iron(II) sulphate solution is added to the sample and concentrated sulphuric acid is poured carefully down the side of the tube. The acid liberates nitric acid, which the iron(II) reduces to nitric oxide, NO. That NO is what binds to another iron(II) ion to form the nitrosyl complex [Fe(H2O)5NO]2+, and it is that complex which appears as the brown ring at the junction of the two layers.",
   "why_wrong": {
    "0": "Sulphur dioxide is the gas of the sulphite and bisulphite tests: it turns acidified potassium dichromate green and decolourises potassium permanganate. It plays no part in the ring test, and it forms no coloured complex with iron(II).",
@@ -11,7 +11,7 @@
  },
  {
   "id": "IX|All|General Paper|72",
-  "approved": false,
+  "approved": true,
   "why_correct": "A neutral sodium atom has 11 electrons. The plus sign means it has lost one, so Na+ has 10 electrons. That gives it the stable configuration of neon, which is why sodium forms this ion so readily.",
   "why_wrong": {
    "1": "11 is the number of electrons in a neutral sodium atom, and also its atomic number. The charge on the ion is what tells you an electron has gone.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "IX|All|General Paper|73",
-  "approved": false,
+  "approved": true,
   "why_correct": "Surface tension is force per unit length, so its SI unit is the newton per metre. It can equally be written as joule per square metre, since it is also energy per unit area.",
   "why_wrong": {
    "0": "Joule per metre is force, not surface tension, because a joule is a newton metre. Dividing by a metre simply gives newtons back.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "IX|All|General Paper|74",
-  "approved": false,
+  "approved": true,
   "why_correct": "Both have atomic number 17, so both are chlorine, but their mass numbers are 35 and 37. Same number of protons, different numbers of neutrons, which is exactly the definition of isotopes.",
   "why_wrong": {
    "1": "Isobars have the same mass number but different atomic numbers. Here the mass numbers differ and the atomic numbers match, so it is the other way round.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "IX|All|General Paper|75",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sound is a mechanical wave and needs a material medium to travel through. A vacuum has no particles to vibrate, so no sound can pass and its velocity there is zero.",
   "why_wrong": {
    "1": "1.5 metres per second is far too slow for sound anywhere. Sound travels at about 340 metres per second in air and about 1500 in water, and the figure here looks like that water value with the wrong unit.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "IX|All|General Paper|76",
-  "approved": false,
+  "approved": true,
   "why_correct": "An echo is a sound heard again after it reflects off a distant surface. The reflected sound must reach the ear at least a tenth of a second after the original, so the reflecting surface has to be about 17 metres away or more.",
   "why_wrong": {
    "0": "Vibration is what produces sound in the first place, at the source. It is the cause of sound, not a result of reflection.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "IX|All|General Paper|77",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. All four options are genuine colloids. Blood is a colloidal suspension of proteins and cells in plasma, cheese is a gel, milk is an emulsion of liquid fat in water and paint is a sol of solid pigment in a liquid. Milk is the textbook example and was the intended answer, but no candidate could fairly be told that the other three are wrong, so the question was withdrawn from scoring.",
   "why_wrong": {
    "0": "Blood is a colloid: the plasma proteins are dispersed in water at colloidal size, which is why blood shows the Tyndall effect and why it cannot be separated by ordinary filtration. Correct as printed.",
@@ -72,7 +72,7 @@
  },
  {
   "id": "IX|All|General Paper|78",
-  "approved": false,
+  "approved": true,
   "why_correct": "Power is the rate of doing work, so its SI unit is the watt, which is one joule per second. It is named after James Watt.",
   "why_wrong": {
    "0": "The ohm is the unit of electrical resistance.",
@@ -82,7 +82,7 @@
  },
  {
   "id": "IX|All|General Paper|79",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rutherford fired alpha particles, which are helium nuclei carrying a double positive charge, at a thin gold foil. Most passed straight through, but a very few bounced back, and that led him to the idea of a small dense positive nucleus.",
   "why_wrong": {
    "0": "Beta rays are fast electrons. Being negative and very light, they would have been deflected by the foil's own electrons and could not have shown the nucleus.",
@@ -92,7 +92,7 @@
  },
  {
   "id": "IX|All|General Paper|80",
-  "approved": false,
+  "approved": true,
   "why_correct": "Methyl orange is an acid-base indicator, red in acid and yellow in alkali, so the colour change marks the point of neutralisation. It is the standard indicator for a strong acid against a weak base.",
   "why_wrong": {
    "0": "Methylene blue is a dye and a redox indicator, not an acid-base one, so it does not signal neutralisation.",
@@ -102,7 +102,7 @@
  },
  {
   "id": "IX|All|General Paper|81",
-  "approved": false,
+  "approved": true,
   "why_correct": "Chlorine has atomic number 17, so its electrons fill as 2, 8, 7. That leaves 7 in the outermost shell, one short of eight, which is why chlorine so readily gains an electron to form the chloride ion.",
   "why_wrong": {
    "0": "2 is the number in chlorine's innermost shell, the K shell, not the outermost.",
@@ -112,7 +112,7 @@
  },
  {
   "id": "IX|All|General Paper|82",
-  "approved": false,
+  "approved": true,
   "why_correct": "Permanent hardness is caused by the sulphates and chlorides of calcium and magnesium, and calcium sulphate is the standard example. It cannot be removed by boiling, which is what makes it permanent.",
   "why_wrong": {
    "0": "Copper sulphate is not a normal constituent of natural water and is not a cause of hardness. Hardness comes from calcium and magnesium salts.",
@@ -122,7 +122,7 @@
  },
  {
   "id": "IX|All|General Paper|83",
-  "approved": false,
+  "approved": true,
   "why_correct": "Petroleum is a mixture of liquids with different boiling points, so it is separated by fractional distillation in a tall column. Each fraction, including kerosene, diesel and wax, condenses at its own level.",
   "why_wrong": {
    "0": "Evaporation separates a dissolved solid from a liquid, such as salt from water. It cannot separate one liquid from another.",
@@ -132,7 +132,7 @@
  },
  {
   "id": "IX|All|General Paper|84",
-  "approved": false,
+  "approved": true,
   "why_correct": "Newton's second law gives force as mass times acceleration, F equals ma. Its unit, the newton, is defined from this as the force that gives a mass of one kilogram an acceleration of one metre per second squared.",
   "why_wrong": {
    "1": "F equals Wmg is not a formula at all. W usually stands for weight, and weight is already mg, so this multiplies the same quantity twice over.",
@@ -142,7 +142,7 @@
  },
  {
   "id": "IX|All|General Paper|85",
-  "approved": false,
+  "approved": true,
   "why_correct": "A dibasic acid gives two hydrogen ions per molecule on ionising. Sulphuric acid, H2SO4, releases two, which makes it dibasic. Basicity counts the replaceable hydrogens, not the total hydrogen atoms.",
   "why_wrong": {
    "0": "Sodium sulphate is a salt, not an acid. It is what remains after sulphuric acid has been neutralised.",

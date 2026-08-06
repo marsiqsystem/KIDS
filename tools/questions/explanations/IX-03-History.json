@@ -1,7 +1,7 @@
 [
  {
   "id": "IX|All|General Paper|26",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Ottoman Empire, ruled from Turkey, was called the Sick Man of Europe in the nineteenth century because it was steadily losing territory and strength while the great powers waited to divide what was left. The phrase is usually credited to Tsar Nicholas I of Russia.",
   "why_wrong": {
    "0": "England in this period was at the height of its power, with the largest empire in the world. It was one of the powers watching the sick man, not the sick man itself.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "IX|All|General Paper|27",
-  "approved": false,
+  "approved": true,
   "why_correct": "The February Revolution of 1848 overthrew King Louis Philippe and established the Second Republic in France. It set off a wave of risings across Europe, which is why 1848 is called the Year of Revolutions.",
   "why_wrong": {
    "0": "1830 is the July Revolution, which removed Charles X and put Louis Philippe on the throne. The same country, an earlier revolution, and the most common confusion in this chapter.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "IX|All|General Paper|28",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Congress of Vienna worked to three principles: legitimacy, restoring the old ruling houses; compensation, repaying the victors with territory; and balance of power, keeping any one state from dominating Europe again as Napoleon had.",
   "why_wrong": {
    "1": "Four is one too many. The settlement rested on legitimacy, compensation and balance of power, and nothing further was adopted as a founding principle.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "IX|All|General Paper|29",
-  "approved": false,
+  "approved": true,
   "why_correct": "Tsar Alexander I represented Russia at Vienna and attended in person, unusually for a monarch. He also promoted the Holy Alliance that followed the Congress.",
   "why_wrong": {
    "0": "Nicholas I became Tsar in 1825, ten years after the Congress. He is the one remembered for the Sick Man of Europe remark, not for Vienna.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "IX|All|General Paper|30",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Congress met in Vienna, the capital of Austria, from 1814 to 1815. It was hosted and dominated by the Austrian chancellor Metternich, which is why the years that followed are called the Age of Metternich.",
   "why_wrong": {
    "0": "France was the defeated power. It was represented by Talleyrand, but the settlement was made in the victors' territory, not on French soil.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "IX|All|General Paper|31",
-  "approved": false,
+  "approved": true,
   "why_correct": "Giuseppe Mazzini founded Young Italy in Marseilles in 1831, a secret society for young patriots working towards a unified Italian republic. He is remembered as the soul of Italian unification.",
   "why_wrong": {
    "1": "Garibaldi is the sword of unification, the soldier who led the Thousand Red Shirts to Sicily. He was inspired by Mazzini but did not found Young Italy.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "IX|All|General Paper|32",
-  "approved": false,
+  "approved": true,
   "why_correct": "James Hargreaves invented the Spinning Jenny in 1764. It let one worker spin several threads at once, and it is one of the machines that began the Industrial Revolution in the cotton industry.",
   "why_wrong": {
    "0": "Samuel Crompton invented the Spinning Mule in 1779, which combined the Jenny with Arkwright's water frame. Later, and a different machine.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "IX|All|General Paper|33",
-  "approved": false,
+  "approved": true,
   "why_correct": "Digging began under Egypt, where the canal lies, with the Suez Canal Company set up under a concession from the Egyptian viceroy Said Pasha. Work started in 1859 and the canal opened in 1869.",
   "why_wrong": {
    "1": "Russia had no part in the Suez project. Its own canal ambitions lay elsewhere, and it was more concerned with the Ottoman straits.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "IX|All|General Paper|34",
-  "approved": false,
+  "approved": true,
   "why_correct": "Robert Owen is called the Father of British Socialism. A mill owner at New Lanark in Scotland, he cut working hours, banned child labour in his mills and built schools, showing that industry could be run humanely.",
   "why_wrong": {
    "0": "Louis Blanc was a French socialist, remembered for the national workshops of 1848 and the right to work.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "IX|All|General Paper|35",
-  "approved": false,
+  "approved": true,
   "why_correct": "Both Opium Wars were fought between Britain and China. The first, from 1839 to 1842, ended with the Treaty of Nanking and the cession of Hong Kong; the second, from 1856 to 1860, opened China further to foreign trade.",
   "why_wrong": {
    "0": "France and Holland were rivals in Europe and Asia, but the Opium Wars were fought in China over the opium trade.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "IX|All|General Paper|36",
-  "approved": false,
+  "approved": true,
   "why_correct": "Ivan IV, known as Ivan the Terrible, was crowned in 1547 as the first ruler to take the title Tsar of All Russia. The word Tsar comes from Caesar and was a claim to imperial authority.",
   "why_wrong": {
    "0": "Nicholas I ruled from 1825 to 1855, nearly three centuries after the title was first taken.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "IX|All|General Paper|37",
-  "approved": false,
+  "approved": true,
   "why_correct": "Peter the Great, who ruled from 1682 to 1725, is called the Father of Modern Russia. He westernised the army, the navy, dress and administration, and built St Petersburg as Russia's window on Europe.",
   "why_wrong": {
    "0": "Nicholas I was a conservative who worked to hold back change, which is close to the opposite of modernising.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "IX|All|General Paper|38",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Union of Soviet Socialist Republics was formally created on 30 December 1922, when Russia, Ukraine, Belorussia and the Transcaucasian republic joined into one union state.",
   "why_wrong": {
    "0": "1921 is the year the civil war effectively ended and Lenin launched the New Economic Policy. Groundwork for the union, but not the union itself.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "IX|All|General Paper|39",
-  "approved": false,
+  "approved": true,
   "why_correct": "Herbert Clark Hoover was President when the Wall Street Crash came in October 1929, and he held office through the worst years of the Depression until March 1933.",
   "why_wrong": {
    "0": "Franklin D. Roosevelt followed Hoover in 1933 and answered the Depression with the New Deal. He is the president of the recovery, not of the crash, and this is the classic trap in this question.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "IX|All|General Paper|40",
-  "approved": false,
+  "approved": true,
   "why_correct": "Mein Kampf, meaning My Struggle, was written by Hitler while imprisoned after the failed Munich Putsch and published in 1925. It sets out his ideology and his plans, which makes it a key source for the period.",
   "why_wrong": {
    "1": "War and Peace is Tolstoy's novel about Russia and the Napoleonic wars. Russian fiction, not German autobiography.",

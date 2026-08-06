@@ -1,7 +1,7 @@
 [
  {
   "id": "IX|All|General Paper|56",
-  "approved": false,
+  "approved": true,
   "why_correct": "Metabolism, the sum of all the chemical reactions inside a body, is the one thing every living organism does without exception. Nothing alive can stop metabolising and remain alive.",
   "why_wrong": {
    "0": "Locomotion is movement from place to place, and plants and fixed animals such as corals and sponges do not do it. Living things all show movement of some kind, but not locomotion.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "IX|All|General Paper|57",
-  "approved": false,
+  "approved": true,
   "why_correct": "The kidneys are the main excretory organs. They filter the blood and remove urea, excess salts and water as urine, and they also regulate the body's water and salt balance.",
   "why_wrong": {
    "0": "The heart pumps blood. It is central to circulation but removes no waste itself.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "IX|All|General Paper|58",
-  "approved": false,
+  "approved": true,
   "why_correct": "A tissue is a group of similar cells doing one particular job together, such as muscle tissue or nerve tissue. The order of organisation runs cell, tissue, organ, organ system, organism.",
   "why_wrong": {
    "0": "An organ is made of several different tissues working together, like the heart with muscle, nerve and connective tissue. The question specifies similar cells, which is one step lower.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "IX|All|General Paper|59",
-  "approved": false,
+  "approved": true,
   "why_correct": "Photosynthesis is the process by which green plants use chlorophyll to trap sunlight and convert carbon dioxide and water into glucose, storing solar energy as chemical energy in that glucose.",
   "why_wrong": {
    "0": "Respiration does the reverse: it releases the energy stored in glucose rather than capturing it. The two processes are opposites and are the pair most often swapped.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "IX|All|General Paper|60",
-  "approved": false,
+  "approved": true,
   "why_correct": "Transpiration is the loss of water as vapour from the aerial parts of a plant, mainly through the stomata of the leaves. The pull it creates is what draws water up from the roots.",
   "why_wrong": {
    "0": "Osmosis is the movement of water across a semi-permeable membrane, which is how roots take water in. Liquid water moving in, not vapour moving out.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "IX|All|General Paper|61",
-  "approved": false,
+  "approved": true,
   "why_correct": "The energy released when glucose is broken down is stored in ATP, adenosine triphosphate, which is called the energy currency of the cell because every energy-requiring process spends it.",
   "why_wrong": {
    "0": "DNA carries genetic information. It is a store of instructions, not of usable energy.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "IX|All|General Paper|62",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The stem carries a double negative. \"Not a non-renewable resource\" means simply \"a renewable resource\", and three of the four options are renewable: solar energy, wind energy and forest timber. The setter meant to ask which one is non-renewable, and coal and petroleum was the intended answer, but that is not the question that was printed. No change of key can repair a defect that lies in the stem, so the question was withdrawn from scoring.",
   "why_wrong": {
    "0": "Solar energy is renewable, so as the question was actually printed this is a correct answer. It is listed here only because the whole question was withdrawn, not because there is anything wrong with the reasoning.",
@@ -72,7 +72,7 @@
  },
  {
   "id": "IX|All|General Paper|63",
-  "approved": false,
+  "approved": true,
   "why_correct": "Decomposers, mainly bacteria and fungi, break dead plants and animals down into simple nutrients that return to the soil for producers to use again. They are what closes the nutrient cycle.",
   "why_wrong": {
    "0": "Producers are green plants, which make food from sunlight. They take up the nutrients decomposers release rather than releasing them.",
@@ -82,7 +82,7 @@
  },
  {
   "id": "IX|All|General Paper|64",
-  "approved": false,
+  "approved": true,
   "why_correct": "Stomata are the tiny pores on the leaf surface, each bounded by two guard cells that open and close it. They allow gas exchange for photosynthesis and are the main route for transpiration.",
   "why_wrong": {
    "0": "Lenticels are pores too, but they are found in the bark of woody stems, not on leaves.",
@@ -92,7 +92,7 @@
  },
  {
   "id": "IX|All|General Paper|65",
-  "approved": false,
+  "approved": true,
   "why_correct": "Anaerobic respiration takes place without oxygen. It yields far less energy than the aerobic kind and produces alcohol and carbon dioxide in yeast, or lactic acid in our muscles when they are short of oxygen.",
   "why_wrong": {
    "0": "Aerobic respiration is exactly the opposite: it requires oxygen and releases much more energy per glucose molecule.",
@@ -102,7 +102,7 @@
  },
  {
   "id": "IX|All|General Paper|66",
-  "approved": false,
+  "approved": true,
   "why_correct": "Quinine is an alkaloid, and alkaloids contain nitrogen, so it counts as a nitrogenous waste product of plants. It is obtained from cinchona bark and is used against malaria.",
   "why_wrong": {
    "1": "Resins are plant waste, but they are made of carbon, hydrogen and oxygen with no nitrogen in them.",
@@ -112,7 +112,7 @@
  },
  {
   "id": "IX|All|General Paper|67",
-  "approved": false,
+  "approved": true,
   "why_correct": "Polio is caused by the poliovirus and is prevented by vaccination, both the oral drops and the injected vaccine. India's pulse polio campaign made the country polio-free in 2014.",
   "why_wrong": {
    "0": "Malaria is caused by Plasmodium, a protozoan carried by the Anopheles mosquito. Not a virus, and there is no routine vaccine for it in India.",
@@ -122,7 +122,7 @@
  },
  {
   "id": "IX|All|General Paper|68",
-  "approved": false,
+  "approved": true,
   "why_correct": "Haemoglobin is the red pigment in our red blood cells. It contains iron, which gives it the colour, and it carries oxygen from the lungs to the tissues.",
   "why_wrong": {
    "0": "Haemocyanin is a respiratory pigment too, but it contains copper and is blue. It is found in molluscs and arthropods, not in humans.",
@@ -132,7 +132,7 @@
  },
  {
   "id": "IX|All|General Paper|69",
-  "approved": false,
+  "approved": true,
   "why_correct": "BCG protects against tuberculosis, caused by Mycobacterium tuberculosis. In India it is given at birth and is part of the universal immunisation programme.",
   "why_wrong": {
    "0": "Cholera has its own oral vaccine and is caused by a different bacterium altogether.",
@@ -142,7 +142,7 @@
  },
  {
   "id": "IX|All|General Paper|70",
-  "approved": false,
+  "approved": true,
   "why_correct": "Water is abiotic, meaning non-living. The abiotic components of an ecosystem are its physical and chemical surroundings: water, air, soil, light and temperature.",
   "why_wrong": {
    "0": "Plants are living, and as producers they are a biotic component.",

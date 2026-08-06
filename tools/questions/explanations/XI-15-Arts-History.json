@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Arts|History|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Dendrochronology is the study of tree rings, so it works on the remains of plants. Each year a tree adds a ring, and their widths give both a date and a record of past climate.",
   "why_wrong": {
    "0": "Furniture may be dated by the method, but only because it is made of wood, so the material studied is still the plant.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Arts|History|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The rock and pillar edicts of Ashoka, cut in the middle of the third century BCE, are the oldest deciphered inscriptions found in India. They were read for the first time in 1837, when James Prinsep worked out the Brahmi script, and they are the foundation of everything we know about the Mauryan empire from its own words.",
   "why_wrong": {
    "1": "The Allahabad inscription, the Prayag Prashasti composed by Harisena in praise of Samudragupta, dates from about 350 CE. It is also engraved on an Ashokan pillar, which is a useful reminder of which of the two came first.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Arts|History|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Mesopotamians invented writing first, developing cuneiform in Sumer around 3400 BCE. It began as pictographic records of grain and cattle pressed into clay with a reed stylus.",
   "why_wrong": {
    "1": "The Harappan script appeared around 2600 BCE, later than cuneiform, and it remains undeciphered.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Arts|History|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Quintus Curtius Rufus, a Roman historian of the first century, wrote the Historiae Alexandri Magni, which covers Alexander's campaigns including his invasion of India and the battle against Porus.",
   "why_wrong": {
    "0": "Herodotus is the father of history but wrote of the Persian Wars, a century before Alexander was born.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Arts|History|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Statements two and four are true and one and three are false. Marx did urge intellectuals to join the working-class movement, and he interpreted history materially, through the economic base of society.",
   "why_wrong": {
    "0": "This makes statement one true, but Marx understood society from below, starting from the material conditions of production and the working class, not from above.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Arts|History|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Of the four travellers, Fa-Hien came earliest. The Chinese pilgrim visited India in the early fifth century, during the reign of Chandragupta II, and recorded what he saw in his account of the Buddhist kingdoms.",
   "why_wrong": {
    "0": "Jean-Baptiste Tavernier was a French jeweller who travelled in India in the seventeenth century, under the Mughals, so he is the latest of the four.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Arts|History|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Euphrates formed the traditional frontier between the Roman empire and the Iranian empires, first Parthian and later Sasanian. Control of the crossings was fought over for centuries.",
   "why_wrong": {
    "0": "The Danube was Rome's northern frontier, against the Germanic peoples.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Arts|History|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "All three worked together. Pressure on the frontiers and barbarian invasion strained the army, internal corruption weakened government, and economic trouble with debased coinage and inflation undermined the whole structure.",
   "why_wrong": {
    "0": "External pressure was severe, but the empire had survived invasions before when it was internally sound.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Arts|History|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "All three mention slavery. Hammurabi's Code regulates the treatment of slaves in Babylon, Homer's epics describe captives taken in war, and the Twelve Tables set out the legal position of slaves in early Rome.",
   "why_wrong": {
    "0": "The Code of Hammurabi does deal with slaves, but so do the others.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Arts|History|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Vespasian began the Colosseum around 72 CE, and it was completed under his son Titus in 80 CE. Its formal name, the Flavian Amphitheatre, comes from their dynasty.",
   "why_wrong": {
    "0": "Nero built the Golden House on the same site, and the Colosseum was deliberately raised over its lake as a gift back to the people.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Arts|History|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Menander I, known in Indian sources as Milinda, is credited with the first gold coins issued in India. He ruled the largest of the Indo-Greek kingdoms and appears in the Buddhist text Milindapanha, which records his dialogue with the monk Nagasena.",
   "why_wrong": {
    "0": "Antimachus I was an earlier Indo-Greek ruler, known for his silver coinage and his portrait with a distinctive hat.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Arts|History|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sparta and Athens were the two great city-states of ancient Greece, so statements one and two are true. Milan and Venice are Italian cities of a much later age, so three and four are false.",
   "why_wrong": {
    "1": "This reverses the truth, making the Greek cities false and the Italian ones Greek.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Arts|History|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Both statements are true and the reason does explain the assertion. Augustus ended a century of civil war, established the Pax Romana and presided over a flowering of literature and building, which is precisely why his age is called golden.",
   "why_wrong": {
    "0": "The assertion is correct, so this option fails at the first step.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Arts|History|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The passage says revolts were rare while escape was common, so slaves in ancient Greece preferred individual escape to collective rebellion. Scattered across many small households, they had little chance to organise together.",
   "why_wrong": {
    "0": "The passage says the opposite, that organised revolt was rare.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Arts|History|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Aristotle wrote the Politics, in which he classified constitutions and called man a political animal. He also wrote the Nicomachean Ethics and the Poetics.",
   "why_wrong": {
    "0": "Thucydides wrote the History of the Peloponnesian War.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Arts|History|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Cleisthenes is called the father of Athenian democracy. His reforms of 508 BCE reorganised the citizens into ten tribes cutting across old family loyalties, and gave real power to the assembly.",
   "why_wrong": {
    "0": "Aristotle analysed democracy as a philosopher and was in fact critical of it.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Arts|History|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "The sixteen Mahajanapadas are listed in the Anguttara Nikaya, a Buddhist text in the Pali canon. Jain sources such as the Bhagavati Sutra give a similar list.",
   "why_wrong": {
    "0": "The Ramayana is an epic and does not give this administrative list.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Arts|History|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Buddhist sources record both Bimbisara and Ajatashatru as lay followers of the Buddha. Bimbisara gave the Venuvana grove to the sangha, and Ajatashatru is said to have hosted the First Buddhist Council at Rajgir after the Buddha's death.",
   "why_wrong": {
    "0": "Mahavira was their contemporary, and Jain tradition also claims both kings, calling them Shrenika and Kunika. So this is not a baseless answer, and historians note that the two traditions compete for them. What the question asks for is the association recorded in the Buddhist canon, which is with the Buddha.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Arts|History|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Mauryan empire had its centre in Magadha, with its capital at Pataliputra on the Ganga. Magadha's iron, its fertile land and its river routes had already made it the strongest of the Mahajanapadas.",
   "why_wrong": {
    "0": "Malwa in central India was a province rather than the centre.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Arts|History|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Alexander fought Porus at the Battle of the Hydaspes in 326 BCE, on the river now called the Jhelum. Alexander won but was so impressed by Porus that he restored his kingdom to him.",
   "why_wrong": {
    "0": "The siege of Tyre in 332 BCE was in Phoenicia, on the Mediterranean coast.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Arts|History|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Statements two and three are true and one and four are false. The Smritishastras were composed in this age and Kalidasa wrote then, but the medium of Gupta literature was Sanskrit, not Pali, and Latin never reached India.",
   "why_wrong": {
    "0": "This makes statement one true, but Pali belongs to the earlier Buddhist literature, whereas the Gupta age is the great age of Sanskrit.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Arts|History|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The passage states directly that the Ottoman emperors monitored their officials in order to maintain public welfare and progress. The answer to a case-based question must come from the passage itself.",
   "why_wrong": {
    "1": "Punishing corrupt officials would be a means of achieving the purpose, not the purpose itself, and the passage does not mention punishment.",

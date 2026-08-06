@@ -1,7 +1,7 @@
 [
  {
   "id": "X|All|General Paper|71",
-  "approved": false,
+  "approved": true,
   "why_correct": "The molar mass of carbon dioxide is 12 plus 32, that is 44 grams. So 22 grams is half a mole, and since one mole of any gas occupies 22.4 litres at STP, half a mole occupies 11.2 litres.",
   "why_wrong": {
    "0": "22.4 litres is the volume of one full mole. That would need 44 grams of carbon dioxide, not 22, so this answer skips the step of finding the number of moles.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "X|All|General Paper|72",
-  "approved": false,
+  "approved": true,
   "why_correct": "Water vapour is a greenhouse gas, and in fact the most abundant one. Like carbon dioxide and methane, its molecules absorb the infrared radiation the Earth gives off and re-radiate it back downwards.",
   "why_wrong": {
    "0": "Oxygen is not a greenhouse gas. Its molecule is made of two identical atoms and cannot absorb infrared in the way a greenhouse gas must.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "X|All|General Paper|73",
-  "approved": false,
+  "approved": true,
   "why_correct": "Bauxite, mainly hydrated aluminium oxide, is the ore of aluminium. It is purified by the Bayer process and then reduced by electrolysis, because aluminium is too reactive to be extracted by carbon.",
   "why_wrong": {
    "0": "Haematite is an ore of iron, Fe2O3, and the chief one worked in India.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "X|All|General Paper|74",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nessler's reagent is the standard test for ammonia. With ammonia or an ammonium salt it gives a brown precipitate, sometimes called Nessler's brown, and the test is sensitive enough to detect very small amounts.",
   "why_wrong": {
    "0": "Nitrogen dioxide is identified by its own reddish brown colour and its acidic, choking nature, not by Nessler's reagent.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "X|All|General Paper|75",
-  "approved": false,
+  "approved": true,
   "why_correct": "Iron is extracted by thermal reduction in the blast furnace, where carbon and carbon monoxide reduce the oxide ore to the metal. Moderately reactive metals are the ones extracted this way.",
   "why_wrong": {
    "0": "Silver is a low-reactivity metal found largely in the native state, so it needs no reduction of this kind.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "X|All|General Paper|76",
-  "approved": false,
+  "approved": true,
   "why_correct": "Chloroform is CHCl3. Chlorinating it once more replaces its last hydrogen and gives carbon tetrachloride, so this is the one reaction of the four that does not yield chloroform. It consumes it instead.",
   "why_wrong": {
    "0": "Methane with chlorine in sunlight substitutes one hydrogen at a time, and chloroform appears as the third product in that chain.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "X|All|General Paper|77",
-  "approved": false,
+  "approved": true,
   "why_correct": "A liquid has no fixed shape of its own, so length and area mean nothing for it. Only its volume can expand, which gives one type of thermal expansion, called cubical or volume expansion.",
   "why_wrong": {
    "0": "Liquids certainly do expand on heating, which is exactly how a thermometer works.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "X|All|General Paper|78",
-  "approved": false,
+  "approved": true,
   "why_correct": "In hypermetropia, or long sight, the image forms behind the retina. A convex lens converges the light before it enters the eye and brings the image forward onto the retina.",
   "why_wrong": {
    "0": "A plano lens has one flat surface, and the term alone does not say whether it converges or diverges. It is not a correction in itself.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "X|All|General Paper|79",
-  "approved": false,
+  "approved": true,
   "why_correct": "Potassium chloride is an ionic compound, and like dissolves like. Benzene is a non-polar solvent with no ability to pull the ions apart, so KCl is insoluble in it.",
   "why_wrong": {
    "1": "Glycerol is polar and carries hydroxyl groups, so it can dissolve ionic salts to some extent.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "X|All|General Paper|80",
-  "approved": false,
+  "approved": true,
   "why_correct": "Urea is made industrially from carbon dioxide and ammonia at high pressure. The two combine to give ammonium carbamate, which then loses water to form urea.",
   "why_wrong": {
    "0": "Carbon dioxide and water give carbonic acid, not urea. Nitrogen has to come from somewhere, and neither of these supplies it.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "X|All|General Paper|81",
-  "approved": false,
+  "approved": true,
   "why_correct": "Going down group one, the outer electron sits in a larger shell and is better shielded, so it is easier to remove and ionisation energy falls. Order down the group is Li, Na, Rb, Cs, so increasing ionisation energy is Cs, Rb, Na, Li.",
   "why_wrong": {
    "1": "This puts lithium lowest, but lithium is the smallest of these atoms and holds its electron most tightly, so its ionisation energy is the highest.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "X|All|General Paper|82",
-  "approved": false,
+  "approved": true,
   "why_correct": "The becquerel is the SI unit of radioactivity, defined as one disintegration per second. It is named after Henri Becquerel, who discovered radioactivity in 1896.",
   "why_wrong": {
    "0": "The joule is the unit of energy, not of the rate of decay.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "X|All|General Paper|83",
-  "approved": false,
+  "approved": true,
   "why_correct": "A ray striking a surface perpendicularly has an angle of incidence of zero, so it passes straight through without bending. The deviation is therefore zero degrees.",
   "why_wrong": {
    "1": "90 degrees would mean the ray turned a right angle, which no glass slab does.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "X|All|General Paper|84",
-  "approved": false,
+  "approved": true,
   "why_correct": "Ammonia is dried with quicklime, calcium oxide, because it is a basic drying agent and does not react with the alkaline gas. The rule is that a drying agent must not react with what it dries.",
   "why_wrong": {
    "0": "Calcium chloride reacts with ammonia to form an addition compound, so it would absorb the gas rather than merely dry it. This is the classic exception to remember, since calcium chloride dries almost everything else.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "X|All|General Paper|85",
-  "approved": false,
+  "approved": true,
   "why_correct": "Thermal conductivity is the rate of heat flow per unit area per unit temperature gradient, so its SI unit is watt per metre per kelvin. It combines power, length and temperature.",
   "why_wrong": {
    "0": "Watt per metre leaves out the temperature altogether, and thermal conductivity is defined in terms of a temperature difference.",

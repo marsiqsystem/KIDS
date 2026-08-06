@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Commerce|Economics|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Banking and insurance are services, so they belong to the tertiary sector. This sector does not produce goods but supports production and distribution, and it now contributes the largest share of India's GDP.",
   "why_wrong": {
    "0": "The primary sector draws directly on nature, through farming, fishing, forestry and mining.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Commerce|Economics|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "GDP is Gross Domestic Product, the money value of all final goods and services produced within a country's borders in a year, whoever produces them.",
   "why_wrong": {
    "1": "General is not the word; gross means before deducting depreciation.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Commerce|Economics|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Reserve Bank of India has the sole right to issue currency notes, except the one rupee note, which is issued by the Ministry of Finance. It is the country's central bank.",
   "why_wrong": {
    "0": "The State Bank of India is the largest commercial bank but has no note-issuing power.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Commerce|Economics|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "The central problem is scarcity: resources are limited while wants are unlimited, so choices must be made about what to produce, how, and for whom.",
   "why_wrong": {
    "0": "Inflation is a particular macroeconomic problem, serious but not universal.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Commerce|Economics|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "National income is the total income earned by the normal residents of a country in a year, whether within the country or abroad. Formally it is net national product at factor cost.",
   "why_wrong": {
    "0": "Government income is only one part, coming largely from taxes.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Commerce|Economics|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Income tax is a direct tax: it is levied on a person's income and borne by that same person, so the burden cannot be shifted.",
   "why_wrong": {
    "0": "GST is indirect, passed on to the consumer in the price.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Commerce|Economics|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "By the law of demand, other things being equal, quantity demanded falls when price rises. That inverse relationship is why the demand curve slopes downward.",
   "why_wrong": {
    "0": "Demand rising with price describes the exceptions, Giffen and Veblen goods, not the general law.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Commerce|Economics|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Inflation is a sustained rise in the general price level, which means each rupee buys less than before. It is measured by index numbers such as the Consumer Price Index.",
   "why_wrong": {
    "0": "A fall in prices is deflation, the opposite condition.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Commerce|Economics|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The RBI is called the banker's bank because commercial banks keep deposits with it, borrow from it in difficulty, and clear their mutual claims through it. It is also the lender of last resort.",
   "why_wrong": {
    "0": "The State Bank of India is a commercial bank, even though it is government-owned and the largest.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Commerce|Economics|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Fiscal policy is the government's policy on its own expenditure, taxation and borrowing. It is announced mainly through the annual Budget.",
   "why_wrong": {
    "0": "Money supply is the subject of monetary policy, run by the RBI. Fiscal against monetary is the distinction this question tests: fiscal is the government's money, monetary is the central bank's control of credit.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Commerce|Economics|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "GDP is the value of all final goods and services produced within a country's territory in a year, regardless of who produces them.",
   "why_wrong": {
    "0": "NNP is net national product, that is GNP after deducting depreciation.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Commerce|Economics|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Tax revenue is a revenue receipt, because it neither creates a liability for the government nor reduces its assets. It is a regular and recurring source of income.",
   "why_wrong": {
    "0": "Borrowings create a liability, so they are a capital receipt.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Commerce|Economics|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Balance of Payments is a systematic record of all economic transactions between the residents of a country and the rest of the world during a year, covering both the current and the capital account.",
   "why_wrong": {
    "0": "Internal transactions are recorded in national income accounts, not here.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Commerce|Economics|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Devaluation lowers the external value of the currency, so foreigners pay less of their own money for the same goods. Exports therefore become cheaper abroad and more competitive.",
   "why_wrong": {
    "0": "Imports become dearer, not cheaper, so they usually fall.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Commerce|Economics|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Monopoly is a market with a single seller and no close substitutes, so the seller is a price maker. Entry of rivals is blocked.",
   "why_wrong": {
    "0": "Perfect competition has very many sellers of an identical product, each a price taker.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Commerce|Economics|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The expenditure method is one of the three ways of measuring national income, adding consumption, investment, government spending and net exports. The other two are the income and product methods.",
   "why_wrong": {
    "0": "Inflation is measured by price index numbers.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Commerce|Economics|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "GST is an indirect tax on the supply of goods and services. The seller collects it and remits it, but the consumer bears it in the price.",
   "why_wrong": {
    "0": "A direct tax is borne by the person who pays it in, which GST is not.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Commerce|Economics|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "The repo rate is the rate at which the RBI lends short-term funds to commercial banks against government securities. Raising it makes borrowing costlier and tightens credit in the economy.",
   "why_wrong": {
    "0": "The rate banks charge customers is the lending rate, based on the repo but not the same thing.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Commerce|Economics|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Borrowings are a capital receipt because they create a liability for the government, which must be repaid with interest.",
   "why_wrong": {
    "0": "Income tax creates no liability and reduces no asset, so it is revenue.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Commerce|Economics|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Human capital formation is the process of adding to people's productive capacity through education, training, health care and skills. It treats spending on people as an investment rather than consumption.",
   "why_wrong": {
    "0": "Building factories is physical capital formation.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Commerce|Economics|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The current account of the Balance of Payments records exports and imports of goods and services, together with income and current transfers. It deals with flows that do not create claims.",
   "why_wrong": {
    "0": "Foreign loans belong to the capital account, since they create a claim.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Commerce|Economics|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Open market operations are the RBI's purchase and sale of government securities in the open market, used to expand or contract the money supply. They are a quantitative instrument of monetary policy.",
   "why_wrong": {
    "0": "Commercial banks trade in securities but do not conduct monetary policy.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Commerce|Economics|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Intermediate goods are excluded from GDP because their value is already contained in the price of the final goods they go into. Counting both would inflate the total, which is the double counting problem.",
   "why_wrong": {
    "0": "Including them twice is exactly the error the exclusion prevents.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Commerce|Economics|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Deficit financing means the government spends more than it receives, meeting the gap by borrowing or by creating new money. It can stimulate a slack economy but risks inflation.",
   "why_wrong": {
    "0": "A cut in taxes may cause a deficit but is not itself deficit financing.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Commerce|Economics|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "India's liberalisation began in 1991, under the New Economic Policy introduced during a severe balance of payments crisis. Licensing was dismantled and the economy opened to trade and foreign investment.",
   "why_wrong": {
    "0": "Some cautious loosening began in the 1980s, but the decisive reform came in 1991.",

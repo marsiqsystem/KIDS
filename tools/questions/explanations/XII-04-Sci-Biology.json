@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Science|Biology|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Hugo de Vries proposed mutation theory from his work on the evening primrose, holding that evolution proceeds by sudden, large, random changes he called saltation, rather than by slow accumulation.",
   "why_wrong": {
    "0": "Recombination reshuffles existing genes during meiosis and produces variation, but not new alleles.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Science|Biology|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Penguin and dolphin flippers look alike and do the same job but have different embryonic origins, one a bird wing and the other a mammal forelimb. Similar function from different origin makes them analogous, an example of convergent evolution.",
   "why_wrong": {
    "0": "Homologous organs share a common origin but may differ in function, as a whale's flipper and a human arm do. That is the reverse case.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Science|Biology|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Palaeontology is the study of fossils, the preserved remains or traces of past life. Fossils provide the direct evidence for evolution and for the sequence of life through geological time.",
   "why_wrong": {
    "0": "Embryology studies the development of the embryo, which gives indirect evidence of evolution.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Science|Biology|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "DNA fingerprinting uses satellite DNA, in particular variable number tandem repeats, because the number of repeats differs greatly between individuals while remaining the same in every cell of one person.",
   "why_wrong": {
    "0": "Exons are the coding regions and are highly conserved, so they vary too little between individuals to be useful.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Science|Biology|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The lac z gene codes for beta-galactosidase, the enzyme that hydrolyses lactose into glucose and galactose. It is the first of the three structural genes in the operon.",
   "why_wrong": {
    "0": "lac y codes for permease, which lets lactose into the cell.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Science|Biology|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Transcription is the copying of genetic information from the template strand of DNA into a strand of RNA, carried out by RNA polymerase.",
   "why_wrong": {
    "0": "Replication copies DNA into DNA, doubling the genetic material before cell division.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Science|Biology|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The purines are adenine and guanine, both double-ring bases. The pyrimidines, with a single ring, are cytosine and thymine in DNA.",
   "why_wrong": {
    "0": "Cytosine is a pyrimidine, not a purine.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Science|Biology|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "A karyotype of 44 autosomes with XXY, giving 47 chromosomes in all, is Klinefelter's syndrome. The individual is male with an extra X, and shows some female characteristics with sterility.",
   "why_wrong": {
    "0": "Turner's syndrome is 44 plus XO, with 45 chromosomes. The individual is female and sterile, and it is a monosomy rather than a trisomy.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Science|Biology|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Down's syndrome is caused by an extra copy of chromosome 21, so the person has three of them and 47 chromosomes in all. It was first described by Langdon Down.",
   "why_wrong": {
    "0": "Trisomy 13 is Patau's syndrome.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Science|Biology|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sutton and Boveri proposed the chromosomal theory of inheritance in 1902, noting that chromosomes behave in meiosis exactly as Mendel's factors must, and so concluding that the factors are carried on chromosomes.",
   "why_wrong": {
    "0": "Mendel gave the laws of inheritance in 1866, before chromosomes were understood at all.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Science|Biology|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Human skin colour is controlled by several genes acting together, each adding a small amount of pigment, so the result is a continuous range rather than distinct types. That is polygenic inheritance.",
   "why_wrong": {
    "0": "Multiple allelism means one gene with more than two alleles, as in ABO blood groups. One gene, several forms, which is a different idea.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Science|Biology|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Haemophilia is X-linked recessive, so it appears mostly in males, who have only one X. A female carrier passes it to half her sons, which is why it ran through European royal families.",
   "why_wrong": {
    "0": "Thalassemia is autosomal recessive, not sex-linked.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Science|Biology|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The anther is the microsporangium of a flower, where microspore mother cells divide by meiosis to produce pollen grains, the male gametophytes.",
   "why_wrong": {
    "0": "The ovule is the megasporangium, producing the female gametophyte.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Science|Biology|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Double fertilisation is unique to angiosperms. One male gamete fuses with the egg to form the zygote, and the other fuses with two polar nuclei to form the triploid endosperm.",
   "why_wrong": {
    "0": "Bryophytes have a single fertilisation and no seeds at all.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Science|Biology|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Apomixis is the formation of seeds without fertilisation, so the offspring are genetically identical to the parent. It is valuable in agriculture because hybrid vigour can then be preserved across generations.",
   "why_wrong": {
    "0": "Parthenocarpy is fruit without fertilisation, and such fruits are seedless. Seed against fruit is exactly what separates these two.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Science|Biology|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Parthenocarpy is the development of fruit without fertilisation, giving seedless fruit such as banana and some grapes. It can be induced with growth hormones.",
   "why_wrong": {
    "0": "Apomixis produces seeds without fertilisation, which is the paired term and the opposite way round.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Science|Biology|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "After fertilisation in the fallopian tube the zygote divides repeatedly to form the morula, which travels down to the uterus. There it develops a fluid filled cavity and becomes the blastocyst, with an inner cell mass and an outer trophoblast. It is the trophoblast that attaches to and invades the uterine lining, and NCERT puts it plainly: the blastocyst becomes embedded in the endometrium. Implantation is therefore a blastocyst stage event.",
   "why_wrong": {
    "0": "The zygote is a single cell and is still in the fallopian tube. It has not even reached the uterus, let alone attached to it.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Science|Biology|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "In blood group AB both the A and the B alleles are fully expressed, so both antigens appear on the red cells. Neither masks the other, which is co-dominance.",
   "why_wrong": {
    "0": "Incomplete dominance would give a blend, some intermediate antigen between A and B, and no such thing exists. This is the distinction the question turns on.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Science|Biology|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "A pleiotropic gene produces several apparently unrelated phenotypic effects. Phenylketonuria is the standard example, causing mental retardation, reduced hair and skin pigmentation together.",
   "why_wrong": {
    "0": "Polygenic describes many genes acting on one trait, which is the reverse relationship.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Science|Biology|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The interstitial cells of Leydig, lying between the seminiferous tubules, secrete testosterone under the influence of luteinising hormone.",
   "why_wrong": {
    "0": "Sertoli cells lie inside the tubules and nourish the developing sperm. They respond to FSH and secrete inhibin, not testosterone.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Science|Biology|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "A sharp surge of luteinising hormone at about the middle of the cycle ruptures the Graafian follicle and releases the ovum. The remains of the follicle then become the corpus luteum.",
   "why_wrong": {
    "0": "Rising oestrogen from the growing follicle is what triggers the LH surge, so it is the cause of the cause rather than the immediate trigger.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Science|Biology|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The signals for parturition come from both the fully developed foetus and the placenta, forming the foetal ejection reflex. This triggers oxytocin release from the maternal pituitary, which causes uterine contractions.",
   "why_wrong": {
    "0": "The placenta contributes, but it is only half the source.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Science|Biology|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Amniocentesis withdraws amniotic fluid to examine foetal cells for chromosomal and genetic abnormalities, such as Down's syndrome. It is legally restricted in India to prevent its misuse for sex determination.",
   "why_wrong": {
    "0": "Foetal age is estimated by ultrasound.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Science|Biology|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Industrial melanism is directional selection. Soot darkened the tree trunks, so the dark moths were better camouflaged and the population shifted steadily towards one extreme of the range.",
   "why_wrong": {
    "1": "Disruptive selection favours both extremes and eliminates the middle, splitting the population in two.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Science|Biology|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Hershey and Chase used radioactive phosphorus-32 to label DNA and sulphur-35 to label protein. Only the phosphorus entered the bacteria, proving DNA is the genetic material.",
   "why_wrong": {
    "0": "Carbon and nitrogen occur in both DNA and protein, so labelling them could not have separated the two.",

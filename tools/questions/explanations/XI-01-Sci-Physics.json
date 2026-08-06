@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Science|Physics|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Power is work divided by time. Work has dimensions ML2T−2, so dividing by T gives ML2T−3.",
   "why_wrong": {
    "1": "MLT is not the dimension of any standard quantity, and it carries no negative power of time, which every rate must have.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Science|Physics|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Torque plays the same role in rotation that force plays in straight-line motion: it is what produces angular acceleration. The rotational form of Newton's second law is torque equals moment of inertia times angular acceleration.",
   "why_wrong": {
    "0": "The rotational analogue of mass is moment of inertia, since both measure resistance to a change of motion.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Science|Physics|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Instantaneous power is the dot product of force and velocity, P equals F dot v. It follows from power being the rate of doing work and work being force dot displacement.",
   "why_wrong": {
    "0": "Mass times velocity is momentum, which is a vector, not power.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Science|Physics|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "To just complete a vertical loop the string must stay taut at the top, so the minimum speed there is root gr. Using energy conservation between top and bottom, with a height difference of 2r, gives the minimum speed at the lowest point as root 5gr.",
   "why_wrong": {
    "0": "Root gr is the minimum speed at the highest point, where gravity alone supplies the centripetal force. The question asks about the lowest point.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Science|Physics|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Friction is non-conservative because the work it does depends on the path taken, not just on the endpoints, and the energy it removes is lost as heat rather than stored.",
   "why_wrong": {
    "0": "Gravity is conservative. Work done against it is stored as potential energy and can be recovered in full.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Science|Physics|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "The slope of a graph is the rate of change of the quantity on the vertical axis with respect to the one on the horizontal axis. On a displacement time graph that is the rate of change of displacement with time, which is precisely the definition of velocity. A steeper line means a faster body, and a horizontal line means the body is at rest.",
   "why_wrong": {
    "0": "Displacement is what the graph reads off the vertical axis at a given instant, not what its slope measures. The height and the steepness are two different pieces of information.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Science|Physics|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The work-energy theorem states that the net work done on a body equals the change in its kinetic energy. It follows directly from Newton's second law and holds whether the forces are conservative or not.",
   "why_wrong": {
    "0": "The change in potential energy equals the negative of the work done by a conservative force alone. The theorem concerns the net work of all forces.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Science|Physics|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The spring force is kx, and it grows from zero as the spring stretches. The work done is the area under the force-extension graph, a triangle of base x and height kx, which gives half k x squared.",
   "why_wrong": {
    "0": "kx is the force at extension x, not the energy stored.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Science|Physics|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The angle of repose is the greatest incline on which a body just stays at rest, and setting the component of gravity along the slope equal to limiting friction gives tan of that angle equal to the coefficient of friction. Since the angle of friction has the same tangent, the two angles are equal.",
   "why_wrong": {
    "1": "90 degrees would be a vertical surface, on which nothing could rest by friction alone.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Science|Physics|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Limiting friction is the largest value static friction can reach, just before the body begins to slide. Beyond that point the friction becomes kinetic and drops slightly.",
   "why_wrong": {
    "0": "Kinetic friction acts once the body is already sliding, and it is smaller than the limiting value.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Science|Physics|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Static friction is self-adjusting: it takes whatever value is needed to balance the applied force and keep the body at rest, growing as the applied force grows, up to the limiting value.",
   "why_wrong": {
    "0": "Kinetic friction is very nearly constant once sliding begins, and does not adjust itself to the applied force.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Science|Physics|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "From E equals h nu, h is energy divided by frequency. Energy is ML2T−2 and frequency is T−1, so h has dimensions ML2T−1, which is the same as angular momentum.",
   "why_wrong": {
    "1": "MLT−2 is the dimension of force.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Science|Physics|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "A carousel is accelerating, since its riders are continually changing direction, so a frame fixed to it is non-inertial. Newton's laws do not hold in it unless pseudo-forces such as the centrifugal force are introduced.",
   "why_wrong": {
    "0": "An inertial frame is one at rest or moving with constant velocity. Circular motion involves centripetal acceleration, so the frame cannot be inertial.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Science|Physics|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "The slope of a position-time graph is the change in position divided by the change in time, which is precisely the definition of velocity.",
   "why_wrong": {
    "0": "Acceleration is the slope of a velocity-time graph, one derivative further on.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Science|Physics|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Constant speed in a straight line means the velocity is unchanging in both size and direction, so the rate of change of velocity is zero and there is no acceleration.",
   "why_wrong": {
    "0": "Positive acceleration would mean the speed was increasing, which contradicts constant speed.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Science|Physics|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "At the top of its path the projectile has stopped rising and has not yet begun to fall, so its vertical velocity is momentarily zero. The horizontal velocity, however, is unchanged throughout.",
   "why_wrong": {
    "0": "The vertical velocity is greatest at launch and at landing, not at the peak.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Science|Physics|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "The first law says a body continues at rest or in uniform motion unless a force acts on it. That statement defines force, as the thing that changes the state of motion, and introduces inertia, as the tendency to resist that change.",
   "why_wrong": {
    "1": "Momentum is defined in connection with the second law, which relates force to the rate of change of momentum.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Science|Physics|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "For a uniform solid cylinder about its own long axis the moment of inertia is half MR squared, the same as for a solid disc, since a cylinder is a stack of discs about the same axis.",
   "why_wrong": {
    "0": "MR squared is the moment of inertia of a thin ring or hollow cylinder, where all the mass sits at the rim. A solid cylinder has mass nearer the axis, so its value must be smaller.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Science|Physics|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "The radius of gyration k is defined by I equal to Mk squared, so k is the square root of I over M. For a thin ring about the central axis perpendicular to its plane, every particle of the ring sits at exactly the same distance R from the axis, so I equals MR squared with no numerical factor at all. Hence k equals R. This is the one case where the radius of gyration is obvious without any integration.",
   "why_wrong": {
    "0": "R over 2 is the radius of gyration of a circular disc about a diameter, where I equals MR squared over 4. It belongs to a different body and a different axis.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Science|Physics|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Leading zeros are never significant, but trailing zeros after a decimal point are. So in 0.005020 the digits 5, 0, 2 and the final 0 count, giving four significant figures.",
   "why_wrong": {
    "0": "3 comes from dropping the final zero. That zero is written deliberately after the decimal point and does carry information about precision.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Science|Physics|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Volume goes as the cube of the radius, and for a product or power the percentage errors add with the power as a multiplier. So the error in volume is three times 2 per cent, that is 6 per cent.",
   "why_wrong": {
    "0": "2 per cent would be right if volume were proportional to radius itself.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Science|Physics|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The candela is the SI base unit of luminous intensity. The seven base units are the metre, kilogram, second, ampere, kelvin, mole and candela.",
   "why_wrong": {
    "0": "The joule is a derived unit of energy, equal to a newton metre.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XI|Science|Physics|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Torque is force times perpendicular distance, so its dimensions are ML2T−2, exactly those of work. The two are physically different, one a vector and the other a scalar, but dimensionally identical.",
   "why_wrong": {
    "0": "Momentum has dimensions MLT−1.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XI|Science|Physics|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Starting from rest, s equals half a t squared, so displacement is proportional to the square of the time. Doubling the time quadruples the distance covered.",
   "why_wrong": {
    "0": "Displacement proportional to t describes uniform velocity, that is no acceleration at all.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XI|Science|Physics|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Drawing the hands back lengthens the time over which the ball is stopped. Since impulse equals force times time and the impulse is fixed by the ball's momentum, a longer time means a smaller force on the hands.",
   "why_wrong": {
    "0": "The impulse is not reduced. It is fixed by the change in the ball's momentum, which must be brought to zero however the catch is made.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Arts|Education|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Education is a Latin word. It comes from the Latin roots educare, educere and educatum, which is why the study of the term always begins with Latin.",
   "why_wrong": {
    "1": "French has shaped much English vocabulary, but this word reaches English from Latin.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Arts|Education|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The word education comes from the Latin educere, meaning to lead out or to draw out. The idea is that the child already carries powers and possibilities within, and the teacher's work is to bring them out rather than to supply them from outside. This is the sense the syllabus asks for, and it is the sense on which the whole modern child centred view of education rests.",
   "why_wrong": {
    "0": "To nourish is the sense of the related Latin word educare. It is a genuine root of the word, and it is why some books gloss education as nourishing the child, but it is not the meaning this question is after.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Arts|Education|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. The idea is that nothing is put into the child from outside; what is already there is uncovered.",
   "why_wrong": {
    "0": "Sri Aurobindo gave the philosophy of integral education, aiming at the full development of body, mind and spirit.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Arts|Education|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "In the broader sense education is a lifelong process that begins at birth and ends only at death. The child begins learning from the family long before any institution is involved.",
   "why_wrong": {
    "0": "School is where formal education begins, which is the narrow sense of the word. The question specifies the broader sense.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Arts|Education|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Constitution came into force on 26 January 1950, which is why that day is celebrated as Republic Day. The date was chosen to honour the Purna Swaraj declaration of 1930.",
   "why_wrong": {
    "1": "26 November 1949 is when the Constituent Assembly adopted the Constitution, and it is kept as Constitution Day. Adoption and commencement are two months apart, and that gap is exactly what this question tests.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Arts|Education|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "The 86th Constitutional Amendment of 2002 inserted Article 21A, making free and compulsory education for children aged six to fourteen a fundamental right.",
   "why_wrong": {
    "0": "2000 is when the Sarva Shiksha Abhiyan was being framed, but no amendment was made.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Arts|Education|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The family is an informal agency of education. It teaches without any syllabus, timetable or deliberate plan, simply through daily living, and its influence is the earliest and deepest a child receives.",
   "why_wrong": {
    "0": "Formal agencies are schools, colleges and universities, with a fixed curriculum and a planned course.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Arts|Education|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The National Council of Educational Research and Training was established in 1961, by merging seven existing national institutions, to advise the central and state governments on school education.",
   "why_wrong": {
    "1": "1960 is a year too early, and nothing of note was founded then in this field.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Arts|Education|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "NCTE is the National Council for Teacher Education, a statutory body set up in 1993 to plan and coordinate teacher education and to lay down norms for teacher training institutions.",
   "why_wrong": {
    "0": "Commission is wrong. A commission is usually a temporary body appointed to report, while a council is a permanent one.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Arts|Education|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Metaphysics is the branch of philosophy dealing with the ultimate nature of reality, asking what truly exists and what the universe is made of. In educational philosophy it shapes what a system takes to be real and therefore worth teaching.",
   "why_wrong": {
    "0": "Axiology is the study of values, covering ethics and aesthetics, and it shapes the aims of education.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Arts|Education|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Ashtangika Marga, or Noble Eightfold Path, is the Buddhist way to the cessation of suffering. It is the fourth of the Four Noble Truths and runs from right view to right concentration.",
   "why_wrong": {
    "0": "Jainism teaches the Triratna, the Three Jewels of right faith, right knowledge and right conduct, together with the five vows.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Arts|Education|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Swami Vivekananda held that all knowledge, material and spiritual, is already within a person and is only hidden by ignorance. Education, on this view, removes the curtain rather than adding anything.",
   "why_wrong": {
    "0": "Plato held that learning is recollection of what the soul knew before birth, which is a related idea but from a different tradition and a different phrasing.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Arts|Education|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "NCERT's chief function is extension work with State Education Departments to improve school education, through curriculum design, textbooks, teacher training and research.",
   "why_wrong": {
    "0": "Higher education is the concern of the University Grants Commission.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Arts|Education|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "IQ is mental age divided by chronological age, multiplied by 100. So a ten-year-old with a mental age of twelve has an IQ of 120. The formula is due to William Stern.",
   "why_wrong": {
    "0": "Dividing mental age by 100 and then multiplying by 100 simply returns the mental age, and leaves chronological age out altogether.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Arts|Education|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The home is the main centre of informal education. It is where the child first learns language, habits, manners and values, and it works continuously without any deliberate teaching.",
   "why_wrong": {
    "1": "Society is an informal agency too, and a powerful one, but its influence comes later and is more diffuse than the home's.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Arts|Education|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The family educates informally, through imitation, affection and the routine of daily life, without a syllabus or a fixed method. The child learns without either party quite intending a lesson.",
   "why_wrong": {
    "0": "Formal teaching needs a planned curriculum and trained teachers, which the family does not have.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Arts|Education|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "John Dewey described the school as a miniature society, holding that it should reproduce the life of the community in small so that the child learns democracy by living it. He is the leading figure of pragmatism in education.",
   "why_wrong": {
    "0": "B. F. Skinner developed operant conditioning and programmed instruction.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Arts|Education|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Plato set out his scheme of education in The Republic, which describes the ideal state and the long training of its guardians. It is the earliest systematic treatment of education in Western philosophy.",
   "why_wrong": {
    "1": "Educational Philosophy is not a work of Plato's.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Arts|Education|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Mahavira was the twenty-fourth and last Tirthankara of Jainism. He gave the faith its final form in the sixth century BCE and added the vow of chastity to the four taught by Parshvanatha.",
   "why_wrong": {
    "1": "Jinasena was a Jain scholar and author of the Adipurana, not a Tirthankara.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Arts|Education|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rishabha, also called Rishabhanatha or Adinatha, was the first of the twenty-four Tirthankaras of Jainism. His symbol is the bull.",
   "why_wrong": {
    "0": "Mahavira was the twenty-fourth and last, so he is at the other end of the same list.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Arts|Education|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Patanjali is regarded as the founder of the Yoga school, having compiled the Yoga Sutras, which set out the eight limbs of yoga from yama to samadhi.",
   "why_wrong": {
    "1": "Kapila founded the Samkhya school, which is the philosophical partner of Yoga.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Arts|Education|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Buddha, in the sixth century BCE, taught that a person's worth comes from their conduct and not from the family they are born into. His Sangha admitted men and women of every caste, and that open order is what is counted as the first organised challenge to the caste system.",
   "why_wrong": {
    "1": "Tilak was a nationalist leader of the late nineteenth and early twentieth centuries. His fight was against British rule, more than two thousand years after the period this question is about.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XI|Arts|Education|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Article 21A, inserted by the 86th Amendment in 2002, makes free and compulsory education for children aged six to fourteen a fundamental right. It sits alongside Article 21, the right to life.",
   "why_wrong": {
    "0": "Article 16 guarantees equality of opportunity in public employment.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XI|Arts|Education|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Article 23 prohibits traffic in human beings, begar and other forms of forced labour. It falls under the Right against Exploitation, together with Article 24 on child labour.",
   "why_wrong": {
    "0": "Article 39 is a Directive Principle on the distribution of resources and on protecting children and workers.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XI|Arts|Education|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sarva Shiksha Abhiyan was launched in 2001 to universalise elementary education, aiming to bring every child aged six to fourteen into school.",
   "why_wrong": {
    "1": "2002 is the year of the 86th Amendment, which made education a fundamental right. The programme came first and the constitutional right the year after.",

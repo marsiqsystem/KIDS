@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Arts|Education|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "The University Education Commission was appointed in 1948 under Dr S. Radhakrishnan, the first education commission of independent India. It reported on the reform of higher education.",
   "why_wrong": {
    "0": "1950 is the year the Constitution came into force, not the year of this commission.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Arts|Education|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Indian Education Commission, better known as the Kothari Commission, was appointed in 1964 under Dr D. S. Kothari and reported in 1966. It reviewed education at every stage and led to the first National Policy on Education in 1968.",
   "why_wrong": {
    "1": "1948 is the Radhakrishnan or University Education Commission, which dealt with higher education alone.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Arts|Education|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "EWS stands for Economically Weaker Section, the category used for reservation and for the free seats private schools must provide under the Right to Education Act.",
   "why_wrong": {
    "1": "Educationally weaker is not the term; the criterion is income, not schooling.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Arts|Education|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "The three-language formula was recommended by the Kothari Commission of 1964 to 1966: the mother tongue or regional language, Hindi or another Indian language, and English.",
   "why_wrong": {
    "0": "The National Policy of 1986 endorsed and continued the formula but did not originate it.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Arts|Education|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rabindranath Tagore founded Visva-Bharati at Santiniketan, beginning as a school in 1901 and becoming a university in 1921. It was declared a central university in 1951.",
   "why_wrong": {
    "0": "Rabindra Bharati University in Kolkata is named after Tagore but was founded in 1962, long after his death.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Arts|Education|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already in man. On this view the teacher uncovers what is already present rather than adding anything from outside.",
   "why_wrong": {
    "0": "Gandhi defined education as an all-round drawing out of the best in child and man, in body, mind and spirit.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Arts|Education|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Emile, or On Education was written by Jean-Jacques Rousseau in 1762. It argues for natural education, letting the child develop freely according to his own nature, and is the founding text of naturalism in education.",
   "why_wrong": {
    "1": "John Dewey wrote Democracy and Education and The School and Society.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Arts|Education|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Tagore held that nature is the child's best teacher, which is why classes at Santiniketan were held in the open air under the trees. He believed a child shut inside four walls is cut off from the source of learning.",
   "why_wrong": {
    "0": "Experience is central to Dewey's pragmatism rather than to Tagore's teaching.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Arts|Education|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Savitribai Phule is regarded as India's first woman teacher. With her husband Jyotirao Phule she opened a school for girls at Pune in 1848, facing heavy social opposition.",
   "why_wrong": {
    "1": "Pandita Ramabai was a scholar and reformer who founded the Sharada Sadan for widows, a generation later.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Arts|Education|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Inclusive education places children with special needs in ordinary classrooms and adapts the school to suit them, so that no child is separated out. It is the approach the Right to Education Act adopts.",
   "why_wrong": {
    "0": "Special schools educate such children separately, which segregates them from their peers.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Arts|Education|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Delors Commission named four pillars: learning to know, learning to do, learning to live together and learning to be. Learning to have is not among them, and its acquisitive sense runs against the report's spirit.",
   "why_wrong": {
    "0": "Learning to be is the fourth pillar, concerning the full development of the person.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Arts|Education|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Indira Gandhi National Open University was established in 1985 as India's first national open university, offering distance education across the country.",
   "why_wrong": {
    "1": "1986 is the National Policy on Education, which endorsed open learning but came a year after IGNOU.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Arts|Education|13",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The Delors Commission, formally the International Commission on Education for the Twenty-first Century, was constituted by UNESCO in 1993, and its report Learning: The Treasure Within appeared in 1996. Since 1993 is not among the options, no candidate could have answered correctly, so the question was withdrawn from scoring by Umar Iqbal's ruling of 5 August 2026.",
   "why_wrong": {
    "0": "1998 is two years after the report was even published.",
@@ -132,7 +132,7 @@
  },
  {
   "id": "XII|Arts|Education|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Right of Children to Free and Compulsory Education Act was passed by Parliament in 2009. It gives effect to Article 21A, which the 86th Amendment had inserted in 2002.",
   "why_wrong": {
    "0": "2007 is before the Act was passed.",
@@ -142,7 +142,7 @@
  },
  {
   "id": "XII|Arts|Education|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "All four are objectives of the NCC. It aims to develop character, discipline and leadership, to encourage service to the community, and to provide organised recreation and adventure activity alongside them.",
   "why_wrong": {
    "0": "Entertainment sounds too light on its own, but adventure camps and organised recreation are genuinely part of the programme, so it cannot simply be dismissed.",
@@ -153,7 +153,7 @@
  },
  {
   "id": "XII|Arts|Education|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "UNESCO is the United Nations Educational, Scientific and Cultural Organisation, founded in 1946 with its headquarters in Paris. It maintains the World Heritage list.",
   "why_wrong": {
    "1": "Economical is wrong; the E stands for Educational.",
@@ -163,7 +163,7 @@
  },
  {
   "id": "XII|Arts|Education|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "For Dewey the teacher is a facilitator and guide, arranging experiences through which children learn by doing, rather than transmitting information to a passive class.",
   "why_wrong": {
    "0": "A delegator merely hands out tasks and steps back, which is not Dewey's active guiding role.",
@@ -173,7 +173,7 @@
  },
  {
   "id": "XII|Arts|Education|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Kothari Commission's report of 1966 is titled Education and National Development. Its opening line is famous: the destiny of India is now being shaped in her classrooms.",
   "why_wrong": {
    "0": "Learning Without Burden is the Yash Pal Committee report of 1993, on the weight of the curriculum.",
@@ -183,7 +183,7 @@
  },
  {
   "id": "XII|Arts|Education|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Education is in the Concurrent List, so both Parliament and the state legislatures can make laws on it. It was moved there from the State List by the 42nd Amendment in 1976.",
   "why_wrong": {
    "1": "Free and compulsory education for children aged six to fourteen is a fundamental right under Article 21A, but that is a right rather than a legislative list.",
@@ -193,7 +193,7 @@
  },
  {
   "id": "XII|Arts|Education|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The National Council of Educational Research and Training was established in 1961, by merging seven existing national institutions, to advise governments on school education.",
   "why_wrong": {
    "0": "1956 is when the UGC was established as a statutory body.",
@@ -203,7 +203,7 @@
  },
  {
   "id": "XII|Arts|Education|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Fundamental Rights guarantee this. Article 25 gives freedom of religion, and Articles 29 and 30 give minorities the right to conserve their culture and to establish and administer educational institutions of their choice.",
   "why_wrong": {
    "0": "Directive Principles guide state policy but are not enforceable in a court.",
@@ -213,7 +213,7 @@
  },
  {
   "id": "XII|Arts|Education|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The National Policy on Education 1986 recommended a National System of Education, with a common educational structure of 10+2+3 and a common core curriculum across the country.",
   "why_wrong": {
    "1": "IGNOU is a university, not a policy-making body.",
@@ -223,7 +223,7 @@
  },
  {
   "id": "XII|Arts|Education|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Wood's Despatch of 1854 is called the Magna Carta of English education in India. It laid down a complete scheme from primary school to university, recommended grants-in-aid and the founding of universities, and led to the three universities of 1857.",
   "why_wrong": {
    "1": "The Sergeant Report of 1944 was the last major colonial plan, proposing universal education within forty years.",
@@ -233,7 +233,7 @@
  },
  {
   "id": "XII|Arts|Education|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The National Council for Teacher Education, given statutory status in 1993, is the apex body for teacher education. It lays down norms for teacher training institutions and grants them recognition.",
   "why_wrong": {
    "0": "The UGC is the apex body for higher education generally, coordinating universities and their standards.",
@@ -243,7 +243,7 @@
  },
  {
   "id": "XII|Arts|Education|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Right of Children to Free and Compulsory Education Act was passed by Parliament in August 2009 and received the President's assent that month, but it was brought into force on 1 April 2010, the beginning of the financial and academic year. India thus became one of the countries in which elementary education is a fundamental right of every child between six and fourteen.",
   "why_wrong": {
    "1": "1 January 2010 is not the commencement date. Acts of this kind are normally brought into force at the start of an academic or financial year, not in the middle of one.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Science|Mathematics|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "A minus B is the part of A outside B, so the union is that part together with all of B, with no overlap between them. That gives n of A union B equal to 47 plus 326, which is 373.",
   "why_wrong": {
    "0": "173 is far too small. The union must be at least as large as B alone, which is already 326.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Science|Mathematics|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Statement 1 is true, since removing B from A removes exactly the elements of A that lie in B. Statement 2 is true, because every element of A either lies in B or does not. Statement 3 is false, so only 1 and 2 hold.",
   "why_wrong": {
    "0": "This includes statement 3, which is wrong. The correct identity is A minus B union C equals A minus B intersection A minus C, with an intersection rather than a union. This is one of De Morgan's laws for sets.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Science|Mathematics|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "The domain of a relation is the set of first elements of its ordered pairs. Those first elements here are 1, 2 and 2, so the domain is the set containing 1 and 2.",
   "why_wrong": {
    "1": "2 and 3 mixes a first element with a second. 3 appears only as a second element, so it belongs to the range.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Science|Mathematics|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "The range is the set of second elements. Those are b, c and c, so the range is the set containing b and c.",
   "why_wrong": {
    "0": "a and b takes a as a range element, but a appears only in the first position, so it is in the domain.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Science|Mathematics|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Since cosec is the reciprocal of sin, a number plus its reciprocal equals 2 only when that number is 1. So sin theta is 1, and 1 to the hundredth plus 1 to the hundredth is 2.",
   "why_wrong": {
    "1": "2 to the power 100 would come from raising the whole given expression to the hundredth power, which is not what the question asks.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Science|Mathematics|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "If 8 theta is pi then 7 theta is pi minus theta, and cos of pi minus theta is minus cos theta. So the sum is minus cos theta plus cos theta, which is 0.",
   "why_wrong": {
    "1": "Minus 1 would need the two terms to differ by 1 rather than cancel. They are exact opposites.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Science|Mathematics|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "sin of 180 plus theta is minus sin theta, and sin of 180 minus theta is plus sin theta. Their product is minus sin squared theta, and multiplying by cosec squared theta, which is 1 over sin squared theta, gives minus 1.",
   "why_wrong": {
    "0": "0 would need one of the factors to vanish, but none does for general theta.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Science|Mathematics|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "From alpha plus beta equal to pi over 2 we get alpha equal to pi over 2 minus beta, and putting that into beta plus gamma equal to alpha gives gamma equal to pi over 2 minus 2 beta. So tan gamma is cot 2 beta. Writing t for tan beta, cot 2 beta is one minus t squared over 2t, so tan beta plus twice tan gamma is t plus one minus t squared over t, which collapses to one over t. And one over tan beta is cot beta, which is tan of pi over 2 minus beta, that is tan alpha. Check it with beta equal to 20 degrees: alpha is 70 and gamma is 50, tan alpha is 2.747, and tan 20 plus twice tan 50 is 0.364 plus 2.384, which is 2.747.",
   "why_wrong": {
    "0": "Twice tan beta plus twice tan gamma doubles both terms. At beta equal to 20 degrees it gives 3.111 against the true value 2.747.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Science|Mathematics|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Multiplying by minus 1 rotates a complex number by half a turn. If the argument of z is negative, lying between minus pi and 0, then adding pi keeps the result within the principal range, so the difference of the arguments is pi.",
   "why_wrong": {
    "1": "Minus pi would be the answer if the argument of z were positive, since then pi would have to be subtracted to stay in the principal range. That is why the question specifies a negative argument.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Science|Mathematics|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "The modulus is a distance, so the condition says z is nearer to 4 than to 2. The dividing line is the perpendicular bisector of the segment joining them, at 3, and the nearer side to 4 is where the real part exceeds 3.",
   "why_wrong": {
    "0": "The real part being greater than 0 is far too wide. The point 1, for instance, satisfies it but is nearer to 2 than to 4.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Science|Mathematics|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "The number minus 4 lies on the negative real axis, so its amplitude, measured from the positive real axis, is pi.",
   "why_wrong": {
    "0": "Pi over 2 is the positive imaginary axis, which would be a purely imaginary number such as 4i.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Science|Mathematics|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "The sum of the roots is 5, so beta is 5 minus alpha. Putting that into 3 alpha plus 2 beta equal to 12 gives alpha equal to 2, so beta is 3, and K is the product, 6.",
   "why_wrong": {
    "0": "5 is the sum of the roots, not their product. The coefficient of x gives the sum and the constant gives the product.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Science|Mathematics|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "For every real x, x squared is at least 0 and 3 times the modulus of x is at least 0, so the left side is at least 2 and can never be 0. There are no real solutions.",
   "why_wrong": {
    "1": "1 would require the expression to touch zero exactly once, but its smallest value is 2, at x equal to 0.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Science|Mathematics|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Let the roots be alpha and 2 alpha. Their sum is 3 alpha, which equals minus 2b over a, and their product is 2 alpha squared, which equals c over a. Eliminating alpha between the two gives 8b squared equal to 9ac.",
   "why_wrong": {
    "0": "4b squared equal to ac has the wrong numerical factors. Both the 3 from the sum and the 2 from the product must survive into the final relation.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Science|Mathematics|15",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The double inequality splits into two. From 2x minus 5 less than or equal to 5x plus 4 we get minus 9 less than or equal to 3x, that is x greater than or equal to minus 3. From 5x plus 4 strictly less than 19 we get 5x less than 15, that is x strictly less than 3. So the solution over the integers is minus 3 less than or equal to x less than 3, which is the integers from minus 3 to 2. The paper prints no option that says this, because the intended option writes the right hand end as less than or equal to 3 and so wrongly admits x equal to 3. The printed paper was checked and it really does print the strict sign, so the question was withdrawn from scoring.",
   "why_wrong": {
    "0": "Minus 2 less than or equal to x less than or equal to 3 is wrong at both ends. The left hand inequality gives minus 3, not minus 2, and the right hand one is strict.",
@@ -152,7 +152,7 @@
  },
  {
   "id": "XI|Science|Mathematics|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The first inequality gives x between minus 4 and 6. The second gives x at most minus 2 or at least 2. Both must hold, so the answer is the part of minus 4 to 6 that survives, namely minus 4 to minus 2 together with 2 to 6.",
   "why_wrong": {
    "0": "The symbol here is intersection, but those two intervals have no point in common, so the intersection would be empty. The two pieces are joined by union.",
@@ -162,7 +162,7 @@
  },
  {
   "id": "XI|Science|Mathematics|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "The inequality says the modulus of x minus 4 is less than 2, which gives x between 2 and 6. Since x equal to 4 is excluded by the question, the solution is 2 to 4 together with 4 to 6.",
   "why_wrong": {
    "0": "The open interval from 2 to 6 forgets to remove 4, where the expression is undefined.",
@@ -172,7 +172,7 @@
  },
  {
   "id": "XI|Science|Mathematics|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Writing both permutations as factorials, the ratio simplifies to n plus 5 times n plus 4, all over 4. Setting that equal to 11 times n minus 1 over 2 gives the quadratic n squared minus 13n plus 42 equal to 0, whose roots are 6 and 7. Of these, 6 is the option offered.",
   "why_wrong": {
    "0": "5 does not satisfy the equation. Substituting it gives 90 over 4 on the left and 22 on the right.",
@@ -182,7 +182,7 @@
  },
  {
   "id": "XI|Science|Mathematics|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Every such number has four digits with the thousands digit 1, 2 or 3, giving 3 choices. Each of the other three digits may be any of the five, giving 5 cubed, that is 125. So the count is 3 times 125, which is 375.",
   "why_wrong": {
    "0": "125 counts only one choice of leading digit instead of three.",
@@ -192,7 +192,7 @@
  },
  {
   "id": "XI|Science|Mathematics|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "If nCr equals nCs with r not equal to s, then r plus s equals n. Here 2 plus 3 gives n equal to 5, and 5C4 is 5.",
   "why_wrong": {
    "0": "3 would be the answer if n were smaller, but the condition fixes n at 5.",
@@ -202,7 +202,7 @@
  },
  {
   "id": "XI|Science|Mathematics|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "From each vertex of an n sided polygon you can draw a diagonal to every vertex except itself and its two neighbours, which is n minus 3 of them. Doing that at all n vertices counts every diagonal twice, so the number of diagonals is n times n minus 3, all divided by 2. For a heptagon that is 7 times 4 over 2, which is 14.",
   "why_wrong": {
    "0": "7 is the number of vertices, and also the number of sides. It is the count you start from, not the answer.",
@@ -212,7 +212,7 @@
  },
  {
   "id": "XI|Science|Mathematics|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The function is 1 for positive x and minus 1 for negative x. So f of x and f of minus x are always opposite in sign, their difference is plus or minus 2, and its modulus is 2.",
   "why_wrong": {
    "0": "0 would require f to be an even function, taking the same value at x and minus x. This function is odd instead.",
@@ -222,7 +222,7 @@
  },
  {
   "id": "XI|Science|Mathematics|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Approaching 0 from the right the expression is 1, and from the left it is minus 1. The one-sided limits differ, so the limit does not exist.",
   "why_wrong": {
    "0": "0 would need the function to approach zero, but it only ever takes the values 1 and minus 1.",
@@ -232,7 +232,7 @@
  },
  {
   "id": "XI|Science|Mathematics|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "At x equal to 3 the expression is 0 over 0, so rationalise the numerator. Multiplying above and below by the sum of the roots gives x squared minus 9 over x minus 3 times the sum, which cancels to x plus 3 over the sum, and at x equal to 3 that is 6 over 2 root 19, or 3 over root 19.",
   "why_wrong": {
    "0": "0 would be the answer only if the numerator vanished faster than the denominator, but here they vanish at the same rate.",
@@ -242,7 +242,7 @@
  },
  {
   "id": "XI|Science|Mathematics|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Expand both terms about zero. e to the x squared is 1 plus x squared plus higher powers, and cos x is 1 minus x squared over 2 plus higher powers. Subtracting, the ones cancel and the numerator is three halves of x squared plus higher powers, so dividing by x squared and letting x tend to zero gives three halves. L'Hopital agrees: differentiating top and bottom once gives 2x times e to the x squared plus sin x, over 2x, which is e to the x squared plus sin x over 2x, tending to 1 plus one half, that is three halves.",
   "why_wrong": {
    "0": "One quarter does not come out of any correct step here. If you reached it, redo the problem by L'Hopital's rule, which needs no series at all.",

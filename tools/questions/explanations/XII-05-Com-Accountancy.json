@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Commerce|Accountancy|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Goodwill is an intangible asset. It has real value and can be bought and sold with the business, but it has no physical existence, being the reputation and earning capacity built up over time.",
   "why_wrong": {
    "0": "A tangible asset can be touched, such as machinery or a building.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "A partnership needs a minimum of two partners, since it is by definition a relation between persons who have agreed to share the profits of a business carried on by all or any of them.",
   "why_wrong": {
    "0": "One person alone is a sole proprietorship, and no agreement is possible with oneself.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Interest on capital is an appropriation of profit, that is a distribution of profit already earned, so it is debited to the Profit and Loss Appropriation Account. It is allowed only if there is profit, unless the deed says otherwise.",
   "why_wrong": {
    "0": "A charge against profit must be paid whether or not there is profit, as rent to a partner is. Interest on capital is not treated that way.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "The maximum number of partners is 50, prescribed by the Companies Rules made under the Companies Act 2013. Beyond that the association must be registered as a company.",
   "why_wrong": {
    "0": "20 was the old limit under the Companies Act 1956, and 10 for banking. It is out of date, which is what makes it the common wrong answer.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Debentures are issued by companies as an acknowledgement of debt, carrying a fixed rate of interest. They form part of a company's borrowed capital.",
   "why_wrong": {
    "0": "Partnership firms cannot issue debentures; they borrow by ordinary loan.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "A share represents ownership in the company. A shareholder owns a part of it, shares in its profits as dividend and has a vote in its affairs.",
   "why_wrong": {
    "0": "A loan to the company is represented by a debenture, whose holder is a creditor rather than an owner. Share against debenture is the key distinction in this chapter.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The excess over face value is credited to the Securities Premium Account. It is a capital receipt and can be used only for the purposes the Companies Act permits, such as issuing bonus shares or writing off preliminary expenses.",
   "why_wrong": {
    "0": "Share Capital is credited only with the face value of the shares.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Cash Flow Statement is prepared according to Accounting Standard 3, which classifies flows into operating, investing and financing activities.",
   "why_wrong": {
    "0": "AS-1 deals with the disclosure of accounting policies.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The current ratio is current assets divided by current liabilities. It measures short-term liquidity, and the ideal is generally taken as 2 to 1.",
   "why_wrong": {
    "1": "Inverting the ratio would make a strong position look weak, since a higher figure would then mean less ability to pay.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Dissolution means the closing down of the firm. Its assets are realised, its liabilities are paid, and the partnership itself comes to an end.",
   "why_wrong": {
    "0": "Admission of a partner is a reconstitution: the old firm ends but the business continues.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Reserve capital is that part of uncalled capital which a company resolves, by special resolution, to call up only in the event of winding up. It is created by the company's own resolution.",
   "why_wrong": {
    "0": "Shareholders act through the company in general meeting, so the resolution is the operative act rather than the shareholders individually.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Cash received from customers arises from the main revenue-producing activity of the business, so it is an operating activity under AS-3.",
   "why_wrong": {
    "0": "Financing activities concern the raising and repayment of capital and borrowings.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Balance Sheet is a statement of assets and liabilities at one particular date, so it shows the financial position at a moment in time. It is a snapshot rather than a record of a period.",
   "why_wrong": {
    "0": "A period is what the Profit and Loss Account covers, showing performance over the year.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Revaluation Account is prepared whenever the firm is reconstituted, that is on the admission, retirement or death of a partner, to record the increase or decrease in the value of assets and liabilities before the change.",
   "why_wrong": {
    "0": "Purchase of goods is an ordinary trading transaction.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The debt-equity ratio compares long-term debt with shareholders' funds. It measures solvency, that is how far the business is financed by borrowing rather than by its owners.",
   "why_wrong": {
    "0": "Sales and profit give profitability ratios such as the net profit ratio.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "A person invited to buy shares is an investor, and the invitation is made through a prospectus. Once shares are allotted the investor becomes a shareholder and a member of the company.",
   "why_wrong": {
    "0": "A debenture holder has lent money to the company and is a creditor, not an invited buyer of shares.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Authorised capital, also called nominal or registered capital, is the maximum amount of share capital stated in the Memorandum of Association. The company cannot issue more than this without altering the Memorandum.",
   "why_wrong": {
    "0": "Capital issued to the public is issued capital, which may be less than authorised.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Share capital appears on the liabilities side, under Equity and Liabilities, because the company is a separate legal person and owes that capital to its shareholders.",
   "why_wrong": {
    "0": "The asset side shows what the company owns, not what it owes to its owners.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Debenture holders have lent money to the company, so they are its creditors. They receive interest whether or not there is profit, and are repaid before shareholders at winding up.",
   "why_wrong": {
    "0": "Owners are the shareholders, who receive dividend out of profit.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Profit and Loss Appropriation Account is prepared by a partnership firm to show how the net profit is divided: interest on capital, salary to partners, transfers to reserve and the final share of each partner.",
   "why_wrong": {
    "0": "A sole trader has no one to appropriate profit among, so the whole profit simply goes to capital.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Interest on drawings is charged to the partner for money taken out during the year, so it is a gain to the firm. It is credited to the Profit and Loss Appropriation Account.",
   "why_wrong": {
    "1": "Interest on capital is the expense-like item, paid by the firm to the partner. Interest on drawings runs the other way, which is the pair being tested.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "On retirement the retiring partner's share of goodwill is paid for by the partners who continue, since it is they who gain that share. The adjustment is made in their gaining ratio.",
   "why_wrong": {
    "0": "Old partners includes the retiring partner, who is being compensated rather than charged.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Issuing shares raises long-term funds and changes the size and composition of the company's capital, so it is a financing activity under AS-3.",
   "why_wrong": {
    "0": "Operating activities are the main revenue-producing ones, such as selling goods.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The inventory turnover ratio shows how many times stock is sold and replaced in a year, so it measures the efficiency with which stock is used. A high ratio generally means stock is moving briskly.",
   "why_wrong": {
    "0": "Liquidity is measured by the current and quick ratios.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Commerce|Accountancy|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "A company may issue shares at par, at a premium, or at a discount so far as the law allows. Under the Companies Act 2013 a discount issue is permitted only in narrow cases such as sweat equity, which is what the qualification in the option covers.",
   "why_wrong": {
    "0": "Premium is one of the three, so naming it alone is incomplete.",

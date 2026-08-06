@@ -1,7 +1,7 @@
 [
  {
   "id": "IX|All|General Paper|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Jupiter is by far the largest planet in the Solar System. It is about eleven times the diameter of Earth, and its mass is greater than that of all the other planets put together.",
   "why_wrong": {
    "0": "Earth is only the fifth largest planet, and the largest of the four small rocky ones. The giants are all further out from the Sun.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "IX|All|General Paper|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Mahatma Gandhi is called the Father of the Nation for leading the freedom movement along the path of non-violence and satyagraha. The title was famously given to him by Subhas Chandra Bose in a 1944 radio address.",
   "why_wrong": {
    "0": "Nehru was independent India's first Prime Minister, and he is remembered as the architect of modern India, but the title Father of the Nation belongs to Gandhi.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "IX|All|General Paper|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Kolkata is the capital of West Bengal and the seat of its government, its legislative assembly and the Calcutta High Court. It was also the capital of British India until 1911.",
   "why_wrong": {
    "0": "Siliguri is an important city in north Bengal and the gateway to the northeast, but it is not the state capital.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "IX|All|General Paper|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nitrogen makes up about 78 per cent of the Earth's atmosphere by volume, well over twice as much as everything else combined. It is unreactive, which is why it simply accumulates rather than being used up.",
   "why_wrong": {
    "0": "Oxygen is second, at about 21 per cent. It matters most to us because we breathe it, but importance and abundance are not the same thing.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "IX|All|General Paper|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rabindranath Tagore wrote Jana Gana Mana in Bengali in 1911, and it was adopted as India's national anthem by the Constituent Assembly on 24 January 1950.",
   "why_wrong": {
    "0": "Bankim Chandra Chattopadhyay wrote Vande Mataram, which is the national song, not the national anthem. India has both, and this is the pair most often confused.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "IX|All|General Paper|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "There are seven continents: Asia, Africa, North America, South America, Antarctica, Europe and Australia. Asia is the largest and Australia the smallest.",
   "why_wrong": {
    "0": "Five is the count used in some models that merge the Americas and leave out Antarctica, as on the Olympic rings. The standard geographical answer is seven.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "IX|All|General Paper|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Royal Bengal Tiger has been India's national animal since 1973, when it replaced the lion at the launch of Project Tiger.",
   "why_wrong": {
    "0": "The lion was the national animal until 1973, and the Asiatic lion of Gir remains a protected national treasure. But the title now belongs to the tiger.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "IX|All|General Paper|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "The United Nations headquarters stands on the bank of the East River in New York City, on land that is international territory. The General Assembly and the Security Council meet there.",
   "why_wrong": {
    "0": "Geneva hosts the UN Office at Geneva and many agencies such as the WHO, so it is a major UN centre, but the headquarters is in New York.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "IX|All|General Paper|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Godavari is called Dakshina Ganga, the Ganga of the South. It is the longest river in peninsular India, rising at Trimbakeshwar in Maharashtra and flowing east to the Bay of Bengal.",
   "why_wrong": {
    "0": "The Krishna is a major peninsular river rising at Mahabaleshwar, but it is shorter than the Godavari and does not carry that title.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "IX|All|General Paper|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Dr Rajendra Prasad became independent India's first President on 26 January 1950, when the Constitution came into force. He is still the only person to have served two full terms in the office.",
   "why_wrong": {
    "1": "Dr S. Radhakrishnan was the first Vice-President and then the second President. The teacher and philosopher whose birthday India keeps as Teachers' Day, but the second in this office, not the first.",

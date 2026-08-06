@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Arts|Philosophy|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Locke held that substance is the unknown substratum in which the primary qualities inhere. He called it a something, he knew not what, since we perceive qualities and never the thing that bears them.",
   "why_wrong": {
    "0": "Plato's reality is the world of Forms, which is quite a different account.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "For Kant, causality is one of the twelve categories of the understanding, an a priori form the mind itself brings to experience rather than something it reads off from the world. We do not find the causal connection in what we observe; we supply it, and that is why the causal law can be both necessary and universal. This was Kant's answer to Hume, who he said had woken him from his dogmatic slumber.",
   "why_wrong": {
    "0": "Locke holds that the mind begins as a blank slate and that every idea, causality included, comes from experience. That is the opposite of treating it as a form the intellect already possesses.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Shankara is regarded as the first systematic preacher of Advaita Vedanta. In a short life in the eighth century he wrote commentaries on the Upanishads, the Gita and the Brahma Sutra, and founded four monasteries across India.",
   "why_wrong": {
    "1": "Ramanuja founded Vishishtadvaita, or qualified non-dualism, in the eleventh century.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Maya has two functions: avarana, which conceals the true nature of Brahman, and vikshepa, which projects the appearance of the world in its place. Together they explain why the one reality appears as many.",
   "why_wrong": {
    "0": "Brahman is what is concealed, not the concealer.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Shankara's system is Kevaladvaitavada, absolute or unqualified non-dualism. Brahman alone is real, the world of appearances is maya, and the individual self is not merely similar to Brahman but identical with it. The prefix kevala, meaning only or absolute, is what marks it off from the other Vedanta schools.",
   "why_wrong": {
    "1": "Vishishtadvaitavada, qualified non-dualism, is Ramanuja's. Brahman is real and one, but the souls and matter are equally real and form its body, so the unity is a qualified one. This was the printed key.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Hume argued that we never observe a necessary connection between cause and effect, only their constant conjunction. The sense of necessity is a habit of expectation formed in the mind, so the relation is psychological rather than logical.",
   "why_wrong": {
    "1": "Ewing was a twentieth-century philosopher who discussed such theories rather than originating this one.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Advaita accepts the reality of Brahman alone. Brahman is real, the world is appearance, and the individual soul is not different from Brahman, which is the whole doctrine in one line.",
   "why_wrong": {
    "1": "The jiva, or individual soul, is ultimately identical with Brahman rather than a separate reality.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Kant's ethics is deontological, judging an act by the duty behind it rather than by its results. His test is the categorical imperative: act only on a maxim you can will to become a universal law.",
   "why_wrong": {
    "0": "Teleological ethics judges by consequences, which is utilitarianism and precisely what Kant rejected.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The family is the smallest unit of society. It is the first group a person belongs to and the one in which the basic habits, language and values are learnt.",
   "why_wrong": {
    "1": "A school is a secondary institution, entered later and left behind.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "MacIver defined society as a web of social relationships. The image is exact: society is not the people themselves but the network of relations among them.",
   "why_wrong": {
    "1": "Gisbert defined society as a group working together for common ends.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "The unchecked exploitation of nature, through deforestation, over-extraction of resources, pollution of air and water and the burning of fossil fuels, has produced what is called the environmental crisis: global warming, loss of biodiversity, shrinking water supplies and degraded land. It is the term the chapter uses, and it names the whole of the damage rather than one part of it.",
   "why_wrong": {
    "0": "An individual crisis is a crisis in a single person's life. It is not what follows from a country exploiting its natural resources, and nothing in the chapter connects the two. This was the printed key.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Ecology concerns the mutual interdependence of organisms with one another and with their surroundings. Animals, trees and plants form a single web in which each depends on the others.",
   "why_wrong": {
    "1": "Environmental ethics asks what our moral duties towards nature are, which is a question of value rather than a description of relationships.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "In the strict sociological sense an institution is an established set of norms and procedures for meeting a social need, so marriage is an institution. Institutions are rules, not bodies of people.",
   "why_wrong": {
    "0": "The family is an association or group, that is people organised together. Marriage is the institution through which families are formed, which is exactly the distinction being drawn.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Educational sociology is the application of sociological principles to education, using what is known about society to shape aims, curriculum and method.",
   "why_wrong": {
    "0": "Sociology of education studies education as a social institution, looking at it from outside. The direction of application is opposite, and that is the distinction.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The family educates informally, through imitation, affection and the routine of daily life. There is no syllabus, no timetable and no trained teacher, yet the influence is the deepest a child receives.",
   "why_wrong": {
    "0": "Formal education needs a curriculum and an institution, which the family has not.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The school gives formal education: planned, deliberate, organised by a curriculum and delivered by trained teachers within a fixed timetable.",
   "why_wrong": {
    "1": "Informal education is what the home and the playground give, without any plan.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "A social class is a group of people similar in certain respects, above all in income, occupation and education, who share a broadly similar position and way of life.",
   "why_wrong": {
    "0": "Social order is the general arrangement of a society that keeps it stable.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Advaita's theory of liberation rests mainly on the Upanishads, whose great sayings such as Tat tvam asi, that thou art, assert the identity of the individual soul with Brahman.",
   "why_wrong": {
    "0": "The Vedas in their earlier ritual portions deal with sacrifice and the fruits of action rather than with liberation.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Liberation in Advaita Vedanta is moksha, the realisation that the self is Brahman and the consequent release from the cycle of birth and death. It comes through knowledge rather than through works.",
   "why_wrong": {
    "0": "Nirvana is the Buddhist term, the extinction of craving and suffering.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "India's present system of primary education draws mainly on Gandhi's philosophy, with its emphasis on the mother tongue, free and compulsory schooling, learning through a productive craft and education for character.",
   "why_wrong": {
    "0": "Tagore's Santiniketan model, teaching in the open air in communion with nature, has influenced particular schools rather than the national system.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The centre of education at Pondicherry grew under Sri Aurobindo, who settled there in 1910 and founded his ashram, with the Mother carrying the work forward into the Sri Aurobindo International Centre of Education.",
   "why_wrong": {
    "0": "Gandhi founded ashrams at Sabarmati and Sevagram and the scheme of Basic Education.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Vivekananda included religion, philosophy, the Upanishads and the Puranas in order to develop the child spiritually. For him education was the manifestation of the perfection already within, and that perfection is spiritual.",
   "why_wrong": {
    "1": "Intellectual development mattered to him, but these particular subjects were chosen for their spiritual content.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Vivekananda's philosophy came chiefly from Vedanta, which he interpreted as Practical Vedanta: the divinity within every person, and service to humanity as service to God.",
   "why_wrong": {
    "0": "He respected Buddhism and spoke of the Buddha with reverence, but his own position was Vedantic.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Gandhi combined all three. He is a naturalist in trusting the child's natural growth, an idealist in making truth and non-violence the aims of education, and a pragmatist in teaching through a productive craft and learning by doing.",
   "why_wrong": {
    "0": "Naturalist alone captures only his trust in nature and free growth.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Arts|Philosophy|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Philosophy comes from the Greek philos, meaning love, and sophia, meaning wisdom or knowledge, so it literally means love of wisdom. The word is credited to Pythagoras.",
   "why_wrong": {
    "1": "Criticism is one activity of philosophy but not what the word means.",

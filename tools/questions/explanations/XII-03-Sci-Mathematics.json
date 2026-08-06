@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Science|Mathematics|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "A is 2, 4 and 6, so it has 3 elements, and B is 2, 3, 5 and 7, so it has 4. A relation is any subset of the Cartesian product, which has 12 elements, so there are 2 to the power 12 relations.",
   "why_wrong": {
    "0": "2 to the 9 would need the product to have 9 elements, which would mean 3 times 3. B has four primes below 8, not three, because 2 is prime.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Science|Mathematics|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "If one line is perpendicular to another, the second is perpendicular to the first, so the relation is symmetric. That is the only one of the three properties it has.",
   "why_wrong": {
    "0": "An equivalence relation must be reflexive, symmetric and transitive, and this relation fails two of the three.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Science|Mathematics|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "The inverse image of 37 is the set of x with x squared plus 1 equal to 37. So x squared is 36 and x is plus or minus 6.",
   "why_wrong": {
    "0": "Plus or minus 4 would give 17, not 37.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Science|Mathematics|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Doubling gives g of f equal to 4x squared minus 10x plus 4, so f squared plus f minus 2 equals that. Trying f as 2x minus 3 gives f squared as 4x squared minus 12x plus 9, and adding f gives exactly 4x squared minus 10x plus 6, which matches.",
   "why_wrong": {
    "1": "2x plus 3 gives 4x squared plus 14x plus 6, whose middle term has the wrong sign.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Science|Mathematics|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The principal value of cos inverse of minus 1 is pi, and of sin inverse of 1 is pi over 2. Subtracting gives pi over 2.",
   "why_wrong": {
    "0": "Minus 3 pi over 2 reverses the subtraction and misreads a principal value.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Science|Mathematics|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "When the three inverse tangents add to pi, the standard identity gives x plus y plus z equal to xyz. It follows from the addition formula for the tangent of a sum.",
   "why_wrong": {
    "1": "2xyz is not the identity, and it fails on the simple case x, y and z all equal to root 3, where each angle is pi over 3.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Science|Mathematics|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "A symmetric matrix equals its own transpose, so the entry in row 1 column 2 must equal the entry in row 2 column 1. That gives x equal to y.",
   "why_wrong": {
    "0": "x plus y equal to 1 is satisfied by x as 0 and y as 1, which is not symmetric.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Science|Mathematics|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Adding the second row to the first turns every entry of the first row into x plus y plus z, so that row becomes a multiple of the third row of ones. A determinant with two proportional rows is zero.",
   "why_wrong": {
    "1": "1 would require the rows to be independent in a very particular way, which they are not.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Science|Mathematics|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The system is triangular, so its determinant is the product of the diagonal entries, K plus 1 times K minus 1 times K plus 2. A unique solution needs that product to be non-zero, which rules out K equal to minus 1, 1 and minus 2, leaving 0.",
   "why_wrong": {
    "1": "K equal to 1 makes the second diagonal entry zero, so the determinant vanishes.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Science|Mathematics|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "For a matrix of order n, the determinant of the adjoint is the determinant raised to the power n minus 1. Here n is 3, so it is 7 squared, that is 49.",
   "why_wrong": {
    "0": "7 would be the answer if the power were 1, that is for a 2 by 2 matrix.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Science|Mathematics|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "As x tends to 0, sin ax over x tends to a, so sin squared ax over x squared tends to a squared. Continuity requires that limit to equal the value 1, so a squared is 1 and a is plus or minus 1.",
   "why_wrong": {
    "0": "Minus 1 works, but so does plus 1, so giving only one of them is incomplete.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Science|Mathematics|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Near zero, 1 minus cos px behaves like p squared x squared over 2 and x sin x behaves like x squared, so the limit is p squared over 2. Setting that equal to one half gives p squared equal to 1, so p is plus or minus 1.",
   "why_wrong": {
    "0": "2 would give a limit of 2, four times too large.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Science|Mathematics|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "At x equal to 2 the numerator is 2 times f of 2 minus 2 times f of 2, which is zero, so this is a zero over zero limit. Rewrite the numerator by adding and subtracting 2 times f of 2: it becomes f of 2 times x minus 2, minus 2 times the quantity f of x minus f of 2. Dividing by x minus 2 gives f of 2, minus 2 times the difference quotient of f at 2, and letting x tend to 2 gives f of 2 minus twice f dashed of 2, that is 4 minus 8, which is minus 4.",
   "why_wrong": {
    "0": "2 is half of f of 2 and arises from no step in the derivation. A useful check for all of these: the function f of x equal to 4x minus 4 satisfies both conditions given, and substituting it makes the whole quotient exactly minus 4 for every x other than 2.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Science|Mathematics|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Take logarithms: log y equals x log x. Differentiating gives one over y times dy by dx equal to log x plus 1, so the derivative is x to the x times 1 plus log x.",
   "why_wrong": {
    "0": "The sign inside the bracket is wrong. Differentiating x log x by the product rule gives log x plus 1, both terms positive.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Science|Mathematics|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Divide dy by dx by dz by dx. Differentiating sin of x degrees brings out the degree-to-radian factor, and differentiating log to base 10 of x gives log base 10 of e divided by x. Dividing one by the other gives x degrees times cos x degrees over log base 10 of e.",
   "why_wrong": {
    "1": "This drops the degree conversion in the numerator, leaving plain x where the angle measure is needed.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Science|Mathematics|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The denominator factorises as 1 plus x times 1 plus x squared, and expanding y as a series gives 1 minus x plus x to the fourth and higher terms. The coefficient of x squared is zero, so the second derivative at 0 is zero.",
   "why_wrong": {
    "1": "1 would need a coefficient of one half for x squared in the expansion.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Science|Mathematics|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Area is pi r squared, so the rate of change of area is 2 pi r times the rate of change of radius. With r equal to 2 and the rate 1 over pi, that is 2 times pi times 2 times 1 over pi, which is 4.",
   "why_wrong": {
    "0": "2 would come from forgetting the factor of 2 in the derivative of r squared.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Science|Mathematics|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Implicit differentiation gives the tangent slope as b squared x over a squared y, which at the given point simplifies to b over a sin theta. The normal slope is the negative reciprocal, that is minus a sin theta over b.",
   "why_wrong": {
    "0": "This is positive and has b over a, so it is neither the tangent slope nor its negative reciprocal.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Science|Mathematics|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "On xy equal to 1 the tangent slope is minus 1 over x squared, which is always negative, so the normal slope is x squared, always positive. The line's slope is minus a over b, and for that to be positive a and b must have opposite signs.",
   "why_wrong": {
    "0": "Both positive makes minus a over b negative, which would be a tangent direction rather than a normal one.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Science|Mathematics|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The slopes are 1 over 2y for the parabola and minus y over x for the hyperbola. Setting their product to minus 1 gives x equal to one half, and since x cubed equals k squared at the intersection, k squared is one eighth.",
   "why_wrong": {
    "0": "One half is the value of x at the intersection, not of k squared. The final cubing step is still needed.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Science|Mathematics|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "With a fixed sum, the product is greatest when the two numbers are equal. So x and y are each 12 and the maximum product is 144.",
   "why_wrong": {
    "0": "80 comes from 4 and 20, which sum correctly but are far apart.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Science|Mathematics|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The probability of A and B is P of B given A times P of A, that is 0.60 times 0.40, which is 0.24. Dividing that by P of A given B, which is 0.75, gives P of B as 0.32.",
   "why_wrong": {
    "0": "0.24 is the probability of A and B, which is the intermediate step rather than the answer.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Science|Mathematics|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "By De Morgan's law, the union of the complements is the complement of the intersection. So the answer is 1 minus 5 over 13, which is 8 over 13.",
   "why_wrong": {
    "0": "4 over 13 does not arise from subtracting from 1.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Science|Mathematics|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Adding a constant does not change variance, but multiplying by 2 multiplies the variance by 4. So the variance of x is 1 and its standard deviation is 1.",
   "why_wrong": {
    "1": "A standard deviation is a square root and can never be negative.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Science|Mathematics|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "There are 8 equally likely outcomes for three tosses, and exactly one tail can occur in 3 ways, choosing which toss it is. So the probability is 3 over 8.",
   "why_wrong": {
    "0": "One half is the probability of a tail on a single toss.",

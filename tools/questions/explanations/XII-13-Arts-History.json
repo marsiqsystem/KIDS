@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Arts|History|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Al-Qanun al-Mas'udi is Alberuni's great work on astronomy, dedicated to Sultan Mas'ud of Ghazni. It draws on Greek and Indian astronomy alike.",
   "why_wrong": {
    "1": "Kitab al-Manazir, the Book of Optics, was written by Ibn al-Haytham, a different scholar.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Arts|History|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Marco Polo, passing along the Indian coast in the late thirteenth century, described the king of Gujarat among the rulers he encountered, along with the region's trade and piracy.",
   "why_wrong": {
    "0": "Kumaragupta was a Gupta emperor of the fifth century, some eight hundred years before Marco Polo.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Arts|History|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Muhammad bin Tughluq appointed Ibn Battuta qazi, or judge, of Delhi. The Moroccan traveller stayed several years and later served as envoy to China.",
   "why_wrong": {
    "0": "Ghiyasuddin Tughluq founded the dynasty and died in 1325, before Ibn Battuta arrived.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Arts|History|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Francois Bernier, the French physician who spent years at Aurangzeb's court, is regarded as the first European to visit Kashmir. He accompanied the emperor there and described the valley in his Travels in the Mogul Empire.",
   "why_wrong": {
    "1": "Marco Polo travelled along the Indian coast and through Central Asia but did not reach Kashmir.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Arts|History|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Jean-Baptiste Tavernier, the French jeweller who made six voyages to the East, described the magnificence of Shah Jahan's court and famously reported on the Peacock Throne and the great diamonds.",
   "why_wrong": {
    "0": "Babur founded the empire in 1526 and died in 1530, long before Tavernier's time.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Arts|History|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Niccolao Manucci's account is Storia do Mogor, a long and vivid history of the Mughals based on nearly sixty years spent in India as a soldier and physician.",
   "why_wrong": {
    "0": "A Passage to India is E. M. Forster's novel of 1924.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Arts|History|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Manucci was Venetian and wrote Storia do Mogor chiefly in Italian, though the manuscript mixes in Portuguese and French, reflecting the many languages he used in India.",
   "why_wrong": {
    "0": "Spanish was not his language.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Arts|History|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Karaikkal Ammaiyar is the female Bhakti saint named in the Tirumurai, the Tamil Shaiva canon. She is one of the sixty-three Nayanars and among the earliest of them.",
   "why_wrong": {
    "0": "Kanni Pannayar is not a recognised saint of this canon.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Arts|History|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Guru Nanak was born in 1469 at Talwandi, in what is now Pakistan. The village was renamed Nankana Sahib in his honour and is a major place of Sikh pilgrimage.",
   "why_wrong": {
    "0": "Vehari is a town in Punjab, Pakistan, with no such association.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Arts|History|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Mirabai's devotional poems are addressed to Lord Krishna, whom she regarded as her husband. A Rajput princess, she abandoned rank and family for that devotion, and her padas are still sung.",
   "why_wrong": {
    "0": "Durga is not the object of her devotion, though she is worshipped widely in the Bhakti period.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Arts|History|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Baba Farid, or Fariduddin Ganjshakar, was a leading Chishti Sufi of the thirteenth century in Punjab and did much to spread Sufism in India. Some of his verses are included in the Guru Granth Sahib.",
   "why_wrong": {
    "0": "Abu Bakr was the first caliph of Islam and never came to India.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Arts|History|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Alauddin Hussain Shah, who ruled Bengal from 1494 to 1519, is called the Akbar of Bengal for his tolerance, his patronage of Bengali literature and the prosperity of his reign.",
   "why_wrong": {
    "0": "Sayyed Hussain is not the name by which this ruler is known.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Arts|History|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "Magellan sailed under commission from the Spanish Crown, funded by King Charles I, to find a westward route to the Spice Islands. His expedition made the first circumnavigation of the globe, though he died on the way.",
   "why_wrong": {
    "0": "The British Crown sponsored other voyages but not this one.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Arts|History|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nelson Mandela became South Africa's first black President in 1994, after the first elections held under universal franchise. He had spent twenty-seven years in prison under apartheid.",
   "why_wrong": {
    "0": "F. W. de Klerk was the last President under apartheid, who released Mandela and shared the Nobel Peace Prize with him.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Arts|History|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Jim Crow laws, enacted across the southern United States from the 1870s and in force until the Civil Rights Act of 1964, required Black and White Americans to be kept apart in schools, railway carriages, buses, waiting rooms, restaurants and even drinking fountains, and they stripped Black citizens of the vote through literacy tests, poll taxes and grandfather clauses. Their purpose was segregation and the maintenance of White supremacy. The name itself comes from a mocking stage caricature of a Black man, which tells you the spirit in which the laws were made.",
   "why_wrong": {
    "0": "The laws did the opposite of promoting the cause of Black Americans. They were passed in the decades after Reconstruction precisely to undo the political and civil gains Black Americans had just won.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Arts|History|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Holocaust was carried out during the Second World War, between 1941 and 1945, when the Nazi regime systematically murdered around six million Jews along with Roma, disabled people and others.",
   "why_wrong": {
    "0": "The First World War ended in 1918, well before the Nazis came to power in 1933.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Arts|History|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "The World Bank was established in 1944 at the Bretton Woods Conference, alongside the International Monetary Fund. It began operations in 1946.",
   "why_wrong": {
    "1": "1945 is the year the United Nations was founded and the war ended.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Arts|History|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sir Thomas Roe was the first English ambassador to India, sent by James I to the court of Jahangir from 1615 to 1619. He secured trading rights for the East India Company.",
   "why_wrong": {
    "0": "William Norris was sent much later, in 1699, by a rival English company.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Arts|History|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Pitt's India Act of 1784 was introduced by William Pitt the Younger, then Prime Minister. It created the Board of Control, giving the British government authority over the East India Company's political affairs.",
   "why_wrong": {
    "0": "William Jones was a judge and orientalist who founded the Asiatic Society of Bengal.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Arts|History|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "After 1929 the imperial powers turned inward and taxed imports to shield their own producers, Britain through the Import Duties Act of 1932 and the Ottawa agreements with the dominions. Protectionism is the word for that new policy, and it is the change in attitude the question is after.",
   "why_wrong": {
    "0": "This is the same shift seen from the other side, and it is true that Britain gave up free trade after 1929. What the question wants named is the policy that took its place, and that policy is protectionism.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Arts|History|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Statements one and three are true. The Ilbert Bill of 1883 would have allowed Indian judges to try Europeans, which increased their powers and removed a racial distinction in the judicial service.",
   "why_wrong": {
    "1": "Statement two contradicts statement one, and it was powers being increased that caused the outcry.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Arts|History|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Of these four, Lord Elgin came first. Elgin served as Viceroy in the 1860s, followed by Curzon from 1899, Wavell from 1943 and Mountbatten in 1947, who was the last.",
   "why_wrong": {
    "0": "Lord Wavell was Viceroy from 1943 to 1947, during the war and the negotiations that followed.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Arts|History|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Both statements are true and the reason does explain the assertion. The Treaty of Versailles imposed crushing reparations, territorial losses and the war guilt clause, and the resentment that followed was exactly what Hitler exploited to build support.",
   "why_wrong": {
    "1": "The reason is not merely true alongside the assertion; it is the cause of it. In assertion-reason questions the more precise correct option is the answer.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Arts|History|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The passage says civil servants from all the presidencies trained at Fort William College before taking up their postings, so its aim was to prepare British civil servants for administrative work in India, chiefly by teaching them Indian languages.",
   "why_wrong": {
    "1": "The passage speaks of civil servants, not Indian leaders, and Indians were not being trained to govern.",

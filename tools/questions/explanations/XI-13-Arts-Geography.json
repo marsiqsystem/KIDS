@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Arts|Geography|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Eratosthenes, the Greek scholar and librarian of Alexandria, first used the word geographia in the third century BCE. He also measured the circumference of the Earth with remarkable accuracy.",
   "why_wrong": {
    "0": "Aristotle wrote on the natural world and argued the Earth was a sphere, but he did not coin the term.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Arts|Geography|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Human geography studies the spatial distribution of human activities and the relationship between people and their environment. It covers population, settlement, economic activity and culture.",
   "why_wrong": {
    "0": "Geomorphology studies landforms and the processes that shape them, and belongs to physical geography.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Arts|Geography|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Kant's nebular hypothesis, developed by Laplace, holds that the Solar System formed from a hot, rotating cloud of gas that cooled, contracted and shed rings which condensed into planets.",
   "why_wrong": {
    "0": "A giant meteorite plays no part in the hypothesis. Meteorite impacts shaped planetary surfaces later.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Arts|Geography|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Big Bang theory is the modern explanation of the origin of the universe, holding that it began about 13.7 billion years ago from an extremely dense, hot state and has been expanding ever since.",
   "why_wrong": {
    "0": "The planetesimal theory of Chamberlin and Moulton concerns the origin of the Solar System, not the universe.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Arts|Geography|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The core is composed mainly of nickel and iron, and is therefore called NIFE. It is the densest layer and is the source of the Earth's magnetic field.",
   "why_wrong": {
    "0": "SIAL is the upper continental crust, rich in silica and aluminium.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Arts|Geography|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Mohorovicic discontinuity, or Moho, separates the crust from the mantle. It was identified by the Croatian seismologist Andrija Mohorovicic from a sudden change in the speed of seismic waves.",
   "why_wrong": {
    "0": "The Gutenberg discontinuity separates the mantle from the core.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Arts|Geography|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "S-waves are transverse, needing a medium that can resist shearing, and liquids cannot. Their failure to pass through the outer core is the main evidence that it is liquid.",
   "why_wrong": {
    "0": "P-waves are longitudinal and travel through solids, liquids and gases alike, which is why they are the first to arrive.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Arts|Geography|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The asthenosphere lies in the upper mantle, roughly 100 to 200 kilometres down. It is partly molten and plastic, and the rigid plates of the lithosphere move over it.",
   "why_wrong": {
    "1": "The lower mantle is under greater pressure and behaves more rigidly.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Arts|Geography|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Volcanism originates within the Earth, driven by internal heat, so it is an endogenic process. Endogenic processes build landforms up.",
   "why_wrong": {
    "0": "Weathering acts at the surface, driven by the atmosphere, so it is exogenic.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Arts|Geography|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Fold mountains are formed when compressional forces at converging plate margins squeeze layers of sedimentary rock into folds. The Himalayas, Alps and Andes were all raised this way.",
   "why_wrong": {
    "0": "Denudation wears land down rather than building it up.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Arts|Geography|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Weathering is driven by the atmosphere, water and living things acting at the surface, so it is an exogenic process. Exogenic processes wear landforms down.",
   "why_wrong": {
    "0": "Earthquakes arise from movement within the crust and are endogenic.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Arts|Geography|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Weathering is the breakdown of rock in situ, that is in its own place, without any transport. Adding movement to it is what makes erosion.",
   "why_wrong": {
    "0": "Erosion involves both breakdown and removal by an agent such as water, wind or ice.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Arts|Geography|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "Insolation is incoming solar radiation, the energy the Earth receives from the Sun. The word is a contraction of incoming solar radiation.",
   "why_wrong": {
    "1": "Outgoing terrestrial radiation is the long-wave heat the Earth radiates back, which is a separate part of the heat budget.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Arts|Geography|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Carbon dioxide contributes the largest share of the enhanced greenhouse effect among the gases released by human activity, because it is emitted in such quantity by burning fossil fuels.",
   "why_wrong": {
    "0": "Oxygen is not a greenhouse gas, since its molecule cannot absorb infrared radiation.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Arts|Geography|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The barometer measures atmospheric pressure, either as a column of mercury or, in the aneroid type, by the flexing of a sealed metal box.",
   "why_wrong": {
    "0": "A hygrometer measures humidity, that is the moisture content of the air.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Arts|Geography|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Human geography studies the relationship between people and their environment, including how people adapt to nature and how they modify it. That reciprocal relationship is its central subject.",
   "why_wrong": {
    "0": "Rocks and minerals belong to geology and geomorphology.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Arts|Geography|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Primary activities extract resources directly from nature: agriculture, fishing, forestry, mining and gathering. They are closest to the physical environment of all economic activities.",
   "why_wrong": {
    "0": "Secondary activities process and manufacture what the primary sector extracts.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Arts|Geography|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Software development is a quaternary activity, since it is knowledge-based work concerned with creating and processing information rather than with goods or ordinary services.",
   "why_wrong": {
    "0": "Primary activity extracts from nature.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Arts|Geography|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "India lies entirely in the Northern and Eastern Hemispheres, extending from about 8 degrees to 37 degrees north and from 68 degrees to 97 degrees east.",
   "why_wrong": {
    "0": "The Western Hemisphere lies west of the Prime Meridian, and no part of India does.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Arts|Geography|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Tropic of Cancer passes through eight Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram. It runs west to east across the middle of the country.",
   "why_wrong": {
    "0": "6 is short by two. A useful check is to trace the line on the map from Gujarat in the west to Mizoram in the east.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Arts|Geography|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Northern Plains were formed by alluvium deposited over millions of years by the Indus, Ganga and Brahmaputra and their tributaries as they emerged from the Himalayas. The soil is deep, fertile and renewed by flooding.",
   "why_wrong": {
    "0": "Wind-blown sediment forms loess plains, as in China, not these.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Arts|Geography|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Peninsular Plateau is made largely of ancient crystalline igneous and metamorphic rocks. It is one of the oldest landmasses on Earth, a fragment of the former Gondwanaland, and is rich in minerals.",
   "why_wrong": {
    "0": "Young fold mountains are the Himalayas, geologically recent and still rising, while the plateau is stable and very old.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XI|Arts|Geography|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Himalayas are called the Water Tower of Asia because their snowfields and glaciers feed the Indus, Ganga, Brahmaputra and other great rivers, supplying water to a large part of the continent all year round.",
   "why_wrong": {
    "0": "The Northern Plains receive that water rather than supplying it.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XI|Arts|Geography|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Kosi is called the Sorrow of Bihar. It carries enormous silt from Nepal, which raises its bed and makes it shift its channel repeatedly, flooding wide areas of north Bihar.",
   "why_wrong": {
    "0": "The Damodar was called the Sorrow of Bengal before the Damodar Valley Corporation dams tamed it. The two sorrows are the pair most often confused.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XI|Arts|Geography|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Ganga and Brahmaputra together form the Sundarbans delta, the largest in the world, spread across India and Bangladesh. It carries the world's largest mangrove forest.",
   "why_wrong": {
    "0": "The Godavari has a large delta on the east coast but a far smaller one.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Commerce|Economics|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Every economy faces the same root problem: wants are unlimited but the resources to satisfy them are scarce and have alternative uses. Scarcity is what forces choice, and choice is what economics studies.",
   "why_wrong": {
    "0": "Inflation is a particular macroeconomic problem, serious but not universal. Some economies have had none for years.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Commerce|Economics|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Opportunity cost is the value of the next best alternative given up when a choice is made. Choosing to study for an hour costs the best thing you could have done with that hour instead.",
   "why_wrong": {
    "0": "Cost of production is money actually spent, whereas opportunity cost concerns what was forgone and may involve no money at all.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Commerce|Economics|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Microeconomics studies individual units, that is single consumers, firms and markets, and the prices and quantities within them. Micro means small.",
   "why_wrong": {
    "0": "Macroeconomics studies the economy as a whole, dealing with national income, employment and the general price level.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Commerce|Economics|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "A normative statement expresses an opinion about what ought to be, and cannot be verified by data. The word should is the giveaway here.",
   "why_wrong": {
    "0": "A stated inflation rate is a positive statement, which can be checked against the figures and found true or false.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Commerce|Economics|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "A point outside the production possibility curve needs more resources or better technology than the economy currently has, so it is unattainable at present. Growth can shift the curve outward and make it attainable later.",
   "why_wrong": {
    "0": "Efficient production is shown by points on the curve itself, where resources are fully and efficiently used.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Commerce|Economics|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Marginal utility is the addition to total utility from consuming one more unit of a commodity. It is the change in total utility divided by the change in quantity.",
   "why_wrong": {
    "0": "Total utility is the whole satisfaction from all units consumed, which is the sum of the marginal utilities.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Commerce|Economics|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Total utility rises so long as marginal utility is positive and falls once it turns negative, so it reaches its maximum exactly where marginal utility is zero. That point is called the point of satiety.",
   "why_wrong": {
    "1": "Marginal utility is greatest at the first unit, when total utility has only just begun to rise. Maximum marginal and maximum total are at opposite ends.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Commerce|Economics|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The law of diminishing marginal utility says that as a person consumes more units of a good, the satisfaction from each additional unit falls. The fourth glass of water gives less than the first.",
   "why_wrong": {
    "0": "Continuously increasing marginal utility is the exact opposite of the law.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Commerce|Economics|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The law assumes the units consumed are homogeneous, that is identical in size and quality. If a later unit were larger or better, any fall in satisfaction could not be attributed to the law.",
   "why_wrong": {
    "0": "The law assumes the consumer is rational, aiming to maximise satisfaction.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Commerce|Economics|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "For a normal good, demand rises as income rises, so income elasticity is positive. Most goods behave this way.",
   "why_wrong": {
    "0": "Demand falling as income rises describes an inferior good, such as coarse grain that people give up as they grow better off. That is the contrast this question tests.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Commerce|Economics|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "In economics production means creating utility, that is adding to the capacity of something to satisfy a want. It covers form, place, time and possession utility, so a shopkeeper and a carrier are producing as much as a factory is.",
   "why_wrong": {
    "0": "Selling goods creates possession utility, so it is one kind of production rather than the opposite of it. But selling alone is too narrow a definition.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Commerce|Economics|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Plant and machinery cannot be varied in the short run, since it takes time to install or dispose of them. The short run is defined precisely as the period in which at least one factor is fixed.",
   "why_wrong": {
    "0": "Labour can be hired or laid off relatively quickly, so it is the usual variable factor.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Commerce|Economics|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The law of variable proportions applies to the short run, where a variable factor is added to a fixed one so that the proportion between them changes. That changing proportion is what gives the law its name.",
   "why_wrong": {
    "0": "In the long run all factors vary together, which gives returns to scale rather than variable proportions.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Commerce|Economics|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Average product is total product divided by the number of units of the variable input. It measures output per unit of that input.",
   "why_wrong": {
    "0": "Multiplying rather than dividing would grow with input rather than measuring output per unit.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Commerce|Economics|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Marginal product is the addition to total product from one more unit of the variable factor. When it falls to zero, total product has stopped rising and is therefore at its maximum.",
   "why_wrong": {
    "1": "Total product is at its minimum when no variable factor is employed at all, where marginal product has not yet been defined.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Commerce|Economics|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Primary data are collected for the first time by the investigator, for the specific purpose in hand, through surveys, interviews or direct observation. They are original and therefore reliable but costly.",
   "why_wrong": {
    "0": "Secondary data have already been collected by somebody else for some other purpose.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Commerce|Economics|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Secondary data are data already collected and published by someone else, such as census reports or the Reserve Bank's bulletins. They are cheap and quick to obtain but were gathered for another purpose.",
   "why_wrong": {
    "0": "Primary data are collected first hand by the investigator.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Commerce|Economics|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "A census investigation covers every single unit of the population under study. It is accurate and complete, but costly and time-consuming, which is why it is used only where full coverage is essential.",
   "why_wrong": {
    "0": "Studying only a sample is the sample method, the alternative to a census.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Commerce|Economics|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Classification is arranging data into groups or classes according to a common characteristic. It condenses a mass of raw figures into a form that can be understood and compared.",
   "why_wrong": {
    "0": "Coding is assigning numbers or symbols to responses so that they can be processed, which comes before classification.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Commerce|Economics|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "A histogram is used for a continuous frequency distribution. Its bars are drawn adjacent with no gaps, which shows that the classes run continuously into one another.",
   "why_wrong": {
    "0": "A pie chart shows the parts of a whole as sectors of a circle, and suits components rather than a frequency distribution.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Commerce|Economics|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "The class mark, also called the mid-value, is the midpoint of a class interval, found by averaging its upper and lower limits. It represents the class in calculations such as the mean.",
   "why_wrong": {
    "0": "Class limits are the lowest and highest values stated for the class, its two ends rather than its centre.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Commerce|Economics|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "A pie diagram is best for showing how a total divides into parts, because each sector's angle is proportional to its share. The eye reads the composition of the whole at once.",
   "why_wrong": {
    "0": "A histogram shows a frequency distribution across classes, not shares of a total.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XI|Commerce|Economics|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "The median is a positional average, depending on the middle position rather than on the values themselves, so a very large or very small observation does not pull it. That is why median income is quoted rather than mean income.",
   "why_wrong": {
    "0": "The arithmetic mean uses every value, so a single extreme observation shifts it considerably.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XI|Commerce|Economics|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The median is the middle value once the data are arranged in order. With an even number of observations it is the average of the two middle ones.",
   "why_wrong": {
    "0": "The largest observation is the maximum, one end of the range.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XI|Commerce|Economics|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The mode is the value that occurs most often in a set of data. A distribution may have one mode, several, or none at all.",
   "why_wrong": {
    "0": "The arithmetic average is the mean.",

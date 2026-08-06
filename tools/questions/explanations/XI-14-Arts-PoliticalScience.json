@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Arts|Political Science|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "A State has four essential elements: population, territory, government and sovereignty. Religion is not among them, and a State may have any religion or none, as a secular State does.",
   "why_wrong": {
    "0": "Population is essential; there can be no State without people.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Arts|Political Science|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Pluralists hold that sovereignty is not the monopoly of the State but is shared among the many associations to which people belong: churches, trade unions, universities and local bodies. Laski and MacIver argued this against the monistic view.",
   "why_wrong": {
    "0": "Absolute and indivisible sovereignty is the monistic theory of Bodin, Hobbes and Austin, which pluralism was framed to attack.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Arts|Political Science|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Thomas Hobbes is most closely associated with the State of Nature, which he described in Leviathan as a war of every man against every man, where life was solitary, poor, nasty, brutish and short.",
   "why_wrong": {
    "0": "Karl Marx explained the State as an instrument of class domination and predicted its withering away.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Arts|Political Science|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Individualists describe the State as a necessary evil. They hold that its interference restricts liberty, so it is an evil, but that it is needed to maintain order and protect rights, so it is necessary.",
   "why_wrong": {
    "1": "Idealists such as Hegel and Green regard the State as a positive good and even as the march of God on earth.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Arts|Political Science|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Social Contract Theory explains the State as arising from an agreement among people who left the state of nature to secure order. Hobbes, Locke and Rousseau each gave their own version of it.",
   "why_wrong": {
    "0": "The Force Theory holds that the State arose from conquest by the strong.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Arts|Political Science|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rousseau located sovereignty in the General Will, the will of the community aiming at the common good. It is not the mere sum of individual wills but what all would will as citizens.",
   "why_wrong": {
    "0": "Hobbes placed sovereignty in an absolute ruler to whom people surrendered all rights.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Arts|Political Science|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "John Austin gave the legal or monistic theory of sovereignty, defining the sovereign as a determinate human superior who receives habitual obedience and owes it to no one else. Law, for him, is the sovereign's command.",
   "why_wrong": {
    "0": "Harold Laski was the leading pluralist and a critic of exactly this theory.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Arts|Political Science|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The external aspect of sovereignty is independence from foreign control, meaning the State is free to conduct its own affairs and is not subject to any other State.",
   "why_wrong": {
    "0": "Law-making power is internal, exercised over the State's own people and territory.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Arts|Political Science|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Force Theory holds that the State originated in conquest, the strong subduing the weak and imposing their rule. War, said the theory's critics, made the king and the king made war.",
   "why_wrong": {
    "0": "Origin from the family is the Evolutionary or Patriarchal theory.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Arts|Political Science|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sir Henry Maine is the chief exponent of the Evolutionary Theory, tracing the growth of the State from family to gens, tribe and finally State, and describing the movement from status to contract.",
   "why_wrong": {
    "1": "Rousseau is a social contract theorist.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Arts|Political Science|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Locke supported limited government. He held that people surrender only some rights, that the government is a trustee bound by natural law, and that people may resist it if it breaks the trust.",
   "why_wrong": {
    "0": "Hobbes argued for an absolute sovereign, since only unlimited power could prevent a return to the war of all against all.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Arts|Political Science|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Popular sovereignty means that ultimate authority rests with the people, from whom all governmental power is derived. The Indian Constitution opens with We, the people of India, on that principle.",
   "why_wrong": {
    "0": "Sovereignty in the king is monarchical sovereignty, defended by the divine right theory.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Arts|Political Science|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Divine Origin Theory rests on faith rather than evidence. It cannot be tested historically, and it was largely abandoned once the Reformation, the rise of science and democratic ideas undermined it.",
   "why_wrong": {
    "0": "The Evolutionary Theory is supported by anthropological and historical evidence of tribal societies developing into States.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Arts|Political Science|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Hegel regarded the State as an ethical institution, the highest expression of the moral idea, in which the individual realises true freedom. His idealism was later developed by T. H. Green and Bosanquet.",
   "why_wrong": {
    "1": "Locke saw the State as a limited trustee for protecting life, liberty and property.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XI|Arts|Political Science|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Political sovereignty in a democracy rests with the electorate, the body of voters behind the legal sovereign. Their verdict at elections is the power that legal authority must ultimately answer to.",
   "why_wrong": {
    "1": "The army is subordinate to civilian authority in a democracy.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XI|Arts|Political Science|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sovereignty is inalienable, meaning it cannot be given away, and territory is not one of its characteristics at all. Transferability of territory is therefore not a feature of sovereignty.",
   "why_wrong": {
    "0": "Permanence is a genuine feature: sovereignty lasts as long as the State does, whoever governs.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XI|Arts|Political Science|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Locke wrote to justify constitutional, limited government, and his Two Treatises defended the English Glorious Revolution of 1688. His ideas later shaped the American Declaration of Independence.",
   "why_wrong": {
    "0": "Absolute monarchy is what Hobbes's version of the contract justified, and what Locke was arguing against.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XI|Arts|Political Science|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Aristotle defined the State in his Politics as a union of families and villages having for its end a perfect and self-sufficing life. He held that the State comes into being for life and continues for the good life.",
   "why_wrong": {
    "1": "Plato described an ideal state in The Republic built on justice and the division of classes, but this definition is Aristotle's.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XI|Arts|Political Science|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Divine Origin Theory supported absolute monarchy, since a king who ruled by God's will was answerable to God alone and could not be resisted or judged by his subjects.",
   "why_wrong": {
    "0": "Democracy rests on popular sovereignty, which is the opposite claim.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XI|Arts|Political Science|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Commercial sovereignty is not a recognised form. The forms discussed in political science are legal, political, popular, de jure, de facto and titular sovereignty.",
   "why_wrong": {
    "0": "Legal sovereignty is the authority recognised by law to issue commands.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XI|Arts|Political Science|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Austin held that in every political society there is a determinate human superior who receives habitual obedience from the bulk of the people and renders obedience to no one. That obedience is the mark of sovereignty.",
   "why_wrong": {
    "1": "People's participation belongs to popular sovereignty, and Austin's theory is legal rather than democratic.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XI|Arts|Political Science|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The chief criticism of Hobbes is that his contract justifies absolute authority. People surrender all their rights irrevocably to a sovereign who is party to no agreement, leaving them no right of resistance however tyrannical he becomes.",
   "why_wrong": {
    "0": "Hobbes does not promote democracy. He preferred monarchy as the most effective form of absolute rule.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XI|Arts|Political Science|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Harold Laski was the strongest critic of the monistic theory. He argued that the State is only one association among many and has no moral right to unlimited obedience, and that in reality power is federal and divided.",
   "why_wrong": {
    "0": "Bodin founded the monistic theory in the sixteenth century.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XI|Arts|Political Science|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The evolutionary explanation holds that the State grew gradually out of the family, kinship, religion, war and political consciousness working together over long ages. It is the explanation historians and anthropologists accept.",
   "why_wrong": {
    "0": "Creation in a single event describes the social contract theory, and evolution denies any such founding moment.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XI|Arts|Political Science|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Jean Bodin first gave a systematic account of sovereignty in his Six Books of the Commonwealth in 1576, defining it as supreme power over citizens and subjects, unrestrained by law.",
   "why_wrong": {
    "1": "Aristotle wrote on the State and its forms but had no developed concept of sovereignty, which is a modern idea tied to the nation-state.",

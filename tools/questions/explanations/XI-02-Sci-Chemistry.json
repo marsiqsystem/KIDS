@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Science|Chemistry|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Boron trifluoride has three bond pairs and no lone pair on boron, so VSEPR gives a trigonal planar shape with the three fluorines spread evenly round the boron. That puts the bond angle at 120 degrees.",
   "why_wrong": {
    "0": "112 degrees corresponds to no regular geometry. Angles are squeezed below the ideal only when lone pairs are present, and boron here has none.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Science|Chemistry|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The azimuthal quantum number l runs from 0 up to n minus 1. So for n equal to 3 the allowed values are 0, 1 and 2, giving the s, p and d subshells of the third shell.",
   "why_wrong": {
    "0": "Starting at 1 would leave out the s subshell, which has l equal to 0 and exists in every shell.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Science|Chemistry|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "This is Dalton's law of partial pressures, and it is true for non-reactive gases. Each gas exerts the pressure it would exert alone, because in an ideal gas the molecules do not interact.",
   "why_wrong": {
    "1": "The statement is a standard gas law, not a falsehood. Note the qualifier non-reactive, which is what makes it hold.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Science|Chemistry|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Add the atomic masses: nitrogen 14.01, four hydrogens 4.03, oxygen 16.00 and the hydroxide hydrogen 1.008, giving about 35.04 amu.",
   "why_wrong": {
    "0": "3.50 amu is the right digits with the decimal point moved. A formula mass of 3.5 would be lighter than a lithium atom, which is impossible for a five-atom species.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Science|Chemistry|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "In the dihydrogen molecule both electrons are paired in the sigma 1s bonding orbital, and a species with no unpaired electrons is diamagnetic, that is weakly repelled by a magnetic field.",
   "why_wrong": {
    "0": "Paramagnetism requires at least one unpaired electron. Oxygen is the classic paramagnetic gas; hydrogen is not.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Science|Chemistry|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "F2 has 18 electrons and the peroxide ion O2 2− also has 18, so they are isoelectronic. Having the same number of electrons is why they share a bond order of 1.",
   "why_wrong": {
    "0": "Isomers have the same molecular formula but different arrangements. These two have different formulas altogether.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Science|Chemistry|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Surface tension arises because molecules at the surface are pulled inward by the attractive forces of the molecules below them, with nothing above to balance the pull. Stronger attractive forces therefore mean higher surface tension.",
   "why_wrong": {
    "0": "Repulsive forces act only at very short range and would tend to push a liquid apart, which is the opposite of what holds a drop together.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Science|Chemistry|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Neon is monatomic, so 12 moles contain 12 times Avogadro's number of atoms. That is 12 times 6.022 times ten to the 23, which is 7.226 times ten to the 24.",
   "why_wrong": {
    "1": "72.26 times ten to the 24 is ten times too many. Check the power of ten after multiplying.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Science|Chemistry|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Carbon dioxide is O double bond C double bond O. Each double bond is two bond pairs, so there are four bond pairs in all, along with two lone pairs on each oxygen.",
   "why_wrong": {
    "0": "6 would be the count if all the pairs, bonding and non-bonding, on carbon and oxygen were added incorrectly. The question asks only for bond pairs.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Science|Chemistry|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "Molality is moles of solute per kilogram of solvent. Because it is defined by mass rather than volume, it does not change with temperature, which is why it is preferred for work over a range of temperatures.",
   "why_wrong": {
    "0": "Normality is gram equivalents of solute per litre of solution.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XI|Science|Chemistry|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Four electron pairs around a central atom arrange themselves tetrahedrally, and that requires one s and three p orbitals to mix, giving sp3 hybridisation. Methane is the standard example.",
   "why_wrong": {
    "0": "d2sp is not a standard hybridisation, and involving d orbitals implies an expanded octet, which a simple tetrahedral molecule does not have.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XI|Science|Chemistry|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nitrogen in both NH3 and NF3 carries three bond pairs and one lone pair. Four electron pairs arrange themselves tetrahedrally, but the shape of a molecule is named from the atoms alone, and three atoms below one nitrogen make a trigonal pyramid.",
   "why_wrong": {
    "0": "Pyramidal is the same shape named loosely, and chemists often shorten it that way in speech. When both terms are on offer, take the full name: trigonal pyramidal also tells you the base is a triangle.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XI|Science|Chemistry|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "Across a period the nuclear charge increases while electrons are added to the same shell, so the added shielding is small and the stronger pull draws the electrons closer. The atomic radius therefore decreases from left to right.",
   "why_wrong": {
    "1": "Radius increases down a group, where each element adds a whole new shell. That is the trend for the other direction of the table.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XI|Science|Chemistry|14",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. The arithmetic is straightforward. 5800 angstrom is 5.8 times ten to the minus seven metres, and frequency equals c over lambda, which is 3 times ten to the eight divided by 5.8 times ten to the minus seven, or 5.17 times ten to the fourteen hertz. The paper offers 5.08 times ten to the fourteen, which is not that number. A candidate who worked it out properly found no matching option and could reasonably choose None of the above, so the better the candidate, the more likely they missed the keyed answer. With two options each having a real claim, the question was withdrawn from scoring.",
   "why_wrong": {
    "0": "3 times ten to the fifteen hertz is about six times too large. Notice that it is simply c written with its own exponent, which is what you get if the division goes wrong.",
@@ -142,7 +142,7 @@
  },
  {
   "id": "XI|Science|Chemistry|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Boyle's law states that at constant temperature the pressure of a fixed mass of gas is inversely proportional to its volume, so their product PV is constant.",
   "why_wrong": {
    "0": "Gay-Lussac's law relates pressure and temperature at constant volume, giving P over T constant.",
@@ -152,7 +152,7 @@
  },
  {
   "id": "XI|Science|Chemistry|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sodium hydride is an ionic hydride, formed when a highly electropositive s-block metal transfers an electron to hydrogen, giving the hydride ion H minus. Such hydrides are crystalline solids.",
   "why_wrong": {
    "0": "Methane is a covalent hydride, formed between two non-metals of similar electronegativity.",
@@ -162,7 +162,7 @@
  },
  {
   "id": "XI|Science|Chemistry|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "In a face-centred cubic cell the eight corner atoms each contribute an eighth, giving 1, and the six face atoms each contribute a half, giving 3. The total is 4 atoms per unit cell.",
   "why_wrong": {
    "0": "1 is the count for a simple cubic cell, which has atoms only at the corners.",
@@ -172,7 +172,7 @@
  },
  {
   "id": "XI|Science|Chemistry|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Diborane is B2H6. It is electron deficient and holds together through two three-centre two-electron banana bonds, in which a hydrogen bridges both boron atoms.",
   "why_wrong": {
    "0": "BH3 is borane, which does not exist as a stable free molecule and immediately dimerises to diborane.",
@@ -182,7 +182,7 @@
  },
  {
   "id": "XI|Science|Chemistry|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Aluminium is amphoteric, so it dissolves in sodium hydroxide solution to give sodium aluminate and liberates hydrogen gas.",
   "why_wrong": {
    "0": "Oxygen is not released. There is no oxidising agent here capable of freeing it from water or hydroxide.",
@@ -192,7 +192,7 @@
  },
  {
   "id": "XI|Science|Chemistry|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Lithium aluminium hydride is LiAlH4. The aluminium sits at the centre of a tetrahedral AlH4 minus ion, balanced by the lithium ion, and it is a powerful reducing agent.",
   "why_wrong": {
    "0": "LiAlH2 would leave aluminium with the wrong charge balance. Lithium is plus one and the complex ion must be minus one, which requires four hydrides.",
@@ -202,7 +202,7 @@
  },
  {
   "id": "XI|Science|Chemistry|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Lithium shows a diagonal relationship with magnesium, because moving one place right and one place down leaves the charge-to-size ratio nearly unchanged. Both form nitrides directly and both have carbonates that decompose on heating.",
   "why_wrong": {
    "0": "Sodium sits directly below lithium and is the next group 1 member, not the diagonal partner. Its diagonal partner would be calcium.",
@@ -212,7 +212,7 @@
  },
  {
   "id": "XI|Science|Chemistry|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Calcium ions are essential to blood clotting, where they act as a cofactor in the clotting cascade, and calcium phosphate is the mineral that makes bone and teeth hard.",
   "why_wrong": {
    "0": "Magnesium ions are also biologically vital, as the centre of chlorophyll and a cofactor for many enzymes, but not for clotting or bone structure.",
@@ -222,7 +222,7 @@
  },
  {
   "id": "XI|Science|Chemistry|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Deviations appear at low temperature and high pressure. Under those conditions the molecules are close together and moving slowly, so the intermolecular attractions and the finite volume of the molecules, both ignored in the ideal gas equation, start to matter.",
   "why_wrong": {
    "0": "High temperature and low pressure is precisely when a real gas behaves most nearly ideally, so this has it exactly backwards.",
@@ -232,7 +232,7 @@
  },
  {
   "id": "XI|Science|Chemistry|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Hydrogen peroxide can act both ways. Oxygen in it is in the intermediate minus one state, so it can be reduced to minus two, making peroxide an oxidising agent, or oxidised to zero, making it a reducing agent.",
   "why_wrong": {
    "0": "Oxidising is only half the truth. Against a stronger oxidising agent such as potassium permanganate, peroxide is itself oxidised and gives off oxygen.",
@@ -242,7 +242,7 @@
  },
  {
   "id": "XI|Science|Chemistry|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "Silicon tetrachloride hydrolyses rapidly because silicon has vacant d orbitals that let water attack it. The product is silicic acid, together with hydrogen chloride.",
   "why_wrong": {
    "0": "Silica, SiO2, is what remains after silicic acid is strongly heated and loses water. It is a later product, not the immediate one.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "XII|Arts|Geography|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Plate tectonic theory divides the lithosphere into seven major plates, together with a number of minor ones. The major plates are the Pacific, North American, South American, Eurasian, African, Indo-Australian and Antarctic.",
   "why_wrong": {
    "0": "5 is too few and leaves out the minor plates altogether.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XII|Arts|Geography|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Himalayas were raised by the collision of the Indo-Australian plate with the Eurasian plate, which crumpled the sediments of the Tethys Sea between them. The collision continues, so the range is still rising.",
   "why_wrong": {
    "0": "The African and Eurasian plates collided to form the Alps and the Atlas mountains.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XII|Arts|Geography|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Volcanism originates within the Earth, driven by internal heat, so it is an endogenic process. Endogenic processes build landforms up; exogenic ones wear them down.",
   "why_wrong": {
    "0": "Weathering acts at the surface through the atmosphere and water, so it is exogenic.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XII|Arts|Geography|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Exfoliation is physical weathering: the outer layers of rock peel away in sheets as the surface expands and contracts with heating and cooling faster than the interior. No chemical change occurs.",
   "why_wrong": {
    "0": "Chemical weathering alters the composition of the rock, through processes such as oxidation, carbonation and hydrolysis.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XII|Arts|Geography|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Karst topography develops on limestone, which is dissolved by slightly acidic rainwater through carbonation. It produces caves, sinkholes, stalactites and underground drainage.",
   "why_wrong": {
    "0": "Granite is an igneous rock resistant to solution, weathering instead by exfoliation into rounded tors.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XII|Arts|Geography|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "A floodplain is built by deposition, as a river in flood spreads across its valley and drops the silt it can no longer carry. Levees and deltas are formed the same way.",
   "why_wrong": {
    "0": "A gorge is cut by vertical erosion in the youthful stage of a river.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XII|Arts|Geography|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Coriolis force arises from the rotation of the Earth, deflecting moving air and water to the right in the Northern Hemisphere and to the left in the Southern. It is zero at the Equator and greatest at the poles.",
   "why_wrong": {
    "0": "Revolution is the Earth's yearly orbit around the Sun, which gives the seasons rather than this deflection.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XII|Arts|Geography|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "The doldrums, or equatorial low pressure belt, is the zone of calm near the Equator. Air rises there rather than blowing horizontally, so surface winds are light and variable, which once becalmed sailing ships for weeks.",
   "why_wrong": {
    "0": "The horse latitudes are the calm belts near 30 degrees north and south, under the subtropical highs. Also calm, but at a quite different latitude.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XII|Arts|Geography|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "Convectional rainfall dominates the equatorial region. Intense heating makes air rise rapidly, cool and condense, giving heavy afternoon thunderstorms almost daily.",
   "why_wrong": {
    "0": "Cyclonic rainfall is associated with depressions in temperate latitudes and with tropical cyclones.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XII|Arts|Geography|10",
-  "approved": false,
+  "approved": true,
   "why_correct": "The average salinity of ocean water is about 35, meaning 35 grams of dissolved salt in every kilogram of sea water. It is properly written as 35 parts per thousand rather than as a percentage, which would be 3.5 per cent.",
   "why_wrong": {
    "0": "15 is far too low; such water is brackish, as in the Baltic Sea.",
@@ -101,7 +101,7 @@
  },
  {
   "id": "XII|Arts|Geography|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Gulf Stream is the warm current flowing north-eastward along the eastern coast of North America and on across the Atlantic, where it keeps north-west Europe far milder than its latitude would suggest.",
   "why_wrong": {
    "0": "The Labrador Current is cold and flows south along the same coast further north. Where the two meet, off Newfoundland, fog and rich fishing grounds result.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "XII|Arts|Geography|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "A biodiversity hotspot is a region exceptionally rich in endemic species, that is species found nowhere else, and at the same time under serious threat of habitat loss. Both conditions must hold.",
   "why_wrong": {
    "0": "High temperature has nothing to do with it, despite the word hot.",
@@ -121,7 +121,7 @@
  },
  {
   "id": "XII|Arts|Geography|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "The tundra is characterised by permafrost, ground that stays frozen all year below a thin surface layer that thaws in summer. Only mosses, lichens and dwarf shrubs can grow there.",
   "why_wrong": {
    "0": "Tropical rainforest is hot and wet all year, with the richest biodiversity on Earth.",
@@ -131,7 +131,7 @@
  },
  {
   "id": "XII|Arts|Geography|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "Population density is the number of people per unit area, usually per square kilometre. It measures how crowded a place is, whereas total population measures only how many people there are.",
   "why_wrong": {
    "0": "Birth rate minus death rate is the natural growth rate.",
@@ -141,7 +141,7 @@
  },
  {
   "id": "XII|Arts|Geography|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "The demographic transition model as taught here has five stages, running from high birth and death rates, through falling death rates and then falling birth rates, to low rates in both and finally a declining population.",
   "why_wrong": {
    "0": "3 stages is how the model is compressed in some textbooks, including NCERT, which treats it as high stationary, expanding and low stationary. Not baseless, but the fuller version separates the phases.",
@@ -151,7 +151,7 @@
  },
  {
   "id": "XII|Arts|Geography|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nucleated or compact settlements are typical of fertile alluvial plains, where good soil and water support dense farming and houses cluster closely together, often around a well, temple or crossroads.",
   "why_wrong": {
    "0": "Dispersed settlements are found in hilly, forested or infertile country, where farms are scattered.",
@@ -161,7 +161,7 @@
  },
  {
   "id": "XII|Arts|Geography|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "A census town is one that meets the Census criteria without having a municipality: a population of at least 5,000, a density of at least 400 per square kilometre, and at least 75 per cent of male workers in non-agricultural work.",
   "why_wrong": {
    "0": "A metropolitan town has a population of more than a million.",
@@ -171,7 +171,7 @@
  },
  {
   "id": "XII|Arts|Geography|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Uttar Pradesh is India's most populous state, with about 200 million people at the 2011 Census, more than the population of most countries.",
   "why_wrong": {
    "0": "Maharashtra is second, with about 112 million.",
@@ -181,7 +181,7 @@
  },
  {
   "id": "XII|Arts|Geography|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Bhakra-Nangal project on the Sutlej is India's largest multipurpose river valley project. Bhakra dam is among the highest in the world, and the scheme provides irrigation, hydroelectricity and flood control to Punjab, Haryana and Rajasthan.",
   "why_wrong": {
    "0": "The Damodar Valley Project of 1948 was India's first multipurpose project, modelled on the Tennessee Valley Authority, but it is smaller. First and largest are different titles.",
@@ -191,7 +191,7 @@
  },
  {
   "id": "XII|Arts|Geography|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Solar energy is a non-conventional or renewable source, along with wind, tidal, geothermal and biomass. Non-conventional sources are inexhaustible and far less polluting.",
   "why_wrong": {
    "0": "Coal is a conventional fossil fuel.",
@@ -201,7 +201,7 @@
  },
  {
   "id": "XII|Arts|Geography|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Chhattisgarh is the largest producer of coal in India, mining well over two hundred million tonnes a year, chiefly from the Korba coalfield. Note carefully that the question asks about production, which is how much is dug out in a year, and not about reserves, which is how much lies underground.",
   "why_wrong": {
    "0": "Odisha is a close second in production, with the Talcher and Ib valley fields, and it also holds very large reserves. It is the nearest rival to the right answer, but not the leader.",
@@ -211,7 +211,7 @@
  },
  {
   "id": "XII|Arts|Geography|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Green Revolution raised the output of wheat and rice above all, through high-yielding varieties, assured irrigation, chemical fertilisers and pesticides. Punjab, Haryana and western Uttar Pradesh gained most.",
   "why_wrong": {
    "0": "Pulses were largely left out, and output per head actually fell, which remains a problem for Indian nutrition.",
@@ -221,7 +221,7 @@
  },
  {
   "id": "XII|Arts|Geography|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Road transport carries by far the largest volume of freight in India, about seventy per cent of it, as the NCERT textbook states. Roads reach places no railway line does, they allow door to door delivery without transhipment, and they suit the small consignments and short hauls that make up most of the country's traffic.",
   "why_wrong": {
    "0": "Air transport is the fastest but carries the smallest volume of all, a tiny fraction of one per cent. It is used for goods that are light, valuable or urgent, not for bulk.",
@@ -231,7 +231,7 @@
  },
  {
   "id": "XII|Arts|Geography|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "The World Trade Organization regulates international trade, framing the rules, hosting negotiations and settling disputes between member countries. It replaced GATT in 1995.",
   "why_wrong": {
    "0": "The IMF oversees the international monetary system and lends to countries in balance of payments difficulty.",
@@ -241,7 +241,7 @@
  },
  {
   "id": "XII|Arts|Geography|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The balance of trade is the difference between a country's visible exports and visible imports, that is trade in goods alone. If imports exceed exports the balance is unfavourable.",
   "why_wrong": {
    "1": "Population against resources is a matter of carrying capacity, not trade.",

@@ -1,7 +1,7 @@
 [
  {
   "id": "XI|Arts|Philosophy|1",
-  "approved": false,
+  "approved": true,
   "why_correct": "Idealism holds that reality is ultimately spiritual and that the individual is part of a universal mind or spirit. On that view the child is an integral part of the ultimate universe, and education draws out the spiritual self already present.",
   "why_wrong": {
    "0": "Realism holds that the material world exists independently of the mind, and treats the child as one object among others in it.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|2",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rabindranath Tagore taught that education must take place in communion with nature. At Santiniketan classes were held in the open air under the trees, because he believed a child shut indoors is cut off from the source of learning.",
   "why_wrong": {
    "0": "Vivekananda's emphasis was on man-making education and the manifestation of inner perfection.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|3",
-  "approved": false,
+  "approved": true,
   "why_correct": "Naturalism advocates discipline by natural or direct consequences, an idea from Rousseau. A child who breaks a window and must sit in the cold learns from the consequence itself rather than from punishment.",
   "why_wrong": {
    "0": "Existentialism emphasises self-chosen responsibility rather than a scheme of consequences.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|4",
-  "approved": false,
+  "approved": true,
   "why_correct": "Epistemology is the theory of knowledge, dealing with what knowledge is, where it comes from and how it is validated. A teacher whose business is to promote knowledge is therefore directly concerned with it.",
   "why_wrong": {
    "0": "Values are the province of axiology, which shapes the aims of education rather than its content.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|5",
-  "approved": false,
+  "approved": true,
   "why_correct": "Caste is named the major constraint on social change in India because it is a hereditary structure that fixes status, occupation and marriage from birth, and it resists change from within rather than merely slowing it.",
   "why_wrong": {
    "1": "Education is an agent of social change rather than a constraint on it, which makes it the odd one out here.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|6",
-  "approved": false,
+  "approved": true,
   "why_correct": "Buddhist education admitted students by interest and aptitude rather than by birth, opening the monasteries to all castes. That openness is one of the ways Buddhism broke with the Vedic order.",
   "why_wrong": {
    "0": "Islamic education was organised in maktabs and madrasas around religious instruction.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|7",
-  "approved": false,
+  "approved": true,
   "why_correct": "Albert Bandura's social learning theory is also called observational learning or modelling. His Bobo doll experiment showed that children copy behaviour they have merely watched, without being rewarded for it themselves.",
   "why_wrong": {
    "0": "Insight learning is Kohler's, demonstrated with chimpanzees who solved a problem suddenly rather than by trial and error.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|8",
-  "approved": false,
+  "approved": true,
   "why_correct": "Pragmatism judges education by its usefulness in life, so it favours a vocational and activity-based curriculum. Learning by doing is its central method, and Dewey is its leading figure.",
   "why_wrong": {
    "0": "Realism emphasises scientific knowledge and the study of the material world.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|9",
-  "approved": false,
+  "approved": true,
   "why_correct": "The aim of idealistic education is self-realisation, that is the full unfolding of the spiritual self and its union with the ultimate reality. All other aims are subordinate to it.",
   "why_wrong": {
    "1": "Physical development is stressed by naturalism, which begins from the body and the senses.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|10",
-  "approved": false,
+  "approved": true,
   "why_graced": "This question has been graced: every candidate receives the mark, whatever they wrote and even if they left it blank. Jainism has the five great vows, the pancha mahavrata, and Buddhism has the five precepts, the panchashila, and both are literally five principles of conduct. Jainism was the intended answer, but Buddhism cannot honestly be called wrong, so the question was withdrawn from scoring.",
   "why_wrong": {
    "0": "Buddhism has the panchashila, the five precepts binding on every lay follower: to abstain from killing, from stealing, from sexual misconduct, from false speech and from intoxicants. That is a set of five principles of conduct, so this option is defensible as printed.",
@@ -102,7 +102,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|11",
-  "approved": false,
+  "approved": true,
   "why_correct": "Swami Vivekananda defined education as the manifestation of the perfection already existing in man. The teacher does not add anything but removes what obstructs, as a gardener does not make the plant grow but removes the weeds.",
   "why_wrong": {
    "0": "Gandhi defined education as an all-round drawing out of the best in child and man, in body, mind and spirit.",
@@ -112,7 +112,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|12",
-  "approved": false,
+  "approved": true,
   "why_correct": "Epistemology is the branch of philosophy dealing with the nature, sources and validity of knowledge. It asks what we can know and how we come to know it.",
   "why_wrong": {
    "1": "Metaphysics deals with the nature of ultimate reality, asking what exists rather than how we know it.",
@@ -122,7 +122,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|13",
-  "approved": false,
+  "approved": true,
   "why_correct": "John Locke denied innate ideas in his Essay Concerning Human Understanding, arguing that all knowledge comes from experience through sensation and reflection. He is the founder of British empiricism.",
   "why_wrong": {
    "1": "David Hume was an empiricist too and pushed the position further into scepticism, but the explicit attack on innate ideas is Locke's.",
@@ -132,7 +132,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|14",
-  "approved": false,
+  "approved": true,
   "why_correct": "John Locke described the mind at birth as a tabula rasa, a blank slate on which experience writes. It is the same doctrine as the denial of innate ideas, stated as an image.",
   "why_wrong": {
    "0": "Bishop Berkeley held that to be is to be perceived, a form of subjective idealism.",
@@ -142,7 +142,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|15",
-  "approved": false,
+  "approved": true,
   "why_correct": "Descartes took mathematics as the model of certain knowledge, because its truths are clear, distinct and independent of the senses. He built his whole method on that ideal.",
   "why_wrong": {
    "0": "Christian Wolff systematised Leibniz's philosophy but is not the source of this claim.",
@@ -152,7 +152,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "The playground is an informal agency of education. There is no syllabus and no teacher, yet a child learns cooperation, fair play, leadership and how to lose, simply by playing.",
   "why_wrong": {
    "1": "A library is part of the formal system, organised deliberately to support study.",
@@ -162,7 +162,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Charvaka is materialist and holds that man is nothing but the physical body, formed from the four elements. Consciousness arises from that combination and ends with it, so there is no soul surviving death.",
   "why_wrong": {
    "1": "A self distinct from the body is what Charvaka expressly denies.",
@@ -172,7 +172,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "For Shankara the Self is Brahman, exactly as the mahavakya ayam atma brahma declares. And Brahman is eternal, without birth or death, and transcendent, beyond the whole empirical world. So each of the three descriptions is true of the Self, and All of These is the only complete answer.",
   "why_wrong": {
    "0": "Brahman is a true description of the Self and is the heart of Shankara's teaching, and it was the printed key. But it is not the whole of what the options offer. When a question ends with All of These, test every statement before settling on the first true one.",
@@ -182,7 +182,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Charvaka accepts perception alone as a valid means of knowledge and rejects both inference and testimony, because neither can be verified by the senses. That is what makes it the most radical of the Indian schools.",
   "why_wrong": {
    "0": "Inference is rejected, but so is testimony, so naming only one is incomplete.",
@@ -192,7 +192,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "Liberation in Buddhism is nirvana, the extinction of craving and thereby of suffering and rebirth. The word literally means blowing out, as of a flame.",
   "why_wrong": {
    "1": "Moksha is the term used in Hindu philosophy for release from the cycle of birth and death.",
@@ -202,7 +202,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Jainism prescribes all three. Penance burns away accumulated karma, self-control prevents new karma from binding, and detachment from possessions and passions frees the soul. Together they lead to liberation.",
   "why_wrong": {
    "0": "Penance, or tapas, is essential in Jainism but is only one part of the path.",
@@ -212,7 +212,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "Charvaka neglects liberation altogether. Being materialist, it denies the soul and rebirth, so there is nothing to be liberated and nothing to be liberated from. Its aim is pleasure in this life.",
   "why_wrong": {
    "1": "Jainism makes liberation central, achieved by shedding karma until the soul rises to the top of the universe.",
@@ -222,7 +222,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "Swami Vivekananda held that all knowledge, material and spiritual, is already within us and is merely veiled by ignorance. It follows that education uncovers rather than supplies.",
   "why_wrong": {
    "0": "Tagore's emphasis was on freedom, nature and creative expression.",
@@ -232,7 +232,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rabindranath Tagore founded Santiniketan, beginning with a school in 1901 that grew into Visva-Bharati University in 1921. Teaching there was done in the open air, in close contact with nature.",
   "why_wrong": {
    "1": "Vivekananda founded the Ramakrishna Mission.",
@@ -242,7 +242,7 @@
  },
  {
   "id": "XI|Arts|Philosophy|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Vedic view is that creation is without beginning and without end, an eternal cycle of creation, preservation and dissolution repeating without a first moment or a last.",
   "why_wrong": {
    "0": "Without beginning is only half the doctrine, and leaving out the second half changes the meaning.",

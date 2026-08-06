@@ -1,7 +1,7 @@
 [
  {
   "id": "X|All|General Paper|16",
-  "approved": false,
+  "approved": true,
   "why_correct": "Mars is called the Red Planet because its surface is covered in iron oxide dust, which is rust, and that gives it a reddish colour visible even from Earth.",
   "why_wrong": {
    "0": "Venus is the hottest planet and appears white or yellowish through its thick clouds of sulphuric acid.",
@@ -11,7 +11,7 @@
  },
  {
   "id": "X|All|General Paper|17",
-  "approved": false,
+  "approved": true,
   "why_correct": "Dr B. R. Ambedkar chaired the Drafting Committee of the Constituent Assembly and is called the Father of the Indian Constitution. He was also independent India's first Law Minister.",
   "why_wrong": {
    "0": "Gandhi is the Father of the Nation. He was not a member of the Constituent Assembly, and the two titles are commonly swapped.",
@@ -21,7 +21,7 @@
  },
  {
   "id": "X|All|General Paper|18",
-  "approved": false,
+  "approved": true,
   "why_correct": "Canberra is the capital of Australia. It was purpose-built as a compromise between Sydney and Melbourne, which both wanted the honour, and became the seat of government in 1927.",
   "why_wrong": {
    "0": "Sydney is Australia's largest city and its best known, which is exactly why it is the usual wrong answer. Largest is not the same as capital.",
@@ -31,7 +31,7 @@
  },
  {
   "id": "X|All|General Paper|19",
-  "approved": false,
+  "approved": true,
   "why_correct": "Nitrogen makes up about 78 per cent of the atmosphere by volume. It is chemically unreactive, so it stays in the air rather than being consumed.",
   "why_wrong": {
    "0": "Oxygen is second at about 21 per cent. We notice it most because we breathe it, but it is not the most abundant.",
@@ -41,7 +41,7 @@
  },
  {
   "id": "X|All|General Paper|20",
-  "approved": false,
+  "approved": true,
   "why_correct": "The United Nations headquarters is in New York City, on the bank of the East River. The site is international territory, and the General Assembly and Security Council meet there.",
   "why_wrong": {
    "0": "Geneva houses the UN Office at Geneva and agencies such as the WHO, which makes it a major UN city but not the headquarters.",
@@ -51,7 +51,7 @@
  },
  {
   "id": "X|All|General Paper|21",
-  "approved": false,
+  "approved": true,
   "why_correct": "Rabindranath Tagore wrote Jana Gana Mana in Bengali in 1911, and the Constituent Assembly adopted it as the national anthem on 24 January 1950.",
   "why_wrong": {
    "0": "Bankim Chandra Chattopadhyay wrote Vande Mataram, the national song. India has both a national anthem and a national song, and this is the pair most often confused.",
@@ -61,7 +61,7 @@
  },
  {
   "id": "X|All|General Paper|22",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Ganga is the longest river in India, running about 2,525 kilometres from Gangotri to the Bay of Bengal. Its basin is also the largest in the country.",
   "why_wrong": {
    "0": "The Yamuna is the Ganga's longest tributary, about 1,376 kilometres, so it is long but joins another river rather than being the longest itself.",
@@ -71,7 +71,7 @@
  },
  {
   "id": "X|All|General Paper|23",
-  "approved": false,
+  "approved": true,
   "why_correct": "World Environment Day falls on 5 June each year. It was established by the United Nations in 1972, the year of the Stockholm Conference on the human environment.",
   "why_wrong": {
    "0": "22 April is Earth Day, a separate observance and the one most often confused with this.",
@@ -81,7 +81,7 @@
  },
  {
   "id": "X|All|General Paper|24",
-  "approved": false,
+  "approved": true,
   "why_correct": "Punjab means the land of five waters, from panj meaning five and ab meaning water. The five rivers are the Sutlej, Beas, Ravi, Chenab and Jhelum, all tributaries of the Indus.",
   "why_wrong": {
    "0": "Haryana was carved out of Punjab in 1966 and shares much of its culture, but the name and the five rivers belong to Punjab.",
@@ -91,7 +91,7 @@
  },
  {
   "id": "X|All|General Paper|25",
-  "approved": false,
+  "approved": true,
   "why_correct": "The ampere is the SI unit of electric current, and it is one of the seven base units. One ampere is a flow of one coulomb of charge per second.",
   "why_wrong": {
    "0": "The volt is the unit of potential difference, which drives the current rather than measuring it.",

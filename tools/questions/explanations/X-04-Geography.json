@@ -1,7 +1,7 @@
 [
  {
   "id": "X|All|General Paper|41",
-  "approved": false,
+  "approved": true,
   "why_correct": "The axis is the imaginary line through the centre of the Earth about which it rotates, and its two ends are the North Pole and the South Pole. It is tilted at 23 and a half degrees from the vertical, which is what gives us the seasons.",
   "why_wrong": {
    "0": "Both the Equator and the Tropic of Cancer are circles running round the Earth, not points. An axis has to join two points.",
@@ -12,7 +12,7 @@
  },
  {
   "id": "X|All|General Paper|42",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Equator runs east to west round the middle of the Earth, so it separates everything above it from everything below it: the Northern Hemisphere and the Southern Hemisphere.",
   "why_wrong": {
    "0": "The Eastern and Western Hemispheres are divided by the Prime Meridian and the 180 degree line, which run north to south. Swapping these two is the most common error in this chapter.",
@@ -23,7 +23,7 @@
  },
  {
   "id": "X|All|General Paper|43",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Equator is the starting line from which all latitude is measured, so its own latitude is 0 degrees. It is also the longest line of latitude and the only one that is a great circle.",
   "why_wrong": {
    "0": "90 degrees is the latitude of the poles, the highest value latitude can reach.",
@@ -34,7 +34,7 @@
  },
  {
   "id": "X|All|General Paper|44",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Prime Meridian, 0 degrees longitude, passes through the Royal Observatory at Greenwich in London. It was fixed there by international agreement in 1884 and is the base for Greenwich Mean Time.",
   "why_wrong": {
    "0": "Paris had its own prime meridian and argued for it at the 1884 conference, but Greenwich was chosen because most shipping already used it.",
@@ -45,7 +45,7 @@
  },
  {
   "id": "X|All|General Paper|45",
-  "approved": false,
+  "approved": true,
   "why_correct": "Longitudes are measured east and west of the Prime Meridian, from 0 up to 180 degrees in each direction. They run pole to pole and are also called meridians.",
   "why_wrong": {
    "0": "North and south of the Equator is how latitude is measured. This is the pair to keep straight: latitude north and south, longitude east and west.",
@@ -56,7 +56,7 @@
  },
  {
   "id": "X|All|General Paper|46",
-  "approved": false,
+  "approved": true,
   "why_correct": "India's Standard Meridian is 82 and a half degrees east, passing near Mirzapur in Uttar Pradesh. It is exactly 5 hours 30 minutes ahead of Greenwich, which gives Indian Standard Time.",
   "why_wrong": {
    "0": "75 degrees east passes through western India but is not the standard meridian. Note that a standard meridian is usually chosen as a multiple of 7 and a half degrees, so that the time difference comes out in neat half hours.",
@@ -67,7 +67,7 @@
  },
  {
   "id": "X|All|General Paper|47",
-  "approved": false,
+  "approved": true,
   "why_correct": "Endogenic forces come from inside the Earth. Endo means within, and these are the forces of earthquakes, volcanoes, folding and faulting that build up the major landforms.",
   "why_wrong": {
    "0": "Exogenic forces are the opposite: they act from outside, through rivers, wind, glaciers and rain, and they wear landforms down rather than build them.",
@@ -78,7 +78,7 @@
  },
  {
   "id": "X|All|General Paper|48",
-  "approved": false,
+  "approved": true,
   "why_correct": "The Himalayas are fold mountains, raised when the Indian plate collided with the Eurasian plate and the sediments of the Tethys Sea were crumpled upward. They are young fold mountains and are still rising.",
   "why_wrong": {
    "0": "Block mountains are formed by faulting, when a block of land is pushed up or its neighbours drop away. The Vosges and the Black Forest are examples.",
@@ -89,7 +89,7 @@
  },
  {
   "id": "X|All|General Paper|49",
-  "approved": false,
+  "approved": true,
   "why_correct": "Erosion is the wearing away of the surface by moving agents such as rivers, wind, glaciers and waves, which loosen material and carry it off. The carrying away is what distinguishes it.",
   "why_wrong": {
    "0": "Deposition is the laying down of material at the end of the journey. It builds land up rather than wearing it away.",
@@ -100,7 +100,7 @@
  },
  {
   "id": "X|All|General Paper|50",
-  "approved": false,
+  "approved": true,
   "why_correct": "A rift valley forms when the land between two parallel faults sinks, leaving a steep-sided trough. The East African Rift Valley and the Narmada valley in India are examples.",
   "why_wrong": {
    "0": "Folding bends rock layers upward and downward and builds mountains such as the Himalayas. It does not drop a block of land.",
@@ -111,7 +111,7 @@
  },
  {
   "id": "X|All|General Paper|51",
-  "approved": false,
+  "approved": true,
   "why_correct": "A plateau is an elevated area with a broad flat top and at least one steep side, so it is commonly called a tableland. The Deccan Plateau is the familiar Indian example.",
   "why_wrong": {
    "0": "Highland is a loose word for any high ground, including mountains. It is not the specific name for a flat-topped upland.",
@@ -122,7 +122,7 @@
  },
  {
   "id": "X|All|General Paper|52",
-  "approved": false,
+  "approved": true,
   "why_correct": "Sand dunes are built by wind, which lifts loose sand and drops it where its speed falls. They are typical of deserts such as the Thar, where there is dry loose sand and little vegetation to hold it.",
   "why_wrong": {
    "0": "Rivers deposit deltas, floodplains and levees. Their sediment is laid down in water, not heaped into wind-shaped ridges.",
@@ -133,7 +133,7 @@
  },
  {
   "id": "X|All|General Paper|53",
-  "approved": false,
+  "approved": true,
   "why_correct": "A delta is formed by river deposition. Where a river meets the sea its speed drops sharply, so the silt it carries settles and builds up land at the mouth. The Sundarbans delta of the Ganga and Brahmaputra is the largest in the world.",
   "why_wrong": {
    "1": "Wind erosion carves features such as mushroom rocks. Erosion removes material, while a delta is made of material added.",
@@ -144,7 +144,7 @@
  },
  {
   "id": "X|All|General Paper|54",
-  "approved": false,
+  "approved": true,
   "why_correct": "Moraines are the ridges of rock, gravel and clay that a glacier carries and then dumps as it melts. They are named by where they lie: lateral, medial, terminal and ground moraines.",
   "why_wrong": {
    "0": "Dunes are heaped by wind in dry regions, not by ice.",
@@ -155,7 +155,7 @@
  },
  {
   "id": "X|All|General Paper|55",
-  "approved": false,
+  "approved": true,
   "why_correct": "Weathering is the breakdown of rock in situ, meaning in its own place, by temperature change, water, chemicals or the action of plants and animals. Nothing is carried away, and that is what separates it from erosion.",
   "why_wrong": {
    "0": "Transportation is the carrying of broken material by water, wind or ice. It is the step that follows weathering, and joining the two gives erosion.",

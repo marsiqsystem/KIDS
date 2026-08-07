@@ -1,0 +1,134 @@
+[
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Sexual Reproduction in Flowering Plants",
+  "approved": false,
+  "trick": "Double fertilisation is the fact that only flowering plants can claim: one male gamete fuses with the egg to give the zygote (2n), the other fuses with two polar nuclei to give the endosperm (3n). Remember the two ploidy numbers together — 2n and 3n — and the whole question type collapses.",
+  "video": { "query": "double fertilisation embryo sac endosperm class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events from pollination to seed in order.",
+    "items": [
+     { "label": "Pollination", "note": "Pollen reaches the stigma" },
+     { "label": "Germination of the pollen grain", "note": "The pollen tube grows down the style, carrying two male gametes" },
+     { "label": "Entry into the ovule", "note": "Usually through the micropyle — porogamy" },
+     { "label": "Double fertilisation", "note": "One gamete + egg → zygote (2n); the other + two polar nuclei → primary endosperm nucleus (3n)" },
+     { "label": "Endosperm development", "note": "Nourishing tissue forms before the embryo grows" },
+     { "label": "Embryo and seed formation", "note": "The ovule becomes the seed and the ovary becomes the fruit" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Human Reproduction",
+  "approved": false,
+  "trick": "Implantation happens at the BLASTOCYST stage, not the morula. The order is zygote → cleavage → morula (a solid ball, still in the fallopian tube) → blastocyst (hollow, with a trophoblast) → implantation in the uterine wall. Only the blastocyst has the trophoblast that can attach, which is why the morula cannot implant.",
+  "video": { "query": "human reproduction fertilisation cleavage blastocyst implantation class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages from fertilisation to implantation in the right order.",
+    "items": [
+     { "label": "Fertilisation", "note": "Sperm meets ovum in the ampullary-isthmic junction of the fallopian tube" },
+     { "label": "Zygote", "note": "The single diploid cell formed by fusion" },
+     { "label": "Cleavage", "note": "Rapid mitotic divisions with no growth between them, still inside the tube" },
+     { "label": "Morula", "note": "A solid ball of 8 to 16 blastomeres — cannot implant" },
+     { "label": "Blastocyst", "note": "Hollow, with an inner cell mass and an outer trophoblast" },
+     { "label": "Implantation", "note": "The trophoblast attaches to the uterine endometrium — this is the stage that implants" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Principles of Inheritance and Variation",
+  "approved": false,
+  "trick": "A monohybrid cross gives 3:1 phenotypic but 1:2:1 genotypic — quoting the wrong one is the commonest error. A dihybrid gives 9:3:3:1, and a test cross with a recessive parent gives 1:1. Learn the four ratios as a set, and read carefully whether the question asks for phenotype or genotype.",
+  "video": { "query": "mendel monohybrid dihybrid cross ratios linkage class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work a monohybrid cross through to the ratios.",
+    "problem": "A tall pea plant homozygous for tallness (TT) is crossed with a dwarf plant (tt). Tallness is dominant.",
+    "steps": [
+     { "ask": "What is the genotype of every F₁ plant?", "options": ["TT", "Tt", "tt"], "correct": 1, "why": "Each parent contributes one allele: T from the tall parent, t from the dwarf. All F₁ are heterozygous." },
+     { "ask": "What does the F₁ generation look like?", "options": ["All tall", "All dwarf", "Half tall, half dwarf"], "correct": 0, "why": "T is dominant, so a single copy makes the plant tall. The dwarf character is hidden, not lost." },
+     { "ask": "Selfing the F₁, what is the phenotypic ratio in F₂?", "options": ["1:2:1", "3:1", "9:3:3:1"], "correct": 1, "why": "TT, Tt, Tt and tt — three plants show tallness to one dwarf." },
+     { "ask": "And the genotypic ratio in F₂?", "options": ["3:1", "1:2:1", "1:1"], "correct": 1, "why": "One TT, two Tt, one tt. The phenotypic and genotypic ratios are different, and questions rely on that." },
+     { "ask": "Crossing an F₁ plant with a dwarf (a test cross) gives what ratio?", "options": ["3:1", "1:1", "All tall"], "correct": 1, "why": "Tt × tt gives half Tt and half tt — this is exactly how a test cross reveals whether a tall plant is TT or Tt." }
+    ],
+    "answer": "F₁ all Tt and tall; F₂ 3:1 by phenotype but 1:2:1 by genotype; a test cross gives 1:1."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Molecular Basis of Inheritance",
+  "approved": false,
+  "trick": "Replication makes DNA from DNA, transcription makes RNA from DNA, translation makes protein from RNA — the central dogma in three words, and each question names one of them. Chargaff's rule (A = T, G = C) applies to double-stranded DNA only, so it does not hold for RNA or for single-stranded viral DNA.",
+  "video": { "query": "central dogma dna replication transcription translation class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     { "left": "Replication", "right": "DNA copied to DNA; semi-conservative, proved by Meselson and Stahl" },
+     { "left": "Transcription", "right": "DNA copied to RNA by RNA polymerase" },
+     { "left": "Translation", "right": "mRNA read in triplets by ribosomes to build a polypeptide" },
+     { "left": "Chargaff's rule", "right": "In double-stranded DNA, A equals T and G equals C" },
+     { "left": "Okazaki fragments", "right": "Short pieces synthesised discontinuously on the lagging strand" },
+     { "left": "Hershey and Chase", "right": "Showed with bacteriophage that DNA, not protein, is the genetic material" },
+     { "left": "Codon", "right": "A triplet of bases on mRNA specifying one amino acid" },
+     { "left": "Introns", "right": "Non-coding stretches removed by splicing before translation" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Evolution",
+  "approved": false,
+  "trick": "Match the structure to the argument it supports. Homologous organs — same origin, different function — argue for divergent evolution from a common ancestor; analogous organs — different origin, same function — argue for convergent evolution. The wing of a bat and the arm of a man are homologous; the wing of a bat and the wing of a butterfly are analogous.",
+  "video": { "query": "evidences of evolution homologous analogous darwin lamarck class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Homologous or analogous?",
+    "bins": ["Homologous (divergent)", "Analogous (convergent)"],
+    "items": [
+     { "label": "Forelimb of a whale and arm of a human", "bin": "Homologous (divergent)" },
+     { "label": "Wing of a bird and wing of an insect", "bin": "Analogous (convergent)" },
+     { "label": "Thorn of Bougainvillea and tendril of Cucurbita", "bin": "Homologous (divergent)" },
+     { "label": "Eye of an octopus and eye of a mammal", "bin": "Analogous (convergent)" },
+     { "label": "Flipper of a seal and wing of a bat", "bin": "Homologous (divergent)" },
+     { "label": "Sweet potato (root) and potato (stem)", "bin": "Analogous (convergent)" },
+     { "label": "Vertebrate hearts across fish, amphibia and mammals", "bin": "Homologous (divergent)" },
+     { "label": "Streamlined body of a shark and of a dolphin", "bin": "Analogous (convergent)" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Biotechnology and its Applications",
+  "approved": false,
+  "trick": "Restriction enzymes cut, ligase joins, and the vector carries — three tools, three verbs, and every recombinant DNA question uses them in that order. EcoRI cuts at a palindromic sequence leaving sticky ends, which is exactly why the fragment and the plasmid fit together.",
+  "video": { "query": "recombinant dna technology restriction enzymes vectors PCR class 12 biology", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of making recombinant DNA in order.",
+    "items": [
+     { "label": "Isolation of the DNA", "note": "The gene of interest and the vector DNA are obtained in pure form" },
+     { "label": "Cutting with a restriction enzyme", "note": "The same enzyme cuts both, leaving matching sticky ends" },
+     { "label": "Ligation", "note": "DNA ligase seals the fragment into the vector, forming recombinant DNA" },
+     { "label": "Transformation into a host", "note": "The recombinant vector is introduced into a bacterial cell" },
+     { "label": "Selection of transformants", "note": "Marker genes reveal which cells took up the construct" },
+     { "label": "Culture and product recovery", "note": "Scaled up in a bioreactor, then downstream processing" }
+    ]
+   }
+  }
+ }
+]

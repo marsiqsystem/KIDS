@@ -9923,5 +9923,2024 @@
     ]
    }
   }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "Prose: The Night Train at Deoli",
+  "approved": false,
+  "trick": "Nothing happens in this story, and that is the story. The narrator never learns the girl's name, never gets off the train for good, and never finds out what became of her — Ruskin Bond leaves it unresolved on purpose, so that the reader keeps the mystery the narrator keeps. Any question asking 'why did the author not...' has that as its answer.",
+  "video": {
+   "query": "the night train at deoli ruskin bond summary class 12 english",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about The Night Train at Deoli.",
+    "items": [
+     {
+      "statement": "The narrator was eighteen and travelling to his grandmother's house in Dehra.",
+      "is_true": true,
+      "why": "He made the journey every summer during his college vacation, and Deoli was a stop on the way."
+     },
+     {
+      "statement": "Deoli was a busy junction where the train halted for a long time.",
+      "is_true": false,
+      "why": "It was a small, forlorn station where nobody got down and the train stopped for only about ten minutes."
+     },
+     {
+      "statement": "The girl sold baskets on the platform.",
+      "is_true": true,
+      "why": "She carried a basket on her head and sold them to passengers — that is how the narrator first spoke to her."
+     },
+     {
+      "statement": "On his return journey the narrator found the girl and spoke to her again.",
+      "is_true": false,
+      "why": "She was not there, and the stationmaster could tell him nothing useful. He never saw her again."
+     },
+     {
+      "statement": "The narrator decides at the end that he will one day get off at Deoli and find her.",
+      "is_true": true,
+      "why": "He keeps the intention alive without acting on it, which is what preserves the story's romance and its sadness."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "Prose: Strong Roots",
+  "approved": false,
+  "trick": "This is an extract from Kalam's Wings of Fire, and its argument is carried by one image: his father's austerity and his mother's generosity are the two roots of the title. Remember the mosque and the temple standing side by side in Rameswaram — the Muslim boy carrying the priest's message — because that detail is the whole point about tolerance.",
+  "video": {
+   "query": "strong roots apj abdul kalam wings of fire class 12 english summary",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill in the details of Kalam's account of his childhood.",
+    "text": "Kalam was born into a middle-class {1} family in the island town of {2}. His father, {3}, was austere and avoided all inessential comforts, while his mother {4} fed more outsiders than the whole family put together. Their ancestral house was built in the middle of the {5} century. His father's close friend was {6}, the high priest of the Rameswaram temple, and the two would discuss spiritual matters together.",
+    "answers": [
+     "Tamil Muslim",
+     "Rameswaram",
+     "Jainulabdeen",
+     "Ashiamma",
+     "19th",
+     "Pakshi Lakshmana Sastry"
+    ],
+    "bank": [
+     "Tamil Muslim",
+     "Bengali Hindu",
+     "Rameswaram",
+     "Dhanushkodi",
+     "Jainulabdeen",
+     "Ashiamma",
+     "19th",
+     "18th",
+     "Pakshi Lakshmana Sastry",
+     "Ahmed Jallaluddin"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "Prose: The Bet",
+  "approved": false,
+  "trick": "Chekhov sets up a bet about capital punishment and then quietly changes the subject: by the end the question is not which punishment is worse but what fifteen years of books do to a man. The lawyer walks out five hours early and forfeits the two million — he renounces it, and the banker is left ashamed. Remember the direction of the moral, because it is the reverse of what the opening leads you to expect.",
+  "video": {
+   "query": "the bet anton chekhov summary and analysis class 12 english",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of The Bet in order.",
+    "items": [
+     {
+      "label": "The banker's party and the argument",
+      "note": "Is capital punishment or life imprisonment the more humane?"
+     },
+     {
+      "label": "The bet is struck",
+      "note": "Two million roubles against fifteen years of voluntary solitary confinement"
+     },
+     {
+      "label": "The first years: light books and music",
+      "note": "The lawyer plays the piano, reads novels, and drinks wine"
+     },
+     {
+      "label": "The middle years: languages and philosophy",
+      "note": "He masters six languages, then turns to the Gospel and to theology"
+     },
+     {
+      "label": "The banker, now ruined, resolves to kill him",
+      "note": "He cannot afford to pay and creeps into the lodge"
+     },
+     {
+      "label": "The lawyer's letter renouncing the money",
+      "note": "He despises everything the world values and will leave five hours early to lose the bet"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "Poem: Our Casuarina Tree",
+  "approved": false,
+  "trick": "The tree is not the subject; memory is. Toru Dutt begins with a botanical description, moves to the children who played beneath it, and ends asking that the tree be blessed against oblivion — so the poem travels from sight to memory to immortality. The creeper 'like a huge python' winding round the trunk is the image examiners ask for by name.",
+  "video": {
+   "query": "our casuarina tree toru dutt poem explanation class 12 english",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about Our Casuarina Tree.",
+    "items": [
+     {
+      "statement": "The creeper round the tree is compared to a huge python.",
+      "is_true": true,
+      "why": "'Like a huge Python, winding round and round' — the poem's most quoted image, and it opens the first stanza."
+     },
+     {
+      "statement": "The poem is written in praise of the tree's usefulness as timber.",
+      "is_true": false,
+      "why": "The tree matters because of the companions who played beneath it in childhood, most of whom are now dead."
+     },
+     {
+      "statement": "Toru Dutt links the tree to trees she saw in France and Italy.",
+      "is_true": true,
+      "why": "The memory of the casuarina returns to her in distant lands, which is how a private tree becomes a universal symbol."
+     },
+     {
+      "statement": "The poet wishes the tree to be forgotten so that her grief may end.",
+      "is_true": false,
+      "why": "The opposite — she consecrates it to the memory of her lost brother and sister and asks that Love defend it from Oblivion's curse."
+     },
+     {
+      "statement": "Wordsworth is invoked in the closing lines.",
+      "is_true": true,
+      "why": "She borrows the phrase about trees in a 'yew-tree' spirit, placing her tree in the Romantic tradition of nature and memory."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "GK: Indian Polity and Personalities",
+  "approved": false,
+  "trick": "Separate the three offices that get confused: the President is head of state, the Prime Minister heads the government, and the Chief Justice heads the judiciary. For 'firsts', hold the pairs together — first President Rajendra Prasad, first Prime Minister Nehru, first woman Prime Minister Indira Gandhi, first woman President Pratibha Patil.",
+  "video": {
+   "query": "indian polity president prime minister first office holders general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each person with the office or achievement they are remembered for.",
+    "pairs": [
+     {
+      "left": "Dr Rajendra Prasad",
+      "right": "First President of India"
+     },
+     {
+      "left": "Jawaharlal Nehru",
+      "right": "First Prime Minister of India"
+     },
+     {
+      "left": "Dr B. R. Ambedkar",
+      "right": "Chairman of the Drafting Committee of the Constitution"
+     },
+     {
+      "left": "Indira Gandhi",
+      "right": "First woman Prime Minister of India"
+     },
+     {
+      "left": "Pratibha Patil",
+      "right": "First woman President of India"
+     },
+     {
+      "left": "Sardar Vallabhbhai Patel",
+      "right": "First Deputy Prime Minister and Home Minister; integrated the princely states"
+     },
+     {
+      "left": "Sarvepalli Radhakrishnan",
+      "right": "Philosopher-President; Teachers' Day marks his birthday"
+     },
+     {
+      "left": "Fathima Beevi",
+      "right": "First woman judge of the Supreme Court of India"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "GK: International Organisations",
+  "approved": false,
+  "trick": "Learn each body by its headquarters and its one job, because that pair is what gets asked. UN in New York, WHO in Geneva, UNESCO in Paris, IMF and World Bank in Washington, ICJ in The Hague. If the question names a city, it is really asking for the organisation.",
+  "video": {
+   "query": "united nations WHO UNESCO IMF headquarters functions general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each organisation with its headquarters and work.",
+    "pairs": [
+     {
+      "left": "United Nations",
+      "right": "New York — international peace and security, founded 1945"
+     },
+     {
+      "left": "WHO",
+      "right": "Geneva — international public health"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Paris — education, science and culture"
+     },
+     {
+      "left": "UNICEF",
+      "right": "New York — the welfare of children"
+     },
+     {
+      "left": "International Monetary Fund",
+      "right": "Washington DC — exchange stability and balance of payments support"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "The Hague — the UN's principal judicial organ"
+     },
+     {
+      "left": "ILO",
+      "right": "Geneva — labour standards and workers' rights"
+     },
+     {
+      "left": "FAO",
+      "right": "Rome — food and agriculture"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|All|English & General Knowledge",
+  "chapter": "GK: Geography, Agriculture and Awards",
+  "approved": false,
+  "trick": "Awards questions turn on which field the award belongs to: Bharat Ratna is the highest civilian honour, Param Vir Chakra the highest wartime gallantry award, Jnanpith for literature, Dronacharya for coaching and Arjuna for playing. Revolutions are colour-coded — Green for foodgrain, White for milk, Blue for fish, Yellow for oilseeds.",
+  "video": {
+   "query": "green white blue revolution india awards bharat ratna general knowledge",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each 'revolution' or award with what it stands for.",
+    "pairs": [
+     {
+      "left": "Green Revolution",
+      "right": "Foodgrain production — high-yielding wheat and rice"
+     },
+     {
+      "left": "White Revolution",
+      "right": "Milk; Operation Flood, associated with Verghese Kurien"
+     },
+     {
+      "left": "Blue Revolution",
+      "right": "Fisheries and aquaculture"
+     },
+     {
+      "left": "Yellow Revolution",
+      "right": "Oilseed production"
+     },
+     {
+      "left": "Bharat Ratna",
+      "right": "The highest civilian award of India"
+     },
+     {
+      "left": "Param Vir Chakra",
+      "right": "The highest wartime gallantry award"
+     },
+     {
+      "left": "Jnanpith Award",
+      "right": "The foremost Indian literary award"
+     },
+     {
+      "left": "Dronacharya Award",
+      "right": "Given to coaches, not to players"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Electric Charges, Fields and Gauss's Law",
+  "approved": false,
+  "trick": "Gauss's law only helps when the symmetry lets you pull E out of the integral — sphere, infinite line, infinite sheet. And note how the distance dependence changes: a point charge gives 1/r², an infinite line gives 1/r, an infinite sheet gives nothing at all. That progression is worth memorising as a set.",
+  "video": {
+   "query": "gauss law electric field due to line sheet sphere class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the field expression that applies to each charge distribution.",
+    "items": [
+     {
+      "ask": "Field at distance r from a point charge q",
+      "correct": "E = q / (4πε₀r²)",
+      "wrong": [
+       "E = q / (4πε₀r)",
+       "E = q / (2πε₀r²)"
+      ],
+      "why": "Coulomb's law through a spherical Gaussian surface of area 4πr² gives the inverse square."
+     },
+     {
+      "ask": "Field at distance r from an infinitely long line of charge, linear density λ",
+      "correct": "E = λ / (2πε₀r)",
+      "wrong": [
+       "E = λ / (4πε₀r²)",
+       "E = λ / (2ε₀)"
+      ],
+      "why": "The Gaussian surface is a cylinder of area 2πrl, so one power of r survives — the field falls as 1/r, not 1/r²."
+     },
+     {
+      "ask": "Field near an infinite plane sheet of surface density σ",
+      "correct": "E = σ / (2ε₀)",
+      "wrong": [
+       "E = σ / (ε₀)",
+       "E = σ / (2πε₀r)"
+      ],
+      "why": "Flux leaves through both flat faces, so the area is 2A and r cancels entirely — the field does not depend on distance."
+     },
+     {
+      "ask": "Field inside a uniformly charged conducting shell",
+      "correct": "E = 0",
+      "wrong": [
+       "E = q / (4πε₀R²)",
+       "E = σ / ε₀"
+      ],
+      "why": "A Gaussian surface inside encloses no charge, so the flux and hence the field are zero everywhere inside."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Electrostatic Potential and Capacitance",
+  "approved": false,
+  "trick": "Potential is a scalar and field is a vector, so potentials add arithmetically while fields add head-to-tail — at the midpoint of a dipole the field is large but the potential is zero. For capacitors, series and parallel are the reverse of resistors: capacitors in parallel simply add.",
+  "video": {
+   "query": "electrostatic potential capacitance series parallel combination class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work through a capacitor network step by step.",
+    "problem": "Two capacitors of 3 μF and 6 μF are joined in series, and this combination is connected in parallel with a 4 μF capacitor. The whole network is across a 10 V supply.",
+    "steps": [
+     {
+      "ask": "What is the equivalent capacitance of the series pair?",
+      "options": [
+       "9 μF",
+       "2 μF",
+       "4.5 μF"
+      ],
+      "correct": 1,
+      "why": "1/C = 1/3 + 1/6 = 1/2, so C = 2 μF. In series the equivalent is always smaller than the smallest."
+     },
+     {
+      "ask": "What is the total capacitance of the network?",
+      "options": [
+       "6 μF",
+       "1.33 μF",
+       "8 μF"
+      ],
+      "correct": 0,
+      "why": "Capacitors in parallel add directly: 2 + 4 = 6 μF."
+     },
+     {
+      "ask": "What total charge is drawn from the 10 V supply?",
+      "options": [
+       "60 μC",
+       "6 μC",
+       "600 μC"
+      ],
+      "correct": 0,
+      "why": "Q = CV = 6 μF × 10 V = 60 μC."
+     },
+     {
+      "ask": "What energy is stored in the network?",
+      "options": [
+       "600 μJ",
+       "300 μJ",
+       "60 μJ"
+      ],
+      "correct": 1,
+      "why": "U = ½CV² = ½ × 6 × 10⁻⁶ × 100 = 3 × 10⁻⁴ J = 300 μJ."
+     }
+    ],
+    "answer": "Series pair 2 μF, network 6 μF, charge 60 μC, energy 300 μJ."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Current Electricity: Ohm's Law, Kirchhoff and Wheatstone Bridge",
+  "approved": false,
+  "trick": "An AMMETER measures current, goes in SERIES, and must have very LOW resistance. A VOLTMETER measures potential difference, goes in PARALLEL, and must have very HIGH resistance. Every part of each sentence follows from the first word, and swapping the two is the single most common error on this chapter — an ammeter placed in parallel is a short circuit.",
+  "video": {
+   "query": "ammeter voltmeter connection kirchhoff wheatstone bridge class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which instrument does each statement describe?",
+    "bins": [
+     "Ammeter",
+     "Voltmeter"
+    ],
+    "items": [
+     {
+      "label": "Measures the current through a component",
+      "bin": "Ammeter"
+     },
+     {
+      "label": "Measures the potential difference across a component",
+      "bin": "Voltmeter"
+     },
+     {
+      "label": "Connected in series with the component",
+      "bin": "Ammeter"
+     },
+     {
+      "label": "Connected in parallel with the component",
+      "bin": "Voltmeter"
+     },
+     {
+      "label": "Should have as low a resistance as possible",
+      "bin": "Ammeter"
+     },
+     {
+      "label": "Should have as high a resistance as possible",
+      "bin": "Voltmeter"
+     },
+     {
+      "label": "Made by connecting a low shunt resistance across a galvanometer",
+      "bin": "Ammeter"
+     },
+     {
+      "label": "Made by connecting a high resistance in series with a galvanometer",
+      "bin": "Voltmeter"
+     },
+     {
+      "label": "An ideal one would have infinite resistance",
+      "bin": "Voltmeter"
+     },
+     {
+      "label": "Connecting it in parallel would short the circuit and may destroy it",
+      "bin": "Ammeter"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Moving Charges and Magnetism",
+  "approved": false,
+  "trick": "A magnetic force never does work, because F = qv × B is always perpendicular to v — so a charged particle in a magnetic field changes direction but never speed. That is why the path is a circle and why kinetic energy is unchanged, and it disposes of a whole family of questions in one line.",
+  "video": {
+   "query": "biot savart law ampere circuital law force on moving charge class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about magnetic fields and moving charges.",
+    "items": [
+     {
+      "statement": "A magnetic field can change the speed of a charged particle.",
+      "is_true": false,
+      "why": "The force is always perpendicular to the velocity, so it does no work and the speed is constant. Only the direction changes."
+     },
+     {
+      "statement": "A charge moving parallel to a magnetic field feels no force.",
+      "is_true": true,
+      "why": "F = qvB sin θ, and sin 0° = 0. The force is maximum when the motion is perpendicular to the field."
+     },
+     {
+      "statement": "The radius of the circular path is r = mv/qB.",
+      "is_true": true,
+      "why": "Setting qvB equal to the centripetal force mv²/r and cancelling one v gives it."
+     },
+     {
+      "statement": "The time period of the circular motion depends on the particle's speed.",
+      "is_true": false,
+      "why": "T = 2πm/qB — speed cancels out. This independence is what makes the cyclotron work."
+     },
+     {
+      "statement": "Two parallel wires carrying current in the same direction attract each other.",
+      "is_true": true,
+      "why": "Same direction attracts, opposite repels — the definition of the ampere rests on this force."
+     },
+     {
+      "statement": "Ampere's circuital law relates the field around a closed loop to the current it encloses.",
+      "is_true": true,
+      "why": "∮B·dl = μ₀I, the magnetic counterpart of Gauss's law, and the quickest route to the field of a solenoid."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Magnetism and Matter",
+  "approved": false,
+  "trick": "Three magnetic materials, and susceptibility sorts them instantly: diamagnetic is small and negative, paramagnetic small and positive, ferromagnetic large and positive. Diamagnetics are repelled by a magnet and have no unpaired electrons — that last fact links this chapter straight back to chemistry.",
+  "video": {
+   "query": "diamagnetic paramagnetic ferromagnetic materials susceptibility class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Classify each property or example.",
+    "bins": [
+     "Diamagnetic",
+     "Paramagnetic",
+     "Ferromagnetic"
+    ],
+    "items": [
+     {
+      "label": "Susceptibility is small and negative",
+      "bin": "Diamagnetic"
+     },
+     {
+      "label": "Susceptibility is small and positive",
+      "bin": "Paramagnetic"
+     },
+     {
+      "label": "Susceptibility is large and positive",
+      "bin": "Ferromagnetic"
+     },
+     {
+      "label": "Weakly repelled by a magnetic field",
+      "bin": "Diamagnetic"
+     },
+     {
+      "label": "Iron, cobalt and nickel",
+      "bin": "Ferromagnetic"
+     },
+     {
+      "label": "Bismuth, copper and water",
+      "bin": "Diamagnetic"
+     },
+     {
+      "label": "Aluminium and oxygen",
+      "bin": "Paramagnetic"
+     },
+     {
+      "label": "Retains magnetism after the field is removed; shows hysteresis",
+      "bin": "Ferromagnetic"
+     },
+     {
+      "label": "Has no unpaired electrons at all",
+      "bin": "Diamagnetic"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Electromagnetic Induction",
+  "approved": false,
+  "trick": "Lenz's law is conservation of energy wearing a disguise: the induced current always opposes the change that made it, because if it helped, you would get energy from nothing. Faraday gives the size of the emf, Lenz gives the minus sign — and it is the minus sign that questions test.",
+  "video": {
+   "query": "faraday law lenz law self and mutual inductance class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about electromagnetic induction.",
+    "items": [
+     {
+      "statement": "An emf is induced only when the magnetic flux through the circuit changes.",
+      "is_true": true,
+      "why": "A steady field, however strong, induces nothing. It is the rate of change of flux that matters."
+     },
+     {
+      "statement": "The minus sign in Faraday's law expresses conservation of energy.",
+      "is_true": true,
+      "why": "It is Lenz's law: the induced current opposes the change. If it assisted, the current would grow without any work being done."
+     },
+     {
+      "statement": "Pushing a magnet north-pole-first into a coil makes the near face of the coil a north pole.",
+      "is_true": true,
+      "why": "The coil opposes the approach by repelling the magnet, so it presents a like pole."
+     },
+     {
+      "statement": "Self-inductance depends on the current flowing through the coil.",
+      "is_true": false,
+      "why": "It depends only on the geometry of the coil and the core material. Current determines the flux, not the inductance."
+     },
+     {
+      "statement": "Eddy currents are put to use in induction furnaces and electromagnetic braking.",
+      "is_true": true,
+      "why": "They are a loss in a transformer core but a working principle in a brake — which is why cores are laminated but brake discs are not."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Alternating Current and Transformers",
+  "approved": false,
+  "trick": "A transformer steps voltage up and current down, or the reverse — power is conserved, so one goes up only if the other comes down. It works on alternating current alone, because direct current produces no changing flux. And a transformer cannot change frequency, whatever the turns ratio.",
+  "video": {
+   "query": "transformer step up step down turns ratio ac circuits class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work through a transformer calculation.",
+    "problem": "An ideal transformer has 100 turns in the primary and 500 in the secondary. The primary is connected to a 220 V, 50 Hz supply and draws 5 A.",
+    "steps": [
+     {
+      "ask": "Is this a step-up or a step-down transformer?",
+      "options": [
+       "Step-up",
+       "Step-down"
+      ],
+      "correct": 0,
+      "why": "The secondary has more turns than the primary, so the voltage is raised."
+     },
+     {
+      "ask": "What is the secondary voltage?",
+      "options": [
+       "44 V",
+       "1100 V",
+       "220 V"
+      ],
+      "correct": 1,
+      "why": "Vs/Vp = Ns/Np = 5, so Vs = 5 × 220 = 1100 V."
+     },
+     {
+      "ask": "What current flows in the secondary?",
+      "options": [
+       "25 A",
+       "1 A",
+       "5 A"
+      ],
+      "correct": 1,
+      "why": "Power is conserved in an ideal transformer: 220 × 5 = 1100 × Is, so Is = 1 A. Voltage up means current down."
+     },
+     {
+      "ask": "What is the frequency of the secondary output?",
+      "options": [
+       "10 Hz",
+       "50 Hz",
+       "250 Hz"
+      ],
+      "correct": 1,
+      "why": "A transformer never changes frequency. The secondary follows the primary at 50 Hz."
+     }
+    ],
+    "answer": "Step-up: 1100 V, 1 A, still 50 Hz. Power in equals power out at 1100 W."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Physics",
+  "chapter": "Electromagnetic Waves",
+  "approved": false,
+  "trick": "Order the spectrum by wavelength and you have half the chapter: radio, microwave, infrared, visible, ultraviolet, X-ray, gamma — longest to shortest, and therefore lowest to highest energy. All of them travel at the same speed in vacuum, which is the fact questions try hardest to unsettle.",
+  "video": {
+   "query": "electromagnetic spectrum wavelength order uses class 12 physics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Arrange the electromagnetic spectrum from the longest wavelength to the shortest.",
+    "items": [
+     {
+      "label": "Radio waves",
+      "note": "Broadcasting and communication; produced by oscillating circuits"
+     },
+     {
+      "label": "Microwaves",
+      "note": "Radar and microwave ovens; klystron and magnetron sources"
+     },
+     {
+      "label": "Infrared",
+      "note": "Heat radiation; produced by molecular vibration"
+     },
+     {
+      "label": "Visible light",
+      "note": "The narrow band the eye detects, about 400 to 700 nm"
+     },
+     {
+      "label": "Ultraviolet",
+      "note": "Absorbed by the ozone layer; causes sunburn and is used to sterilise"
+     },
+     {
+      "label": "X-rays",
+      "note": "Produced by fast electrons striking a metal target; medical imaging"
+     },
+     {
+      "label": "Gamma rays",
+      "note": "Shortest wavelength, highest energy; nuclear origin"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Solutions and Colligative Properties",
+  "approved": false,
+  "trick": "Colligative means it counts particles and ignores what they are — so one mole of glucose and one mole of NaCl do not give the same effect, because NaCl gives two particles. That factor is the van't Hoff i, and forgetting it is the standard slip. Relative lowering of vapour pressure, boiling point elevation, freezing point depression and osmotic pressure are the four, and all four move with the number of solute particles.",
+  "video": {
+   "query": "colligative properties van't hoff factor elevation depression class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out a freezing point depression, watching the van't Hoff factor.",
+    "problem": "0.1 mol of NaCl is dissolved in 1 kg of water. Kf for water is 1.86 K kg mol⁻¹. Assume complete dissociation.",
+    "steps": [
+     {
+      "ask": "What is the molality of the solution?",
+      "options": [
+       "0.1 m",
+       "0.2 m",
+       "1.86 m"
+      ],
+      "correct": 0,
+      "why": "Molality is moles of solute per kilogram of solvent: 0.1 mol in 1 kg is 0.1 m."
+     },
+     {
+      "ask": "What is the van't Hoff factor for NaCl on complete dissociation?",
+      "options": [
+       "1",
+       "2",
+       "3"
+      ],
+      "correct": 1,
+      "why": "NaCl gives Na⁺ and Cl⁻ — two particles per formula unit."
+     },
+     {
+      "ask": "What is ΔTf?",
+      "options": [
+       "0.186 K",
+       "0.372 K",
+       "1.86 K"
+      ],
+      "correct": 1,
+      "why": "ΔTf = i × Kf × m = 2 × 1.86 × 0.1 = 0.372 K."
+     },
+     {
+      "ask": "At what temperature does the solution freeze?",
+      "options": [
+       "−0.372 °C",
+       "+0.372 °C",
+       "0 °C"
+      ],
+      "correct": 0,
+      "why": "The freezing point is depressed below 0 °C, so it is −0.372 °C. Depression always lowers, elevation always raises."
+     }
+    ],
+    "answer": "ΔTf = 0.372 K, so the solution freezes at −0.372 °C. Glucose at the same molality would give only half as much, because i = 1."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Surface Chemistry",
+  "approved": false,
+  "trick": "Adsorption is at the surface, absorption is throughout the bulk — 'ad' means at. In colloids, learn the pair of names for each system: sol is solid in liquid, gel is liquid in solid, emulsion is liquid in liquid, aerosol is liquid or solid in gas. Note that milk, blood, cheese and paint are ALL colloids, so a question asking for 'the colloid' among them has no single answer.",
+  "video": {
+   "query": "adsorption colloids tyndall effect coagulation class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each colloidal system with its dispersed phase and medium.",
+    "pairs": [
+     {
+      "left": "Sol",
+      "right": "Solid dispersed in a liquid — paint, muddy water"
+     },
+     {
+      "left": "Gel",
+      "right": "Liquid dispersed in a solid — cheese, butter, jelly"
+     },
+     {
+      "left": "Emulsion",
+      "right": "Liquid dispersed in a liquid — milk"
+     },
+     {
+      "left": "Aerosol",
+      "right": "Liquid or solid dispersed in a gas — fog, smoke"
+     },
+     {
+      "left": "Foam",
+      "right": "Gas dispersed in a liquid — whipped cream"
+     },
+     {
+      "left": "Tyndall effect",
+      "right": "Scattering of light by colloidal particles, which makes the beam visible"
+     },
+     {
+      "left": "Coagulation",
+      "right": "Colloidal particles clumping together and settling out"
+     },
+     {
+      "left": "Brownian motion",
+      "right": "Random zig-zag movement of colloidal particles struck by the medium"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Chemical Bonding and Periodic Properties",
+  "approved": false,
+  "trick": "Count the lone pairs before naming the shape. Four electron pairs around the central atom always give a tetrahedral ARRANGEMENT, but the SHAPE is what the atoms make: no lone pair is tetrahedral (CH₄), one lone pair is trigonal pyramidal (NH₃), two lone pairs is bent (H₂O). The exam wants the precise term — 'trigonal pyramidal', not just 'pyramidal'.",
+  "video": {
+   "query": "VSEPR theory shapes of molecules lone pairs class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each molecule with its shape and its lone pairs on the central atom.",
+    "pairs": [
+     {
+      "left": "CH₄ (methane)",
+      "right": "Tetrahedral; no lone pair; 109.5°"
+     },
+     {
+      "left": "NH₃ (ammonia)",
+      "right": "Trigonal pyramidal; one lone pair; about 107°"
+     },
+     {
+      "left": "H₂O (water)",
+      "right": "Bent or V-shaped; two lone pairs; about 104.5°"
+     },
+     {
+      "left": "BF₃ (boron trifluoride)",
+      "right": "Trigonal planar; no lone pair; 120°"
+     },
+     {
+      "left": "BeCl₂",
+      "right": "Linear; no lone pair; 180°"
+     },
+     {
+      "left": "PCl₅",
+      "right": "Trigonal bipyramidal; five bond pairs"
+     },
+     {
+      "left": "SF₆",
+      "right": "Octahedral; six bond pairs"
+     },
+     {
+      "left": "XeF₄",
+      "right": "Square planar; two lone pairs on xenon"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "The p-Block Elements",
+  "approved": false,
+  "trick": "Down a group, the inert pair effect makes the lower oxidation state more stable — which is why Pb(II) beats Pb(IV) and Bi(III) beats Bi(V). Across a period, non-metallic character rises. Almost every anomalous-property question in this chapter is one of those two trends being applied.",
+  "video": {
+   "query": "p block elements group 15 16 17 trends inert pair effect class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the p-block.",
+    "items": [
+     {
+      "statement": "The +3 state of thallium is more stable than the +1 state.",
+      "is_true": false,
+      "why": "It is the other way round. The inert pair effect makes the lower state more stable as you go down group 13, so Tl(I) is the stable one."
+     },
+     {
+      "statement": "Nitrogen cannot expand its octet, but phosphorus can.",
+      "is_true": true,
+      "why": "Nitrogen has no d orbitals available in its valence shell, which is why NCl₅ does not exist while PCl₅ does."
+     },
+     {
+      "statement": "Fluorine has a lower electron affinity than chlorine.",
+      "is_true": true,
+      "why": "An anomaly worth remembering: the fluorine atom is so small that the incoming electron feels strong repulsion, so chlorine tops the group."
+     },
+     {
+      "statement": "Ozone is a stronger oxidising agent than oxygen.",
+      "is_true": true,
+      "why": "It readily gives up an atom of nascent oxygen, which is why it is used to disinfect water and to bleach."
+     },
+     {
+      "statement": "All noble gases are completely unreactive.",
+      "is_true": false,
+      "why": "Xenon forms real compounds such as XeF₂, XeF₄ and XeO₃. The heavier noble gases have lower ionisation enthalpy."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Haloalkanes, Haloarenes and Grignard Reagents",
+  "approved": false,
+  "trick": "Grignard reagents are destroyed by anything with an acidic hydrogen — water, alcohol, even a trace of moisture — so the apparatus must be perfectly dry. Which alcohol you get depends on the carbonyl you attack: formaldehyde gives primary, any other aldehyde gives secondary, and a ketone gives tertiary. That three-way rule answers most Grignard questions.",
+  "video": {
+   "query": "grignard reagent preparation reactions haloalkanes SN1 SN2 class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each reactant with what a Grignard reagent turns it into, and each mechanism with its behaviour.",
+    "pairs": [
+     {
+      "left": "Formaldehyde (HCHO) + RMgX",
+      "right": "A primary alcohol, after hydrolysis"
+     },
+     {
+      "left": "Any other aldehyde + RMgX",
+      "right": "A secondary alcohol"
+     },
+     {
+      "left": "A ketone + RMgX",
+      "right": "A tertiary alcohol"
+     },
+     {
+      "left": "Carbon dioxide + RMgX",
+      "right": "A carboxylic acid, after acid hydrolysis"
+     },
+     {
+      "left": "Water + RMgX",
+      "right": "An alkane — the reagent is destroyed, which is why dry ether is used"
+     },
+     {
+      "left": "SN2 mechanism",
+      "right": "One step, inversion of configuration, favoured by primary halides"
+     },
+     {
+      "left": "SN1 mechanism",
+      "right": "Two steps through a carbocation, racemisation, favoured by tertiary halides"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Alcohols, Phenols and Ethers",
+  "approved": false,
+  "trick": "The iodoform test does not detect 'alcohols' — it detects the CH₃–CH(OH)– group. So ethanol and propan-2-ol give the yellow precipitate, but methanol does not (no carbon beside it) and tertiary butanol does not (no hydrogen on the carbinol carbon, and no methyl attached to it). If the alcohol has no methyl group next to the OH-bearing carbon, there is no iodoform however alcoholic it is.",
+  "video": {
+   "query": "iodoform test lucas test alcohols phenols distinction class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which of these give a positive iodoform test?",
+    "bins": [
+     "Gives iodoform",
+     "Does not give iodoform"
+    ],
+    "items": [
+     {
+      "label": "Ethanol, CH₃CH₂OH",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Methanol, CH₃OH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "Propan-2-ol, CH₃CH(OH)CH₃",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Propan-1-ol, CH₃CH₂CH₂OH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "tert-Butyl alcohol, (CH₃)₃COH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "Acetone, CH₃COCH₃",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Acetaldehyde, CH₃CHO",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Benzaldehyde, C₆H₅CHO",
+      "bin": "Does not give iodoform"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Aldehydes, Ketones and Carboxylic Acids",
+  "approved": false,
+  "trick": "Tollen's and Fehling's separate aldehydes from ketones — but not always. In alkaline solution a ketone with an alpha-hydroxyl isomerises to an aldehyde, so fructose reduces Tollen's reagent even though it is a ketose. When a question asks how to distinguish glucose from fructose, the honest answer is bromine water, which oxidises only the true aldehyde.",
+  "video": {
+   "query": "tollens fehling test aldehyde ketone distinction bromine water class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about carbonyl tests.",
+    "items": [
+     {
+      "statement": "Tollen's reagent gives a silver mirror with aldehydes but not with ordinary ketones.",
+      "is_true": true,
+      "why": "The aldehyde is oxidised to the acid and Ag⁺ is reduced to silver metal. Simple ketones resist oxidation."
+     },
+     {
+      "statement": "Tollen's reagent can be used to tell glucose from fructose.",
+      "is_true": false,
+      "why": "Both give a positive result. In the alkaline medium fructose isomerises to glucose and mannose, so it reduces Tollen's too — the classic exception."
+     },
+     {
+      "statement": "Bromine water distinguishes glucose from fructose.",
+      "is_true": true,
+      "why": "Bromine water is a mild oxidising agent in neutral solution, so no isomerisation occurs. It oxidises the aldose glucose to gluconic acid and leaves fructose untouched."
+     },
+     {
+      "statement": "Fehling's solution works with aromatic aldehydes such as benzaldehyde.",
+      "is_true": false,
+      "why": "Aromatic aldehydes do not respond to Fehling's, though they do reduce Tollen's — a distinction worth holding on to."
+     },
+     {
+      "statement": "Carboxylic acids are more acidic than phenols.",
+      "is_true": true,
+      "why": "The carboxylate ion is stabilised by resonance over two equivalent oxygens; carboxylic acids liberate CO₂ from bicarbonate, phenols do not."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Biomolecules",
+  "approved": false,
+  "trick": "Sort the sugars by two tests. Reducing or not: all monosaccharides reduce, and among the common disaccharides only sucrose does not, because both its reducing groups are locked in the glycosidic bond. Aldose or ketose: glucose is an aldose, fructose a ketose — but remember that in alkali fructose behaves like an aldose.",
+  "video": {
+   "query": "carbohydrates proteins vitamins reducing sugars class 12 chemistry biomolecules",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each biomolecule fact.",
+    "bins": [
+     "Reducing sugar",
+     "Non-reducing sugar",
+     "Not a carbohydrate"
+    ],
+    "items": [
+     {
+      "label": "Glucose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Fructose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Sucrose",
+      "bin": "Non-reducing sugar"
+     },
+     {
+      "label": "Maltose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Lactose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Starch",
+      "bin": "Non-reducing sugar"
+     },
+     {
+      "label": "Insulin",
+      "bin": "Not a carbohydrate"
+     },
+     {
+      "label": "Vitamin C (ascorbic acid)",
+      "bin": "Not a carbohydrate"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Chemistry",
+  "chapter": "Polymers",
+  "approved": false,
+  "trick": "Addition polymers keep every atom of the monomer and need a double bond; condensation polymers lose a small molecule, usually water, and need two functional groups. So polythene and PVC are addition, nylon and terylene are condensation — and a monomer with no double bond can never make an addition polymer.",
+  "video": {
+   "query": "addition and condensation polymers nylon terylene bakelite class 12 chemistry",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each polymer with its monomer or its type.",
+    "pairs": [
+     {
+      "left": "Polythene",
+      "right": "Ethene; addition polymer"
+     },
+     {
+      "left": "PVC",
+      "right": "Vinyl chloride; addition polymer"
+     },
+     {
+      "left": "Teflon",
+      "right": "Tetrafluoroethene; addition polymer"
+     },
+     {
+      "left": "Nylon-6,6",
+      "right": "Adipic acid and hexamethylenediamine; condensation polymer"
+     },
+     {
+      "left": "Terylene (Dacron)",
+      "right": "Ethylene glycol and terephthalic acid; condensation polymer"
+     },
+     {
+      "left": "Bakelite",
+      "right": "Phenol and formaldehyde; a thermosetting condensation polymer"
+     },
+     {
+      "left": "Buna-S",
+      "right": "Butadiene and styrene; a synthetic rubber copolymer"
+     },
+     {
+      "left": "Natural rubber",
+      "right": "Isoprene; vulcanisation with sulphur cross-links the chains"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Sexual Reproduction in Flowering Plants",
+  "approved": false,
+  "trick": "Double fertilisation is the fact that only flowering plants can claim: one male gamete fuses with the egg to give the zygote (2n), the other fuses with two polar nuclei to give the endosperm (3n). Remember the two ploidy numbers together — 2n and 3n — and the whole question type collapses.",
+  "video": {
+   "query": "double fertilisation embryo sac endosperm class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events from pollination to seed in order.",
+    "items": [
+     {
+      "label": "Pollination",
+      "note": "Pollen reaches the stigma"
+     },
+     {
+      "label": "Germination of the pollen grain",
+      "note": "The pollen tube grows down the style, carrying two male gametes"
+     },
+     {
+      "label": "Entry into the ovule",
+      "note": "Usually through the micropyle — porogamy"
+     },
+     {
+      "label": "Double fertilisation",
+      "note": "One gamete + egg → zygote (2n); the other + two polar nuclei → primary endosperm nucleus (3n)"
+     },
+     {
+      "label": "Endosperm development",
+      "note": "Nourishing tissue forms before the embryo grows"
+     },
+     {
+      "label": "Embryo and seed formation",
+      "note": "The ovule becomes the seed and the ovary becomes the fruit"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Human Reproduction",
+  "approved": false,
+  "trick": "Implantation happens at the BLASTOCYST stage, not the morula. The order is zygote → cleavage → morula (a solid ball, still in the fallopian tube) → blastocyst (hollow, with a trophoblast) → implantation in the uterine wall. Only the blastocyst has the trophoblast that can attach, which is why the morula cannot implant.",
+  "video": {
+   "query": "human reproduction fertilisation cleavage blastocyst implantation class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages from fertilisation to implantation in the right order.",
+    "items": [
+     {
+      "label": "Fertilisation",
+      "note": "Sperm meets ovum in the ampullary-isthmic junction of the fallopian tube"
+     },
+     {
+      "label": "Zygote",
+      "note": "The single diploid cell formed by fusion"
+     },
+     {
+      "label": "Cleavage",
+      "note": "Rapid mitotic divisions with no growth between them, still inside the tube"
+     },
+     {
+      "label": "Morula",
+      "note": "A solid ball of 8 to 16 blastomeres — cannot implant"
+     },
+     {
+      "label": "Blastocyst",
+      "note": "Hollow, with an inner cell mass and an outer trophoblast"
+     },
+     {
+      "label": "Implantation",
+      "note": "The trophoblast attaches to the uterine endometrium — this is the stage that implants"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Principles of Inheritance and Variation",
+  "approved": false,
+  "trick": "A monohybrid cross gives 3:1 phenotypic but 1:2:1 genotypic — quoting the wrong one is the commonest error. A dihybrid gives 9:3:3:1, and a test cross with a recessive parent gives 1:1. Learn the four ratios as a set, and read carefully whether the question asks for phenotype or genotype.",
+  "video": {
+   "query": "mendel monohybrid dihybrid cross ratios linkage class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work a monohybrid cross through to the ratios.",
+    "problem": "A tall pea plant homozygous for tallness (TT) is crossed with a dwarf plant (tt). Tallness is dominant.",
+    "steps": [
+     {
+      "ask": "What is the genotype of every F₁ plant?",
+      "options": [
+       "TT",
+       "Tt",
+       "tt"
+      ],
+      "correct": 1,
+      "why": "Each parent contributes one allele: T from the tall parent, t from the dwarf. All F₁ are heterozygous."
+     },
+     {
+      "ask": "What does the F₁ generation look like?",
+      "options": [
+       "All tall",
+       "All dwarf",
+       "Half tall, half dwarf"
+      ],
+      "correct": 0,
+      "why": "T is dominant, so a single copy makes the plant tall. The dwarf character is hidden, not lost."
+     },
+     {
+      "ask": "Selfing the F₁, what is the phenotypic ratio in F₂?",
+      "options": [
+       "1:2:1",
+       "3:1",
+       "9:3:3:1"
+      ],
+      "correct": 1,
+      "why": "TT, Tt, Tt and tt — three plants show tallness to one dwarf."
+     },
+     {
+      "ask": "And the genotypic ratio in F₂?",
+      "options": [
+       "3:1",
+       "1:2:1",
+       "1:1"
+      ],
+      "correct": 1,
+      "why": "One TT, two Tt, one tt. The phenotypic and genotypic ratios are different, and questions rely on that."
+     },
+     {
+      "ask": "Crossing an F₁ plant with a dwarf (a test cross) gives what ratio?",
+      "options": [
+       "3:1",
+       "1:1",
+       "All tall"
+      ],
+      "correct": 1,
+      "why": "Tt × tt gives half Tt and half tt — this is exactly how a test cross reveals whether a tall plant is TT or Tt."
+     }
+    ],
+    "answer": "F₁ all Tt and tall; F₂ 3:1 by phenotype but 1:2:1 by genotype; a test cross gives 1:1."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Molecular Basis of Inheritance",
+  "approved": false,
+  "trick": "Replication makes DNA from DNA, transcription makes RNA from DNA, translation makes protein from RNA — the central dogma in three words, and each question names one of them. Chargaff's rule (A = T, G = C) applies to double-stranded DNA only, so it does not hold for RNA or for single-stranded viral DNA.",
+  "video": {
+   "query": "central dogma dna replication transcription translation class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     {
+      "left": "Replication",
+      "right": "DNA copied to DNA; semi-conservative, proved by Meselson and Stahl"
+     },
+     {
+      "left": "Transcription",
+      "right": "DNA copied to RNA by RNA polymerase"
+     },
+     {
+      "left": "Translation",
+      "right": "mRNA read in triplets by ribosomes to build a polypeptide"
+     },
+     {
+      "left": "Chargaff's rule",
+      "right": "In double-stranded DNA, A equals T and G equals C"
+     },
+     {
+      "left": "Okazaki fragments",
+      "right": "Short pieces synthesised discontinuously on the lagging strand"
+     },
+     {
+      "left": "Hershey and Chase",
+      "right": "Showed with bacteriophage that DNA, not protein, is the genetic material"
+     },
+     {
+      "left": "Codon",
+      "right": "A triplet of bases on mRNA specifying one amino acid"
+     },
+     {
+      "left": "Introns",
+      "right": "Non-coding stretches removed by splicing before translation"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Evolution",
+  "approved": false,
+  "trick": "Match the structure to the argument it supports. Homologous organs — same origin, different function — argue for divergent evolution from a common ancestor; analogous organs — different origin, same function — argue for convergent evolution. The wing of a bat and the arm of a man are homologous; the wing of a bat and the wing of a butterfly are analogous.",
+  "video": {
+   "query": "evidences of evolution homologous analogous darwin lamarck class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Homologous or analogous?",
+    "bins": [
+     "Homologous (divergent)",
+     "Analogous (convergent)"
+    ],
+    "items": [
+     {
+      "label": "Forelimb of a whale and arm of a human",
+      "bin": "Homologous (divergent)"
+     },
+     {
+      "label": "Wing of a bird and wing of an insect",
+      "bin": "Analogous (convergent)"
+     },
+     {
+      "label": "Thorn of Bougainvillea and tendril of Cucurbita",
+      "bin": "Homologous (divergent)"
+     },
+     {
+      "label": "Eye of an octopus and eye of a mammal",
+      "bin": "Analogous (convergent)"
+     },
+     {
+      "label": "Flipper of a seal and wing of a bat",
+      "bin": "Homologous (divergent)"
+     },
+     {
+      "label": "Sweet potato (root) and potato (stem)",
+      "bin": "Analogous (convergent)"
+     },
+     {
+      "label": "Vertebrate hearts across fish, amphibia and mammals",
+      "bin": "Homologous (divergent)"
+     },
+     {
+      "label": "Streamlined body of a shark and of a dolphin",
+      "bin": "Analogous (convergent)"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Biology",
+  "chapter": "Biotechnology and its Applications",
+  "approved": false,
+  "trick": "Restriction enzymes cut, ligase joins, and the vector carries — three tools, three verbs, and every recombinant DNA question uses them in that order. EcoRI cuts at a palindromic sequence leaving sticky ends, which is exactly why the fragment and the plasmid fit together.",
+  "video": {
+   "query": "recombinant dna technology restriction enzymes vectors PCR class 12 biology",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of making recombinant DNA in order.",
+    "items": [
+     {
+      "label": "Isolation of the DNA",
+      "note": "The gene of interest and the vector DNA are obtained in pure form"
+     },
+     {
+      "label": "Cutting with a restriction enzyme",
+      "note": "The same enzyme cuts both, leaving matching sticky ends"
+     },
+     {
+      "label": "Ligation",
+      "note": "DNA ligase seals the fragment into the vector, forming recombinant DNA"
+     },
+     {
+      "label": "Transformation into a host",
+      "note": "The recombinant vector is introduced into a bacterial cell"
+     },
+     {
+      "label": "Selection of transformants",
+      "note": "Marker genes reveal which cells took up the construct"
+     },
+     {
+      "label": "Culture and product recovery",
+      "note": "Scaled up in a bioreactor, then downstream processing"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Relations and Functions",
+  "approved": false,
+  "trick": "Check the three properties one at a time and never assume. Reflexive needs (a,a) for EVERY a; symmetric needs the reverse of every pair present; transitive needs the shortcut of every chain. A relation can be symmetric and transitive and still fail to be reflexive, which is where most marks are lost.",
+  "video": {
+   "query": "relations reflexive symmetric transitive equivalence functions class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "On the set A = {1, 2, 3}, mark each statement true or false.",
+    "items": [
+     {
+      "statement": "R = {(1,1), (2,2), (3,3)} is an equivalence relation.",
+      "is_true": true,
+      "why": "It is reflexive, and symmetric and transitive hold vacuously since there are no other pairs to check."
+     },
+     {
+      "statement": "R = {(1,2), (2,1)} is reflexive.",
+      "is_true": false,
+      "why": "It is symmetric, but (1,1), (2,2) and (3,3) are all missing, so it fails reflexivity — the classic trap."
+     },
+     {
+      "statement": "R = {(1,2), (2,3)} is transitive.",
+      "is_true": false,
+      "why": "It contains (1,2) and (2,3) but not (1,3), so the chain has no shortcut."
+     },
+     {
+      "statement": "A function f: A → A given by f = {(1,2), (2,3), (3,1)} is a bijection.",
+      "is_true": true,
+      "why": "Every element has exactly one image and every element is an image exactly once — one-one and onto."
+     },
+     {
+      "statement": "If f: A → B is one-one and A has more elements than B, f can still exist.",
+      "is_true": false,
+      "why": "A one-one function needs a distinct image for each element, which is impossible if the codomain is smaller."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Inverse Trigonometric Functions",
+  "approved": false,
+  "trick": "Answer inside the principal range or the answer is wrong, however right the angle looks. sin⁻¹ lives in [−π/2, π/2], cos⁻¹ in [0, π], tan⁻¹ in (−π/2, π/2). So cos⁻¹(−½) is 2π/3, not −π/3 — the range for cos⁻¹ never goes negative.",
+  "video": {
+   "query": "inverse trigonometric functions principal value branch class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find a principal value, checking the range at every step.",
+    "problem": "Evaluate sin⁻¹(−1/2) + cos⁻¹(−1/2).",
+    "steps": [
+     {
+      "ask": "What is the principal range of sin⁻¹?",
+      "options": [
+       "[0, π]",
+       "[−π/2, π/2]",
+       "(−π/2, π/2)"
+      ],
+      "correct": 1,
+      "why": "sin⁻¹ takes values in [−π/2, π/2], closed at both ends."
+     },
+     {
+      "ask": "So what is sin⁻¹(−1/2)?",
+      "options": [
+       "−π/6",
+       "7π/6",
+       "11π/6"
+      ],
+      "correct": 0,
+      "why": "Both 7π/6 and 11π/6 have sine −1/2, but only −π/6 lies in the principal range."
+     },
+     {
+      "ask": "What is the principal range of cos⁻¹?",
+      "options": [
+       "[−π/2, π/2]",
+       "[0, π]",
+       "[0, 2π]"
+      ],
+      "correct": 1,
+      "why": "cos⁻¹ takes values in [0, π] — never negative, which is the point most often missed."
+     },
+     {
+      "ask": "So what is cos⁻¹(−1/2)?",
+      "options": [
+       "−π/3",
+       "2π/3",
+       "4π/3"
+      ],
+      "correct": 1,
+      "why": "cos(2π/3) = −1/2 and 2π/3 lies in [0, π]. −π/3 is outside the range and its cosine is +1/2 anyway."
+     },
+     {
+      "ask": "What is the sum?",
+      "options": [
+       "π/2",
+       "−π/6 + 2π/3 = π/2",
+       "π"
+      ],
+      "correct": 1,
+      "why": "−π/6 + 2π/3 = −π/6 + 4π/6 = 3π/6 = π/2. This is the identity sin⁻¹x + cos⁻¹x = π/2 at work."
+     }
+    ],
+    "answer": "π/2 — as sin⁻¹x + cos⁻¹x = π/2 guarantees for every x in [−1, 1]."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Matrices",
+  "approved": false,
+  "trick": "Matrix multiplication is not commutative: AB and BA are usually different and may not both exist. For AB to exist, the columns of A must equal the rows of B, and the answer has the rows of A and the columns of B. Check that shape rule before doing any arithmetic.",
+  "video": {
+   "query": "matrix multiplication transpose symmetric skew symmetric class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about matrices.",
+    "items": [
+     {
+      "statement": "If A is 2×3 and B is 3×4, then AB is 2×4.",
+      "is_true": true,
+      "why": "Inner dimensions match (3 = 3), and the product takes the outer ones."
+     },
+     {
+      "statement": "With A 2×3 and B 3×4, BA also exists.",
+      "is_true": false,
+      "why": "BA would need the columns of B (4) to equal the rows of A (2). They do not, so BA is undefined."
+     },
+     {
+      "statement": "For a skew-symmetric matrix, every diagonal element is zero.",
+      "is_true": true,
+      "why": "A' = −A forces aᵢᵢ = −aᵢᵢ, so 2aᵢᵢ = 0."
+     },
+     {
+      "statement": "(AB)' = A'B'.",
+      "is_true": false,
+      "why": "The order reverses: (AB)' = B'A'. This reversal is worth a mark on its own."
+     },
+     {
+      "statement": "Every square matrix can be written as the sum of a symmetric and a skew-symmetric matrix.",
+      "is_true": true,
+      "why": "A = ½(A + A') + ½(A − A'), the first symmetric and the second skew-symmetric."
+     },
+     {
+      "statement": "If AB = 0 then either A = 0 or B = 0.",
+      "is_true": false,
+      "why": "Unlike numbers, two non-zero matrices can multiply to the zero matrix."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Determinants and Systems of Equations",
+  "approved": false,
+  "trick": "The sign pattern of the cofactors alternates + − + along the top row, and a dropped minus sign is the commonest way a correct method produces a wrong answer. When |A| = 0 the system is not automatically inconsistent — check (adj A)B: if it is zero the system has infinitely many solutions, otherwise none.",
+  "video": {
+   "query": "determinants cofactor adjoint inverse consistency of system class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Expand a determinant, watching every sign.",
+    "problem": "Evaluate |A| where A = [[1, 2, 3], [4, 5, 6], [7, 8, 10]], expanding along the first row.",
+    "steps": [
+     {
+      "ask": "What is the sign pattern along the first row?",
+      "options": [
+       "+ + +",
+       "+ − +",
+       "− + −"
+      ],
+      "correct": 1,
+      "why": "The cofactor sign is (−1)^(i+j), giving + − + across the first row."
+     },
+     {
+      "ask": "What is the minor of the element 1?",
+      "options": [
+       "5×10 − 6×8 = 2",
+       "5×10 − 6×7 = 8",
+       "4×10 − 6×7 = −2"
+      ],
+      "correct": 0,
+      "why": "Delete row 1 and column 1, leaving [[5,6],[8,10]], whose determinant is 50 − 48 = 2."
+     },
+     {
+      "ask": "What is the contribution of the element 2, with its sign?",
+      "options": [
+       "+2 × (4×10 − 6×7)",
+       "−2 × (4×10 − 6×7)",
+       "−2 × (5×10 − 6×8)"
+      ],
+      "correct": 1,
+      "why": "The minor is [[4,6],[7,10]] = 40 − 42 = −2, and the cofactor sign is minus, so the term is −2 × (−2) = +4."
+     },
+     {
+      "ask": "What is |A|?",
+      "options": [
+       "−3",
+       "3",
+       "0"
+      ],
+      "correct": 0,
+      "why": "1(2) − 2(−2) + 3(32 − 35) = 2 + 4 − 9 = −3. Losing the sign on the middle term would give +5 instead."
+     }
+    ],
+    "answer": "|A| = −3, so A is invertible and the corresponding system has a unique solution."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Continuity and Differentiability",
+  "approved": false,
+  "trick": "Differentiable implies continuous, but never the reverse — |x| at x = 0 is the counterexample to keep in your pocket. To test continuity at a point, check three things: the left limit, the right limit and the value of the function, and all three must agree.",
+  "video": {
+   "query": "continuity differentiability chain rule class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about continuity and differentiability.",
+    "items": [
+     {
+      "statement": "Every differentiable function is continuous.",
+      "is_true": true,
+      "why": "Differentiability at a point requires the limit of the difference quotient to exist, which forces continuity there."
+     },
+     {
+      "statement": "Every continuous function is differentiable.",
+      "is_true": false,
+      "why": "f(x) = |x| is continuous everywhere but has no derivative at 0 — the left and right derivatives are −1 and +1."
+     },
+     {
+      "statement": "A function continuous at x = a must satisfy lim(x→a⁻)f(x) = lim(x→a⁺)f(x) = f(a).",
+      "is_true": true,
+      "why": "All three must exist and be equal; a jump or a hole breaks one of them."
+     },
+     {
+      "statement": "f(x) = 1/x is discontinuous at x = 0.",
+      "is_true": true,
+      "why": "It is not even defined at 0, so continuity cannot hold there — though it is continuous on its own domain."
+     },
+     {
+      "statement": "The derivative of a constant function is 1.",
+      "is_true": false,
+      "why": "It is 0. A constant does not change, so its rate of change is zero."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Application of Derivatives",
+  "approved": false,
+  "trick": "f'(x) = 0 finds the candidates, not the answer — the second derivative decides which is which. f''> 0 means minimum, f'' < 0 means maximum, and if f'' = 0 the test says nothing and you must look at the sign change of f'. Remember which way round it goes: a positive second derivative bends the curve upwards, which is a valley.",
+  "video": {
+   "query": "maxima minima second derivative test increasing decreasing class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Find and classify the turning points.",
+    "problem": "f(x) = x³ − 6x² + 9x + 1.",
+    "steps": [
+     {
+      "ask": "What is f'(x)?",
+      "options": [
+       "3x² − 12x + 9",
+       "3x² − 6x + 9",
+       "x² − 12x + 9"
+      ],
+      "correct": 0,
+      "why": "Differentiate term by term: 3x², −12x, +9, and the constant vanishes."
+     },
+     {
+      "ask": "Where does f'(x) = 0?",
+      "options": [
+       "x = 1 and x = 3",
+       "x = 0 and x = 3",
+       "x = −1 and x = 3"
+      ],
+      "correct": 0,
+      "why": "3(x² − 4x + 3) = 3(x − 1)(x − 3) = 0."
+     },
+     {
+      "ask": "What is f''(x)?",
+      "options": [
+       "6x − 12",
+       "6x − 6",
+       "3x − 12"
+      ],
+      "correct": 0,
+      "why": "Differentiate f'(x) = 3x² − 12x + 9."
+     },
+     {
+      "ask": "At x = 1, f'' = −6. What does that mean?",
+      "options": [
+       "Local minimum",
+       "Local maximum",
+       "Point of inflection"
+      ],
+      "correct": 1,
+      "why": "A negative second derivative means the curve is concave down — a peak, so x = 1 is a local maximum."
+     },
+     {
+      "ask": "At x = 3, f'' = +6. What does that mean?",
+      "options": [
+       "Local minimum",
+       "Local maximum",
+       "Neither"
+      ],
+      "correct": 0,
+      "why": "Positive second derivative, concave up, a valley — x = 3 is a local minimum."
+     }
+    ],
+    "answer": "Local maximum at x = 1 with f(1) = 5; local minimum at x = 3 with f(3) = 1."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Probability",
+  "approved": false,
+  "trick": "Independent and mutually exclusive are opposites, not synonyms. Mutually exclusive means they cannot both happen, so P(A∩B) = 0; independent means one tells you nothing about the other, so P(A∩B) = P(A)P(B). Two events with non-zero probability can never be both.",
+  "video": {
+   "query": "conditional probability independent mutually exclusive bayes theorem class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "A Bayes' theorem problem, one step at a time.",
+    "problem": "Bag I holds 3 red and 4 black balls; Bag II holds 5 red and 6 black. A bag is chosen at random and one ball drawn. It is red. What is the probability it came from Bag I?",
+    "steps": [
+     {
+      "ask": "What is P(Bag I)?",
+      "options": [
+       "1/2",
+       "3/7",
+       "8/18"
+      ],
+      "correct": 0,
+      "why": "The bag is chosen at random from two bags, so each has probability 1/2."
+     },
+     {
+      "ask": "What is P(red | Bag I)?",
+      "options": [
+       "3/7",
+       "4/7",
+       "3/11"
+      ],
+      "correct": 0,
+      "why": "Bag I has 3 red out of 7 balls."
+     },
+     {
+      "ask": "What is P(red | Bag II)?",
+      "options": [
+       "6/11",
+       "5/11",
+       "5/12"
+      ],
+      "correct": 1,
+      "why": "Bag II has 5 red out of 11 balls."
+     },
+     {
+      "ask": "What is the total probability of drawing red?",
+      "options": [
+       "½(3/7) + ½(5/11) = 34/77",
+       "3/7 + 5/11",
+       "8/18"
+      ],
+      "correct": 0,
+      "why": "½ × 3/7 = 3/14 and ½ × 5/11 = 5/22; adding gives 33/154 + 35/154 = 68/154 = 34/77."
+     },
+     {
+      "ask": "So P(Bag I | red)?",
+      "options": [
+       "33/68",
+       "35/68",
+       "1/2"
+      ],
+      "correct": 0,
+      "why": "Bayes: (3/14) ÷ (34/77) = 33/68. Note it is below ½, because Bag I has the lower share of red balls."
+     }
+    ],
+    "answer": "33/68, a little under a half."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Science|Mathematics",
+  "chapter": "Statistics: Variance and Standard Deviation",
+  "approved": false,
+  "trick": "Variance is the square of the standard deviation, so the standard deviation carries the same unit as the data and the variance does not. Adding a constant to every observation leaves both unchanged; multiplying every observation by k multiplies the standard deviation by |k| and the variance by k².",
+  "video": {
+   "query": "mean variance standard deviation coefficient of variation class 12 maths",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Compute a variance, then see what happens when the data are transformed.",
+    "problem": "The observations are 2, 4, 4, 4, 5, 5, 7, 9.",
+    "steps": [
+     {
+      "ask": "What is the mean?",
+      "options": [
+       "5",
+       "4.5",
+       "6"
+      ],
+      "correct": 0,
+      "why": "The total is 40 over 8 observations, so the mean is 5."
+     },
+     {
+      "ask": "What is the sum of the squared deviations from the mean?",
+      "options": [
+       "32",
+       "16",
+       "40"
+      ],
+      "correct": 0,
+      "why": "9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32."
+     },
+     {
+      "ask": "What is the variance?",
+      "options": [
+       "4",
+       "32",
+       "2"
+      ],
+      "correct": 0,
+      "why": "32 ÷ 8 = 4."
+     },
+     {
+      "ask": "What is the standard deviation?",
+      "options": [
+       "4",
+       "2",
+       "16"
+      ],
+      "correct": 1,
+      "why": "It is the positive square root of the variance: √4 = 2."
+     },
+     {
+      "ask": "If 3 is added to every observation, the new standard deviation is?",
+      "options": [
+       "5",
+       "2",
+       "6"
+      ],
+      "correct": 1,
+      "why": "Adding a constant shifts every value and the mean equally, so the spread is untouched. It stays 2."
+     },
+     {
+      "ask": "If instead every observation is doubled, the new variance is?",
+      "options": [
+       "8",
+       "16",
+       "4"
+      ],
+      "correct": 1,
+      "why": "Standard deviation doubles to 4, so the variance becomes 4² = 16 — it multiplies by k², not by k."
+     }
+    ],
+    "answer": "Mean 5, variance 4, standard deviation 2. Adding 3 changes nothing; doubling gives sd 4 and variance 16."
+   }
+  }
  }
 ]

@@ -1,0 +1,187 @@
+[
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Cost Accounting: Nature and Objectives",
+  "approved": false,
+  "trick": "Financial accounting reports to outsiders in one annual set of statements; cost accounting reports to management, product by product, whenever it is wanted. So financial accounting is compulsory and standardised, cost accounting is voluntary and shaped to the firm. Every 'difference between' question runs along that line.",
+  "video": { "query": "cost accounting objectives difference from financial accounting class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Financial accounting or cost accounting?",
+    "bins": ["Financial accounting", "Cost accounting"],
+    "items": [
+     { "label": "Prepared mainly for shareholders, creditors and the tax authorities", "bin": "Financial accounting" },
+     { "label": "Prepared for management's internal decisions", "bin": "Cost accounting" },
+     { "label": "Statutory and governed by a standard format", "bin": "Financial accounting" },
+     { "label": "Voluntary, and designed to suit the particular business", "bin": "Cost accounting" },
+     { "label": "Reports the results of the business as a whole", "bin": "Financial accounting" },
+     { "label": "Reports cost product by product, job by job", "bin": "Cost accounting" },
+     { "label": "Normally prepared once a year", "bin": "Financial accounting" },
+     { "label": "Prepared as often as management requires", "bin": "Cost accounting" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Elements of Cost and the Cost Sheet",
+  "approved": false,
+  "trick": "The cost sheet builds in four fixed stages, and skipping one is where marks go: Prime cost = direct material + direct labour + direct expenses; + factory overhead = Works cost; + office overhead = Cost of production; + selling and distribution overhead = Cost of sales. Selling expenses never touch works cost.",
+  "video": { "query": "cost sheet prime cost works cost cost of production format class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Build a cost sheet stage by stage.",
+    "problem": "Direct material ₹50,000; direct wages ₹30,000; direct expenses ₹5,000; factory overhead ₹17,000; office overhead ₹12,000; selling and distribution overhead ₹8,000. Profit is 25% on cost of sales.",
+    "steps": [
+     { "ask": "What is the prime cost?", "options": ["₹80,000", "₹85,000", "₹1,02,000"], "correct": 1, "why": "Prime cost is all the direct costs: 50,000 + 30,000 + 5,000 = ₹85,000." },
+     { "ask": "What is the works or factory cost?", "options": ["₹1,02,000", "₹85,000", "₹1,14,000"], "correct": 0, "why": "Prime cost plus factory overhead: 85,000 + 17,000 = ₹1,02,000." },
+     { "ask": "What is the cost of production?", "options": ["₹1,14,000", "₹1,22,000", "₹1,02,000"], "correct": 0, "why": "Works cost plus office and administrative overhead: 1,02,000 + 12,000 = ₹1,14,000." },
+     { "ask": "What is the cost of sales?", "options": ["₹1,14,000", "₹1,22,000", "₹1,30,000"], "correct": 1, "why": "Cost of production plus selling and distribution overhead: 1,14,000 + 8,000 = ₹1,22,000." },
+     { "ask": "What is the sales value?", "options": ["₹1,52,500", "₹1,62,667", "₹1,22,000"], "correct": 0, "why": "Profit is 25% ON COST, so 25% of 1,22,000 = ₹30,500, and sales = ₹1,52,500. Had it been 25% on sales, the answer would differ — read which base the question gives." }
+    ],
+    "answer": "Prime ₹85,000; works ₹1,02,000; production ₹1,14,000; cost of sales ₹1,22,000; sales ₹1,52,500."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Overheads: Factory, Administrative and Selling",
+  "approved": false,
+  "trick": "Place the overhead by WHERE it was incurred, not by what it is. Factory rent is factory overhead, office rent is administrative, showroom rent is selling — the same word 'rent' lands in three different places. Read the department, not the expense.",
+  "video": { "query": "classification of overheads factory office selling distribution class 12 cost accounting", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Classify each overhead by where it is incurred.",
+    "bins": ["Factory overhead", "Administrative overhead", "Selling and distribution overhead"],
+    "items": [
+     { "label": "Factory rent and rates", "bin": "Factory overhead" },
+     { "label": "Office salaries", "bin": "Administrative overhead" },
+     { "label": "Advertising", "bin": "Selling and distribution overhead" },
+     { "label": "Depreciation of plant and machinery", "bin": "Factory overhead" },
+     { "label": "Printing and stationery for the office", "bin": "Administrative overhead" },
+     { "label": "Carriage outward", "bin": "Selling and distribution overhead" },
+     { "label": "Works manager's salary", "bin": "Factory overhead" },
+     { "label": "Showroom expenses", "bin": "Selling and distribution overhead" },
+     { "label": "Directors' fees", "bin": "Administrative overhead" },
+     { "label": "Power and fuel for machines", "bin": "Factory overhead" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Classification of Costs: Fixed and Variable",
+  "approved": false,
+  "trick": "Fixed cost is fixed in TOTAL and falls per unit as output rises; variable cost is fixed PER UNIT and rises in total. Getting those two the wrong way round is the standard error. Semi-variable costs, like a telephone bill with a rental plus call charges, have one of each inside them.",
+  "video": { "query": "fixed variable semi variable cost behaviour class 12 cost accounting", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about cost behaviour.",
+    "items": [
+     { "statement": "Fixed cost per unit falls as output increases.", "is_true": true, "why": "The same total is spread over more units. Total fixed cost stays put; the per-unit figure falls." },
+     { "statement": "Variable cost per unit rises as output increases.", "is_true": false, "why": "Variable cost per unit stays constant; it is the TOTAL variable cost that rises with output." },
+     { "statement": "Factory rent is a fixed cost.", "is_true": true, "why": "It is payable whether the factory produces one unit or ten thousand, within the relevant range." },
+     { "statement": "A telephone bill with a fixed rental plus call charges is a semi-variable cost.", "is_true": true, "why": "It has a fixed component and a variable component in the same bill." },
+     { "statement": "At the break-even point, total contribution equals total fixed cost.", "is_true": true, "why": "That is what break-even means: contribution has just covered the fixed cost and profit is zero." },
+     { "statement": "Direct material is a fixed cost.", "is_true": false, "why": "It varies directly with the number of units produced, which makes it the clearest example of a variable cost." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Cost Control",
+  "approved": false,
+  "trick": "Cost control keeps costs within a standard already set; cost reduction lowers the standard itself, permanently, without harming quality. So control is about not exceeding the target and reduction is about moving the target — that distinction is what the question is testing when both options appear.",
+  "video": { "query": "cost control versus cost reduction standard costing variance class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Cost control or cost reduction?",
+    "bins": ["Cost control", "Cost reduction"],
+    "items": [
+     { "label": "Keeping actual cost within the predetermined standard", "bin": "Cost control" },
+     { "label": "Permanently lowering the cost per unit without loss of quality", "bin": "Cost reduction" },
+     { "label": "Ends once the target is achieved", "bin": "Cost control" },
+     { "label": "A continuous process with no final target", "bin": "Cost reduction" },
+     { "label": "Accepts the existing standard as correct", "bin": "Cost control" },
+     { "label": "Challenges the standard itself", "bin": "Cost reduction" },
+     { "label": "Budgetary control and standard costing are its tools", "bin": "Cost control" },
+     { "label": "Value analysis and work study are its tools", "bin": "Cost reduction" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Direct and Indirect Taxes",
+  "approved": false,
+  "trick": "One test settles it: can the burden be passed on? If the person who pays it also bears it, the tax is direct — income tax, corporation tax. If the burden is shifted to someone else, usually the customer, it is indirect — GST, customs duty. Impact and incidence fall on the same person for a direct tax and on different people for an indirect one.",
+  "video": { "query": "direct and indirect taxes impact incidence shifting class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Direct tax or indirect tax?",
+    "bins": ["Direct tax", "Indirect tax"],
+    "items": [
+     { "label": "Income tax", "bin": "Direct tax" },
+     { "label": "Goods and Services Tax", "bin": "Indirect tax" },
+     { "label": "Corporation tax", "bin": "Direct tax" },
+     { "label": "Customs duty", "bin": "Indirect tax" },
+     { "label": "Capital gains tax", "bin": "Direct tax" },
+     { "label": "Excise duty", "bin": "Indirect tax" },
+     { "label": "Wealth tax", "bin": "Direct tax" },
+     { "label": "A tax whose burden the seller passes to the buyer", "bin": "Indirect tax" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "GST: Structure and Classification",
+  "approved": false,
+  "trick": "Within a state, the tax splits in two: CGST to the Centre and SGST to the state, half each. Across states, it is a single IGST collected by the Centre. So the question 'which tax applies' is really 'is this an intra-state or an inter-state supply' — decide that first and the answer follows.",
+  "video": { "query": "GST CGST SGST IGST intra state inter state supply class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Decide which GST applies and split it correctly.",
+    "problem": "A dealer in Kolkata sells goods worth ₹1,00,000 at a GST rate of 18%.",
+    "steps": [
+     { "ask": "The buyer is also in West Bengal. Which taxes apply?", "options": ["IGST only", "CGST and SGST", "CGST only"], "correct": 1, "why": "It is an intra-state supply, so the tax is divided between the Centre and the state." },
+     { "ask": "How is the ₹18,000 split?", "options": ["₹18,000 CGST", "₹9,000 CGST and ₹9,000 SGST", "₹12,000 CGST and ₹6,000 SGST"], "correct": 1, "why": "The rate is halved: 9% CGST and 9% SGST." },
+     { "ask": "Now the buyer is in Bihar. Which tax applies?", "options": ["CGST and SGST", "IGST at 18%", "IGST at 9%"], "correct": 1, "why": "An inter-state supply attracts a single IGST at the full rate, collected by the Centre." },
+     { "ask": "What is the IGST amount?", "options": ["₹9,000", "₹18,000", "₹36,000"], "correct": 1, "why": "18% of ₹1,00,000 — the total tax is the same, only its division differs." }
+    ],
+    "answer": "Intra-state: ₹9,000 CGST + ₹9,000 SGST. Inter-state: ₹18,000 IGST. The total burden is identical either way."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Income Tax: Basic Concepts",
+  "approved": false,
+  "trick": "Previous year is when you earn, assessment year is when you are taxed — and the assessment year always follows immediately. Income of the previous year 2025-26 is taxed in the assessment year 2026-27. Also learn the five heads of income; every receipt has to be placed under one of them.",
+  "video": { "query": "income tax previous year assessment year heads of income class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each income with the head it is assessed under, and each term with its meaning.",
+    "pairs": [
+     { "left": "Salary from an employer", "right": "Income from Salaries" },
+     { "left": "Rent from a let-out flat", "right": "Income from House Property" },
+     { "left": "Profit of a shopkeeper", "right": "Profits and Gains of Business or Profession" },
+     { "left": "Profit on selling a plot of land", "right": "Capital Gains" },
+     { "left": "Interest on a bank deposit", "right": "Income from Other Sources" },
+     { "left": "Previous year", "right": "The financial year in which the income is earned" },
+     { "left": "Assessment year", "right": "The financial year following, in which that income is taxed" },
+     { "left": "Assessee", "right": "The person liable to pay tax or any other sum under the Act" }
+    ]
+   }
+  }
+ }
+]

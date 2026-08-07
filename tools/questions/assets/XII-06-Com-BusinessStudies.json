@@ -1,0 +1,229 @@
+[
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Nature and Significance of Management",
+  "approved": false,
+  "trick": "Management is a profession in some respects and not in others — it has a body of knowledge and training, but no compulsory qualification and no enforceable code, so the standard answer is 'not a full-fledged profession'. Effectiveness is finishing the task; efficiency is finishing it cheaply. A manager needs both, and questions test the difference in one line.",
+  "video": { "query": "nature and significance of management effectiveness efficiency class 12 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the nature of management.",
+    "items": [
+     { "statement": "Effectiveness means completing the task on time, whatever the cost.", "is_true": true, "why": "Effectiveness is about achieving the end result. Efficiency is about doing it with least cost — the two can pull apart." },
+     { "statement": "Management is a full-fledged profession like medicine or law.", "is_true": false, "why": "There is a body of knowledge and there are associations, but no restricted entry and no legally enforceable code of conduct." },
+     { "statement": "Management is both a science and an art.", "is_true": true, "why": "It has systematised principles like a science and demands personal skill and judgement like an art." },
+     { "statement": "Management is intangible — you see its results, not the thing itself.", "is_true": true, "why": "Its presence is felt through order in the workplace and targets met." },
+     { "statement": "Top-level management is chiefly concerned with supervising workers directly.", "is_true": false, "why": "That is supervisory or lower-level management. Top level sets objectives and strategy." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Principles of Management",
+  "approved": false,
+  "trick": "Keep Fayol and Taylor apart: Fayol gave 14 general PRINCIPLES from the top of the organisation down, Taylor gave scientific management TECHNIQUES from the shop floor up. Unity of command means one boss per employee; unity of direction means one head and one plan per group of activities — those two get swapped more than any other pair.",
+  "video": { "query": "fayol 14 principles taylor scientific management class 12 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Fayol or Taylor?",
+    "bins": ["Fayol's principles", "Taylor's techniques"],
+    "items": [
+     { "label": "Unity of command", "bin": "Fayol's principles" },
+     { "label": "Time study", "bin": "Taylor's techniques" },
+     { "label": "Division of work", "bin": "Fayol's principles" },
+     { "label": "Functional foremanship", "bin": "Taylor's techniques" },
+     { "label": "Scalar chain and the gang plank", "bin": "Fayol's principles" },
+     { "label": "Differential piece wage system", "bin": "Taylor's techniques" },
+     { "label": "Esprit de corps", "bin": "Fayol's principles" },
+     { "label": "Standardisation and simplification of work", "bin": "Taylor's techniques" },
+     { "label": "Centralisation and decentralisation", "bin": "Fayol's principles" },
+     { "label": "Method study and fatigue study", "bin": "Taylor's techniques" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Planning",
+  "approved": false,
+  "trick": "Planning is the first function and it is future-oriented, but it does not guarantee success and it does not remove risk — it only prepares for it. Distinguish the plan types: a policy is a general guide, a procedure is the sequence of steps, a rule is a hard do-or-don't, and a budget is a plan stated in numbers.",
+  "video": { "query": "planning features limitations types of plans objectives policy rule class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each type of plan with its description.",
+    "pairs": [
+     { "left": "Objective", "right": "The end the organisation sets out to achieve, stated in measurable terms" },
+     { "left": "Strategy", "right": "A comprehensive plan for meeting the competition and reaching the objective" },
+     { "left": "Policy", "right": "A general guide that channels thinking in decision-making" },
+     { "left": "Procedure", "right": "The chronological sequence of steps for carrying out a task" },
+     { "left": "Rule", "right": "A specific statement of what must or must not be done, allowing no discretion" },
+     { "left": "Method", "right": "The prescribed way of performing one step of a procedure" },
+     { "left": "Budget", "right": "A plan expressed in numbers, which is also a means of control" },
+     { "left": "Programme", "right": "A detailed statement of the objectives, policies, procedures and resources for a course of action" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Organising and Delegation",
+  "approved": false,
+  "trick": "Delegation has three elements and they must be equal: authority, responsibility and accountability. Authority can be delegated, responsibility cannot be escaped, and accountability always flows upward — a manager who delegates a task remains answerable for it. That single sentence answers most questions here.",
+  "video": { "query": "organising structure delegation authority responsibility accountability class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about organising and delegation.",
+    "items": [
+     { "statement": "A manager who delegates a task is no longer answerable for it.", "is_true": false, "why": "Accountability cannot be delegated. The superior remains answerable to his own superior for the result." },
+     { "statement": "Authority flows downward while accountability flows upward.", "is_true": true, "why": "The superior grants authority down the chain and the subordinate answers back up it." },
+     { "statement": "Decentralisation is the same thing as delegation.", "is_true": false, "why": "Delegation is between two individuals; decentralisation is an organisation-wide policy of pushing authority down to lower levels." },
+     { "statement": "Functional structure groups jobs of a similar nature together.", "is_true": true, "why": "All production in one department, all marketing in another — efficient, but it can breed departmental rather than organisational loyalty." },
+     { "statement": "Divisional structure suits an organisation with several product lines.", "is_true": true, "why": "Each division handles one product with its own functions, so performance can be measured product by product." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Staffing and Training",
+  "approved": false,
+  "trick": "Recruitment attracts and selection rejects — recruitment is positive, selection is negative. Training improves skills for the present job, development prepares the whole person for future responsibility. On-the-job methods teach by doing (apprenticeship, internship); off-the-job methods teach away from the workplace (lectures, case studies).",
+  "video": { "query": "staffing recruitment selection training and development methods class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each item into where it belongs.",
+    "bins": ["Recruitment (internal)", "Recruitment (external)", "On-the-job training", "Off-the-job training"],
+    "items": [
+     { "label": "Promotion from within", "bin": "Recruitment (internal)" },
+     { "label": "Transfer of an existing employee", "bin": "Recruitment (internal)" },
+     { "label": "Campus recruitment", "bin": "Recruitment (external)" },
+     { "label": "Advertisement and employment exchanges", "bin": "Recruitment (external)" },
+     { "label": "Apprenticeship programme", "bin": "On-the-job training" },
+     { "label": "Internship", "bin": "On-the-job training" },
+     { "label": "Job rotation", "bin": "On-the-job training" },
+     { "label": "Classroom lectures and case studies", "bin": "Off-the-job training" },
+     { "label": "Vestibule training in a duplicate workshop", "bin": "Off-the-job training" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Directing and Motivation",
+  "approved": false,
+  "trick": "Maslow's needs are satisfied in order and a satisfied need stops motivating — that is the whole theory in one line. The order is physiological, safety, social, esteem, self-actualisation. Financial incentives buy the lower needs; non-financial ones like status, recognition and job enrichment reach the higher ones.",
+  "video": { "query": "maslow hierarchy of needs financial and non financial incentives class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put Maslow's hierarchy in order from the lowest need upward.",
+    "items": [
+     { "label": "Physiological needs", "note": "Hunger, thirst, shelter — met by the basic wage" },
+     { "label": "Safety and security needs", "note": "Job security, pension, insurance" },
+     { "label": "Social or affiliation needs", "note": "Belonging, friendship, acceptance by the group" },
+     { "label": "Esteem needs", "note": "Status, recognition, respect and self-respect" },
+     { "label": "Self-actualisation needs", "note": "Becoming what one is capable of becoming — growth and self-fulfilment" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Controlling",
+  "approved": false,
+  "trick": "Planning and controlling are inseparable: planning is looking ahead, controlling is looking back, and controlling without a plan has no standard to measure against. Management by exception means only significant deviations reach the manager — do not confuse it with management by objectives.",
+  "video": { "query": "controlling process steps management by exception class 12 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of the controlling process in order.",
+    "items": [
+     { "label": "Setting performance standards", "note": "Quantitative where possible — units, cost, time" },
+     { "label": "Measurement of actual performance", "note": "Objectively and in the same units as the standard" },
+     { "label": "Comparing actual with standard", "note": "The difference is the deviation" },
+     { "label": "Analysing deviations", "note": "Critical point control and management by exception decide which deviations matter" },
+     { "label": "Taking corrective action", "note": "Fix the deviation, or revise the standard if it was unrealistic" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Financial Markets and SEBI",
+  "approved": false,
+  "trick": "Capital market is long-term, money market is short-term — that one line sorts the instruments. Treasury bills, commercial paper and call money are money market; shares and debentures are capital market. The primary market is where securities are issued for the first time; the secondary market is where existing ones change hands.",
+  "video": { "query": "money market capital market instruments SEBI functions class 12 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Money market or capital market?",
+    "bins": ["Money market", "Capital market"],
+    "items": [
+     { "label": "Treasury bills", "bin": "Money market" },
+     { "label": "Equity shares", "bin": "Capital market" },
+     { "label": "Commercial paper", "bin": "Money market" },
+     { "label": "Debentures", "bin": "Capital market" },
+     { "label": "Call money", "bin": "Money market" },
+     { "label": "Preference shares", "bin": "Capital market" },
+     { "label": "Certificate of deposit", "bin": "Money market" },
+     { "label": "Government bonds of long maturity", "bin": "Capital market" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Marketing Management",
+  "approved": false,
+  "trick": "The four Ps are Product, Price, Place and Promotion — Place means distribution, not the shop's address, and that is where marks are lost. Selling starts with the product and ends with the sale; marketing starts with the customer's need and continues after the sale.",
+  "video": { "query": "marketing mix four Ps product price place promotion class 12 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which element of the marketing mix does each decision belong to?",
+    "bins": ["Product", "Price", "Place", "Promotion"],
+    "items": [
+     { "label": "Branding and packaging", "bin": "Product" },
+     { "label": "Choosing between a wholesaler and direct selling", "bin": "Place" },
+     { "label": "Offering a seasonal discount", "bin": "Price" },
+     { "label": "Advertising on television", "bin": "Promotion" },
+     { "label": "Deciding the level of after-sales service", "bin": "Product" },
+     { "label": "Warehousing and transport", "bin": "Place" },
+     { "label": "Personal selling by a sales representative", "bin": "Promotion" },
+     { "label": "Setting a skimming or penetration policy", "bin": "Price" },
+     { "label": "Labelling and grading", "bin": "Product" },
+     { "label": "Sales promotion through a free sample", "bin": "Promotion" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Consumer Protection",
+  "approved": false,
+  "trick": "Six rights and six responsibilities, and the rights are the ones asked for: safety, information, choice, to be heard, to seek redressal, and to consumer education. Under the 2019 Act the three redressal levels are District, State and National — and the pecuniary limits move up with each level.",
+  "video": { "query": "consumer protection act rights of consumer redressal machinery class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each consumer right with the situation it covers.",
+    "pairs": [
+     { "left": "Right to safety", "right": "Protection against goods hazardous to life and property — an ISI mark on an electrical appliance" },
+     { "left": "Right to be informed", "right": "Complete information about quality, quantity, purity and price before buying" },
+     { "left": "Right to choose", "right": "Access to a variety of goods at competitive prices, without being forced to one brand" },
+     { "left": "Right to be heard", "right": "The consumer's interest receiving due consideration at the appropriate forum" },
+     { "left": "Right to seek redressal", "right": "Relief against unfair or restrictive trade practices, including compensation" },
+     { "left": "Right to consumer education", "right": "Acquiring the knowledge and skill to be an informed buyer throughout life" },
+     { "left": "District Commission", "right": "The first level of the three-tier redressal machinery" },
+     { "left": "National Commission", "right": "The apex level, which also hears appeals from State Commissions" }
+    ]
+   }
+  }
+ }
+]

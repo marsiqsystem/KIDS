@@ -11942,5 +11942,1858 @@
     "answer": "Mean 5, variance 4, standard deviation 2. Adding 3 changes nothing; doubling gives sd 4 and variance 16."
    }
   }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Accounting for Partnership Firms: Fundamentals",
+  "approved": false,
+  "trick": "When the deed is silent, the Partnership Act 1932 fills the gaps with four fixed rules: profits shared equally whatever the capitals, no interest on capital, interest on a partner's loan at 6% per annum, and no salary to any partner. Every 'in the absence of an agreement' question is asking for one of those four.",
+  "video": {
+   "query": "partnership fundamentals provisions in absence of partnership deed class 12 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "In the absence of a partnership deed, is each statement true or false?",
+    "items": [
+     {
+      "statement": "Profits are shared in the ratio of capital contributed.",
+      "is_true": false,
+      "why": "They are shared equally. Capital ratio applies only if the deed says so — the most tested point in the chapter."
+     },
+     {
+      "statement": "No interest is allowed on partners' capital.",
+      "is_true": true,
+      "why": "Interest on capital is an appropriation and needs an agreement."
+     },
+     {
+      "statement": "A partner who advances a loan to the firm gets 6% per annum interest.",
+      "is_true": true,
+      "why": "A loan is a charge against profit, not an appropriation, so it is paid even when the firm makes a loss."
+     },
+     {
+      "statement": "A working partner is entitled to a salary for extra effort.",
+      "is_true": false,
+      "why": "No salary or commission is allowed unless the deed provides for it, however much the partner works."
+     },
+     {
+      "statement": "Interest is charged on partners' drawings.",
+      "is_true": false,
+      "why": "No interest on drawings is charged in the absence of an agreement."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Goodwill, Retirement and Dissolution",
+  "approved": false,
+  "trick": "Gaining ratio for retirement, sacrificing ratio for admission — and each is 'new minus old' or 'old minus new' in that order. The continuing partners gain, so they pay the outgoing partner for goodwill in their gaining ratio. Get the direction of the subtraction right and the rest is arithmetic.",
+  "video": {
+   "query": "goodwill valuation retirement of a partner gaining ratio class 12 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out a gaining ratio and the goodwill adjustment.",
+    "problem": "A, B and C share profits 3:2:1. C retires and A and B agree to share future profits 3:2. The firm's goodwill is valued at ₹60,000.",
+    "steps": [
+     {
+      "ask": "What was A's old share and what is his new share?",
+      "options": [
+       "3/6 old, 3/5 new",
+       "3/5 old, 3/6 new",
+       "1/2 old, 1/2 new"
+      ],
+      "correct": 0,
+      "why": "Old ratio 3:2:1 over a total of 6, so A had 3/6. New ratio 3:2 over 5, so A now has 3/5."
+     },
+     {
+      "ask": "What is A's gain?",
+      "options": [
+       "3/5 − 3/6 = 3/30",
+       "3/6 − 3/5 = −3/30",
+       "1/6"
+      ],
+      "correct": 0,
+      "why": "Gaining ratio is new share minus old share: 18/30 − 15/30 = 3/30."
+     },
+     {
+      "ask": "What is B's gain?",
+      "options": [
+       "2/5 − 2/6 = 2/30",
+       "2/6 − 2/5 = −2/30",
+       "1/30"
+      ],
+      "correct": 0,
+      "why": "12/30 − 10/30 = 2/30. So the gaining ratio between A and B is 3:2."
+     },
+     {
+      "ask": "What is C's share of goodwill?",
+      "options": [
+       "₹10,000",
+       "₹20,000",
+       "₹30,000"
+      ],
+      "correct": 0,
+      "why": "C's old share was 1/6, so 1/6 × ₹60,000 = ₹10,000."
+     },
+     {
+      "ask": "How is that ₹10,000 borne?",
+      "options": [
+       "Equally by A and B",
+       "By A and B in 3:2, so ₹6,000 and ₹4,000",
+       "By the firm"
+      ],
+      "correct": 1,
+      "why": "The gaining partners pay in their gaining ratio, which here is 3:2."
+     }
+    ],
+    "answer": "Gaining ratio 3:2. A's capital is debited ₹6,000 and B's ₹4,000, and C's capital is credited ₹10,000."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Accounting for Share Capital",
+  "approved": false,
+  "trick": "Keep the four capitals apart: authorised is the ceiling in the memorandum, issued is what was offered, subscribed is what the public applied for, and called-up is what has actually been demanded. Paid-up equals called-up minus calls in arrears. Questions almost always give you one and ask for another.",
+  "video": {
+   "query": "share capital authorised issued subscribed called up paid up class 12 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with its meaning.",
+    "pairs": [
+     {
+      "left": "Authorised capital",
+      "right": "The maximum the company may raise, stated in the Memorandum of Association"
+     },
+     {
+      "left": "Issued capital",
+      "right": "The part of authorised capital actually offered to the public"
+     },
+     {
+      "left": "Subscribed capital",
+      "right": "The part of issued capital the public applied for"
+     },
+     {
+      "left": "Called-up capital",
+      "right": "The part of subscribed capital the company has demanded so far"
+     },
+     {
+      "left": "Paid-up capital",
+      "right": "Called-up capital less calls in arrears"
+     },
+     {
+      "left": "Calls in arrears",
+      "right": "Money demanded but not yet received from shareholders"
+     },
+     {
+      "left": "Calls in advance",
+      "right": "Money received before it has been called; a liability, and interest is payable on it"
+     },
+     {
+      "left": "Forfeiture of shares",
+      "right": "Cancellation of shares for non-payment of calls; the amount received is not returned"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Accounting for Debentures",
+  "approved": false,
+  "trick": "A debenture is a loan and a share is ownership, and every difference follows from that: debenture-holders are creditors, get fixed interest whether or not there is profit, have no vote, and are paid first in a winding-up. Interest on debentures is a CHARGE against profit; dividend on shares is an APPROPRIATION of it.",
+  "video": {
+   "query": "debentures issue redemption difference between shares and debentures class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each feature belong to a share or a debenture?",
+    "bins": [
+     "Share",
+     "Debenture"
+    ],
+    "items": [
+     {
+      "label": "The holder is an owner of the company",
+      "bin": "Share"
+     },
+     {
+      "label": "The holder is a creditor of the company",
+      "bin": "Debenture"
+     },
+     {
+      "label": "Carries voting rights",
+      "bin": "Share"
+     },
+     {
+      "label": "Interest is paid whether or not there is a profit",
+      "bin": "Debenture"
+     },
+     {
+      "label": "The return is an appropriation of profit",
+      "bin": "Share"
+     },
+     {
+      "label": "The return is a charge against profit",
+      "bin": "Debenture"
+     },
+     {
+      "label": "Repaid first on winding up",
+      "bin": "Debenture"
+     },
+     {
+      "label": "May be issued at a discount without restriction",
+      "bin": "Debenture"
+     },
+     {
+      "label": "Can be secured by a charge on the company's assets",
+      "bin": "Debenture"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Financial Statements of a Company",
+  "approved": false,
+  "trick": "Under Schedule III the balance sheet is vertical and has just two sides of the equation: Equity and Liabilities, then Assets. Within each, current and non-current are separated, and 'current' means realisable within twelve months or the operating cycle. Place the item by that test, not by habit.",
+  "video": {
+   "query": "financial statements of a company schedule III balance sheet format class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each item with the heading it appears under in a Schedule III balance sheet.",
+    "pairs": [
+     {
+      "left": "Share capital",
+      "right": "Equity and Liabilities → Shareholders' funds"
+     },
+     {
+      "left": "Reserves and surplus",
+      "right": "Equity and Liabilities → Shareholders' funds"
+     },
+     {
+      "left": "Long-term borrowings",
+      "right": "Equity and Liabilities → Non-current liabilities"
+     },
+     {
+      "left": "Trade payables",
+      "right": "Equity and Liabilities → Current liabilities"
+     },
+     {
+      "left": "Fixed assets and intangibles",
+      "right": "Assets → Non-current assets"
+     },
+     {
+      "left": "Long-term investments",
+      "right": "Assets → Non-current assets"
+     },
+     {
+      "left": "Inventories",
+      "right": "Assets → Current assets"
+     },
+     {
+      "left": "Cash and cash equivalents",
+      "right": "Assets → Current assets"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Analysis of Financial Statements: Ratios",
+  "approved": false,
+  "trick": "The quick ratio is the current ratio with inventory and prepaid expenses taken out — because those are the two current assets you cannot turn into cash quickly. Ideal current ratio 2:1, ideal quick ratio 1:1. If a question changes only the inventory figure, only the quick ratio moves.",
+  "video": {
+   "query": "accounting ratios current quick debt equity turnover class 12 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the correct formula for each ratio.",
+    "items": [
+     {
+      "ask": "Current ratio",
+      "correct": "Current assets ÷ Current liabilities",
+      "wrong": [
+       "Current liabilities ÷ Current assets",
+       "(Current assets − Inventory) ÷ Current liabilities"
+      ],
+      "why": "Assets over liabilities; the ideal is taken to be 2:1."
+     },
+     {
+      "ask": "Quick or liquid ratio",
+      "correct": "(Current assets − Inventory − Prepaid expenses) ÷ Current liabilities",
+      "wrong": [
+       "Current assets ÷ Current liabilities",
+       "Liquid assets ÷ Total assets"
+      ],
+      "why": "Inventory and prepaid expenses are removed because they cannot be realised quickly. The ideal is 1:1."
+     },
+     {
+      "ask": "Debt-equity ratio",
+      "correct": "Long-term debt ÷ Shareholders' funds",
+      "wrong": [
+       "Total debt ÷ Total assets",
+       "Shareholders' funds ÷ Long-term debt"
+      ],
+      "why": "It measures how far the firm is financed by outsiders against owners; 2:1 is the usual benchmark."
+     },
+     {
+      "ask": "Inventory turnover ratio",
+      "correct": "Cost of goods sold ÷ Average inventory",
+      "wrong": [
+       "Sales ÷ Closing inventory",
+       "Average inventory ÷ Cost of goods sold"
+      ],
+      "why": "Cost of goods sold on top, average inventory below — using sales overstates the ratio because sales include profit."
+     },
+     {
+      "ask": "Gross profit ratio",
+      "correct": "(Gross profit ÷ Net sales) × 100",
+      "wrong": [
+       "(Gross profit ÷ Cost of goods sold) × 100",
+       "(Net profit ÷ Net sales) × 100"
+      ],
+      "why": "All profitability ratios of this family are taken on net sales, called revenue from operations."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Accountancy",
+  "chapter": "Cash Flow Statement",
+  "approved": false,
+  "trick": "Three activities, and one test places almost everything: does the item belong to the trade, to long-term assets, or to how the business is funded? Buying machinery is investing, issuing shares or repaying a loan is financing, everything from the ordinary trade is operating. Interest and dividend PAID are financing; interest and dividend RECEIVED are investing.",
+  "video": {
+   "query": "cash flow statement operating investing financing activities class 12 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Classify each cash flow.",
+    "bins": [
+     "Operating",
+     "Investing",
+     "Financing"
+    ],
+    "items": [
+     {
+      "label": "Cash received from customers",
+      "bin": "Operating"
+     },
+     {
+      "label": "Purchase of machinery",
+      "bin": "Investing"
+     },
+     {
+      "label": "Issue of equity shares",
+      "bin": "Financing"
+     },
+     {
+      "label": "Payment of wages and salaries",
+      "bin": "Operating"
+     },
+     {
+      "label": "Sale of a long-term investment",
+      "bin": "Investing"
+     },
+     {
+      "label": "Repayment of a bank loan",
+      "bin": "Financing"
+     },
+     {
+      "label": "Dividend paid to shareholders",
+      "bin": "Financing"
+     },
+     {
+      "label": "Dividend received on investments",
+      "bin": "Investing"
+     },
+     {
+      "label": "Income tax paid",
+      "bin": "Operating"
+     },
+     {
+      "label": "Interest paid on debentures",
+      "bin": "Financing"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Nature and Significance of Management",
+  "approved": false,
+  "trick": "Management is a profession in some respects and not in others — it has a body of knowledge and training, but no compulsory qualification and no enforceable code, so the standard answer is 'not a full-fledged profession'. Effectiveness is finishing the task; efficiency is finishing it cheaply. A manager needs both, and questions test the difference in one line.",
+  "video": {
+   "query": "nature and significance of management effectiveness efficiency class 12 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the nature of management.",
+    "items": [
+     {
+      "statement": "Effectiveness means completing the task on time, whatever the cost.",
+      "is_true": true,
+      "why": "Effectiveness is about achieving the end result. Efficiency is about doing it with least cost — the two can pull apart."
+     },
+     {
+      "statement": "Management is a full-fledged profession like medicine or law.",
+      "is_true": false,
+      "why": "There is a body of knowledge and there are associations, but no restricted entry and no legally enforceable code of conduct."
+     },
+     {
+      "statement": "Management is both a science and an art.",
+      "is_true": true,
+      "why": "It has systematised principles like a science and demands personal skill and judgement like an art."
+     },
+     {
+      "statement": "Management is intangible — you see its results, not the thing itself.",
+      "is_true": true,
+      "why": "Its presence is felt through order in the workplace and targets met."
+     },
+     {
+      "statement": "Top-level management is chiefly concerned with supervising workers directly.",
+      "is_true": false,
+      "why": "That is supervisory or lower-level management. Top level sets objectives and strategy."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Principles of Management",
+  "approved": false,
+  "trick": "Keep Fayol and Taylor apart: Fayol gave 14 general PRINCIPLES from the top of the organisation down, Taylor gave scientific management TECHNIQUES from the shop floor up. Unity of command means one boss per employee; unity of direction means one head and one plan per group of activities — those two get swapped more than any other pair.",
+  "video": {
+   "query": "fayol 14 principles taylor scientific management class 12 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Fayol or Taylor?",
+    "bins": [
+     "Fayol's principles",
+     "Taylor's techniques"
+    ],
+    "items": [
+     {
+      "label": "Unity of command",
+      "bin": "Fayol's principles"
+     },
+     {
+      "label": "Time study",
+      "bin": "Taylor's techniques"
+     },
+     {
+      "label": "Division of work",
+      "bin": "Fayol's principles"
+     },
+     {
+      "label": "Functional foremanship",
+      "bin": "Taylor's techniques"
+     },
+     {
+      "label": "Scalar chain and the gang plank",
+      "bin": "Fayol's principles"
+     },
+     {
+      "label": "Differential piece wage system",
+      "bin": "Taylor's techniques"
+     },
+     {
+      "label": "Esprit de corps",
+      "bin": "Fayol's principles"
+     },
+     {
+      "label": "Standardisation and simplification of work",
+      "bin": "Taylor's techniques"
+     },
+     {
+      "label": "Centralisation and decentralisation",
+      "bin": "Fayol's principles"
+     },
+     {
+      "label": "Method study and fatigue study",
+      "bin": "Taylor's techniques"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Planning",
+  "approved": false,
+  "trick": "Planning is the first function and it is future-oriented, but it does not guarantee success and it does not remove risk — it only prepares for it. Distinguish the plan types: a policy is a general guide, a procedure is the sequence of steps, a rule is a hard do-or-don't, and a budget is a plan stated in numbers.",
+  "video": {
+   "query": "planning features limitations types of plans objectives policy rule class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each type of plan with its description.",
+    "pairs": [
+     {
+      "left": "Objective",
+      "right": "The end the organisation sets out to achieve, stated in measurable terms"
+     },
+     {
+      "left": "Strategy",
+      "right": "A comprehensive plan for meeting the competition and reaching the objective"
+     },
+     {
+      "left": "Policy",
+      "right": "A general guide that channels thinking in decision-making"
+     },
+     {
+      "left": "Procedure",
+      "right": "The chronological sequence of steps for carrying out a task"
+     },
+     {
+      "left": "Rule",
+      "right": "A specific statement of what must or must not be done, allowing no discretion"
+     },
+     {
+      "left": "Method",
+      "right": "The prescribed way of performing one step of a procedure"
+     },
+     {
+      "left": "Budget",
+      "right": "A plan expressed in numbers, which is also a means of control"
+     },
+     {
+      "left": "Programme",
+      "right": "A detailed statement of the objectives, policies, procedures and resources for a course of action"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Organising and Delegation",
+  "approved": false,
+  "trick": "Delegation has three elements and they must be equal: authority, responsibility and accountability. Authority can be delegated, responsibility cannot be escaped, and accountability always flows upward — a manager who delegates a task remains answerable for it. That single sentence answers most questions here.",
+  "video": {
+   "query": "organising structure delegation authority responsibility accountability class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about organising and delegation.",
+    "items": [
+     {
+      "statement": "A manager who delegates a task is no longer answerable for it.",
+      "is_true": false,
+      "why": "Accountability cannot be delegated. The superior remains answerable to his own superior for the result."
+     },
+     {
+      "statement": "Authority flows downward while accountability flows upward.",
+      "is_true": true,
+      "why": "The superior grants authority down the chain and the subordinate answers back up it."
+     },
+     {
+      "statement": "Decentralisation is the same thing as delegation.",
+      "is_true": false,
+      "why": "Delegation is between two individuals; decentralisation is an organisation-wide policy of pushing authority down to lower levels."
+     },
+     {
+      "statement": "Functional structure groups jobs of a similar nature together.",
+      "is_true": true,
+      "why": "All production in one department, all marketing in another — efficient, but it can breed departmental rather than organisational loyalty."
+     },
+     {
+      "statement": "Divisional structure suits an organisation with several product lines.",
+      "is_true": true,
+      "why": "Each division handles one product with its own functions, so performance can be measured product by product."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Staffing and Training",
+  "approved": false,
+  "trick": "Recruitment attracts and selection rejects — recruitment is positive, selection is negative. Training improves skills for the present job, development prepares the whole person for future responsibility. On-the-job methods teach by doing (apprenticeship, internship); off-the-job methods teach away from the workplace (lectures, case studies).",
+  "video": {
+   "query": "staffing recruitment selection training and development methods class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each item into where it belongs.",
+    "bins": [
+     "Recruitment (internal)",
+     "Recruitment (external)",
+     "On-the-job training",
+     "Off-the-job training"
+    ],
+    "items": [
+     {
+      "label": "Promotion from within",
+      "bin": "Recruitment (internal)"
+     },
+     {
+      "label": "Transfer of an existing employee",
+      "bin": "Recruitment (internal)"
+     },
+     {
+      "label": "Campus recruitment",
+      "bin": "Recruitment (external)"
+     },
+     {
+      "label": "Advertisement and employment exchanges",
+      "bin": "Recruitment (external)"
+     },
+     {
+      "label": "Apprenticeship programme",
+      "bin": "On-the-job training"
+     },
+     {
+      "label": "Internship",
+      "bin": "On-the-job training"
+     },
+     {
+      "label": "Job rotation",
+      "bin": "On-the-job training"
+     },
+     {
+      "label": "Classroom lectures and case studies",
+      "bin": "Off-the-job training"
+     },
+     {
+      "label": "Vestibule training in a duplicate workshop",
+      "bin": "Off-the-job training"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Directing and Motivation",
+  "approved": false,
+  "trick": "Maslow's needs are satisfied in order and a satisfied need stops motivating — that is the whole theory in one line. The order is physiological, safety, social, esteem, self-actualisation. Financial incentives buy the lower needs; non-financial ones like status, recognition and job enrichment reach the higher ones.",
+  "video": {
+   "query": "maslow hierarchy of needs financial and non financial incentives class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put Maslow's hierarchy in order from the lowest need upward.",
+    "items": [
+     {
+      "label": "Physiological needs",
+      "note": "Hunger, thirst, shelter — met by the basic wage"
+     },
+     {
+      "label": "Safety and security needs",
+      "note": "Job security, pension, insurance"
+     },
+     {
+      "label": "Social or affiliation needs",
+      "note": "Belonging, friendship, acceptance by the group"
+     },
+     {
+      "label": "Esteem needs",
+      "note": "Status, recognition, respect and self-respect"
+     },
+     {
+      "label": "Self-actualisation needs",
+      "note": "Becoming what one is capable of becoming — growth and self-fulfilment"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Controlling",
+  "approved": false,
+  "trick": "Planning and controlling are inseparable: planning is looking ahead, controlling is looking back, and controlling without a plan has no standard to measure against. Management by exception means only significant deviations reach the manager — do not confuse it with management by objectives.",
+  "video": {
+   "query": "controlling process steps management by exception class 12 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of the controlling process in order.",
+    "items": [
+     {
+      "label": "Setting performance standards",
+      "note": "Quantitative where possible — units, cost, time"
+     },
+     {
+      "label": "Measurement of actual performance",
+      "note": "Objectively and in the same units as the standard"
+     },
+     {
+      "label": "Comparing actual with standard",
+      "note": "The difference is the deviation"
+     },
+     {
+      "label": "Analysing deviations",
+      "note": "Critical point control and management by exception decide which deviations matter"
+     },
+     {
+      "label": "Taking corrective action",
+      "note": "Fix the deviation, or revise the standard if it was unrealistic"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Financial Markets and SEBI",
+  "approved": false,
+  "trick": "Capital market is long-term, money market is short-term — that one line sorts the instruments. Treasury bills, commercial paper and call money are money market; shares and debentures are capital market. The primary market is where securities are issued for the first time; the secondary market is where existing ones change hands.",
+  "video": {
+   "query": "money market capital market instruments SEBI functions class 12 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Money market or capital market?",
+    "bins": [
+     "Money market",
+     "Capital market"
+    ],
+    "items": [
+     {
+      "label": "Treasury bills",
+      "bin": "Money market"
+     },
+     {
+      "label": "Equity shares",
+      "bin": "Capital market"
+     },
+     {
+      "label": "Commercial paper",
+      "bin": "Money market"
+     },
+     {
+      "label": "Debentures",
+      "bin": "Capital market"
+     },
+     {
+      "label": "Call money",
+      "bin": "Money market"
+     },
+     {
+      "label": "Preference shares",
+      "bin": "Capital market"
+     },
+     {
+      "label": "Certificate of deposit",
+      "bin": "Money market"
+     },
+     {
+      "label": "Government bonds of long maturity",
+      "bin": "Capital market"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Marketing Management",
+  "approved": false,
+  "trick": "The four Ps are Product, Price, Place and Promotion — Place means distribution, not the shop's address, and that is where marks are lost. Selling starts with the product and ends with the sale; marketing starts with the customer's need and continues after the sale.",
+  "video": {
+   "query": "marketing mix four Ps product price place promotion class 12 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which element of the marketing mix does each decision belong to?",
+    "bins": [
+     "Product",
+     "Price",
+     "Place",
+     "Promotion"
+    ],
+    "items": [
+     {
+      "label": "Branding and packaging",
+      "bin": "Product"
+     },
+     {
+      "label": "Choosing between a wholesaler and direct selling",
+      "bin": "Place"
+     },
+     {
+      "label": "Offering a seasonal discount",
+      "bin": "Price"
+     },
+     {
+      "label": "Advertising on television",
+      "bin": "Promotion"
+     },
+     {
+      "label": "Deciding the level of after-sales service",
+      "bin": "Product"
+     },
+     {
+      "label": "Warehousing and transport",
+      "bin": "Place"
+     },
+     {
+      "label": "Personal selling by a sales representative",
+      "bin": "Promotion"
+     },
+     {
+      "label": "Setting a skimming or penetration policy",
+      "bin": "Price"
+     },
+     {
+      "label": "Labelling and grading",
+      "bin": "Product"
+     },
+     {
+      "label": "Sales promotion through a free sample",
+      "bin": "Promotion"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Business Studies",
+  "chapter": "Consumer Protection",
+  "approved": false,
+  "trick": "Six rights and six responsibilities, and the rights are the ones asked for: safety, information, choice, to be heard, to seek redressal, and to consumer education. Under the 2019 Act the three redressal levels are District, State and National — and the pecuniary limits move up with each level.",
+  "video": {
+   "query": "consumer protection act rights of consumer redressal machinery class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each consumer right with the situation it covers.",
+    "pairs": [
+     {
+      "left": "Right to safety",
+      "right": "Protection against goods hazardous to life and property — an ISI mark on an electrical appliance"
+     },
+     {
+      "left": "Right to be informed",
+      "right": "Complete information about quality, quantity, purity and price before buying"
+     },
+     {
+      "left": "Right to choose",
+      "right": "Access to a variety of goods at competitive prices, without being forced to one brand"
+     },
+     {
+      "left": "Right to be heard",
+      "right": "The consumer's interest receiving due consideration at the appropriate forum"
+     },
+     {
+      "left": "Right to seek redressal",
+      "right": "Relief against unfair or restrictive trade practices, including compensation"
+     },
+     {
+      "left": "Right to consumer education",
+      "right": "Acquiring the knowledge and skill to be an informed buyer throughout life"
+     },
+     {
+      "left": "District Commission",
+      "right": "The first level of the three-tier redressal machinery"
+     },
+     {
+      "left": "National Commission",
+      "right": "The apex level, which also hears appeals from State Commissions"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Cost Accounting: Nature and Objectives",
+  "approved": false,
+  "trick": "Financial accounting reports to outsiders in one annual set of statements; cost accounting reports to management, product by product, whenever it is wanted. So financial accounting is compulsory and standardised, cost accounting is voluntary and shaped to the firm. Every 'difference between' question runs along that line.",
+  "video": {
+   "query": "cost accounting objectives difference from financial accounting class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Financial accounting or cost accounting?",
+    "bins": [
+     "Financial accounting",
+     "Cost accounting"
+    ],
+    "items": [
+     {
+      "label": "Prepared mainly for shareholders, creditors and the tax authorities",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared for management's internal decisions",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Statutory and governed by a standard format",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Voluntary, and designed to suit the particular business",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Reports the results of the business as a whole",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Reports cost product by product, job by job",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Normally prepared once a year",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared as often as management requires",
+      "bin": "Cost accounting"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Elements of Cost and the Cost Sheet",
+  "approved": false,
+  "trick": "The cost sheet builds in four fixed stages, and skipping one is where marks go: Prime cost = direct material + direct labour + direct expenses; + factory overhead = Works cost; + office overhead = Cost of production; + selling and distribution overhead = Cost of sales. Selling expenses never touch works cost.",
+  "video": {
+   "query": "cost sheet prime cost works cost cost of production format class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Build a cost sheet stage by stage.",
+    "problem": "Direct material ₹50,000; direct wages ₹30,000; direct expenses ₹5,000; factory overhead ₹17,000; office overhead ₹12,000; selling and distribution overhead ₹8,000. Profit is 25% on cost of sales.",
+    "steps": [
+     {
+      "ask": "What is the prime cost?",
+      "options": [
+       "₹80,000",
+       "₹85,000",
+       "₹1,02,000"
+      ],
+      "correct": 1,
+      "why": "Prime cost is all the direct costs: 50,000 + 30,000 + 5,000 = ₹85,000."
+     },
+     {
+      "ask": "What is the works or factory cost?",
+      "options": [
+       "₹1,02,000",
+       "₹85,000",
+       "₹1,14,000"
+      ],
+      "correct": 0,
+      "why": "Prime cost plus factory overhead: 85,000 + 17,000 = ₹1,02,000."
+     },
+     {
+      "ask": "What is the cost of production?",
+      "options": [
+       "₹1,14,000",
+       "₹1,22,000",
+       "₹1,02,000"
+      ],
+      "correct": 0,
+      "why": "Works cost plus office and administrative overhead: 1,02,000 + 12,000 = ₹1,14,000."
+     },
+     {
+      "ask": "What is the cost of sales?",
+      "options": [
+       "₹1,14,000",
+       "₹1,22,000",
+       "₹1,30,000"
+      ],
+      "correct": 1,
+      "why": "Cost of production plus selling and distribution overhead: 1,14,000 + 8,000 = ₹1,22,000."
+     },
+     {
+      "ask": "What is the sales value?",
+      "options": [
+       "₹1,52,500",
+       "₹1,62,667",
+       "₹1,22,000"
+      ],
+      "correct": 0,
+      "why": "Profit is 25% ON COST, so 25% of 1,22,000 = ₹30,500, and sales = ₹1,52,500. Had it been 25% on sales, the answer would differ — read which base the question gives."
+     }
+    ],
+    "answer": "Prime ₹85,000; works ₹1,02,000; production ₹1,14,000; cost of sales ₹1,22,000; sales ₹1,52,500."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Overheads: Factory, Administrative and Selling",
+  "approved": false,
+  "trick": "Place the overhead by WHERE it was incurred, not by what it is. Factory rent is factory overhead, office rent is administrative, showroom rent is selling — the same word 'rent' lands in three different places. Read the department, not the expense.",
+  "video": {
+   "query": "classification of overheads factory office selling distribution class 12 cost accounting",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Classify each overhead by where it is incurred.",
+    "bins": [
+     "Factory overhead",
+     "Administrative overhead",
+     "Selling and distribution overhead"
+    ],
+    "items": [
+     {
+      "label": "Factory rent and rates",
+      "bin": "Factory overhead"
+     },
+     {
+      "label": "Office salaries",
+      "bin": "Administrative overhead"
+     },
+     {
+      "label": "Advertising",
+      "bin": "Selling and distribution overhead"
+     },
+     {
+      "label": "Depreciation of plant and machinery",
+      "bin": "Factory overhead"
+     },
+     {
+      "label": "Printing and stationery for the office",
+      "bin": "Administrative overhead"
+     },
+     {
+      "label": "Carriage outward",
+      "bin": "Selling and distribution overhead"
+     },
+     {
+      "label": "Works manager's salary",
+      "bin": "Factory overhead"
+     },
+     {
+      "label": "Showroom expenses",
+      "bin": "Selling and distribution overhead"
+     },
+     {
+      "label": "Directors' fees",
+      "bin": "Administrative overhead"
+     },
+     {
+      "label": "Power and fuel for machines",
+      "bin": "Factory overhead"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Classification of Costs: Fixed and Variable",
+  "approved": false,
+  "trick": "Fixed cost is fixed in TOTAL and falls per unit as output rises; variable cost is fixed PER UNIT and rises in total. Getting those two the wrong way round is the standard error. Semi-variable costs, like a telephone bill with a rental plus call charges, have one of each inside them.",
+  "video": {
+   "query": "fixed variable semi variable cost behaviour class 12 cost accounting",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about cost behaviour.",
+    "items": [
+     {
+      "statement": "Fixed cost per unit falls as output increases.",
+      "is_true": true,
+      "why": "The same total is spread over more units. Total fixed cost stays put; the per-unit figure falls."
+     },
+     {
+      "statement": "Variable cost per unit rises as output increases.",
+      "is_true": false,
+      "why": "Variable cost per unit stays constant; it is the TOTAL variable cost that rises with output."
+     },
+     {
+      "statement": "Factory rent is a fixed cost.",
+      "is_true": true,
+      "why": "It is payable whether the factory produces one unit or ten thousand, within the relevant range."
+     },
+     {
+      "statement": "A telephone bill with a fixed rental plus call charges is a semi-variable cost.",
+      "is_true": true,
+      "why": "It has a fixed component and a variable component in the same bill."
+     },
+     {
+      "statement": "At the break-even point, total contribution equals total fixed cost.",
+      "is_true": true,
+      "why": "That is what break-even means: contribution has just covered the fixed cost and profit is zero."
+     },
+     {
+      "statement": "Direct material is a fixed cost.",
+      "is_true": false,
+      "why": "It varies directly with the number of units produced, which makes it the clearest example of a variable cost."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Cost Control",
+  "approved": false,
+  "trick": "Cost control keeps costs within a standard already set; cost reduction lowers the standard itself, permanently, without harming quality. So control is about not exceeding the target and reduction is about moving the target — that distinction is what the question is testing when both options appear.",
+  "video": {
+   "query": "cost control versus cost reduction standard costing variance class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Cost control or cost reduction?",
+    "bins": [
+     "Cost control",
+     "Cost reduction"
+    ],
+    "items": [
+     {
+      "label": "Keeping actual cost within the predetermined standard",
+      "bin": "Cost control"
+     },
+     {
+      "label": "Permanently lowering the cost per unit without loss of quality",
+      "bin": "Cost reduction"
+     },
+     {
+      "label": "Ends once the target is achieved",
+      "bin": "Cost control"
+     },
+     {
+      "label": "A continuous process with no final target",
+      "bin": "Cost reduction"
+     },
+     {
+      "label": "Accepts the existing standard as correct",
+      "bin": "Cost control"
+     },
+     {
+      "label": "Challenges the standard itself",
+      "bin": "Cost reduction"
+     },
+     {
+      "label": "Budgetary control and standard costing are its tools",
+      "bin": "Cost control"
+     },
+     {
+      "label": "Value analysis and work study are its tools",
+      "bin": "Cost reduction"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Direct and Indirect Taxes",
+  "approved": false,
+  "trick": "One test settles it: can the burden be passed on? If the person who pays it also bears it, the tax is direct — income tax, corporation tax. If the burden is shifted to someone else, usually the customer, it is indirect — GST, customs duty. Impact and incidence fall on the same person for a direct tax and on different people for an indirect one.",
+  "video": {
+   "query": "direct and indirect taxes impact incidence shifting class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Direct tax or indirect tax?",
+    "bins": [
+     "Direct tax",
+     "Indirect tax"
+    ],
+    "items": [
+     {
+      "label": "Income tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Goods and Services Tax",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Corporation tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Customs duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Capital gains tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Excise duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Wealth tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "A tax whose burden the seller passes to the buyer",
+      "bin": "Indirect tax"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "GST: Structure and Classification",
+  "approved": false,
+  "trick": "Within a state, the tax splits in two: CGST to the Centre and SGST to the state, half each. Across states, it is a single IGST collected by the Centre. So the question 'which tax applies' is really 'is this an intra-state or an inter-state supply' — decide that first and the answer follows.",
+  "video": {
+   "query": "GST CGST SGST IGST intra state inter state supply class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Decide which GST applies and split it correctly.",
+    "problem": "A dealer in Kolkata sells goods worth ₹1,00,000 at a GST rate of 18%.",
+    "steps": [
+     {
+      "ask": "The buyer is also in West Bengal. Which taxes apply?",
+      "options": [
+       "IGST only",
+       "CGST and SGST",
+       "CGST only"
+      ],
+      "correct": 1,
+      "why": "It is an intra-state supply, so the tax is divided between the Centre and the state."
+     },
+     {
+      "ask": "How is the ₹18,000 split?",
+      "options": [
+       "₹18,000 CGST",
+       "₹9,000 CGST and ₹9,000 SGST",
+       "₹12,000 CGST and ₹6,000 SGST"
+      ],
+      "correct": 1,
+      "why": "The rate is halved: 9% CGST and 9% SGST."
+     },
+     {
+      "ask": "Now the buyer is in Bihar. Which tax applies?",
+      "options": [
+       "CGST and SGST",
+       "IGST at 18%",
+       "IGST at 9%"
+      ],
+      "correct": 1,
+      "why": "An inter-state supply attracts a single IGST at the full rate, collected by the Centre."
+     },
+     {
+      "ask": "What is the IGST amount?",
+      "options": [
+       "₹9,000",
+       "₹18,000",
+       "₹36,000"
+      ],
+      "correct": 1,
+      "why": "18% of ₹1,00,000 — the total tax is the same, only its division differs."
+     }
+    ],
+    "answer": "Intra-state: ₹9,000 CGST + ₹9,000 SGST. Inter-state: ₹18,000 IGST. The total burden is identical either way."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Cost & Taxation",
+  "chapter": "Income Tax: Basic Concepts",
+  "approved": false,
+  "trick": "Previous year is when you earn, assessment year is when you are taxed — and the assessment year always follows immediately. Income of the previous year 2025-26 is taxed in the assessment year 2026-27. Also learn the five heads of income; every receipt has to be placed under one of them.",
+  "video": {
+   "query": "income tax previous year assessment year heads of income class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each income with the head it is assessed under, and each term with its meaning.",
+    "pairs": [
+     {
+      "left": "Salary from an employer",
+      "right": "Income from Salaries"
+     },
+     {
+      "left": "Rent from a let-out flat",
+      "right": "Income from House Property"
+     },
+     {
+      "left": "Profit of a shopkeeper",
+      "right": "Profits and Gains of Business or Profession"
+     },
+     {
+      "left": "Profit on selling a plot of land",
+      "right": "Capital Gains"
+     },
+     {
+      "left": "Interest on a bank deposit",
+      "right": "Income from Other Sources"
+     },
+     {
+      "left": "Previous year",
+      "right": "The financial year in which the income is earned"
+     },
+     {
+      "left": "Assessment year",
+      "right": "The financial year following, in which that income is taxed"
+     },
+     {
+      "left": "Assessee",
+      "right": "The person liable to pay tax or any other sum under the Act"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "National Income and its Aggregates",
+  "approved": false,
+  "trick": "Two words decide every aggregate. Gross or net is about depreciation; domestic or national is about net factor income from abroad. So NNP at factor cost is national income — and market price becomes factor cost by subtracting indirect taxes and adding subsidies.",
+  "video": {
+   "query": "national income aggregates GDP GNP NNP factor cost market price class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Move between the aggregates one adjustment at a time.",
+    "problem": "GDP at market price is ₹1,000 crore. Depreciation ₹100 crore; net factor income from abroad −₹20 crore; indirect taxes ₹80 crore; subsidies ₹30 crore.",
+    "steps": [
+     {
+      "ask": "What is NDP at market price?",
+      "options": [
+       "₹900 crore",
+       "₹1,100 crore",
+       "₹980 crore"
+      ],
+      "correct": 0,
+      "why": "Gross becomes net by subtracting depreciation: 1,000 − 100 = ₹900 crore."
+     },
+     {
+      "ask": "What is NNP at market price?",
+      "options": [
+       "₹920 crore",
+       "₹880 crore",
+       "₹900 crore"
+      ],
+      "correct": 1,
+      "why": "Domestic becomes national by adding net factor income from abroad, which here is negative: 900 + (−20) = ₹880 crore."
+     },
+     {
+      "ask": "How do we get from market price to factor cost?",
+      "options": [
+       "Add indirect taxes, subtract subsidies",
+       "Subtract indirect taxes, add subsidies",
+       "Subtract both"
+      ],
+      "correct": 1,
+      "why": "Net indirect tax is added when going the other way. Factor cost = market price − indirect taxes + subsidies."
+     },
+     {
+      "ask": "What is NNP at factor cost, that is, national income?",
+      "options": [
+       "₹830 crore",
+       "₹930 crore",
+       "₹880 crore"
+      ],
+      "correct": 0,
+      "why": "880 − 80 + 30 = ₹830 crore. That figure is national income."
+     }
+    ],
+    "answer": "National income (NNP at factor cost) is ₹830 crore."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Money and Banking",
+  "approved": false,
+  "trick": "The money multiplier is 1 divided by the cash reserve ratio, so a 20% CRR multiplies a deposit five times. Raising the CRR or the repo rate contracts credit; lowering them expands it. Every credit-control question is asking which direction the tool moves the money supply.",
+  "video": {
+   "query": "money supply credit creation CRR SLR repo rate class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work out credit creation, then the effect of a policy change.",
+    "problem": "Banks receive an initial deposit of ₹10,000. The cash reserve ratio is 20%.",
+    "steps": [
+     {
+      "ask": "What is the money multiplier?",
+      "options": [
+       "2",
+       "5",
+       "20"
+      ],
+      "correct": 1,
+      "why": "Multiplier = 1/CRR = 1/0.20 = 5."
+     },
+     {
+      "ask": "What total deposits can the banking system create?",
+      "options": [
+       "₹50,000",
+       "₹2,000",
+       "₹10,000"
+      ],
+      "correct": 0,
+      "why": "₹10,000 × 5 = ₹50,000 of total deposits, of which ₹40,000 is newly created credit."
+     },
+     {
+      "ask": "If the RBI raises the CRR to 25%, what happens to the multiplier?",
+      "options": [
+       "Rises to 6",
+       "Falls to 4",
+       "Stays at 5"
+      ],
+      "correct": 1,
+      "why": "1/0.25 = 4. A higher reserve requirement leaves less to lend, so credit contracts."
+     },
+     {
+      "ask": "So raising the CRR is which kind of policy?",
+      "options": [
+       "Expansionary",
+       "Contractionary"
+      ],
+      "correct": 1,
+      "why": "It reduces the money supply. The RBI uses it to fight inflation."
+     }
+    ],
+    "answer": "Multiplier 5 and total deposits ₹50,000; raising the CRR to 25% cuts the multiplier to 4 — a contractionary move."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Government Budget and Fiscal Policy",
+  "approved": false,
+  "trick": "Fiscal deficit = total expenditure − total receipts excluding borrowing. So the fiscal deficit IS the borrowing requirement, which is why it is the headline number. Revenue deficit concerns only the revenue account, and primary deficit is fiscal deficit minus interest payments — the deficit stripped of the past's cost.",
+  "video": {
+   "query": "government budget revenue fiscal primary deficit class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "formula-pick",
+   "data": {
+    "prompt": "Choose the correct definition of each budget concept.",
+    "items": [
+     {
+      "ask": "Fiscal deficit",
+      "correct": "Total expenditure − total receipts other than borrowing",
+      "wrong": [
+       "Total expenditure − total receipts including borrowing",
+       "Revenue expenditure − revenue receipts"
+      ],
+      "why": "Because borrowing is excluded from receipts, the fiscal deficit equals exactly what the government must borrow."
+     },
+     {
+      "ask": "Revenue deficit",
+      "correct": "Revenue expenditure − revenue receipts",
+      "wrong": [
+       "Capital expenditure − capital receipts",
+       "Total expenditure − revenue receipts"
+      ],
+      "why": "It shows that the government's day-to-day spending exceeds its day-to-day income."
+     },
+     {
+      "ask": "Primary deficit",
+      "correct": "Fiscal deficit − interest payments",
+      "wrong": [
+       "Fiscal deficit + interest payments",
+       "Revenue deficit − interest payments"
+      ],
+      "why": "Removing interest shows how much of the current borrowing is due to current policy rather than past debt."
+     },
+     {
+      "ask": "A capital receipt",
+      "correct": "A receipt that creates a liability or reduces an asset — borrowing, disinvestment",
+      "wrong": [
+       "Tax revenue",
+       "Interest received on loans given"
+      ],
+      "why": "Revenue receipts neither create a liability nor reduce an asset; capital receipts do one or the other."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Balance of Payments and Exchange Rate",
+  "approved": false,
+  "trick": "Depreciation makes exports cheaper for foreigners and imports dearer at home — so a weaker rupee helps exporters and hurts importers. Devaluation is the same movement decided by the government under a fixed rate; depreciation is the market doing it. Current account is goods, services and transfers; capital account is assets and borrowing.",
+  "video": {
+   "query": "balance of payments current capital account exchange rate depreciation class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Current account or capital account?",
+    "bins": [
+     "Current account",
+     "Capital account"
+    ],
+    "items": [
+     {
+      "label": "Export of tea",
+      "bin": "Current account"
+     },
+     {
+      "label": "Foreign direct investment into India",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Payment for freight and insurance services",
+      "bin": "Current account"
+     },
+     {
+      "label": "Borrowing from the World Bank",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Remittances sent home by Indians working abroad",
+      "bin": "Current account"
+     },
+     {
+      "label": "Purchase of foreign shares by an Indian resident",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Interest received on a foreign investment",
+      "bin": "Current account"
+     },
+     {
+      "label": "Repayment of external debt",
+      "bin": "Capital account"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Market Structures",
+  "approved": false,
+  "trick": "Count the sellers and look at the product, and the market names itself. Many sellers with an identical product is perfect competition; many sellers with differentiated products is monopolistic competition; a few sellers is oligopoly; one seller with no close substitute is monopoly. Only in perfect competition is the firm a price taker with a horizontal demand curve.",
+  "video": {
+   "query": "perfect competition monopoly monopolistic oligopoly features class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each market feature with the structure it describes.",
+    "pairs": [
+     {
+      "left": "Perfect competition",
+      "right": "Very many sellers, a homogeneous product, free entry, and the firm is a price taker"
+     },
+     {
+      "left": "Monopoly",
+      "right": "A single seller with no close substitute, and strong barriers to entry"
+     },
+     {
+      "left": "Monopolistic competition",
+      "right": "Many sellers with differentiated products; selling costs and advertising matter"
+     },
+     {
+      "left": "Oligopoly",
+      "right": "A few large sellers whose decisions depend on each other's reactions"
+     },
+     {
+      "left": "Horizontal demand curve for the firm",
+      "right": "Perfect competition — the firm can sell any quantity at the ruling price"
+     },
+     {
+      "left": "Price discrimination",
+      "right": "Charging different prices to different buyers, possible under monopoly"
+     },
+     {
+      "left": "Product differentiation",
+      "right": "The defining feature of monopolistic competition"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Sectors of the Indian Economy",
+  "approved": false,
+  "trick": "India's sectoral story runs one way in output and another in employment: the tertiary sector now contributes the largest share of GDP, but the primary sector still employs the largest share of workers. That mismatch is the whole point of the chapter and the answer to most questions in it.",
+  "video": {
+   "query": "sectors of indian economy GDP share employment share class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about India's sectors.",
+    "items": [
+     {
+      "statement": "The tertiary sector contributes the largest share of India's GDP.",
+      "is_true": true,
+      "why": "Services overtook the others decades ago and now account for over half of national output."
+     },
+     {
+      "statement": "The primary sector employs the largest share of India's workers.",
+      "is_true": true,
+      "why": "Agriculture still absorbs the greatest number of workers even though its share of output is far smaller — the sectoral mismatch."
+     },
+     {
+      "statement": "A sector's share of output and its share of employment must be similar.",
+      "is_true": false,
+      "why": "In India they diverge sharply, which is exactly what makes agricultural productivity per worker so low."
+     },
+     {
+      "statement": "Disguised unemployment is common in Indian agriculture.",
+      "is_true": true,
+      "why": "More people work a field than it needs; removing some would not reduce output."
+     },
+     {
+      "statement": "The organised sector is one where terms of employment are regular and workers get social security.",
+      "is_true": true,
+      "why": "The unorganised sector is the opposite — irregular work, low pay and no statutory protection."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Liberalisation and Human Capital Formation",
+  "approved": false,
+  "trick": "1991 is the year, and LPG is the shorthand: Liberalisation removed licensing, Privatisation sold or opened up public enterprises, Globalisation integrated India with world markets. Human capital is investment in people — education and health — and human development is the wider end that capital is only a means to.",
+  "video": {
+   "query": "1991 reforms LPG liberalisation human capital formation class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each reform or concept with what it means.",
+    "pairs": [
+     {
+      "left": "Liberalisation",
+      "right": "Removing licensing and government restrictions on private business"
+     },
+     {
+      "left": "Privatisation",
+      "right": "Transferring ownership or management of public enterprises to private hands"
+     },
+     {
+      "left": "Globalisation",
+      "right": "Integrating the domestic economy with the world economy"
+     },
+     {
+      "left": "Disinvestment",
+      "right": "The government selling part of its shareholding in a public sector unit"
+     },
+     {
+      "left": "Human capital",
+      "right": "The stock of skill and knowledge embodied in people, built by education and health spending"
+     },
+     {
+      "left": "Human development",
+      "right": "The wider goal — a long, healthy, educated life; human capital is a means to it"
+     },
+     {
+      "left": "The year 1991",
+      "right": "The balance of payments crisis and the New Economic Policy"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Introduction to Economics and the Central Problem",
+  "approved": false,
+  "trick": "Three conditions make the central problem, and all three must hold: wants are unlimited, resources are scarce, and those resources have alternative uses. Remove any one and there is no problem of choice left — which is why every definition in the chapter mentions scarcity.",
+  "video": {
+   "query": "central problem of economy scarcity choice opportunity cost class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each central problem with the question it asks.",
+    "pairs": [
+     {
+      "left": "What to produce",
+      "right": "Which goods, and in what quantities, given limited resources"
+     },
+     {
+      "left": "How to produce",
+      "right": "Labour-intensive or capital-intensive technique"
+     },
+     {
+      "left": "For whom to produce",
+      "right": "How the output is distributed among people — the problem of distribution"
+     },
+     {
+      "left": "Scarcity",
+      "right": "Resources are limited relative to unlimited wants"
+     },
+     {
+      "left": "Opportunity cost",
+      "right": "The value of the next best alternative forgone"
+     },
+     {
+      "left": "Alternative uses",
+      "right": "The same resource could have been put to another purpose"
+     },
+     {
+      "left": "Positive economics",
+      "right": "What is — statements that can be tested against facts"
+     },
+     {
+      "left": "Normative economics",
+      "right": "What ought to be — statements involving value judgements"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Commerce|Economics",
+  "chapter": "Demand and its Determinants",
+  "approved": false,
+  "trick": "Only the good's OWN price moves you along the demand curve; every other determinant shifts it. Income, the price of substitutes and complements, tastes and the number of buyers all shift. That is the difference between a change in quantity demanded and a change in demand, and the wording is what is marked.",
+  "video": {
+   "query": "demand determinants shift versus movement elasticity class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each change move along the demand curve, or shift it?",
+    "bins": [
+     "Movement along the curve",
+     "Rightward shift",
+     "Leftward shift"
+    ],
+    "items": [
+     {
+      "label": "The price of the good falls",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Consumer income rises, for a normal good",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "Consumer income rises, for an inferior good",
+      "bin": "Leftward shift"
+     },
+     {
+      "label": "The price of a substitute rises",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "The price of a complement rises",
+      "bin": "Leftward shift"
+     },
+     {
+      "label": "The good's own price rises",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Tastes turn in favour of the good",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "The number of buyers in the market falls",
+      "bin": "Leftward shift"
+     }
+    ]
+   }
+  }
  }
 ]

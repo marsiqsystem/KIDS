@@ -6,8 +6,9 @@
   "trick": "Climb the ladder in one direction only: cell, tissue, organ, organ system, organism. Every level is made of the one below it, so if you can say what a thing is made of, you know where it sits.",
   "video": {
    "query": "levels of biological organisation cell tissue organ system class 9 biology",
-   "video_id": null,
-   "approved": false
+   "video_id": "1SvEZJqjtBY",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "timeline-order",
@@ -103,8 +104,9 @@
   "trick": "Animals have an organ for waste; plants simply store it or throw it away with a leaf. Among animals the excretory product tells you where the creature lives: plenty of water means ammonia, land means urea or uric acid, because saving water costs the animal energy.",
   "video": {
    "query": "excretion in plants and animals ammonotelic ureotelic uricotelic class 9",
-   "video_id": null,
-   "approved": false
+   "video_id": "Q8QER5KZkLg",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",

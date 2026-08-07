@@ -6,8 +6,9 @@
   "trick": "Nerves are fast and local, hormones are slow and everywhere. Touch a hot pan and the nerve answers in milliseconds; grow taller and a hormone has been at work for years. If the response is instant, look for a nerve; if it lasts, look for a hormone.",
   "video": {
    "query": "control and coordination hormones nervous system class 10 life science",
-   "video_id": null,
-   "approved": false
+   "video_id": "LOMd_mPtJAw",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -94,8 +95,9 @@
   "trick": "Draw the Punnett square every time, even when you think you know. Two minutes of grid beats a guessed ratio, and the two ratios worth knowing by heart are 3:1 for a monohybrid cross and 9:3:3:1 for a dihybrid.",
   "video": {
    "query": "Mendel monohybrid cross Punnett square 3:1 ratio class 10 life science",
-   "video_id": null,
-   "approved": false
+   "video_id": "aD88oJn2ppA",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "step-solve",
@@ -155,8 +157,9 @@
   "trick": "Nothing evolves because it wants to. Variation comes first, by chance, and the environment then decides which variations survive. Any explanation that has an animal deciding to change is Lamarck's, and Lamarck was wrong.",
   "video": {
    "query": "evolution Darwin natural selection adaptation class 10 life science",
-   "video_id": null,
-   "approved": false
+   "video_id": "GzEE85PE5b4",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "true-false",
@@ -199,8 +202,9 @@
   "trick": "In-situ means in its own place, ex-situ means out of it. A national park or a sanctuary protects an animal where it already lives; a zoo, a seed bank or a botanical garden protects it somewhere else. The Latin tells you the answer.",
   "video": {
    "query": "biodiversity conservation in situ ex situ national parks class 10 life science",
-   "video_id": null,
-   "approved": false
+   "video_id": "gce8bXgU4cw",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "sort-bins",

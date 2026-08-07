@@ -1,11 +1,21 @@
 [
  {
   "bucket": "IX|All|English",
+  "chapter": "Prose: All Summer in a Day",
+  "video_id": "C0w2B7JDrJw",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|English",
   "chapter": "Poem: Mild the Mist upon the Hill",
   "video_id": "zWNBwCWlygc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BENGALI",
   "duration": "12 min",
   "verified": "title checked 2026-08-07"
@@ -16,8 +26,8 @@
   "video_id": "Pqf_-d0zAJI",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
-  "language": "BENGALI",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "duration": "18 min",
   "verified": "title checked 2026-08-07"
  },
@@ -27,8 +37,8 @@
   "video_id": "gfjUGThicF8",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
-  "language": "BENGALI",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "duration": "14 min",
   "verified": "title checked 2026-08-07"
  },
@@ -38,7 +48,7 @@
   "video_id": "fo46yFWIJzU",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "12 min",
   "verified": "title checked 2026-08-07"
@@ -49,7 +59,7 @@
   "video_id": "0YKzBG4ndCc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "3.5 min",
   "verified": "title checked 2026-08-07"
@@ -60,9 +70,9 @@
   "video_id": "huTb3m83Dwg",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
-  "duration": "4.5 min",
+  "duration": "5 min",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -71,7 +81,7 @@
   "video_id": "MjHSFJb1_hQ",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BILINGUAL",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -82,7 +92,7 @@
   "video_id": "E5O9Nx0OuRA",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BILINGUAL",
   "duration": "18 min",
   "verified": "title checked 2026-08-07"
@@ -93,7 +103,7 @@
   "video_id": "HyN78-m3arE",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BENGALI",
   "duration": "35 min",
   "start": "02:30",
@@ -105,7 +115,7 @@
   "video_id": "s5FL8By5we8",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BENGALI",
   "duration": "45 min",
   "verified": "title checked 2026-08-07"
@@ -116,7 +126,7 @@
   "video_id": "1UoqMwaY_fg",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "HINDI",
   "duration": "20 min",
   "verified": "title checked 2026-08-07"
@@ -127,7 +137,7 @@
   "video_id": "v7yZ4a4NLig",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BENGALI",
   "duration": "50 min",
   "verified": "title checked 2026-08-07"
@@ -138,7 +148,7 @@
   "video_id": "AmQxTm_x1UE",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BILINGUAL",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -149,9 +159,19 @@
   "video_id": "NhkZHhqjFUk",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "12 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Geography",
+  "chapter": "Exogenetic Processes: Weathering and Erosion",
+  "video_id": "UINilp5n_ig",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -160,9 +180,19 @@
   "video_id": "N49vhzXjqt8",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BILINGUAL",
   "duration": "20 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Life and its Diversity: Levels of Organisation",
+  "video_id": "1SvEZJqjtBY",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -171,9 +201,19 @@
   "video_id": "JwTizw1RLKs",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "15 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Life Science",
+  "chapter": "Excretion in Plants and Animals",
+  "video_id": "Q8QER5KZkLg",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -182,7 +222,7 @@
   "video_id": "mU1uEOvegNY",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "12 min",
   "verified": "title checked 2026-08-07"
@@ -193,9 +233,39 @@
   "video_id": "D4jgipI1KJc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "4 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Measurement and SI Units",
+  "video_id": "-rN8y7Eu1yg",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Structure of the Atom",
+  "video_id": "vER0Fsazwe0",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "HINDI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "IX|All|Physical Science",
+  "chapter": "Solutions, Colloids and Mixtures",
+  "video_id": "HSTKK6NGtfA",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, ix",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -204,7 +274,7 @@
   "video_id": "Uur2LvufWtE",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "11 min",
   "start": "07:16",
@@ -216,7 +286,7 @@
   "video_id": "08CeOIV9db8",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "35 min",
   "verified": "title checked 2026-08-07"
@@ -227,7 +297,7 @@
   "video_id": "3FkLNvK8inA",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "36 min",
   "start": "10:13",
@@ -239,7 +309,7 @@
   "video_id": "hzQpqZ5yhz0",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "BILINGUAL",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -250,7 +320,7 @@
   "video_id": "PFC1DU13VR0",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "45 min",
   "verified": "title checked 2026-08-07"
@@ -261,7 +331,7 @@
   "video_id": "gh1TNZHLL9k",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "4 min",
   "verified": "title checked 2026-08-07"
@@ -272,7 +342,7 @@
   "video_id": "BEheVMlK-lc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "8 min",
   "verified": "title checked 2026-08-07"
@@ -283,7 +353,7 @@
   "video_id": "aoSW8RY4XKw",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -294,7 +364,7 @@
   "video_id": "R0ajg1jO-H0",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "18 min",
   "verified": "title checked 2026-08-07"
@@ -305,7 +375,7 @@
   "video_id": "SJILCa2KzQw",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, ix",
+  "source": "multimedia directory docx v3, ix",
   "language": "ENGLISH",
   "duration": "6 min",
   "verified": "title checked 2026-08-07"
@@ -316,8 +386,8 @@
   "video_id": "0cqnz88lmn0",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
-  "language": "BENGALI",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
  },
@@ -327,8 +397,8 @@
   "video_id": "d2UYTwRc9Vs",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
-  "language": "BENGALI",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "duration": "19 min",
   "verified": "title checked 2026-08-07"
  },
@@ -338,8 +408,8 @@
   "video_id": "EE-UA0_LIqo",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
-  "language": "BENGALI",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "duration": "12 min",
   "verified": "title checked 2026-08-07"
  },
@@ -349,9 +419,19 @@
   "video_id": "RkWCJvwYzM8",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
-  "language": "HINDI",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "duration": "14 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|English",
+  "chapter": "Grammar: Narration (Direct and Indirect Speech)",
+  "video_id": "oRbR8McnnJg",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -360,7 +440,7 @@
   "video_id": "dn0LN_0ozfo",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "11 min",
   "verified": "title checked 2026-08-07"
@@ -371,7 +451,7 @@
   "video_id": "r8lUsK9y1dc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -382,7 +462,7 @@
   "video_id": "e8YzKyot4Pc",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -393,9 +473,49 @@
   "video_id": "huTb3m83Dwg",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "5 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Indian and World Geography",
+  "video_id": "mtqAKpYvjk4",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: International Organisations and Observances",
+  "video_id": "hKu56D9Ff4g",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "HINDI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|General Knowledge",
+  "chapter": "GK: Science and SI Units",
+  "video_id": "JDtlyqa1NBk",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|History",
+  "chapter": "Ideas of History and Historiography",
+  "video_id": "wF4fiGIsyrk",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -404,7 +524,7 @@
   "video_id": "_EjTdrg9siM",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -415,7 +535,7 @@
   "video_id": "nMWd0GH5fRQ",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "12 min",
   "verified": "title checked 2026-08-07"
@@ -426,7 +546,7 @@
   "video_id": "90MlIgc5BUw",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -437,7 +557,7 @@
   "video_id": "6ruPCh7lN5U",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -448,7 +568,7 @@
   "video_id": "mar1mJv_mdM",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "15 min",
   "verified": "title checked 2026-08-07"
@@ -459,9 +579,39 @@
   "video_id": "uGtz5DtQJGg",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "10 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Exogenetic Processes: Weathering and Erosion",
+  "video_id": "n9XQD1Cx2LY",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "Depositional Landforms: Rivers, Glaciers and Wind",
+  "video_id": "2O2OfDqV0sY",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Control and Coordination in Plants and Animals",
+  "video_id": "LOMd_mPtJAw",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -470,9 +620,89 @@
   "video_id": "wDw7svOz17s",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "BENGALI",
   "duration": "15 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Heredity and Common Genetic Diseases",
+  "video_id": "aD88oJn2ppA",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Evolution and Adaptation",
+  "video_id": "GzEE85PE5b4",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Life Science",
+  "chapter": "Environment, Biodiversity and Conservation",
+  "video_id": "gce8bXgU4cw",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Concerns about our Environment",
+  "video_id": "RVFJ5WXcP3Q",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Behaviour of Gases and the Mole Concept",
+  "video_id": "SioLgrcECpk",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Thermal Phenomena: Expansion and Conductivity",
+  "video_id": "v_RFb3wDDY0",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Light: Refraction and Lenses",
+  "video_id": "--tPQ4iui1c",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Periodic Table and Periodicity",
+  "video_id": "fesXE-nC4mE",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -481,9 +711,109 @@
   "video_id": "V67eJZ5YFsQ",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
-  "language": "HINDI",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
   "duration": "15 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Physical Science",
+  "chapter": "Atomic Nucleus and Radioactivity",
+  "video_id": "h3oF3_rrudk",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Real Numbers and Euclid's Division Lemma",
+  "video_id": "SbWuByKPE4U",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Polynomials",
+  "video_id": "j2EuKS_Xtdc",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Pair of Linear Equations in Two Variables",
+  "video_id": "p_yr53bhesU",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Quadratic Equations",
+  "video_id": "vKE-sD9_I7s",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Arithmetic Progression",
+  "video_id": "NUsxSiOpW54",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Coordinate Geometry: Distance, Midpoint and Section",
+  "video_id": "pVgBUVf-oTM",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "ENGLISH",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Circles and Tangents",
+  "video_id": "W-mbhP39fy0",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Trigonometric Ratios and Identities",
+  "video_id": "qe5lQi2PIvA",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BILINGUAL",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Heights and Distances",
+  "video_id": "HLEr3iMBZsA",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BILINGUAL",
   "verified": "title checked 2026-08-07"
  },
  {
@@ -492,9 +822,19 @@
   "video_id": "g5_SfLJZWZ4",
   "supplied_by": "Umar Iqbal",
   "supplied_on": "2026-08-07",
-  "source": "multimedia directory docx v2, x",
+  "source": "multimedia directory docx v3, x",
   "language": "ENGLISH",
   "duration": "15 min",
+  "verified": "title checked 2026-08-07"
+ },
+ {
+  "bucket": "X|All|Mathematics",
+  "chapter": "Triangles, Similarity and Pythagoras",
+  "video_id": "laHjZmmuKqc",
+  "supplied_by": "Umar Iqbal",
+  "supplied_on": "2026-08-07",
+  "source": "multimedia directory docx v3, x",
+  "language": "BENGALI",
   "verified": "title checked 2026-08-07"
  },
  {

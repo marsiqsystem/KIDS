@@ -97,8 +97,9 @@
   "trick": "Always ask whether the superlative is Indian or worldwide before you answer. Longest river: Ganga in India, Nile in the world. Highest peak: Kangchenjunga in India, Everest in the world. Same question, two different answers.",
   "video": {
    "query": "Indian and world geography superlatives rivers mountains deserts general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "mtqAKpYvjk4",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "sort-bins",
@@ -152,8 +153,9 @@
   "trick": "Observance days cluster around their subject: environment days fall in June, health days in April, and the education ones in the school year. If you cannot recall a date, recall the season and the theme, and the options usually narrow to one.",
   "video": {
    "query": "important international days and organisations list general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "hKu56D9Ff4g",
+   "approved": true,
+   "language": "HINDI"
   },
   "interactive": {
    "template": "match-pairs",
@@ -195,8 +197,9 @@
   "trick": "Instrument questions answer themselves if you read the name. A barometer measures baros, weight or pressure; a thermometer measures therme, heat; a seismograph writes down seismos, an earthquake. The Greek root is the answer.",
   "video": {
    "query": "scientific instruments and their uses SI units general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "JDtlyqa1NBk",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "fill-blank",

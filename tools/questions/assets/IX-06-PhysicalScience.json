@@ -6,8 +6,9 @@
   "trick": "Learn the seven base units first and every other unit is built from them. Newton, joule and watt are not extra facts to memorise: a newton is kilogram metre per second squared, a joule is a newton metre, a watt is a joule per second. Build them, do not learn them.",
   "video": {
    "query": "SI units base and derived units measurement class 9 physical science",
-   "video_id": null,
-   "approved": false
+   "video_id": "-rN8y7Eu1yg",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -53,8 +54,9 @@
   "trick": "Almost all the mass sits in almost none of the space. The nucleus holds the protons and neutrons and therefore the mass; the electrons hold the volume. That single sentence answers most questions in this chapter, including why Rutherford's alpha particles mostly went straight through.",
   "video": {
    "query": "structure of atom Rutherford Bohr model protons neutrons electrons class 9",
-   "video_id": null,
-   "approved": false
+   "video_id": "vER0Fsazwe0",
+   "approved": true,
+   "language": "HINDI"
   },
   "interactive": {
    "template": "label-diagram",
@@ -93,8 +95,9 @@
   "trick": "Two tests separate all three. Does it scatter a beam of light, the Tyndall effect? Does it settle or filter out? A true solution does neither, a colloid scatters but will not settle, a suspension does both.",
   "video": {
    "query": "true solution colloid suspension Tyndall effect class 9 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "HSTKK6NGtfA",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "sort-bins",

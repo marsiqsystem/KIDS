@@ -6,8 +6,9 @@
   "trick": "Euclid's algorithm is one instruction repeated: divide, then replace the pair by the divisor and the remainder. Stop when the remainder is zero, and the last divisor is the HCF. You never need to factorise anything.",
   "video": {
    "query": "Euclid division lemma HCF algorithm class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "SbWuByKPE4U",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "step-solve",
@@ -67,8 +68,9 @@
   "trick": "You can read the sum and product of the zeros straight off the coefficients without solving anything: the sum is minus b over a and the product is c over a. Remember the minus sign belongs to the sum, never to the product.",
   "video": {
    "query": "polynomials zeros sum and product of roots class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "j2EuKS_Xtdc",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "fill-blank",
@@ -103,8 +105,9 @@
   "trick": "Compare the three ratios before you solve anything. If a1/a2 differs from b1/b2 the lines cross once. If the first two ratios agree but the third differs, the lines are parallel and there is no solution. If all three agree, the lines are the same line.",
   "video": {
    "query": "pair of linear equations consistent inconsistent ratio condition class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "p_yr53bhesU",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "sort-bins",
@@ -163,8 +166,9 @@
   "trick": "Compute the discriminant first, every time. It tells you what kind of answer to expect before you spend any effort: positive means two different real roots, zero means one repeated root, negative means none at all. Finding a root after computing a negative discriminant means the arithmetic went wrong.",
   "video": {
    "query": "quadratic equations discriminant nature of roots quadratic formula class 10",
-   "video_id": null,
-   "approved": false
+   "video_id": "vKE-sD9_I7s",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "step-solve",
@@ -224,8 +228,9 @@
   "trick": "The nth term uses n minus 1, not n, because the first term needs no step at all. That single off-by-one is behind most wrong answers in this chapter, so write a + (n − 1)d out in full before substituting.",
   "video": {
    "query": "arithmetic progression nth term sum of n terms formula class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "NUsxSiOpW54",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "step-solve",
@@ -285,8 +290,9 @@
   "trick": "The midpoint formula is just the section formula with the ratio 1:1, so there is really only one formula to know. And the distance formula is Pythagoras in disguise: the difference in x and the difference in y are the two legs of a right triangle.",
   "video": {
    "query": "distance formula midpoint section formula coordinate geometry class 10",
-   "video_id": null,
-   "approved": false
+   "video_id": "pVgBUVf-oTM",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "formula-pick",
@@ -340,8 +346,9 @@
   "trick": "Whenever a tangent appears, draw the radius to the point of contact at once. It is perpendicular to the tangent, so it turns almost every tangent problem into a right-angled triangle and lets Pythagoras finish the job.",
   "video": {
    "query": "circles tangents theorems length of tangent class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "W-mbhP39fy0",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "true-false",
@@ -384,8 +391,9 @@
   "trick": "You only need to memorise the sine row: 0, ½, 1/√2, √3/2, 1 for 0, 30, 45, 60 and 90 degrees. The cosine row is the same list backwards, and tangent is sine divided by cosine. One row, and the whole table follows.",
   "video": {
    "query": "trigonometric ratios table standard angles identities class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "qe5lQi2PIvA",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",
@@ -427,8 +435,9 @@
   "trick": "Draw the picture and mark the angle at the eye, not at the top of the tower. The angle of elevation is always measured from the horizontal, and once the right triangle is drawn the only decision left is which ratio connects the side you know to the side you want.",
   "video": {
    "query": "heights and distances angle of elevation problems class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "HLEr3iMBZsA",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "step-solve",
@@ -545,8 +554,9 @@
   "trick": "Similar means same shape, congruent means same shape and same size. In similar triangles the angles are equal and the sides are in proportion, and the ratio of their areas is the square of the ratio of their sides — that square catches people out constantly.",
   "video": {
    "query": "similar triangles criteria Pythagoras theorem class 10 maths",
-   "video_id": null,
-   "approved": false
+   "video_id": "laHjZmmuKqc",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "odd-one-out",

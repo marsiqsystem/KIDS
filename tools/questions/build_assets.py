@@ -269,9 +269,12 @@ def check_video(video, where: str, errors: list[str]) -> None:
 
     # The written content is English-medium, but video was never covered by that
     # ruling, so a page carrying a Bengali or Hindi video must say so up front.
+    # BILINGUAL is Umar's own label from the v2 directory: a lesson delivered in
+    # Bengali against English slides, which is neither of the other two.
     lang = video.get("language")
-    if lang is not None and lang not in {"ENGLISH", "BENGALI", "HINDI"}:
-        errors.append(f"{where}: video.language must be ENGLISH, BENGALI or HINDI, not {lang!r}")
+    if lang is not None and lang not in {"ENGLISH", "BENGALI", "HINDI", "BILINGUAL"}:
+        errors.append(
+            f"{where}: video.language must be ENGLISH, BENGALI, HINDI or BILINGUAL, not {lang!r}")
     for field in ("duration", "start"):
         if field in video and not isinstance(video[field], str):
             errors.append(f"{where}: video.{field} must be a string such as '12 min' or '07:16'")

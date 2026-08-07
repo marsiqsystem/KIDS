@@ -92,7 +92,8 @@
    "query": "Indian and world geography longest river highest mountain largest desert facts",
    "video_id": "MjHSFJb1_hQ",
    "approved": true,
-   "duration": "15 min"
+   "duration": "15 min",
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "sort-bins",
@@ -148,7 +149,8 @@
    "query": "United Nations UNESCO WHO headquarters and functions general knowledge",
    "video_id": "E5O9Nx0OuRA",
    "approved": true,
-   "duration": "18 min"
+   "duration": "18 min",
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",

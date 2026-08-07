@@ -49,10 +49,8 @@
   "trick": "Errors add in a fixed way: for a sum or difference you add the absolute errors, for a product or quotient you add the relative errors, and a power multiplies the relative error by that power. So a quantity that is squared contributes twice as much error as one that is not.",
   "video": {
    "query": "errors in measurement significant figures propagation class 11 physics",
-   "video_id": "9q0q8OdgEQQ",
-   "approved": true,
-   "language": "ENGLISH",
-   "duration": "13 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "true-false",
@@ -95,10 +93,8 @@
   "trick": "In projectile motion the horizontal and vertical parts are completely independent. Horizontally the velocity never changes; vertically it is ordinary free fall. Solve two simple problems rather than one hard one, and gravity never touches the horizontal.",
   "video": {
    "query": "projectile motion kinematics equations class 11 physics",
-   "video_id": "WTWuMBr0zsE",
-   "approved": true,
-   "language": "HINDI",
-   "duration": "15 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "formula-pick",
@@ -249,10 +245,8 @@
   "trick": "Every linear quantity has a rotational twin: mass becomes moment of inertia, force becomes torque, momentum becomes angular momentum, and F = ma becomes τ = Iα. Learn the translations and half the chapter is already familiar.",
   "video": {
    "query": "rotational motion moment of inertia torque angular momentum class 11 physics",
-   "video_id": "kl41_72VvTI",
-   "approved": true,
-   "language": "ENGLISH",
-   "duration": "14 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "match-pairs",

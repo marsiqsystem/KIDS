@@ -224,10 +224,8 @@
   "trick": "The nth term uses n minus 1, not n, because the first term needs no step at all. That single off-by-one is behind most wrong answers in this chapter, so write a + (n − 1)d out in full before substituting.",
   "video": {
    "query": "arithmetic progression nth term sum of n terms formula class 10 maths",
-   "video_id": "DS3wq6D_kus",
-   "approved": true,
-   "language": "HINDI",
-   "duration": "15 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "step-solve",

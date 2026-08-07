@@ -46,10 +46,8 @@
   "trick": "This is a portrait written by a disciple, so watch what she chooses to show. Nivedita gives us Vivekananda's ordinary moments — his talk, his laughter, his restlessness — because she is arguing that greatness showed in the daily man, not only on the platform at Chicago.",
   "video": {
    "query": "Sister Nivedita on Swami Vivekananda prose summary class 11 English",
-   "video_id": "NC0EBK26p4I",
-   "approved": true,
-   "language": "ENGLISH",
-   "duration": "14 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "true-false",
@@ -183,9 +181,8 @@
   "trick": "Written just after the First World War, so read every image as a world coming apart: the falcon cannot hear the falconer, the centre cannot hold. Yeats then twists the Christian idea of a Second Coming — what is slouching towards Bethlehem is not a saviour.",
   "video": {
    "query": "The Second Coming W B Yeats poem analysis class 11 English",
-   "video_id": "PArzgXaO1K4",
-   "approved": true,
-   "duration": "10 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "match-pairs",

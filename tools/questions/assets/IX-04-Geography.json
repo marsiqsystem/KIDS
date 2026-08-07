@@ -8,7 +8,8 @@
    "query": "latitude longitude time zones standard meridian calculation class 9 geography",
    "video_id": "AmQxTm_x1UE",
    "approved": true,
-   "duration": "15 min"
+   "duration": "15 min",
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "step-solve",
@@ -144,7 +145,8 @@
    "query": "depositional landforms delta moraine sand dune loess class 9 geography",
    "video_id": "N49vhzXjqt8",
    "approved": true,
-   "duration": "20 min"
+   "duration": "20 min",
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",

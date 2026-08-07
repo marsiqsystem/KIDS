@@ -57,10 +57,8 @@
   "trick": "Each model exists because the one before it failed at a particular experiment. Thomson could not explain the gold foil scattering, Rutherford could not explain why the electron does not spiral in, Bohr could not explain many-electron atoms. Learn the failure and the next model makes sense.",
   "video": {
    "query": "structure of atom Bohr model quantum numbers class 11 chemistry",
-   "video_id": "0UqHoagKXts",
-   "approved": true,
-   "language": "ENGLISH",
-   "duration": "15 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "match-pairs",
@@ -281,10 +279,8 @@
   "trick": "Hydrogen sits awkwardly in the periodic table because it behaves like two families at once: it loses an electron like an alkali metal and gains one like a halogen. Every question about its position is really about that double resemblance.",
   "video": {
    "query": "hydrogen isotopes hydrides hard and soft water class 11 chemistry",
-   "video_id": "6bYJsTIfI_Y",
-   "approved": true,
-   "language": "ENGLISH",
-   "duration": "11 min"
+   "video_id": null,
+   "approved": false
   },
   "interactive": {
    "template": "true-false",

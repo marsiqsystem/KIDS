@@ -5690,5 +5690,1438 @@
     ]
    }
   }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Introduction to Accounting",
+  "approved": false,
+  "trick": "Bookkeeping records, accounting interprets. Bookkeeping is the clerical half that writes transactions down; accounting is what turns those records into statements someone can make a decision from. Almost every 'difference between' question in this chapter is that one sentence.",
+  "video": {
+   "query": "introduction to accounting bookkeeping objectives class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each accounting term with its meaning.",
+    "pairs": [
+     {
+      "left": "Capital",
+      "right": "What the owner has invested; a liability of the business to the owner"
+     },
+     {
+      "left": "Drawings",
+      "right": "Cash or goods taken out of the business by the owner"
+     },
+     {
+      "left": "Debtor",
+      "right": "A person who owes money to the business"
+     },
+     {
+      "left": "Creditor",
+      "right": "A person to whom the business owes money"
+     },
+     {
+      "left": "Asset",
+      "right": "A resource owned by the business that yields future benefit"
+     },
+     {
+      "left": "Revenue",
+      "right": "Income earned from the ordinary activities of the business"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Accounting Concepts, Principles and Conventions",
+  "approved": false,
+  "trick": "The business entity concept underlies everything else: the business and its owner are separate people. That is why the owner's capital is shown as a liability, and why money taken out is called drawings rather than an expense.",
+  "video": {
+   "query": "accounting concepts conventions going concern accrual class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each concept with what it means in practice.",
+    "pairs": [
+     {
+      "left": "Business entity concept",
+      "right": "The business is treated as separate from its owner"
+     },
+     {
+      "left": "Going concern concept",
+      "right": "The business is assumed to continue for the foreseeable future"
+     },
+     {
+      "left": "Money measurement concept",
+      "right": "Only what can be expressed in money is recorded"
+     },
+     {
+      "left": "Dual aspect concept",
+      "right": "Every transaction has two effects; the basis of double entry"
+     },
+     {
+      "left": "Conservatism or prudence",
+      "right": "Provide for all losses, anticipate no profits"
+     },
+     {
+      "left": "Matching concept",
+      "right": "Expenses are set against the revenues of the same period"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Classification of Accounts and the Rules of Debit and Credit",
+  "approved": false,
+  "trick": "Three accounts, three rules. Personal: debit the receiver, credit the giver. Real: debit what comes in, credit what goes out. Nominal: debit expenses and losses, credit incomes and gains. Identify the type first and the rule follows automatically.",
+  "video": {
+   "query": "types of accounts golden rules of debit and credit class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which type of account is each one?",
+    "bins": [
+     "Personal account",
+     "Real account",
+     "Nominal account"
+    ],
+    "items": [
+     {
+      "label": "Ram's account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Bank account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Capital account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Cash account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Furniture account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Building account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Salary account",
+      "bin": "Nominal account"
+     },
+     {
+      "label": "Rent received account",
+      "bin": "Nominal account"
+     },
+     {
+      "label": "Discount allowed account",
+      "bin": "Nominal account"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Recording of Transactions: Journal and Ledger",
+  "approved": false,
+  "trick": "The journal is the diary and the ledger is the filing cabinet. Every transaction is written once in date order in the journal, then sorted into its own account in the ledger. Journalise first, post second — never the other way round.",
+  "video": {
+   "query": "journal entries ledger posting class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Journalise a transaction, one step at a time.",
+    "problem": "Furniture worth ₹20,000 is bought for cash. Pass the journal entry.",
+    "steps": [
+     {
+      "ask": "Which two accounts are affected?",
+      "options": [
+       "Furniture and Cash",
+       "Purchases and Cash",
+       "Furniture and Capital"
+      ],
+      "correct": 0,
+      "why": "Furniture is an asset coming in and cash is an asset going out. Note it is not Purchases: that account is only for goods bought to resell."
+     },
+     {
+      "ask": "Both are real accounts. Which is debited?",
+      "options": [
+       "Furniture, because it comes in",
+       "Cash, because it goes out"
+      ],
+      "correct": 0,
+      "why": "For real accounts the rule is debit what comes in, credit what goes out. The furniture comes in, so it is debited."
+     },
+     {
+      "ask": "So the entry is",
+      "options": [
+       "Furniture A/c Dr ₹20,000; To Cash A/c ₹20,000",
+       "Cash A/c Dr ₹20,000; To Furniture A/c ₹20,000"
+      ],
+      "correct": 0,
+      "why": "Furniture is debited and cash credited. The total of debits equals the total of credits, as it must in every entry."
+     }
+    ],
+    "answer": "Furniture A/c ......... Dr ₹20,000, To Cash A/c ₹20,000 — being furniture purchased for cash."
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Subsidiary Books and Bank Transactions",
+  "approved": false,
+  "trick": "Subsidiary books exist because writing every credit sale in the journal would be unbearable. Each book takes one repeated kind of transaction. And remember the cash book is both a journal and a ledger account at once, which is why it needs no separate ledger posting.",
+  "video": {
+   "query": "subsidiary books cash book bank reconciliation statement class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Which subsidiary book records each transaction?",
+    "pairs": [
+     {
+      "left": "Credit sale of goods",
+      "right": "Sales Book"
+     },
+     {
+      "left": "Credit purchase of goods",
+      "right": "Purchases Book"
+     },
+     {
+      "left": "Goods returned by a customer",
+      "right": "Sales Return Book"
+     },
+     {
+      "left": "Goods returned to a supplier",
+      "right": "Purchases Return Book"
+     },
+     {
+      "left": "All receipts and payments of cash",
+      "right": "Cash Book"
+     },
+     {
+      "left": "Bills of exchange accepted and received",
+      "right": "Bills Receivable Book"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Trial Balance",
+  "approved": false,
+  "trick": "A trial balance that agrees does not prove the books are right. An entry posted to the wrong account, or omitted altogether, leaves both sides equal and the error invisible. It proves arithmetical accuracy only, and examiners ask exactly that.",
+  "video": {
+   "query": "trial balance preparation errors class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the trial balance.",
+    "items": [
+     {
+      "statement": "An agreed trial balance proves that the accounts contain no errors.",
+      "is_true": false,
+      "why": "It proves arithmetical accuracy only. Errors of omission, of principle and compensating errors all leave it in agreement."
+     },
+     {
+      "statement": "All assets and expenses normally carry debit balances.",
+      "is_true": true,
+      "why": "And liabilities, capital and incomes carry credit balances. That pairing is what makes the two columns agree."
+     },
+     {
+      "statement": "If a transaction is completely omitted, the trial balance will not agree.",
+      "is_true": false,
+      "why": "Omitting the whole entry removes an equal debit and credit, so both sides fall by the same amount and it still agrees."
+     },
+     {
+      "statement": "The trial balance is prepared before the final accounts.",
+      "is_true": true,
+      "why": "It is the bridge between the ledger and the trading, profit and loss account and balance sheet."
+     },
+     {
+      "statement": "Purchases Return appears on the credit side of the trial balance.",
+      "is_true": true,
+      "why": "It reduces purchases, so its balance is a credit. Sales Return, by the same logic, is a debit."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Depreciation",
+  "approved": false,
+  "trick": "Straight line spreads the cost evenly; written down value charges more in the early years. So under the diminishing balance method the depreciation amount falls every year while the rate stays the same — that is the distinction most questions turn on.",
+  "video": {
+   "query": "depreciation straight line written down value method class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Compare the two methods, one step at a time.",
+    "problem": "A machine costs ₹1,00,000 with a scrap value of ₹10,000 and a life of 9 years. Find the annual depreciation under the straight line method, then find the first two years' depreciation at 10% under the written down value method.",
+    "steps": [
+     {
+      "ask": "Straight line: what is the amount to be written off in total?",
+      "options": [
+       "₹1,00,000",
+       "₹90,000",
+       "₹10,000"
+      ],
+      "correct": 1,
+      "why": "Cost minus scrap value, that is 1,00,000 − 10,000 = ₹90,000. Forgetting to deduct the scrap value is the standard error."
+     },
+     {
+      "ask": "So the annual straight line depreciation is",
+      "options": [
+       "₹10,000",
+       "₹11,111",
+       "₹9,000"
+      ],
+      "correct": 0,
+      "why": "₹90,000 ÷ 9 years = ₹10,000 a year, the same every year."
+     },
+     {
+      "ask": "Written down value at 10%: what is the first year's charge?",
+      "options": [
+       "₹10,000",
+       "₹9,000"
+      ],
+      "correct": 0,
+      "why": "10% of the full cost of ₹1,00,000 is ₹10,000. In the first year both methods happen to agree here."
+     },
+     {
+      "ask": "And the second year's charge?",
+      "options": [
+       "₹10,000",
+       "₹9,000",
+       "₹8,100"
+      ],
+      "correct": 1,
+      "why": "The book value is now ₹90,000, and 10% of that is ₹9,000. The rate stays at 10% but the amount falls each year — that is the whole difference between the two methods."
+     }
+    ],
+    "answer": "Straight line: ₹10,000 every year. Written down value: ₹10,000 then ₹9,000, falling each year."
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Accountancy",
+  "chapter": "Final Accounts and Adjustments",
+  "approved": false,
+  "trick": "Every adjustment is entered twice — once in the trading or profit and loss account and once in the balance sheet. If an adjustment appears only once in your answer, you have made a mistake, whatever the figures say.",
+  "video": {
+   "query": "final accounts trading profit and loss balance sheet adjustments class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Where does each item finally appear?",
+    "bins": [
+     "Trading Account",
+     "Profit and Loss Account",
+     "Balance Sheet"
+    ],
+    "items": [
+     {
+      "label": "Opening stock",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Purchases and carriage inwards",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Wages paid in the factory",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Salaries and rent of the office",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Discount allowed",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Depreciation for the year",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Closing stock",
+      "bin": "Balance Sheet"
+     },
+     {
+      "label": "Sundry debtors and creditors",
+      "bin": "Balance Sheet"
+     },
+     {
+      "label": "Prepaid insurance",
+      "bin": "Balance Sheet"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Nature and Purpose of Business",
+  "approved": false,
+  "trick": "Business, profession and employment differ by three things: how you start, what you earn and what risk you carry. Business needs capital and carries risk for profit; a profession needs qualification and earns a fee; employment needs an appointment and earns a salary with no risk.",
+  "video": {
+   "query": "nature and purpose of business profession employment class 11 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Business, profession or employment? Sort each feature.",
+    "bins": [
+     "Business",
+     "Profession",
+     "Employment"
+    ],
+    "items": [
+     {
+      "label": "Started by an entrepreneur with capital",
+      "bin": "Business"
+     },
+     {
+      "label": "Reward is profit, which may be a loss instead",
+      "bin": "Business"
+     },
+     {
+      "label": "Bears the risk of uncertain return",
+      "bin": "Business"
+     },
+     {
+      "label": "Requires specialised knowledge and a recognised qualification",
+      "bin": "Profession"
+     },
+     {
+      "label": "Reward is a fee charged to a client",
+      "bin": "Profession"
+     },
+     {
+      "label": "Governed by a professional body's code of conduct",
+      "bin": "Profession"
+     },
+     {
+      "label": "Begins with a letter of appointment",
+      "bin": "Employment"
+     },
+     {
+      "label": "Reward is a fixed salary or wage",
+      "bin": "Employment"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Forms of Business Organisation",
+  "approved": false,
+  "trick": "Liability is the dividing line. A sole trader and a partnership carry unlimited liability, so a business debt can reach the owner's own house; a company carries limited liability, so it cannot. Almost every comparison question in this chapter comes back to that.",
+  "video": {
+   "query": "forms of business organisation sole proprietorship partnership company class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each form of organisation with its defining feature.",
+    "pairs": [
+     {
+      "left": "Sole proprietorship",
+      "right": "One owner, unlimited liability, no separate legal existence"
+     },
+     {
+      "left": "Partnership",
+      "right": "Two or more owners sharing profits, with unlimited liability"
+     },
+     {
+      "left": "Hindu Undivided Family business",
+      "right": "Controlled by the Karta, membership by birth into the family"
+     },
+     {
+      "left": "Cooperative society",
+      "right": "Voluntary membership, one member one vote, service before profit"
+     },
+     {
+      "left": "Private limited company",
+      "right": "Limited liability, shares not offered to the public"
+     },
+     {
+      "left": "Public limited company",
+      "right": "Limited liability, shares freely transferable and publicly traded"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Trade, Commerce and Auxiliaries to Trade",
+  "approved": false,
+  "trick": "Commerce is the wider word: trade is the buying and selling itself, and the auxiliaries are everything that makes trade possible. So commerce equals trade plus aids to trade — banking, insurance, transport, warehousing, advertising.",
+  "video": {
+   "query": "trade commerce and auxiliaries to trade class 11 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each auxiliary to trade with the problem it removes.",
+    "pairs": [
+     {
+      "left": "Transport",
+      "right": "The hindrance of place: goods are made far from buyers"
+     },
+     {
+      "left": "Warehousing",
+      "right": "The hindrance of time: goods are made before they are wanted"
+     },
+     {
+      "left": "Insurance",
+      "right": "The hindrance of risk: goods may be lost or damaged"
+     },
+     {
+      "left": "Banking",
+      "right": "The hindrance of finance: trade needs money before it earns any"
+     },
+     {
+      "left": "Advertising",
+      "right": "The hindrance of information: buyers do not know the goods exist"
+     },
+     {
+      "left": "Packaging and grading",
+      "right": "The difficulty of handling and comparing goods"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Business Services: Banking, Insurance, Transport and Warehousing",
+  "approved": false,
+  "trick": "Insurance rests on three ideas that get asked again and again: utmost good faith, insurable interest and indemnity. Indemnity means you are restored to your former position, never enriched — which is why you cannot insure a ₹1 lakh car for ₹5 lakh and profit from a crash.",
+  "video": {
+   "query": "business services banking insurance principles transport warehousing class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about business services.",
+    "items": [
+     {
+      "statement": "Under the principle of indemnity, the insured is put back in the position held before the loss.",
+      "is_true": true,
+      "why": "Insurance compensates; it does not reward. This is why you cannot profit from a claim."
+     },
+     {
+      "statement": "Life insurance is a contract of indemnity.",
+      "is_true": false,
+      "why": "Life cannot be valued in money, so a life policy is a contract of assurance for an agreed sum, not indemnity. This is the exception examiners look for."
+     },
+     {
+      "statement": "Utmost good faith requires both parties to disclose all material facts.",
+      "is_true": true,
+      "why": "Hiding an illness or a fire risk makes the contract voidable, because the insurer priced it on what it was told."
+     },
+     {
+      "statement": "A current account normally pays a high rate of interest.",
+      "is_true": false,
+      "why": "Current accounts are for frequent business transactions and usually earn no interest. It is fixed deposits that pay the highest rate."
+     },
+     {
+      "statement": "Warehousing creates time utility.",
+      "is_true": true,
+      "why": "It holds goods from the moment they are produced to the moment they are wanted, which is exactly the creation of time utility."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Emerging Modes of Business",
+  "approved": false,
+  "trick": "Keep e-business and outsourcing apart. E-business changes how a firm transacts, by moving it online; outsourcing changes who does the work, by handing it to somebody else. A call centre in Kolkata answering American customers is outsourcing, not e-business.",
+  "video": {
+   "query": "e-business outsourcing BPO KPO emerging modes of business class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     {
+      "left": "B2B commerce",
+      "right": "One business transacting with another, such as a supplier and a factory"
+     },
+     {
+      "left": "B2C commerce",
+      "right": "A business selling directly to the final consumer"
+     },
+     {
+      "left": "C2C commerce",
+      "right": "Consumers buying and selling to each other on a platform"
+     },
+     {
+      "left": "BPO",
+      "right": "Business process outsourcing: routine processes handed to another firm"
+     },
+     {
+      "left": "KPO",
+      "right": "Knowledge process outsourcing: research and analysis, needing expertise"
+     },
+     {
+      "left": "Outsourcing",
+      "right": "Contracting out work that the firm could have done itself"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Social Responsibility and Consumer Protection",
+  "approved": false,
+  "trick": "Consumer rights come in a set of six, and the examiners like the pair that sound alike: the right to be informed is about knowing the facts before buying, while the right to consumer education is about knowing your rights at all. Different rights, easily confused.",
+  "video": {
+   "query": "social responsibility of business consumer protection act rights class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each consumer right with what it protects.",
+    "pairs": [
+     {
+      "left": "Right to safety",
+      "right": "Protection from goods that are hazardous to life or health"
+     },
+     {
+      "left": "Right to be informed",
+      "right": "Full facts about quality, quantity, price and ingredients before buying"
+     },
+     {
+      "left": "Right to choose",
+      "right": "Access to a variety of goods at competitive prices"
+     },
+     {
+      "left": "Right to be heard",
+      "right": "Assurance that a complaint will receive due consideration"
+     },
+     {
+      "left": "Right to seek redressal",
+      "right": "Compensation for unfair trade practices or defective goods"
+     },
+     {
+      "left": "Right to consumer education",
+      "right": "Knowledge of one's own rights and how to exercise them"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Entrepreneurship",
+  "approved": false,
+  "trick": "An entrepreneur is not simply someone who starts a business; the defining act is bearing uncertainty for an innovation. Schumpeter's word for it is creative destruction — the new way of doing things kills the old one, which is why the risk is real.",
+  "video": {
+   "query": "entrepreneurship characteristics functions startup India class 11 business studies",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about entrepreneurship.",
+    "items": [
+     {
+      "statement": "Risk-bearing is an essential function of the entrepreneur.",
+      "is_true": true,
+      "why": "Someone must carry the uncertainty of an unknown return, and that is what distinguishes the entrepreneur from a salaried manager."
+     },
+     {
+      "statement": "An entrepreneur and a manager are the same thing.",
+      "is_true": false,
+      "why": "A manager runs an existing plan for a salary; an entrepreneur conceives the venture and carries the risk of it failing."
+     },
+     {
+      "statement": "Innovation is central to entrepreneurship.",
+      "is_true": true,
+      "why": "Schumpeter defined the entrepreneur precisely as the innovator, whether of a product, a method, a market or a source of supply."
+     },
+     {
+      "statement": "Every entrepreneur must be an inventor.",
+      "is_true": false,
+      "why": "Inventing creates something new; entrepreneurship brings it to market. Many of the most successful entrepreneurs invented nothing themselves."
+     },
+     {
+      "statement": "A start-up needs no plan because ideas matter more than paperwork.",
+      "is_true": false,
+      "why": "A business plan is how the idea is tested for feasibility and how finance is raised. Skipping it is one of the commonest causes of failure."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Basic Concepts of Cost",
+  "approved": false,
+  "trick": "Cost, expense and loss are three different things. A cost becomes an expense only when it is set against revenue, and it becomes a loss when it yields no benefit at all. Unsold stock is a cost sitting on the balance sheet, not yet an expense.",
+  "video": {
+   "query": "basic concepts of cost cost accounting introduction class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with its meaning.",
+    "pairs": [
+     {
+      "left": "Cost",
+      "right": "The amount of resources given up to obtain something"
+     },
+     {
+      "left": "Expense",
+      "right": "A cost that has been matched against the revenue of a period"
+     },
+     {
+      "left": "Loss",
+      "right": "A cost that brought no benefit in return"
+     },
+     {
+      "left": "Cost centre",
+      "right": "A location or function for which costs are collected"
+     },
+     {
+      "left": "Cost unit",
+      "right": "The unit of product or service against which cost is measured"
+     },
+     {
+      "left": "Cost object",
+      "right": "Anything for which a separate measurement of cost is wanted"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Elements of Cost and Prime Cost",
+  "approved": false,
+  "trick": "The cost sheet builds in a fixed order and each level has a name. Prime cost is direct material plus direct labour plus direct expenses. Add factory overhead and it becomes works cost, add office overhead for cost of production, add selling overhead for total cost. Learn the ladder and the sheet writes itself.",
+  "video": {
+   "query": "cost sheet prime cost works cost total cost format class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Build the cost sheet from the bottom up, in the correct order.",
+    "items": [
+     {
+      "label": "Direct material consumed",
+      "note": "Opening stock plus purchases minus closing stock of raw material"
+     },
+     {
+      "label": "Add direct labour and direct expenses to get PRIME COST",
+      "note": "The three direct elements together"
+     },
+     {
+      "label": "Add factory or works overhead to get WORKS COST",
+      "note": "Factory rent, power, depreciation of machinery"
+     },
+     {
+      "label": "Add office and administration overhead to get COST OF PRODUCTION",
+      "note": "Office salaries, office rent"
+     },
+     {
+      "label": "Add selling and distribution overhead to get TOTAL COST",
+      "note": "Advertising, carriage outwards, salesmen's commission"
+     },
+     {
+      "label": "Add profit to get SALES",
+      "note": "Watch whether profit is quoted on cost or on sales — they differ"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Classification of Costs: Fixed, Variable, Direct and Indirect",
+  "approved": false,
+  "trick": "Two different questions are being asked and students merge them. Fixed or variable asks how the cost behaves when output changes; direct or indirect asks whether it can be traced to one product. Factory rent is fixed and indirect; raw material is variable and direct — but the two pairs are independent.",
+  "video": {
+   "query": "classification of costs fixed variable direct indirect class 11 cost accounting",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each cost stay the same in total as output rises, or change with it?",
+    "bins": [
+     "Fixed cost",
+     "Variable cost",
+     "Semi-variable cost"
+    ],
+    "items": [
+     {
+      "label": "Factory rent",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Salary of the works manager",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Insurance of the building",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Raw material consumed",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Wages paid per piece produced",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Power used by the machines",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Telephone bill with a fixed rental plus call charges",
+      "bin": "Semi-variable cost"
+     },
+     {
+      "label": "A supervisor's salary plus overtime that rises with output",
+      "bin": "Semi-variable cost"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Objectives and Scope of Cost Accounting",
+  "approved": false,
+  "trick": "Financial accounting reports to outsiders and is compulsory; cost accounting reports to managers and is voluntary. That single difference explains all the others — why cost accounts can be as detailed as management wants and need follow no prescribed format.",
+  "video": {
+   "query": "cost accounting objectives scope difference from financial accounting class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Financial accounting or cost accounting? Sort each feature.",
+    "bins": [
+     "Financial accounting",
+     "Cost accounting"
+    ],
+    "items": [
+     {
+      "label": "Prepared mainly for shareholders, creditors and the government",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared mainly for management inside the firm",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Legally compulsory for a company",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Voluntary, except where a cost audit is ordered",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Reports the results of the business as a whole",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Reports the cost of each product, job or process",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Prepared at the end of the accounting year",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared continuously, as often as management needs",
+      "bin": "Cost accounting"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Introduction to Taxation",
+  "approved": false,
+  "trick": "A tax is a compulsory payment with no direct return promised, and that is what separates it from a fee. You pay a fee for a passport and get a passport; you pay income tax and get no specific thing in exchange.",
+  "video": {
+   "query": "introduction to taxation canons of taxation objectives class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about taxation.",
+    "items": [
+     {
+      "statement": "A tax is a compulsory payment with no direct benefit promised in return.",
+      "is_true": true,
+      "why": "That is precisely what distinguishes a tax from a fee or a price, where something specific is received."
+     },
+     {
+      "statement": "Adam Smith's canons include equality, certainty, convenience and economy.",
+      "is_true": true,
+      "why": "These four are his original canons; later writers added productivity, elasticity and simplicity."
+     },
+     {
+      "statement": "A progressive tax takes a smaller proportion from higher incomes.",
+      "is_true": false,
+      "why": "Progressive means the rate rises with income. It is a regressive tax that falls more heavily, proportionally, on the poor."
+     },
+     {
+      "statement": "Taxes are levied only to raise revenue.",
+      "is_true": false,
+      "why": "They are also used to reduce inequality, discourage harmful consumption and steer investment. A tax on tobacco is not chiefly about revenue."
+     },
+     {
+      "statement": "The Union and the States both have powers to levy taxes in India.",
+      "is_true": true,
+      "why": "The Constitution divides taxation powers between them, which is exactly why GST needed a constitutional amendment."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "Direct and Indirect Taxes",
+  "approved": false,
+  "trick": "Ask who actually bears the burden. If the person who pays the tax cannot pass it on, it is direct; if the burden shifts to somebody else, it is indirect. Income tax stays with you; GST is collected by the shopkeeper but paid by you.",
+  "video": {
+   "query": "direct and indirect taxes difference examples class 11 taxation",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Direct or indirect? Sort each tax by whether its burden can be shifted.",
+    "bins": [
+     "Direct tax",
+     "Indirect tax"
+    ],
+    "items": [
+     {
+      "label": "Income tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Corporate tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Capital gains tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Wealth tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Goods and Services Tax",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Customs duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Excise duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "The impact and the incidence fall on different people",
+      "bin": "Indirect tax"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Cost & Taxation",
+  "chapter": "GST: Concept and Introduction",
+  "approved": false,
+  "trick": "GST is a destination-based tax on value added, and the split follows the state line. Within one state it is CGST plus SGST; across states it is IGST alone. Ask where the goods finish their journey and the right head names itself.",
+  "video": {
+   "query": "GST concept CGST SGST IGST input tax credit class 11",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Complete these facts about GST. Two entries in the bank are decoys.",
+    "text": "GST came into force in India on 1 July {1}. A sale within a single state attracts {2} and SGST together, while a sale from one state to another attracts {3}. GST is a {4}-based tax, meaning it accrues to the state where the goods are finally consumed. The mechanism that stops tax being charged on tax is called {5} tax credit, and the body that decides GST rates is the GST {6}.",
+    "answers": [
+     "2017",
+     "CGST",
+     "IGST",
+     "destination",
+     "input",
+     "Council"
+    ],
+    "bank": [
+     "2017",
+     "CGST",
+     "IGST",
+     "destination",
+     "input",
+     "Council",
+     "2016",
+     "origin"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Introduction to Economics and the Central Problem",
+  "approved": false,
+  "trick": "The central problem exists because wants are unlimited and resources are scarce and have alternative uses. Strip out any one of those three and there is no economics left — that is why every definition in the chapter mentions scarcity.",
+  "video": {
+   "query": "central problems of an economy scarcity choice class 11 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each central problem with the question it asks.",
+    "pairs": [
+     {
+      "left": "What to produce",
+      "right": "Which goods, and in what quantities, given limited resources"
+     },
+     {
+      "left": "How to produce",
+      "right": "Labour-intensive or capital-intensive technique"
+     },
+     {
+      "left": "For whom to produce",
+      "right": "How the output is distributed among the people"
+     },
+     {
+      "left": "Scarcity",
+      "right": "Resources are limited relative to unlimited wants"
+     },
+     {
+      "left": "Opportunity cost",
+      "right": "The value of the next best alternative given up"
+     },
+     {
+      "left": "Alternative uses",
+      "right": "The same resource could have been used for something else"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Production Possibility Curve and Opportunity Cost",
+  "approved": false,
+  "trick": "Read the position of a point and it tells you the whole story: on the curve means full and efficient use, inside means unemployment or inefficiency, outside means unattainable with present resources. And the curve bows outward because resources are not equally good at both jobs.",
+  "video": {
+   "query": "production possibility curve opportunity cost class 11 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the production possibility curve.",
+    "items": [
+     {
+      "statement": "A point inside the curve means resources are not fully employed.",
+      "is_true": true,
+      "why": "The economy could produce more of both goods, so something is idle or being used inefficiently."
+     },
+     {
+      "statement": "A point outside the curve is attainable if the country simply works harder.",
+      "is_true": false,
+      "why": "It is unattainable with present resources and technology. Only growth in resources or better technology can move the curve outward."
+     },
+     {
+      "statement": "The curve is concave to the origin because of increasing opportunity cost.",
+      "is_true": true,
+      "why": "Resources are not equally suited to both goods, so each extra unit of one costs more of the other."
+     },
+     {
+      "statement": "Every point on the curve represents the same level of welfare.",
+      "is_true": false,
+      "why": "All points on the curve are efficient, but they are not equally desirable. Which one is best is a social choice, not a technical one."
+     },
+     {
+      "statement": "The discovery of a new technology shifts the curve outward.",
+      "is_true": true,
+      "why": "It raises what the same resources can produce, which is economic growth."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Consumer Behaviour: Utility Analysis",
+  "approved": false,
+  "trick": "Marginal utility is the extra satisfaction from one more unit, and it falls as you consume more — the fourth glass of water is worth far less than the first. Total utility is still rising while marginal utility falls, and it is highest exactly when marginal utility reaches zero.",
+  "video": {
+   "query": "utility analysis law of diminishing marginal utility class 11 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about utility.",
+    "items": [
+     {
+      "statement": "Total utility is maximum when marginal utility is zero.",
+      "is_true": true,
+      "why": "While marginal utility is positive each extra unit still adds something; once it turns negative total utility falls. The peak is exactly where it crosses zero."
+     },
+     {
+      "statement": "Marginal utility can be negative.",
+      "is_true": true,
+      "why": "Consuming past the point of satisfaction causes discomfort — the sixth sweet that makes you feel sick."
+     },
+     {
+      "statement": "If marginal utility is falling, total utility must also be falling.",
+      "is_true": false,
+      "why": "Total utility still rises so long as marginal utility is positive; it merely rises more slowly. This is the most misunderstood point in the chapter."
+     },
+     {
+      "statement": "The law of equi-marginal utility says a consumer equalises marginal utility per rupee across goods.",
+      "is_true": true,
+      "why": "Spending is shifted from one good to another until the last rupee spent on each yields the same satisfaction."
+     },
+     {
+      "statement": "Utility is the same thing as usefulness.",
+      "is_true": false,
+      "why": "Utility means want-satisfying power, not usefulness or morality. A cigarette has utility for a smoker while being harmful."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Demand and its Determinants",
+  "approved": false,
+  "trick": "A price change moves you along the demand curve; anything else shifts the whole curve. That is the difference between a change in quantity demanded and a change in demand, and it is the single most tested distinction in the chapter.",
+  "video": {
+   "query": "law of demand determinants shift versus movement class 11 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each change move you along the curve, or shift the whole curve?",
+    "bins": [
+     "Movement along the curve",
+     "Shift of the whole curve"
+    ],
+    "items": [
+     {
+      "label": "The price of the good itself falls",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "The price of the good itself rises",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Consumers' incomes rise",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The price of a substitute good rises",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The price of a complementary good falls",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "Tastes and fashion turn against the good",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The population of the town grows",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "Nothing changes but the good's own price",
+      "bin": "Movement along the curve"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Production Function and the Law of Variable Proportions",
+  "approved": false,
+  "trick": "The law of variable proportions works in the short run, where at least one factor is fixed. Output rises at an increasing rate, then at a diminishing rate, then falls outright — three stages, and a sensible producer always operates in the second.",
+  "video": {
+   "query": "law of variable proportions returns to a factor three stages class 11 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages of the law of variable proportions in order.",
+    "items": [
+     {
+      "label": "Stage I: increasing returns to the factor",
+      "note": "Total product rises at an increasing rate; marginal product rises to its peak"
+     },
+     {
+      "label": "Marginal product reaches its maximum",
+      "note": "The end of increasing returns"
+     },
+     {
+      "label": "Stage II: diminishing returns",
+      "note": "Total product still rises but more slowly; marginal product falls towards zero"
+     },
+     {
+      "label": "Total product reaches its maximum and marginal product is zero",
+      "note": "The rational producer stops here"
+     },
+     {
+      "label": "Stage III: negative returns",
+      "note": "Marginal product is negative and total product actually falls"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Collection and Organisation of Data",
+  "approved": false,
+  "trick": "Primary data is collected by the investigator for the purpose in hand; secondary data was collected by somebody else for some other purpose. The same figures can be primary to one person and secondary to another, which is why the definition names the collector, not the numbers.",
+  "video": {
+   "query": "primary and secondary data collection classification class 11 statistics economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Primary or secondary data, from the point of view of the person using it?",
+    "bins": [
+     "Primary data",
+     "Secondary data"
+    ],
+    "items": [
+     {
+      "label": "A student surveys her own class about their travel to school",
+      "bin": "Primary data"
+     },
+     {
+      "label": "An investigator interviews shopkeepers face to face",
+      "bin": "Primary data"
+     },
+     {
+      "label": "A researcher mails her own questionnaire to farmers",
+      "bin": "Primary data"
+     },
+     {
+      "label": "Figures taken from the Census of India report",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Rainfall figures copied from a newspaper",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Data downloaded from the Reserve Bank's published bulletin",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Costs more time and money but is exactly suited to the enquiry",
+      "bin": "Primary data"
+     },
+     {
+      "label": "Cheap and quick, but may not fit the purpose it is being used for",
+      "bin": "Secondary data"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Presentation of Data: Diagrams and Graphs",
+  "approved": false,
+  "trick": "Choose the diagram by the question. Comparing sizes calls for a bar diagram, showing parts of a whole calls for a pie chart, showing change over time calls for a line graph, and showing a frequency distribution calls for a histogram. Bars have gaps; histogram bars do not.",
+  "video": {
+   "query": "presentation of data bar diagram pie chart histogram class 11 statistics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each diagram with the job it does best.",
+    "pairs": [
+     {
+      "left": "Simple bar diagram",
+      "right": "Comparing the size of a few separate categories"
+     },
+     {
+      "left": "Pie chart",
+      "right": "Showing how a whole divides into parts"
+     },
+     {
+      "left": "Line graph or time series",
+      "right": "Showing how a value changes over time"
+     },
+     {
+      "left": "Histogram",
+      "right": "A frequency distribution of continuous data; no gaps between bars"
+     },
+     {
+      "left": "Frequency polygon",
+      "right": "Joining the midpoints of the tops of the histogram bars"
+     },
+     {
+      "left": "Ogive",
+      "right": "A cumulative frequency curve, used to read off the median"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Economics",
+  "chapter": "Measures of Central Tendency",
+  "approved": false,
+  "trick": "Use the mean for balanced data, the median when a few extreme values would distort it, and the mode when you want the commonest value. One billionaire in a village raises the mean income enormously and barely moves the median — which is why the median is quoted for incomes.",
+  "video": {
+   "query": "mean median mode calculation class 11 statistics economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Compare the three averages on the same data, one step at a time.",
+    "problem": "Seven households have monthly incomes of ₹10,000, ₹12,000, ₹12,000, ₹14,000, ₹15,000, ₹17,000 and ₹1,00,000. Find the mean, the median and the mode.",
+    "steps": [
+     {
+      "ask": "What is the mean?",
+      "options": [
+       "₹14,000",
+       "₹25,714",
+       "₹12,000"
+      ],
+      "correct": 1,
+      "why": "The total is ₹1,80,000 and there are 7 households, so the mean is about ₹25,714 — more than all but one household actually earns."
+     },
+     {
+      "ask": "The values are already in order. What is the median?",
+      "options": [
+       "₹14,000",
+       "₹12,000",
+       "₹25,714"
+      ],
+      "correct": 0,
+      "why": "With 7 values the median is the 4th, which is ₹14,000. The huge last value does not move it at all."
+     },
+     {
+      "ask": "What is the mode?",
+      "options": [
+       "₹14,000",
+       "₹12,000",
+       "There is no mode"
+      ],
+      "correct": 1,
+      "why": "₹12,000 appears twice and every other value once, so it is the most frequent."
+     },
+     {
+      "ask": "Which average best describes this village?",
+      "options": [
+       "The mean, because it uses every value",
+       "The median, because one extreme value distorts the mean"
+      ],
+      "correct": 1,
+      "why": "Six of the seven households earn far less than the mean. This is exactly why incomes are usually reported as medians."
+     }
+    ],
+    "answer": "Mean ₹25,714, median ₹14,000, mode ₹12,000 — and the median describes the village best."
+   }
+  }
  }
 ]

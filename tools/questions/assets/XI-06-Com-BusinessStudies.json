@@ -1,0 +1,150 @@
+[
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Nature and Purpose of Business",
+  "approved": false,
+  "trick": "Business, profession and employment differ by three things: how you start, what you earn and what risk you carry. Business needs capital and carries risk for profit; a profession needs qualification and earns a fee; employment needs an appointment and earns a salary with no risk.",
+  "video": { "query": "nature and purpose of business profession employment class 11 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Business, profession or employment? Sort each feature.",
+    "bins": ["Business", "Profession", "Employment"],
+    "items": [
+     { "label": "Started by an entrepreneur with capital", "bin": "Business" },
+     { "label": "Reward is profit, which may be a loss instead", "bin": "Business" },
+     { "label": "Bears the risk of uncertain return", "bin": "Business" },
+     { "label": "Requires specialised knowledge and a recognised qualification", "bin": "Profession" },
+     { "label": "Reward is a fee charged to a client", "bin": "Profession" },
+     { "label": "Governed by a professional body's code of conduct", "bin": "Profession" },
+     { "label": "Begins with a letter of appointment", "bin": "Employment" },
+     { "label": "Reward is a fixed salary or wage", "bin": "Employment" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Forms of Business Organisation",
+  "approved": false,
+  "trick": "Liability is the dividing line. A sole trader and a partnership carry unlimited liability, so a business debt can reach the owner's own house; a company carries limited liability, so it cannot. Almost every comparison question in this chapter comes back to that.",
+  "video": { "query": "forms of business organisation sole proprietorship partnership company class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each form of organisation with its defining feature.",
+    "pairs": [
+     { "left": "Sole proprietorship", "right": "One owner, unlimited liability, no separate legal existence" },
+     { "left": "Partnership", "right": "Two or more owners sharing profits, with unlimited liability" },
+     { "left": "Hindu Undivided Family business", "right": "Controlled by the Karta, membership by birth into the family" },
+     { "left": "Cooperative society", "right": "Voluntary membership, one member one vote, service before profit" },
+     { "left": "Private limited company", "right": "Limited liability, shares not offered to the public" },
+     { "left": "Public limited company", "right": "Limited liability, shares freely transferable and publicly traded" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Trade, Commerce and Auxiliaries to Trade",
+  "approved": false,
+  "trick": "Commerce is the wider word: trade is the buying and selling itself, and the auxiliaries are everything that makes trade possible. So commerce equals trade plus aids to trade — banking, insurance, transport, warehousing, advertising.",
+  "video": { "query": "trade commerce and auxiliaries to trade class 11 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each auxiliary to trade with the problem it removes.",
+    "pairs": [
+     { "left": "Transport", "right": "The hindrance of place: goods are made far from buyers" },
+     { "left": "Warehousing", "right": "The hindrance of time: goods are made before they are wanted" },
+     { "left": "Insurance", "right": "The hindrance of risk: goods may be lost or damaged" },
+     { "left": "Banking", "right": "The hindrance of finance: trade needs money before it earns any" },
+     { "left": "Advertising", "right": "The hindrance of information: buyers do not know the goods exist" },
+     { "left": "Packaging and grading", "right": "The difficulty of handling and comparing goods" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Business Services: Banking, Insurance, Transport and Warehousing",
+  "approved": false,
+  "trick": "Insurance rests on three ideas that get asked again and again: utmost good faith, insurable interest and indemnity. Indemnity means you are restored to your former position, never enriched — which is why you cannot insure a ₹1 lakh car for ₹5 lakh and profit from a crash.",
+  "video": { "query": "business services banking insurance principles transport warehousing class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about business services.",
+    "items": [
+     { "statement": "Under the principle of indemnity, the insured is put back in the position held before the loss.", "is_true": true, "why": "Insurance compensates; it does not reward. This is why you cannot profit from a claim." },
+     { "statement": "Life insurance is a contract of indemnity.", "is_true": false, "why": "Life cannot be valued in money, so a life policy is a contract of assurance for an agreed sum, not indemnity. This is the exception examiners look for." },
+     { "statement": "Utmost good faith requires both parties to disclose all material facts.", "is_true": true, "why": "Hiding an illness or a fire risk makes the contract voidable, because the insurer priced it on what it was told." },
+     { "statement": "A current account normally pays a high rate of interest.", "is_true": false, "why": "Current accounts are for frequent business transactions and usually earn no interest. It is fixed deposits that pay the highest rate." },
+     { "statement": "Warehousing creates time utility.", "is_true": true, "why": "It holds goods from the moment they are produced to the moment they are wanted, which is exactly the creation of time utility." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Emerging Modes of Business",
+  "approved": false,
+  "trick": "Keep e-business and outsourcing apart. E-business changes how a firm transacts, by moving it online; outsourcing changes who does the work, by handing it to somebody else. A call centre in Kolkata answering American customers is outsourcing, not e-business.",
+  "video": { "query": "e-business outsourcing BPO KPO emerging modes of business class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     { "left": "B2B commerce", "right": "One business transacting with another, such as a supplier and a factory" },
+     { "left": "B2C commerce", "right": "A business selling directly to the final consumer" },
+     { "left": "C2C commerce", "right": "Consumers buying and selling to each other on a platform" },
+     { "left": "BPO", "right": "Business process outsourcing: routine processes handed to another firm" },
+     { "left": "KPO", "right": "Knowledge process outsourcing: research and analysis, needing expertise" },
+     { "left": "Outsourcing", "right": "Contracting out work that the firm could have done itself" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Social Responsibility and Consumer Protection",
+  "approved": false,
+  "trick": "Consumer rights come in a set of six, and the examiners like the pair that sound alike: the right to be informed is about knowing the facts before buying, while the right to consumer education is about knowing your rights at all. Different rights, easily confused.",
+  "video": { "query": "social responsibility of business consumer protection act rights class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each consumer right with what it protects.",
+    "pairs": [
+     { "left": "Right to safety", "right": "Protection from goods that are hazardous to life or health" },
+     { "left": "Right to be informed", "right": "Full facts about quality, quantity, price and ingredients before buying" },
+     { "left": "Right to choose", "right": "Access to a variety of goods at competitive prices" },
+     { "left": "Right to be heard", "right": "Assurance that a complaint will receive due consideration" },
+     { "left": "Right to seek redressal", "right": "Compensation for unfair trade practices or defective goods" },
+     { "left": "Right to consumer education", "right": "Knowledge of one's own rights and how to exercise them" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Commerce|Business Studies",
+  "chapter": "Entrepreneurship",
+  "approved": false,
+  "trick": "An entrepreneur is not simply someone who starts a business; the defining act is bearing uncertainty for an innovation. Schumpeter's word for it is creative destruction — the new way of doing things kills the old one, which is why the risk is real.",
+  "video": { "query": "entrepreneurship characteristics functions startup India class 11 business studies", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about entrepreneurship.",
+    "items": [
+     { "statement": "Risk-bearing is an essential function of the entrepreneur.", "is_true": true, "why": "Someone must carry the uncertainty of an unknown return, and that is what distinguishes the entrepreneur from a salaried manager." },
+     { "statement": "An entrepreneur and a manager are the same thing.", "is_true": false, "why": "A manager runs an existing plan for a salary; an entrepreneur conceives the venture and carries the risk of it failing." },
+     { "statement": "Innovation is central to entrepreneurship.", "is_true": true, "why": "Schumpeter defined the entrepreneur precisely as the innovator, whether of a product, a method, a market or a source of supply." },
+     { "statement": "Every entrepreneur must be an inventor.", "is_true": false, "why": "Inventing creates something new; entrepreneurship brings it to market. Many of the most successful entrepreneurs invented nothing themselves." },
+     { "statement": "A start-up needs no plan because ideas matter more than paperwork.", "is_true": false, "why": "A business plan is how the idea is tested for feasibility and how finance is raised. Skipping it is one of the commonest causes of failure." }
+    ]
+   }
+  }
+ }
+]

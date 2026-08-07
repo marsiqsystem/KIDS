@@ -1,0 +1,198 @@
+[
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Geography as a Discipline",
+  "approved": false,
+  "trick": "Geography splits along one line: physical geography studies the earth itself, human geography studies people on it. The word 'geography' is Eratosthenes' — geo, earth, and graphos, description — and he is also the man who first measured the earth's circumference.",
+  "video": { "query": "geography as a discipline branches physical human class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each branch of geography.",
+    "bins": ["Physical geography", "Human geography"],
+    "items": [
+     { "label": "Geomorphology", "bin": "Physical geography" },
+     { "label": "Population geography", "bin": "Human geography" },
+     { "label": "Climatology", "bin": "Physical geography" },
+     { "label": "Economic geography", "bin": "Human geography" },
+     { "label": "Oceanography", "bin": "Physical geography" },
+     { "label": "Settlement geography", "bin": "Human geography" },
+     { "label": "Soil geography (pedology)", "bin": "Physical geography" },
+     { "label": "Political geography", "bin": "Human geography" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Origin and Evolution of the Earth",
+  "approved": false,
+  "trick": "The theories fall into two families and the names say which. Nebular and Planetesimal are 'the sun had help from another body or a cloud'; the Big Bang is the origin of the universe, not of the earth alone. Kant and Laplace go with nebular; Chamberlin and Moulton with planetesimal; Jeans and Jeffreys with the tidal theory.",
+  "video": { "query": "origin of the earth nebular planetesimal big bang theory class 11 geography", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each theory with the scientists who proposed it.",
+    "pairs": [
+     { "left": "Nebular hypothesis", "right": "Kant, later revised by Laplace" },
+     { "left": "Planetesimal hypothesis", "right": "Chamberlin and Moulton" },
+     { "left": "Tidal theory", "right": "Jeans and Jeffreys" },
+     { "left": "Binary star theory", "right": "H. N. Russell" },
+     { "left": "Big Bang theory", "right": "Georges Lemaitre — the expanding universe" },
+     { "left": "Continental Drift", "right": "Alfred Wegener — Pangaea and Panthalassa" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Interior of the Earth and Seismic Waves",
+  "approved": false,
+  "trick": "The waves prove the structure. P-waves travel through solids and liquids; S-waves cannot pass through liquid at all — and that single fact is how we know the outer core is molten. The shadow zone on the far side of the earth is the evidence you can point to.",
+  "video": { "query": "interior of the earth crust mantle core seismic waves shadow zone class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "label-diagram",
+   "data": {
+    "prompt": "Label the layers of the earth's interior.",
+    "svg": "<svg viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"46\" fill=\"#d9c39a\" stroke=\"#7a6a4a\" stroke-width=\"0.8\"/><circle cx=\"50\" cy=\"50\" r=\"34\" fill=\"#c98d5a\" stroke=\"#7a6a4a\" stroke-width=\"0.8\"/><circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"#e07b39\" stroke=\"#7a6a4a\" stroke-width=\"0.8\"/><circle cx=\"50\" cy=\"50\" r=\"9\" fill=\"#f5d76e\" stroke=\"#7a6a4a\" stroke-width=\"0.8\"/></svg>",
+    "labels": [
+     { "label": "Crust", "x": 50, "y": 8 },
+     { "label": "Mantle", "x": 50, "y": 22 },
+     { "label": "Outer core (liquid)", "x": 50, "y": 36 },
+     { "label": "Inner core (solid)", "x": 50, "y": 50 }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Endogenic and Exogenic Processes",
+  "approved": false,
+  "trick": "Endo means inside, exo means outside — the words carry the whole distinction. Endogenic forces come from within the earth and build relief up; exogenic forces come from the atmosphere and wear it down. Volcanoes and earthquakes build, rivers and wind level.",
+  "video": { "query": "endogenic and exogenic geomorphic processes class 11 geography", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each process by where its energy comes from.",
+    "bins": ["Endogenic", "Exogenic"],
+    "items": [
+     { "label": "Volcanic eruption", "bin": "Endogenic" },
+     { "label": "River erosion", "bin": "Exogenic" },
+     { "label": "Earthquake", "bin": "Endogenic" },
+     { "label": "Weathering of rock by frost", "bin": "Exogenic" },
+     { "label": "Folding and faulting of strata", "bin": "Endogenic" },
+     { "label": "Deposition of sand by wind", "bin": "Exogenic" },
+     { "label": "Plate movement", "bin": "Endogenic" },
+     { "label": "Glacial abrasion", "bin": "Exogenic" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Weathering and Mass Wasting",
+  "approved": false,
+  "trick": "Weathering breaks rock where it stands; erosion carries it away; mass wasting is the middle case, movement downslope under gravity alone. If nothing is transported, it is weathering — that one test settles most questions in this chapter.",
+  "video": { "query": "physical chemical biological weathering mass wasting class 11 geography", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which kind of weathering, or is it mass wasting?",
+    "bins": ["Physical weathering", "Chemical weathering", "Biological weathering", "Mass wasting"],
+    "items": [
+     { "label": "Water freezing in a crack and splitting the rock", "bin": "Physical weathering" },
+     { "label": "Limestone dissolving in slightly acidic rain", "bin": "Chemical weathering" },
+     { "label": "Tree roots prising apart a wall", "bin": "Biological weathering" },
+     { "label": "A landslide after heavy rain", "bin": "Mass wasting" },
+     { "label": "Exfoliation of rock in layers under daily heating and cooling", "bin": "Physical weathering" },
+     { "label": "Iron minerals rusting to form a crumbly surface", "bin": "Chemical weathering" },
+     { "label": "Burrowing animals loosening the soil", "bin": "Biological weathering" },
+     { "label": "Soil creep down a gentle slope", "bin": "Mass wasting" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Atmosphere: Insolation, Pressure and the Greenhouse Effect",
+  "approved": false,
+  "trick": "Incoming solar radiation is short-wave and passes through the atmosphere easily; the heat the earth radiates back is long-wave and gets trapped. That asymmetry IS the greenhouse effect. Also remember the atmosphere is heated from below, by the earth, not directly by the sun — which is why it gets colder as you climb.",
+  "video": { "query": "insolation heat budget greenhouse effect atmospheric pressure class 11 geography", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the atmosphere.",
+    "items": [
+     { "statement": "The lower atmosphere is heated mainly by radiation from the earth's surface, not directly by the sun.", "is_true": true, "why": "Short-wave solar radiation passes through; the ground absorbs it and re-radiates long-wave heat, which the air absorbs. Hence the fall in temperature with height." },
+     { "statement": "Insolation is greatest at the equator and least at the poles.", "is_true": true, "why": "The sun's rays are near vertical at the equator and slanting at the poles, spreading the same energy over a larger area." },
+     { "statement": "Atmospheric pressure increases with altitude.", "is_true": false, "why": "It decreases — there is less air above you. This is why aircraft cabins are pressurised." },
+     { "statement": "The troposphere is the layer where all weather occurs.", "is_true": true, "why": "It holds almost all the water vapour and dust, and its temperature falls with height, allowing convection." },
+     { "statement": "Greenhouse gases block incoming sunlight.", "is_true": false, "why": "They let short-wave radiation in and hold long-wave radiation on the way out. Blocking sunlight would cool the earth, not warm it." },
+     { "statement": "The normal lapse rate is about 6.5 °C per kilometre.", "is_true": true, "why": "It is the standard figure for the fall of temperature with height in the troposphere." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Human Geography: Nature and Scope",
+  "approved": false,
+  "trick": "Three schools, one argument about who is in charge. Determinism says nature decides and man obeys; possibilism says nature offers possibilities and man chooses; neo-determinism, Griffith Taylor's 'stop and go determinism', says man may proceed but not against nature's red lights.",
+  "video": { "query": "determinism possibilism neodeterminism human geography class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each school of thought with its position and its geographer.",
+    "pairs": [
+     { "left": "Determinism", "right": "Nature dictates; human activity is controlled by the physical environment — Ratzel" },
+     { "left": "Possibilism", "right": "Nature offers possibilities and man selects among them — Vidal de la Blache" },
+     { "left": "Neo-determinism", "right": "Stop and go determinism; man may advance but must heed nature's limits — Griffith Taylor" },
+     { "left": "Human geography", "right": "The study of the relationship between people and their physical environment" },
+     { "left": "Cultural landscape", "right": "The landscape as modified by human activity" },
+     { "left": "Naturalisation of humans", "right": "Early societies adapting closely to what nature allowed" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "Economic Activities: Primary to Quaternary",
+  "approved": false,
+  "trick": "Four levels, each one step further from the raw material. Primary extracts, secondary manufactures, tertiary provides services, quaternary handles knowledge and information. A fifth, quinary, is sometimes added for top decision-makers — so a question offering five options is not necessarily wrong.",
+  "video": { "query": "primary secondary tertiary quaternary economic activities class 11 geography", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Place each occupation at its level of economic activity.",
+    "bins": ["Primary", "Secondary", "Tertiary", "Quaternary"],
+    "items": [
+     { "label": "Mining", "bin": "Primary" },
+     { "label": "Steel manufacture", "bin": "Secondary" },
+     { "label": "Retail trade", "bin": "Tertiary" },
+     { "label": "Scientific research", "bin": "Quaternary" },
+     { "label": "Lumbering", "bin": "Primary" },
+     { "label": "Garment stitching", "bin": "Secondary" },
+     { "label": "Nursing", "bin": "Tertiary" },
+     { "label": "Software development and data processing", "bin": "Quaternary" },
+     { "label": "Fishing", "bin": "Primary" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Geography",
+  "chapter": "India: Location, Physiography and Drainage",
+  "approved": false,
+  "trick": "India lies between 8°4'N and 37°6'N, and 68°7'E to 97°25'E, and 82°30'E is the Standard Meridian — chosen because it passes through Mirzapur and is exactly 5½ hours ahead of Greenwich. The Tropic of Cancer at 23°30'N cuts the country almost in half, which is why the north is subtropical and the south tropical.",
+  "video": { "query": "india location extent standard meridian physiography drainage class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill in the facts about India's location and physiography.",
+    "text": "India extends from {1} in the south to 37°6' N in the north. The Standard Meridian of India is {2} E, which passes through Mirzapur and sets Indian Standard Time {3} hours ahead of Greenwich Mean Time. The {4} of Cancer, at 23°30' N, divides the country into almost two halves. India's southernmost point on the mainland is {5}, while the southernmost point of Indian territory is Indira Point. Rivers that rise in the Himalayas, such as the Ganga and the Brahmaputra, are {6} because they are fed by snowmelt as well as rain.",
+    "answers": ["8°4' N", "82°30'", "5½", "Tropic", "Kanyakumari", "perennial"],
+    "bank": ["8°4' N", "6°45' N", "82°30'", "68°7'", "5½", "6", "Tropic", "Equator", "Kanyakumari", "Indira Point", "perennial", "seasonal"]
+   }
+  }
+ }
+]

@@ -1,0 +1,209 @@
+[
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Introduction to Economics and its Branches",
+  "approved": false,
+  "trick": "Micro looks at one household, one firm, one market; macro looks at the whole economy at once. If the sentence has the word 'aggregate', 'national' or 'general price level' in it, it is macro. If it names a single good or a single firm, it is micro.",
+  "video": { "query": "microeconomics and macroeconomics difference class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each topic into the branch of economics that studies it.",
+    "bins": ["Microeconomics", "Macroeconomics"],
+    "items": [
+     { "label": "The price of onions in a local market", "bin": "Microeconomics" },
+     { "label": "India's national income", "bin": "Macroeconomics" },
+     { "label": "How one household divides its budget", "bin": "Microeconomics" },
+     { "label": "The general price level and inflation", "bin": "Macroeconomics" },
+     { "label": "The output decision of a single firm", "bin": "Microeconomics" },
+     { "label": "The country's rate of unemployment", "bin": "Macroeconomics" },
+     { "label": "The wage in one industry", "bin": "Microeconomics" },
+     { "label": "Total money supply in the economy", "bin": "Macroeconomics" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Central Problems and the Production Possibility Curve",
+  "approved": false,
+  "trick": "Read the position of the point and the whole answer follows: on the curve is full and efficient use, inside means something is idle, outside is impossible today. The curve bows outward because resources are not equally good at both jobs, so each extra unit costs more than the last.",
+  "video": { "query": "production possibility curve central problems class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the production possibility curve.",
+    "items": [
+     { "statement": "A point inside the curve means resources are unemployed or used inefficiently.", "is_true": true, "why": "The economy could have more of both goods without giving up either, so something is being wasted." },
+     { "statement": "A point outside the curve can be reached if people simply work harder.", "is_true": false, "why": "It is unattainable with today's resources and technology. Only growth in resources or better technology moves the curve outward." },
+     { "statement": "The curve slopes downward because producing more of one good means producing less of the other.", "is_true": true, "why": "Resources are fully used, so the only way to get more of one is to move resources away from the other. That sacrifice is the opportunity cost." },
+     { "statement": "Opportunity cost is the money price of the good.", "is_true": false, "why": "It is the next best alternative given up, measured in goods, not in rupees. A student choosing Arts gives up the Science seat, whatever the fees." },
+     { "statement": "Every point on the curve is equally desirable.", "is_true": false, "why": "All of them are efficient, but choosing between guns and butter is a social judgement, not a technical one." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Economic Systems",
+  "approved": false,
+  "trick": "Ask one question and the system names itself: who decides what gets produced? The price mechanism alone is capitalist, the government alone is socialist, both together is mixed. India is mixed, which is why the answer to 'what kind of economy is India' is never 'socialist'.",
+  "video": { "query": "capitalist socialist mixed economy comparison class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which economic system does each feature belong to?",
+    "bins": ["Capitalist", "Socialist", "Mixed"],
+    "items": [
+     { "label": "Means of production privately owned", "bin": "Capitalist" },
+     { "label": "Central planning authority decides output", "bin": "Socialist" },
+     { "label": "Public and private sectors both operate", "bin": "Mixed" },
+     { "label": "Profit motive drives production", "bin": "Capitalist" },
+     { "label": "Social welfare is the stated goal", "bin": "Socialist" },
+     { "label": "Government regulates a largely private market", "bin": "Mixed" },
+     { "label": "Consumer sovereignty through the price mechanism", "bin": "Capitalist" },
+     { "label": "India after 1947", "bin": "Mixed" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Consumer Behaviour: Utility",
+  "approved": false,
+  "trick": "Marginal utility falls as you consume more, but total utility is still rising the whole time marginal utility stays positive. Total utility peaks exactly where marginal utility hits zero — that single sentence answers most questions in this chapter.",
+  "video": { "query": "law of diminishing marginal utility total and marginal utility class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work through a utility schedule one step at a time.",
+    "problem": "A consumer's total utility from eating rasgullas is: 1st → 20 units, 2nd → 35, 3rd → 45, 4th → 50, 5th → 50, 6th → 45.",
+    "steps": [
+     { "ask": "What is the marginal utility of the 2nd rasgulla?", "options": ["35", "15", "55"], "correct": 1, "why": "Marginal utility is the change in total utility: 35 − 20 = 15." },
+     { "ask": "What is the marginal utility of the 5th?", "options": ["0", "5", "50"], "correct": 0, "why": "Total utility does not change: 50 − 50 = 0." },
+     { "ask": "At which rasgulla is total utility highest?", "options": ["the 3rd", "the 4th and 5th together", "the 6th"], "correct": 1, "why": "Total utility reaches 50 at the 4th and stays there at the 5th, which is where marginal utility is zero." },
+     { "ask": "What does the 6th rasgulla tell you?", "options": ["Marginal utility has turned negative", "The consumer is still gaining", "Utility cannot fall"], "correct": 0, "why": "Total utility falls from 50 to 45, so the 6th unit has a marginal utility of −5. Eating past satisfaction causes discomfort." }
+    ],
+    "answer": "Marginal utility falls throughout, reaches zero at the 5th unit where total utility peaks at 50, and turns negative after that."
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Demand, Supply and Market Equilibrium",
+  "approved": false,
+  "trick": "A change in the good's own price moves you ALONG the curve; a change in anything else SHIFTS the whole curve. Getting that distinction right is the difference between 'change in quantity demanded' and 'change in demand', and examiners test the wording, not the idea.",
+  "video": { "query": "law of demand supply market equilibrium shift versus movement class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each event move you along the demand curve, or shift it?",
+    "bins": ["Movement along the curve", "Shift of the curve"],
+    "items": [
+     { "label": "The price of the good itself falls", "bin": "Movement along the curve" },
+     { "label": "Consumers' incomes rise", "bin": "Shift of the curve" },
+     { "label": "The price of a substitute good rises", "bin": "Shift of the curve" },
+     { "label": "The good's own price rises after a tax on it", "bin": "Movement along the curve" },
+     { "label": "Tastes turn against the good", "bin": "Shift of the curve" },
+     { "label": "The population of buyers grows", "bin": "Shift of the curve" },
+     { "label": "The price of a complementary good falls", "bin": "Shift of the curve" },
+     { "label": "The good's price is cut in a sale", "bin": "Movement along the curve" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Sectors of the Economy",
+  "approved": false,
+  "trick": "Primary takes it from nature, secondary changes its form, tertiary serves without making a thing. Cotton grown is primary, cloth woven is secondary, the shop that sells the shirt is tertiary — one cotton shirt walks through all three.",
+  "video": { "query": "primary secondary tertiary sectors of economy class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Place each activity in its sector.",
+    "bins": ["Primary", "Secondary", "Tertiary"],
+    "items": [
+     { "label": "Fishing in the Bay of Bengal", "bin": "Primary" },
+     { "label": "Weaving cloth in a mill", "bin": "Secondary" },
+     { "label": "Teaching in a school", "bin": "Tertiary" },
+     { "label": "Mining coal in Raniganj", "bin": "Primary" },
+     { "label": "Assembling a car", "bin": "Secondary" },
+     { "label": "Banking and insurance", "bin": "Tertiary" },
+     { "label": "Growing jute", "bin": "Primary" },
+     { "label": "Transporting goods by rail", "bin": "Tertiary" },
+     { "label": "Baking biscuits in a factory", "bin": "Secondary" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "National Income and GDP",
+  "approved": false,
+  "trick": "Domestic means inside the borders whoever earns it; National means earned by residents wherever they are. So National = Domestic + net factor income from abroad. And 'gross' minus depreciation is 'net' — those two words are the only difference between four of the aggregates.",
+  "video": { "query": "GDP GNP NDP NNP national income aggregates class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each aggregate with what it means.",
+    "pairs": [
+     { "left": "GDP at market price", "right": "Value of final goods produced inside the country in a year, before depreciation" },
+     { "left": "NDP at market price", "right": "GDP at market price minus depreciation" },
+     { "left": "GNP at market price", "right": "GDP plus net factor income from abroad" },
+     { "left": "National income", "right": "NNP at factor cost — what residents actually earn" },
+     { "left": "Depreciation", "right": "The fall in value of capital through wear and tear" },
+     { "left": "Net factor income from abroad", "right": "Income earned by residents abroad minus income earned by foreigners here" },
+     { "left": "Per capita income", "right": "National income divided by population" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Money, Banking and the Reserve Bank of India",
+  "approved": false,
+  "trick": "The RBI does the things no ordinary bank may do: it issues currency, keeps the government's account and lends to other banks. A commercial bank accepts deposits and lends to the public. Every 'function of the central bank' question is really asking you to spot which of those two lists an item belongs to.",
+  "video": { "query": "functions of reserve bank of india and commercial banks class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which institution performs each function?",
+    "bins": ["Reserve Bank of India", "Commercial bank"],
+    "items": [
+     { "label": "Issues currency notes", "bin": "Reserve Bank of India" },
+     { "label": "Accepts savings deposits from the public", "bin": "Commercial bank" },
+     { "label": "Acts as banker to the government", "bin": "Reserve Bank of India" },
+     { "label": "Gives a shopkeeper a loan", "bin": "Commercial bank" },
+     { "label": "Is the lender of last resort", "bin": "Reserve Bank of India" },
+     { "label": "Controls credit through the repo rate and CRR", "bin": "Reserve Bank of India" },
+     { "label": "Creates credit through deposit multiplication", "bin": "Commercial bank" },
+     { "label": "Keeps the country's foreign exchange reserves", "bin": "Reserve Bank of India" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|Economics",
+  "chapter": "Inflation and Unemployment",
+  "approved": false,
+  "trick": "Demand-pull is too much money chasing too few goods; cost-push is production itself becoming dearer. And unemployment has a type for each cause: seasonal follows the calendar, frictional is the gap between two jobs, structural is a skill the economy no longer wants, disguised is extra hands adding nothing.",
+  "video": { "query": "types of inflation and unemployment class 11 economics", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each situation with the type of inflation or unemployment it shows.",
+    "pairs": [
+     { "left": "Money supply rises sharply while output is unchanged", "right": "Demand-pull inflation" },
+     { "left": "Crude oil prices double and everything costs more to make", "right": "Cost-push inflation" },
+     { "left": "Prices rising very slowly, a few per cent a year", "right": "Creeping inflation" },
+     { "left": "Prices rising so fast money loses meaning", "right": "Hyperinflation" },
+     { "left": "Farm labourers idle between sowing and harvest", "right": "Seasonal unemployment" },
+     { "left": "A worker who has left one job and not yet joined the next", "right": "Frictional unemployment" },
+     { "left": "A skilled typist whose skill the economy no longer needs", "right": "Structural unemployment" },
+     { "left": "Six people working a field that two could manage", "right": "Disguised unemployment" }
+    ]
+   }
+  }
+ }
+]

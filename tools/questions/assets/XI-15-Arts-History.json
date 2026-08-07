@@ -1,0 +1,215 @@
+[
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Sources of History: Archaeology and Dating Methods",
+  "approved": false,
+  "trick": "Sources divide into literary and archaeological, and archaeological evidence is preferred where the two disagree, because it was not written to persuade anyone. For dating, remember which method suits which material: radiocarbon for anything once alive, dendrochronology for wood with rings, thermoluminescence for fired pottery.",
+  "video": { "query": "sources of history literary archaeological carbon dating class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each source or method with what it is used for.",
+    "pairs": [
+     { "left": "Epigraphy", "right": "The study of inscriptions, such as Ashoka's edicts" },
+     { "left": "Numismatics", "right": "The study of coins — rulers, dates, extent of trade" },
+     { "left": "Radiocarbon dating", "right": "Dating anything that was once living, up to about 50,000 years" },
+     { "left": "Dendrochronology", "right": "Dating wood by counting and matching its annual rings" },
+     { "left": "Thermoluminescence", "right": "Dating fired pottery by the light released when reheated" },
+     { "left": "Palaeography", "right": "The study of ancient scripts and how they were written" },
+     { "left": "Literary source", "right": "Texts such as the Vedas, the Puranas or a traveller's account" },
+     { "left": "Archaeological source", "right": "Material remains — tools, buildings, pottery, bones" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Writing and City Life: Early Civilisations",
+  "approved": false,
+  "trick": "Mesopotamian writing is cuneiform, wedge-shaped, pressed into wet clay with a reed — and the first tablets are not poetry but accounts, lists of grain and animals. Writing began as bookkeeping, which is why city life and writing appear together in the syllabus and in the exam question.",
+  "video": { "query": "mesopotamia cuneiform writing city life class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about early urban civilisation.",
+    "items": [
+     { "statement": "The earliest Mesopotamian tablets record economic transactions rather than literature.", "is_true": true, "why": "They are lists of goods — writing was invented for accounting, and literature came centuries later." },
+     { "statement": "Cuneiform was written on papyrus.", "is_true": false, "why": "Cuneiform was pressed into wet clay tablets with a reed stylus. Papyrus belongs to Egypt." },
+     { "statement": "The ziggurat was the temple tower at the centre of a Mesopotamian city.", "is_true": true, "why": "The temple was the economic as well as religious centre, holding land, stores and workers." },
+     { "statement": "Urban life requires a food surplus produced by others.", "is_true": true, "why": "Craftsmen, scribes and priests do not grow food, so cities can only exist where farming yields more than the farmers need." },
+     { "statement": "The Epic of Gilgamesh is a Mesopotamian literary work.", "is_true": true, "why": "Written in cuneiform, it is among the oldest surviving works of literature." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Travellers' Accounts of India",
+  "approved": false,
+  "trick": "Three travellers, three centuries, three viewpoints — and each is remembered for one thing. Al-Biruni came with Mahmud of Ghazni and wrote Kitab-ul-Hind; Ibn Battuta came from Morocco to Muhammad bin Tughlaq's court and wrote the Rihla; Bernier was a French doctor under Aurangzeb who argued India had no private property in land.",
+  "video": { "query": "al biruni ibn battuta bernier travellers accounts of india class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each traveller with his account and his ruler.",
+    "pairs": [
+     { "left": "Al-Biruni", "right": "Kitab-ul-Hind, written in Arabic; came in the time of Mahmud of Ghazni" },
+     { "left": "Ibn Battuta", "right": "The Rihla; a Moroccan who served Muhammad bin Tughlaq" },
+     { "left": "Francois Bernier", "right": "Travels in the Mughal Empire; a French physician in Aurangzeb's time" },
+     { "left": "Marco Polo", "right": "A Venetian who described the south Indian coast and its trade" },
+     { "left": "Bernier's argument", "right": "That the absence of private property in land explained India's condition" },
+     { "left": "Ibn Battuta on the postal system", "right": "His admiring description of the horse post and foot post of the Sultanate" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Ancient Greece: City States and Democracy",
+  "approved": false,
+  "trick": "Athenian democracy was direct, not representative — citizens voted in person in the Assembly. But 'citizen' excluded women, slaves and foreigners, so the most democratic city of the ancient world gave the vote to a minority of the people living in it. Any question about its limits is asking for exactly that.",
+  "video": { "query": "athenian democracy polis sparta city states class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the Greek city states.",
+    "items": [
+     { "statement": "Athenian democracy was direct: citizens voted personally in the Assembly.", "is_true": true, "why": "There were no elected representatives making laws; the Ecclesia was the citizens themselves." },
+     { "statement": "Women were citizens with the right to vote in Athens.", "is_true": false, "why": "Women, slaves and resident foreigners were all excluded, so only adult free males of Athenian parentage voted." },
+     { "statement": "The polis means a city state — a city together with the land around it.", "is_true": true, "why": "Each polis was an independent state, which is why Athens and Sparta could differ so completely." },
+     { "statement": "Sparta was governed as a democracy like Athens.", "is_true": false, "why": "Sparta was an oligarchy built around a permanent military discipline, with two kings and a council of elders." },
+     { "statement": "Slavery was central to the economy of the Greek city states.", "is_true": true, "why": "The leisure that made Athenian political life possible rested on slave labour." }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "The Roman Empire: Society and Decline",
+  "approved": false,
+  "trick": "Keep the order straight: Republic first, then Empire — Augustus is the hinge, the first emperor, from 27 BCE. The 'decline' questions are usually about the western half, which fell in 476 CE; the eastern half continued as Byzantium for another thousand years.",
+  "video": { "query": "roman empire republic augustus decline and fall class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages of Roman history in order.",
+    "items": [
+     { "label": "The Roman Republic", "note": "Rule by Senate and elected consuls" },
+     { "label": "Julius Caesar assassinated", "note": "44 BCE — the crisis that ended the Republic" },
+     { "label": "Augustus becomes the first emperor", "note": "27 BCE — the Principate begins" },
+     { "label": "Pax Romana", "note": "Two centuries of relative peace and prosperity across the Mediterranean" },
+     { "label": "Constantine and the move to Constantinople", "note": "4th century CE — the centre of gravity shifts east" },
+     { "label": "Fall of the Western Roman Empire", "note": "476 CE — the eastern half continues as Byzantium" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Slavery in the Ancient World",
+  "approved": false,
+  "trick": "Ancient slavery was not racial — it came from war, debt and birth, and a slave could in principle be freed and become a citizen's client. That is the difference examiners look for between ancient slavery and the later Atlantic slave trade, which was racial and hereditary by law.",
+  "video": { "query": "slavery in ancient rome and greece class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each feature by the system of slavery it belongs to.",
+    "bins": ["Ancient (Greece and Rome)", "Atlantic slave trade"],
+    "items": [
+     { "label": "Enslavement mainly through capture in war and through debt", "bin": "Ancient (Greece and Rome)" },
+     { "label": "Slavery defined by race and inherited in law", "bin": "Atlantic slave trade" },
+     { "label": "Manumission was common, and freedmen could hold property", "bin": "Ancient (Greece and Rome)" },
+     { "label": "Millions transported across an ocean to plantations", "bin": "Atlantic slave trade" },
+     { "label": "Slaves worked as teachers, doctors and estate managers as well as labourers", "bin": "Ancient (Greece and Rome)" },
+     { "label": "Sugar, cotton and tobacco plantations drove the demand", "bin": "Atlantic slave trade" },
+     { "label": "Spartacus led a revolt of gladiators and slaves", "bin": "Ancient (Greece and Rome)" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Ancient India: Mahajanapadas, Magadha and the Mauryas",
+  "approved": false,
+  "trick": "Sixteen mahajanapadas, and Magadha wins — because of iron in its soil, elephants in its forests, and the Ganga at its door. Watch the dynasty order: Haryanka (Bimbisara, Ajatashatru), then Shishunaga, then Nanda, then Maurya. Bimbisara is claimed as a patron by BOTH Buddhist and Jain tradition, so a question naming only one is repeating a convention, not a settled fact.",
+  "video": { "query": "mahajanapadas magadha bimbisara mauryan empire ashoka class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the rulers and dynasties of Magadha in order.",
+    "items": [
+     { "label": "Bimbisara", "note": "Haryanka dynasty; expanded Magadha by marriage alliances and conquest of Anga" },
+     { "label": "Ajatashatru", "note": "Bimbisara's son; fortified Rajagriha and warred with the Vajji confederacy" },
+     { "label": "Shishunaga dynasty", "note": "Followed the Haryankas; destroyed the power of Avanti" },
+     { "label": "The Nandas", "note": "Mahapadma Nanda; a huge army and a treasury that impressed Greek writers" },
+     { "label": "Chandragupta Maurya", "note": "c. 321 BCE; overthrew the Nandas with Chanakya's help" },
+     { "label": "Ashoka", "note": "The Kalinga war and the edicts; dhamma proclaimed on rock and pillar" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "The Gupta Age and Classical Literature",
+  "approved": false,
+  "trick": "The Gupta age is called classical for its achievements, not its size — Kalidasa's poetry, Aryabhata's astronomy, the decimal place value system, the Ajanta paintings. Do not confuse Chandragupta Maurya (c. 321 BCE) with Chandragupta I of the Guptas (4th century CE); the exam relies on that confusion.",
+  "video": { "query": "gupta empire golden age kalidasa aryabhata class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each figure or work of the Gupta age with what it is known for.",
+    "pairs": [
+     { "left": "Kalidasa", "right": "Abhijnanashakuntalam and Meghadutam — Sanskrit drama and poetry" },
+     { "left": "Aryabhata", "right": "Aryabhatiya; the earth's rotation and the value of pi" },
+     { "left": "Samudragupta", "right": "The Allahabad Pillar inscription of Harisena records his conquests" },
+     { "left": "Chandragupta II", "right": "Vikramaditya; the Iron Pillar at Mehrauli belongs to his period" },
+     { "left": "Fa-Hien", "right": "The Chinese pilgrim who described India under the Guptas" },
+     { "left": "Ajanta", "right": "Cave paintings of the Buddhist tradition, at their height in this age" },
+     { "left": "Varahamihira", "right": "Brihat Samhita — astronomy, astrology and natural history" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "Historians and Historiography",
+  "approved": false,
+  "trick": "Historiography is the history of history writing — how accounts are made, not what happened. Herodotus is the 'Father of History', Thucydides the first to work from evidence and eyewitness, Ibn Khaldun the first to look for social causes. E. H. Carr's question, 'what is history?', is answered as a dialogue between the historian and the facts.",
+  "video": { "query": "herodotus thucydides ibn khaldun historiography what is history class 11", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each historian with his contribution.",
+    "pairs": [
+     { "left": "Herodotus", "right": "Called the Father of History; wrote of the Greek and Persian wars" },
+     { "left": "Thucydides", "right": "History of the Peloponnesian War; insisted on evidence and eyewitness testimony" },
+     { "left": "Ibn Khaldun", "right": "The Muqaddimah; sought the social causes behind the rise and fall of states" },
+     { "left": "E. H. Carr", "right": "What is History? — history as a dialogue between the historian and the facts" },
+     { "left": "Leopold von Ranke", "right": "History 'as it actually happened', founded on archival documents" },
+     { "left": "Historiography", "right": "The study of how history is written, and by whom" },
+     { "left": "Primary source", "right": "Evidence produced at the time of the event itself" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XI|Arts|History",
+  "chapter": "The Ottoman Empire",
+  "approved": false,
+  "trick": "Two dates carry the Ottomans: 1453, when Mehmed II took Constantinople and ended the Byzantine Empire, and 1922–24, when the sultanate and then the caliphate were abolished. In between, the millet system let religious communities run their own affairs — the answer to most questions on how the empire governed so many peoples.",
+  "video": { "query": "ottoman empire constantinople 1453 millet system suleiman class 11 history", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the Ottoman Empire.",
+    "items": [
+     { "statement": "Mehmed II captured Constantinople in 1453, ending the Byzantine Empire.", "is_true": true, "why": "The city became Istanbul and the Ottoman capital; the date is conventionally taken to close the Middle Ages." },
+     { "statement": "The millet system allowed religious communities to administer their own personal law.", "is_true": true, "why": "Christians and Jews ran their own courts and schools under their own leaders while paying a tax to the state." },
+     { "statement": "The Janissaries were an elite infantry corps recruited partly through the devshirme levy.", "is_true": true, "why": "Boys taken from Christian families were converted, trained and became the sultan's own troops and administrators." },
+     { "statement": "Suleiman is called 'the Magnificent' in the West and 'the Lawgiver' among the Ottomans.", "is_true": true, "why": "The two names capture the same reign seen from outside and from within — conquest abroad, legal codification at home." },
+     { "statement": "The Ottoman Empire survived the First World War intact.", "is_true": false, "why": "It was defeated and partitioned; the sultanate was abolished in 1922 and the Republic of Turkey declared in 1923." }
+    ]
+   }
+  }
+ }
+]

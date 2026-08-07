@@ -9931,8 +9931,10 @@
   "trick": "Nothing happens in this story, and that is the story. The narrator never learns the girl's name, never gets off the train for good, and never finds out what became of her — Ruskin Bond leaves it unresolved on purpose, so that the reader keeps the mystery the narrator keeps. Any question asking 'why did the author not...' has that as its answer.",
   "video": {
    "query": "the night train at deoli ruskin bond summary class 12 english",
-   "video_id": null,
-   "approved": false
+   "video_id": "kGjiO5cRACc",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "9:39"
   },
   "interactive": {
    "template": "true-false",
@@ -9975,8 +9977,10 @@
   "trick": "This is an extract from Kalam's Wings of Fire, and its argument is carried by one image: his father's austerity and his mother's generosity are the two roots of the title. Remember the mosque and the temple standing side by side in Rameswaram — the Muslim boy carrying the priest's message — because that detail is the whole point about tolerance.",
   "video": {
    "query": "strong roots apj abdul kalam wings of fire class 12 english summary",
-   "video_id": null,
-   "approved": false
+   "video_id": "UjTSbwD_MnE",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "12:45"
   },
   "interactive": {
    "template": "fill-blank",
@@ -10056,8 +10060,10 @@
   "trick": "The tree is not the subject; memory is. Toru Dutt begins with a botanical description, moves to the children who played beneath it, and ends asking that the tree be blessed against oblivion — so the poem travels from sight to memory to immortality. The creeper 'like a huge python' winding round the trunk is the image examiners ask for by name.",
   "video": {
    "query": "our casuarina tree toru dutt poem explanation class 12 english",
-   "video_id": null,
-   "approved": false
+   "video_id": "-b2QkooX9lU",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "9:50"
   },
   "interactive": {
    "template": "true-false",
@@ -13791,6 +13797,3078 @@
      {
       "label": "The number of buyers in the market falls",
       "bin": "Leftward shift"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "National Income and Related Aggregates",
+  "approved": false,
+  "trick": "Only FINAL goods count. Counting the flour as well as the bread is double counting, and the standard cure is the value-added method — add only what each stage adds. Transfer payments like pensions and scholarships are not income for this purpose, because nothing was produced in return.",
+  "video": {
+   "query": "national income value added method double counting transfer payments class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about measuring national income.",
+    "items": [
+     {
+      "statement": "The value of wheat sold to a flour mill is included in national income.",
+      "is_true": false,
+      "why": "It is an intermediate good. Including it as well as the bread would count the same wheat twice."
+     },
+     {
+      "statement": "An old-age pension paid by the government is part of national income.",
+      "is_true": false,
+      "why": "It is a transfer payment — money moves, but nothing is produced in exchange."
+     },
+     {
+      "statement": "The rent a house owner could have earned by letting the house he lives in is included.",
+      "is_true": true,
+      "why": "Imputed rent of owner-occupied houses is counted, because a service is being produced and consumed."
+     },
+     {
+      "statement": "The sale of an old car is included in this year's national income.",
+      "is_true": true,
+      "why": "Only the commission of the dealer is included; the car itself was counted in the year it was produced."
+     },
+     {
+      "statement": "The value-added method avoids double counting.",
+      "is_true": true,
+      "why": "Each producer's contribution is output minus intermediate consumption, so nothing is counted twice."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Keynesian Theory: Consumption Function and the Multiplier",
+  "approved": false,
+  "trick": "MPC and MPS always add to 1, and the multiplier is 1/MPS, which is the same as 1/(1 − MPC). So a high propensity to consume gives a big multiplier. If MPC = 0.8, the multiplier is 5 — and that single calculation is the most asked-for number in the chapter.",
+  "video": {
+   "query": "keynesian consumption function MPC MPS investment multiplier class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "step-solve",
+   "data": {
+    "prompt": "Work the multiplier through from the propensity to consume.",
+    "problem": "In an economy the marginal propensity to consume is 0.75. Investment rises by ₹200 crore.",
+    "steps": [
+     {
+      "ask": "What is the marginal propensity to save?",
+      "options": [
+       "0.75",
+       "0.25",
+       "1.75"
+      ],
+      "correct": 1,
+      "why": "MPC + MPS = 1, so MPS = 1 − 0.75 = 0.25. Every extra rupee is either spent or saved."
+     },
+     {
+      "ask": "What is the investment multiplier?",
+      "options": [
+       "4",
+       "0.25",
+       "1.33"
+      ],
+      "correct": 0,
+      "why": "K = 1/MPS = 1/0.25 = 4, which is the same as 1/(1 − 0.75)."
+     },
+     {
+      "ask": "By how much does income rise?",
+      "options": [
+       "₹200 crore",
+       "₹800 crore",
+       "₹50 crore"
+      ],
+      "correct": 1,
+      "why": "ΔY = K × ΔI = 4 × 200 = ₹800 crore. The initial spending circulates again and again."
+     },
+     {
+      "ask": "If the MPC were higher, say 0.9, what would happen to the multiplier?",
+      "options": [
+       "It would fall to 5",
+       "It would rise to 10",
+       "It would stay at 4"
+      ],
+      "correct": 1,
+      "why": "MPS falls to 0.1, so K = 10. The more of each rupee that is spent onward, the longer the chain."
+     }
+    ],
+    "answer": "MPS 0.25, multiplier 4, income rises by ₹800 crore. At MPC 0.9 the multiplier would be 10."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Balance of Payments and Exchange Rate",
+  "approved": false,
+  "trick": "The balance of payments always balances as an accounting statement — a 'deficit' means a deficit on the current account, financed by the capital account or by reserves. Balance of TRADE is only visible goods; balance of PAYMENTS is everything. Questions rely on that narrower meaning of trade.",
+  "video": {
+   "query": "balance of trade versus balance of payments exchange rate class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the balance of payments.",
+    "items": [
+     {
+      "statement": "The balance of trade covers only visible goods.",
+      "is_true": true,
+      "why": "Services, transfers and income are outside it — they belong to the wider current account."
+     },
+     {
+      "statement": "The balance of payments as a whole always balances in accounting terms.",
+      "is_true": true,
+      "why": "Every debit has a matching credit somewhere, including reserve movements. A 'BoP deficit' means a deficit on a particular account."
+     },
+     {
+      "statement": "A depreciation of the rupee makes Indian exports cheaper for foreign buyers.",
+      "is_true": true,
+      "why": "The same rupee price now costs the foreigner fewer dollars, so exports become more competitive."
+     },
+     {
+      "statement": "Devaluation and depreciation mean the same thing.",
+      "is_true": false,
+      "why": "Devaluation is a deliberate reduction by the government under a fixed exchange rate; depreciation is a fall brought about by market forces."
+     },
+     {
+      "statement": "Foreign direct investment is recorded in the current account.",
+      "is_true": false,
+      "why": "It is a capital account item, because it creates a claim on assets rather than paying for current goods or services."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Indian Economy on the Eve of Independence",
+  "approved": false,
+  "trick": "The colonial economy is described by four facts that go together: stagnant agriculture with low productivity, deindustrialisation of handicrafts, an export surplus that drained wealth rather than enriching India, and literacy around 16% with life expectancy near 32 years. That export surplus is the point most easily misread — India exported more than it imported and was poorer for it.",
+  "video": {
+   "query": "indian economy on the eve of independence colonial deindustrialisation class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the colonial economy.",
+    "items": [
+     {
+      "statement": "India had an export surplus at the time of independence, and this was a sign of prosperity.",
+      "is_true": false,
+      "why": "There was an export surplus, but it financed the home charges and the drain of wealth to Britain, leaving nothing for India."
+     },
+     {
+      "statement": "British policy caused the decline of India's traditional handicrafts.",
+      "is_true": true,
+      "why": "Deindustrialisation — the crafts lost both their home market to machine-made imports and their old patronage."
+     },
+     {
+      "statement": "Literacy at independence was about 16 per cent.",
+      "is_true": true,
+      "why": "And female literacy was around 7 per cent, with life expectancy about 32 years."
+     },
+     {
+      "statement": "Agriculture was highly productive but the surplus was exported.",
+      "is_true": false,
+      "why": "Productivity was very low. Stagnation came from the land settlement systems, low investment and the shift to commercial crops."
+     },
+     {
+      "statement": "The primary sector employed the largest share of the workforce.",
+      "is_true": true,
+      "why": "About 70 to 75 per cent worked in agriculture — an occupational structure that barely changed through the colonial period."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Liberalisation, Privatisation and Globalisation",
+  "approved": false,
+  "trick": "1991 and the letters LPG hold this chapter. The trigger was a balance of payments crisis with reserves enough for barely two weeks of imports. Liberalisation ended industrial licensing, privatisation began disinvestment, globalisation opened trade and investment. The reform was not a plan long in the making — it was a response to a crisis.",
+  "video": {
+   "query": "new economic policy 1991 liberalisation privatisation globalisation class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it meant in the 1991 reforms.",
+    "pairs": [
+     {
+      "left": "The trigger for the reforms",
+      "right": "A balance of payments crisis; foreign exchange reserves barely covered two weeks of imports"
+     },
+     {
+      "left": "Liberalisation",
+      "right": "Abolition of industrial licensing for most industries and freeing of interest rates and imports"
+     },
+     {
+      "left": "Privatisation",
+      "right": "Disinvestment of government equity in public sector undertakings"
+     },
+     {
+      "left": "Globalisation",
+      "right": "Integrating India with the world through trade, investment and technology flows"
+     },
+     {
+      "left": "Devaluation of the rupee",
+      "right": "Undertaken in 1991 to make exports competitive and stem the outflow"
+     },
+     {
+      "left": "Outsourcing",
+      "right": "A consequence of globalisation — services contracted out to India"
+     },
+     {
+      "left": "WTO",
+      "right": "Established 1995, succeeding GATT, to govern world trade rules"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Human Development and the HDI",
+  "approved": false,
+  "trick": "The HDI combines exactly three dimensions — a long and healthy life, knowledge, and a decent standard of living — measured by life expectancy, schooling and gross national income per head. It is published by the UNDP in the Human Development Report, first in 1990, and Mahbub ul Haq and Amartya Sen stand behind it. Income alone is one third of the story, never the whole.",
+  "video": {
+   "query": "human development index UNDP dimensions amartya sen class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "Which of these is NOT a dimension used in the Human Development Index?",
+    "items": [
+     "Life expectancy at birth",
+     "Mean and expected years of schooling",
+     "Gross national income per capita",
+     "Rate of inflation"
+    ],
+    "odd": 3,
+    "because": "The HDI has three dimensions only — health, education and standard of living. Inflation is a macroeconomic indicator and plays no part in the index."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Economics",
+  "chapter": "Agriculture and the Green Revolution",
+  "approved": false,
+  "trick": "The Green Revolution raised output of wheat and rice above all, and it was concentrated in Punjab, Haryana and western Uttar Pradesh — so it was uneven by crop and by region, and that unevenness is its standard criticism. M. S. Swaminathan is the name to attach to it in India, Norman Borlaug internationally.",
+  "video": {
+   "query": "green revolution india HYV seeds swaminathan criticism class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the Green Revolution.",
+    "items": [
+     {
+      "statement": "The Green Revolution raised the output of wheat and rice most of all.",
+      "is_true": true,
+      "why": "High-yielding varieties were developed for those two cereals; pulses and coarse grains gained far less."
+     },
+     {
+      "statement": "Its gains were spread evenly across all Indian states.",
+      "is_true": false,
+      "why": "They concentrated in Punjab, Haryana and western Uttar Pradesh, where irrigation was assured — one of its main criticisms."
+     },
+     {
+      "statement": "It made India self-sufficient in foodgrains.",
+      "is_true": true,
+      "why": "The country moved from importing food under PL-480 to holding buffer stocks."
+     },
+     {
+      "statement": "It required assured irrigation, fertiliser and pesticide to work.",
+      "is_true": true,
+      "why": "HYV seeds are input-hungry, which is why farmers without irrigation or credit could not adopt them."
+     },
+     {
+      "statement": "It had no adverse environmental consequences.",
+      "is_true": false,
+      "why": "Falling water tables, soil degradation and chemical run-off followed, and are now a standard part of the assessment."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "Travellers' Accounts: Alberuni, Ibn Battuta and Bernier",
+  "approved": false,
+  "trick": "Each traveller came in a different century, from a different direction, and noticed a different thing — and that is what questions test. Alberuni (11th c.) studied Sanskrit and wrote Kitab-ul-Hind; Ibn Battuta (14th c.) marvelled at the postal system and the coconut; Bernier (17th c.) argued that the absence of private property in land explained everything he disliked.",
+  "video": {
+   "query": "alberuni ibn battuta bernier travellers accounts class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each traveller with his century, his book and his preoccupation.",
+    "pairs": [
+     {
+      "left": "Alberuni",
+      "right": "11th century; Kitab-ul-Hind, written in Arabic after learning Sanskrit"
+     },
+     {
+      "left": "Ibn Battuta",
+      "right": "14th century; the Rihla, written in Arabic; served Muhammad bin Tughlaq"
+     },
+     {
+      "left": "Francois Bernier",
+      "right": "17th century; Travels in the Mughal Empire, comparing India with Europe"
+     },
+     {
+      "left": "Bernier's central claim",
+      "right": "That there was no private property in land, and that this ruined the empire"
+     },
+     {
+      "left": "Ibn Battuta on the postal system",
+      "right": "The horse post (uluq) and the foot post (dawa), faster than the horse post"
+     },
+     {
+      "left": "Alberuni's barriers",
+      "right": "Language, religious difference and the self-absorption of the Brahmanas"
+     },
+     {
+      "left": "Bernier's influence",
+      "right": "His idea of 'Oriental Despotism' shaped later European writing about Asia"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "Bhakti and Sufi Traditions",
+  "approved": false,
+  "trick": "Bhakti splits into saguna, worship of a God with form (Tulsidas, Mirabai, Surdas), and nirguna, worship of the formless (Kabir, Nanak) — sort every saint by that line first. Sufi orders are named silsilas, and the Chishti was the most influential in India; the khanqah was where a Sufi master lived and taught.",
+  "video": {
+   "query": "bhakti movement saguna nirguna sufi silsila chishti class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each saint or term.",
+    "bins": [
+     "Saguna bhakti",
+     "Nirguna bhakti",
+     "Sufi tradition"
+    ],
+    "items": [
+     {
+      "label": "Tulsidas",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Kabir",
+      "bin": "Nirguna bhakti"
+     },
+     {
+      "label": "Mirabai",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Guru Nanak",
+      "bin": "Nirguna bhakti"
+     },
+     {
+      "label": "Surdas",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Khanqah",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Silsila",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Khwaja Muinuddin Chishti of Ajmer",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Alvars and Nayanars of the Tamil country",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Ziyarat at a dargah",
+      "bin": "Sufi tradition"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "The Mughal Empire and its Chroniclers",
+  "approved": false,
+  "trick": "The chronicles are named after their patrons: Akbar Nama by Abul Fazl, Badshah Nama by Lahori for Shah Jahan, Babur Nama by Babur himself in Turkish. The Ain-i-Akbari is the third volume of the Akbar Nama and is the statistical one — provinces, revenue, army. Sulh-i kul, absolute peace, is Akbar's principle of tolerance.",
+  "video": {
+   "query": "mughal empire akbar nama ain i akbari sulh i kul mansabdari class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each work or term with what it is.",
+    "pairs": [
+     {
+      "left": "Akbar Nama",
+      "right": "Abul Fazl's history of Akbar's reign, in three volumes"
+     },
+     {
+      "left": "Ain-i-Akbari",
+      "right": "The third volume — an account of the empire's provinces, revenues and administration"
+     },
+     {
+      "left": "Babur Nama",
+      "right": "Babur's own memoirs, written in Turkish"
+     },
+     {
+      "left": "Badshah Nama",
+      "right": "Abdul Hamid Lahori's chronicle of Shah Jahan"
+     },
+     {
+      "left": "Sulh-i kul",
+      "right": "Absolute peace — Akbar's principle of tolerance towards all faiths"
+     },
+     {
+      "left": "Mansabdari",
+      "right": "The rank system; zat fixed status and pay, sawar the cavalry to be maintained"
+     },
+     {
+      "left": "Jharoka darshan",
+      "right": "The emperor showing himself at a balcony each morning to affirm his rule"
+     },
+     {
+      "left": "Zabt",
+      "right": "Todar Mal's revenue system, assessing land on measured area and past yields"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "The Age of Exploration",
+  "approved": false,
+  "trick": "Keep the three voyages apart by what each one reached: Columbus 1492 crossed the Atlantic and reached the Americas believing them to be India; Vasco da Gama 1498 rounded Africa and reached Calicut, the real sea route to India; Magellan's expedition 1519-22 first circumnavigated the globe. Two dates, six years apart, and questions swap them constantly.",
+  "video": {
+   "query": "age of exploration columbus vasco da gama magellan class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the voyages and events of the Age of Exploration in order.",
+    "items": [
+     {
+      "label": "Bartolomeu Dias rounds the Cape",
+      "note": "1488 — the southern tip of Africa is passed for the first time"
+     },
+     {
+      "label": "Columbus reaches the Americas",
+      "note": "1492 — sailing west for India under the Spanish crown"
+     },
+     {
+      "label": "Vasco da Gama reaches Calicut",
+      "note": "1498 — the sea route from Europe to India is opened"
+     },
+     {
+      "label": "Portuguese capture Goa",
+      "note": "1510 — Albuquerque establishes the Estado da India"
+     },
+     {
+      "label": "Magellan's expedition circumnavigates the globe",
+      "note": "1519 to 1522 — completed by Elcano after Magellan's death"
+     },
+     {
+      "label": "The Dutch and English East India Companies formed",
+      "note": "1600 and 1602 — the commercial phase begins"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "Colonial Expansion: Company Rule and British Acts",
+  "approved": false,
+  "trick": "Three land settlements, three parties paying the revenue: Permanent Settlement (Bengal, 1793, Cornwallis) makes the zamindar the payer; Ryotwari (Madras and Bombay, Munro) makes the cultivator pay directly; Mahalwari (north India) makes the village as a body responsible. Name the region and the settlement follows.",
+  "video": {
+   "query": "permanent settlement ryotwari mahalwari company rule battles class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each settlement or event with its details.",
+    "pairs": [
+     {
+      "left": "Permanent Settlement",
+      "right": "Bengal, 1793, Cornwallis; the zamindar pays a fixed revenue for ever"
+     },
+     {
+      "left": "Ryotwari Settlement",
+      "right": "Madras and Bombay; the ryot pays the state directly, with periodic revision"
+     },
+     {
+      "left": "Mahalwari Settlement",
+      "right": "North-western provinces; the village or mahal is jointly responsible"
+     },
+     {
+      "left": "Battle of Plassey",
+      "right": "1757 — Clive defeats Siraj-ud-Daulah and Company power in Bengal begins"
+     },
+     {
+      "left": "Battle of Buxar",
+      "right": "1764 — leads to the Diwani of Bengal, Bihar and Orissa in 1765"
+     },
+     {
+      "left": "Doctrine of Lapse",
+      "right": "Dalhousie's policy of annexing states with no natural heir"
+     },
+     {
+      "left": "Subsidiary Alliance",
+      "right": "Wellesley's system: the ruler kept British troops and surrendered foreign relations"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "Colonial India: Viceroys, Acts and Reforms",
+  "approved": false,
+  "trick": "Fix each act to what it introduced, because the acts are what get asked: 1858 transfers power from Company to Crown; Morley-Minto 1909 introduces separate electorates; Montagu-Chelmsford 1919 introduces dyarchy in the provinces; the Government of India Act 1935 gives provincial autonomy and a federal scheme.",
+  "video": {
+   "query": "morley minto montagu chelmsford government of india act 1935 class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the constitutional landmarks of colonial India in order.",
+    "items": [
+     {
+      "label": "Government of India Act 1858",
+      "note": "Crown rule replaces the East India Company; the office of Secretary of State is created"
+     },
+     {
+      "label": "Indian Councils Act 1909",
+      "note": "Morley-Minto reforms; separate electorates for Muslims"
+     },
+     {
+      "label": "Government of India Act 1919",
+      "note": "Montagu-Chelmsford reforms; dyarchy in the provinces"
+     },
+     {
+      "label": "Simon Commission",
+      "note": "1927-28; boycotted because it had no Indian member"
+     },
+     {
+      "label": "Government of India Act 1935",
+      "note": "Provincial autonomy, a federal scheme and an expanded franchise"
+     },
+     {
+      "label": "Indian Independence Act 1947",
+      "note": "Partition and the transfer of power"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "The Twentieth Century World: Versailles, Holocaust and Bretton Woods",
+  "approved": false,
+  "trick": "Cause and effect run in a chain here: Versailles 1919 humiliated Germany, the humiliation and the Depression helped bring the Nazis to power, the Nazi state carried out the Holocaust, and after the second war Bretton Woods 1944 built the IMF and the World Bank to prevent the economic collapse that had helped it all along. Learn the chain, not the isolated dates.",
+  "video": {
+   "query": "treaty of versailles holocaust bretton woods IMF world bank class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the events of the twentieth century world in order.",
+    "items": [
+     {
+      "label": "Treaty of Versailles",
+      "note": "1919 — the war guilt clause and reparations imposed on Germany"
+     },
+     {
+      "label": "The Great Depression",
+      "note": "1929 onward — mass unemployment across the industrial world"
+     },
+     {
+      "label": "Hitler becomes Chancellor",
+      "note": "1933 — the Nazi state and the Nuremberg Laws follow"
+     },
+     {
+      "label": "The Second World War",
+      "note": "1939 to 1945"
+     },
+     {
+      "label": "The Holocaust",
+      "note": "The systematic murder of about six million Jews and other groups"
+     },
+     {
+      "label": "Bretton Woods Conference",
+      "note": "1944 — the IMF and the World Bank are created"
+     },
+     {
+      "label": "The United Nations is founded",
+      "note": "1945 — replacing the failed League of Nations"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|History",
+  "chapter": "Apartheid and Civil Rights Movements",
+  "approved": false,
+  "trick": "Be exact about what these laws were FOR. The Jim Crow laws in the American South and apartheid in South Africa were both designed to ENFORCE racial segregation and keep Black people subordinate — they were not attempts at equality, and 'separate but equal' was the excuse the courts used, struck down in Brown v. Board of Education in 1954. The movements against them are what sought equality.",
+  "video": {
+   "query": "apartheid south africa mandela jim crow civil rights movement class 12 history",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about segregation and the movements against it.",
+    "items": [
+     {
+      "statement": "The Jim Crow laws were intended to enforce the separation of Black and White Americans and to keep Black Americans subordinate.",
+      "is_true": true,
+      "why": "They mandated segregated schools, transport and public places, and were paired with devices such as literacy tests and poll taxes to strip away the vote."
+     },
+     {
+      "statement": "The Jim Crow laws aimed to place Black and White Americans on an equal footing.",
+      "is_true": false,
+      "why": "They did the opposite. The 'separate but equal' formula of Plessy v. Ferguson (1896) was the legal cover, and facilities were never equal."
+     },
+     {
+      "statement": "Brown v. Board of Education, 1954, held that segregated schooling was unconstitutional.",
+      "is_true": true,
+      "why": "It overturned 'separate but equal' in education and became the legal foundation of the civil rights movement."
+     },
+     {
+      "statement": "Apartheid in South Africa was a legally enforced system of racial segregation.",
+      "is_true": true,
+      "why": "From 1948 laws classified people by race and controlled where they could live, work, study and travel."
+     },
+     {
+      "statement": "Nelson Mandela became South Africa's first Black President in 1994.",
+      "is_true": true,
+      "why": "He was released in 1990 after 27 years in prison, and the first non-racial election was held in 1994."
+     },
+     {
+      "statement": "Rosa Parks and the Montgomery Bus Boycott belong to the anti-segregation movement.",
+      "is_true": true,
+      "why": "Her refusal to give up her seat in 1955 began a boycott of over a year and brought Martin Luther King Jr to national attention."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Plate Tectonics and Landforms",
+  "approved": false,
+  "trick": "Three boundaries, three outcomes. Divergent plates pull apart and make mid-ocean ridges and rift valleys; convergent plates collide and make fold mountains, trenches and volcanoes; transform plates slide past and make faults like the San Andreas. The Himalayas are convergent, the Mid-Atlantic Ridge divergent — name the boundary and the landform follows.",
+  "video": {
+   "query": "plate tectonics divergent convergent transform boundaries class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which plate boundary produces each feature?",
+    "bins": [
+     "Divergent",
+     "Convergent",
+     "Transform"
+    ],
+    "items": [
+     {
+      "label": "Mid-Atlantic Ridge",
+      "bin": "Divergent"
+     },
+     {
+      "label": "The Himalayas",
+      "bin": "Convergent"
+     },
+     {
+      "label": "San Andreas Fault",
+      "bin": "Transform"
+     },
+     {
+      "label": "East African Rift Valley",
+      "bin": "Divergent"
+     },
+     {
+      "label": "Mariana Trench",
+      "bin": "Convergent"
+     },
+     {
+      "label": "Sea-floor spreading",
+      "bin": "Divergent"
+     },
+     {
+      "label": "Subduction of an oceanic plate",
+      "bin": "Convergent"
+     },
+     {
+      "label": "Shallow-focus earthquakes with no volcanism",
+      "bin": "Transform"
+     },
+     {
+      "label": "The Andes",
+      "bin": "Convergent"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Geomorphic Processes: Weathering, Karst and Fluvial",
+  "approved": false,
+  "trick": "Karst is what water does to limestone by dissolving it, so its landforms come in pairs — sinkholes and caverns below, stalactites hanging and stalagmites rising within. Remember which is which: stalacTites cling Tight to the ceiling, stalaGmites Grow from the Ground.",
+  "video": {
+   "query": "karst topography stalactite stalagmite fluvial landforms class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each landform with the process and place that make it.",
+    "pairs": [
+     {
+      "left": "Stalactite",
+      "right": "Deposit of calcium carbonate hanging from a cave roof"
+     },
+     {
+      "left": "Stalagmite",
+      "right": "Deposit rising from a cave floor beneath a drip"
+     },
+     {
+      "left": "Sinkhole or doline",
+      "right": "A surface depression where limestone has dissolved away"
+     },
+     {
+      "left": "Lapies",
+      "right": "A grooved and ridged limestone surface cut by solution"
+     },
+     {
+      "left": "Ox-bow lake",
+      "right": "A cut-off meander in the lower course of a river"
+     },
+     {
+      "left": "Waterfall and gorge",
+      "right": "Vertical erosion in the youthful upper course"
+     },
+     {
+      "left": "Delta",
+      "right": "Deposition where a river meets the sea and loses velocity"
+     },
+     {
+      "left": "Alluvial fan",
+      "right": "Deposition where a stream leaves a steep slope for a plain"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Atmospheric Circulation and Rainfall",
+  "approved": false,
+  "trick": "Winds are named for where they come FROM, not where they go — a westerly blows from the west. Rainfall has three types by cause: convectional from heating, orographic from a mountain barrier, and cyclonic or frontal from air masses meeting. Cherrapunji's rain is orographic, and that example is asked for by name.",
+  "video": {
+   "query": "atmospheric circulation trade winds westerlies types of rainfall class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "What kind of rainfall is each?",
+    "bins": [
+     "Convectional",
+     "Orographic",
+     "Cyclonic"
+    ],
+    "items": [
+     {
+      "label": "Afternoon thunderstorms in the equatorial belt",
+      "bin": "Convectional"
+     },
+     {
+      "label": "Heavy rain on the windward Western Ghats",
+      "bin": "Orographic"
+     },
+     {
+      "label": "Rain along a front where warm and cold air meet",
+      "bin": "Cyclonic"
+     },
+     {
+      "label": "The rain shadow of the Deccan plateau",
+      "bin": "Orographic"
+     },
+     {
+      "label": "The Kalbaisakhi of Bengal in April",
+      "bin": "Convectional"
+     },
+     {
+      "label": "Rain from a temperate depression crossing north India in winter",
+      "bin": "Cyclonic"
+     },
+     {
+      "label": "Cherrapunji's exceptional totals",
+      "bin": "Orographic"
+     },
+     {
+      "label": "Rising heated air cooling and condensing over land in summer",
+      "bin": "Convectional"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Oceanography: Salinity and Currents",
+  "approved": false,
+  "trick": "Salinity is highest where evaporation beats rainfall and no river dilutes — so it peaks in enclosed subtropical seas, and the Dead Sea and Lake Van are the extreme cases. For currents, the rule of thumb is that warm currents flow away from the equator and cold currents flow towards it, and where they meet you get fog and the world's great fishing grounds.",
+  "video": {
+   "query": "ocean salinity distribution warm and cold currents class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the oceans.",
+    "items": [
+     {
+      "statement": "The average salinity of ocean water is about 35 parts per thousand.",
+      "is_true": true,
+      "why": "Roughly 35 grams of dissolved salt per kilogram of sea water, of which sodium chloride is the largest part."
+     },
+     {
+      "statement": "Salinity is highest at the equator.",
+      "is_true": false,
+      "why": "Heavy equatorial rainfall dilutes it. Salinity peaks in the subtropics, around 20° to 30°, where evaporation is high and rain is low."
+     },
+     {
+      "statement": "Warm currents generally flow from the equator towards the poles.",
+      "is_true": true,
+      "why": "The Gulf Stream and the Kuroshio are examples; cold currents such as the Labrador and Peru flow the other way."
+     },
+     {
+      "statement": "The meeting of warm and cold currents produces rich fishing grounds.",
+      "is_true": true,
+      "why": "Mixing brings nutrients up and supports plankton — the Grand Banks off Newfoundland is the classic case, along with dense fog."
+     },
+     {
+      "statement": "Tides are caused mainly by the gravitational pull of the sun.",
+      "is_true": false,
+      "why": "The moon dominates because it is far closer, though the sun reinforces it at spring tides."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Biodiversity and Biomes",
+  "approved": false,
+  "trick": "Biodiversity has three levels — genetic, species and ecosystem — and questions usually ask you to place an example at one of them. Hotspots are defined by two conditions together: exceptional endemism AND serious threat. India has four: the Himalaya, the Western Ghats and Sri Lanka, the Indo-Burma region, and Sundaland covering the Nicobars.",
+  "video": {
+   "query": "biodiversity levels hotspots biomes india class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     {
+      "left": "Genetic diversity",
+      "right": "Variation within a species — the many varieties of rice grown in India"
+     },
+     {
+      "left": "Species diversity",
+      "right": "The number and variety of species in a region"
+     },
+     {
+      "left": "Ecosystem diversity",
+      "right": "The variety of habitats — forest, wetland, desert, coral reef"
+     },
+     {
+      "left": "Biodiversity hotspot",
+      "right": "A region with exceptional endemism that is also under serious threat"
+     },
+     {
+      "left": "Endemic species",
+      "right": "One found naturally in a single region and nowhere else"
+     },
+     {
+      "left": "Tropical rainforest biome",
+      "right": "Highest biodiversity; heavy rainfall, evergreen and layered canopy"
+     },
+     {
+      "left": "Tundra biome",
+      "right": "Cold, treeless, permafrost; few species and short growing season"
+     },
+     {
+      "left": "Savanna biome",
+      "right": "Tropical grassland with scattered trees and a marked dry season"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Population: Density, Growth and Demographic Transition",
+  "approved": false,
+  "trick": "Density is people per square kilometre — arithmetic, not the same as pressure on the land. Growth rate is birth rate minus death rate, plus migration. In the demographic transition the death rate falls FIRST and the birth rate follows later, and the gap between the two falls is Stage 2, where population grows fastest.",
+  "video": {
+   "query": "demographic transition theory stages population density growth class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the stages of the demographic transition in order.",
+    "items": [
+     {
+      "label": "Stage 1: high stationary",
+      "note": "High birth rate and high death rate; population nearly stable, and low"
+     },
+     {
+      "label": "Stage 2: early expanding",
+      "note": "Death rate falls with better food and medicine while the birth rate stays high — the fastest growth"
+     },
+     {
+      "label": "Stage 3: late expanding",
+      "note": "The birth rate begins to fall as families choose fewer children; growth slows"
+     },
+     {
+      "label": "Stage 4: low stationary",
+      "note": "Both rates low; population large and nearly stable"
+     },
+     {
+      "label": "Stage 5: declining",
+      "note": "Birth rate below death rate; population ages and shrinks, as in parts of Europe and Japan"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Human Settlements",
+  "approved": false,
+  "trick": "Rural settlements are classified by SHAPE and by pattern: compact or nucleated where water is scarce and defence matters, dispersed where land and water are plentiful. Urban settlements are classified by FUNCTION — administrative, industrial, port, cultural. Read whether the question is about form or about function.",
+  "video": {
+   "query": "rural urban settlement patterns classification functions class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each settlement type or town with its description.",
+    "pairs": [
+     {
+      "left": "Compact or nucleated settlement",
+      "right": "Houses close together, typical of fertile plains and where water is scarce"
+     },
+     {
+      "left": "Dispersed settlement",
+      "right": "Isolated houses spread over an area, common in hills and forests"
+     },
+     {
+      "left": "Linear settlement",
+      "right": "Houses strung along a road, river bank or canal"
+     },
+     {
+      "left": "Administrative town",
+      "right": "Chandigarh, New Delhi — capital and government functions"
+     },
+     {
+      "left": "Industrial town",
+      "right": "Jamshedpur, Durgapur — grown around manufacturing"
+     },
+     {
+      "left": "Port town",
+      "right": "Kandla, Kochi — trade and shipping"
+     },
+     {
+      "left": "Cultural or religious town",
+      "right": "Varanasi, Amritsar — pilgrimage and religious functions"
+     },
+     {
+      "left": "Conurbation",
+      "right": "Several towns that have grown into one continuous built-up area"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Resources and Energy",
+  "approved": false,
+  "trick": "Watch statements that were true once. Jharkhand was long taught as India's largest coal producer, but Chhattisgarh and Odisha have overtaken it in recent years — so answer from the textbook you were taught, and know that the ranking has moved. The same caution applies to any 'largest producer' question in this chapter.",
+  "video": {
+   "query": "conventional and non conventional energy resources india class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each energy source.",
+    "bins": [
+     "Conventional",
+     "Non-conventional"
+    ],
+    "items": [
+     {
+      "label": "Coal",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Solar energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Petroleum",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Wind energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Natural gas",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Geothermal energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Firewood",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Tidal energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Biogas",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Hydroelectric power",
+      "bin": "Conventional"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Agriculture and the Green Revolution",
+  "approved": false,
+  "trick": "Cropping seasons first: kharif is sown with the monsoon and harvested in autumn (rice, jute, cotton), rabi is sown in winter and harvested in spring (wheat, mustard, gram), zaid is the short summer season (melons, cucumber). Place the crop in its season before anything else in the question.",
+  "video": {
+   "query": "kharif rabi zaid cropping seasons green revolution india class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which cropping season does each crop belong to?",
+    "bins": [
+     "Kharif",
+     "Rabi",
+     "Zaid"
+    ],
+    "items": [
+     {
+      "label": "Rice",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Wheat",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Watermelon",
+      "bin": "Zaid"
+     },
+     {
+      "label": "Jute",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Mustard",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Cucumber",
+      "bin": "Zaid"
+     },
+     {
+      "label": "Cotton",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Gram",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Maize sown with the monsoon",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Barley",
+      "bin": "Rabi"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Geography",
+  "chapter": "Transport, Trade and International Organisations",
+  "approved": false,
+  "trick": "Railways were long taught as carrying most of India's freight, but NCERT now puts ROAD transport at roughly 70% of freight and 85% of passenger traffic. If a question asks which mode carries the most freight, the modern textbook answer is road — a case where the older answer has genuinely changed.",
+  "video": {
+   "query": "transport modes india road rail freight share international trade class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about transport and trade.",
+    "items": [
+     {
+      "statement": "Road transport now carries the larger share of India's freight traffic.",
+      "is_true": true,
+      "why": "NCERT puts roads at about 70% of freight and 85% of passenger traffic. Older texts gave that place to the railways, so check which book the question follows."
+     },
+     {
+      "statement": "Road transport is better suited to short hauls and door-to-door delivery.",
+      "is_true": true,
+      "why": "It needs no transhipment and reaches places rail cannot, which is precisely why its share grew."
+     },
+     {
+      "statement": "Pipelines are used only for water.",
+      "is_true": false,
+      "why": "They carry crude oil, petroleum products and natural gas — cheap to run once laid, though costly to build."
+     },
+     {
+      "statement": "The Golden Quadrilateral connects Delhi, Mumbai, Chennai and Kolkata.",
+      "is_true": true,
+      "why": "A super-highway project linking the four metropolitan cities, with north-south and east-west corridors added."
+     },
+     {
+      "statement": "The WTO was established in 1995 and succeeded GATT.",
+      "is_true": true,
+      "why": "It governs the rules of international trade and settles disputes between member countries."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "The Cold War Era and Bipolarity",
+  "approved": false,
+  "trick": "The Cold War was a contest between two blocs that never fought each other directly — that is why it is 'cold'. Attach each alliance to its side: NATO 1949 is the Western bloc, the Warsaw Pact 1955 the Soviet. Its opening is usually dated to 1945-47 and its close to the fall of the Berlin Wall in 1989 and the Soviet collapse in 1991.",
+  "video": {
+   "query": "cold war bipolarity NATO warsaw pact cuban missile crisis class 12 political science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the landmarks of the Cold War in order.",
+    "items": [
+     {
+      "label": "End of the Second World War",
+      "note": "1945 — the United States and the Soviet Union emerge as superpowers"
+     },
+     {
+      "label": "Formation of NATO",
+      "note": "1949 — the Western military alliance"
+     },
+     {
+      "label": "Formation of the Warsaw Pact",
+      "note": "1955 — the Soviet answer to NATO"
+     },
+     {
+      "label": "Cuban Missile Crisis",
+      "note": "1962 — the closest the two blocs came to nuclear war"
+     },
+     {
+      "label": "Fall of the Berlin Wall",
+      "note": "1989 — the symbolic end of the divide in Europe"
+     },
+     {
+      "label": "Disintegration of the Soviet Union",
+      "note": "1991 — the end of bipolarity and the beginning of a unipolar moment"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "The Non-Aligned Movement",
+  "approved": false,
+  "trick": "Non-alignment is not neutrality and not isolation — it means judging each issue on its merits rather than joining a bloc. Five founders: Nehru, Tito, Nasser, Sukarno and Nkrumah. The first summit was at Belgrade in 1961, and Bandung 1955 was the conference that prepared the ground.",
+  "video": {
+   "query": "non aligned movement belgrade 1961 bandung nehru tito nasser class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the Non-Aligned Movement.",
+    "items": [
+     {
+      "statement": "Non-alignment means staying neutral and taking no position on world affairs.",
+      "is_true": false,
+      "why": "It means not joining either bloc while judging each issue on its merits — an active foreign policy, not a passive one."
+     },
+     {
+      "statement": "The first NAM summit was held at Belgrade in 1961.",
+      "is_true": true,
+      "why": "Twenty-five countries attended, hosted by Tito."
+     },
+     {
+      "statement": "The Bandung Conference of 1955 preceded and prepared for NAM.",
+      "is_true": true,
+      "why": "The Afro-Asian conference in Indonesia established the ground of Afro-Asian solidarity."
+     },
+     {
+      "statement": "Nehru, Tito, Nasser, Sukarno and Nkrumah are counted as the founders.",
+      "is_true": true,
+      "why": "India, Yugoslavia, Egypt, Indonesia and Ghana respectively."
+     },
+     {
+      "statement": "NAM demanded a New International Economic Order.",
+      "is_true": true,
+      "why": "From the 1970s the movement's emphasis shifted from security to economic justice between the North and the South."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "The United Nations and its Organs",
+  "approved": false,
+  "trick": "Six principal organs, and the Security Council is the one that matters in questions: 15 members, of whom 5 are permanent — the United States, the United Kingdom, France, Russia and China — and each permanent member holds the veto. The General Assembly has every member with one vote each, but its resolutions are recommendations.",
+  "video": {
+   "query": "united nations organs security council veto general assembly class 12 political science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each UN organ or term with what it does.",
+    "pairs": [
+     {
+      "left": "General Assembly",
+      "right": "All member states, one vote each; its resolutions are recommendations"
+     },
+     {
+      "left": "Security Council",
+      "right": "15 members, 5 permanent with the veto; primary responsibility for peace and security"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "Sits at The Hague and settles legal disputes between states"
+     },
+     {
+      "left": "Secretariat",
+      "right": "Headed by the Secretary-General; the UN's administrative arm"
+     },
+     {
+      "left": "Economic and Social Council",
+      "right": "Coordinates economic, social and related work of the specialised agencies"
+     },
+     {
+      "left": "Trusteeship Council",
+      "right": "Supervised trust territories; suspended operation in 1994"
+     },
+     {
+      "left": "The veto",
+      "right": "A negative vote by any permanent member blocks a substantive resolution"
+     },
+     {
+      "left": "1945",
+      "right": "The year the UN Charter came into force, with 51 original members"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "Security in the Contemporary World",
+  "approved": false,
+  "trick": "Traditional security is about military threats to the state from outside; non-traditional security widens the referent from the state to people, and admits terrorism, disease, migration, poverty and environmental degradation. Sort any threat by asking who is being protected — the state, or human beings.",
+  "video": {
+   "query": "traditional and non traditional security human security class 12 political science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Traditional security concern, or non-traditional?",
+    "bins": [
+     "Traditional",
+     "Non-traditional"
+    ],
+    "items": [
+     {
+      "label": "Threat of invasion by a neighbouring state",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Global epidemics and pandemics",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Deterrence through nuclear weapons",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Climate change and sea-level rise",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Alliance building and the balance of power",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Terrorism by non-state actors",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Arms control and disarmament treaties",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Poverty, hunger and forced migration",
+      "bin": "Non-traditional"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "Environment and Global Issues",
+  "approved": false,
+  "trick": "'Common but differentiated responsibilities' is the phrase that carries this chapter: all countries share the problem, but those that industrialised first bear more of the burden. That is India's position, and it is why the Kyoto Protocol set binding targets only for developed countries.",
+  "video": {
+   "query": "environment global commons kyoto protocol common but differentiated responsibility class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term or agreement with what it means.",
+    "pairs": [
+     {
+      "left": "Global commons",
+      "right": "Areas outside any single state's jurisdiction — the atmosphere, Antarctica, the ocean floor, outer space"
+     },
+     {
+      "left": "Common but differentiated responsibilities",
+      "right": "All states share the duty, but the industrialised ones carry the greater share"
+     },
+     {
+      "left": "Rio Earth Summit, 1992",
+      "right": "Produced Agenda 21 and the conventions on climate and biodiversity"
+     },
+     {
+      "left": "Kyoto Protocol, 1997",
+      "right": "Binding emission cuts for developed countries only"
+     },
+     {
+      "left": "Antarctic Treaty, 1959",
+      "right": "Reserved the continent for peaceful and scientific use"
+     },
+     {
+      "left": "Indigenous peoples' rights",
+      "right": "Claims to ancestral land and identity, raised at the UN since the 1970s"
+     },
+     {
+      "left": "Resource geopolitics",
+      "right": "Conflict and diplomacy over oil, water and minerals"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "Challenges of Nation-Building in India",
+  "approved": false,
+  "trick": "Three challenges faced India at independence and they are usually asked as a set: holding a diverse territory together, establishing democracy, and ensuring development with equity. Sardar Patel and V. P. Menon integrated the princely states; three held out — Junagadh, Hyderabad and Kashmir — and each was resolved differently.",
+  "video": {
+   "query": "challenges of nation building integration of princely states class 12 political science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each state or event with how it was resolved.",
+    "pairs": [
+     {
+      "left": "Junagadh",
+      "right": "The ruler acceded to Pakistan; a plebiscite brought it into India"
+     },
+     {
+      "left": "Hyderabad",
+      "right": "The Nizam held out; integrated after military action in September 1948"
+     },
+     {
+      "left": "Kashmir",
+      "right": "Acceded to India in October 1947 after a tribal invasion from Pakistan"
+     },
+     {
+      "left": "Sardar Vallabhbhai Patel",
+      "right": "Led the integration of the princely states as Home Minister"
+     },
+     {
+      "left": "Instrument of Accession",
+      "right": "The document by which a princely state joined the Indian Union"
+     },
+     {
+      "left": "States Reorganisation Act, 1956",
+      "right": "Redrew state boundaries on a linguistic basis"
+     },
+     {
+      "left": "Andhra Pradesh, 1953",
+      "right": "The first state created on a linguistic basis, after Potti Sriramulu's fast"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "Political Parties and Party Systems",
+  "approved": false,
+  "trick": "Count the parties that can realistically form a government and the system names itself: one-party in China, two-party in the United States and Britain, multi-party in India. India's first two decades are described as the Congress system — a multi-party framework in which one party dominated.",
+  "video": {
+   "query": "party system one two multi party congress system coalition india class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it describes.",
+    "pairs": [
+     {
+      "left": "One-party system",
+      "right": "Only one party is legally permitted to govern, as in China"
+     },
+     {
+      "left": "Two-party system",
+      "right": "Two parties have a realistic chance of forming a government, as in the United States"
+     },
+     {
+      "left": "Multi-party system",
+      "right": "Several parties compete and coalitions are common, as in India"
+     },
+     {
+      "left": "The Congress system",
+      "right": "India's first two decades: a dominant party within a competitive multi-party framework"
+     },
+     {
+      "left": "National party",
+      "right": "Recognised across several states on the Election Commission's criteria"
+     },
+     {
+      "left": "Regional party",
+      "right": "Recognised in one state, with influence concentrated there"
+     },
+     {
+      "left": "Coalition government",
+      "right": "Formed when no single party wins a majority; the norm in India from 1989"
+     },
+     {
+      "left": "Anti-defection law",
+      "right": "The 52nd Amendment; disqualifies a legislator who defects from the party"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Political Science",
+  "chapter": "India's Foreign Policy and Panchsheel",
+  "approved": false,
+  "trick": "Panchsheel means five principles, agreed with China in 1954: mutual respect for territorial integrity and sovereignty, non-aggression, non-interference, equality and mutual benefit, and peaceful coexistence. The number five and the year 1954 travel together — and the 1962 war with China is what makes the agreement so often asked about.",
+  "video": {
+   "query": "panchsheel five principles 1954 india foreign policy class 12 political science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill in the account of Panchsheel and India's early foreign policy.",
+    "text": "The Panchsheel agreement was signed in {1} between India and {2}, and set out {3} principles of peaceful coexistence. It was negotiated by Prime Minister {4}, whose foreign policy also rested on {5} — refusing to join either Cold War bloc. Relations broke down when the two countries went to war in {6}.",
+    "answers": [
+     "1954",
+     "China",
+     "five",
+     "Jawaharlal Nehru",
+     "non-alignment",
+     "1962"
+    ],
+    "bank": [
+     "1954",
+     "1961",
+     "China",
+     "Pakistan",
+     "five",
+     "seven",
+     "Jawaharlal Nehru",
+     "Indira Gandhi",
+     "non-alignment",
+     "neutrality",
+     "1962",
+     "1965"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Education Commissions: University, Mudaliar and Kothari",
+  "approved": false,
+  "trick": "Three commissions, three stages, three chairmen, and the dates run in order: Radhakrishnan 1948-49 for university education, Mudaliar 1952-53 for secondary, Kothari 1964-66 for the whole system. Kothari gave the 10+2+3 pattern and the phrase 'the destiny of India is now being shaped in her classrooms'.",
+  "video": {
+   "query": "radhakrishnan mudaliar kothari commission recommendations class 12 education",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each commission with its chairman, years and chief recommendation.",
+    "pairs": [
+     {
+      "left": "University Education Commission",
+      "right": "S. Radhakrishnan, 1948-49; on higher education and the university system"
+     },
+     {
+      "left": "Secondary Education Commission",
+      "right": "A. Lakshmanaswami Mudaliar, 1952-53; multipurpose schools and a diversified curriculum"
+     },
+     {
+      "left": "Education Commission",
+      "right": "D. S. Kothari, 1964-66; the first to review education at every stage"
+     },
+     {
+      "left": "The 10+2+3 pattern",
+      "right": "Recommended by the Kothari Commission and adopted nationally"
+     },
+     {
+      "left": "'The destiny of India is now being shaped in her classrooms'",
+      "right": "The opening sentence of the Kothari Commission report"
+     },
+     {
+      "left": "Three-language formula",
+      "right": "Endorsed by Kothari and carried into the 1968 policy"
+     },
+     {
+      "left": "Neighbourhood school and the common school system",
+      "right": "A Kothari recommendation intended to reduce social segregation"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "National Policy on Education and the Three-Language Formula",
+  "approved": false,
+  "trick": "Two policies and one revision: NPE 1968 followed Kothari, NPE 1986 was revised in 1992, and NEP 2020 replaced them. The three-language formula means the regional language, Hindi and English — with the third language in Hindi-speaking states being a modern Indian language, usually from the south.",
+  "video": {
+   "query": "national policy on education 1968 1986 three language formula class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the education policies in order.",
+    "items": [
+     {
+      "label": "Kothari Commission report",
+      "note": "1966 — the basis of the first national policy"
+     },
+     {
+      "label": "National Policy on Education 1968",
+      "note": "Adopted the 10+2+3 pattern and the three-language formula"
+     },
+     {
+      "label": "National Policy on Education 1986",
+      "note": "Emphasised equality, Operation Blackboard and Navodaya Vidyalayas"
+     },
+     {
+      "label": "Programme of Action 1992",
+      "note": "The revised plan for implementing the 1986 policy"
+     },
+     {
+      "label": "Right to Education Act 2009",
+      "note": "Made elementary education a justiciable right"
+     },
+     {
+      "label": "National Education Policy 2020",
+      "note": "Replaced the 1986 policy; proposed the 5+3+3+4 structure"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Indian Educational Thinkers: Tagore, Vivekananda and Gandhi",
+  "approved": false,
+  "trick": "One phrase each and they never blur. Tagore: freedom, nature and Santiniketan. Vivekananda: 'education is the manifestation of the perfection already in man', and man-making. Gandhi: Basic Education or Nai Talim, learning through a productive craft, in the mother tongue, self-supporting.",
+  "video": {
+   "query": "tagore vivekananda gandhi educational philosophy basic education class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which thinker does each idea belong to?",
+    "bins": [
+     "Tagore",
+     "Vivekananda",
+     "Gandhi"
+    ],
+    "items": [
+     {
+      "label": "Santiniketan and Visva-Bharati",
+      "bin": "Tagore"
+     },
+     {
+      "label": "Education is the manifestation of the perfection already in man",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Basic Education, or Nai Talim",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Teaching in the open air, under the trees",
+      "bin": "Tagore"
+     },
+     {
+      "label": "Man-making and character-building education",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Craft-centred, self-supporting schooling in the mother tongue",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Freedom of the child as the first condition of learning",
+      "bin": "Tagore"
+     },
+     {
+      "label": "The Wardha Scheme, 1937",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Education must build faith in one's own strength",
+      "bin": "Vivekananda"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Western Educational Thinkers: Rousseau and Dewey",
+  "approved": false,
+  "trick": "Rousseau is the naturalist: Emile, follow nature, negative education, keep society away until the child is ready. Dewey is the pragmatist: education is life itself, not preparation for life, and the school is a miniature society where children learn by doing. Naturalism looks backward to nature, pragmatism forward to social use.",
+  "video": {
+   "query": "rousseau emile naturalism dewey pragmatism learning by doing class 12 education",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Rousseau or Dewey?",
+    "bins": [
+     "Rousseau",
+     "Dewey"
+    ],
+    "items": [
+     {
+      "label": "Wrote Emile",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Education is life itself, not a preparation for life",
+      "bin": "Dewey"
+     },
+     {
+      "label": "Negative education — protect the child from society's corruption",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "The school as a miniature society",
+      "bin": "Dewey"
+     },
+     {
+      "label": "'Everything is good as it comes from the hands of the Author of Nature'",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Learning by doing; the project method",
+      "bin": "Dewey"
+     },
+     {
+      "label": "Follow nature's own order of development",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Truth is what works — the pragmatic test",
+      "bin": "Dewey"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Delors Commission and the Four Pillars of Education",
+  "approved": false,
+  "trick": "Two dates, and questions confuse them: the Delors Commission was CONSTITUTED by UNESCO in 1993, and its report 'Learning: The Treasure Within' was PUBLISHED in 1996. The four pillars are learning to know, learning to do, learning to live together, and learning to be — the fourth is the one most often left out.",
+  "video": {
+   "query": "delors commission four pillars of education learning the treasure within class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each pillar or fact with what it means.",
+    "pairs": [
+     {
+      "left": "Learning to know",
+      "right": "Acquiring the tools of understanding — concentration, memory and the ability to go on learning"
+     },
+     {
+      "left": "Learning to do",
+      "right": "Competence to act on one's knowledge, including teamwork and handling situations"
+     },
+     {
+      "left": "Learning to live together",
+      "right": "Understanding other people, managing conflict and working towards common goals"
+     },
+     {
+      "left": "Learning to be",
+      "right": "The full development of the person — mind, body, judgement and responsibility"
+     },
+     {
+      "left": "Constituted in 1993",
+      "right": "The year UNESCO set up the International Commission under Jacques Delors"
+     },
+     {
+      "left": "Published in 1996",
+      "right": "The year the report 'Learning: The Treasure Within' appeared"
+     },
+     {
+      "left": "Jacques Delors",
+      "right": "The chairman of the commission, formerly President of the European Commission"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Right to Education Act and Constitutional Provisions",
+  "approved": false,
+  "trick": "Follow the sequence: Article 45 was a Directive Principle, the 86th Amendment of 2002 inserted Article 21A making education a fundamental right for ages 6 to 14, and the RTE Act 2009 came into force on 1 April 2010 to give it effect. A Directive Principle cannot be enforced in court; a fundamental right can — that is the whole significance of the change.",
+  "video": {
+   "query": "right to education act 2009 article 21A 86th amendment provisions class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the Right to Education.",
+    "items": [
+     {
+      "statement": "Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14.",
+      "is_true": true,
+      "why": "Inserted by the 86th Amendment in 2002; below six, early childhood care remains a Directive Principle under Article 45."
+     },
+     {
+      "statement": "The RTE Act came into force on 1 April 2010.",
+      "is_true": true,
+      "why": "Passed in 2009, it took effect the following financial year."
+     },
+     {
+      "statement": "The RTE Act requires private unaided schools to reserve 25% of Class I seats for disadvantaged children.",
+      "is_true": true,
+      "why": "One of its most debated provisions, upheld by the Supreme Court."
+     },
+     {
+      "statement": "Before 2002, education was a fundamental right enforceable in court.",
+      "is_true": false,
+      "why": "It was a Directive Principle under Article 45 — a moral direction to the state, not enforceable by a citizen."
+     },
+     {
+      "statement": "The RTE Act permits a school to detain a child before the end of the elementary stage.",
+      "is_true": false,
+      "why": "The no-detention provision as originally enacted barred holding back or expelling a child up to Class VIII."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Inclusive and Special Education",
+  "approved": false,
+  "trick": "Three words in ascending order of ambition: segregation puts children with disabilities in separate schools, integration places them in ordinary schools and expects them to cope, inclusion changes the school so that every child belongs. Inclusion is about adapting the system, not the child — that is the distinction being tested.",
+  "video": {
+   "query": "inclusive education integration special education children with disabilities class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with what it means.",
+    "pairs": [
+     {
+      "left": "Segregated special education",
+      "right": "Children with disabilities taught in separate institutions"
+     },
+     {
+      "left": "Integrated education",
+      "right": "Placement in an ordinary school, with the child expected to adjust to it"
+     },
+     {
+      "left": "Inclusive education",
+      "right": "The school itself is adapted so that every child can learn in it"
+     },
+     {
+      "left": "Resource room",
+      "right": "A room in an ordinary school where a specialist gives additional support"
+     },
+     {
+      "left": "Individualised Education Plan",
+      "right": "A written plan of goals and support drawn up for one particular child"
+     },
+     {
+      "left": "Barrier-free environment",
+      "right": "Ramps, accessible toilets and signage that remove physical obstacles"
+     },
+     {
+      "left": "RPwD Act, 2016",
+      "right": "The Rights of Persons with Disabilities Act, which recognises 21 conditions"
+     },
+     {
+      "left": "Salamanca Statement, 1994",
+      "right": "The UNESCO declaration that made inclusion an international principle"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Open and Distance Learning",
+  "approved": false,
+  "trick": "Distance learning separates teacher and learner in space and time, and open learning removes the entry barriers — no age limit, no rigid qualification, learning at one's own pace. IGNOU (1985) is the national open university and NIOS the school-level board; questions usually want one of those two names.",
+  "video": {
+   "query": "open and distance learning IGNOU NIOS features class 12 education",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about open and distance learning.",
+    "items": [
+     {
+      "statement": "In distance education, teacher and learner are separated in space and often in time.",
+      "is_true": true,
+      "why": "Printed material, broadcasts and online platforms carry the teaching instead of a classroom."
+     },
+     {
+      "statement": "'Open' learning means the same thing as 'distance' learning.",
+      "is_true": false,
+      "why": "Open refers to the removal of entry barriers — age, qualification, pace. A course can be open and face-to-face, or distance and highly restricted."
+     },
+     {
+      "statement": "IGNOU was established in 1985 and is a national open university.",
+      "is_true": true,
+      "why": "It serves learners across the country and abroad through regional and study centres."
+     },
+     {
+      "statement": "NIOS provides open schooling up to the senior secondary stage.",
+      "is_true": true,
+      "why": "It gives a second chance to those who could not complete school in the formal system."
+     },
+     {
+      "statement": "Distance education is unsuited to working adults.",
+      "is_true": false,
+      "why": "It is designed for precisely them — flexible pace and no need to leave employment are among its chief advantages."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "Educational Bodies: NCERT, NCTE and UNESCO",
+  "approved": false,
+  "trick": "Read the name and the work is inside it. NCERT researches and trains, so it writes the textbooks; NCTE regulates teacher education; UGC funds universities; UNESCO is the UN's education, science and culture body in Paris, founded 1946. None of them runs a school or awards a school certificate — that is the board's job.",
+  "video": {
+   "query": "NCERT NCTE UGC UNESCO functions educational organisations class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each body with its work and its year or place.",
+    "pairs": [
+     {
+      "left": "NCERT",
+      "right": "Founded 1961; school curriculum, textbooks and educational research"
+     },
+     {
+      "left": "NCTE",
+      "right": "Statutory body for planning and regulating teacher education"
+     },
+     {
+      "left": "UGC",
+      "right": "Founded 1956; funds universities and maintains standards in higher education"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Founded 1946, Paris; education, science and culture within the UN system"
+     },
+     {
+      "left": "NUEPA / NIEPA",
+      "right": "Research and training in educational planning and administration"
+     },
+     {
+      "left": "SCERT",
+      "right": "The state counterpart of NCERT"
+     },
+     {
+      "left": "NAAC",
+      "right": "Assesses and accredits higher education institutions"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Education",
+  "chapter": "School Programmes and Co-curricular Activities",
+  "approved": false,
+  "trick": "'Extra-curricular' is the older word and 'co-curricular' the accepted one, and the change of word carries the argument: these activities are not outside the curriculum but part of it, developing what the classroom cannot. Sort them by the aim served — physical, aesthetic, social, civic or intellectual.",
+  "video": {
+   "query": "co curricular activities importance types school programme class 12 education",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which aim does each activity chiefly serve?",
+    "bins": [
+     "Physical",
+     "Aesthetic and cultural",
+     "Social and civic",
+     "Intellectual"
+    ],
+    "items": [
+     {
+      "label": "Athletics and games",
+      "bin": "Physical"
+     },
+     {
+      "label": "School drama and music",
+      "bin": "Aesthetic and cultural"
+     },
+     {
+      "label": "Scouts, Guides and NSS",
+      "bin": "Social and civic"
+     },
+     {
+      "label": "Debate and quiz competitions",
+      "bin": "Intellectual"
+     },
+     {
+      "label": "Yoga and drill",
+      "bin": "Physical"
+     },
+     {
+      "label": "Painting and craft exhibition",
+      "bin": "Aesthetic and cultural"
+     },
+     {
+      "label": "Student self-government and school parliament",
+      "bin": "Social and civic"
+     },
+     {
+      "label": "Science club and wall magazine",
+      "bin": "Intellectual"
+     },
+     {
+      "label": "Community cleanliness drive",
+      "bin": "Social and civic"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Biodiversity and its Conservation",
+  "approved": false,
+  "trick": "Biodiversity works at three levels — genetic, species and ecosystem — and a hotspot must satisfy two conditions at once: exceptional endemism AND serious threat. India has four hotspots: the Himalaya, the Western Ghats with Sri Lanka, Indo-Burma, and Sundaland covering the Nicobars.",
+  "video": {
+   "query": "biodiversity levels hotspots india conservation class 12 environmental science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "Which of these is NOT one of India's four biodiversity hotspots?",
+    "items": [
+     "The Himalaya",
+     "The Western Ghats and Sri Lanka",
+     "Indo-Burma",
+     "The Thar Desert",
+     "Sundaland including the Nicobar Islands"
+    ],
+    "odd": 3,
+    "because": "A hotspot needs exceptional endemism together with serious threat. The Thar has remarkable adaptations but does not meet the endemism threshold; India's four are the Himalaya, the Western Ghats-Sri Lanka, Indo-Burma and Sundaland."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "In-situ and Ex-situ Conservation",
+  "approved": false,
+  "trick": "In-situ means in the original place — national parks, sanctuaries, biosphere reserves. Ex-situ means out of it — zoos, botanical gardens, seed banks, cryopreservation. The Latin does the work, so translate the prefix and every example sorts itself.",
+  "video": {
+   "query": "in situ ex situ conservation national park sanctuary biosphere reserve class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "In-situ or ex-situ conservation?",
+    "bins": [
+     "In-situ",
+     "Ex-situ"
+    ],
+    "items": [
+     {
+      "label": "National park",
+      "bin": "In-situ"
+     },
+     {
+      "label": "Zoological garden",
+      "bin": "Ex-situ"
+     },
+     {
+      "label": "Wildlife sanctuary",
+      "bin": "In-situ"
+     },
+     {
+      "label": "Seed bank",
+      "bin": "Ex-situ"
+     },
+     {
+      "label": "Biosphere reserve",
+      "bin": "In-situ"
+     },
+     {
+      "label": "Botanical garden",
+      "bin": "Ex-situ"
+     },
+     {
+      "label": "Sacred grove protected by a village",
+      "bin": "In-situ"
+     },
+     {
+      "label": "Cryopreservation of gametes",
+      "bin": "Ex-situ"
+     },
+     {
+      "label": "Project Tiger reserve",
+      "bin": "In-situ"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Movements in India",
+  "approved": false,
+  "trick": "Each movement has a place, a resource and a leader, and questions ask for the trio. Chipko: Himalayan forests, Sunderlal Bahuguna and Chandi Prasad Bhatt, hugging trees. Appiko: Karnataka, its southern echo. Narmada Bachao: the dam and displacement, Medha Patkar. Silent Valley: Kerala, a rainforest saved from a hydel project.",
+  "video": {
+   "query": "chipko appiko narmada bachao silent valley movement class 12 environmental science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each movement with its place, cause and leader.",
+    "pairs": [
+     {
+      "left": "Chipko Movement",
+      "right": "Uttarakhand, 1973; villagers embraced trees to stop felling; Bahuguna and Bhatt"
+     },
+     {
+      "left": "Appiko Movement",
+      "right": "Karnataka, 1983; the southern counterpart of Chipko"
+     },
+     {
+      "left": "Narmada Bachao Andolan",
+      "right": "Against the Sardar Sarovar dam and displacement; Medha Patkar"
+     },
+     {
+      "left": "Silent Valley Movement",
+      "right": "Kerala; saved a tropical rainforest from a hydroelectric project"
+     },
+     {
+      "left": "Bishnoi tradition",
+      "right": "Rajasthan; Amrita Devi and the villagers who died protecting khejri trees in 1730"
+     },
+     {
+      "left": "Project Tiger",
+      "right": "Launched 1973 to conserve the tiger and its habitat"
+     },
+     {
+      "left": "Jungle Bachao Andolan",
+      "right": "Bihar and Jharkhand; against replacing natural sal forest with teak plantation"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Impact Assessment",
+  "approved": false,
+  "trick": "EIA is done BEFORE a project is cleared, not after it is built — that timing is its whole purpose. Its steps run screening, scoping, impact prediction, public hearing, and finally the decision. The public hearing is the step most often omitted from an answer, and it is the one that gives affected people a voice.",
+  "video": {
+   "query": "environmental impact assessment process steps public hearing india class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of an Environmental Impact Assessment in order.",
+    "items": [
+     {
+      "label": "Screening",
+      "note": "Deciding whether the project needs an EIA at all, and at what level"
+     },
+     {
+      "label": "Scoping",
+      "note": "Identifying which impacts and which alternatives must be studied"
+     },
+     {
+      "label": "Baseline data collection",
+      "note": "Recording the state of air, water, soil, flora and fauna before the project"
+     },
+     {
+      "label": "Impact prediction and assessment",
+      "note": "Estimating what the project will do to each of them"
+     },
+     {
+      "label": "Public hearing",
+      "note": "Affected people and local bodies are heard on the draft report"
+     },
+     {
+      "label": "Appraisal and decision",
+      "note": "The regulator grants, conditions or refuses environmental clearance"
+     },
+     {
+      "label": "Monitoring after clearance",
+      "note": "Checking that the conditions imposed are actually observed"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Legislation in India",
+  "approved": false,
+  "trick": "The dates run in a memorable order: Wildlife Protection 1972, Water 1974, Forest Conservation 1980, Air 1981, and the Environment (Protection) Act 1986 — the umbrella law passed in the wake of Bhopal. Articles 48A and 51A(g) put protection of the environment into the Constitution itself, as a directive and as a fundamental duty.",
+  "video": {
+   "query": "environment protection act 1986 water air wildlife forest acts india class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put India's environmental laws in the order they were enacted.",
+    "items": [
+     {
+      "label": "Wildlife (Protection) Act",
+      "note": "1972 — protected species and the creation of national parks and sanctuaries"
+     },
+     {
+      "label": "Water (Prevention and Control of Pollution) Act",
+      "note": "1974 — and the birth of the Pollution Control Boards"
+     },
+     {
+      "label": "Forest (Conservation) Act",
+      "note": "1980 — central permission needed to divert forest land"
+     },
+     {
+      "label": "Air (Prevention and Control of Pollution) Act",
+      "note": "1981 — extended the Boards' remit to air quality"
+     },
+     {
+      "label": "Environment (Protection) Act",
+      "note": "1986 — the umbrella legislation passed after the Bhopal disaster"
+     },
+     {
+      "label": "Biological Diversity Act",
+      "note": "2002 — following India's ratification of the CBD"
+     },
+     {
+      "label": "National Green Tribunal Act",
+      "note": "2010 — a dedicated tribunal for environmental cases"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Pollution Control Boards and Regulatory Bodies",
+  "approved": false,
+  "trick": "Two tiers doing the same work at different levels: the Central Pollution Control Board advises the central government and coordinates, the State Boards grant consents and enforce on the ground. The CPCB was constituted in 1974 under the Water Act — the Act came first and created the Board, not the other way round.",
+  "video": {
+   "query": "central and state pollution control board functions NGT MoEFCC class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each body with its role.",
+    "pairs": [
+     {
+      "left": "Central Pollution Control Board",
+      "right": "Constituted 1974 under the Water Act; advises the Centre and sets standards"
+     },
+     {
+      "left": "State Pollution Control Board",
+      "right": "Grants consent to establish and operate, and enforces standards locally"
+     },
+     {
+      "left": "MoEFCC",
+      "right": "The Union ministry for environment, forest and climate change"
+     },
+     {
+      "left": "National Green Tribunal",
+      "right": "Established 2010; hears environmental cases and orders remedies"
+     },
+     {
+      "left": "Consent to operate",
+      "right": "The permission an industry must hold before it may run"
+     },
+     {
+      "left": "National Ambient Air Quality Standards",
+      "right": "The limits notified by CPCB against which air quality is judged"
+     },
+     {
+      "left": "Air Quality Index",
+      "right": "A single number summarising several pollutants for the public"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Disaster and Disaster Management",
+  "approved": false,
+  "trick": "A hazard becomes a disaster only when it meets vulnerable people — an earthquake in an empty desert is not a disaster. Management runs in a cycle of four: prevention and mitigation, preparedness, response, and recovery. The NDMA was set up under the Disaster Management Act of 2005, after the 2004 tsunami.",
+  "video": {
+   "query": "disaster management cycle natural manmade NDMA 2005 class 12 environmental science",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each item by the phase of disaster management it belongs to.",
+    "bins": [
+     "Mitigation",
+     "Preparedness",
+     "Response",
+     "Recovery"
+    ],
+    "items": [
+     {
+      "label": "Building earthquake-resistant houses",
+      "bin": "Mitigation"
+     },
+     {
+      "label": "Mock drills and an early warning system",
+      "bin": "Preparedness"
+     },
+     {
+      "label": "Search and rescue after a cyclone",
+      "bin": "Response"
+     },
+     {
+      "label": "Rebuilding damaged schools and roads",
+      "bin": "Recovery"
+     },
+     {
+      "label": "Afforestation on slopes to prevent landslides",
+      "bin": "Mitigation"
+     },
+     {
+      "label": "Stockpiling food, medicine and relief material",
+      "bin": "Preparedness"
+     },
+     {
+      "label": "Setting up relief camps and medical aid",
+      "bin": "Response"
+     },
+     {
+      "label": "Rehabilitating livelihoods months afterwards",
+      "bin": "Recovery"
+     },
+     {
+      "label": "Enforcing zoning rules on a floodplain",
+      "bin": "Mitigation"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Sustainable Development and 'Our Common Future'",
+  "approved": false,
+  "trick": "Learn the Brundtland definition word for word — development that meets the needs of the present without compromising the ability of future generations to meet their own needs — and attach it to the report 'Our Common Future', 1987, chaired by Gro Harlem Brundtland of Norway. The 17 Sustainable Development Goals came much later, in 2015, with a target year of 2030.",
+  "video": {
+   "query": "brundtland report our common future sustainable development goals class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill the gaps in the standard account of sustainable development.",
+    "text": "The report {1} was published in {2} by the World Commission on Environment and Development, chaired by {3} of Norway. It defined sustainable development as development that meets the needs of the {4} without compromising the ability of future generations to meet their own needs. In {5} the United Nations adopted {6} Sustainable Development Goals, to be achieved by 2030.",
+    "answers": [
+     "Our Common Future",
+     "1987",
+     "Gro Harlem Brundtland",
+     "present",
+     "2015",
+     "17"
+    ],
+    "bank": [
+     "Our Common Future",
+     "Silent Spring",
+     "1987",
+     "1992",
+     "Gro Harlem Brundtland",
+     "Maurice Strong",
+     "present",
+     "future",
+     "2015",
+     "2000",
+     "17",
+     "8"
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Ozone Depletion and Global Warming",
+  "approved": false,
+  "trick": "Two different problems in two different layers, and questions deliberately mix them. Ozone depletion is CFCs destroying ozone in the STRATOSPHERE, letting ultraviolet through, and it is addressed by the Montreal Protocol. Global warming is greenhouse gases trapping heat in the TROPOSPHERE, and it is addressed by Kyoto and Paris.",
+  "video": {
+   "query": "ozone depletion CFC montreal protocol global warming greenhouse gases class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each fact belong to ozone depletion or to global warming?",
+    "bins": [
+     "Ozone depletion",
+     "Global warming"
+    ],
+    "items": [
+     {
+      "label": "Caused by chlorofluorocarbons and halons",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Caused by carbon dioxide, methane and nitrous oxide",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Happens in the stratosphere",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Happens in the troposphere",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Leads to more ultraviolet radiation, skin cancer and cataract",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Leads to melting glaciers and rising sea levels",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Addressed by the Montreal Protocol of 1987",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Addressed by the Kyoto Protocol and the Paris Agreement",
+      "bin": "Global warming"
+     },
+     {
+      "label": "The 'hole' observed over Antarctica each spring",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "16 September is observed as its international day",
+      "bin": "Ozone depletion"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Western Philosophy: Locke, Hume and Kant",
+  "approved": false,
+  "trick": "The three form an argument in sequence. Locke: all knowledge comes from experience, the mind is a blank slate. Hume pushes empiricism to its end: we never observe causation, only constant conjunction. Kant answers both: experience supplies the matter, the mind supplies the form — 'percepts without concepts are blind'.",
+  "video": {
+   "query": "locke hume kant empiricism rationalism synthesis class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which philosopher does each position belong to?",
+    "bins": [
+     "Locke",
+     "Hume",
+     "Kant"
+    ],
+    "items": [
+     {
+      "label": "The mind at birth is a tabula rasa",
+      "bin": "Locke"
+     },
+     {
+      "label": "We observe constant conjunction, never a necessary connection",
+      "bin": "Hume"
+     },
+     {
+      "label": "Space and time are forms of sensibility supplied by the mind",
+      "bin": "Kant"
+     },
+     {
+      "label": "Ideas arise from sensation and reflection",
+      "bin": "Locke"
+     },
+     {
+      "label": "The distinction between impressions and ideas",
+      "bin": "Hume"
+     },
+     {
+      "label": "Synthetic a priori judgements are possible",
+      "bin": "Kant"
+     },
+     {
+      "label": "Primary and secondary qualities",
+      "bin": "Locke"
+     },
+     {
+      "label": "Scepticism about the self as a continuing substance",
+      "bin": "Hume"
+     },
+     {
+      "label": "The phenomenon can be known, the noumenon cannot",
+      "bin": "Kant"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Causation: Western and Indian Theories",
+  "approved": false,
+  "trick": "The Indian theories divide on one question: does the effect already exist in the cause? Satkaryavada says yes (Samkhya's parinamavada, real transformation; Advaita's vivartavada, apparent transformation). Asatkaryavada says no (Nyaya-Vaisheshika — the effect is a new beginning). Ask that one question and every school sorts itself.",
+  "video": {
+   "query": "satkaryavada asatkaryavada parinamavada vivartavada causation class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each theory of causation with what it holds.",
+    "pairs": [
+     {
+      "left": "Satkaryavada",
+      "right": "The effect pre-exists in the cause — oil is already in the seed"
+     },
+     {
+      "left": "Asatkaryavada (Arambhavada)",
+      "right": "The effect is a new beginning, not present in the cause before — Nyaya-Vaisheshika"
+     },
+     {
+      "left": "Parinamavada",
+      "right": "Samkhya: the cause really transforms into the effect, as milk into curd"
+     },
+     {
+      "left": "Vivartavada",
+      "right": "Advaita: the transformation is only apparent, as the rope appears to be a snake"
+     },
+     {
+      "left": "Upadana karana",
+      "right": "The material cause — the clay of the pot"
+     },
+     {
+      "left": "Nimitta karana",
+      "right": "The efficient cause — the potter"
+     },
+     {
+      "left": "Hume on causation",
+      "right": "Only constant conjunction is observed; necessity is a habit of the mind"
+     },
+     {
+      "left": "Kant on causation",
+      "right": "Causality is a category the understanding brings to experience"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Advaita Vedanta of Shankara",
+  "approved": false,
+  "trick": "Advaita means 'not two'. Brahman alone is real, the world is maya, and the self is not different from Brahman — 'Brahma satyam jagat mithya jivo brahmaiva naparah' compresses the whole system into one line. The rope-and-snake illustration is asked for by name: the snake was never there, yet it was really seen.",
+  "video": {
+   "query": "shankara advaita vedanta brahman maya rope snake class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about Advaita Vedanta.",
+    "items": [
+     {
+      "statement": "Advaita holds that Brahman alone is ultimately real.",
+      "is_true": true,
+      "why": "The world has vyavaharika or empirical reality but not paramarthika or absolute reality."
+     },
+     {
+      "statement": "Maya means that the world is simply non-existent.",
+      "is_true": false,
+      "why": "Maya is anirvachaniya — indescribable as either real or unreal. The world is experienced, but it is not ultimately real."
+     },
+     {
+      "statement": "The rope-and-snake example illustrates superimposition, adhyasa.",
+      "is_true": true,
+      "why": "The snake is superimposed on the rope, as the world is superimposed on Brahman; knowledge removes it."
+     },
+     {
+      "statement": "In Advaita the individual self is ultimately different from Brahman.",
+      "is_true": false,
+      "why": "Jiva and Brahman are identical — that identity is what 'not two' means, and it is the whole difference from Ramanuja."
+     },
+     {
+      "statement": "Liberation in Advaita comes through knowledge (jnana).",
+      "is_true": true,
+      "why": "Bondage is caused by ignorance, so only knowledge can end it — action cannot remove a mistake of understanding."
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "The Theory of Liberation",
+  "approved": false,
+  "trick": "Every Indian school names the goal differently but describes the same release: moksha in Vedanta, nirvana in Buddhism, kaivalya in Jainism and in Samkhya-Yoga. And the cause of bondage is ignorance, so the path is knowledge — that link between avidya and moksha is what most answers turn on.",
+  "video": {
+   "query": "moksha nirvana kaivalya jivanmukti videhamukti liberation class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each term with the school it belongs to and what it means.",
+    "pairs": [
+     {
+      "left": "Moksha",
+      "right": "Vedanta — release from the cycle of birth and death through knowledge of Brahman"
+     },
+     {
+      "left": "Nirvana",
+      "right": "Buddhism — the blowing out of craving and the end of suffering"
+     },
+     {
+      "left": "Kaivalya",
+      "right": "Jainism and Samkhya-Yoga — the isolation of the soul from matter"
+     },
+     {
+      "left": "Jivanmukti",
+      "right": "Liberation attained while still living in the body"
+     },
+     {
+      "left": "Videhamukti",
+      "right": "Liberation completed at the fall of the body"
+     },
+     {
+      "left": "Avidya",
+      "right": "Ignorance — the root cause of bondage in almost every school"
+     },
+     {
+      "left": "Karma",
+      "right": "Action and its residue, which keeps the cycle of rebirth turning"
+     },
+     {
+      "left": "The three jewels",
+      "right": "Jainism's path: right faith, right knowledge, right conduct"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Ethics and Morality",
+  "approved": false,
+  "trick": "Two families of moral theory, divided by where the rightness lies. Consequentialism looks at results — utilitarianism's greatest happiness of the greatest number, Bentham then Mill. Deontology looks at the act itself — Kant's categorical imperative, duty for duty's sake. Ask what the theory examines, the outcome or the intention.",
+  "video": {
+   "query": "utilitarianism bentham mill kant categorical imperative ethics class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Consequentialist or deontological?",
+    "bins": [
+     "Consequentialist",
+     "Deontological"
+    ],
+    "items": [
+     {
+      "label": "The greatest happiness of the greatest number",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Act only on that maxim you can will to be a universal law",
+      "bin": "Deontological"
+     },
+     {
+      "label": "Bentham's felicific calculus",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Duty performed for the sake of duty alone",
+      "bin": "Deontological"
+     },
+     {
+      "label": "Mill's distinction between higher and lower pleasures",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Treat humanity always as an end and never merely as a means",
+      "bin": "Deontological"
+     },
+     {
+      "label": "An act is right if it produces the best overall result",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "The good will is the only thing good without qualification",
+      "bin": "Deontological"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Sociology: Society, Institutions and Social Groups",
+  "approved": false,
+  "trick": "Cooley's primary group is small, face-to-face and intimate — the family, the play group; the secondary group is large, impersonal and organised for a purpose — a political party, a trade union. Community is a natural grouping with a sense of we-feeling; an association is deliberately formed for an interest.",
+  "video": {
+   "query": "primary secondary group community association social institutions sociology class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Primary group or secondary group?",
+    "bins": [
+     "Primary group",
+     "Secondary group"
+    ],
+    "items": [
+     {
+      "label": "The family",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A trade union",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "A children's play group",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A political party",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "The neighbourhood in a village",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A large corporation's workforce",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "Relations that are personal, intimate and enduring",
+      "bin": "Primary group"
+     },
+     {
+      "label": "Relations that are formal, contractual and goal-directed",
+      "bin": "Secondary group"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Educational Sociology",
+  "approved": false,
+  "trick": "Education has manifest functions, which are intended and stated — transmitting knowledge and skill — and latent functions, which are real but unstated: socialisation, social control, and the sorting of people into positions. Being asked for a 'latent' function and giving a manifest one is the standard way marks are lost here.",
+  "video": {
+   "query": "educational sociology functions of education socialisation social control class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Is each function of education manifest or latent?",
+    "bins": [
+     "Manifest",
+     "Latent"
+    ],
+    "items": [
+     {
+      "label": "Teaching literacy and numeracy",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Transmitting the values and norms of society",
+      "bin": "Latent"
+     },
+     {
+      "label": "Preparing students for an occupation",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Forming friendship networks that shape later life",
+      "bin": "Latent"
+     },
+     {
+      "label": "Awarding certificates and degrees",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Sorting people into social positions",
+      "bin": "Latent"
+     },
+     {
+      "label": "Imparting subject knowledge",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Keeping the young occupied and supervised",
+      "bin": "Latent"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Agencies of Education",
+  "approved": false,
+  "trick": "Formal agencies teach on purpose with a syllabus; informal agencies teach without meaning to. The family is the first and the most informal; the school is the chief formal agency; the mass media are the most powerful informal agency of the modern age, and the state and religion sit between.",
+  "video": {
+   "query": "agencies of education family school state media formal informal class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each agency of education.",
+    "bins": [
+     "Formal",
+     "Informal",
+     "Non-formal"
+    ],
+    "items": [
+     {
+      "label": "The school",
+      "bin": "Formal"
+     },
+     {
+      "label": "The family",
+      "bin": "Informal"
+     },
+     {
+      "label": "An adult literacy centre",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "The university",
+      "bin": "Formal"
+     },
+     {
+      "label": "Television, cinema and social media",
+      "bin": "Informal"
+     },
+     {
+      "label": "Open schooling through NIOS",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "The peer group",
+      "bin": "Informal"
+     },
+     {
+      "label": "A correspondence course",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "Religious festivals and community life",
+      "bin": "Informal"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Indian Educationists: Vivekananda, Gandhi and Aurobindo",
+  "approved": false,
+  "trick": "One sentence each, and they never overlap. Vivekananda: education is the manifestation of the perfection already in man. Gandhi: education through a productive craft, in the mother tongue, self-supporting — Nai Talim. Aurobindo: integral education of the physical, vital, mental, psychic and spiritual, and 'nothing can be taught' — the teacher only helps.",
+  "video": {
+   "query": "vivekananda gandhi aurobindo educational philosophy integral education class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Which educationist does each idea belong to?",
+    "bins": [
+     "Vivekananda",
+     "Gandhi",
+     "Aurobindo"
+    ],
+    "items": [
+     {
+      "label": "Education is the manifestation of the perfection already in man",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Nai Talim, or Basic Education through a craft",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Integral education of the five aspects of the being",
+      "bin": "Aurobindo"
+     },
+     {
+      "label": "Man-making and character-building education",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "The Wardha Scheme of 1937",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "'Nothing can be taught' — the teacher is a helper, not an instructor",
+      "bin": "Aurobindo"
+     },
+     {
+      "label": "Education should build faith in one's own strength",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Teaching in the mother tongue and paying for itself",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "The Sri Aurobindo International Centre of Education, Pondicherry",
+      "bin": "Aurobindo"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Philosophy",
+  "chapter": "Nature and Meaning of Philosophy",
+  "approved": false,
+  "trick": "The word itself is the definition: philo-sophia, love of wisdom. Philosophy differs from science by asking what cannot be settled by observation, and from religion by relying on reason rather than on revelation or faith. Every 'distinguish between' question in this chapter runs along one of those two lines.",
+  "video": {
+   "query": "meaning nature scope of philosophy relation with science religion class 12",
+   "video_id": null,
+   "approved": false
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false? Mark each statement about the nature of philosophy.",
+    "items": [
+     {
+      "statement": "The word philosophy comes from Greek roots meaning 'love of wisdom'.",
+      "is_true": true,
+      "why": "Philos, love, and sophia, wisdom — Pythagoras is traditionally credited with the coinage."
+     },
+     {
+      "statement": "Philosophy settles its questions by experiment, as science does.",
+      "is_true": false,
+      "why": "Its questions are not settled by observation. It proceeds by argument, analysis and criticism."
+     },
+     {
+      "statement": "Philosophy relies on reason, while religion rests on faith and revelation.",
+      "is_true": true,
+      "why": "A philosopher must give reasons that another may examine and reject; that is the standard distinction."
+     },
+     {
+      "statement": "Metaphysics, epistemology and ethics are branches of philosophy.",
+      "is_true": true,
+      "why": "They ask, respectively, what exists, how we know, and what we ought to do. Logic is usually added as a fourth."
+     },
+     {
+      "statement": "Philosophy has no bearing on ordinary life.",
+      "is_true": false,
+      "why": "Every view of duty, justice or knowledge rests on philosophical assumptions, whether or not they are examined."
      }
     ]
    }

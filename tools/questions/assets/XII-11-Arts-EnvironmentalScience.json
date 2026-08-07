@@ -1,0 +1,198 @@
+[
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Biodiversity and its Conservation",
+  "approved": false,
+  "trick": "Biodiversity works at three levels — genetic, species and ecosystem — and a hotspot must satisfy two conditions at once: exceptional endemism AND serious threat. India has four hotspots: the Himalaya, the Western Ghats with Sri Lanka, Indo-Burma, and Sundaland covering the Nicobars.",
+  "video": { "query": "biodiversity levels hotspots india conservation class 12 environmental science", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "odd-one-out",
+   "data": {
+    "prompt": "Which of these is NOT one of India's four biodiversity hotspots?",
+    "items": ["The Himalaya", "The Western Ghats and Sri Lanka", "Indo-Burma", "The Thar Desert", "Sundaland including the Nicobar Islands"],
+    "odd": 3,
+    "because": "A hotspot needs exceptional endemism together with serious threat. The Thar has remarkable adaptations but does not meet the endemism threshold; India's four are the Himalaya, the Western Ghats-Sri Lanka, Indo-Burma and Sundaland."
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "In-situ and Ex-situ Conservation",
+  "approved": false,
+  "trick": "In-situ means in the original place — national parks, sanctuaries, biosphere reserves. Ex-situ means out of it — zoos, botanical gardens, seed banks, cryopreservation. The Latin does the work, so translate the prefix and every example sorts itself.",
+  "video": { "query": "in situ ex situ conservation national park sanctuary biosphere reserve class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "In-situ or ex-situ conservation?",
+    "bins": ["In-situ", "Ex-situ"],
+    "items": [
+     { "label": "National park", "bin": "In-situ" },
+     { "label": "Zoological garden", "bin": "Ex-situ" },
+     { "label": "Wildlife sanctuary", "bin": "In-situ" },
+     { "label": "Seed bank", "bin": "Ex-situ" },
+     { "label": "Biosphere reserve", "bin": "In-situ" },
+     { "label": "Botanical garden", "bin": "Ex-situ" },
+     { "label": "Sacred grove protected by a village", "bin": "In-situ" },
+     { "label": "Cryopreservation of gametes", "bin": "Ex-situ" },
+     { "label": "Project Tiger reserve", "bin": "In-situ" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Movements in India",
+  "approved": false,
+  "trick": "Each movement has a place, a resource and a leader, and questions ask for the trio. Chipko: Himalayan forests, Sunderlal Bahuguna and Chandi Prasad Bhatt, hugging trees. Appiko: Karnataka, its southern echo. Narmada Bachao: the dam and displacement, Medha Patkar. Silent Valley: Kerala, a rainforest saved from a hydel project.",
+  "video": { "query": "chipko appiko narmada bachao silent valley movement class 12 environmental science", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each movement with its place, cause and leader.",
+    "pairs": [
+     { "left": "Chipko Movement", "right": "Uttarakhand, 1973; villagers embraced trees to stop felling; Bahuguna and Bhatt" },
+     { "left": "Appiko Movement", "right": "Karnataka, 1983; the southern counterpart of Chipko" },
+     { "left": "Narmada Bachao Andolan", "right": "Against the Sardar Sarovar dam and displacement; Medha Patkar" },
+     { "left": "Silent Valley Movement", "right": "Kerala; saved a tropical rainforest from a hydroelectric project" },
+     { "left": "Bishnoi tradition", "right": "Rajasthan; Amrita Devi and the villagers who died protecting khejri trees in 1730" },
+     { "left": "Project Tiger", "right": "Launched 1973 to conserve the tiger and its habitat" },
+     { "left": "Jungle Bachao Andolan", "right": "Bihar and Jharkhand; against replacing natural sal forest with teak plantation" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Impact Assessment",
+  "approved": false,
+  "trick": "EIA is done BEFORE a project is cleared, not after it is built — that timing is its whole purpose. Its steps run screening, scoping, impact prediction, public hearing, and finally the decision. The public hearing is the step most often omitted from an answer, and it is the one that gives affected people a voice.",
+  "video": { "query": "environmental impact assessment process steps public hearing india class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put the steps of an Environmental Impact Assessment in order.",
+    "items": [
+     { "label": "Screening", "note": "Deciding whether the project needs an EIA at all, and at what level" },
+     { "label": "Scoping", "note": "Identifying which impacts and which alternatives must be studied" },
+     { "label": "Baseline data collection", "note": "Recording the state of air, water, soil, flora and fauna before the project" },
+     { "label": "Impact prediction and assessment", "note": "Estimating what the project will do to each of them" },
+     { "label": "Public hearing", "note": "Affected people and local bodies are heard on the draft report" },
+     { "label": "Appraisal and decision", "note": "The regulator grants, conditions or refuses environmental clearance" },
+     { "label": "Monitoring after clearance", "note": "Checking that the conditions imposed are actually observed" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Environmental Legislation in India",
+  "approved": false,
+  "trick": "The dates run in a memorable order: Wildlife Protection 1972, Water 1974, Forest Conservation 1980, Air 1981, and the Environment (Protection) Act 1986 — the umbrella law passed in the wake of Bhopal. Articles 48A and 51A(g) put protection of the environment into the Constitution itself, as a directive and as a fundamental duty.",
+  "video": { "query": "environment protection act 1986 water air wildlife forest acts india class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "timeline-order",
+   "data": {
+    "prompt": "Put India's environmental laws in the order they were enacted.",
+    "items": [
+     { "label": "Wildlife (Protection) Act", "note": "1972 — protected species and the creation of national parks and sanctuaries" },
+     { "label": "Water (Prevention and Control of Pollution) Act", "note": "1974 — and the birth of the Pollution Control Boards" },
+     { "label": "Forest (Conservation) Act", "note": "1980 — central permission needed to divert forest land" },
+     { "label": "Air (Prevention and Control of Pollution) Act", "note": "1981 — extended the Boards' remit to air quality" },
+     { "label": "Environment (Protection) Act", "note": "1986 — the umbrella legislation passed after the Bhopal disaster" },
+     { "label": "Biological Diversity Act", "note": "2002 — following India's ratification of the CBD" },
+     { "label": "National Green Tribunal Act", "note": "2010 — a dedicated tribunal for environmental cases" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Pollution Control Boards and Regulatory Bodies",
+  "approved": false,
+  "trick": "Two tiers doing the same work at different levels: the Central Pollution Control Board advises the central government and coordinates, the State Boards grant consents and enforce on the ground. The CPCB was constituted in 1974 under the Water Act — the Act came first and created the Board, not the other way round.",
+  "video": { "query": "central and state pollution control board functions NGT MoEFCC class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each body with its role.",
+    "pairs": [
+     { "left": "Central Pollution Control Board", "right": "Constituted 1974 under the Water Act; advises the Centre and sets standards" },
+     { "left": "State Pollution Control Board", "right": "Grants consent to establish and operate, and enforces standards locally" },
+     { "left": "MoEFCC", "right": "The Union ministry for environment, forest and climate change" },
+     { "left": "National Green Tribunal", "right": "Established 2010; hears environmental cases and orders remedies" },
+     { "left": "Consent to operate", "right": "The permission an industry must hold before it may run" },
+     { "left": "National Ambient Air Quality Standards", "right": "The limits notified by CPCB against which air quality is judged" },
+     { "left": "Air Quality Index", "right": "A single number summarising several pollutants for the public" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Disaster and Disaster Management",
+  "approved": false,
+  "trick": "A hazard becomes a disaster only when it meets vulnerable people — an earthquake in an empty desert is not a disaster. Management runs in a cycle of four: prevention and mitigation, preparedness, response, and recovery. The NDMA was set up under the Disaster Management Act of 2005, after the 2004 tsunami.",
+  "video": { "query": "disaster management cycle natural manmade NDMA 2005 class 12 environmental science", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each item by the phase of disaster management it belongs to.",
+    "bins": ["Mitigation", "Preparedness", "Response", "Recovery"],
+    "items": [
+     { "label": "Building earthquake-resistant houses", "bin": "Mitigation" },
+     { "label": "Mock drills and an early warning system", "bin": "Preparedness" },
+     { "label": "Search and rescue after a cyclone", "bin": "Response" },
+     { "label": "Rebuilding damaged schools and roads", "bin": "Recovery" },
+     { "label": "Afforestation on slopes to prevent landslides", "bin": "Mitigation" },
+     { "label": "Stockpiling food, medicine and relief material", "bin": "Preparedness" },
+     { "label": "Setting up relief camps and medical aid", "bin": "Response" },
+     { "label": "Rehabilitating livelihoods months afterwards", "bin": "Recovery" },
+     { "label": "Enforcing zoning rules on a floodplain", "bin": "Mitigation" }
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Sustainable Development and 'Our Common Future'",
+  "approved": false,
+  "trick": "Learn the Brundtland definition word for word — development that meets the needs of the present without compromising the ability of future generations to meet their own needs — and attach it to the report 'Our Common Future', 1987, chaired by Gro Harlem Brundtland of Norway. The 17 Sustainable Development Goals came much later, in 2015, with a target year of 2030.",
+  "video": { "query": "brundtland report our common future sustainable development goals class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "fill-blank",
+   "data": {
+    "prompt": "Fill the gaps in the standard account of sustainable development.",
+    "text": "The report {1} was published in {2} by the World Commission on Environment and Development, chaired by {3} of Norway. It defined sustainable development as development that meets the needs of the {4} without compromising the ability of future generations to meet their own needs. In {5} the United Nations adopted {6} Sustainable Development Goals, to be achieved by 2030.",
+    "answers": ["Our Common Future", "1987", "Gro Harlem Brundtland", "present", "2015", "17"],
+    "bank": ["Our Common Future", "Silent Spring", "1987", "1992", "Gro Harlem Brundtland", "Maurice Strong", "present", "future", "2015", "2000", "17", "8"]
+   }
+  }
+ },
+ {
+  "bucket": "XII|Arts|Environmental Science",
+  "chapter": "Ozone Depletion and Global Warming",
+  "approved": false,
+  "trick": "Two different problems in two different layers, and questions deliberately mix them. Ozone depletion is CFCs destroying ozone in the STRATOSPHERE, letting ultraviolet through, and it is addressed by the Montreal Protocol. Global warming is greenhouse gases trapping heat in the TROPOSPHERE, and it is addressed by Kyoto and Paris.",
+  "video": { "query": "ozone depletion CFC montreal protocol global warming greenhouse gases class 12", "video_id": null, "approved": false },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Does each fact belong to ozone depletion or to global warming?",
+    "bins": ["Ozone depletion", "Global warming"],
+    "items": [
+     { "label": "Caused by chlorofluorocarbons and halons", "bin": "Ozone depletion" },
+     { "label": "Caused by carbon dioxide, methane and nitrous oxide", "bin": "Global warming" },
+     { "label": "Happens in the stratosphere", "bin": "Ozone depletion" },
+     { "label": "Happens in the troposphere", "bin": "Global warming" },
+     { "label": "Leads to more ultraviolet radiation, skin cancer and cataract", "bin": "Ozone depletion" },
+     { "label": "Leads to melting glaciers and rising sea levels", "bin": "Global warming" },
+     { "label": "Addressed by the Montreal Protocol of 1987", "bin": "Ozone depletion" },
+     { "label": "Addressed by the Kyoto Protocol and the Paris Agreement", "bin": "Global warming" },
+     { "label": "The 'hole' observed over Antarctica each spring", "bin": "Ozone depletion" },
+     { "label": "16 September is observed as its international day", "bin": "Ozone depletion" }
+    ]
+   }
+  }
+ }
+]

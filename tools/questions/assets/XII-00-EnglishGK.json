@@ -4,17 +4,43 @@
   "chapter": "Prose: The Night Train at Deoli",
   "approved": false,
   "trick": "Nothing happens in this story, and that is the story. The narrator never learns the girl's name, never gets off the train for good, and never finds out what became of her — Ruskin Bond leaves it unresolved on purpose, so that the reader keeps the mystery the narrator keeps. Any question asking 'why did the author not...' has that as its answer.",
-  "video": { "query": "the night train at deoli ruskin bond summary class 12 english", "video_id": null, "approved": false },
+  "video": {
+   "query": "the night train at deoli ruskin bond summary class 12 english",
+   "video_id": "kGjiO5cRACc",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "9:39"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about The Night Train at Deoli.",
     "items": [
-     { "statement": "The narrator was eighteen and travelling to his grandmother's house in Dehra.", "is_true": true, "why": "He made the journey every summer during his college vacation, and Deoli was a stop on the way." },
-     { "statement": "Deoli was a busy junction where the train halted for a long time.", "is_true": false, "why": "It was a small, forlorn station where nobody got down and the train stopped for only about ten minutes." },
-     { "statement": "The girl sold baskets on the platform.", "is_true": true, "why": "She carried a basket on her head and sold them to passengers — that is how the narrator first spoke to her." },
-     { "statement": "On his return journey the narrator found the girl and spoke to her again.", "is_true": false, "why": "She was not there, and the stationmaster could tell him nothing useful. He never saw her again." },
-     { "statement": "The narrator decides at the end that he will one day get off at Deoli and find her.", "is_true": true, "why": "He keeps the intention alive without acting on it, which is what preserves the story's romance and its sadness." }
+     {
+      "statement": "The narrator was eighteen and travelling to his grandmother's house in Dehra.",
+      "is_true": true,
+      "why": "He made the journey every summer during his college vacation, and Deoli was a stop on the way."
+     },
+     {
+      "statement": "Deoli was a busy junction where the train halted for a long time.",
+      "is_true": false,
+      "why": "It was a small, forlorn station where nobody got down and the train stopped for only about ten minutes."
+     },
+     {
+      "statement": "The girl sold baskets on the platform.",
+      "is_true": true,
+      "why": "She carried a basket on her head and sold them to passengers — that is how the narrator first spoke to her."
+     },
+     {
+      "statement": "On his return journey the narrator found the girl and spoke to her again.",
+      "is_true": false,
+      "why": "She was not there, and the stationmaster could tell him nothing useful. He never saw her again."
+     },
+     {
+      "statement": "The narrator decides at the end that he will one day get off at Deoli and find her.",
+      "is_true": true,
+      "why": "He keeps the intention alive without acting on it, which is what preserves the story's romance and its sadness."
+     }
     ]
    }
   }
@@ -24,14 +50,38 @@
   "chapter": "Prose: Strong Roots",
   "approved": false,
   "trick": "This is an extract from Kalam's Wings of Fire, and its argument is carried by one image: his father's austerity and his mother's generosity are the two roots of the title. Remember the mosque and the temple standing side by side in Rameswaram — the Muslim boy carrying the priest's message — because that detail is the whole point about tolerance.",
-  "video": { "query": "strong roots apj abdul kalam wings of fire class 12 english summary", "video_id": null, "approved": false },
+  "video": {
+   "query": "strong roots apj abdul kalam wings of fire class 12 english summary",
+   "video_id": "UjTSbwD_MnE",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "12:45"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Fill in the details of Kalam's account of his childhood.",
     "text": "Kalam was born into a middle-class {1} family in the island town of {2}. His father, {3}, was austere and avoided all inessential comforts, while his mother {4} fed more outsiders than the whole family put together. Their ancestral house was built in the middle of the {5} century. His father's close friend was {6}, the high priest of the Rameswaram temple, and the two would discuss spiritual matters together.",
-    "answers": ["Tamil Muslim", "Rameswaram", "Jainulabdeen", "Ashiamma", "19th", "Pakshi Lakshmana Sastry"],
-    "bank": ["Tamil Muslim", "Bengali Hindu", "Rameswaram", "Dhanushkodi", "Jainulabdeen", "Ashiamma", "19th", "18th", "Pakshi Lakshmana Sastry", "Ahmed Jallaluddin"]
+    "answers": [
+     "Tamil Muslim",
+     "Rameswaram",
+     "Jainulabdeen",
+     "Ashiamma",
+     "19th",
+     "Pakshi Lakshmana Sastry"
+    ],
+    "bank": [
+     "Tamil Muslim",
+     "Bengali Hindu",
+     "Rameswaram",
+     "Dhanushkodi",
+     "Jainulabdeen",
+     "Ashiamma",
+     "19th",
+     "18th",
+     "Pakshi Lakshmana Sastry",
+     "Ahmed Jallaluddin"
+    ]
    }
   }
  },
@@ -40,18 +90,40 @@
   "chapter": "Prose: The Bet",
   "approved": false,
   "trick": "Chekhov sets up a bet about capital punishment and then quietly changes the subject: by the end the question is not which punishment is worse but what fifteen years of books do to a man. The lawyer walks out five hours early and forfeits the two million — he renounces it, and the banker is left ashamed. Remember the direction of the moral, because it is the reverse of what the opening leads you to expect.",
-  "video": { "query": "the bet anton chekhov summary and analysis class 12 english", "video_id": null, "approved": false },
+  "video": {
+   "query": "the bet anton chekhov summary and analysis class 12 english",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the events of The Bet in order.",
     "items": [
-     { "label": "The banker's party and the argument", "note": "Is capital punishment or life imprisonment the more humane?" },
-     { "label": "The bet is struck", "note": "Two million roubles against fifteen years of voluntary solitary confinement" },
-     { "label": "The first years: light books and music", "note": "The lawyer plays the piano, reads novels, and drinks wine" },
-     { "label": "The middle years: languages and philosophy", "note": "He masters six languages, then turns to the Gospel and to theology" },
-     { "label": "The banker, now ruined, resolves to kill him", "note": "He cannot afford to pay and creeps into the lodge" },
-     { "label": "The lawyer's letter renouncing the money", "note": "He despises everything the world values and will leave five hours early to lose the bet" }
+     {
+      "label": "The banker's party and the argument",
+      "note": "Is capital punishment or life imprisonment the more humane?"
+     },
+     {
+      "label": "The bet is struck",
+      "note": "Two million roubles against fifteen years of voluntary solitary confinement"
+     },
+     {
+      "label": "The first years: light books and music",
+      "note": "The lawyer plays the piano, reads novels, and drinks wine"
+     },
+     {
+      "label": "The middle years: languages and philosophy",
+      "note": "He masters six languages, then turns to the Gospel and to theology"
+     },
+     {
+      "label": "The banker, now ruined, resolves to kill him",
+      "note": "He cannot afford to pay and creeps into the lodge"
+     },
+     {
+      "label": "The lawyer's letter renouncing the money",
+      "note": "He despises everything the world values and will leave five hours early to lose the bet"
+     }
     ]
    }
   }
@@ -61,17 +133,43 @@
   "chapter": "Poem: Our Casuarina Tree",
   "approved": false,
   "trick": "The tree is not the subject; memory is. Toru Dutt begins with a botanical description, moves to the children who played beneath it, and ends asking that the tree be blessed against oblivion — so the poem travels from sight to memory to immortality. The creeper 'like a huge python' winding round the trunk is the image examiners ask for by name.",
-  "video": { "query": "our casuarina tree toru dutt poem explanation class 12 english", "video_id": null, "approved": false },
+  "video": {
+   "query": "our casuarina tree toru dutt poem explanation class 12 english",
+   "video_id": "-b2QkooX9lU",
+   "approved": true,
+   "language": "BENGALI",
+   "duration": "9:50"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about Our Casuarina Tree.",
     "items": [
-     { "statement": "The creeper round the tree is compared to a huge python.", "is_true": true, "why": "'Like a huge Python, winding round and round' — the poem's most quoted image, and it opens the first stanza." },
-     { "statement": "The poem is written in praise of the tree's usefulness as timber.", "is_true": false, "why": "The tree matters because of the companions who played beneath it in childhood, most of whom are now dead." },
-     { "statement": "Toru Dutt links the tree to trees she saw in France and Italy.", "is_true": true, "why": "The memory of the casuarina returns to her in distant lands, which is how a private tree becomes a universal symbol." },
-     { "statement": "The poet wishes the tree to be forgotten so that her grief may end.", "is_true": false, "why": "The opposite — she consecrates it to the memory of her lost brother and sister and asks that Love defend it from Oblivion's curse." },
-     { "statement": "Wordsworth is invoked in the closing lines.", "is_true": true, "why": "She borrows the phrase about trees in a 'yew-tree' spirit, placing her tree in the Romantic tradition of nature and memory." }
+     {
+      "statement": "The creeper round the tree is compared to a huge python.",
+      "is_true": true,
+      "why": "'Like a huge Python, winding round and round' — the poem's most quoted image, and it opens the first stanza."
+     },
+     {
+      "statement": "The poem is written in praise of the tree's usefulness as timber.",
+      "is_true": false,
+      "why": "The tree matters because of the companions who played beneath it in childhood, most of whom are now dead."
+     },
+     {
+      "statement": "Toru Dutt links the tree to trees she saw in France and Italy.",
+      "is_true": true,
+      "why": "The memory of the casuarina returns to her in distant lands, which is how a private tree becomes a universal symbol."
+     },
+     {
+      "statement": "The poet wishes the tree to be forgotten so that her grief may end.",
+      "is_true": false,
+      "why": "The opposite — she consecrates it to the memory of her lost brother and sister and asks that Love defend it from Oblivion's curse."
+     },
+     {
+      "statement": "Wordsworth is invoked in the closing lines.",
+      "is_true": true,
+      "why": "She borrows the phrase about trees in a 'yew-tree' spirit, placing her tree in the Romantic tradition of nature and memory."
+     }
     ]
    }
   }
@@ -81,20 +179,48 @@
   "chapter": "GK: Indian Polity and Personalities",
   "approved": false,
   "trick": "Separate the three offices that get confused: the President is head of state, the Prime Minister heads the government, and the Chief Justice heads the judiciary. For 'firsts', hold the pairs together — first President Rajendra Prasad, first Prime Minister Nehru, first woman Prime Minister Indira Gandhi, first woman President Pratibha Patil.",
-  "video": { "query": "indian polity president prime minister first office holders general knowledge", "video_id": null, "approved": false },
+  "video": {
+   "query": "indian polity president prime minister first office holders general knowledge",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each person with the office or achievement they are remembered for.",
     "pairs": [
-     { "left": "Dr Rajendra Prasad", "right": "First President of India" },
-     { "left": "Jawaharlal Nehru", "right": "First Prime Minister of India" },
-     { "left": "Dr B. R. Ambedkar", "right": "Chairman of the Drafting Committee of the Constitution" },
-     { "left": "Indira Gandhi", "right": "First woman Prime Minister of India" },
-     { "left": "Pratibha Patil", "right": "First woman President of India" },
-     { "left": "Sardar Vallabhbhai Patel", "right": "First Deputy Prime Minister and Home Minister; integrated the princely states" },
-     { "left": "Sarvepalli Radhakrishnan", "right": "Philosopher-President; Teachers' Day marks his birthday" },
-     { "left": "Fathima Beevi", "right": "First woman judge of the Supreme Court of India" }
+     {
+      "left": "Dr Rajendra Prasad",
+      "right": "First President of India"
+     },
+     {
+      "left": "Jawaharlal Nehru",
+      "right": "First Prime Minister of India"
+     },
+     {
+      "left": "Dr B. R. Ambedkar",
+      "right": "Chairman of the Drafting Committee of the Constitution"
+     },
+     {
+      "left": "Indira Gandhi",
+      "right": "First woman Prime Minister of India"
+     },
+     {
+      "left": "Pratibha Patil",
+      "right": "First woman President of India"
+     },
+     {
+      "left": "Sardar Vallabhbhai Patel",
+      "right": "First Deputy Prime Minister and Home Minister; integrated the princely states"
+     },
+     {
+      "left": "Sarvepalli Radhakrishnan",
+      "right": "Philosopher-President; Teachers' Day marks his birthday"
+     },
+     {
+      "left": "Fathima Beevi",
+      "right": "First woman judge of the Supreme Court of India"
+     }
     ]
    }
   }
@@ -104,20 +230,48 @@
   "chapter": "GK: International Organisations",
   "approved": false,
   "trick": "Learn each body by its headquarters and its one job, because that pair is what gets asked. UN in New York, WHO in Geneva, UNESCO in Paris, IMF and World Bank in Washington, ICJ in The Hague. If the question names a city, it is really asking for the organisation.",
-  "video": { "query": "united nations WHO UNESCO IMF headquarters functions general knowledge", "video_id": null, "approved": false },
+  "video": {
+   "query": "united nations WHO UNESCO IMF headquarters functions general knowledge",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each organisation with its headquarters and work.",
     "pairs": [
-     { "left": "United Nations", "right": "New York — international peace and security, founded 1945" },
-     { "left": "WHO", "right": "Geneva — international public health" },
-     { "left": "UNESCO", "right": "Paris — education, science and culture" },
-     { "left": "UNICEF", "right": "New York — the welfare of children" },
-     { "left": "International Monetary Fund", "right": "Washington DC — exchange stability and balance of payments support" },
-     { "left": "International Court of Justice", "right": "The Hague — the UN's principal judicial organ" },
-     { "left": "ILO", "right": "Geneva — labour standards and workers' rights" },
-     { "left": "FAO", "right": "Rome — food and agriculture" }
+     {
+      "left": "United Nations",
+      "right": "New York — international peace and security, founded 1945"
+     },
+     {
+      "left": "WHO",
+      "right": "Geneva — international public health"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Paris — education, science and culture"
+     },
+     {
+      "left": "UNICEF",
+      "right": "New York — the welfare of children"
+     },
+     {
+      "left": "International Monetary Fund",
+      "right": "Washington DC — exchange stability and balance of payments support"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "The Hague — the UN's principal judicial organ"
+     },
+     {
+      "left": "ILO",
+      "right": "Geneva — labour standards and workers' rights"
+     },
+     {
+      "left": "FAO",
+      "right": "Rome — food and agriculture"
+     }
     ]
    }
   }
@@ -127,20 +281,48 @@
   "chapter": "GK: Geography, Agriculture and Awards",
   "approved": false,
   "trick": "Awards questions turn on which field the award belongs to: Bharat Ratna is the highest civilian honour, Param Vir Chakra the highest wartime gallantry award, Jnanpith for literature, Dronacharya for coaching and Arjuna for playing. Revolutions are colour-coded — Green for foodgrain, White for milk, Blue for fish, Yellow for oilseeds.",
-  "video": { "query": "green white blue revolution india awards bharat ratna general knowledge", "video_id": null, "approved": false },
+  "video": {
+   "query": "green white blue revolution india awards bharat ratna general knowledge",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each 'revolution' or award with what it stands for.",
     "pairs": [
-     { "left": "Green Revolution", "right": "Foodgrain production — high-yielding wheat and rice" },
-     { "left": "White Revolution", "right": "Milk; Operation Flood, associated with Verghese Kurien" },
-     { "left": "Blue Revolution", "right": "Fisheries and aquaculture" },
-     { "left": "Yellow Revolution", "right": "Oilseed production" },
-     { "left": "Bharat Ratna", "right": "The highest civilian award of India" },
-     { "left": "Param Vir Chakra", "right": "The highest wartime gallantry award" },
-     { "left": "Jnanpith Award", "right": "The foremost Indian literary award" },
-     { "left": "Dronacharya Award", "right": "Given to coaches, not to players" }
+     {
+      "left": "Green Revolution",
+      "right": "Foodgrain production — high-yielding wheat and rice"
+     },
+     {
+      "left": "White Revolution",
+      "right": "Milk; Operation Flood, associated with Verghese Kurien"
+     },
+     {
+      "left": "Blue Revolution",
+      "right": "Fisheries and aquaculture"
+     },
+     {
+      "left": "Yellow Revolution",
+      "right": "Oilseed production"
+     },
+     {
+      "left": "Bharat Ratna",
+      "right": "The highest civilian award of India"
+     },
+     {
+      "left": "Param Vir Chakra",
+      "right": "The highest wartime gallantry award"
+     },
+     {
+      "left": "Jnanpith Award",
+      "right": "The foremost Indian literary award"
+     },
+     {
+      "left": "Dronacharya Award",
+      "right": "Given to coaches, not to players"
+     }
     ]
    }
   }

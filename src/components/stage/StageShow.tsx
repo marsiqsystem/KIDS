@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Board, Entry, StageData } from "@/lib/exam/toppers";
+import type { Entry, StageData } from "@/lib/exam/toppers";
 
 /**
  * The Publish Moment — the SET 2026 stage instrument.
@@ -230,114 +230,251 @@ export default function StageShow({
     cancelAnimationFrame(confRaf.current);
   }, []);
 
+
   const board = boards[Math.min(boardIdx, boards.length - 1)];
+  const e = board?.entries ?? [];
+  const [p1, p2, p3] = e;
 
   return (
     <div className="stage" data-freeze={freeze ? "1" : "0"} data-carry={carry ? "1" : "0"}>
       <div className="stage-fit">
-        {/* ─────────────────────────────────── Act I ─── */}
+        <div className="stage-tex-a" aria-hidden />
+        <div className="stage-tex-b" aria-hidden />
+        <span className="stage-star" style={{ top: 120, left: 230, fontSize: 18 }} aria-hidden>★</span>
+        <span className="stage-star" style={{ top: 220, left: 1590, fontSize: 13, animationDelay: "1.5s" }} aria-hidden>★</span>
+        <span className="stage-star" style={{ top: 820, left: 150, fontSize: 12, animationDelay: ".8s" }} aria-hidden>★</span>
+        <span className="stage-star" style={{ top: 900, left: 1700, fontSize: 16, animationDelay: "2.2s" }} aria-hidden>★</span>
+
+        {/* ═══════════════════════════════════════════════ Act I ═══ */}
         {showWait && (
-          <div className="stage-layer stage-carry">
-            <div className="stage-breathe" style={{ textAlign: "center" }}>
-              <div className="stage-eyebrow">Students Evaluation Test 2026&ndash;27</div>
-              <h1 className="stage-title">
-                First Phase Results
-              </h1>
-              <p className="stage-sub">Project UDAAN · Kabitirtha Institute of Development &amp; Studies</p>
-              <div className="stage-stats" style={{ justifyContent: "center" }}>
-                <div>
-                  <div className="stage-stat-v">{fmt(data.overview.appeared)}</div>
-                  <div className="stage-stat-l">Candidates</div>
-                </div>
-                <div>
-                  <div className="stage-stat-v">{String(data.overview.centres).padStart(2, "0")}</div>
-                  <div className="stage-stat-l">Centres</div>
-                </div>
-                <div>
-                  <div className="stage-stat-v">{fmt(data.overview.schools)}</div>
-                  <div className="stage-stat-l">Schools</div>
+          <div className="stage-wait">
+            <div className="stage-crest">
+              <div className="stage-crest-name">Kabitirtha Institute of Development &amp; Studies</div>
+              <div className="stage-crest-rule"><i /><span>★</span><i /></div>
+              <div className="stage-crest-mark">
+                <div className="stage-crest-set">SET 2026</div>
+                <div className="stage-crest-sub">
+                  Students Evaluation Test<br />Project UDAAN · Kolkata
                 </div>
               </div>
             </div>
 
-            <button
-              className="stage-hold"
-              data-charging={charging ? "1" : "0"}
-              onPointerDown={(e) => { e.preventDefault(); holdStart(); }}
-              onPointerUp={holdEnd}
-              onPointerLeave={holdEnd}
-              onPointerCancel={holdEnd}
-              aria-label="Hold to publish the SET 2026 written results"
-            >
-              <svg className="stage-ring" viewBox="0 0 480 480" aria-hidden="true">
-                <circle className="track" cx="240" cy="240" r={RING_R} />
-                <circle
-                  className="fill" cx="240" cy="240" r={RING_R}
-                  strokeDasharray={`${(progress * RING_C).toFixed(1)} ${RING_C.toFixed(1)}`}
-                />
-              </svg>
-              <span className="stage-hold-disc">
-                <span className="stage-hold-word">PUBLISH</span>
-                <span className="stage-hold-hint">Hold to declare</span>
-              </span>
-            </button>
+            <div className="stage-holdwrap">
+              <div className="stage-dial">
+                <div className="stage-halo" aria-hidden />
+                <div className="stage-halo late" aria-hidden />
+                <svg className="stage-ring" width="480" height="480" viewBox="0 0 480 480" aria-hidden>
+                  <circle cx="240" cy="240" r={RING_R} fill="none"
+                    stroke="rgba(201,162,75,0.18)" strokeWidth="6" />
+                  {charging && (
+                    <circle cx="240" cy="240" r={RING_R} fill="none"
+                      stroke="var(--accent-bright)" strokeWidth="8" strokeLinecap="round"
+                      strokeDasharray={`${(progress * RING_C).toFixed(1)} ${RING_C.toFixed(1)}`}
+                      style={{ filter: "drop-shadow(0 0 10px rgba(244,193,42,.8))" }} />
+                  )}
+                </svg>
+                <button type="button" className="stage-hold"
+                  aria-label="Hold to publish the results of SET 2026"
+                  onPointerDown={(ev) => { ev.preventDefault(); holdStart(); }}
+                  onPointerUp={holdEnd} onPointerLeave={holdEnd} onPointerCancel={holdEnd}>
+                  <span className="stage-hold-face" aria-hidden />
+                  <span className="stage-hold-body">
+                    <span className="stage-hold-star" aria-hidden>★</span>
+                    <span className="stage-hold-word">PUBLISH</span>
+                    <span className="stage-hold-hair" aria-hidden />
+                    <span className="stage-hold-hint">HOLD 1.5s</span>
+                  </span>
+                </button>
+              </div>
+              <div className="stage-sealed">
+                <i aria-hidden />
+                <span>{alreadyPublished ? "ALREADY DECLARED" : "SEALED"}</span>
+              </div>
+            </div>
+
+            <div className="stage-stats">
+              <div className="stage-stat">
+                <div className="stage-stat-v">{fmt(data.overview.appeared)}</div>
+                <div className="stage-stat-l">Candidates</div>
+              </div>
+              <div className="stage-stat-div" aria-hidden />
+              <div className="stage-stat">
+                <div className="stage-stat-v">{String(data.overview.centres).padStart(2, "0")}</div>
+                <div className="stage-stat-l">Centres</div>
+              </div>
+              <div className="stage-stat-div" aria-hidden />
+              <div className="stage-stat">
+                <div className="stage-stat-v">IX&ndash;XII</div>
+                <div className="stage-stat-l">Classes</div>
+              </div>
+              <div className="stage-stat-div" aria-hidden />
+              <div className="stage-stat">
+                <div className="stage-stat-v">{fmt(data.overview.schools)}</div>
+                <div className="stage-stat-l">Schools</div>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* ────────────────────────────────── Act II ─── */}
+        {/* ══════════════════════════════════════════════ Act II ═══ */}
         {act === "declare" && (
-          <div className="stage-layer">
-            <div className="stage-flash" aria-hidden="true" />
+          <div className="stage-declare">
+            <div className="stage-flash" aria-hidden />
             <div style={{ textAlign: "center", position: "relative" }}>
-              <div className="stage-declare-word">RESULTS</div>
-              <div className="stage-declare-word two">PUBLISHED</div>
+              <div className="stage-word">RESULTS</div>
+              <div className="stage-word two">PUBLISHED</div>
               <div className="stage-declare-rule" />
-              <div className="stage-declare-line">
-                Declared live on stage · {data.eventDate}
+              <div className="stage-declare-line">Declared live on stage · {data.eventDate}</div>
+            </div>
+          </div>
+        )}
+
+        {/* ═════════════════════════════════════════════ Act III ═══ */}
+        {act === "boards" && board && (
+          <div className="stage-board" key={board.id}>
+            <div className="stage-head">
+              <div className="stage-head-l">
+                <div className="stage-eyebrow">{board.eyebrow}</div>
+                <h1 className="stage-h1">{board.title}</h1>
+                <div className="stage-h2">{board.subtitle}</div>
+              </div>
+              <div className="stage-head-r">
+                <div className="stage-count">{board.count}</div>
+                <div className="stage-mark">SET 2026</div>
               </div>
             </div>
-          </div>
-        )}
+            <div className="stage-rule" />
 
-        {/* ───────────────────────────────── Act III ─── */}
-        {act === "boards" && board && (
-          <BoardView key={board.id} board={board} data={data} />
-        )}
+            <div className="stage-body">
+              {board.kind === "overview" && (
+                <div className="stage-cells">
+                  {[
+                    { v: fmt(data.overview.appeared), l: "Candidates appeared", n: `across ${data.overview.centres} centres` },
+                    { v: fmt(data.overview.marked), l: "OMR sheets marked", n: "assessed and verified" },
+                    { v: String(data.overview.highest), l: "Highest mark", n: "out of 100" },
+                    { v: data.overview.average.toFixed(1), l: "Overall average", n: "marks out of 100" },
+                    { v: String(data.overview.centres), l: "Examination centres", n: "Kolkata · Suburb · Asansol" },
+                    { v: fmt(data.overview.schools), l: "Schools represented", n: "across every district" },
+                  ].map((c, i) => (
+                    <div key={c.l} className="stage-cell" style={{ animationDelay: `${i * 70}ms` }}>
+                      <div className="stage-cell-v">{c.v}</div>
+                      <div className="stage-cell-l">{c.l}</div>
+                      <div className="stage-cell-n">{c.n}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
-        <canvas className="stage-confetti" ref={canvas} width={1920} height={1080} aria-hidden="true" />
+              {board.kind === "podium" && (
+                <div className="stage-podium-wrap">
+                  <div className="stage-podium">
+                    <Step e={p2} rank={2} />
+                    <Step e={p1} rank={1} first />
+                    <Step e={p3} rank={3} />
+                  </div>
+                  {e.length > 3 && (
+                    <div className="stage-tail">
+                      <div className="stage-tr head">
+                        <div>Rank</div><div>Name</div><div>School</div><div>Centre</div>
+                        <div style={{ textAlign: "right" }}>Marks</div>
+                        <div style={{ textAlign: "right" }}>Percent</div>
+                      </div>
+                      {e.slice(3).map((x, i) => (
+                        <div key={x.rank} className="stage-tr" style={{ animationDelay: `${i * 45}ms` }}>
+                          <div className="rank">{x.rank}</div>
+                          <div className="nm">{x.name}</div>
+                          <div className="sc">{x.school}</div>
+                          <div className="ce">{x.centre}</div>
+                          <div className="mk">{x.marks}</div>
+                          <div className="pc">{x.percent}%</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
-        {/* ── operator chrome ── */}
-        {act === "boards" && (
-          <div className="stage-rail">
-            <div className="stage-pips">
-              {boards.map((b, i) => (
-                <span key={b.id} className="stage-pip"
-                  data-on={i === boardIdx ? "2" : i < boardIdx ? "1" : "0"} />
-              ))}
+              {board.kind === "columns" && (
+                <div className="stage-cols">
+                  {e.map((x, i) => (
+                    <div key={x.anchor} className="stage-col" style={{ animationDelay: `${i * 90}ms` }}>
+                      <div className="stage-col-lab"><span aria-hidden>★</span><b>{x.anchor}</b></div>
+                      <div className="stage-col-name">{x.name}</div>
+                      <div className="stage-col-sub">{x.school}<br />{x.centre} · {x.meta}</div>
+                      <div className="stage-col-marks">
+                        <b>{x.marks}</b><span>/ 100 · {x.percent}%</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {board.kind === "list" && (
+                <div className={`stage-list${e.length > 18 ? " dense denser" : e.length > 9 ? " dense" : ""}`}>
+                  {e.map((x, i) => (
+                    <div key={x.anchor} className="stage-li" style={{ animationDelay: `${i * 35}ms` }}>
+                      <div className="stage-li-top">
+                        <div className="stage-li-anchor">{x.anchor}</div>
+                        <div className="stage-li-marks">{x.marks}</div>
+                      </div>
+                      <div className="stage-li-name">{x.name}</div>
+                      <div className="stage-li-sub">{x.school} · {x.meta}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {board.kind === "finale" && p1 && (
+                <div className="stage-finale">
+                  <div className="stage-fin-lab"><span aria-hidden>★</span><b>RANK 01</b></div>
+                  <div className="stage-fin-name">{p1.name}</div>
+                  <div className="stage-fin-sub">{p1.school} · {p1.centre} · {p1.meta}</div>
+                  <div className="stage-fin-marks">
+                    <b>{p1.marks}</b><span>/ 100 · {p1.percent}%</span>
+                  </div>
+                  <div className="stage-fin-pair">
+                    {[p2, p3].filter(Boolean).map((x) => (
+                      <div key={x.rank} className="stage-card stage-fin-card">
+                        <div className="stage-step-lab">
+                          <span aria-hidden>★</span>
+                          <b>RANK {String(x.rank).padStart(2, "0")}</b>
+                        </div>
+                        <div className="n">{x.name}</div>
+                        <div className="s">{x.school} · {x.meta}</div>
+                        <div className="m">{x.marks} / 100 · {x.percent}%</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <span className="stage-rail-label">
-              BOARD {String(boardIdx + 1).padStart(2, "0")} / {String(boards.length).padStart(2, "0")}
-            </span>
+
+            <div className="stage-rail">
+              <span className="stage-rail-label">
+                BOARD {String(boardIdx + 1).padStart(2, "0")} / {String(boards.length).padStart(2, "0")}
+              </span>
+              <span className="stage-pips">
+                {boards.map((b, i) => (
+                  <span key={b.id} className="stage-pip"
+                    data-on={i === boardIdx ? "2" : i < boardIdx ? "1" : "0"} />
+                ))}
+              </span>
+              <span className="stage-rail-keys">PRESS ? FOR KEYS</span>
+            </div>
           </div>
         )}
 
-        {(rehearse || note || alreadyPublished) && (
-          <div className="stage-flag">
-            {rehearse ? "Rehearsal — publish disabled"
-              : note ?? "Results were already published"}
+        <canvas className="stage-confetti" ref={canvas} width={1920} height={1080} aria-hidden />
+
+        {(rehearse || note) && (
+          <div className={`stage-badge${note && !rehearse ? " live" : ""}`}>
+            {rehearse ? "REHEARSAL" : note}
           </div>
         )}
         {error && <div className="stage-error" role="alert">{error}</div>}
-
         {showHelp && (
-          <div className="stage-help" onClick={() => setShowHelp(false)}>
-            <dl>
-              <dt>Hold Space</dt><dd>Publish and start the declaration</dd>
-              <dt>&larr; &rarr;</dt><dd>Move between boards</dd>
-              <dt>F</dt><dd>Full screen</dd>
-              <dt>R</dt><dd>Reset to the waiting screen (does not un-publish)</dd>
-              <dt>?</dt><dd>Close this</dd>
-            </dl>
+          <div className="stage-help">
+            Space / Enter &mdash; hold to publish · &rarr; &larr; board · F fullscreen · R reset · ? this legend
           </div>
         )}
       </div>
@@ -345,122 +482,20 @@ export default function StageShow({
   );
 }
 
-/* ─────────────────────────────────────────────────────── the boards ─── */
-
-function BoardView({ board, data }: { board: Board; data: StageData }) {
-  const e = board.entries;
+/** One podium step. Rank 1 is the tall middle card; 2 and 3 sit lower. */
+function Step({ e, rank, first }: { e?: Entry; rank: number; first?: boolean }) {
+  if (!e) return <div />;
   return (
-    <div className="stage-board stage-rise">
-      <div className="stage-board-head">
-        <div className="stage-board-eyebrow">{board.eyebrow}</div>
-        <h2 className="stage-board-title">{board.title}</h2>
-        <p className="stage-board-sub">{board.subtitle}</p>
-        <div className="stage-board-count">{board.count}</div>
+    <div className={`stage-card stage-step${first ? " one" : ""}`}
+      style={{ animationDelay: first ? "0ms" : rank === 2 ? "120ms" : "240ms" }}>
+      <div className="stage-step-lab">
+        <span aria-hidden>★</span><b>RANK {String(rank).padStart(2, "0")}</b>
       </div>
-
-      {board.kind === "overview" && (
-        <div className="stage-cells">
-          {[
-            { v: fmt(data.overview.appeared), l: "Candidates appeared", n: `across ${data.overview.centres} centres` },
-            { v: fmt(data.overview.marked), l: "OMR sheets marked", n: "assessed and verified" },
-            { v: String(data.overview.highest), l: "Highest mark", n: "out of 100" },
-            { v: data.overview.average.toFixed(1), l: "Overall average", n: "marks out of 100" },
-            { v: String(data.overview.centres), l: "Examination centres", n: "Kolkata · Suburb · Asansol" },
-            { v: fmt(data.overview.schools), l: "Schools represented", n: "across every district" },
-          ].map((c) => (
-            <div key={c.l} className="stage-cell">
-              <div className="stage-cell-v">{c.v}</div>
-              <div className="stage-cell-l">{c.l}</div>
-              <div className="stage-cell-n">{c.n}</div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {board.kind === "podium" && (
-        <>
-          <div className="stage-podium">
-            {[e[1], e[0], e[2]].map((x, i) =>
-              x ? <Step key={x.rank} e={x} first={i === 1} /> : <div key={i} />)}
-          </div>
-          {e.length > 3 && (
-            <div className="stage-tail">
-              {e.slice(3).map((x) => (
-                <div key={x.rank} className="stage-tail-row">
-                  <span className="stage-tail-rank">{x.rank}</span>
-                  <span>
-                    <span className="stage-tail-name">{x.name}</span>
-                    <span className="stage-tail-sub" style={{ display: "block" }}>
-                      {x.school}{x.stream && ` · ${x.stream}`}
-                    </span>
-                  </span>
-                  <span className="stage-tail-marks">{x.marks}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </>
-      )}
-
-      {board.kind === "columns" && (
-        <div className="stage-cols">
-          {e.map((x) => (
-            <div key={x.anchor} className="stage-step">
-              <div className="stage-step-rank">{x.anchor}</div>
-              <div className="stage-step-name">{x.name}</div>
-              <div className="stage-step-school">{x.school}</div>
-              <div className="stage-step-marks">{x.marks}<span> / 100</span></div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {board.kind === "list" && (
-        <div className={`stage-list${e.length > 11 ? " two" : ""}`}>
-          {e.map((x) => (
-            <div key={x.anchor} className="stage-list-row">
-              <span className="stage-list-anchor">{x.anchor}</span>
-              <span>
-                <span className="stage-list-name">{x.name}</span>
-                <span className="stage-list-sub" style={{ display: "block" }}>{x.school}</span>
-              </span>
-              <span className="stage-list-marks">{x.marks}</span>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {board.kind === "finale" && (
-        <div className="stage-finale">
-          {e.map((x) => (
-            <div key={x.rank} className={`stage-finale-row${x.rank === 1 ? " one" : ""}`}>
-              <span className="stage-finale-rank">{x.rank}</span>
-              <span>
-                <span className="stage-finale-name" style={{ display: "block" }}>{x.name}</span>
-                <span className="stage-finale-sub">
-                  {x.school} · Class {x.className}{x.stream && ` · ${x.stream}`} · {x.centre}
-                </span>
-              </span>
-              <span className="stage-finale-marks">{x.marks}</span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function Step({ e, first }: { e: Entry; first: boolean }) {
-  return (
-    <div className={`stage-step${first ? " one" : ""}`}>
-      <div className="stage-step-rank">{e.rank}</div>
       <div className="stage-step-name">{e.name}</div>
-      <div className="stage-step-school">
-        {e.school}
-        <br />
-        {e.centre}{e.stream && ` · ${e.stream}`}
+      <div className="stage-step-sub">{e.school}<br />{e.centre} · {e.meta}</div>
+      <div className="stage-step-marks">
+        <b>{e.marks}</b><span>/ 100 · {e.percent}%</span>
       </div>
-      <div className="stage-step-marks">{e.marks}<span> / 100</span></div>
     </div>
   );
 }

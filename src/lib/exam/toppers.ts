@@ -22,6 +22,8 @@ export interface Entry {
   stream: string;
   marks: number;
   percent: string;
+  /** "Class XII · Science" — what goes on the second line beside the centre. */
+  meta: string;
   /** Set on the "best of each X" boards — the district, zone, school or centre. */
   anchor?: string;
 }
@@ -79,31 +81,42 @@ interface Row {
 }
 
 const CLASS_ORDER = ["IX", "X", "XI", "XII"];
+// Eight rows carry the string "Nan" where the enrolment workbook had an empty
+// cell. It is not a stream and must never head a board or a name line.
+const STREAMS = ["Science", "Commerce", "Arts"];
 const num = (n: number) => n.toLocaleString("en-IN");
 
 /** Highest first; a tie goes to the lower Unique ID, so the order never drifts. */
 const best = (a: Row, b: Row) => b.marks - a.marks || a.uid.localeCompare(b.uid);
+
+/**
+ * "CTR-06 · Garden Reach" — the code and the locality, never the centre's full
+ * name. Most students sit at their own school, so printing the centre name in
+ * full under the school name says the same thing twice on a 15-metre screen.
+ */
+function centreLabel(r: Row): string {
+  const locality = (CENTRES[r.centre_code.slice(-2)]?.district ?? "").split(",")[0].trim();
+  return locality ? `${r.centre_code} · ${locality}` : r.centre_code;
+}
 
 function entry(r: Row, rank: number, anchor?: string): Entry {
   return {
     rank,
     name: r.name,
     school: r.school_name,
-    centre: `${r.centre_code} ${r.centre_name}`,
+    centre: centreLabel(r),
     className: r.class,
     stream: r.stream ?? "",
     marks: r.marks,
     percent: r.total_q ? ((100 * r.marks) / r.total_q).toFixed(1) : "0.0",
+    meta: [`Class ${r.class}`, r.stream && STREAMS.includes(r.stream) ? r.stream : ""]
+      .filter(Boolean).join(" · "),
     anchor,
   };
 }
 
 /** One board of "the best of each X", one name per group, groups ordered by that name's marks. */
-function bestOfEach(
-  rows: Row[],
-  groupBy: (r: Row) => string,
-  detail: (r: Row) => string,
-): Entry[] {
+function bestOfEach(rows: Row[], groupBy: (r: Row) => string): Entry[] {
   const top = new Map<string, Row>();
   for (const r of rows) {
     const g = groupBy(r);
@@ -113,7 +126,7 @@ function bestOfEach(
   }
   return [...top.entries()]
     .sort(([, a], [, b]) => best(a, b))
-    .map(([g, r], i) => ({ ...entry(r, i + 1, g), school: detail(r) }));
+    .map(([g, r], i) => entry(r, i + 1, g));
 }
 
 /**
@@ -168,9 +181,6 @@ export async function stageData(eventDate: string): Promise<StageData> {
   }
 
   // ---- streams, XI and XII together ----
-  // Eight rows carry the string "Nan" where the enrolment workbook had an empty
-  // cell. It is not a stream and must never head a board of its own.
-  const STREAMS = ["Science", "Commerce", "Arts"];
   const streamed = sorted.filter((r) => r.stream && STREAMS.includes(r.stream));
   if (streamed.length) {
     boards.push({
@@ -178,21 +188,16 @@ export async function stageData(eventDate: string): Promise<StageData> {
       subtitle: "Classes XI and XII taken together",
       count: `${new Set(streamed.map((r) => r.stream)).size} of ${num(streamed.length)} candidates`,
       kind: "columns",
-      entries: bestOfEach(streamed, (r) => r.stream ?? "",
-        (r) => `${r.school_name} · ${r.class} · ${r.centre_code}`),
+      entries: bestOfEach(streamed, (r) => r.stream ?? ""),
     });
   }
-
-  const withDetail = (r: Row) =>
-    `Class ${r.class}${r.stream ? ` · ${r.stream}` : ""} · ${r.centre_code}`;
 
   boards.push({
     id: "zones", eyebrow: "Zone Toppers", title: "Best of Each Zone",
     subtitle: "Kolkata · Kolkata Suburb · Asansol",
     count: `${new Set(rows.map((r) => zoneOf(r.centre_code))).size} zones · one topper each`,
     kind: "list",
-    entries: bestOfEach(sorted, (r) => zoneOf(r.centre_code),
-      (r) => `${r.school_name} · ${withDetail(r)}`),
+    entries: bestOfEach(sorted, (r) => zoneOf(r.centre_code)),
   });
 
   boards.push({
@@ -200,8 +205,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
     subtitle: "Across every district the examination reached",
     count: `${new Set(rows.map((r) => districtOf(r.centre_code))).size} districts · one topper each`,
     kind: "list",
-    entries: bestOfEach(sorted, (r) => districtOf(r.centre_code),
-      (r) => `${r.school_name} · ${withDetail(r)}`),
+    entries: bestOfEach(sorted, (r) => districtOf(r.centre_code)),
   });
 
   boards.push({
@@ -209,8 +213,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
     subtitle: "Every examination centre, in order of its highest score",
     count: `${overview.centres} centres · one topper each`,
     kind: "list",
-    entries: bestOfEach(sorted, (r) => `${r.centre_code} ${r.centre_name}`,
-      (r) => `${r.school_name} · ${withDetail(r)}`),
+    entries: bestOfEach(sorted, (r) => centreLabel(r)),
   });
 
   // Schools are the long tail — 200-odd of them. Fifteen is what fits on a
@@ -220,7 +223,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
     subtitle: "Leading schools by their highest-scoring candidate",
     count: `top 15 of ${overview.schools} schools`,
     kind: "list",
-    entries: bestOfEach(sorted, (r) => r.school_name, withDetail).slice(0, 15),
+    entries: bestOfEach(sorted, (r) => r.school_name).slice(0, 15),
   });
 
   boards.push({

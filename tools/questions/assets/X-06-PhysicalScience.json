@@ -2,7 +2,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Concerns about our Environment",
-  "approved": false,
+  "approved": true,
   "trick": "Keep the two big problems apart. The ozone hole is caused by CFCs and lets ultraviolet through; the greenhouse effect is caused by carbon dioxide and methane and traps heat. They are different gases, different layers and different harms, and mixing them costs marks every year.",
   "video": {
    "query": "ozone depletion greenhouse effect global warming acid rain class 10 science",
@@ -46,7 +46,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Behaviour of Gases and the Mole Concept",
-  "approved": false,
+  "approved": true,
   "trick": "A mole is just a counting word, like a dozen, only very much bigger: 6.022 × 10²³ of anything. One mole of a substance weighs its molecular mass in grams and, if it is a gas at STP, occupies 22.4 litres. Those three facts answer nearly every mole question.",
   "video": {
    "query": "mole concept Avogadro number molar volume numericals class 10 chemistry",
@@ -108,7 +108,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Thermal Phenomena: Expansion and Conductivity",
-  "approved": false,
+  "approved": true,
   "trick": "Almost everything expands on heating, and water between 0 and 4 degrees is the famous exception that contracts instead. That single anomaly is why ice floats and why fish survive a frozen pond, and it is asked about far more often than ordinary expansion.",
   "video": {
    "query": "thermal expansion anomalous expansion of water conductivity class 10 physics",
@@ -153,7 +153,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Light: Refraction and Lenses",
-  "approved": false,
+  "approved": true,
   "trick": "Light bends towards the normal going into a denser medium and away from it coming out. And in the lens formula, the sign convention does most of the work: distances measured against the incoming light are negative, so u is nearly always negative. Write the signs down before you put numbers in.",
   "video": {
    "query": "refraction of light lens formula ray diagrams convex concave class 10 physics",
@@ -204,7 +204,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Periodic Table and Periodicity",
-  "approved": false,
+  "approved": true,
   "trick": "Across a period the nucleus pulls harder while the shell stays the same, so atoms get smaller and grip their electrons more tightly. Every trend across a period follows from that one sentence, so derive them rather than memorising eight separate facts.",
   "video": {
    "query": "periodic table trends atomic size electronegativity across period class 10 chemistry",
@@ -260,12 +260,13 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Chemical Bonding and Solubility",
-  "approved": false,
+  "approved": true,
   "trick": "Metal plus non-metal usually means electrons are transferred, so the bond is ionic; non-metal plus non-metal means they are shared, so it is covalent. Ionic compounds then dissolve in water and conduct when molten, and covalent ones generally do neither.",
   "video": {
    "query": "ionic and covalent bonding properties solubility class 10 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "gQdpjJsdmSA",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "odd-one-out",
@@ -286,7 +287,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Metallurgy and Extraction of Metals",
-  "approved": false,
+  "approved": true,
   "trick": "Every extraction runs the same way: get rid of the rock, turn the ore into an oxide, take the oxygen off, then clean up. Concentration, roasting or calcination, reduction, refining. Once you know the sequence you can place any named process in it.",
   "video": {
    "query": "metallurgy extraction of metals roasting calcination reduction class 10 chemistry",
@@ -327,7 +328,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Atomic Nucleus and Radioactivity",
-  "approved": false,
+  "approved": true,
   "trick": "Rank the three radiations by how far they get and everything else follows. Alpha is the heaviest, so it ionises most and is stopped by paper; gamma is massless, so it ionises least and needs lead. Penetration and ionising power always run opposite ways.",
   "video": {
    "query": "radioactivity alpha beta gamma rays properties half life class 10 physics",
@@ -371,7 +372,7 @@
  {
   "bucket": "X|All|Physical Science",
   "chapter": "Inorganic and Organic Chemistry in the Laboratory",
-  "approved": false,
+  "approved": true,
   "trick": "The gas tests are worth learning as a set of six, because they come up every year and each takes one line. Lime water milky, burning splint pop, glowing splint relights, rotten eggs, brown fumes, moist red litmus turning blue.",
   "video": {
    "query": "laboratory tests for gases carbon dioxide hydrogen oxygen ammonia class 10",

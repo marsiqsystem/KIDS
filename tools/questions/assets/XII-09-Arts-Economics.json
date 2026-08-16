@@ -2,19 +2,44 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "National Income and Related Aggregates",
-  "approved": false,
+  "approved": true,
   "trick": "Only FINAL goods count. Counting the flour as well as the bread is double counting, and the standard cure is the value-added method — add only what each stage adds. Transfer payments like pensions and scholarships are not income for this purpose, because nothing was produced in return.",
-  "video": { "query": "national income value added method double counting transfer payments class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "national income value added method double counting transfer payments class 12",
+   "video_id": "SJ0zxWtwBWs",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about measuring national income.",
     "items": [
-     { "statement": "The value of wheat sold to a flour mill is included in national income.", "is_true": false, "why": "It is an intermediate good. Including it as well as the bread would count the same wheat twice." },
-     { "statement": "An old-age pension paid by the government is part of national income.", "is_true": false, "why": "It is a transfer payment — money moves, but nothing is produced in exchange." },
-     { "statement": "The rent a house owner could have earned by letting the house he lives in is included.", "is_true": true, "why": "Imputed rent of owner-occupied houses is counted, because a service is being produced and consumed." },
-     { "statement": "The sale of an old car is included in this year's national income.", "is_true": true, "why": "Only the commission of the dealer is included; the car itself was counted in the year it was produced." },
-     { "statement": "The value-added method avoids double counting.", "is_true": true, "why": "Each producer's contribution is output minus intermediate consumption, so nothing is counted twice." }
+     {
+      "statement": "The value of wheat sold to a flour mill is included in national income.",
+      "is_true": false,
+      "why": "It is an intermediate good. Including it as well as the bread would count the same wheat twice."
+     },
+     {
+      "statement": "An old-age pension paid by the government is part of national income.",
+      "is_true": false,
+      "why": "It is a transfer payment — money moves, but nothing is produced in exchange."
+     },
+     {
+      "statement": "The rent a house owner could have earned by letting the house he lives in is included.",
+      "is_true": true,
+      "why": "Imputed rent of owner-occupied houses is counted, because a service is being produced and consumed."
+     },
+     {
+      "statement": "The sale of an old car is included in this year's national income.",
+      "is_true": true,
+      "why": "Only the commission of the dealer is included; the car itself was counted in the year it was produced."
+     },
+     {
+      "statement": "The value-added method avoids double counting.",
+      "is_true": true,
+      "why": "Each producer's contribution is output minus intermediate consumption, so nothing is counted twice."
+     }
     ]
    }
   }
@@ -22,19 +47,60 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Keynesian Theory: Consumption Function and the Multiplier",
-  "approved": false,
+  "approved": true,
   "trick": "MPC and MPS always add to 1, and the multiplier is 1/MPS, which is the same as 1/(1 − MPC). So a high propensity to consume gives a big multiplier. If MPC = 0.8, the multiplier is 5 — and that single calculation is the most asked-for number in the chapter.",
-  "video": { "query": "keynesian consumption function MPC MPS investment multiplier class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "keynesian consumption function MPC MPS investment multiplier class 12 economics",
+   "video_id": "kiCC-qpxkzQ",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Work the multiplier through from the propensity to consume.",
     "problem": "In an economy the marginal propensity to consume is 0.75. Investment rises by ₹200 crore.",
     "steps": [
-     { "ask": "What is the marginal propensity to save?", "options": ["0.75", "0.25", "1.75"], "correct": 1, "why": "MPC + MPS = 1, so MPS = 1 − 0.75 = 0.25. Every extra rupee is either spent or saved." },
-     { "ask": "What is the investment multiplier?", "options": ["4", "0.25", "1.33"], "correct": 0, "why": "K = 1/MPS = 1/0.25 = 4, which is the same as 1/(1 − 0.75)." },
-     { "ask": "By how much does income rise?", "options": ["₹200 crore", "₹800 crore", "₹50 crore"], "correct": 1, "why": "ΔY = K × ΔI = 4 × 200 = ₹800 crore. The initial spending circulates again and again." },
-     { "ask": "If the MPC were higher, say 0.9, what would happen to the multiplier?", "options": ["It would fall to 5", "It would rise to 10", "It would stay at 4"], "correct": 1, "why": "MPS falls to 0.1, so K = 10. The more of each rupee that is spent onward, the longer the chain." }
+     {
+      "ask": "What is the marginal propensity to save?",
+      "options": [
+       "0.75",
+       "0.25",
+       "1.75"
+      ],
+      "correct": 1,
+      "why": "MPC + MPS = 1, so MPS = 1 − 0.75 = 0.25. Every extra rupee is either spent or saved."
+     },
+     {
+      "ask": "What is the investment multiplier?",
+      "options": [
+       "4",
+       "0.25",
+       "1.33"
+      ],
+      "correct": 0,
+      "why": "K = 1/MPS = 1/0.25 = 4, which is the same as 1/(1 − 0.75)."
+     },
+     {
+      "ask": "By how much does income rise?",
+      "options": [
+       "₹200 crore",
+       "₹800 crore",
+       "₹50 crore"
+      ],
+      "correct": 1,
+      "why": "ΔY = K × ΔI = 4 × 200 = ₹800 crore. The initial spending circulates again and again."
+     },
+     {
+      "ask": "If the MPC were higher, say 0.9, what would happen to the multiplier?",
+      "options": [
+       "It would fall to 5",
+       "It would rise to 10",
+       "It would stay at 4"
+      ],
+      "correct": 1,
+      "why": "MPS falls to 0.1, so K = 10. The more of each rupee that is spent onward, the longer the chain."
+     }
     ],
     "answer": "MPS 0.25, multiplier 4, income rises by ₹800 crore. At MPC 0.9 the multiplier would be 10."
    }
@@ -43,19 +109,44 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Balance of Payments and Exchange Rate",
-  "approved": false,
+  "approved": true,
   "trick": "The balance of payments always balances as an accounting statement — a 'deficit' means a deficit on the current account, financed by the capital account or by reserves. Balance of TRADE is only visible goods; balance of PAYMENTS is everything. Questions rely on that narrower meaning of trade.",
-  "video": { "query": "balance of trade versus balance of payments exchange rate class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "balance of trade versus balance of payments exchange rate class 12 economics",
+   "video_id": "8fQ6YiS_heU",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the balance of payments.",
     "items": [
-     { "statement": "The balance of trade covers only visible goods.", "is_true": true, "why": "Services, transfers and income are outside it — they belong to the wider current account." },
-     { "statement": "The balance of payments as a whole always balances in accounting terms.", "is_true": true, "why": "Every debit has a matching credit somewhere, including reserve movements. A 'BoP deficit' means a deficit on a particular account." },
-     { "statement": "A depreciation of the rupee makes Indian exports cheaper for foreign buyers.", "is_true": true, "why": "The same rupee price now costs the foreigner fewer dollars, so exports become more competitive." },
-     { "statement": "Devaluation and depreciation mean the same thing.", "is_true": false, "why": "Devaluation is a deliberate reduction by the government under a fixed exchange rate; depreciation is a fall brought about by market forces." },
-     { "statement": "Foreign direct investment is recorded in the current account.", "is_true": false, "why": "It is a capital account item, because it creates a claim on assets rather than paying for current goods or services." }
+     {
+      "statement": "The balance of trade covers only visible goods.",
+      "is_true": true,
+      "why": "Services, transfers and income are outside it — they belong to the wider current account."
+     },
+     {
+      "statement": "The balance of payments as a whole always balances in accounting terms.",
+      "is_true": true,
+      "why": "Every debit has a matching credit somewhere, including reserve movements. A 'BoP deficit' means a deficit on a particular account."
+     },
+     {
+      "statement": "A depreciation of the rupee makes Indian exports cheaper for foreign buyers.",
+      "is_true": true,
+      "why": "The same rupee price now costs the foreigner fewer dollars, so exports become more competitive."
+     },
+     {
+      "statement": "Devaluation and depreciation mean the same thing.",
+      "is_true": false,
+      "why": "Devaluation is a deliberate reduction by the government under a fixed exchange rate; depreciation is a fall brought about by market forces."
+     },
+     {
+      "statement": "Foreign direct investment is recorded in the current account.",
+      "is_true": false,
+      "why": "It is a capital account item, because it creates a claim on assets rather than paying for current goods or services."
+     }
     ]
    }
   }
@@ -63,19 +154,44 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Indian Economy on the Eve of Independence",
-  "approved": false,
+  "approved": true,
   "trick": "The colonial economy is described by four facts that go together: stagnant agriculture with low productivity, deindustrialisation of handicrafts, an export surplus that drained wealth rather than enriching India, and literacy around 16% with life expectancy near 32 years. That export surplus is the point most easily misread — India exported more than it imported and was poorer for it.",
-  "video": { "query": "indian economy on the eve of independence colonial deindustrialisation class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "indian economy on the eve of independence colonial deindustrialisation class 12",
+   "video_id": "WV-JuovXyZ4",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the colonial economy.",
     "items": [
-     { "statement": "India had an export surplus at the time of independence, and this was a sign of prosperity.", "is_true": false, "why": "There was an export surplus, but it financed the home charges and the drain of wealth to Britain, leaving nothing for India." },
-     { "statement": "British policy caused the decline of India's traditional handicrafts.", "is_true": true, "why": "Deindustrialisation — the crafts lost both their home market to machine-made imports and their old patronage." },
-     { "statement": "Literacy at independence was about 16 per cent.", "is_true": true, "why": "And female literacy was around 7 per cent, with life expectancy about 32 years." },
-     { "statement": "Agriculture was highly productive but the surplus was exported.", "is_true": false, "why": "Productivity was very low. Stagnation came from the land settlement systems, low investment and the shift to commercial crops." },
-     { "statement": "The primary sector employed the largest share of the workforce.", "is_true": true, "why": "About 70 to 75 per cent worked in agriculture — an occupational structure that barely changed through the colonial period." }
+     {
+      "statement": "India had an export surplus at the time of independence, and this was a sign of prosperity.",
+      "is_true": false,
+      "why": "There was an export surplus, but it financed the home charges and the drain of wealth to Britain, leaving nothing for India."
+     },
+     {
+      "statement": "British policy caused the decline of India's traditional handicrafts.",
+      "is_true": true,
+      "why": "Deindustrialisation — the crafts lost both their home market to machine-made imports and their old patronage."
+     },
+     {
+      "statement": "Literacy at independence was about 16 per cent.",
+      "is_true": true,
+      "why": "And female literacy was around 7 per cent, with life expectancy about 32 years."
+     },
+     {
+      "statement": "Agriculture was highly productive but the surplus was exported.",
+      "is_true": false,
+      "why": "Productivity was very low. Stagnation came from the land settlement systems, low investment and the shift to commercial crops."
+     },
+     {
+      "statement": "The primary sector employed the largest share of the workforce.",
+      "is_true": true,
+      "why": "About 70 to 75 per cent worked in agriculture — an occupational structure that barely changed through the colonial period."
+     }
     ]
    }
   }
@@ -83,21 +199,47 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Liberalisation, Privatisation and Globalisation",
-  "approved": false,
+  "approved": true,
   "trick": "1991 and the letters LPG hold this chapter. The trigger was a balance of payments crisis with reserves enough for barely two weeks of imports. Liberalisation ended industrial licensing, privatisation began disinvestment, globalisation opened trade and investment. The reform was not a plan long in the making — it was a response to a crisis.",
-  "video": { "query": "new economic policy 1991 liberalisation privatisation globalisation class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "new economic policy 1991 liberalisation privatisation globalisation class 12",
+   "video_id": "n3lIaQzlbWo",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it meant in the 1991 reforms.",
     "pairs": [
-     { "left": "The trigger for the reforms", "right": "A balance of payments crisis; foreign exchange reserves barely covered two weeks of imports" },
-     { "left": "Liberalisation", "right": "Abolition of industrial licensing for most industries and freeing of interest rates and imports" },
-     { "left": "Privatisation", "right": "Disinvestment of government equity in public sector undertakings" },
-     { "left": "Globalisation", "right": "Integrating India with the world through trade, investment and technology flows" },
-     { "left": "Devaluation of the rupee", "right": "Undertaken in 1991 to make exports competitive and stem the outflow" },
-     { "left": "Outsourcing", "right": "A consequence of globalisation — services contracted out to India" },
-     { "left": "WTO", "right": "Established 1995, succeeding GATT, to govern world trade rules" }
+     {
+      "left": "The trigger for the reforms",
+      "right": "A balance of payments crisis; foreign exchange reserves barely covered two weeks of imports"
+     },
+     {
+      "left": "Liberalisation",
+      "right": "Abolition of industrial licensing for most industries and freeing of interest rates and imports"
+     },
+     {
+      "left": "Privatisation",
+      "right": "Disinvestment of government equity in public sector undertakings"
+     },
+     {
+      "left": "Globalisation",
+      "right": "Integrating India with the world through trade, investment and technology flows"
+     },
+     {
+      "left": "Devaluation of the rupee",
+      "right": "Undertaken in 1991 to make exports competitive and stem the outflow"
+     },
+     {
+      "left": "Outsourcing",
+      "right": "A consequence of globalisation — services contracted out to India"
+     },
+     {
+      "left": "WTO",
+      "right": "Established 1995, succeeding GATT, to govern world trade rules"
+     }
     ]
    }
   }
@@ -105,14 +247,24 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Human Development and the HDI",
-  "approved": false,
+  "approved": true,
   "trick": "The HDI combines exactly three dimensions — a long and healthy life, knowledge, and a decent standard of living — measured by life expectancy, schooling and gross national income per head. It is published by the UNDP in the Human Development Report, first in 1990, and Mahbub ul Haq and Amartya Sen stand behind it. Income alone is one third of the story, never the whole.",
-  "video": { "query": "human development index UNDP dimensions amartya sen class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "human development index UNDP dimensions amartya sen class 12 economics",
+   "video_id": "Bq_0q2_9qJo",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "odd-one-out",
    "data": {
     "prompt": "Which of these is NOT a dimension used in the Human Development Index?",
-    "items": ["Life expectancy at birth", "Mean and expected years of schooling", "Gross national income per capita", "Rate of inflation"],
+    "items": [
+     "Life expectancy at birth",
+     "Mean and expected years of schooling",
+     "Gross national income per capita",
+     "Rate of inflation"
+    ],
     "odd": 3,
     "because": "The HDI has three dimensions only — health, education and standard of living. Inflation is a macroeconomic indicator and plays no part in the index."
    }
@@ -121,19 +273,44 @@
  {
   "bucket": "XII|Arts|Economics",
   "chapter": "Agriculture and the Green Revolution",
-  "approved": false,
+  "approved": true,
   "trick": "The Green Revolution raised output of wheat and rice above all, and it was concentrated in Punjab, Haryana and western Uttar Pradesh — so it was uneven by crop and by region, and that unevenness is its standard criticism. M. S. Swaminathan is the name to attach to it in India, Norman Borlaug internationally.",
-  "video": { "query": "green revolution india HYV seeds swaminathan criticism class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "green revolution india HYV seeds swaminathan criticism class 12 economics",
+   "video_id": "WBnTU7OOLU8",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the Green Revolution.",
     "items": [
-     { "statement": "The Green Revolution raised the output of wheat and rice most of all.", "is_true": true, "why": "High-yielding varieties were developed for those two cereals; pulses and coarse grains gained far less." },
-     { "statement": "Its gains were spread evenly across all Indian states.", "is_true": false, "why": "They concentrated in Punjab, Haryana and western Uttar Pradesh, where irrigation was assured — one of its main criticisms." },
-     { "statement": "It made India self-sufficient in foodgrains.", "is_true": true, "why": "The country moved from importing food under PL-480 to holding buffer stocks." },
-     { "statement": "It required assured irrigation, fertiliser and pesticide to work.", "is_true": true, "why": "HYV seeds are input-hungry, which is why farmers without irrigation or credit could not adopt them." },
-     { "statement": "It had no adverse environmental consequences.", "is_true": false, "why": "Falling water tables, soil degradation and chemical run-off followed, and are now a standard part of the assessment." }
+     {
+      "statement": "The Green Revolution raised the output of wheat and rice most of all.",
+      "is_true": true,
+      "why": "High-yielding varieties were developed for those two cereals; pulses and coarse grains gained far less."
+     },
+     {
+      "statement": "Its gains were spread evenly across all Indian states.",
+      "is_true": false,
+      "why": "They concentrated in Punjab, Haryana and western Uttar Pradesh, where irrigation was assured — one of its main criticisms."
+     },
+     {
+      "statement": "It made India self-sufficient in foodgrains.",
+      "is_true": true,
+      "why": "The country moved from importing food under PL-480 to holding buffer stocks."
+     },
+     {
+      "statement": "It required assured irrigation, fertiliser and pesticide to work.",
+      "is_true": true,
+      "why": "HYV seeds are input-hungry, which is why farmers without irrigation or credit could not adopt them."
+     },
+     {
+      "statement": "It had no adverse environmental consequences.",
+      "is_true": false,
+      "why": "Falling water tables, soil degradation and chemical run-off followed, and are now a standard part of the assessment."
+     }
     ]
    }
   }

@@ -2,21 +2,47 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "Travellers' Accounts: Alberuni, Ibn Battuta and Bernier",
-  "approved": false,
+  "approved": true,
   "trick": "Each traveller came in a different century, from a different direction, and noticed a different thing — and that is what questions test. Alberuni (11th c.) studied Sanskrit and wrote Kitab-ul-Hind; Ibn Battuta (14th c.) marvelled at the postal system and the coconut; Bernier (17th c.) argued that the absence of private property in land explained everything he disliked.",
-  "video": { "query": "alberuni ibn battuta bernier travellers accounts class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "alberuni ibn battuta bernier travellers accounts class 12 history",
+   "video_id": "ndLXXg1AA_8",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each traveller with his century, his book and his preoccupation.",
     "pairs": [
-     { "left": "Alberuni", "right": "11th century; Kitab-ul-Hind, written in Arabic after learning Sanskrit" },
-     { "left": "Ibn Battuta", "right": "14th century; the Rihla, written in Arabic; served Muhammad bin Tughlaq" },
-     { "left": "Francois Bernier", "right": "17th century; Travels in the Mughal Empire, comparing India with Europe" },
-     { "left": "Bernier's central claim", "right": "That there was no private property in land, and that this ruined the empire" },
-     { "left": "Ibn Battuta on the postal system", "right": "The horse post (uluq) and the foot post (dawa), faster than the horse post" },
-     { "left": "Alberuni's barriers", "right": "Language, religious difference and the self-absorption of the Brahmanas" },
-     { "left": "Bernier's influence", "right": "His idea of 'Oriental Despotism' shaped later European writing about Asia" }
+     {
+      "left": "Alberuni",
+      "right": "11th century; Kitab-ul-Hind, written in Arabic after learning Sanskrit"
+     },
+     {
+      "left": "Ibn Battuta",
+      "right": "14th century; the Rihla, written in Arabic; served Muhammad bin Tughlaq"
+     },
+     {
+      "left": "Francois Bernier",
+      "right": "17th century; Travels in the Mughal Empire, comparing India with Europe"
+     },
+     {
+      "left": "Bernier's central claim",
+      "right": "That there was no private property in land, and that this ruined the empire"
+     },
+     {
+      "left": "Ibn Battuta on the postal system",
+      "right": "The horse post (uluq) and the foot post (dawa), faster than the horse post"
+     },
+     {
+      "left": "Alberuni's barriers",
+      "right": "Language, religious difference and the self-absorption of the Brahmanas"
+     },
+     {
+      "left": "Bernier's influence",
+      "right": "His idea of 'Oriental Despotism' shaped later European writing about Asia"
+     }
     ]
    }
   }
@@ -24,25 +50,64 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "Bhakti and Sufi Traditions",
-  "approved": false,
+  "approved": true,
   "trick": "Bhakti splits into saguna, worship of a God with form (Tulsidas, Mirabai, Surdas), and nirguna, worship of the formless (Kabir, Nanak) — sort every saint by that line first. Sufi orders are named silsilas, and the Chishti was the most influential in India; the khanqah was where a Sufi master lived and taught.",
-  "video": { "query": "bhakti movement saguna nirguna sufi silsila chishti class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "bhakti movement saguna nirguna sufi silsila chishti class 12 history",
+   "video_id": "we5sLGwn5Ec",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each saint or term.",
-    "bins": ["Saguna bhakti", "Nirguna bhakti", "Sufi tradition"],
+    "bins": [
+     "Saguna bhakti",
+     "Nirguna bhakti",
+     "Sufi tradition"
+    ],
     "items": [
-     { "label": "Tulsidas", "bin": "Saguna bhakti" },
-     { "label": "Kabir", "bin": "Nirguna bhakti" },
-     { "label": "Mirabai", "bin": "Saguna bhakti" },
-     { "label": "Guru Nanak", "bin": "Nirguna bhakti" },
-     { "label": "Surdas", "bin": "Saguna bhakti" },
-     { "label": "Khanqah", "bin": "Sufi tradition" },
-     { "label": "Silsila", "bin": "Sufi tradition" },
-     { "label": "Khwaja Muinuddin Chishti of Ajmer", "bin": "Sufi tradition" },
-     { "label": "Alvars and Nayanars of the Tamil country", "bin": "Saguna bhakti" },
-     { "label": "Ziyarat at a dargah", "bin": "Sufi tradition" }
+     {
+      "label": "Tulsidas",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Kabir",
+      "bin": "Nirguna bhakti"
+     },
+     {
+      "label": "Mirabai",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Guru Nanak",
+      "bin": "Nirguna bhakti"
+     },
+     {
+      "label": "Surdas",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Khanqah",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Silsila",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Khwaja Muinuddin Chishti of Ajmer",
+      "bin": "Sufi tradition"
+     },
+     {
+      "label": "Alvars and Nayanars of the Tamil country",
+      "bin": "Saguna bhakti"
+     },
+     {
+      "label": "Ziyarat at a dargah",
+      "bin": "Sufi tradition"
+     }
     ]
    }
   }
@@ -50,22 +115,51 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "The Mughal Empire and its Chroniclers",
-  "approved": false,
+  "approved": true,
   "trick": "The chronicles are named after their patrons: Akbar Nama by Abul Fazl, Badshah Nama by Lahori for Shah Jahan, Babur Nama by Babur himself in Turkish. The Ain-i-Akbari is the third volume of the Akbar Nama and is the statistical one — provinces, revenue, army. Sulh-i kul, absolute peace, is Akbar's principle of tolerance.",
-  "video": { "query": "mughal empire akbar nama ain i akbari sulh i kul mansabdari class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "mughal empire akbar nama ain i akbari sulh i kul mansabdari class 12 history",
+   "video_id": "0IyfTXP7LlY",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each work or term with what it is.",
     "pairs": [
-     { "left": "Akbar Nama", "right": "Abul Fazl's history of Akbar's reign, in three volumes" },
-     { "left": "Ain-i-Akbari", "right": "The third volume — an account of the empire's provinces, revenues and administration" },
-     { "left": "Babur Nama", "right": "Babur's own memoirs, written in Turkish" },
-     { "left": "Badshah Nama", "right": "Abdul Hamid Lahori's chronicle of Shah Jahan" },
-     { "left": "Sulh-i kul", "right": "Absolute peace — Akbar's principle of tolerance towards all faiths" },
-     { "left": "Mansabdari", "right": "The rank system; zat fixed status and pay, sawar the cavalry to be maintained" },
-     { "left": "Jharoka darshan", "right": "The emperor showing himself at a balcony each morning to affirm his rule" },
-     { "left": "Zabt", "right": "Todar Mal's revenue system, assessing land on measured area and past yields" }
+     {
+      "left": "Akbar Nama",
+      "right": "Abul Fazl's history of Akbar's reign, in three volumes"
+     },
+     {
+      "left": "Ain-i-Akbari",
+      "right": "The third volume — an account of the empire's provinces, revenues and administration"
+     },
+     {
+      "left": "Babur Nama",
+      "right": "Babur's own memoirs, written in Turkish"
+     },
+     {
+      "left": "Badshah Nama",
+      "right": "Abdul Hamid Lahori's chronicle of Shah Jahan"
+     },
+     {
+      "left": "Sulh-i kul",
+      "right": "Absolute peace — Akbar's principle of tolerance towards all faiths"
+     },
+     {
+      "left": "Mansabdari",
+      "right": "The rank system; zat fixed status and pay, sawar the cavalry to be maintained"
+     },
+     {
+      "left": "Jharoka darshan",
+      "right": "The emperor showing himself at a balcony each morning to affirm his rule"
+     },
+     {
+      "left": "Zabt",
+      "right": "Todar Mal's revenue system, assessing land on measured area and past yields"
+     }
     ]
    }
   }
@@ -73,20 +167,43 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "The Age of Exploration",
-  "approved": false,
+  "approved": true,
   "trick": "Keep the three voyages apart by what each one reached: Columbus 1492 crossed the Atlantic and reached the Americas believing them to be India; Vasco da Gama 1498 rounded Africa and reached Calicut, the real sea route to India; Magellan's expedition 1519-22 first circumnavigated the globe. Two dates, six years apart, and questions swap them constantly.",
-  "video": { "query": "age of exploration columbus vasco da gama magellan class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "age of exploration columbus vasco da gama magellan class 12 history",
+   "video_id": "eCmfox08u7g",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the voyages and events of the Age of Exploration in order.",
     "items": [
-     { "label": "Bartolomeu Dias rounds the Cape", "note": "1488 — the southern tip of Africa is passed for the first time" },
-     { "label": "Columbus reaches the Americas", "note": "1492 — sailing west for India under the Spanish crown" },
-     { "label": "Vasco da Gama reaches Calicut", "note": "1498 — the sea route from Europe to India is opened" },
-     { "label": "Portuguese capture Goa", "note": "1510 — Albuquerque establishes the Estado da India" },
-     { "label": "Magellan's expedition circumnavigates the globe", "note": "1519 to 1522 — completed by Elcano after Magellan's death" },
-     { "label": "The Dutch and English East India Companies formed", "note": "1600 and 1602 — the commercial phase begins" }
+     {
+      "label": "Bartolomeu Dias rounds the Cape",
+      "note": "1488 — the southern tip of Africa is passed for the first time"
+     },
+     {
+      "label": "Columbus reaches the Americas",
+      "note": "1492 — sailing west for India under the Spanish crown"
+     },
+     {
+      "label": "Vasco da Gama reaches Calicut",
+      "note": "1498 — the sea route from Europe to India is opened"
+     },
+     {
+      "label": "Portuguese capture Goa",
+      "note": "1510 — Albuquerque establishes the Estado da India"
+     },
+     {
+      "label": "Magellan's expedition circumnavigates the globe",
+      "note": "1519 to 1522 — completed by Elcano after Magellan's death"
+     },
+     {
+      "label": "The Dutch and English East India Companies formed",
+      "note": "1600 and 1602 — the commercial phase begins"
+     }
     ]
    }
   }
@@ -94,21 +211,46 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "Colonial Expansion: Company Rule and British Acts",
-  "approved": false,
+  "approved": true,
   "trick": "Three land settlements, three parties paying the revenue: Permanent Settlement (Bengal, 1793, Cornwallis) makes the zamindar the payer; Ryotwari (Madras and Bombay, Munro) makes the cultivator pay directly; Mahalwari (north India) makes the village as a body responsible. Name the region and the settlement follows.",
-  "video": { "query": "permanent settlement ryotwari mahalwari company rule battles class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "permanent settlement ryotwari mahalwari company rule battles class 12 history",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each settlement or event with its details.",
     "pairs": [
-     { "left": "Permanent Settlement", "right": "Bengal, 1793, Cornwallis; the zamindar pays a fixed revenue for ever" },
-     { "left": "Ryotwari Settlement", "right": "Madras and Bombay; the ryot pays the state directly, with periodic revision" },
-     { "left": "Mahalwari Settlement", "right": "North-western provinces; the village or mahal is jointly responsible" },
-     { "left": "Battle of Plassey", "right": "1757 — Clive defeats Siraj-ud-Daulah and Company power in Bengal begins" },
-     { "left": "Battle of Buxar", "right": "1764 — leads to the Diwani of Bengal, Bihar and Orissa in 1765" },
-     { "left": "Doctrine of Lapse", "right": "Dalhousie's policy of annexing states with no natural heir" },
-     { "left": "Subsidiary Alliance", "right": "Wellesley's system: the ruler kept British troops and surrendered foreign relations" }
+     {
+      "left": "Permanent Settlement",
+      "right": "Bengal, 1793, Cornwallis; the zamindar pays a fixed revenue for ever"
+     },
+     {
+      "left": "Ryotwari Settlement",
+      "right": "Madras and Bombay; the ryot pays the state directly, with periodic revision"
+     },
+     {
+      "left": "Mahalwari Settlement",
+      "right": "North-western provinces; the village or mahal is jointly responsible"
+     },
+     {
+      "left": "Battle of Plassey",
+      "right": "1757 — Clive defeats Siraj-ud-Daulah and Company power in Bengal begins"
+     },
+     {
+      "left": "Battle of Buxar",
+      "right": "1764 — leads to the Diwani of Bengal, Bihar and Orissa in 1765"
+     },
+     {
+      "left": "Doctrine of Lapse",
+      "right": "Dalhousie's policy of annexing states with no natural heir"
+     },
+     {
+      "left": "Subsidiary Alliance",
+      "right": "Wellesley's system: the ruler kept British troops and surrendered foreign relations"
+     }
     ]
    }
   }
@@ -116,20 +258,42 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "Colonial India: Viceroys, Acts and Reforms",
-  "approved": false,
+  "approved": true,
   "trick": "Fix each act to what it introduced, because the acts are what get asked: 1858 transfers power from Company to Crown; Morley-Minto 1909 introduces separate electorates; Montagu-Chelmsford 1919 introduces dyarchy in the provinces; the Government of India Act 1935 gives provincial autonomy and a federal scheme.",
-  "video": { "query": "morley minto montagu chelmsford government of india act 1935 class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "morley minto montagu chelmsford government of india act 1935 class 12 history",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the constitutional landmarks of colonial India in order.",
     "items": [
-     { "label": "Government of India Act 1858", "note": "Crown rule replaces the East India Company; the office of Secretary of State is created" },
-     { "label": "Indian Councils Act 1909", "note": "Morley-Minto reforms; separate electorates for Muslims" },
-     { "label": "Government of India Act 1919", "note": "Montagu-Chelmsford reforms; dyarchy in the provinces" },
-     { "label": "Simon Commission", "note": "1927-28; boycotted because it had no Indian member" },
-     { "label": "Government of India Act 1935", "note": "Provincial autonomy, a federal scheme and an expanded franchise" },
-     { "label": "Indian Independence Act 1947", "note": "Partition and the transfer of power" }
+     {
+      "label": "Government of India Act 1858",
+      "note": "Crown rule replaces the East India Company; the office of Secretary of State is created"
+     },
+     {
+      "label": "Indian Councils Act 1909",
+      "note": "Morley-Minto reforms; separate electorates for Muslims"
+     },
+     {
+      "label": "Government of India Act 1919",
+      "note": "Montagu-Chelmsford reforms; dyarchy in the provinces"
+     },
+     {
+      "label": "Simon Commission",
+      "note": "1927-28; boycotted because it had no Indian member"
+     },
+     {
+      "label": "Government of India Act 1935",
+      "note": "Provincial autonomy, a federal scheme and an expanded franchise"
+     },
+     {
+      "label": "Indian Independence Act 1947",
+      "note": "Partition and the transfer of power"
+     }
     ]
    }
   }
@@ -137,21 +301,46 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "The Twentieth Century World: Versailles, Holocaust and Bretton Woods",
-  "approved": false,
+  "approved": true,
   "trick": "Cause and effect run in a chain here: Versailles 1919 humiliated Germany, the humiliation and the Depression helped bring the Nazis to power, the Nazi state carried out the Holocaust, and after the second war Bretton Woods 1944 built the IMF and the World Bank to prevent the economic collapse that had helped it all along. Learn the chain, not the isolated dates.",
-  "video": { "query": "treaty of versailles holocaust bretton woods IMF world bank class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "treaty of versailles holocaust bretton woods IMF world bank class 12 history",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the events of the twentieth century world in order.",
     "items": [
-     { "label": "Treaty of Versailles", "note": "1919 — the war guilt clause and reparations imposed on Germany" },
-     { "label": "The Great Depression", "note": "1929 onward — mass unemployment across the industrial world" },
-     { "label": "Hitler becomes Chancellor", "note": "1933 — the Nazi state and the Nuremberg Laws follow" },
-     { "label": "The Second World War", "note": "1939 to 1945" },
-     { "label": "The Holocaust", "note": "The systematic murder of about six million Jews and other groups" },
-     { "label": "Bretton Woods Conference", "note": "1944 — the IMF and the World Bank are created" },
-     { "label": "The United Nations is founded", "note": "1945 — replacing the failed League of Nations" }
+     {
+      "label": "Treaty of Versailles",
+      "note": "1919 — the war guilt clause and reparations imposed on Germany"
+     },
+     {
+      "label": "The Great Depression",
+      "note": "1929 onward — mass unemployment across the industrial world"
+     },
+     {
+      "label": "Hitler becomes Chancellor",
+      "note": "1933 — the Nazi state and the Nuremberg Laws follow"
+     },
+     {
+      "label": "The Second World War",
+      "note": "1939 to 1945"
+     },
+     {
+      "label": "The Holocaust",
+      "note": "The systematic murder of about six million Jews and other groups"
+     },
+     {
+      "label": "Bretton Woods Conference",
+      "note": "1944 — the IMF and the World Bank are created"
+     },
+     {
+      "label": "The United Nations is founded",
+      "note": "1945 — replacing the failed League of Nations"
+     }
     ]
    }
   }
@@ -159,20 +348,49 @@
  {
   "bucket": "XII|Arts|History",
   "chapter": "Apartheid and Civil Rights Movements",
-  "approved": false,
+  "approved": true,
   "trick": "Be exact about what these laws were FOR. The Jim Crow laws in the American South and apartheid in South Africa were both designed to ENFORCE racial segregation and keep Black people subordinate — they were not attempts at equality, and 'separate but equal' was the excuse the courts used, struck down in Brown v. Board of Education in 1954. The movements against them are what sought equality.",
-  "video": { "query": "apartheid south africa mandela jim crow civil rights movement class 12 history", "video_id": null, "approved": false },
+  "video": {
+   "query": "apartheid south africa mandela jim crow civil rights movement class 12 history",
+   "video_id": "wBHJI6S6uQA",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about segregation and the movements against it.",
     "items": [
-     { "statement": "The Jim Crow laws were intended to enforce the separation of Black and White Americans and to keep Black Americans subordinate.", "is_true": true, "why": "They mandated segregated schools, transport and public places, and were paired with devices such as literacy tests and poll taxes to strip away the vote." },
-     { "statement": "The Jim Crow laws aimed to place Black and White Americans on an equal footing.", "is_true": false, "why": "They did the opposite. The 'separate but equal' formula of Plessy v. Ferguson (1896) was the legal cover, and facilities were never equal." },
-     { "statement": "Brown v. Board of Education, 1954, held that segregated schooling was unconstitutional.", "is_true": true, "why": "It overturned 'separate but equal' in education and became the legal foundation of the civil rights movement." },
-     { "statement": "Apartheid in South Africa was a legally enforced system of racial segregation.", "is_true": true, "why": "From 1948 laws classified people by race and controlled where they could live, work, study and travel." },
-     { "statement": "Nelson Mandela became South Africa's first Black President in 1994.", "is_true": true, "why": "He was released in 1990 after 27 years in prison, and the first non-racial election was held in 1994." },
-     { "statement": "Rosa Parks and the Montgomery Bus Boycott belong to the anti-segregation movement.", "is_true": true, "why": "Her refusal to give up her seat in 1955 began a boycott of over a year and brought Martin Luther King Jr to national attention." }
+     {
+      "statement": "The Jim Crow laws were intended to enforce the separation of Black and White Americans and to keep Black Americans subordinate.",
+      "is_true": true,
+      "why": "They mandated segregated schools, transport and public places, and were paired with devices such as literacy tests and poll taxes to strip away the vote."
+     },
+     {
+      "statement": "The Jim Crow laws aimed to place Black and White Americans on an equal footing.",
+      "is_true": false,
+      "why": "They did the opposite. The 'separate but equal' formula of Plessy v. Ferguson (1896) was the legal cover, and facilities were never equal."
+     },
+     {
+      "statement": "Brown v. Board of Education, 1954, held that segregated schooling was unconstitutional.",
+      "is_true": true,
+      "why": "It overturned 'separate but equal' in education and became the legal foundation of the civil rights movement."
+     },
+     {
+      "statement": "Apartheid in South Africa was a legally enforced system of racial segregation.",
+      "is_true": true,
+      "why": "From 1948 laws classified people by race and controlled where they could live, work, study and travel."
+     },
+     {
+      "statement": "Nelson Mandela became South Africa's first Black President in 1994.",
+      "is_true": true,
+      "why": "He was released in 1990 after 27 years in prison, and the first non-racial election was held in 1994."
+     },
+     {
+      "statement": "Rosa Parks and the Montgomery Bus Boycott belong to the anti-segregation movement.",
+      "is_true": true,
+      "why": "Her refusal to give up her seat in 1955 began a boycott of over a year and brought Martin Luther King Jr to national attention."
+     }
     ]
    }
   }

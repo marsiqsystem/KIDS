@@ -2,20 +2,43 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "The Cold War Era and Bipolarity",
-  "approved": false,
+  "approved": true,
   "trick": "The Cold War was a contest between two blocs that never fought each other directly — that is why it is 'cold'. Attach each alliance to its side: NATO 1949 is the Western bloc, the Warsaw Pact 1955 the Soviet. Its opening is usually dated to 1945-47 and its close to the fall of the Berlin Wall in 1989 and the Soviet collapse in 1991.",
-  "video": { "query": "cold war bipolarity NATO warsaw pact cuban missile crisis class 12 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "cold war bipolarity NATO warsaw pact cuban missile crisis class 12 political science",
+   "video_id": "Kdqk5FV_UHg",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the landmarks of the Cold War in order.",
     "items": [
-     { "label": "End of the Second World War", "note": "1945 — the United States and the Soviet Union emerge as superpowers" },
-     { "label": "Formation of NATO", "note": "1949 — the Western military alliance" },
-     { "label": "Formation of the Warsaw Pact", "note": "1955 — the Soviet answer to NATO" },
-     { "label": "Cuban Missile Crisis", "note": "1962 — the closest the two blocs came to nuclear war" },
-     { "label": "Fall of the Berlin Wall", "note": "1989 — the symbolic end of the divide in Europe" },
-     { "label": "Disintegration of the Soviet Union", "note": "1991 — the end of bipolarity and the beginning of a unipolar moment" }
+     {
+      "label": "End of the Second World War",
+      "note": "1945 — the United States and the Soviet Union emerge as superpowers"
+     },
+     {
+      "label": "Formation of NATO",
+      "note": "1949 — the Western military alliance"
+     },
+     {
+      "label": "Formation of the Warsaw Pact",
+      "note": "1955 — the Soviet answer to NATO"
+     },
+     {
+      "label": "Cuban Missile Crisis",
+      "note": "1962 — the closest the two blocs came to nuclear war"
+     },
+     {
+      "label": "Fall of the Berlin Wall",
+      "note": "1989 — the symbolic end of the divide in Europe"
+     },
+     {
+      "label": "Disintegration of the Soviet Union",
+      "note": "1991 — the end of bipolarity and the beginning of a unipolar moment"
+     }
     ]
    }
   }
@@ -23,19 +46,44 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "The Non-Aligned Movement",
-  "approved": false,
+  "approved": true,
   "trick": "Non-alignment is not neutrality and not isolation — it means judging each issue on its merits rather than joining a bloc. Five founders: Nehru, Tito, Nasser, Sukarno and Nkrumah. The first summit was at Belgrade in 1961, and Bandung 1955 was the conference that prepared the ground.",
-  "video": { "query": "non aligned movement belgrade 1961 bandung nehru tito nasser class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "non aligned movement belgrade 1961 bandung nehru tito nasser class 12",
+   "video_id": "xSRTzzQiqd4",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the Non-Aligned Movement.",
     "items": [
-     { "statement": "Non-alignment means staying neutral and taking no position on world affairs.", "is_true": false, "why": "It means not joining either bloc while judging each issue on its merits — an active foreign policy, not a passive one." },
-     { "statement": "The first NAM summit was held at Belgrade in 1961.", "is_true": true, "why": "Twenty-five countries attended, hosted by Tito." },
-     { "statement": "The Bandung Conference of 1955 preceded and prepared for NAM.", "is_true": true, "why": "The Afro-Asian conference in Indonesia established the ground of Afro-Asian solidarity." },
-     { "statement": "Nehru, Tito, Nasser, Sukarno and Nkrumah are counted as the founders.", "is_true": true, "why": "India, Yugoslavia, Egypt, Indonesia and Ghana respectively." },
-     { "statement": "NAM demanded a New International Economic Order.", "is_true": true, "why": "From the 1970s the movement's emphasis shifted from security to economic justice between the North and the South." }
+     {
+      "statement": "Non-alignment means staying neutral and taking no position on world affairs.",
+      "is_true": false,
+      "why": "It means not joining either bloc while judging each issue on its merits — an active foreign policy, not a passive one."
+     },
+     {
+      "statement": "The first NAM summit was held at Belgrade in 1961.",
+      "is_true": true,
+      "why": "Twenty-five countries attended, hosted by Tito."
+     },
+     {
+      "statement": "The Bandung Conference of 1955 preceded and prepared for NAM.",
+      "is_true": true,
+      "why": "The Afro-Asian conference in Indonesia established the ground of Afro-Asian solidarity."
+     },
+     {
+      "statement": "Nehru, Tito, Nasser, Sukarno and Nkrumah are counted as the founders.",
+      "is_true": true,
+      "why": "India, Yugoslavia, Egypt, Indonesia and Ghana respectively."
+     },
+     {
+      "statement": "NAM demanded a New International Economic Order.",
+      "is_true": true,
+      "why": "From the 1970s the movement's emphasis shifted from security to economic justice between the North and the South."
+     }
     ]
    }
   }
@@ -43,22 +91,51 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "The United Nations and its Organs",
-  "approved": false,
+  "approved": true,
   "trick": "Six principal organs, and the Security Council is the one that matters in questions: 15 members, of whom 5 are permanent — the United States, the United Kingdom, France, Russia and China — and each permanent member holds the veto. The General Assembly has every member with one vote each, but its resolutions are recommendations.",
-  "video": { "query": "united nations organs security council veto general assembly class 12 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "united nations organs security council veto general assembly class 12 political science",
+   "video_id": "jJmBywji3kI",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each UN organ or term with what it does.",
     "pairs": [
-     { "left": "General Assembly", "right": "All member states, one vote each; its resolutions are recommendations" },
-     { "left": "Security Council", "right": "15 members, 5 permanent with the veto; primary responsibility for peace and security" },
-     { "left": "International Court of Justice", "right": "Sits at The Hague and settles legal disputes between states" },
-     { "left": "Secretariat", "right": "Headed by the Secretary-General; the UN's administrative arm" },
-     { "left": "Economic and Social Council", "right": "Coordinates economic, social and related work of the specialised agencies" },
-     { "left": "Trusteeship Council", "right": "Supervised trust territories; suspended operation in 1994" },
-     { "left": "The veto", "right": "A negative vote by any permanent member blocks a substantive resolution" },
-     { "left": "1945", "right": "The year the UN Charter came into force, with 51 original members" }
+     {
+      "left": "General Assembly",
+      "right": "All member states, one vote each; its resolutions are recommendations"
+     },
+     {
+      "left": "Security Council",
+      "right": "15 members, 5 permanent with the veto; primary responsibility for peace and security"
+     },
+     {
+      "left": "International Court of Justice",
+      "right": "Sits at The Hague and settles legal disputes between states"
+     },
+     {
+      "left": "Secretariat",
+      "right": "Headed by the Secretary-General; the UN's administrative arm"
+     },
+     {
+      "left": "Economic and Social Council",
+      "right": "Coordinates economic, social and related work of the specialised agencies"
+     },
+     {
+      "left": "Trusteeship Council",
+      "right": "Supervised trust territories; suspended operation in 1994"
+     },
+     {
+      "left": "The veto",
+      "right": "A negative vote by any permanent member blocks a substantive resolution"
+     },
+     {
+      "left": "1945",
+      "right": "The year the UN Charter came into force, with 51 original members"
+     }
     ]
    }
   }
@@ -66,23 +143,55 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "Security in the Contemporary World",
-  "approved": false,
+  "approved": true,
   "trick": "Traditional security is about military threats to the state from outside; non-traditional security widens the referent from the state to people, and admits terrorism, disease, migration, poverty and environmental degradation. Sort any threat by asking who is being protected — the state, or human beings.",
-  "video": { "query": "traditional and non traditional security human security class 12 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "traditional and non traditional security human security class 12 political science",
+   "video_id": "erKs4HPvIhY",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Traditional security concern, or non-traditional?",
-    "bins": ["Traditional", "Non-traditional"],
+    "bins": [
+     "Traditional",
+     "Non-traditional"
+    ],
     "items": [
-     { "label": "Threat of invasion by a neighbouring state", "bin": "Traditional" },
-     { "label": "Global epidemics and pandemics", "bin": "Non-traditional" },
-     { "label": "Deterrence through nuclear weapons", "bin": "Traditional" },
-     { "label": "Climate change and sea-level rise", "bin": "Non-traditional" },
-     { "label": "Alliance building and the balance of power", "bin": "Traditional" },
-     { "label": "Terrorism by non-state actors", "bin": "Non-traditional" },
-     { "label": "Arms control and disarmament treaties", "bin": "Traditional" },
-     { "label": "Poverty, hunger and forced migration", "bin": "Non-traditional" }
+     {
+      "label": "Threat of invasion by a neighbouring state",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Global epidemics and pandemics",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Deterrence through nuclear weapons",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Climate change and sea-level rise",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Alliance building and the balance of power",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Terrorism by non-state actors",
+      "bin": "Non-traditional"
+     },
+     {
+      "label": "Arms control and disarmament treaties",
+      "bin": "Traditional"
+     },
+     {
+      "label": "Poverty, hunger and forced migration",
+      "bin": "Non-traditional"
+     }
     ]
    }
   }
@@ -90,21 +199,47 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "Environment and Global Issues",
-  "approved": false,
+  "approved": true,
   "trick": "'Common but differentiated responsibilities' is the phrase that carries this chapter: all countries share the problem, but those that industrialised first bear more of the burden. That is India's position, and it is why the Kyoto Protocol set binding targets only for developed countries.",
-  "video": { "query": "environment global commons kyoto protocol common but differentiated responsibility class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "environment global commons kyoto protocol common but differentiated responsibility class 12",
+   "video_id": "K23gSnMo6CE",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term or agreement with what it means.",
     "pairs": [
-     { "left": "Global commons", "right": "Areas outside any single state's jurisdiction — the atmosphere, Antarctica, the ocean floor, outer space" },
-     { "left": "Common but differentiated responsibilities", "right": "All states share the duty, but the industrialised ones carry the greater share" },
-     { "left": "Rio Earth Summit, 1992", "right": "Produced Agenda 21 and the conventions on climate and biodiversity" },
-     { "left": "Kyoto Protocol, 1997", "right": "Binding emission cuts for developed countries only" },
-     { "left": "Antarctic Treaty, 1959", "right": "Reserved the continent for peaceful and scientific use" },
-     { "left": "Indigenous peoples' rights", "right": "Claims to ancestral land and identity, raised at the UN since the 1970s" },
-     { "left": "Resource geopolitics", "right": "Conflict and diplomacy over oil, water and minerals" }
+     {
+      "left": "Global commons",
+      "right": "Areas outside any single state's jurisdiction — the atmosphere, Antarctica, the ocean floor, outer space"
+     },
+     {
+      "left": "Common but differentiated responsibilities",
+      "right": "All states share the duty, but the industrialised ones carry the greater share"
+     },
+     {
+      "left": "Rio Earth Summit, 1992",
+      "right": "Produced Agenda 21 and the conventions on climate and biodiversity"
+     },
+     {
+      "left": "Kyoto Protocol, 1997",
+      "right": "Binding emission cuts for developed countries only"
+     },
+     {
+      "left": "Antarctic Treaty, 1959",
+      "right": "Reserved the continent for peaceful and scientific use"
+     },
+     {
+      "left": "Indigenous peoples' rights",
+      "right": "Claims to ancestral land and identity, raised at the UN since the 1970s"
+     },
+     {
+      "left": "Resource geopolitics",
+      "right": "Conflict and diplomacy over oil, water and minerals"
+     }
     ]
    }
   }
@@ -112,21 +247,47 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "Challenges of Nation-Building in India",
-  "approved": false,
+  "approved": true,
   "trick": "Three challenges faced India at independence and they are usually asked as a set: holding a diverse territory together, establishing democracy, and ensuring development with equity. Sardar Patel and V. P. Menon integrated the princely states; three held out — Junagadh, Hyderabad and Kashmir — and each was resolved differently.",
-  "video": { "query": "challenges of nation building integration of princely states class 12 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "challenges of nation building integration of princely states class 12 political science",
+   "video_id": "facwdZynF3Y",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each state or event with how it was resolved.",
     "pairs": [
-     { "left": "Junagadh", "right": "The ruler acceded to Pakistan; a plebiscite brought it into India" },
-     { "left": "Hyderabad", "right": "The Nizam held out; integrated after military action in September 1948" },
-     { "left": "Kashmir", "right": "Acceded to India in October 1947 after a tribal invasion from Pakistan" },
-     { "left": "Sardar Vallabhbhai Patel", "right": "Led the integration of the princely states as Home Minister" },
-     { "left": "Instrument of Accession", "right": "The document by which a princely state joined the Indian Union" },
-     { "left": "States Reorganisation Act, 1956", "right": "Redrew state boundaries on a linguistic basis" },
-     { "left": "Andhra Pradesh, 1953", "right": "The first state created on a linguistic basis, after Potti Sriramulu's fast" }
+     {
+      "left": "Junagadh",
+      "right": "The ruler acceded to Pakistan; a plebiscite brought it into India"
+     },
+     {
+      "left": "Hyderabad",
+      "right": "The Nizam held out; integrated after military action in September 1948"
+     },
+     {
+      "left": "Kashmir",
+      "right": "Acceded to India in October 1947 after a tribal invasion from Pakistan"
+     },
+     {
+      "left": "Sardar Vallabhbhai Patel",
+      "right": "Led the integration of the princely states as Home Minister"
+     },
+     {
+      "left": "Instrument of Accession",
+      "right": "The document by which a princely state joined the Indian Union"
+     },
+     {
+      "left": "States Reorganisation Act, 1956",
+      "right": "Redrew state boundaries on a linguistic basis"
+     },
+     {
+      "left": "Andhra Pradesh, 1953",
+      "right": "The first state created on a linguistic basis, after Potti Sriramulu's fast"
+     }
     ]
    }
   }
@@ -134,22 +295,51 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "Political Parties and Party Systems",
-  "approved": false,
+  "approved": true,
   "trick": "Count the parties that can realistically form a government and the system names itself: one-party in China, two-party in the United States and Britain, multi-party in India. India's first two decades are described as the Congress system — a multi-party framework in which one party dominated.",
-  "video": { "query": "party system one two multi party congress system coalition india class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "party system one two multi party congress system coalition india class 12",
+   "video_id": "XpeIwwlDis0",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it describes.",
     "pairs": [
-     { "left": "One-party system", "right": "Only one party is legally permitted to govern, as in China" },
-     { "left": "Two-party system", "right": "Two parties have a realistic chance of forming a government, as in the United States" },
-     { "left": "Multi-party system", "right": "Several parties compete and coalitions are common, as in India" },
-     { "left": "The Congress system", "right": "India's first two decades: a dominant party within a competitive multi-party framework" },
-     { "left": "National party", "right": "Recognised across several states on the Election Commission's criteria" },
-     { "left": "Regional party", "right": "Recognised in one state, with influence concentrated there" },
-     { "left": "Coalition government", "right": "Formed when no single party wins a majority; the norm in India from 1989" },
-     { "left": "Anti-defection law", "right": "The 52nd Amendment; disqualifies a legislator who defects from the party" }
+     {
+      "left": "One-party system",
+      "right": "Only one party is legally permitted to govern, as in China"
+     },
+     {
+      "left": "Two-party system",
+      "right": "Two parties have a realistic chance of forming a government, as in the United States"
+     },
+     {
+      "left": "Multi-party system",
+      "right": "Several parties compete and coalitions are common, as in India"
+     },
+     {
+      "left": "The Congress system",
+      "right": "India's first two decades: a dominant party within a competitive multi-party framework"
+     },
+     {
+      "left": "National party",
+      "right": "Recognised across several states on the Election Commission's criteria"
+     },
+     {
+      "left": "Regional party",
+      "right": "Recognised in one state, with influence concentrated there"
+     },
+     {
+      "left": "Coalition government",
+      "right": "Formed when no single party wins a majority; the norm in India from 1989"
+     },
+     {
+      "left": "Anti-defection law",
+      "right": "The 52nd Amendment; disqualifies a legislator who defects from the party"
+     }
     ]
    }
   }
@@ -157,16 +347,41 @@
  {
   "bucket": "XII|Arts|Political Science",
   "chapter": "India's Foreign Policy and Panchsheel",
-  "approved": false,
+  "approved": true,
   "trick": "Panchsheel means five principles, agreed with China in 1954: mutual respect for territorial integrity and sovereignty, non-aggression, non-interference, equality and mutual benefit, and peaceful coexistence. The number five and the year 1954 travel together — and the 1962 war with China is what makes the agreement so often asked about.",
-  "video": { "query": "panchsheel five principles 1954 india foreign policy class 12 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "panchsheel five principles 1954 india foreign policy class 12 political science",
+   "video_id": "9wJJArpuanQ",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Fill in the account of Panchsheel and India's early foreign policy.",
     "text": "The Panchsheel agreement was signed in {1} between India and {2}, and set out {3} principles of peaceful coexistence. It was negotiated by Prime Minister {4}, whose foreign policy also rested on {5} — refusing to join either Cold War bloc. Relations broke down when the two countries went to war in {6}.",
-    "answers": ["1954", "China", "five", "Jawaharlal Nehru", "non-alignment", "1962"],
-    "bank": ["1954", "1961", "China", "Pakistan", "five", "seven", "Jawaharlal Nehru", "Indira Gandhi", "non-alignment", "neutrality", "1962", "1965"]
+    "answers": [
+     "1954",
+     "China",
+     "five",
+     "Jawaharlal Nehru",
+     "non-alignment",
+     "1962"
+    ],
+    "bank": [
+     "1954",
+     "1961",
+     "China",
+     "Pakistan",
+     "five",
+     "seven",
+     "Jawaharlal Nehru",
+     "Indira Gandhi",
+     "non-alignment",
+     "neutrality",
+     "1962",
+     "1965"
+    ]
    }
   }
  }

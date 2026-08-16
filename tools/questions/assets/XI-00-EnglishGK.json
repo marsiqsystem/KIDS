@@ -2,7 +2,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "Prose: An Astrologer's Day",
-  "approved": false,
+  "approved": true,
   "trick": "The astrologer knows nothing about the stars and everything about people. Narayan's twist is that the one true prediction he ever makes is about his own past, and it saves him — the fraud is rescued by the one fact he actually knows.",
   "video": {
    "query": "An Astrologer's Day R K Narayan summary class 11 English",
@@ -42,7 +42,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "Prose: Sister Nivedita on Swami Vivekananda",
-  "approved": false,
+  "approved": true,
   "trick": "This is a portrait written by a disciple, so watch what she chooses to show. Nivedita gives us Vivekananda's ordinary moments — his talk, his laughter, his restlessness — because she is arguing that greatness showed in the daily man, not only on the platform at Chicago.",
   "video": {
    "query": "Sister Nivedita on Swami Vivekananda prose summary class 11 English",
@@ -88,7 +88,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "Poem: Composed Upon Westminster Bridge",
-  "approved": false,
+  "approved": true,
   "trick": "A Romantic poet who wrote about lakes and daffodils is here astonished by a city — and only because it is asleep. London moves him at dawn, before the smoke and the crowds start, so the poem praises the city by catching it at the one hour it resembles nature.",
   "video": {
    "query": "Composed Upon Westminster Bridge Wordsworth sonnet explanation class 11",
@@ -134,7 +134,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "Poem: The Bangle Sellers",
-  "approved": false,
+  "approved": true,
   "trick": "The colours are the poem. Silver and blue for the unmarried girl, yellow and gold for the bride, purple and grey for the older woman — Sarojini Naidu maps a whole Indian woman's life onto the colours of glass, so learn the colours and you have learnt the stanzas.",
   "video": {
    "query": "The Bangle Sellers Sarojini Naidu poem explanation class 11 English",
@@ -179,7 +179,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "Poem: The Second Coming",
-  "approved": false,
+  "approved": true,
   "trick": "Written just after the First World War, so read every image as a world coming apart: the falcon cannot hear the falconer, the centre cannot hold. Yeats then twists the Christian idea of a Second Coming — what is slouching towards Bethlehem is not a saviour.",
   "video": {
    "query": "The Second Coming W B Yeats poem analysis class 11 English",
@@ -224,12 +224,13 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "GK: Indian Polity and the Constitution",
-  "approved": false,
+  "approved": true,
   "trick": "Learn the Constitution by its borrowings and its numbers. Fundamental Rights from the USA, Directive Principles from Ireland, parliamentary government from Britain. And three numbers cover most questions: adopted 26 November 1949, in force 26 January 1950, drafting committee chaired by Dr B. R. Ambedkar.",
   "video": {
    "query": "Indian Constitution fundamental rights directive principles general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "OsqftBUNU9E",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -267,12 +268,13 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "GK: International Organisations",
-  "approved": false,
+  "approved": true,
   "trick": "Most marks here are headquarters marks. New York for the UN and UNICEF, Paris for UNESCO, Geneva for the WHO and the WTO, Washington for the World Bank and the IMF, The Hague for the International Court of Justice.",
   "video": {
    "query": "United Nations UNESCO WHO IMF headquarters functions general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "x192UuUvDNk",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -310,7 +312,7 @@
  {
   "bucket": "XI|All|English & General Knowledge",
   "chapter": "GK: Geography, Science and Awards",
-  "approved": false,
+  "approved": true,
   "trick": "For awards, fix the field to the prize: Bharat Ratna is the highest civilian award, Param Vir Chakra the highest military one, Dronacharya for coaches and Khel Ratna for players. Confusing the sportsman's award with the coach's is the commonest slip.",
   "video": {
    "query": "Indian civilian and gallantry awards Bharat Ratna Param Vir Chakra general knowledge",

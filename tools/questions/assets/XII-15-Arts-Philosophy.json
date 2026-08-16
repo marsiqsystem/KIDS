@@ -2,24 +2,59 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Western Philosophy: Locke, Hume and Kant",
-  "approved": false,
+  "approved": true,
   "trick": "The three form an argument in sequence. Locke: all knowledge comes from experience, the mind is a blank slate. Hume pushes empiricism to its end: we never observe causation, only constant conjunction. Kant answers both: experience supplies the matter, the mind supplies the form — 'percepts without concepts are blind'.",
-  "video": { "query": "locke hume kant empiricism rationalism synthesis class 12 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "locke hume kant empiricism rationalism synthesis class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which philosopher does each position belong to?",
-    "bins": ["Locke", "Hume", "Kant"],
+    "bins": [
+     "Locke",
+     "Hume",
+     "Kant"
+    ],
     "items": [
-     { "label": "The mind at birth is a tabula rasa", "bin": "Locke" },
-     { "label": "We observe constant conjunction, never a necessary connection", "bin": "Hume" },
-     { "label": "Space and time are forms of sensibility supplied by the mind", "bin": "Kant" },
-     { "label": "Ideas arise from sensation and reflection", "bin": "Locke" },
-     { "label": "The distinction between impressions and ideas", "bin": "Hume" },
-     { "label": "Synthetic a priori judgements are possible", "bin": "Kant" },
-     { "label": "Primary and secondary qualities", "bin": "Locke" },
-     { "label": "Scepticism about the self as a continuing substance", "bin": "Hume" },
-     { "label": "The phenomenon can be known, the noumenon cannot", "bin": "Kant" }
+     {
+      "label": "The mind at birth is a tabula rasa",
+      "bin": "Locke"
+     },
+     {
+      "label": "We observe constant conjunction, never a necessary connection",
+      "bin": "Hume"
+     },
+     {
+      "label": "Space and time are forms of sensibility supplied by the mind",
+      "bin": "Kant"
+     },
+     {
+      "label": "Ideas arise from sensation and reflection",
+      "bin": "Locke"
+     },
+     {
+      "label": "The distinction between impressions and ideas",
+      "bin": "Hume"
+     },
+     {
+      "label": "Synthetic a priori judgements are possible",
+      "bin": "Kant"
+     },
+     {
+      "label": "Primary and secondary qualities",
+      "bin": "Locke"
+     },
+     {
+      "label": "Scepticism about the self as a continuing substance",
+      "bin": "Hume"
+     },
+     {
+      "label": "The phenomenon can be known, the noumenon cannot",
+      "bin": "Kant"
+     }
     ]
    }
   }
@@ -27,22 +62,50 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Causation: Western and Indian Theories",
-  "approved": false,
+  "approved": true,
   "trick": "The Indian theories divide on one question: does the effect already exist in the cause? Satkaryavada says yes (Samkhya's parinamavada, real transformation; Advaita's vivartavada, apparent transformation). Asatkaryavada says no (Nyaya-Vaisheshika — the effect is a new beginning). Ask that one question and every school sorts itself.",
-  "video": { "query": "satkaryavada asatkaryavada parinamavada vivartavada causation class 12 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "satkaryavada asatkaryavada parinamavada vivartavada causation class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each theory of causation with what it holds.",
     "pairs": [
-     { "left": "Satkaryavada", "right": "The effect pre-exists in the cause — oil is already in the seed" },
-     { "left": "Asatkaryavada (Arambhavada)", "right": "The effect is a new beginning, not present in the cause before — Nyaya-Vaisheshika" },
-     { "left": "Parinamavada", "right": "Samkhya: the cause really transforms into the effect, as milk into curd" },
-     { "left": "Vivartavada", "right": "Advaita: the transformation is only apparent, as the rope appears to be a snake" },
-     { "left": "Upadana karana", "right": "The material cause — the clay of the pot" },
-     { "left": "Nimitta karana", "right": "The efficient cause — the potter" },
-     { "left": "Hume on causation", "right": "Only constant conjunction is observed; necessity is a habit of the mind" },
-     { "left": "Kant on causation", "right": "Causality is a category the understanding brings to experience" }
+     {
+      "left": "Satkaryavada",
+      "right": "The effect pre-exists in the cause — oil is already in the seed"
+     },
+     {
+      "left": "Asatkaryavada (Arambhavada)",
+      "right": "The effect is a new beginning, not present in the cause before — Nyaya-Vaisheshika"
+     },
+     {
+      "left": "Parinamavada",
+      "right": "Samkhya: the cause really transforms into the effect, as milk into curd"
+     },
+     {
+      "left": "Vivartavada",
+      "right": "Advaita: the transformation is only apparent, as the rope appears to be a snake"
+     },
+     {
+      "left": "Upadana karana",
+      "right": "The material cause — the clay of the pot"
+     },
+     {
+      "left": "Nimitta karana",
+      "right": "The efficient cause — the potter"
+     },
+     {
+      "left": "Hume on causation",
+      "right": "Only constant conjunction is observed; necessity is a habit of the mind"
+     },
+     {
+      "left": "Kant on causation",
+      "right": "Causality is a category the understanding brings to experience"
+     }
     ]
    }
   }
@@ -50,19 +113,43 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Advaita Vedanta of Shankara",
-  "approved": false,
+  "approved": true,
   "trick": "Advaita means 'not two'. Brahman alone is real, the world is maya, and the self is not different from Brahman — 'Brahma satyam jagat mithya jivo brahmaiva naparah' compresses the whole system into one line. The rope-and-snake illustration is asked for by name: the snake was never there, yet it was really seen.",
-  "video": { "query": "shankara advaita vedanta brahman maya rope snake class 12 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "shankara advaita vedanta brahman maya rope snake class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about Advaita Vedanta.",
     "items": [
-     { "statement": "Advaita holds that Brahman alone is ultimately real.", "is_true": true, "why": "The world has vyavaharika or empirical reality but not paramarthika or absolute reality." },
-     { "statement": "Maya means that the world is simply non-existent.", "is_true": false, "why": "Maya is anirvachaniya — indescribable as either real or unreal. The world is experienced, but it is not ultimately real." },
-     { "statement": "The rope-and-snake example illustrates superimposition, adhyasa.", "is_true": true, "why": "The snake is superimposed on the rope, as the world is superimposed on Brahman; knowledge removes it." },
-     { "statement": "In Advaita the individual self is ultimately different from Brahman.", "is_true": false, "why": "Jiva and Brahman are identical — that identity is what 'not two' means, and it is the whole difference from Ramanuja." },
-     { "statement": "Liberation in Advaita comes through knowledge (jnana).", "is_true": true, "why": "Bondage is caused by ignorance, so only knowledge can end it — action cannot remove a mistake of understanding." }
+     {
+      "statement": "Advaita holds that Brahman alone is ultimately real.",
+      "is_true": true,
+      "why": "The world has vyavaharika or empirical reality but not paramarthika or absolute reality."
+     },
+     {
+      "statement": "Maya means that the world is simply non-existent.",
+      "is_true": false,
+      "why": "Maya is anirvachaniya — indescribable as either real or unreal. The world is experienced, but it is not ultimately real."
+     },
+     {
+      "statement": "The rope-and-snake example illustrates superimposition, adhyasa.",
+      "is_true": true,
+      "why": "The snake is superimposed on the rope, as the world is superimposed on Brahman; knowledge removes it."
+     },
+     {
+      "statement": "In Advaita the individual self is ultimately different from Brahman.",
+      "is_true": false,
+      "why": "Jiva and Brahman are identical — that identity is what 'not two' means, and it is the whole difference from Ramanuja."
+     },
+     {
+      "statement": "Liberation in Advaita comes through knowledge (jnana).",
+      "is_true": true,
+      "why": "Bondage is caused by ignorance, so only knowledge can end it — action cannot remove a mistake of understanding."
+     }
     ]
    }
   }
@@ -70,22 +157,50 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "The Theory of Liberation",
-  "approved": false,
+  "approved": true,
   "trick": "Every Indian school names the goal differently but describes the same release: moksha in Vedanta, nirvana in Buddhism, kaivalya in Jainism and in Samkhya-Yoga. And the cause of bondage is ignorance, so the path is knowledge — that link between avidya and moksha is what most answers turn on.",
-  "video": { "query": "moksha nirvana kaivalya jivanmukti videhamukti liberation class 12 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "moksha nirvana kaivalya jivanmukti videhamukti liberation class 12 philosophy",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with the school it belongs to and what it means.",
     "pairs": [
-     { "left": "Moksha", "right": "Vedanta — release from the cycle of birth and death through knowledge of Brahman" },
-     { "left": "Nirvana", "right": "Buddhism — the blowing out of craving and the end of suffering" },
-     { "left": "Kaivalya", "right": "Jainism and Samkhya-Yoga — the isolation of the soul from matter" },
-     { "left": "Jivanmukti", "right": "Liberation attained while still living in the body" },
-     { "left": "Videhamukti", "right": "Liberation completed at the fall of the body" },
-     { "left": "Avidya", "right": "Ignorance — the root cause of bondage in almost every school" },
-     { "left": "Karma", "right": "Action and its residue, which keeps the cycle of rebirth turning" },
-     { "left": "The three jewels", "right": "Jainism's path: right faith, right knowledge, right conduct" }
+     {
+      "left": "Moksha",
+      "right": "Vedanta — release from the cycle of birth and death through knowledge of Brahman"
+     },
+     {
+      "left": "Nirvana",
+      "right": "Buddhism — the blowing out of craving and the end of suffering"
+     },
+     {
+      "left": "Kaivalya",
+      "right": "Jainism and Samkhya-Yoga — the isolation of the soul from matter"
+     },
+     {
+      "left": "Jivanmukti",
+      "right": "Liberation attained while still living in the body"
+     },
+     {
+      "left": "Videhamukti",
+      "right": "Liberation completed at the fall of the body"
+     },
+     {
+      "left": "Avidya",
+      "right": "Ignorance — the root cause of bondage in almost every school"
+     },
+     {
+      "left": "Karma",
+      "right": "Action and its residue, which keeps the cycle of rebirth turning"
+     },
+     {
+      "left": "The three jewels",
+      "right": "Jainism's path: right faith, right knowledge, right conduct"
+     }
     ]
    }
   }
@@ -93,23 +208,55 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Ethics and Morality",
-  "approved": false,
+  "approved": true,
   "trick": "Two families of moral theory, divided by where the rightness lies. Consequentialism looks at results — utilitarianism's greatest happiness of the greatest number, Bentham then Mill. Deontology looks at the act itself — Kant's categorical imperative, duty for duty's sake. Ask what the theory examines, the outcome or the intention.",
-  "video": { "query": "utilitarianism bentham mill kant categorical imperative ethics class 12 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "utilitarianism bentham mill kant categorical imperative ethics class 12 philosophy",
+   "video_id": "N0XWi6FN5ic",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Consequentialist or deontological?",
-    "bins": ["Consequentialist", "Deontological"],
+    "bins": [
+     "Consequentialist",
+     "Deontological"
+    ],
     "items": [
-     { "label": "The greatest happiness of the greatest number", "bin": "Consequentialist" },
-     { "label": "Act only on that maxim you can will to be a universal law", "bin": "Deontological" },
-     { "label": "Bentham's felicific calculus", "bin": "Consequentialist" },
-     { "label": "Duty performed for the sake of duty alone", "bin": "Deontological" },
-     { "label": "Mill's distinction between higher and lower pleasures", "bin": "Consequentialist" },
-     { "label": "Treat humanity always as an end and never merely as a means", "bin": "Deontological" },
-     { "label": "An act is right if it produces the best overall result", "bin": "Consequentialist" },
-     { "label": "The good will is the only thing good without qualification", "bin": "Deontological" }
+     {
+      "label": "The greatest happiness of the greatest number",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Act only on that maxim you can will to be a universal law",
+      "bin": "Deontological"
+     },
+     {
+      "label": "Bentham's felicific calculus",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Duty performed for the sake of duty alone",
+      "bin": "Deontological"
+     },
+     {
+      "label": "Mill's distinction between higher and lower pleasures",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "Treat humanity always as an end and never merely as a means",
+      "bin": "Deontological"
+     },
+     {
+      "label": "An act is right if it produces the best overall result",
+      "bin": "Consequentialist"
+     },
+     {
+      "label": "The good will is the only thing good without qualification",
+      "bin": "Deontological"
+     }
     ]
    }
   }
@@ -117,23 +264,55 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Sociology: Society, Institutions and Social Groups",
-  "approved": false,
+  "approved": true,
   "trick": "Cooley's primary group is small, face-to-face and intimate — the family, the play group; the secondary group is large, impersonal and organised for a purpose — a political party, a trade union. Community is a natural grouping with a sense of we-feeling; an association is deliberately formed for an interest.",
-  "video": { "query": "primary secondary group community association social institutions sociology class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "primary secondary group community association social institutions sociology class 12",
+   "video_id": "z6rHREPv0ew",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Primary group or secondary group?",
-    "bins": ["Primary group", "Secondary group"],
+    "bins": [
+     "Primary group",
+     "Secondary group"
+    ],
     "items": [
-     { "label": "The family", "bin": "Primary group" },
-     { "label": "A trade union", "bin": "Secondary group" },
-     { "label": "A children's play group", "bin": "Primary group" },
-     { "label": "A political party", "bin": "Secondary group" },
-     { "label": "The neighbourhood in a village", "bin": "Primary group" },
-     { "label": "A large corporation's workforce", "bin": "Secondary group" },
-     { "label": "Relations that are personal, intimate and enduring", "bin": "Primary group" },
-     { "label": "Relations that are formal, contractual and goal-directed", "bin": "Secondary group" }
+     {
+      "label": "The family",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A trade union",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "A children's play group",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A political party",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "The neighbourhood in a village",
+      "bin": "Primary group"
+     },
+     {
+      "label": "A large corporation's workforce",
+      "bin": "Secondary group"
+     },
+     {
+      "label": "Relations that are personal, intimate and enduring",
+      "bin": "Primary group"
+     },
+     {
+      "label": "Relations that are formal, contractual and goal-directed",
+      "bin": "Secondary group"
+     }
     ]
    }
   }
@@ -141,23 +320,55 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Educational Sociology",
-  "approved": false,
+  "approved": true,
   "trick": "Education has manifest functions, which are intended and stated — transmitting knowledge and skill — and latent functions, which are real but unstated: socialisation, social control, and the sorting of people into positions. Being asked for a 'latent' function and giving a manifest one is the standard way marks are lost here.",
-  "video": { "query": "educational sociology functions of education socialisation social control class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "educational sociology functions of education socialisation social control class 12",
+   "video_id": "8mTBBccb7Bs",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Is each function of education manifest or latent?",
-    "bins": ["Manifest", "Latent"],
+    "bins": [
+     "Manifest",
+     "Latent"
+    ],
     "items": [
-     { "label": "Teaching literacy and numeracy", "bin": "Manifest" },
-     { "label": "Transmitting the values and norms of society", "bin": "Latent" },
-     { "label": "Preparing students for an occupation", "bin": "Manifest" },
-     { "label": "Forming friendship networks that shape later life", "bin": "Latent" },
-     { "label": "Awarding certificates and degrees", "bin": "Manifest" },
-     { "label": "Sorting people into social positions", "bin": "Latent" },
-     { "label": "Imparting subject knowledge", "bin": "Manifest" },
-     { "label": "Keeping the young occupied and supervised", "bin": "Latent" }
+     {
+      "label": "Teaching literacy and numeracy",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Transmitting the values and norms of society",
+      "bin": "Latent"
+     },
+     {
+      "label": "Preparing students for an occupation",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Forming friendship networks that shape later life",
+      "bin": "Latent"
+     },
+     {
+      "label": "Awarding certificates and degrees",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Sorting people into social positions",
+      "bin": "Latent"
+     },
+     {
+      "label": "Imparting subject knowledge",
+      "bin": "Manifest"
+     },
+     {
+      "label": "Keeping the young occupied and supervised",
+      "bin": "Latent"
+     }
     ]
    }
   }
@@ -165,24 +376,60 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Agencies of Education",
-  "approved": false,
+  "approved": true,
   "trick": "Formal agencies teach on purpose with a syllabus; informal agencies teach without meaning to. The family is the first and the most informal; the school is the chief formal agency; the mass media are the most powerful informal agency of the modern age, and the state and religion sit between.",
-  "video": { "query": "agencies of education family school state media formal informal class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "agencies of education family school state media formal informal class 12",
+   "video_id": "j787DnXYFSI",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each agency of education.",
-    "bins": ["Formal", "Informal", "Non-formal"],
+    "bins": [
+     "Formal",
+     "Informal",
+     "Non-formal"
+    ],
     "items": [
-     { "label": "The school", "bin": "Formal" },
-     { "label": "The family", "bin": "Informal" },
-     { "label": "An adult literacy centre", "bin": "Non-formal" },
-     { "label": "The university", "bin": "Formal" },
-     { "label": "Television, cinema and social media", "bin": "Informal" },
-     { "label": "Open schooling through NIOS", "bin": "Non-formal" },
-     { "label": "The peer group", "bin": "Informal" },
-     { "label": "A correspondence course", "bin": "Non-formal" },
-     { "label": "Religious festivals and community life", "bin": "Informal" }
+     {
+      "label": "The school",
+      "bin": "Formal"
+     },
+     {
+      "label": "The family",
+      "bin": "Informal"
+     },
+     {
+      "label": "An adult literacy centre",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "The university",
+      "bin": "Formal"
+     },
+     {
+      "label": "Television, cinema and social media",
+      "bin": "Informal"
+     },
+     {
+      "label": "Open schooling through NIOS",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "The peer group",
+      "bin": "Informal"
+     },
+     {
+      "label": "A correspondence course",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "Religious festivals and community life",
+      "bin": "Informal"
+     }
     ]
    }
   }
@@ -190,24 +437,60 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Indian Educationists: Vivekananda, Gandhi and Aurobindo",
-  "approved": false,
+  "approved": true,
   "trick": "One sentence each, and they never overlap. Vivekananda: education is the manifestation of the perfection already in man. Gandhi: education through a productive craft, in the mother tongue, self-supporting — Nai Talim. Aurobindo: integral education of the physical, vital, mental, psychic and spiritual, and 'nothing can be taught' — the teacher only helps.",
-  "video": { "query": "vivekananda gandhi aurobindo educational philosophy integral education class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "vivekananda gandhi aurobindo educational philosophy integral education class 12",
+   "video_id": "cKQKlBfDUUs",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which educationist does each idea belong to?",
-    "bins": ["Vivekananda", "Gandhi", "Aurobindo"],
+    "bins": [
+     "Vivekananda",
+     "Gandhi",
+     "Aurobindo"
+    ],
     "items": [
-     { "label": "Education is the manifestation of the perfection already in man", "bin": "Vivekananda" },
-     { "label": "Nai Talim, or Basic Education through a craft", "bin": "Gandhi" },
-     { "label": "Integral education of the five aspects of the being", "bin": "Aurobindo" },
-     { "label": "Man-making and character-building education", "bin": "Vivekananda" },
-     { "label": "The Wardha Scheme of 1937", "bin": "Gandhi" },
-     { "label": "'Nothing can be taught' — the teacher is a helper, not an instructor", "bin": "Aurobindo" },
-     { "label": "Education should build faith in one's own strength", "bin": "Vivekananda" },
-     { "label": "Teaching in the mother tongue and paying for itself", "bin": "Gandhi" },
-     { "label": "The Sri Aurobindo International Centre of Education, Pondicherry", "bin": "Aurobindo" }
+     {
+      "label": "Education is the manifestation of the perfection already in man",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Nai Talim, or Basic Education through a craft",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Integral education of the five aspects of the being",
+      "bin": "Aurobindo"
+     },
+     {
+      "label": "Man-making and character-building education",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "The Wardha Scheme of 1937",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "'Nothing can be taught' — the teacher is a helper, not an instructor",
+      "bin": "Aurobindo"
+     },
+     {
+      "label": "Education should build faith in one's own strength",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Teaching in the mother tongue and paying for itself",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "The Sri Aurobindo International Centre of Education, Pondicherry",
+      "bin": "Aurobindo"
+     }
     ]
    }
   }
@@ -215,19 +498,44 @@
  {
   "bucket": "XII|Arts|Philosophy",
   "chapter": "Nature and Meaning of Philosophy",
-  "approved": false,
+  "approved": true,
   "trick": "The word itself is the definition: philo-sophia, love of wisdom. Philosophy differs from science by asking what cannot be settled by observation, and from religion by relying on reason rather than on revelation or faith. Every 'distinguish between' question in this chapter runs along one of those two lines.",
-  "video": { "query": "meaning nature scope of philosophy relation with science religion class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "meaning nature scope of philosophy relation with science religion class 12",
+   "video_id": "aCIqCkLYhY4",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the nature of philosophy.",
     "items": [
-     { "statement": "The word philosophy comes from Greek roots meaning 'love of wisdom'.", "is_true": true, "why": "Philos, love, and sophia, wisdom — Pythagoras is traditionally credited with the coinage." },
-     { "statement": "Philosophy settles its questions by experiment, as science does.", "is_true": false, "why": "Its questions are not settled by observation. It proceeds by argument, analysis and criticism." },
-     { "statement": "Philosophy relies on reason, while religion rests on faith and revelation.", "is_true": true, "why": "A philosopher must give reasons that another may examine and reject; that is the standard distinction." },
-     { "statement": "Metaphysics, epistemology and ethics are branches of philosophy.", "is_true": true, "why": "They ask, respectively, what exists, how we know, and what we ought to do. Logic is usually added as a fourth." },
-     { "statement": "Philosophy has no bearing on ordinary life.", "is_true": false, "why": "Every view of duty, justice or knowledge rests on philosophical assumptions, whether or not they are examined." }
+     {
+      "statement": "The word philosophy comes from Greek roots meaning 'love of wisdom'.",
+      "is_true": true,
+      "why": "Philos, love, and sophia, wisdom — Pythagoras is traditionally credited with the coinage."
+     },
+     {
+      "statement": "Philosophy settles its questions by experiment, as science does.",
+      "is_true": false,
+      "why": "Its questions are not settled by observation. It proceeds by argument, analysis and criticism."
+     },
+     {
+      "statement": "Philosophy relies on reason, while religion rests on faith and revelation.",
+      "is_true": true,
+      "why": "A philosopher must give reasons that another may examine and reject; that is the standard distinction."
+     },
+     {
+      "statement": "Metaphysics, epistemology and ethics are branches of philosophy.",
+      "is_true": true,
+      "why": "They ask, respectively, what exists, how we know, and what we ought to do. Logic is usually added as a fourth."
+     },
+     {
+      "statement": "Philosophy has no bearing on ordinary life.",
+      "is_true": false,
+      "why": "Every view of duty, justice or knowledge rests on philosophical assumptions, whether or not they are examined."
+     }
     ]
    }
   }

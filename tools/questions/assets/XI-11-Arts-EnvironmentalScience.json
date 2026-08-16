@@ -2,23 +2,54 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Environment: Concept and Dimensions",
-  "approved": false,
+  "approved": true,
   "trick": "The environment has a living half and a non-living half, and the exam word for them is biotic and abiotic. Anything that was ever alive — leaf litter, a dead log — still counts as biotic; sunlight, soil minerals and water do not.",
-  "video": { "query": "biotic and abiotic components of environment class 11 environmental science", "video_id": null, "approved": false },
+  "video": {
+   "query": "biotic and abiotic components of environment class 11 environmental science",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each component of the environment.",
-    "bins": ["Biotic", "Abiotic"],
+    "bins": [
+     "Biotic",
+     "Abiotic"
+    ],
     "items": [
-     { "label": "Green plants", "bin": "Biotic" },
-     { "label": "Sunlight", "bin": "Abiotic" },
-     { "label": "Soil bacteria", "bin": "Biotic" },
-     { "label": "Rainfall", "bin": "Abiotic" },
-     { "label": "Fallen leaves and dead wood", "bin": "Biotic" },
-     { "label": "Atmospheric nitrogen", "bin": "Abiotic" },
-     { "label": "Fungi on a rotting log", "bin": "Biotic" },
-     { "label": "Temperature", "bin": "Abiotic" }
+     {
+      "label": "Green plants",
+      "bin": "Biotic"
+     },
+     {
+      "label": "Sunlight",
+      "bin": "Abiotic"
+     },
+     {
+      "label": "Soil bacteria",
+      "bin": "Biotic"
+     },
+     {
+      "label": "Rainfall",
+      "bin": "Abiotic"
+     },
+     {
+      "label": "Fallen leaves and dead wood",
+      "bin": "Biotic"
+     },
+     {
+      "label": "Atmospheric nitrogen",
+      "bin": "Abiotic"
+     },
+     {
+      "label": "Fungi on a rotting log",
+      "bin": "Biotic"
+     },
+     {
+      "label": "Temperature",
+      "bin": "Abiotic"
+     }
     ]
    }
   }
@@ -26,40 +57,99 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Sustainable Development",
-  "approved": false,
+  "approved": true,
   "trick": "The Brundtland definition is worth memorising word for word: development that meets the needs of the present without compromising the ability of future generations to meet their own needs. It came from Our Common Future, 1987 — and the whole idea is an argument between the present and the future, not between growth and no growth.",
-  "video": { "query": "sustainable development brundtland report our common future class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "sustainable development brundtland report our common future class 11",
+   "video_id": "-W2jzTg0QKo",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Fill the gaps in the standard account of sustainable development.",
     "text": "The report {1}, published in {2} by the {3} Commission, defined sustainable development as development that meets the needs of the {4} without compromising the ability of {5} generations to meet their own needs. It rests on three pillars: economic, social and {6}.",
-    "answers": ["Our Common Future", "1987", "Brundtland", "present", "future", "environmental"],
-    "bank": ["Our Common Future", "1987", "1992", "Brundtland", "Stockholm", "present", "future", "past", "environmental", "political", "Silent Spring"]
+    "answers": [
+     "Our Common Future",
+     "1987",
+     "Brundtland",
+     "present",
+     "future",
+     "environmental"
+    ],
+    "bank": [
+     "Our Common Future",
+     "1987",
+     "1992",
+     "Brundtland",
+     "Stockholm",
+     "present",
+     "future",
+     "past",
+     "environmental",
+     "political",
+     "Silent Spring"
+    ]
    }
   }
  },
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Natural Resources: Renewable and Non-renewable",
-  "approved": false,
+  "approved": true,
   "trick": "Renewable means it comes back within a human lifetime; non-renewable means it took millions of years to form and will not be replaced. Forests are the trap: renewable in principle, but only if you cut them slower than they grow.",
-  "video": { "query": "renewable and non renewable natural resources class 11 environmental science", "video_id": null, "approved": false },
+  "video": {
+   "query": "renewable and non renewable natural resources class 11 environmental science",
+   "video_id": "CXCT2R1K6Ts",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each resource.",
-    "bins": ["Renewable", "Non-renewable"],
+    "bins": [
+     "Renewable",
+     "Non-renewable"
+    ],
     "items": [
-     { "label": "Solar energy", "bin": "Renewable" },
-     { "label": "Coal", "bin": "Non-renewable" },
-     { "label": "Wind", "bin": "Renewable" },
-     { "label": "Petroleum", "bin": "Non-renewable" },
-     { "label": "Forests, if harvested within their growth rate", "bin": "Renewable" },
-     { "label": "Natural gas", "bin": "Non-renewable" },
-     { "label": "Tidal energy", "bin": "Renewable" },
-     { "label": "Iron ore and other metallic minerals", "bin": "Non-renewable" },
-     { "label": "Groundwater recharged by rainfall", "bin": "Renewable" }
+     {
+      "label": "Solar energy",
+      "bin": "Renewable"
+     },
+     {
+      "label": "Coal",
+      "bin": "Non-renewable"
+     },
+     {
+      "label": "Wind",
+      "bin": "Renewable"
+     },
+     {
+      "label": "Petroleum",
+      "bin": "Non-renewable"
+     },
+     {
+      "label": "Forests, if harvested within their growth rate",
+      "bin": "Renewable"
+     },
+     {
+      "label": "Natural gas",
+      "bin": "Non-renewable"
+     },
+     {
+      "label": "Tidal energy",
+      "bin": "Renewable"
+     },
+     {
+      "label": "Iron ore and other metallic minerals",
+      "bin": "Non-renewable"
+     },
+     {
+      "label": "Groundwater recharged by rainfall",
+      "bin": "Renewable"
+     }
     ]
    }
   }
@@ -67,19 +157,44 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Population, Poverty and the Environment",
-  "approved": false,
+  "approved": true,
   "trick": "Poverty and environmental damage feed each other in a circle: the poor depend most directly on forest, water and soil, and damaged forest, water and soil make people poorer still. That circle is the answer to almost any 'explain the relation between' question in this chapter.",
-  "video": { "query": "population poverty and environment relationship class 11 environmental science", "video_id": null, "approved": false },
+  "video": {
+   "query": "population poverty and environment relationship class 11 environmental science",
+   "video_id": "pc3D1a8vAMw",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about population, poverty and the environment.",
     "items": [
-     { "statement": "The poor often depend directly on common natural resources for fuel and fodder.", "is_true": true, "why": "With no purchased alternatives, firewood, grazing land and open water are what remain — which is why degradation hits them first." },
-     { "statement": "Population growth affects the environment only through the number of people.", "is_true": false, "why": "Consumption per person matters as much. A small rich population can use more resources than a large poor one." },
-     { "statement": "The demographic transition describes a fall in death rates followed later by a fall in birth rates.", "is_true": true, "why": "The gap between the two falls is when population grows fastest." },
-     { "statement": "Environmental damage is caused only by industry, not by poverty.", "is_true": false, "why": "Both cause it, by different routes — industry through emissions and waste, poverty through pressure on land, forest and water." },
-     { "statement": "Improving women's education tends to lower the birth rate.", "is_true": true, "why": "It is one of the strongest and best-established relationships in population studies." }
+     {
+      "statement": "The poor often depend directly on common natural resources for fuel and fodder.",
+      "is_true": true,
+      "why": "With no purchased alternatives, firewood, grazing land and open water are what remain — which is why degradation hits them first."
+     },
+     {
+      "statement": "Population growth affects the environment only through the number of people.",
+      "is_true": false,
+      "why": "Consumption per person matters as much. A small rich population can use more resources than a large poor one."
+     },
+     {
+      "statement": "The demographic transition describes a fall in death rates followed later by a fall in birth rates.",
+      "is_true": true,
+      "why": "The gap between the two falls is when population grows fastest."
+     },
+     {
+      "statement": "Environmental damage is caused only by industry, not by poverty.",
+      "is_true": false,
+      "why": "Both cause it, by different routes — industry through emissions and waste, poverty through pressure on land, forest and water."
+     },
+     {
+      "statement": "Improving women's education tends to lower the birth rate.",
+      "is_true": true,
+      "why": "It is one of the strongest and best-established relationships in population studies."
+     }
     ]
    }
   }
@@ -87,20 +202,43 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "International Conferences: Stockholm, Rio and Agenda 21",
-  "approved": false,
+  "approved": true,
   "trick": "Three cities, three dates, in order: Stockholm 1972 was the first, Rio 1992 produced Agenda 21, Johannesburg 2002 reviewed it. World Environment Day, 5 June, is the anniversary of Stockholm — which is the easiest way to remember that Stockholm came first.",
-  "video": { "query": "stockholm 1972 rio earth summit 1992 agenda 21 class 11 environmental science", "video_id": null, "approved": false },
+  "video": {
+   "query": "stockholm 1972 rio earth summit 1992 agenda 21 class 11 environmental science",
+   "video_id": "GPCEAUBxrM4",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the international environmental conferences in order.",
     "items": [
-     { "label": "Stockholm Conference", "note": "1972 — the first UN Conference on the Human Environment; World Environment Day dates from it" },
-     { "label": "Nairobi Conference", "note": "1982 — the ten-year review of Stockholm" },
-     { "label": "Rio Earth Summit", "note": "1992 — produced Agenda 21, the Rio Declaration and the climate and biodiversity conventions" },
-     { "label": "Kyoto Protocol", "note": "1997 — binding emission targets for developed countries" },
-     { "label": "Johannesburg Summit", "note": "2002 — the World Summit on Sustainable Development, Rio+10" },
-     { "label": "Paris Agreement", "note": "2015 — nationally determined contributions to limit warming" }
+     {
+      "label": "Stockholm Conference",
+      "note": "1972 — the first UN Conference on the Human Environment; World Environment Day dates from it"
+     },
+     {
+      "label": "Nairobi Conference",
+      "note": "1982 — the ten-year review of Stockholm"
+     },
+     {
+      "label": "Rio Earth Summit",
+      "note": "1992 — produced Agenda 21, the Rio Declaration and the climate and biodiversity conventions"
+     },
+     {
+      "label": "Kyoto Protocol",
+      "note": "1997 — binding emission targets for developed countries"
+     },
+     {
+      "label": "Johannesburg Summit",
+      "note": "2002 — the World Summit on Sustainable Development, Rio+10"
+     },
+     {
+      "label": "Paris Agreement",
+      "note": "2015 — nationally determined contributions to limit warming"
+     }
     ]
    }
   }
@@ -108,21 +246,47 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Environmental Conventions and Protocols",
-  "approved": false,
+  "approved": true,
   "trick": "Each treaty owns one problem, and the name usually hides the clue. Montreal is the ozone layer, Kyoto and Paris are greenhouse gases, Basel is hazardous waste crossing borders, Ramsar is wetlands, CITES is trade in endangered species. Montreal is also the one usually called the most successful environmental treaty ever made.",
-  "video": { "query": "montreal protocol kyoto basel ramsar cites environmental conventions class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "montreal protocol kyoto basel ramsar cites environmental conventions class 11",
+   "video_id": "ifDWDzi2LwY",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each convention or protocol with the problem it addresses.",
     "pairs": [
-     { "left": "Montreal Protocol, 1987", "right": "Phasing out ozone-depleting substances such as CFCs" },
-     { "left": "Kyoto Protocol, 1997", "right": "Binding greenhouse gas reduction targets for developed countries" },
-     { "left": "Basel Convention, 1989", "right": "Transboundary movement of hazardous wastes" },
-     { "left": "Ramsar Convention, 1971", "right": "Conservation of wetlands of international importance" },
-     { "left": "CITES, 1973", "right": "Regulating international trade in endangered species" },
-     { "left": "Convention on Biological Diversity, 1992", "right": "Conservation and sustainable use of biodiversity, agreed at Rio" },
-     { "left": "Paris Agreement, 2015", "right": "Holding the rise in global temperature well below 2 °C" }
+     {
+      "left": "Montreal Protocol, 1987",
+      "right": "Phasing out ozone-depleting substances such as CFCs"
+     },
+     {
+      "left": "Kyoto Protocol, 1997",
+      "right": "Binding greenhouse gas reduction targets for developed countries"
+     },
+     {
+      "left": "Basel Convention, 1989",
+      "right": "Transboundary movement of hazardous wastes"
+     },
+     {
+      "left": "Ramsar Convention, 1971",
+      "right": "Conservation of wetlands of international importance"
+     },
+     {
+      "left": "CITES, 1973",
+      "right": "Regulating international trade in endangered species"
+     },
+     {
+      "left": "Convention on Biological Diversity, 1992",
+      "right": "Conservation and sustainable use of biodiversity, agreed at Rio"
+     },
+     {
+      "left": "Paris Agreement, 2015",
+      "right": "Holding the rise in global temperature well below 2 °C"
+     }
     ]
    }
   }
@@ -130,23 +294,55 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Climate Change and Global Warming",
-  "approved": false,
+  "approved": true,
   "trick": "Do not confuse the two holes in the sky. Global warming is greenhouse gases in the lower atmosphere trapping heat; ozone depletion is CFCs destroying a layer in the stratosphere that blocks ultraviolet. Different gases, different layer, different harm — and questions deliberately mix them up.",
-  "video": { "query": "greenhouse effect global warming versus ozone depletion class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "greenhouse effect global warming versus ozone depletion class 11",
+   "video_id": "NfV4mW9KQ5c",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Does each fact belong to global warming or to ozone depletion?",
-    "bins": ["Global warming", "Ozone depletion"],
+    "bins": [
+     "Global warming",
+     "Ozone depletion"
+    ],
     "items": [
-     { "label": "Carbon dioxide, methane and nitrous oxide", "bin": "Global warming" },
-     { "label": "Chlorofluorocarbons released from refrigerants", "bin": "Ozone depletion" },
-     { "label": "Happens in the troposphere, the layer we live in", "bin": "Global warming" },
-     { "label": "Happens in the stratosphere", "bin": "Ozone depletion" },
-     { "label": "Rising sea levels and melting glaciers", "bin": "Global warming" },
-     { "label": "More ultraviolet radiation reaching the surface, and skin cancer", "bin": "Ozone depletion" },
-     { "label": "Addressed by the Kyoto Protocol and the Paris Agreement", "bin": "Global warming" },
-     { "label": "Addressed by the Montreal Protocol", "bin": "Ozone depletion" }
+     {
+      "label": "Carbon dioxide, methane and nitrous oxide",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Chlorofluorocarbons released from refrigerants",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Happens in the troposphere, the layer we live in",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Happens in the stratosphere",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Rising sea levels and melting glaciers",
+      "bin": "Global warming"
+     },
+     {
+      "label": "More ultraviolet radiation reaching the surface, and skin cancer",
+      "bin": "Ozone depletion"
+     },
+     {
+      "label": "Addressed by the Kyoto Protocol and the Paris Agreement",
+      "bin": "Global warming"
+     },
+     {
+      "label": "Addressed by the Montreal Protocol",
+      "bin": "Ozone depletion"
+     }
     ]
    }
   }
@@ -154,19 +350,39 @@
  {
   "bucket": "XI|Arts|Environmental Science",
   "chapter": "Environmental Education and Public Awareness",
-  "approved": false,
+  "approved": true,
   "trick": "Environmental education is not one subject among others — its stated aim is awareness, knowledge, attitude, skill and participation, in that order. It ends in participation because knowing about a problem changes nothing on its own.",
-  "video": { "query": "objectives of environmental education awareness class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "objectives of environmental education awareness class 11",
+   "video_id": "of4_tQZrNO4",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the objectives of environmental education in the order they are normally listed.",
     "items": [
-     { "label": "Awareness", "note": "Sensitivity to the environment and its problems" },
-     { "label": "Knowledge", "note": "Understanding how the environment works and how people affect it" },
-     { "label": "Attitude", "note": "Concern and a set of values that motivate action" },
-     { "label": "Skills", "note": "The ability to identify and help solve environmental problems" },
-     { "label": "Participation", "note": "Actually working towards a solution — the point of all the rest" }
+     {
+      "label": "Awareness",
+      "note": "Sensitivity to the environment and its problems"
+     },
+     {
+      "label": "Knowledge",
+      "note": "Understanding how the environment works and how people affect it"
+     },
+     {
+      "label": "Attitude",
+      "note": "Concern and a set of values that motivate action"
+     },
+     {
+      "label": "Skills",
+      "note": "The ability to identify and help solve environmental problems"
+     },
+     {
+      "label": "Participation",
+      "note": "Actually working towards a solution — the point of all the rest"
+     }
     ]
    }
   }

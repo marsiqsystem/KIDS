@@ -2,19 +2,44 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Concept and Meaning of Education",
-  "approved": false,
+  "approved": true,
   "trick": "The two Latin roots pull in opposite directions and both are right: 'educare' means to bring up or nourish from outside, 'educere' means to draw out what is already within. Narrow education is what school does; wider education is everything life does, from birth to death.",
-  "video": { "query": "meaning and concept of education narrow and wider sense class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "meaning and concept of education narrow and wider sense class 11",
+   "video_id": "LwjC6ervYqo",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the concept of education.",
     "items": [
-     { "statement": "Education in the wider sense ends when schooling ends.", "is_true": false, "why": "The wider sense is lifelong — a person learns from family, work and society long after leaving school." },
-     { "statement": "'Educere' means to draw out the powers already latent in the child.", "is_true": true, "why": "It is the root behind the view that the teacher unfolds what is within, rather than pouring in from outside." },
-     { "statement": "Education is a bipolar process according to Adams.", "is_true": true, "why": "Adams described two poles, the teacher and the taught. John Dewey later called it tripolar by adding the social environment." },
-     { "statement": "In the narrow sense, education means the planned instruction given in a school.", "is_true": true, "why": "Narrow education is deliberate, institutional and limited in time — the classroom sense of the word." },
-     { "statement": "Education and instruction mean the same thing.", "is_true": false, "why": "Instruction is the passing on of information; education is the whole development of the person, including character and attitude." }
+     {
+      "statement": "Education in the wider sense ends when schooling ends.",
+      "is_true": false,
+      "why": "The wider sense is lifelong — a person learns from family, work and society long after leaving school."
+     },
+     {
+      "statement": "'Educere' means to draw out the powers already latent in the child.",
+      "is_true": true,
+      "why": "It is the root behind the view that the teacher unfolds what is within, rather than pouring in from outside."
+     },
+     {
+      "statement": "Education is a bipolar process according to Adams.",
+      "is_true": true,
+      "why": "Adams described two poles, the teacher and the taught. John Dewey later called it tripolar by adding the social environment."
+     },
+     {
+      "statement": "In the narrow sense, education means the planned instruction given in a school.",
+      "is_true": true,
+      "why": "Narrow education is deliberate, institutional and limited in time — the classroom sense of the word."
+     },
+     {
+      "statement": "Education and instruction mean the same thing.",
+      "is_true": false,
+      "why": "Instruction is the passing on of information; education is the whole development of the person, including character and attitude."
+     }
     ]
    }
   }
@@ -22,24 +47,60 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Agencies of Education: Family, School and Informal",
-  "approved": false,
+  "approved": true,
   "trick": "An agency is formal if it teaches deliberately with a syllabus, informal if it teaches without meaning to. The family is the child's first and most informal school; the radio and the cinema teach a great deal while intending only to entertain.",
-  "video": { "query": "formal informal non-formal agencies of education class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "formal informal non-formal agencies of education class 11",
+   "video_id": "KlTVTJy8tHo",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each agency by the kind of education it gives.",
-    "bins": ["Formal", "Informal", "Non-formal"],
+    "bins": [
+     "Formal",
+     "Informal",
+     "Non-formal"
+    ],
     "items": [
-     { "label": "A school with a timetable and syllabus", "bin": "Formal" },
-     { "label": "The family", "bin": "Informal" },
-     { "label": "An open-school correspondence course", "bin": "Non-formal" },
-     { "label": "A university", "bin": "Formal" },
-     { "label": "Friends and the playgroup", "bin": "Informal" },
-     { "label": "An adult literacy evening class", "bin": "Non-formal" },
-     { "label": "Cinema, television and newspapers", "bin": "Informal" },
-     { "label": "A distance-learning degree", "bin": "Non-formal" },
-     { "label": "Religious festivals in the neighbourhood", "bin": "Informal" }
+     {
+      "label": "A school with a timetable and syllabus",
+      "bin": "Formal"
+     },
+     {
+      "label": "The family",
+      "bin": "Informal"
+     },
+     {
+      "label": "An open-school correspondence course",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "A university",
+      "bin": "Formal"
+     },
+     {
+      "label": "Friends and the playgroup",
+      "bin": "Informal"
+     },
+     {
+      "label": "An adult literacy evening class",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "Cinema, television and newspapers",
+      "bin": "Informal"
+     },
+     {
+      "label": "A distance-learning degree",
+      "bin": "Non-formal"
+     },
+     {
+      "label": "Religious festivals in the neighbourhood",
+      "bin": "Informal"
+     }
     ]
    }
   }
@@ -47,21 +108,47 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Philosophical Foundations: Idealism, Buddhism and Jainism",
-  "approved": false,
+  "approved": true,
   "trick": "Idealism puts the idea and the spirit first, so its aim is self-realisation and its method is the teacher's example. Buddhism aims at the end of suffering through the Eightfold Path; Jainism aims at liberation through the three jewels and ahimsa. Each philosophy's aim of education is simply its idea of the good life, restated for the child.",
-  "video": { "query": "idealism buddhism jainism philosophy of education class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "idealism buddhism jainism philosophy of education class 11",
+   "video_id": "ZdxF3rO1w1Q",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each school of thought with what belongs to it.",
     "pairs": [
-     { "left": "Idealism", "right": "Self-realisation and the development of spiritual values as the aim of education" },
-     { "left": "Buddhism", "right": "The Four Noble Truths and the Eightfold Path" },
-     { "left": "Jainism", "right": "The three jewels: right faith, right knowledge, right conduct" },
-     { "left": "Ahimsa", "right": "Non-injury, the first and greatest vow in Jain teaching" },
-     { "left": "Buddhist monastery education", "right": "Pabbajja and Upasampada as stages of admission" },
-     { "left": "Idealist method", "right": "Learning through the teacher's personal example and great books" },
-     { "left": "Nirvana", "right": "Release from the cycle of birth and suffering" }
+     {
+      "left": "Idealism",
+      "right": "Self-realisation and the development of spiritual values as the aim of education"
+     },
+     {
+      "left": "Buddhism",
+      "right": "The Four Noble Truths and the Eightfold Path"
+     },
+     {
+      "left": "Jainism",
+      "right": "The three jewels: right faith, right knowledge, right conduct"
+     },
+     {
+      "left": "Ahimsa",
+      "right": "Non-injury, the first and greatest vow in Jain teaching"
+     },
+     {
+      "left": "Buddhist monastery education",
+      "right": "Pabbajja and Upasampada as stages of admission"
+     },
+     {
+      "left": "Idealist method",
+      "right": "Learning through the teacher's personal example and great books"
+     },
+     {
+      "left": "Nirvana",
+      "right": "Release from the cycle of birth and suffering"
+     }
     ]
    }
   }
@@ -69,21 +156,47 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Indian and Western Educational Thinkers",
-  "approved": false,
+  "approved": true,
   "trick": "Attach each thinker to the one institution or word he is remembered by: Tagore to Santiniketan and freedom, Gandhi to Basic Education and the craft, Vivekananda to man-making, Rousseau to nature and Emile, Froebel to the kindergarten. The exam almost always tests the pairing, not the theory.",
-  "video": { "query": "tagore gandhi vivekananda rousseau froebel educational thinkers class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "tagore gandhi vivekananda rousseau froebel educational thinkers class 11",
+   "video_id": "N7W1ayVUQeY",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each thinker with what he is known for.",
     "pairs": [
-     { "left": "Rabindranath Tagore", "right": "Santiniketan; education in freedom and in the open air" },
-     { "left": "Mahatma Gandhi", "right": "Basic Education (Nai Talim), learning through a productive craft" },
-     { "left": "Swami Vivekananda", "right": "Education as the manifestation of the perfection already in man" },
-     { "left": "Jean-Jacques Rousseau", "right": "Emile; naturalism and letting the child grow by nature's plan" },
-     { "left": "Friedrich Froebel", "right": "The Kindergarten — the child's garden, learning through play" },
-     { "left": "Maria Montessori", "right": "Prepared environment and self-correcting sensory apparatus" },
-     { "left": "John Dewey", "right": "Pragmatism; education as life itself, learning by doing" }
+     {
+      "left": "Rabindranath Tagore",
+      "right": "Santiniketan; education in freedom and in the open air"
+     },
+     {
+      "left": "Mahatma Gandhi",
+      "right": "Basic Education (Nai Talim), learning through a productive craft"
+     },
+     {
+      "left": "Swami Vivekananda",
+      "right": "Education as the manifestation of the perfection already in man"
+     },
+     {
+      "left": "Jean-Jacques Rousseau",
+      "right": "Emile; naturalism and letting the child grow by nature's plan"
+     },
+     {
+      "left": "Friedrich Froebel",
+      "right": "The Kindergarten — the child's garden, learning through play"
+     },
+     {
+      "left": "Maria Montessori",
+      "right": "Prepared environment and self-correcting sensory apparatus"
+     },
+     {
+      "left": "John Dewey",
+      "right": "Pragmatism; education as life itself, learning by doing"
+     }
     ]
    }
   }
@@ -91,21 +204,47 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Education and the Indian Constitution",
-  "approved": false,
+  "approved": true,
   "trick": "Three numbers carry this chapter: Article 45 was the original directive for free and compulsory education up to 14, Article 21A made it a fundamental right, and the 86th Amendment of 2002 is what moved it from one to the other. Note the shift — a Directive Principle cannot be enforced in court, a fundamental right can.",
-  "video": { "query": "article 21A 45 86th amendment right to education constitution class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "article 21A 45 86th amendment right to education constitution class 11",
+   "video_id": "EfFOSbN7gTg",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each constitutional provision with its subject.",
     "pairs": [
-     { "left": "Article 21A", "right": "Free and compulsory education for children aged 6 to 14, as a fundamental right" },
-     { "left": "Article 45", "right": "Directive Principle — early childhood care and education below the age of six" },
-     { "left": "86th Amendment, 2002", "right": "Inserted Article 21A and made education a fundamental right" },
-     { "left": "Article 29", "right": "Protection of the interests of minorities in language, script and culture" },
-     { "left": "Article 30", "right": "Right of minorities to establish and administer educational institutions" },
-     { "left": "Article 46", "right": "Promotion of educational interests of Scheduled Castes and Scheduled Tribes" },
-     { "left": "Article 51A(k)", "right": "Fundamental duty of a parent to provide education to the child" }
+     {
+      "left": "Article 21A",
+      "right": "Free and compulsory education for children aged 6 to 14, as a fundamental right"
+     },
+     {
+      "left": "Article 45",
+      "right": "Directive Principle — early childhood care and education below the age of six"
+     },
+     {
+      "left": "86th Amendment, 2002",
+      "right": "Inserted Article 21A and made education a fundamental right"
+     },
+     {
+      "left": "Article 29",
+      "right": "Protection of the interests of minorities in language, script and culture"
+     },
+     {
+      "left": "Article 30",
+      "right": "Right of minorities to establish and administer educational institutions"
+     },
+     {
+      "left": "Article 46",
+      "right": "Promotion of educational interests of Scheduled Castes and Scheduled Tribes"
+     },
+     {
+      "left": "Article 51A(k)",
+      "right": "Fundamental duty of a parent to provide education to the child"
+     }
     ]
    }
   }
@@ -113,20 +252,43 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Educational Organisations: NCERT and NCTE",
-  "approved": false,
+  "approved": true,
   "trick": "Read the expanded name and the function is inside it. NCERT does Research and Training, so it writes textbooks and advises; NCTE is for Teacher Education, so it regulates teacher-training colleges; UGC funds and sets standards for universities; NUEPA plans and administers. None of them runs a school.",
-  "video": { "query": "NCERT NCTE UGC functions educational organisations class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "NCERT NCTE UGC functions educational organisations class 11",
+   "video_id": "G6mRlLOH1vM",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each body with what it actually does.",
     "pairs": [
-     { "left": "NCERT", "right": "Prepares school curricula and textbooks; advises central and state governments" },
-     { "left": "NCTE", "right": "Lays down norms for teacher-education courses and recognises institutions" },
-     { "left": "UGC", "right": "Funds universities and maintains standards in higher education" },
-     { "left": "SCERT", "right": "The state-level counterpart of NCERT" },
-     { "left": "NUEPA", "right": "Research and training in educational planning and administration" },
-     { "left": "CBSE", "right": "Conducts school examinations and affiliates schools to its course" }
+     {
+      "left": "NCERT",
+      "right": "Prepares school curricula and textbooks; advises central and state governments"
+     },
+     {
+      "left": "NCTE",
+      "right": "Lays down norms for teacher-education courses and recognises institutions"
+     },
+     {
+      "left": "UGC",
+      "right": "Funds universities and maintains standards in higher education"
+     },
+     {
+      "left": "SCERT",
+      "right": "The state-level counterpart of NCERT"
+     },
+     {
+      "left": "NUEPA",
+      "right": "Research and training in educational planning and administration"
+     },
+     {
+      "left": "CBSE",
+      "right": "Conducts school examinations and affiliates schools to its course"
+     }
     ]
    }
   }
@@ -134,19 +296,60 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Educational Psychology: Intelligence and IQ",
-  "approved": false,
+  "approved": true,
   "trick": "IQ is mental age divided by chronological age, times 100 — the mental age is always on top. So a bright child of 8 who performs like a 10-year-old scores 10/8 × 100 = 125. If you ever write it the other way up, every dull child comes out brilliant, which is the quickest way to catch the mistake.",
-  "video": { "query": "intelligence quotient formula mental age spearman two factor theory class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "intelligence quotient formula mental age spearman two factor theory class 11",
+   "video_id": "BZSe4OSfj7k",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Work out an IQ, then check you have the formula the right way up.",
     "problem": "Riya is 8 years old. On a standard test she performs as well as an average 10-year-old.",
     "steps": [
-     { "ask": "Which is her mental age?", "options": ["8 years", "10 years", "18 years"], "correct": 1, "why": "Mental age is the age group whose average performance she matches — here, 10." },
-     { "ask": "Which formula gives IQ?", "options": ["(Chronological age ÷ Mental age) × 100", "(Mental age ÷ Chronological age) × 100", "Mental age × Chronological age"], "correct": 1, "why": "Mental age goes on top. Written the other way round, a child who is behind would score above 100." },
-     { "ask": "What is Riya's IQ?", "options": ["80", "125", "180"], "correct": 1, "why": "(10 ÷ 8) × 100 = 125." },
-     { "ask": "A child of 10 with a mental age of 8 scores what?", "options": ["125", "80", "100"], "correct": 1, "why": "(8 ÷ 10) × 100 = 80 — below average, which is the sense check that the formula is the right way up." }
+     {
+      "ask": "Which is her mental age?",
+      "options": [
+       "8 years",
+       "10 years",
+       "18 years"
+      ],
+      "correct": 1,
+      "why": "Mental age is the age group whose average performance she matches — here, 10."
+     },
+     {
+      "ask": "Which formula gives IQ?",
+      "options": [
+       "(Chronological age ÷ Mental age) × 100",
+       "(Mental age ÷ Chronological age) × 100",
+       "Mental age × Chronological age"
+      ],
+      "correct": 1,
+      "why": "Mental age goes on top. Written the other way round, a child who is behind would score above 100."
+     },
+     {
+      "ask": "What is Riya's IQ?",
+      "options": [
+       "80",
+       "125",
+       "180"
+      ],
+      "correct": 1,
+      "why": "(10 ÷ 8) × 100 = 125."
+     },
+     {
+      "ask": "A child of 10 with a mental age of 8 scores what?",
+      "options": [
+       "125",
+       "80",
+       "100"
+      ],
+      "correct": 1,
+      "why": "(8 ÷ 10) × 100 = 80 — below average, which is the sense check that the formula is the right way up."
+     }
     ],
     "answer": "IQ = (Mental age ÷ Chronological age) × 100. Riya scores 125; the second child scores 80."
    }
@@ -155,21 +358,47 @@
  {
   "bucket": "XI|Arts|Education",
   "chapter": "Government Schemes: Sarva Shiksha Abhiyan and RTE",
-  "approved": false,
+  "approved": true,
   "trick": "Sort the schemes by who they are for: SSA is elementary schooling for all, RMSA is the secondary stage, Mid-Day Meal is nutrition and attendance together, and the RTE Act 2009 is the law that gives the whole thing teeth. Dates matter here — SSA 2001, RTE Act 2009, in force from 1 April 2010.",
-  "video": { "query": "sarva shiksha abhiyan right to education act 2009 mid day meal class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "sarva shiksha abhiyan right to education act 2009 mid day meal class 11",
+   "video_id": "lR-XPc7lwX4",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each scheme or provision with what it does.",
     "pairs": [
-     { "left": "Sarva Shiksha Abhiyan (2001)", "right": "Universal elementary education for children aged 6 to 14" },
-     { "left": "RTE Act, 2009", "right": "Makes free and compulsory elementary education legally enforceable" },
-     { "left": "Mid-Day Meal Scheme", "right": "A cooked meal in school, to improve both nutrition and attendance" },
-     { "left": "RMSA", "right": "Improving access to and quality of secondary education" },
-     { "left": "25% reservation clause of the RTE", "right": "Private unaided schools must admit disadvantaged children in Class I" },
-     { "left": "No-detention provision", "right": "No child to be held back or expelled up to the elementary stage" },
-     { "left": "Operation Blackboard", "right": "Minimum facilities — rooms, teachers and teaching material — in every primary school" }
+     {
+      "left": "Sarva Shiksha Abhiyan (2001)",
+      "right": "Universal elementary education for children aged 6 to 14"
+     },
+     {
+      "left": "RTE Act, 2009",
+      "right": "Makes free and compulsory elementary education legally enforceable"
+     },
+     {
+      "left": "Mid-Day Meal Scheme",
+      "right": "A cooked meal in school, to improve both nutrition and attendance"
+     },
+     {
+      "left": "RMSA",
+      "right": "Improving access to and quality of secondary education"
+     },
+     {
+      "left": "25% reservation clause of the RTE",
+      "right": "Private unaided schools must admit disadvantaged children in Class I"
+     },
+     {
+      "left": "No-detention provision",
+      "right": "No child to be held back or expelled up to the elementary stage"
+     },
+     {
+      "left": "Operation Blackboard",
+      "right": "Minimum facilities — rooms, teachers and teaching material — in every primary school"
+     }
     ]
    }
   }

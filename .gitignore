@@ -47,3 +47,11 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# the offline written paper's marks, exported from the OMR tool for import into
+# Neon (Desktop\KIDS OMR 2026\export_for_web.py). 7,287 children's marks keyed
+# by Unique ID — the same class of data as `students`, which is why that table
+# is seeded from a workbook outside this repo and never committed. This repo is
+# PUBLIC. Keep the export on the machine, hand it to the importer by path.
+offline-results.json
+scripts/offline-results.json

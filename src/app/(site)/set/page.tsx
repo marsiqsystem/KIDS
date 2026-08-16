@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import PageHeader from "@/components/PageHeader";
 import ResultLookup from "@/components/ResultLookup";
+import NameDobLookup from "@/components/NameDobLookup";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -19,18 +20,18 @@ const examRecap = [
 const nextSteps = [
   {
     step: "01",
-    title: "Results Go Live at 7:00 PM",
-    text: "The first-phase results of the Students Evaluation Test 2026–27 will be declared today evening, at 7:00 PM.",
+    title: "Open Your Own Portal",
+    text: "Scan the QR code on your admit card with your phone, or use one of the boxes above. It opens your personal student portal, and your result is on that page.",
   },
   {
     step: "02",
-    title: "Open Your Own Portal",
-    text: "Scan the QR code on your admit card with your phone. It opens your personal student portal — your result is published on that same page.",
+    title: "Two Papers, Two Marksheets",
+    text: "You sat an online paper of 50 questions and a written OMR paper of 100. They are marked separately and shown separately — the two scores are never added together.",
   },
   {
     step: "03",
-    title: "Merit Felicitation to Follow",
-    text: "Top performers and partner schools will be recognised under Project UDAAN. Details of the felicitation will be announced separately.",
+    title: "Every Question, Explained",
+    text: "Your written marksheet prints your own OMR sheet back to you and carries a written explanation for every question, with the chapters worth revising.",
   },
 ];
 
@@ -49,9 +50,9 @@ export default function SetPage() {
   return (
     <div ref={mainRef}>
       <PageHeader
-        tag="Result Day · First Phase"
+        tag="Results Declared · First Phase"
         title="Students Evaluation Test 2026–27 Results"
-        description="The results of the first phase of the Students Evaluation Test (SET) will be declared today, at 7:00 PM. Our heartfelt congratulations to every student who appeared."
+        description="The first-phase results of the Students Evaluation Test are out. Our heartfelt congratulations to every student who appeared."
         backgroundImage="/WhatsApp Image 2026-05-07 at 3.05.24 AM.jpeg"
       />
 
@@ -60,19 +61,18 @@ export default function SetPage() {
         <div className="w-full px-4 md:px-8 max-w-4xl mx-auto text-center">
           <span className="relative inline-flex items-center gap-2 text-secondary-fixed-dim text-xs font-semibold uppercase tracking-widest mb-5">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75 animate-ping" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-secondary-fixed-dim" />
             </span>
-            Results Awaited
+            Results Out
           </span>
           <h2 className="font-serif text-3xl md:text-5xl text-on-primary mb-5">
-            Results Will Be Declared This Evening
+            Your Result Is on Your Own Portal
           </h2>
           <p className="text-on-primary/80 text-lg leading-relaxed max-w-2xl mx-auto">
-            The wait is almost over. The first-phase results of the Students Evaluation Test
-            2026&ndash;27 go live today at{" "}
-            <strong className="text-secondary-fixed-dim">7:00 PM</strong>. We thank every student,
-            parent and school for your patience and participation.
+            The first-phase results of the Students Evaluation Test 2026&ndash;27 have been
+            declared. Every student who appeared has a personal marksheet waiting &mdash; open it
+            with the QR code on your admit card, or with one of the boxes below. We thank every
+            student, parent and school for taking part.
           </p>
         </div>
       </section>
@@ -84,9 +84,10 @@ export default function SetPage() {
           <h2 className="font-serif text-3xl md:text-4xl text-primary mb-4">How to See Your Result</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mb-8" />
           <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
-            Your personal result is published on your own student portal &mdash; the same portal you
-            used for the exam. Simply <strong className="text-on-surface">scan the QR code printed on
-            your admit card</strong> with your phone camera, and your result will be there from 7:00 PM.
+            Your result is published on your own student portal &mdash; the same portal you used for
+            the exam. Simply <strong className="text-on-surface">scan the QR code printed on your
+            admit card</strong> with your phone camera and it opens straight to your marksheet. No
+            password, no sign-up.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -112,6 +113,27 @@ export default function SetPage() {
             <ResultLookup />
           </div>
 
+          {/* ─── or name + date of birth ─── */}
+          <div className="mt-12 pt-10 border-t border-outline-variant">
+            <span className="text-sm font-semibold text-secondary uppercase tracking-widest block mb-2">
+              Lost Your Unique ID As Well?
+            </span>
+            <h3 className="font-serif text-2xl md:text-3xl text-primary mb-3">
+              Find It By Your Name and Date of Birth
+            </h3>
+            <p className="text-on-surface-variant leading-relaxed mb-8 max-w-xl mx-auto">
+              If the admit card is gone and the Unique ID with it, we can still find you from
+              your name and your date of birth.
+            </p>
+            <NameDobLookup />
+            <p className="mt-6 mx-auto max-w-xl text-sm leading-relaxed text-on-surface-variant">
+              A very small number of students share the same first four letters and the same
+              date of birth, and a few have no date of birth on our register. If this box
+              cannot place you, it will say so &mdash; your Head of School holds the full list
+              of Unique IDs and can read yours out to you.
+            </p>
+          </div>
+
           <p className="mt-8 text-sm text-on-surface-variant">
             Keep your admit card handy. If your QR code will not open, contact your Head of School or the KIDS office.
           </p>
@@ -135,7 +157,7 @@ export default function SetPage() {
         <div className="w-full px-4 md:px-8">
           <div className="text-center mb-14">
             <span className="text-sm font-semibold text-secondary uppercase tracking-widest block mb-2">What Happens Next</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-primary mb-4">Here&apos;s What to Expect</h2>
+            <h2 className="font-serif text-3xl md:text-4xl text-primary mb-4">How to Read Your Result</h2>
             <div className="w-24 h-1 bg-secondary mx-auto" />
           </div>
 
@@ -162,7 +184,7 @@ export default function SetPage() {
             regardless of a student&apos;s background.
           </p>
           <p className="text-lg text-on-surface-variant leading-relaxed mb-8">
-            Whatever the scorecard says this evening, appearing in SET is itself a step forward. We are proud of each
+            Whatever your scorecard says, appearing in SET is itself a step forward. We are proud of each
             one of you, and this is only the beginning of your journey with us.
           </p>
           <Link
@@ -180,7 +202,7 @@ export default function SetPage() {
           <div className="gsap-fade-up bg-primary p-12 rounded-2xl text-center text-on-primary max-w-4xl mx-auto">
             <h2 className="font-serif text-4xl mb-4">Questions About Your Result?</h2>
             <p className="text-lg max-w-2xl mx-auto mb-8 opacity-90">
-              If you need any help once results are out, reach out to the KIDS office &mdash; our team is happy to assist you and your school.
+              If you cannot open your result, or something on your marksheet does not look right, reach out to the KIDS office &mdash; our team is happy to assist you and your school.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
               <a href="https://wa.me/918777052393" target="_blank" rel="noopener noreferrer" className="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-semibold text-sm uppercase tracking-wider hover:brightness-105 transition-all">

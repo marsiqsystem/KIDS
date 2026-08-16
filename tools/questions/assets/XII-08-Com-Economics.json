@@ -2,19 +2,60 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "National Income and its Aggregates",
-  "approved": false,
+  "approved": true,
   "trick": "Two words decide every aggregate. Gross or net is about depreciation; domestic or national is about net factor income from abroad. So NNP at factor cost is national income — and market price becomes factor cost by subtracting indirect taxes and adding subsidies.",
-  "video": { "query": "national income aggregates GDP GNP NNP factor cost market price class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "national income aggregates GDP GNP NNP factor cost market price class 12",
+   "video_id": "zdujA33sXdk",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Move between the aggregates one adjustment at a time.",
     "problem": "GDP at market price is ₹1,000 crore. Depreciation ₹100 crore; net factor income from abroad −₹20 crore; indirect taxes ₹80 crore; subsidies ₹30 crore.",
     "steps": [
-     { "ask": "What is NDP at market price?", "options": ["₹900 crore", "₹1,100 crore", "₹980 crore"], "correct": 0, "why": "Gross becomes net by subtracting depreciation: 1,000 − 100 = ₹900 crore." },
-     { "ask": "What is NNP at market price?", "options": ["₹920 crore", "₹880 crore", "₹900 crore"], "correct": 1, "why": "Domestic becomes national by adding net factor income from abroad, which here is negative: 900 + (−20) = ₹880 crore." },
-     { "ask": "How do we get from market price to factor cost?", "options": ["Add indirect taxes, subtract subsidies", "Subtract indirect taxes, add subsidies", "Subtract both"], "correct": 1, "why": "Net indirect tax is added when going the other way. Factor cost = market price − indirect taxes + subsidies." },
-     { "ask": "What is NNP at factor cost, that is, national income?", "options": ["₹830 crore", "₹930 crore", "₹880 crore"], "correct": 0, "why": "880 − 80 + 30 = ₹830 crore. That figure is national income." }
+     {
+      "ask": "What is NDP at market price?",
+      "options": [
+       "₹900 crore",
+       "₹1,100 crore",
+       "₹980 crore"
+      ],
+      "correct": 0,
+      "why": "Gross becomes net by subtracting depreciation: 1,000 − 100 = ₹900 crore."
+     },
+     {
+      "ask": "What is NNP at market price?",
+      "options": [
+       "₹920 crore",
+       "₹880 crore",
+       "₹900 crore"
+      ],
+      "correct": 1,
+      "why": "Domestic becomes national by adding net factor income from abroad, which here is negative: 900 + (−20) = ₹880 crore."
+     },
+     {
+      "ask": "How do we get from market price to factor cost?",
+      "options": [
+       "Add indirect taxes, subtract subsidies",
+       "Subtract indirect taxes, add subsidies",
+       "Subtract both"
+      ],
+      "correct": 1,
+      "why": "Net indirect tax is added when going the other way. Factor cost = market price − indirect taxes + subsidies."
+     },
+     {
+      "ask": "What is NNP at factor cost, that is, national income?",
+      "options": [
+       "₹830 crore",
+       "₹930 crore",
+       "₹880 crore"
+      ],
+      "correct": 0,
+      "why": "880 − 80 + 30 = ₹830 crore. That figure is national income."
+     }
     ],
     "answer": "National income (NNP at factor cost) is ₹830 crore."
    }
@@ -23,19 +64,59 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Money and Banking",
-  "approved": false,
+  "approved": true,
   "trick": "The money multiplier is 1 divided by the cash reserve ratio, so a 20% CRR multiplies a deposit five times. Raising the CRR or the repo rate contracts credit; lowering them expands it. Every credit-control question is asking which direction the tool moves the money supply.",
-  "video": { "query": "money supply credit creation CRR SLR repo rate class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "money supply credit creation CRR SLR repo rate class 12 economics",
+   "video_id": "sbCg8HHOcnA",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Work out credit creation, then the effect of a policy change.",
     "problem": "Banks receive an initial deposit of ₹10,000. The cash reserve ratio is 20%.",
     "steps": [
-     { "ask": "What is the money multiplier?", "options": ["2", "5", "20"], "correct": 1, "why": "Multiplier = 1/CRR = 1/0.20 = 5." },
-     { "ask": "What total deposits can the banking system create?", "options": ["₹50,000", "₹2,000", "₹10,000"], "correct": 0, "why": "₹10,000 × 5 = ₹50,000 of total deposits, of which ₹40,000 is newly created credit." },
-     { "ask": "If the RBI raises the CRR to 25%, what happens to the multiplier?", "options": ["Rises to 6", "Falls to 4", "Stays at 5"], "correct": 1, "why": "1/0.25 = 4. A higher reserve requirement leaves less to lend, so credit contracts." },
-     { "ask": "So raising the CRR is which kind of policy?", "options": ["Expansionary", "Contractionary"], "correct": 1, "why": "It reduces the money supply. The RBI uses it to fight inflation." }
+     {
+      "ask": "What is the money multiplier?",
+      "options": [
+       "2",
+       "5",
+       "20"
+      ],
+      "correct": 1,
+      "why": "Multiplier = 1/CRR = 1/0.20 = 5."
+     },
+     {
+      "ask": "What total deposits can the banking system create?",
+      "options": [
+       "₹50,000",
+       "₹2,000",
+       "₹10,000"
+      ],
+      "correct": 0,
+      "why": "₹10,000 × 5 = ₹50,000 of total deposits, of which ₹40,000 is newly created credit."
+     },
+     {
+      "ask": "If the RBI raises the CRR to 25%, what happens to the multiplier?",
+      "options": [
+       "Rises to 6",
+       "Falls to 4",
+       "Stays at 5"
+      ],
+      "correct": 1,
+      "why": "1/0.25 = 4. A higher reserve requirement leaves less to lend, so credit contracts."
+     },
+     {
+      "ask": "So raising the CRR is which kind of policy?",
+      "options": [
+       "Expansionary",
+       "Contractionary"
+      ],
+      "correct": 1,
+      "why": "It reduces the money supply. The RBI uses it to fight inflation."
+     }
     ],
     "answer": "Multiplier 5 and total deposits ₹50,000; raising the CRR to 25% cuts the multiplier to 4 — a contractionary move."
    }
@@ -44,18 +125,55 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Government Budget and Fiscal Policy",
-  "approved": false,
+  "approved": true,
   "trick": "Fiscal deficit = total expenditure − total receipts excluding borrowing. So the fiscal deficit IS the borrowing requirement, which is why it is the headline number. Revenue deficit concerns only the revenue account, and primary deficit is fiscal deficit minus interest payments — the deficit stripped of the past's cost.",
-  "video": { "query": "government budget revenue fiscal primary deficit class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "government budget revenue fiscal primary deficit class 12 economics",
+   "video_id": "I15oY_9aEmg",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "formula-pick",
    "data": {
     "prompt": "Choose the correct definition of each budget concept.",
     "items": [
-     { "ask": "Fiscal deficit", "correct": "Total expenditure − total receipts other than borrowing", "wrong": ["Total expenditure − total receipts including borrowing", "Revenue expenditure − revenue receipts"], "why": "Because borrowing is excluded from receipts, the fiscal deficit equals exactly what the government must borrow." },
-     { "ask": "Revenue deficit", "correct": "Revenue expenditure − revenue receipts", "wrong": ["Capital expenditure − capital receipts", "Total expenditure − revenue receipts"], "why": "It shows that the government's day-to-day spending exceeds its day-to-day income." },
-     { "ask": "Primary deficit", "correct": "Fiscal deficit − interest payments", "wrong": ["Fiscal deficit + interest payments", "Revenue deficit − interest payments"], "why": "Removing interest shows how much of the current borrowing is due to current policy rather than past debt." },
-     { "ask": "A capital receipt", "correct": "A receipt that creates a liability or reduces an asset — borrowing, disinvestment", "wrong": ["Tax revenue", "Interest received on loans given"], "why": "Revenue receipts neither create a liability nor reduce an asset; capital receipts do one or the other." }
+     {
+      "ask": "Fiscal deficit",
+      "correct": "Total expenditure − total receipts other than borrowing",
+      "wrong": [
+       "Total expenditure − total receipts including borrowing",
+       "Revenue expenditure − revenue receipts"
+      ],
+      "why": "Because borrowing is excluded from receipts, the fiscal deficit equals exactly what the government must borrow."
+     },
+     {
+      "ask": "Revenue deficit",
+      "correct": "Revenue expenditure − revenue receipts",
+      "wrong": [
+       "Capital expenditure − capital receipts",
+       "Total expenditure − revenue receipts"
+      ],
+      "why": "It shows that the government's day-to-day spending exceeds its day-to-day income."
+     },
+     {
+      "ask": "Primary deficit",
+      "correct": "Fiscal deficit − interest payments",
+      "wrong": [
+       "Fiscal deficit + interest payments",
+       "Revenue deficit − interest payments"
+      ],
+      "why": "Removing interest shows how much of the current borrowing is due to current policy rather than past debt."
+     },
+     {
+      "ask": "A capital receipt",
+      "correct": "A receipt that creates a liability or reduces an asset — borrowing, disinvestment",
+      "wrong": [
+       "Tax revenue",
+       "Interest received on loans given"
+      ],
+      "why": "Revenue receipts neither create a liability nor reduce an asset; capital receipts do one or the other."
+     }
     ]
    }
   }
@@ -63,23 +181,55 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Balance of Payments and Exchange Rate",
-  "approved": false,
+  "approved": true,
   "trick": "Depreciation makes exports cheaper for foreigners and imports dearer at home — so a weaker rupee helps exporters and hurts importers. Devaluation is the same movement decided by the government under a fixed rate; depreciation is the market doing it. Current account is goods, services and transfers; capital account is assets and borrowing.",
-  "video": { "query": "balance of payments current capital account exchange rate depreciation class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "balance of payments current capital account exchange rate depreciation class 12",
+   "video_id": "8exWLGKY7zQ",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Current account or capital account?",
-    "bins": ["Current account", "Capital account"],
+    "bins": [
+     "Current account",
+     "Capital account"
+    ],
     "items": [
-     { "label": "Export of tea", "bin": "Current account" },
-     { "label": "Foreign direct investment into India", "bin": "Capital account" },
-     { "label": "Payment for freight and insurance services", "bin": "Current account" },
-     { "label": "Borrowing from the World Bank", "bin": "Capital account" },
-     { "label": "Remittances sent home by Indians working abroad", "bin": "Current account" },
-     { "label": "Purchase of foreign shares by an Indian resident", "bin": "Capital account" },
-     { "label": "Interest received on a foreign investment", "bin": "Current account" },
-     { "label": "Repayment of external debt", "bin": "Capital account" }
+     {
+      "label": "Export of tea",
+      "bin": "Current account"
+     },
+     {
+      "label": "Foreign direct investment into India",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Payment for freight and insurance services",
+      "bin": "Current account"
+     },
+     {
+      "label": "Borrowing from the World Bank",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Remittances sent home by Indians working abroad",
+      "bin": "Current account"
+     },
+     {
+      "label": "Purchase of foreign shares by an Indian resident",
+      "bin": "Capital account"
+     },
+     {
+      "label": "Interest received on a foreign investment",
+      "bin": "Current account"
+     },
+     {
+      "label": "Repayment of external debt",
+      "bin": "Capital account"
+     }
     ]
    }
   }
@@ -87,21 +237,47 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Market Structures",
-  "approved": false,
+  "approved": true,
   "trick": "Count the sellers and look at the product, and the market names itself. Many sellers with an identical product is perfect competition; many sellers with differentiated products is monopolistic competition; a few sellers is oligopoly; one seller with no close substitute is monopoly. Only in perfect competition is the firm a price taker with a horizontal demand curve.",
-  "video": { "query": "perfect competition monopoly monopolistic oligopoly features class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "perfect competition monopoly monopolistic oligopoly features class 12 economics",
+   "video_id": "Dmi6q8svg-Q",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each market feature with the structure it describes.",
     "pairs": [
-     { "left": "Perfect competition", "right": "Very many sellers, a homogeneous product, free entry, and the firm is a price taker" },
-     { "left": "Monopoly", "right": "A single seller with no close substitute, and strong barriers to entry" },
-     { "left": "Monopolistic competition", "right": "Many sellers with differentiated products; selling costs and advertising matter" },
-     { "left": "Oligopoly", "right": "A few large sellers whose decisions depend on each other's reactions" },
-     { "left": "Horizontal demand curve for the firm", "right": "Perfect competition — the firm can sell any quantity at the ruling price" },
-     { "left": "Price discrimination", "right": "Charging different prices to different buyers, possible under monopoly" },
-     { "left": "Product differentiation", "right": "The defining feature of monopolistic competition" }
+     {
+      "left": "Perfect competition",
+      "right": "Very many sellers, a homogeneous product, free entry, and the firm is a price taker"
+     },
+     {
+      "left": "Monopoly",
+      "right": "A single seller with no close substitute, and strong barriers to entry"
+     },
+     {
+      "left": "Monopolistic competition",
+      "right": "Many sellers with differentiated products; selling costs and advertising matter"
+     },
+     {
+      "left": "Oligopoly",
+      "right": "A few large sellers whose decisions depend on each other's reactions"
+     },
+     {
+      "left": "Horizontal demand curve for the firm",
+      "right": "Perfect competition — the firm can sell any quantity at the ruling price"
+     },
+     {
+      "left": "Price discrimination",
+      "right": "Charging different prices to different buyers, possible under monopoly"
+     },
+     {
+      "left": "Product differentiation",
+      "right": "The defining feature of monopolistic competition"
+     }
     ]
    }
   }
@@ -109,19 +285,43 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Sectors of the Indian Economy",
-  "approved": false,
+  "approved": true,
   "trick": "India's sectoral story runs one way in output and another in employment: the tertiary sector now contributes the largest share of GDP, but the primary sector still employs the largest share of workers. That mismatch is the whole point of the chapter and the answer to most questions in it.",
-  "video": { "query": "sectors of indian economy GDP share employment share class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "sectors of indian economy GDP share employment share class 12 economics",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about India's sectors.",
     "items": [
-     { "statement": "The tertiary sector contributes the largest share of India's GDP.", "is_true": true, "why": "Services overtook the others decades ago and now account for over half of national output." },
-     { "statement": "The primary sector employs the largest share of India's workers.", "is_true": true, "why": "Agriculture still absorbs the greatest number of workers even though its share of output is far smaller — the sectoral mismatch." },
-     { "statement": "A sector's share of output and its share of employment must be similar.", "is_true": false, "why": "In India they diverge sharply, which is exactly what makes agricultural productivity per worker so low." },
-     { "statement": "Disguised unemployment is common in Indian agriculture.", "is_true": true, "why": "More people work a field than it needs; removing some would not reduce output." },
-     { "statement": "The organised sector is one where terms of employment are regular and workers get social security.", "is_true": true, "why": "The unorganised sector is the opposite — irregular work, low pay and no statutory protection." }
+     {
+      "statement": "The tertiary sector contributes the largest share of India's GDP.",
+      "is_true": true,
+      "why": "Services overtook the others decades ago and now account for over half of national output."
+     },
+     {
+      "statement": "The primary sector employs the largest share of India's workers.",
+      "is_true": true,
+      "why": "Agriculture still absorbs the greatest number of workers even though its share of output is far smaller — the sectoral mismatch."
+     },
+     {
+      "statement": "A sector's share of output and its share of employment must be similar.",
+      "is_true": false,
+      "why": "In India they diverge sharply, which is exactly what makes agricultural productivity per worker so low."
+     },
+     {
+      "statement": "Disguised unemployment is common in Indian agriculture.",
+      "is_true": true,
+      "why": "More people work a field than it needs; removing some would not reduce output."
+     },
+     {
+      "statement": "The organised sector is one where terms of employment are regular and workers get social security.",
+      "is_true": true,
+      "why": "The unorganised sector is the opposite — irregular work, low pay and no statutory protection."
+     }
     ]
    }
   }
@@ -129,21 +329,47 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Liberalisation and Human Capital Formation",
-  "approved": false,
+  "approved": true,
   "trick": "1991 is the year, and LPG is the shorthand: Liberalisation removed licensing, Privatisation sold or opened up public enterprises, Globalisation integrated India with world markets. Human capital is investment in people — education and health — and human development is the wider end that capital is only a means to.",
-  "video": { "query": "1991 reforms LPG liberalisation human capital formation class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "1991 reforms LPG liberalisation human capital formation class 12 economics",
+   "video_id": "28IC-xuzNDE",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each reform or concept with what it means.",
     "pairs": [
-     { "left": "Liberalisation", "right": "Removing licensing and government restrictions on private business" },
-     { "left": "Privatisation", "right": "Transferring ownership or management of public enterprises to private hands" },
-     { "left": "Globalisation", "right": "Integrating the domestic economy with the world economy" },
-     { "left": "Disinvestment", "right": "The government selling part of its shareholding in a public sector unit" },
-     { "left": "Human capital", "right": "The stock of skill and knowledge embodied in people, built by education and health spending" },
-     { "left": "Human development", "right": "The wider goal — a long, healthy, educated life; human capital is a means to it" },
-     { "left": "The year 1991", "right": "The balance of payments crisis and the New Economic Policy" }
+     {
+      "left": "Liberalisation",
+      "right": "Removing licensing and government restrictions on private business"
+     },
+     {
+      "left": "Privatisation",
+      "right": "Transferring ownership or management of public enterprises to private hands"
+     },
+     {
+      "left": "Globalisation",
+      "right": "Integrating the domestic economy with the world economy"
+     },
+     {
+      "left": "Disinvestment",
+      "right": "The government selling part of its shareholding in a public sector unit"
+     },
+     {
+      "left": "Human capital",
+      "right": "The stock of skill and knowledge embodied in people, built by education and health spending"
+     },
+     {
+      "left": "Human development",
+      "right": "The wider goal — a long, healthy, educated life; human capital is a means to it"
+     },
+     {
+      "left": "The year 1991",
+      "right": "The balance of payments crisis and the New Economic Policy"
+     }
     ]
    }
   }
@@ -151,22 +377,51 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Introduction to Economics and the Central Problem",
-  "approved": false,
+  "approved": true,
   "trick": "Three conditions make the central problem, and all three must hold: wants are unlimited, resources are scarce, and those resources have alternative uses. Remove any one and there is no problem of choice left — which is why every definition in the chapter mentions scarcity.",
-  "video": { "query": "central problem of economy scarcity choice opportunity cost class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "central problem of economy scarcity choice opportunity cost class 12 economics",
+   "video_id": "RUSa8im8wek",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each central problem with the question it asks.",
     "pairs": [
-     { "left": "What to produce", "right": "Which goods, and in what quantities, given limited resources" },
-     { "left": "How to produce", "right": "Labour-intensive or capital-intensive technique" },
-     { "left": "For whom to produce", "right": "How the output is distributed among people — the problem of distribution" },
-     { "left": "Scarcity", "right": "Resources are limited relative to unlimited wants" },
-     { "left": "Opportunity cost", "right": "The value of the next best alternative forgone" },
-     { "left": "Alternative uses", "right": "The same resource could have been put to another purpose" },
-     { "left": "Positive economics", "right": "What is — statements that can be tested against facts" },
-     { "left": "Normative economics", "right": "What ought to be — statements involving value judgements" }
+     {
+      "left": "What to produce",
+      "right": "Which goods, and in what quantities, given limited resources"
+     },
+     {
+      "left": "How to produce",
+      "right": "Labour-intensive or capital-intensive technique"
+     },
+     {
+      "left": "For whom to produce",
+      "right": "How the output is distributed among people — the problem of distribution"
+     },
+     {
+      "left": "Scarcity",
+      "right": "Resources are limited relative to unlimited wants"
+     },
+     {
+      "left": "Opportunity cost",
+      "right": "The value of the next best alternative forgone"
+     },
+     {
+      "left": "Alternative uses",
+      "right": "The same resource could have been put to another purpose"
+     },
+     {
+      "left": "Positive economics",
+      "right": "What is — statements that can be tested against facts"
+     },
+     {
+      "left": "Normative economics",
+      "right": "What ought to be — statements involving value judgements"
+     }
     ]
    }
   }
@@ -174,23 +429,56 @@
  {
   "bucket": "XII|Commerce|Economics",
   "chapter": "Demand and its Determinants",
-  "approved": false,
+  "approved": true,
   "trick": "Only the good's OWN price moves you along the demand curve; every other determinant shifts it. Income, the price of substitutes and complements, tastes and the number of buyers all shift. That is the difference between a change in quantity demanded and a change in demand, and the wording is what is marked.",
-  "video": { "query": "demand determinants shift versus movement elasticity class 12 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "demand determinants shift versus movement elasticity class 12 economics",
+   "video_id": "384Vicbm5vM",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Does each change move along the demand curve, or shift it?",
-    "bins": ["Movement along the curve", "Rightward shift", "Leftward shift"],
+    "bins": [
+     "Movement along the curve",
+     "Rightward shift",
+     "Leftward shift"
+    ],
     "items": [
-     { "label": "The price of the good falls", "bin": "Movement along the curve" },
-     { "label": "Consumer income rises, for a normal good", "bin": "Rightward shift" },
-     { "label": "Consumer income rises, for an inferior good", "bin": "Leftward shift" },
-     { "label": "The price of a substitute rises", "bin": "Rightward shift" },
-     { "label": "The price of a complement rises", "bin": "Leftward shift" },
-     { "label": "The good's own price rises", "bin": "Movement along the curve" },
-     { "label": "Tastes turn in favour of the good", "bin": "Rightward shift" },
-     { "label": "The number of buyers in the market falls", "bin": "Leftward shift" }
+     {
+      "label": "The price of the good falls",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Consumer income rises, for a normal good",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "Consumer income rises, for an inferior good",
+      "bin": "Leftward shift"
+     },
+     {
+      "label": "The price of a substitute rises",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "The price of a complement rises",
+      "bin": "Leftward shift"
+     },
+     {
+      "label": "The good's own price rises",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Tastes turn in favour of the good",
+      "bin": "Rightward shift"
+     },
+     {
+      "label": "The number of buyers in the market falls",
+      "bin": "Leftward shift"
+     }
     ]
    }
   }

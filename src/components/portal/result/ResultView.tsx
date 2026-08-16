@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react";
 import type { MarkedQuestion, OnlineMarksheet, QuestionStatus } from "@/lib/exam/results";
+import type { OfflineMarksheet } from "@/lib/exam/offline-results";
+import type { ReviewedQuestion } from "@/lib/exam/offline-review";
+import type { LearnCard } from "./LearnIt";
+import { OfflineSheet } from "./OfflineSheet";
 
 /**
  * The published result, as a student sees it.
@@ -17,7 +21,7 @@ import type { MarkedQuestion, OnlineMarksheet, QuestionStatus } from "@/lib/exam
  * show — so nothing a student reads can be an artefact of their phone.
  */
 
-type View = "landing" | "online";
+type View = "landing" | "online" | "offline";
 
 const STATUS: Record<QuestionStatus, { glyph: string; label: string; cls: string }> = {
   correct: {
@@ -48,6 +52,13 @@ export interface ResultViewProps {
   centre: string;
   publishedOn: string;
   online: OnlineMarksheet | null;
+  /** The written paper. Null when the student did not sit it. */
+  offline: OfflineMarksheet | null;
+  /** Whether the written paper's results are out at all — a separate switch. */
+  offlinePublished: boolean;
+  offlineQuestions: ReviewedQuestion[];
+  offlineLearn: LearnCard[];
+  marksheetHref: string;
 }
 
 export default function ResultView(props: ResultViewProps) {
@@ -65,13 +76,36 @@ export default function ResultView(props: ResultViewProps) {
     setOpenQ(null);
     window.scrollTo(0, 0);
   };
+  const toOffline = () => {
+    setView("offline");
+    setOpenQ(null);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="mx-auto w-full max-w-[460px] overflow-hidden rounded-[20px] bg-[var(--cream)] shadow-[var(--shadow-lg)] sm:my-4 lap:mt-[18px] lap:max-w-[1180px] lap:rounded-2xl">
       <Header {...props} />
 
       {view === "landing" ? (
-        <Landing {...props} onOpenOnline={toOnline} />
+        <Landing {...props} onOpenOnline={toOnline} onOpenOffline={toOffline} />
+      ) : view === "offline" ? (
+        props.offline && (
+          <OfflineSheet
+            sheet={props.offline}
+            questions={props.offlineQuestions}
+            learn={props.offlineLearn}
+            classLabel={props.classLabel}
+            centre={props.centre}
+            marksheetHref={props.marksheetHref}
+            onBack={toLanding}
+            other={{
+              state: online ? "ready" : "absent",
+              marks: online?.marks ?? 0,
+              total: online?.total ?? 0,
+            }}
+            onOpenOther={toOnline}
+          />
+        )
       ) : (
         online && (
           <Marksheet
@@ -168,10 +202,13 @@ function Header({ name, classLabel, uid, stream, school, centre }: ResultViewPro
 
 function Landing({
   online,
+  offline,
+  offlinePublished,
   classLabel,
   publishedOn,
   onOpenOnline,
-}: ResultViewProps & { onOpenOnline: () => void }) {
+  onOpenOffline,
+}: ResultViewProps & { onOpenOnline: () => void; onOpenOffline: () => void }) {
   return (
     <>
       <div className="px-4 pb-1 pt-5 lap:max-w-[780px] lap:px-9 lap:pb-1.5 lap:pt-7">
@@ -245,8 +282,65 @@ function Landing({
           </Panel>
         )}
 
-        {/* ---- offline: not published yet, for everybody ---- */}
-        <OfflinePending />
+        {/* ---- the written paper ---- */}
+        {!offlinePublished ? (
+          <OfflinePending />
+        ) : offline ? (
+          <button
+            onClick={onOpenOffline}
+            className="block w-full cursor-pointer rounded-[var(--radius-md)] border border-t-[3px] border-[var(--cream-muted)] border-t-[var(--gold)] bg-[var(--cream-surface)] p-4 pt-4 text-left shadow-[var(--shadow-md)]"
+          >
+            <div className="flex items-start justify-between gap-2.5">
+              <div>
+                <h3 className="mb-1 text-[1.22rem] text-[var(--maroon)]">Offline (Written) Exam</h3>
+                <div className="text-[0.74rem] text-[var(--ink-muted)]">
+                  100 questions · OMR sheet · at your centre
+                </div>
+              </div>
+              <Badge tone="teal">Ready</Badge>
+            </div>
+
+            <div className="mt-3.5 flex items-end justify-between gap-3">
+              <div className="tnum flex items-baseline gap-[5px]">
+                <span className="font-[family-name:var(--font-display)] text-[3.1rem] font-bold leading-[0.95] text-[var(--maroon)]">
+                  {offline.marks}
+                </span>
+                <span className="font-[family-name:var(--font-display)] text-[1.15rem] text-[var(--gold)]">
+                  / {offline.total}
+                </span>
+              </div>
+              <div className="tnum text-right text-[0.76rem] leading-[1.5] text-[var(--ink-muted)]">
+                <div>{offline.percent}%</div>
+                {offline.classRank !== null && (
+                  <div>
+                    Rank {num(offline.classRank)} of {num(offline.classSat)} in Class {classLabel}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="my-3 h-px bg-[var(--cream-muted)]" />
+            <div className="flex items-center justify-between text-[0.86rem] font-semibold text-[var(--maroon)]">
+              <span>Open full marksheet</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </button>
+        ) : (
+          <Panel>
+            <Badge tone="outline">Not attempted</Badge>
+            <h3 className="mb-1 mt-2 text-[1.22rem] text-[var(--maroon)]">Offline (Written) Exam</h3>
+            <div className="text-[0.74rem] text-[var(--ink-muted)]">
+              100 questions · OMR sheet · at your centre
+            </div>
+            <Note title="You did not sit this paper">
+              <p className="mb-1.5">
+                So there are no marks and no rank for it. Our records show no answer
+                sheet was collected under your Unique ID that morning.
+              </p>
+              <p>If you believe you did sit it, tell your school co-ordinator.</p>
+            </Note>
+          </Panel>
+        )}
       </div>
 
       <div className="px-4 pb-[22px] lap:px-9 lap:pb-[30px]">
@@ -788,7 +882,7 @@ function QuestionSheet({
 
 /* ---------------------------------------------------------------- parts --- */
 
-function Pip({ status, size }: { status: QuestionStatus; size: number }) {
+export function Pip({ status, size }: { status: QuestionStatus; size: number }) {
   const s = STATUS[status];
   return (
     <span
@@ -801,7 +895,7 @@ function Pip({ status, size }: { status: QuestionStatus; size: number }) {
   );
 }
 
-function Tally({ status, n, label }: { status: QuestionStatus; n: number; label: string }) {
+export function Tally({ status, n, label }: { status: QuestionStatus; n: number; label: string }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--cream-muted)] bg-[var(--cream-surface)] px-2 py-3 text-center">
       <Pip status={status} size={26} />
@@ -813,7 +907,7 @@ function Tally({ status, n, label }: { status: QuestionStatus; n: number; label:
   );
 }
 
-function Card({
+export function Card({
   title,
   sub,
   children,
@@ -831,7 +925,7 @@ function Card({
   );
 }
 
-function Panel({ children }: { children: React.ReactNode }) {
+export function Panel({ children }: { children: React.ReactNode }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--cream-muted)] bg-[var(--cream-surface)] p-4">
       {children}
@@ -839,7 +933,7 @@ function Panel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Note({ title, children }: { title: string; children: React.ReactNode }) {
+export function Note({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-3.5 rounded-[var(--radius-sm)] bg-[var(--cream-muted)] p-3.5">
       <div className="mb-1.5 font-[family-name:var(--font-display)] text-[1rem] font-bold text-[var(--maroon)]">
@@ -850,7 +944,7 @@ function Note({ title, children }: { title: string; children: React.ReactNode })
   );
 }
 
-function Badge({ tone, children }: { tone: "teal" | "maroon" | "outline"; children: React.ReactNode }) {
+export function Badge({ tone, children }: { tone: "teal" | "maroon" | "outline"; children: React.ReactNode }) {
   const cls = {
     teal: "bg-[rgb(30_158_140/12%)] text-[var(--teal-ink)] border-transparent",
     maroon: "bg-[var(--maroon-tint)] text-[var(--maroon)] border-transparent",
@@ -865,7 +959,7 @@ function Badge({ tone, children }: { tone: "teal" | "maroon" | "outline"; childr
   );
 }
 
-function Field({ label, value }: { label: string; value: string }) {
+export function Field({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-3 border-b border-[var(--cream-muted)] py-2 last:border-0">
       <span className="text-[0.78rem] text-[var(--ink-muted)]">{label}</span>
@@ -874,7 +968,7 @@ function Field({ label, value }: { label: string; value: string }) {
   );
 }
 
-function Bar({ label, value, pct, fill }: { label: string; value: string; pct: number; fill: string }) {
+export function Bar({ label, value, pct, fill }: { label: string; value: string; pct: number; fill: string }) {
   return (
     <div>
       <div className="mb-[5px] flex items-baseline justify-between gap-2">
@@ -888,7 +982,7 @@ function Bar({ label, value, pct, fill }: { label: string; value: string; pct: n
   );
 }
 
-function Rank({ label, value, sub }: { label: string; value: string; sub: string }) {
+export function Rank({ label, value, sub }: { label: string; value: string; sub: string }) {
   return (
     <div className="rounded-[var(--radius-sm)] border border-[var(--cream-muted)] bg-[var(--cream)] p-3">
       <div className="min-h-[2.1em] text-[0.66rem] uppercase leading-[1.35] tracking-[0.06em] text-[var(--ink-muted)]">
@@ -924,7 +1018,7 @@ function QuestionLink({
   );
 }
 
-function StarRule() {
+export function StarRule() {
   return (
     <div className="my-3 flex items-center gap-2" aria-hidden="true">
       <div className="h-px flex-1 bg-[var(--cream-muted)]" />
@@ -934,7 +1028,7 @@ function StarRule() {
   );
 }
 
-function Privacy() {
+export function Privacy() {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--cream-muted)] bg-[var(--cream-surface)] p-3.5">
       <div className="lbl mb-1.5">Keep this private</div>

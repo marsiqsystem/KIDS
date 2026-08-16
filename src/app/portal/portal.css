@@ -207,3 +207,52 @@
     margin: 14mm;
   }
 }
+
+/* ── Learn it ──────────────────────────────────────────────────────────
+   The activity cards. The card's own shell — header, trick, practice, video —
+   is written in the component to the design's measurements; what lives here is
+   what a card cannot express: the option pills and the shapes each activity
+   needs. Tap-driven throughout — drag-and-drop on a small touch screen loses a
+   child in ten seconds. */
+.portal .lcard { border:1px solid var(--cream-muted); border-radius:var(--radius-sm);
+  overflow:hidden; background:var(--cream); }
+.portal .lvideo { padding:0; }
+.portal .lvideo iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:var(--radius-sm);
+  background:#000; }
+.portal .act { padding:0; }
+.portal .aprompt { margin:0 0 .7rem; font-size:.85rem; line-height:1.5; font-weight:600; }
+.portal .astate { margin:.6rem 0 0; font-size:.78rem; color:var(--ink-muted); line-height:1.55; }
+.portal .astate.big { font-size:.95rem; color:var(--ink); font-weight:600; }
+.portal .astate.no { color:#B22234; }
+.portal .pill { border:1px solid var(--cream-muted); background:var(--cream-surface);
+  border-radius:var(--radius-sm); padding:10px 12px; font:inherit; font-size:.82rem;
+  cursor:pointer; text-align:left; width:100%; color:var(--ink); line-height:1.4;
+  min-height:44px; }
+.portal .pill:disabled { cursor:default; }
+.portal .pill.sel { border-color:var(--maroon); background:var(--maroon-tint); font-weight:600; }
+.portal .pill.got { border-color:var(--teal); background:rgb(30 158 140 / 10%); color:var(--ink-muted); }
+.portal .pill.no { border-color:#B22234; background:rgb(178 34 52 / 10%); }
+.portal .pill .ans { color:var(--teal-ink); font-weight:600; }
+.portal .pairs { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.portal .pairs ul { list-style:none; margin:0; padding:0; display:grid; gap:6px; align-content:start; }
+.portal .sortitem { border:1px solid var(--cream-muted); border-radius:var(--radius-sm);
+  padding:13px; font-size:.86rem; line-height:1.5; background:var(--cream-muted); }
+.portal .sortitem.ok { border-color:var(--teal); background:rgb(30 158 140 / 12%); }
+.portal .sortitem.no { border-color:#B22234; background:rgb(178 34 52 / 10%); }
+.portal .bins { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:7px; margin-top:9px; }
+.portal .tflist, .portal .oddlist { list-style:none; margin:0; padding:0; display:grid; gap:7px; }
+.portal .studylist { padding-left:1.1rem; display:grid; gap:5px; }
+.portal .studylist li { font-size:.84rem; line-height:1.5; }
+.portal .tflist li { border:1px solid var(--cream-muted); border-radius:var(--radius-sm);
+  padding:11px 12px; }
+.portal .tflist li.ok { border-color:var(--teal); background:rgb(30 158 140 / 7%); }
+.portal .tflist li.no { border-color:#B22234; background:rgb(178 34 52 / 6%); }
+.portal .tflist li p { margin:0; font-size:.84rem; line-height:1.5; }
+.portal .tfbtns { display:flex; gap:7px; margin-top:8px; }
+.portal .tfbtns .pill { width:auto; min-width:84px; text-align:center; }
+.portal .again { margin-top:11px; border:1px solid var(--cream-muted); background:var(--cream-surface);
+  border-radius:var(--radius-sm); padding:9px 15px; font:inherit; font-size:.8rem; cursor:pointer;
+  color:var(--maroon); font-weight:600; min-height:44px; }
+.portal .diagram svg { max-width:100%; height:auto; }
+@media (max-width:640px) { .portal .pairs { grid-template-columns:1fr; } }

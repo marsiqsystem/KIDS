@@ -2,7 +2,7 @@
  {
   "bucket": "IX|All|Life Science",
   "chapter": "Life and its Diversity: Levels of Organisation",
-  "approved": false,
+  "approved": true,
   "trick": "Climb the ladder in one direction only: cell, tissue, organ, organ system, organism. Every level is made of the one below it, so if you can say what a thing is made of, you know where it sits.",
   "video": {
    "query": "levels of biological organisation cell tissue organ system class 9 biology",
@@ -42,7 +42,7 @@
  {
   "bucket": "IX|All|Life Science",
   "chapter": "Physiological Processes: Photosynthesis, Respiration and Transpiration",
-  "approved": false,
+  "approved": true,
   "trick": "Photosynthesis and respiration are the same equation read backwards. One takes in carbon dioxide and water and stores energy in glucose; the other burns glucose and gives the carbon dioxide and water back. Write one and you can write the other by reversing the arrow.",
   "video": {
    "query": "photosynthesis respiration transpiration difference class 9 life science",
@@ -100,7 +100,7 @@
  {
   "bucket": "IX|All|Life Science",
   "chapter": "Excretion in Plants and Animals",
-  "approved": false,
+  "approved": true,
   "trick": "Animals have an organ for waste; plants simply store it or throw it away with a leaf. Among animals the excretory product tells you where the creature lives: plenty of water means ammonia, land means urea or uric acid, because saving water costs the animal energy.",
   "video": {
    "query": "excretion in plants and animals ammonotelic ureotelic uricotelic class 9",
@@ -144,7 +144,7 @@
  {
   "bucket": "IX|All|Life Science",
   "chapter": "Human Health, Disease and Immunity",
-  "approved": false,
+  "approved": true,
   "trick": "Name the pathogen group before you name the cure. Antibiotics work on bacteria and do nothing at all to a virus, which is why a doctor will not give them for a common cold. If the question mentions a vaccine, it is about prevention, not treatment.",
   "video": {
    "query": "communicable diseases pathogens immunity vaccination class 9 life science",
@@ -189,7 +189,7 @@
  {
   "bucket": "IX|All|Life Science",
   "chapter": "Environment, Ecosystem and Natural Resources",
-  "approved": false,
+  "approved": true,
   "trick": "Energy in a food chain only ever moves one way and mostly gets lost. About a tenth passes to the next level, which is why chains are short and why there are always far more plants than tigers.",
   "video": {
    "query": "ecosystem food chain trophic levels energy flow class 9 life science",

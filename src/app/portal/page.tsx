@@ -22,6 +22,11 @@ import PortalShell from "@/components/portal/PortalShell";
 import ErrorScreen from "@/components/portal/ErrorScreen";
 import ResultView from "@/components/portal/result/ResultView";
 import { publicationState, findOnlineMarksheet } from "@/lib/exam/results";
+import { offlinePublicationState, findOfflineMarksheet } from "@/lib/exam/offline-results";
+import { reviewQuestions, chapterScores } from "@/lib/exam/offline-review";
+import { chapterAsset, PLAYABLE } from "@/lib/exam/chapter-assets";
+import type { LearnCard } from "@/components/portal/result/LearnIt";
+import { signUid, qrSecret } from "@/lib/qr-token";
 import Countdown from "@/components/portal/Countdown";
 import DeviceCheck from "@/components/portal/DeviceCheck";
 import Checklist from "@/components/portal/Checklist";
@@ -60,6 +65,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   // an exam that happened in July.
   const publication = await publicationState();
   if (publication.published) {
+    const written = await writtenHalf(student);
     return (
       <PortalShell verifiedAs={name}>
         <div className="bg-[var(--cream-muted)] px-3 py-4 sm:px-5 sm:py-6">
@@ -72,6 +78,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
             centre={student.centre_name}
             publishedOn={publication.publishedOn}
             online={await findOnlineMarksheet(student)}
+            {...written}
           />
         </div>
       </PortalShell>
@@ -526,4 +533,57 @@ function Closed({ student, name }: { student: Student; name: string }) {
       </div>
     </PortalShell>
   );
+}
+
+/**
+ * Everything the result view needs about the WRITTEN paper.
+ *
+ * Assembled here rather than in the view because it reads three server-only
+ * sources — the marks in Neon, the question bank, and the approved chapter
+ * assets — and the view is a client component.
+ *
+ * The written paper has its own switch: it is released separately from the
+ * online one, and a student who sat both is shown two tracks, never one blended
+ * number.
+ */
+async function writtenHalf(student: Student) {
+  const { published } = await offlinePublicationState();
+  const href = `/marksheet?id=${student.uid}&t=${signUid(student.uid, qrSecret())}`;
+  if (!published) {
+    return {
+      offline: null, offlinePublished: false,
+      offlineQuestions: [], offlineLearn: [] as LearnCard[], marksheetHref: href,
+    };
+  }
+  const sheet = await findOfflineMarksheet(student);
+  if (!sheet) {
+    return {
+      offline: null, offlinePublished: true,
+      offlineQuestions: [], offlineLearn: [] as LearnCard[], marksheetHref: href,
+    };
+  }
+  const questions = reviewQuestions(sheet);
+  // Only chapters with approved teaching content behind them: a card with a
+  // heading and nothing under it is worse than no card.
+  const learn: LearnCard[] = chapterScores(questions)
+    .filter((c) => c.lost >= 2)
+    .slice(0, 8)
+    .map((c) => {
+      const a = chapterAsset(sheet.class, sheet.stream, c.section, c.chapter);
+      return a && {
+        chapter: c.chapter, section: c.section, correct: c.correct, total: c.total,
+        trick: a.trick,
+        videoId: a.video.video_id ?? null,
+        videoLanguage: a.video.language ?? null,
+        template: a.interactive.template,
+        data: a.interactive.data,
+        playable: PLAYABLE.has(a.interactive.template),
+      };
+    })
+    .filter((x): x is LearnCard => Boolean(x));
+
+  return {
+    offline: sheet, offlinePublished: true,
+    offlineQuestions: questions, offlineLearn: learn, marksheetHref: href,
+  };
 }

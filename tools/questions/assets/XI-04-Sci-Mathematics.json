@@ -2,9 +2,14 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Sets",
-  "approved": false,
+  "approved": true,
   "trick": "The inclusion-exclusion rule exists because adding the two sets counts the overlap twice, so you subtract it once. n(A ∪ B) = n(A) + n(B) − n(A ∩ B). Draw the two circles and the formula becomes obvious rather than memorised.",
-  "video": { "query": "sets union intersection venn diagram problems class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "sets union intersection venn diagram problems class 11 maths",
+   "video_id": "eEkR-k4qwf0",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -13,25 +18,41 @@
     "steps": [
      {
       "ask": "Why is 35 + 30 = 65 not the answer?",
-      "options": ["Because it double counts the 15 who play both", "Because the class has only 60 students", "Because some students play neither"],
+      "options": [
+       "Because it double counts the 15 who play both",
+       "Because the class has only 60 students",
+       "Because some students play neither"
+      ],
       "correct": 0,
       "why": "The 15 who play both are counted once in the 35 and again in the 30. The class size being 60 is a consequence of the error, not the reason for it."
      },
      {
       "ask": "So what is n(cricket ∪ football)?",
-      "options": ["65", "50", "45"],
+      "options": [
+       "65",
+       "50",
+       "45"
+      ],
       "correct": 1,
       "why": "35 + 30 − 15 = 50 students play at least one of the two games."
      },
      {
       "ask": "How many play neither?",
-      "options": ["10", "15", "0"],
+      "options": [
+       "10",
+       "15",
+       "0"
+      ],
       "correct": 0,
       "why": "60 − 50 = 10. Those ten lie outside both circles in the Venn diagram."
      },
      {
       "ask": "How many play cricket only?",
-      "options": ["35", "20", "15"],
+      "options": [
+       "35",
+       "20",
+       "15"
+      ],
       "correct": 1,
       "why": "35 − 15 = 20. 'Cricket only' always means the total for cricket minus the overlap, and questions often ask for this rather than the total."
      }
@@ -43,19 +64,44 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Relations and Functions",
-  "approved": false,
+  "approved": true,
   "trick": "Every function is a relation, but a relation is a function only if each input has exactly one output. Test it by the vertical line rule: if a vertical line ever cuts the graph twice, it is not a function.",
-  "video": { "query": "relations and functions domain range types class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "relations and functions domain range types class 11 maths",
+   "video_id": "4GBboOfDgFs",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about relations and functions.",
     "items": [
-     { "statement": "Every function is a relation.", "is_true": true, "why": "A function is a relation with the extra condition that each element of the domain maps to exactly one element of the codomain." },
-     { "statement": "Every relation is a function.", "is_true": false, "why": "A relation may send one input to several outputs, which a function may never do." },
-     { "statement": "If A has m elements and B has n, then A × B has mn elements.", "is_true": true, "why": "Each of the m first elements pairs with each of the n second ones, so the number of ordered pairs is the product." },
-     { "statement": "The domain of f(x) = 1/(x − 2) includes x = 2.", "is_true": false, "why": "At x = 2 the denominator is zero, so the function is undefined there. The domain is every real number except 2." },
-     { "statement": "A relation on a set with n elements has at most 2^(n²) possibilities.", "is_true": true, "why": "A relation is any subset of A × A, which has n² elements, and a set of n² elements has 2^(n²) subsets." }
+     {
+      "statement": "Every function is a relation.",
+      "is_true": true,
+      "why": "A function is a relation with the extra condition that each element of the domain maps to exactly one element of the codomain."
+     },
+     {
+      "statement": "Every relation is a function.",
+      "is_true": false,
+      "why": "A relation may send one input to several outputs, which a function may never do."
+     },
+     {
+      "statement": "If A has m elements and B has n, then A × B has mn elements.",
+      "is_true": true,
+      "why": "Each of the m first elements pairs with each of the n second ones, so the number of ordered pairs is the product."
+     },
+     {
+      "statement": "The domain of f(x) = 1/(x − 2) includes x = 2.",
+      "is_true": false,
+      "why": "At x = 2 the denominator is zero, so the function is undefined there. The domain is every real number except 2."
+     },
+     {
+      "statement": "A relation on a set with n elements has at most 2^(n²) possibilities.",
+      "is_true": true,
+      "why": "A relation is any subset of A × A, which has n² elements, and a set of n² elements has 2^(n²) subsets."
+     }
     ]
    }
   }
@@ -63,9 +109,14 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Trigonometric Functions",
-  "approved": false,
+  "approved": true,
   "trick": "Almost every identity in this chapter descends from sin²θ + cos²θ = 1. Divide it by cos²θ and you get the sec-tan identity; divide by sin²θ and you get the cosec-cot one. Two divisions instead of three memorised formulas.",
-  "video": { "query": "trigonometric functions identities compound angles class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "trigonometric functions identities compound angles class 11 maths",
+   "video_id": "MAgwckf-_o4",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "formula-pick",
    "data": {
@@ -74,25 +125,37 @@
      {
       "ask": "The fundamental Pythagorean identity",
       "correct": "sin²θ + cos²θ = 1",
-      "wrong": ["sin²θ − cos²θ = 1", "sinθ + cosθ = 1"],
+      "wrong": [
+       "sin²θ − cos²θ = 1",
+       "sinθ + cosθ = 1"
+      ],
       "why": "It is the squares that add to 1, not the functions themselves. Test at θ = 45°: sin and cos are both 1/√2, and their squares add to 1 while they themselves add to √2."
      },
      {
       "ask": "sin(A + B)",
       "correct": "sinA cosB + cosA sinB",
-      "wrong": ["sinA cosB − cosA sinB", "sinA sinB + cosA cosB"],
+      "wrong": [
+       "sinA cosB − cosA sinB",
+       "sinA sinB + cosA cosB"
+      ],
       "why": "Sine keeps the sign of the bracket; cosine reverses it. The third option is cos(A − B), a different formula entirely."
      },
      {
       "ask": "cos 2θ, written in terms of cos θ alone",
       "correct": "2cos²θ − 1",
-      "wrong": ["2sin²θ − 1", "1 − 2cos²θ"],
+      "wrong": [
+       "2sin²θ − 1",
+       "1 − 2cos²θ"
+      ],
       "why": "There are three forms of cos 2θ, and the one in cosine alone is 2cos²θ − 1. The version with sine is 1 − 2sin²θ, so the minus sits on the other side."
      },
      {
       "ask": "sec²θ",
       "correct": "1 + tan²θ",
-      "wrong": ["1 − tan²θ", "tan²θ − 1"],
+      "wrong": [
+       "1 − tan²θ",
+       "tan²θ − 1"
+      ],
       "why": "Divide sin²θ + cos²θ = 1 through by cos²θ and this falls straight out. Since sec²θ is never less than 1, the identity must be a sum, not a difference."
      }
     ]
@@ -102,9 +165,14 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Complex Numbers",
-  "approved": false,
+  "approved": true,
   "trick": "To divide complex numbers, multiply top and bottom by the conjugate of the denominator, exactly as you rationalise a surd. The denominator becomes a² + b², a real number, and the whole difficulty disappears.",
-  "video": { "query": "complex numbers modulus conjugate argand plane class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "complex numbers modulus conjugate argand plane class 11 maths",
+   "video_id": "c5doOUjNHSg",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -113,25 +181,41 @@
     "steps": [
      {
       "ask": "What do we multiply top and bottom by?",
-      "options": ["1 − i", "1 + i", "i"],
+      "options": [
+       "1 − i",
+       "1 + i",
+       "i"
+      ],
       "correct": 1,
       "why": "The conjugate of 1 − i is 1 + i. Multiplying by the same expression again would leave an imaginary part in the denominator."
      },
      {
       "ask": "What does the denominator (1 − i)(1 + i) come to?",
-      "options": ["2", "0", "1 + i²"],
+      "options": [
+       "2",
+       "0",
+       "1 + i²"
+      ],
       "correct": 0,
       "why": "It is 1 − i², and since i² = −1 that is 1 + 1 = 2. This is why the conjugate trick works: the result is always real."
      },
      {
       "ask": "What does the numerator (3 + 2i)(1 + i) come to?",
-      "options": ["1 + 5i", "3 + 2i", "5 + 5i"],
+      "options": [
+       "1 + 5i",
+       "3 + 2i",
+       "5 + 5i"
+      ],
       "correct": 0,
       "why": "3 + 3i + 2i + 2i² = 3 + 5i − 2 = 1 + 5i. Remember 2i² is −2, not +2."
      },
      {
       "ask": "So the answer is",
-      "options": ["1/2 + 5i/2", "2 + 10i", "1 + 5i"],
+      "options": [
+       "1/2 + 5i/2",
+       "2 + 10i",
+       "1 + 5i"
+      ],
       "correct": 0,
       "why": "Divide the numerator by 2: (1 + 5i)/2 = 0.5 + 2.5i."
      }
@@ -143,39 +227,92 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Quadratic Equations",
-  "approved": false,
+  "approved": true,
   "trick": "At this level the roots need not be real. A negative discriminant no longer means 'no solution' — it means two complex roots, and they always come as a conjugate pair. If one root is 2 + 3i, the other must be 2 − 3i.",
-  "video": { "query": "quadratic equations complex roots discriminant class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "quadratic equations complex roots discriminant class 11 maths",
+   "video_id": "DXF5gUZjDwU",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete these facts about quadratic equations. Two entries in the bank are decoys.",
     "text": "For ax² + bx + c = 0, the discriminant is {1}. If it is positive the roots are real and {2}; if zero the roots are real and {3}; if negative the roots are {4} and occur as a {5} pair. The sum of the roots is −b/a and their product is {6}.",
-    "answers": ["b² − 4ac", "distinct", "equal", "complex", "conjugate", "c/a"],
-    "bank": ["b² − 4ac", "distinct", "equal", "complex", "conjugate", "c/a", "b² + 4ac", "−c/a"]
+    "answers": [
+     "b² − 4ac",
+     "distinct",
+     "equal",
+     "complex",
+     "conjugate",
+     "c/a"
+    ],
+    "bank": [
+     "b² − 4ac",
+     "distinct",
+     "equal",
+     "complex",
+     "conjugate",
+     "c/a",
+     "b² + 4ac",
+     "−c/a"
+    ]
    }
   }
  },
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Linear Inequalities",
-  "approved": false,
+  "approved": true,
   "trick": "Two rules decide everything. Multiplying or dividing by a negative number flips the inequality sign. And a strict sign excludes its endpoint — with 5x + 4 < 19, x = 3 gives exactly 19, so 3 is not a solution. Check the endpoint by substituting it; that one test catches most errors.",
-  "video": { "query": "linear inequalities solving and graphing class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "linear inequalities solving and graphing class 11 maths",
+   "video_id": "XTWoKXKiCRY",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Is x = 3 a solution? Substitute it and sort each inequality.",
-    "bins": ["x = 3 IS a solution", "x = 3 is NOT a solution"],
+    "bins": [
+     "x = 3 IS a solution",
+     "x = 3 is NOT a solution"
+    ],
     "items": [
-     { "label": "5x + 4 < 19", "bin": "x = 3 is NOT a solution" },
-     { "label": "5x + 4 ≤ 19", "bin": "x = 3 IS a solution" },
-     { "label": "2x − 5 ≤ 5x + 4", "bin": "x = 3 IS a solution" },
-     { "label": "x > 3", "bin": "x = 3 is NOT a solution" },
-     { "label": "x ≥ 3", "bin": "x = 3 IS a solution" },
-     { "label": "−2x > −6", "bin": "x = 3 is NOT a solution" },
-     { "label": "−2x ≥ −6", "bin": "x = 3 IS a solution" },
-     { "label": "3x − 1 < 8", "bin": "x = 3 is NOT a solution" }
+     {
+      "label": "5x + 4 < 19",
+      "bin": "x = 3 is NOT a solution"
+     },
+     {
+      "label": "5x + 4 ≤ 19",
+      "bin": "x = 3 IS a solution"
+     },
+     {
+      "label": "2x − 5 ≤ 5x + 4",
+      "bin": "x = 3 IS a solution"
+     },
+     {
+      "label": "x > 3",
+      "bin": "x = 3 is NOT a solution"
+     },
+     {
+      "label": "x ≥ 3",
+      "bin": "x = 3 IS a solution"
+     },
+     {
+      "label": "−2x > −6",
+      "bin": "x = 3 is NOT a solution"
+     },
+     {
+      "label": "−2x ≥ −6",
+      "bin": "x = 3 IS a solution"
+     },
+     {
+      "label": "3x − 1 < 8",
+      "bin": "x = 3 is NOT a solution"
+     }
     ]
    }
   }
@@ -183,9 +320,14 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Permutations and Combinations",
-  "approved": false,
+  "approved": true,
   "trick": "Ask one question: does the order matter? Arranging people in a row is a permutation, choosing a committee is a combination. Permutation has the longer name and the bigger number, because every selection can be ordered in several ways.",
-  "video": { "query": "permutations and combinations nPr nCr problems class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "permutations and combinations nPr nCr problems class 11 maths",
+   "video_id": "xd7g8hyDXrw",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -194,25 +336,40 @@
     "steps": [
      {
       "ask": "For the committee, does the order of selection matter?",
-      "options": ["Yes, so use a permutation", "No, so use a combination"],
+      "options": [
+       "Yes, so use a permutation",
+       "No, so use a combination"
+      ],
       "correct": 1,
       "why": "A committee of Amit, Bina and Chandan is the same committee whichever order you name them in, so order does not matter."
      },
      {
       "ask": "So how many committees are there? 8C3 =",
-      "options": ["56", "336", "24"],
+      "options": [
+       "56",
+       "336",
+       "24"
+      ],
       "correct": 0,
       "why": "8C3 = (8 × 7 × 6) ÷ (3 × 2 × 1) = 336 ÷ 6 = 56."
      },
      {
       "ask": "Now for arranging 3 of them in a row, 8P3 =",
-      "options": ["56", "336", "512"],
+      "options": [
+       "56",
+       "336",
+       "512"
+      ],
       "correct": 1,
       "why": "8P3 = 8 × 7 × 6 = 336. There is no division here, because each different order counts separately."
      },
      {
       "ask": "Why is the permutation exactly 6 times the combination?",
-      "options": ["Because 3! = 6, the number of ways of ordering each committee", "Because 8 − 3 = 5", "It is a coincidence"],
+      "options": [
+       "Because 3! = 6, the number of ways of ordering each committee",
+       "Because 8 − 3 = 5",
+       "It is a coincidence"
+      ],
       "correct": 0,
       "why": "nPr = nCr × r!. Every one of the 56 committees can be lined up in 3! = 6 orders, giving 336. That relation is the quickest way to convert between the two."
      }
@@ -224,9 +381,14 @@
  {
   "bucket": "XI|Science|Mathematics",
   "chapter": "Limits and Derivatives",
-  "approved": false,
+  "approved": true,
   "trick": "A limit asks what the function approaches, not what it equals. A function can have a perfectly good limit at a point where it is not even defined — which is exactly why 0/0 is a starting point for work, not an answer.",
-  "video": { "query": "limits and derivatives first principles standard limits class 11 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "limits and derivatives first principles standard limits class 11 maths",
+   "video_id": "CHWhaAlo_ms",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "formula-pick",
    "data": {
@@ -235,25 +397,37 @@
      {
       "ask": "lim (x→0) of sin x / x",
       "correct": "1",
-      "wrong": ["0", "undefined"],
+      "wrong": [
+       "0",
+       "undefined"
+      ],
       "why": "The most used limit in the chapter. It holds only when x is in radians, and only as x tends to 0."
      },
      {
       "ask": "The derivative of xⁿ",
       "correct": "n·xⁿ⁻¹",
-      "wrong": ["n·xⁿ⁺¹", "xⁿ⁻¹"],
+      "wrong": [
+       "n·xⁿ⁺¹",
+       "xⁿ⁻¹"
+      ],
       "why": "The power comes down in front and the index drops by one. Losing the n in front is the commonest slip."
      },
      {
       "ask": "The derivative of a product, d(uv)/dx",
       "correct": "u·(dv/dx) + v·(du/dx)",
-      "wrong": ["(du/dx)·(dv/dx)", "u·(dv/dx) − v·(du/dx)"],
+      "wrong": [
+       "(du/dx)·(dv/dx)",
+       "u·(dv/dx) − v·(du/dx)"
+      ],
       "why": "The product rule is a sum of two terms, not a product of two derivatives. Test on u = v = x: the rule gives 2x, which is right for x²."
      },
      {
       "ask": "lim (x→0) of (1 − cos x) / x²",
       "correct": "1/2",
-      "wrong": ["1", "0"],
+      "wrong": [
+       "1",
+       "0"
+      ],
       "why": "From the expansion cos x = 1 − x²/2 + ..., the numerator is x²/2, so the limit is one half. This is the result behind a great many exam limits."
      }
     ]

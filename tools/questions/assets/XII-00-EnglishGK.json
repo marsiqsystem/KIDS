@@ -2,7 +2,7 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "Prose: The Night Train at Deoli",
-  "approved": false,
+  "approved": true,
   "trick": "Nothing happens in this story, and that is the story. The narrator never learns the girl's name, never gets off the train for good, and never finds out what became of her — Ruskin Bond leaves it unresolved on purpose, so that the reader keeps the mystery the narrator keeps. Any question asking 'why did the author not...' has that as its answer.",
   "video": {
    "query": "the night train at deoli ruskin bond summary class 12 english",
@@ -48,7 +48,7 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "Prose: Strong Roots",
-  "approved": false,
+  "approved": true,
   "trick": "This is an extract from Kalam's Wings of Fire, and its argument is carried by one image: his father's austerity and his mother's generosity are the two roots of the title. Remember the mosque and the temple standing side by side in Rameswaram — the Muslim boy carrying the priest's message — because that detail is the whole point about tolerance.",
   "video": {
    "query": "strong roots apj abdul kalam wings of fire class 12 english summary",
@@ -88,12 +88,13 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "Prose: The Bet",
-  "approved": false,
+  "approved": true,
   "trick": "Chekhov sets up a bet about capital punishment and then quietly changes the subject: by the end the question is not which punishment is worse but what fifteen years of books do to a man. The lawyer walks out five hours early and forfeits the two million — he renounces it, and the banker is left ashamed. Remember the direction of the moral, because it is the reverse of what the opening leads you to expect.",
   "video": {
    "query": "the bet anton chekhov summary and analysis class 12 english",
-   "video_id": null,
-   "approved": false
+   "video_id": "RJZsRM_P594",
+   "approved": true,
+   "language": "BENGALI"
   },
   "interactive": {
    "template": "timeline-order",
@@ -131,7 +132,7 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "Poem: Our Casuarina Tree",
-  "approved": false,
+  "approved": true,
   "trick": "The tree is not the subject; memory is. Toru Dutt begins with a botanical description, moves to the children who played beneath it, and ends asking that the tree be blessed against oblivion — so the poem travels from sight to memory to immortality. The creeper 'like a huge python' winding round the trunk is the image examiners ask for by name.",
   "video": {
    "query": "our casuarina tree toru dutt poem explanation class 12 english",
@@ -177,12 +178,13 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "GK: Indian Polity and Personalities",
-  "approved": false,
+  "approved": true,
   "trick": "Separate the three offices that get confused: the President is head of state, the Prime Minister heads the government, and the Chief Justice heads the judiciary. For 'firsts', hold the pairs together — first President Rajendra Prasad, first Prime Minister Nehru, first woman Prime Minister Indira Gandhi, first woman President Pratibha Patil.",
   "video": {
    "query": "indian polity president prime minister first office holders general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "xAR8jo2Z9n8",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -228,12 +230,13 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "GK: International Organisations",
-  "approved": false,
+  "approved": true,
   "trick": "Learn each body by its headquarters and its one job, because that pair is what gets asked. UN in New York, WHO in Geneva, UNESCO in Paris, IMF and World Bank in Washington, ICJ in The Hague. If the question names a city, it is really asking for the organisation.",
   "video": {
    "query": "united nations WHO UNESCO IMF headquarters functions general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "0tLH-4lEjmQ",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",
@@ -279,12 +282,13 @@
  {
   "bucket": "XII|All|English & General Knowledge",
   "chapter": "GK: Geography, Agriculture and Awards",
-  "approved": false,
+  "approved": true,
   "trick": "Awards questions turn on which field the award belongs to: Bharat Ratna is the highest civilian honour, Param Vir Chakra the highest wartime gallantry award, Jnanpith for literature, Dronacharya for coaching and Arjuna for playing. Revolutions are colour-coded — Green for foodgrain, White for milk, Blue for fish, Yellow for oilseeds.",
   "video": {
    "query": "green white blue revolution india awards bharat ratna general knowledge",
-   "video_id": null,
-   "approved": false
+   "video_id": "MiWepbn1kAY",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",

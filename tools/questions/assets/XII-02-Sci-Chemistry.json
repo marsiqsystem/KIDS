@@ -2,19 +2,60 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Solutions and Colligative Properties",
-  "approved": false,
+  "approved": true,
   "trick": "Colligative means it counts particles and ignores what they are — so one mole of glucose and one mole of NaCl do not give the same effect, because NaCl gives two particles. That factor is the van't Hoff i, and forgetting it is the standard slip. Relative lowering of vapour pressure, boiling point elevation, freezing point depression and osmotic pressure are the four, and all four move with the number of solute particles.",
-  "video": { "query": "colligative properties van't hoff factor elevation depression class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "colligative properties van't hoff factor elevation depression class 12 chemistry",
+   "video_id": "Kq8Ejy6rBlI",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Work out a freezing point depression, watching the van't Hoff factor.",
     "problem": "0.1 mol of NaCl is dissolved in 1 kg of water. Kf for water is 1.86 K kg mol⁻¹. Assume complete dissociation.",
     "steps": [
-     { "ask": "What is the molality of the solution?", "options": ["0.1 m", "0.2 m", "1.86 m"], "correct": 0, "why": "Molality is moles of solute per kilogram of solvent: 0.1 mol in 1 kg is 0.1 m." },
-     { "ask": "What is the van't Hoff factor for NaCl on complete dissociation?", "options": ["1", "2", "3"], "correct": 1, "why": "NaCl gives Na⁺ and Cl⁻ — two particles per formula unit." },
-     { "ask": "What is ΔTf?", "options": ["0.186 K", "0.372 K", "1.86 K"], "correct": 1, "why": "ΔTf = i × Kf × m = 2 × 1.86 × 0.1 = 0.372 K." },
-     { "ask": "At what temperature does the solution freeze?", "options": ["−0.372 °C", "+0.372 °C", "0 °C"], "correct": 0, "why": "The freezing point is depressed below 0 °C, so it is −0.372 °C. Depression always lowers, elevation always raises." }
+     {
+      "ask": "What is the molality of the solution?",
+      "options": [
+       "0.1 m",
+       "0.2 m",
+       "1.86 m"
+      ],
+      "correct": 0,
+      "why": "Molality is moles of solute per kilogram of solvent: 0.1 mol in 1 kg is 0.1 m."
+     },
+     {
+      "ask": "What is the van't Hoff factor for NaCl on complete dissociation?",
+      "options": [
+       "1",
+       "2",
+       "3"
+      ],
+      "correct": 1,
+      "why": "NaCl gives Na⁺ and Cl⁻ — two particles per formula unit."
+     },
+     {
+      "ask": "What is ΔTf?",
+      "options": [
+       "0.186 K",
+       "0.372 K",
+       "1.86 K"
+      ],
+      "correct": 1,
+      "why": "ΔTf = i × Kf × m = 2 × 1.86 × 0.1 = 0.372 K."
+     },
+     {
+      "ask": "At what temperature does the solution freeze?",
+      "options": [
+       "−0.372 °C",
+       "+0.372 °C",
+       "0 °C"
+      ],
+      "correct": 0,
+      "why": "The freezing point is depressed below 0 °C, so it is −0.372 °C. Depression always lowers, elevation always raises."
+     }
     ],
     "answer": "ΔTf = 0.372 K, so the solution freezes at −0.372 °C. Glucose at the same molality would give only half as much, because i = 1."
    }
@@ -23,22 +64,51 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Surface Chemistry",
-  "approved": false,
+  "approved": true,
   "trick": "Adsorption is at the surface, absorption is throughout the bulk — 'ad' means at. In colloids, learn the pair of names for each system: sol is solid in liquid, gel is liquid in solid, emulsion is liquid in liquid, aerosol is liquid or solid in gas. Note that milk, blood, cheese and paint are ALL colloids, so a question asking for 'the colloid' among them has no single answer.",
-  "video": { "query": "adsorption colloids tyndall effect coagulation class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "adsorption colloids tyndall effect coagulation class 12 chemistry",
+   "video_id": "k6M7sdtDvD0",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each colloidal system with its dispersed phase and medium.",
     "pairs": [
-     { "left": "Sol", "right": "Solid dispersed in a liquid — paint, muddy water" },
-     { "left": "Gel", "right": "Liquid dispersed in a solid — cheese, butter, jelly" },
-     { "left": "Emulsion", "right": "Liquid dispersed in a liquid — milk" },
-     { "left": "Aerosol", "right": "Liquid or solid dispersed in a gas — fog, smoke" },
-     { "left": "Foam", "right": "Gas dispersed in a liquid — whipped cream" },
-     { "left": "Tyndall effect", "right": "Scattering of light by colloidal particles, which makes the beam visible" },
-     { "left": "Coagulation", "right": "Colloidal particles clumping together and settling out" },
-     { "left": "Brownian motion", "right": "Random zig-zag movement of colloidal particles struck by the medium" }
+     {
+      "left": "Sol",
+      "right": "Solid dispersed in a liquid — paint, muddy water"
+     },
+     {
+      "left": "Gel",
+      "right": "Liquid dispersed in a solid — cheese, butter, jelly"
+     },
+     {
+      "left": "Emulsion",
+      "right": "Liquid dispersed in a liquid — milk"
+     },
+     {
+      "left": "Aerosol",
+      "right": "Liquid or solid dispersed in a gas — fog, smoke"
+     },
+     {
+      "left": "Foam",
+      "right": "Gas dispersed in a liquid — whipped cream"
+     },
+     {
+      "left": "Tyndall effect",
+      "right": "Scattering of light by colloidal particles, which makes the beam visible"
+     },
+     {
+      "left": "Coagulation",
+      "right": "Colloidal particles clumping together and settling out"
+     },
+     {
+      "left": "Brownian motion",
+      "right": "Random zig-zag movement of colloidal particles struck by the medium"
+     }
     ]
    }
   }
@@ -46,22 +116,51 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Chemical Bonding and Periodic Properties",
-  "approved": false,
+  "approved": true,
   "trick": "Count the lone pairs before naming the shape. Four electron pairs around the central atom always give a tetrahedral ARRANGEMENT, but the SHAPE is what the atoms make: no lone pair is tetrahedral (CH₄), one lone pair is trigonal pyramidal (NH₃), two lone pairs is bent (H₂O). The exam wants the precise term — 'trigonal pyramidal', not just 'pyramidal'.",
-  "video": { "query": "VSEPR theory shapes of molecules lone pairs class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "VSEPR theory shapes of molecules lone pairs class 12 chemistry",
+   "video_id": "fJoBdd9JMPk",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each molecule with its shape and its lone pairs on the central atom.",
     "pairs": [
-     { "left": "CH₄ (methane)", "right": "Tetrahedral; no lone pair; 109.5°" },
-     { "left": "NH₃ (ammonia)", "right": "Trigonal pyramidal; one lone pair; about 107°" },
-     { "left": "H₂O (water)", "right": "Bent or V-shaped; two lone pairs; about 104.5°" },
-     { "left": "BF₃ (boron trifluoride)", "right": "Trigonal planar; no lone pair; 120°" },
-     { "left": "BeCl₂", "right": "Linear; no lone pair; 180°" },
-     { "left": "PCl₅", "right": "Trigonal bipyramidal; five bond pairs" },
-     { "left": "SF₆", "right": "Octahedral; six bond pairs" },
-     { "left": "XeF₄", "right": "Square planar; two lone pairs on xenon" }
+     {
+      "left": "CH₄ (methane)",
+      "right": "Tetrahedral; no lone pair; 109.5°"
+     },
+     {
+      "left": "NH₃ (ammonia)",
+      "right": "Trigonal pyramidal; one lone pair; about 107°"
+     },
+     {
+      "left": "H₂O (water)",
+      "right": "Bent or V-shaped; two lone pairs; about 104.5°"
+     },
+     {
+      "left": "BF₃ (boron trifluoride)",
+      "right": "Trigonal planar; no lone pair; 120°"
+     },
+     {
+      "left": "BeCl₂",
+      "right": "Linear; no lone pair; 180°"
+     },
+     {
+      "left": "PCl₅",
+      "right": "Trigonal bipyramidal; five bond pairs"
+     },
+     {
+      "left": "SF₆",
+      "right": "Octahedral; six bond pairs"
+     },
+     {
+      "left": "XeF₄",
+      "right": "Square planar; two lone pairs on xenon"
+     }
     ]
    }
   }
@@ -69,19 +168,44 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "The p-Block Elements",
-  "approved": false,
+  "approved": true,
   "trick": "Down a group, the inert pair effect makes the lower oxidation state more stable — which is why Pb(II) beats Pb(IV) and Bi(III) beats Bi(V). Across a period, non-metallic character rises. Almost every anomalous-property question in this chapter is one of those two trends being applied.",
-  "video": { "query": "p block elements group 15 16 17 trends inert pair effect class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "p block elements group 15 16 17 trends inert pair effect class 12",
+   "video_id": "owHkf7ibTcM",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the p-block.",
     "items": [
-     { "statement": "The +3 state of thallium is more stable than the +1 state.", "is_true": false, "why": "It is the other way round. The inert pair effect makes the lower state more stable as you go down group 13, so Tl(I) is the stable one." },
-     { "statement": "Nitrogen cannot expand its octet, but phosphorus can.", "is_true": true, "why": "Nitrogen has no d orbitals available in its valence shell, which is why NCl₅ does not exist while PCl₅ does." },
-     { "statement": "Fluorine has a lower electron affinity than chlorine.", "is_true": true, "why": "An anomaly worth remembering: the fluorine atom is so small that the incoming electron feels strong repulsion, so chlorine tops the group." },
-     { "statement": "Ozone is a stronger oxidising agent than oxygen.", "is_true": true, "why": "It readily gives up an atom of nascent oxygen, which is why it is used to disinfect water and to bleach." },
-     { "statement": "All noble gases are completely unreactive.", "is_true": false, "why": "Xenon forms real compounds such as XeF₂, XeF₄ and XeO₃. The heavier noble gases have lower ionisation enthalpy." }
+     {
+      "statement": "The +3 state of thallium is more stable than the +1 state.",
+      "is_true": false,
+      "why": "It is the other way round. The inert pair effect makes the lower state more stable as you go down group 13, so Tl(I) is the stable one."
+     },
+     {
+      "statement": "Nitrogen cannot expand its octet, but phosphorus can.",
+      "is_true": true,
+      "why": "Nitrogen has no d orbitals available in its valence shell, which is why NCl₅ does not exist while PCl₅ does."
+     },
+     {
+      "statement": "Fluorine has a lower electron affinity than chlorine.",
+      "is_true": true,
+      "why": "An anomaly worth remembering: the fluorine atom is so small that the incoming electron feels strong repulsion, so chlorine tops the group."
+     },
+     {
+      "statement": "Ozone is a stronger oxidising agent than oxygen.",
+      "is_true": true,
+      "why": "It readily gives up an atom of nascent oxygen, which is why it is used to disinfect water and to bleach."
+     },
+     {
+      "statement": "All noble gases are completely unreactive.",
+      "is_true": false,
+      "why": "Xenon forms real compounds such as XeF₂, XeF₄ and XeO₃. The heavier noble gases have lower ionisation enthalpy."
+     }
     ]
    }
   }
@@ -89,21 +213,47 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Haloalkanes, Haloarenes and Grignard Reagents",
-  "approved": false,
+  "approved": true,
   "trick": "Grignard reagents are destroyed by anything with an acidic hydrogen — water, alcohol, even a trace of moisture — so the apparatus must be perfectly dry. Which alcohol you get depends on the carbonyl you attack: formaldehyde gives primary, any other aldehyde gives secondary, and a ketone gives tertiary. That three-way rule answers most Grignard questions.",
-  "video": { "query": "grignard reagent preparation reactions haloalkanes SN1 SN2 class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "grignard reagent preparation reactions haloalkanes SN1 SN2 class 12 chemistry",
+   "video_id": "vFWDiDt8BZU",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each reactant with what a Grignard reagent turns it into, and each mechanism with its behaviour.",
     "pairs": [
-     { "left": "Formaldehyde (HCHO) + RMgX", "right": "A primary alcohol, after hydrolysis" },
-     { "left": "Any other aldehyde + RMgX", "right": "A secondary alcohol" },
-     { "left": "A ketone + RMgX", "right": "A tertiary alcohol" },
-     { "left": "Carbon dioxide + RMgX", "right": "A carboxylic acid, after acid hydrolysis" },
-     { "left": "Water + RMgX", "right": "An alkane — the reagent is destroyed, which is why dry ether is used" },
-     { "left": "SN2 mechanism", "right": "One step, inversion of configuration, favoured by primary halides" },
-     { "left": "SN1 mechanism", "right": "Two steps through a carbocation, racemisation, favoured by tertiary halides" }
+     {
+      "left": "Formaldehyde (HCHO) + RMgX",
+      "right": "A primary alcohol, after hydrolysis"
+     },
+     {
+      "left": "Any other aldehyde + RMgX",
+      "right": "A secondary alcohol"
+     },
+     {
+      "left": "A ketone + RMgX",
+      "right": "A tertiary alcohol"
+     },
+     {
+      "left": "Carbon dioxide + RMgX",
+      "right": "A carboxylic acid, after acid hydrolysis"
+     },
+     {
+      "left": "Water + RMgX",
+      "right": "An alkane — the reagent is destroyed, which is why dry ether is used"
+     },
+     {
+      "left": "SN2 mechanism",
+      "right": "One step, inversion of configuration, favoured by primary halides"
+     },
+     {
+      "left": "SN1 mechanism",
+      "right": "Two steps through a carbocation, racemisation, favoured by tertiary halides"
+     }
     ]
    }
   }
@@ -111,23 +261,55 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Alcohols, Phenols and Ethers",
-  "approved": false,
+  "approved": true,
   "trick": "The iodoform test does not detect 'alcohols' — it detects the CH₃–CH(OH)– group. So ethanol and propan-2-ol give the yellow precipitate, but methanol does not (no carbon beside it) and tertiary butanol does not (no hydrogen on the carbinol carbon, and no methyl attached to it). If the alcohol has no methyl group next to the OH-bearing carbon, there is no iodoform however alcoholic it is.",
-  "video": { "query": "iodoform test lucas test alcohols phenols distinction class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "iodoform test lucas test alcohols phenols distinction class 12 chemistry",
+   "video_id": "xROlqZY8Kvk",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which of these give a positive iodoform test?",
-    "bins": ["Gives iodoform", "Does not give iodoform"],
+    "bins": [
+     "Gives iodoform",
+     "Does not give iodoform"
+    ],
     "items": [
-     { "label": "Ethanol, CH₃CH₂OH", "bin": "Gives iodoform" },
-     { "label": "Methanol, CH₃OH", "bin": "Does not give iodoform" },
-     { "label": "Propan-2-ol, CH₃CH(OH)CH₃", "bin": "Gives iodoform" },
-     { "label": "Propan-1-ol, CH₃CH₂CH₂OH", "bin": "Does not give iodoform" },
-     { "label": "tert-Butyl alcohol, (CH₃)₃COH", "bin": "Does not give iodoform" },
-     { "label": "Acetone, CH₃COCH₃", "bin": "Gives iodoform" },
-     { "label": "Acetaldehyde, CH₃CHO", "bin": "Gives iodoform" },
-     { "label": "Benzaldehyde, C₆H₅CHO", "bin": "Does not give iodoform" }
+     {
+      "label": "Ethanol, CH₃CH₂OH",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Methanol, CH₃OH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "Propan-2-ol, CH₃CH(OH)CH₃",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Propan-1-ol, CH₃CH₂CH₂OH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "tert-Butyl alcohol, (CH₃)₃COH",
+      "bin": "Does not give iodoform"
+     },
+     {
+      "label": "Acetone, CH₃COCH₃",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Acetaldehyde, CH₃CHO",
+      "bin": "Gives iodoform"
+     },
+     {
+      "label": "Benzaldehyde, C₆H₅CHO",
+      "bin": "Does not give iodoform"
+     }
     ]
    }
   }
@@ -135,19 +317,44 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Aldehydes, Ketones and Carboxylic Acids",
-  "approved": false,
+  "approved": true,
   "trick": "Tollen's and Fehling's separate aldehydes from ketones — but not always. In alkaline solution a ketone with an alpha-hydroxyl isomerises to an aldehyde, so fructose reduces Tollen's reagent even though it is a ketose. When a question asks how to distinguish glucose from fructose, the honest answer is bromine water, which oxidises only the true aldehyde.",
-  "video": { "query": "tollens fehling test aldehyde ketone distinction bromine water class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "tollens fehling test aldehyde ketone distinction bromine water class 12 chemistry",
+   "video_id": "--xmR4YWBco",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about carbonyl tests.",
     "items": [
-     { "statement": "Tollen's reagent gives a silver mirror with aldehydes but not with ordinary ketones.", "is_true": true, "why": "The aldehyde is oxidised to the acid and Ag⁺ is reduced to silver metal. Simple ketones resist oxidation." },
-     { "statement": "Tollen's reagent can be used to tell glucose from fructose.", "is_true": false, "why": "Both give a positive result. In the alkaline medium fructose isomerises to glucose and mannose, so it reduces Tollen's too — the classic exception." },
-     { "statement": "Bromine water distinguishes glucose from fructose.", "is_true": true, "why": "Bromine water is a mild oxidising agent in neutral solution, so no isomerisation occurs. It oxidises the aldose glucose to gluconic acid and leaves fructose untouched." },
-     { "statement": "Fehling's solution works with aromatic aldehydes such as benzaldehyde.", "is_true": false, "why": "Aromatic aldehydes do not respond to Fehling's, though they do reduce Tollen's — a distinction worth holding on to." },
-     { "statement": "Carboxylic acids are more acidic than phenols.", "is_true": true, "why": "The carboxylate ion is stabilised by resonance over two equivalent oxygens; carboxylic acids liberate CO₂ from bicarbonate, phenols do not." }
+     {
+      "statement": "Tollen's reagent gives a silver mirror with aldehydes but not with ordinary ketones.",
+      "is_true": true,
+      "why": "The aldehyde is oxidised to the acid and Ag⁺ is reduced to silver metal. Simple ketones resist oxidation."
+     },
+     {
+      "statement": "Tollen's reagent can be used to tell glucose from fructose.",
+      "is_true": false,
+      "why": "Both give a positive result. In the alkaline medium fructose isomerises to glucose and mannose, so it reduces Tollen's too — the classic exception."
+     },
+     {
+      "statement": "Bromine water distinguishes glucose from fructose.",
+      "is_true": true,
+      "why": "Bromine water is a mild oxidising agent in neutral solution, so no isomerisation occurs. It oxidises the aldose glucose to gluconic acid and leaves fructose untouched."
+     },
+     {
+      "statement": "Fehling's solution works with aromatic aldehydes such as benzaldehyde.",
+      "is_true": false,
+      "why": "Aromatic aldehydes do not respond to Fehling's, though they do reduce Tollen's — a distinction worth holding on to."
+     },
+     {
+      "statement": "Carboxylic acids are more acidic than phenols.",
+      "is_true": true,
+      "why": "The carboxylate ion is stabilised by resonance over two equivalent oxygens; carboxylic acids liberate CO₂ from bicarbonate, phenols do not."
+     }
     ]
    }
   }
@@ -155,23 +362,56 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Biomolecules",
-  "approved": false,
+  "approved": true,
   "trick": "Sort the sugars by two tests. Reducing or not: all monosaccharides reduce, and among the common disaccharides only sucrose does not, because both its reducing groups are locked in the glycosidic bond. Aldose or ketose: glucose is an aldose, fructose a ketose — but remember that in alkali fructose behaves like an aldose.",
-  "video": { "query": "carbohydrates proteins vitamins reducing sugars class 12 chemistry biomolecules", "video_id": null, "approved": false },
+  "video": {
+   "query": "carbohydrates proteins vitamins reducing sugars class 12 chemistry biomolecules",
+   "video_id": "vw4hYyWF7_E",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each biomolecule fact.",
-    "bins": ["Reducing sugar", "Non-reducing sugar", "Not a carbohydrate"],
+    "bins": [
+     "Reducing sugar",
+     "Non-reducing sugar",
+     "Not a carbohydrate"
+    ],
     "items": [
-     { "label": "Glucose", "bin": "Reducing sugar" },
-     { "label": "Fructose", "bin": "Reducing sugar" },
-     { "label": "Sucrose", "bin": "Non-reducing sugar" },
-     { "label": "Maltose", "bin": "Reducing sugar" },
-     { "label": "Lactose", "bin": "Reducing sugar" },
-     { "label": "Starch", "bin": "Non-reducing sugar" },
-     { "label": "Insulin", "bin": "Not a carbohydrate" },
-     { "label": "Vitamin C (ascorbic acid)", "bin": "Not a carbohydrate" }
+     {
+      "label": "Glucose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Fructose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Sucrose",
+      "bin": "Non-reducing sugar"
+     },
+     {
+      "label": "Maltose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Lactose",
+      "bin": "Reducing sugar"
+     },
+     {
+      "label": "Starch",
+      "bin": "Non-reducing sugar"
+     },
+     {
+      "label": "Insulin",
+      "bin": "Not a carbohydrate"
+     },
+     {
+      "label": "Vitamin C (ascorbic acid)",
+      "bin": "Not a carbohydrate"
+     }
     ]
    }
   }
@@ -179,22 +419,51 @@
  {
   "bucket": "XII|Science|Chemistry",
   "chapter": "Polymers",
-  "approved": false,
+  "approved": true,
   "trick": "Addition polymers keep every atom of the monomer and need a double bond; condensation polymers lose a small molecule, usually water, and need two functional groups. So polythene and PVC are addition, nylon and terylene are condensation — and a monomer with no double bond can never make an addition polymer.",
-  "video": { "query": "addition and condensation polymers nylon terylene bakelite class 12 chemistry", "video_id": null, "approved": false },
+  "video": {
+   "query": "addition and condensation polymers nylon terylene bakelite class 12 chemistry",
+   "video_id": "rBB-VJGQ8lw",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each polymer with its monomer or its type.",
     "pairs": [
-     { "left": "Polythene", "right": "Ethene; addition polymer" },
-     { "left": "PVC", "right": "Vinyl chloride; addition polymer" },
-     { "left": "Teflon", "right": "Tetrafluoroethene; addition polymer" },
-     { "left": "Nylon-6,6", "right": "Adipic acid and hexamethylenediamine; condensation polymer" },
-     { "left": "Terylene (Dacron)", "right": "Ethylene glycol and terephthalic acid; condensation polymer" },
-     { "left": "Bakelite", "right": "Phenol and formaldehyde; a thermosetting condensation polymer" },
-     { "left": "Buna-S", "right": "Butadiene and styrene; a synthetic rubber copolymer" },
-     { "left": "Natural rubber", "right": "Isoprene; vulcanisation with sulphur cross-links the chains" }
+     {
+      "left": "Polythene",
+      "right": "Ethene; addition polymer"
+     },
+     {
+      "left": "PVC",
+      "right": "Vinyl chloride; addition polymer"
+     },
+     {
+      "left": "Teflon",
+      "right": "Tetrafluoroethene; addition polymer"
+     },
+     {
+      "left": "Nylon-6,6",
+      "right": "Adipic acid and hexamethylenediamine; condensation polymer"
+     },
+     {
+      "left": "Terylene (Dacron)",
+      "right": "Ethylene glycol and terephthalic acid; condensation polymer"
+     },
+     {
+      "left": "Bakelite",
+      "right": "Phenol and formaldehyde; a thermosetting condensation polymer"
+     },
+     {
+      "left": "Buna-S",
+      "right": "Butadiene and styrene; a synthetic rubber copolymer"
+     },
+     {
+      "left": "Natural rubber",
+      "right": "Isoprene; vulcanisation with sulphur cross-links the chains"
+     }
     ]
    }
   }

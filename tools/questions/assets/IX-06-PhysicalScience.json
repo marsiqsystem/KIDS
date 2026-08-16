@@ -2,7 +2,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Measurement and SI Units",
-  "approved": false,
+  "approved": true,
   "trick": "Learn the seven base units first and every other unit is built from them. Newton, joule and watt are not extra facts to memorise: a newton is kilogram metre per second squared, a joule is a newton metre, a watt is a joule per second. Build them, do not learn them.",
   "video": {
    "query": "SI units base and derived units measurement class 9 physical science",
@@ -50,7 +50,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Structure of the Atom",
-  "approved": false,
+  "approved": true,
   "trick": "Almost all the mass sits in almost none of the space. The nucleus holds the protons and neutrons and therefore the mass; the electrons hold the volume. That single sentence answers most questions in this chapter, including why Rutherford's alpha particles mostly went straight through.",
   "video": {
    "query": "structure of atom Rutherford Bohr model protons neutrons electrons class 9",
@@ -91,7 +91,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Solutions, Colloids and Mixtures",
-  "approved": false,
+  "approved": true,
   "trick": "Two tests separate all three. Does it scatter a beam of light, the Tyndall effect? Does it settle or filter out? A true solution does neither, a colloid scatters but will not settle, a suspension does both.",
   "video": {
    "query": "true solution colloid suspension Tyndall effect class 9 chemistry",
@@ -148,7 +148,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Acids, Bases, Salts and Water",
-  "approved": false,
+  "approved": true,
   "trick": "Read pH as a distance from 7. Below 7 acidic, above 7 basic, and each step is ten times, not one step. So pH 3 is not a little more acidic than pH 5, it is a hundred times more.",
   "video": {
    "query": "acids bases salts pH scale indicators neutralisation class 9 chemistry",
@@ -195,7 +195,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Force, Work and Power",
-  "approved": false,
+  "approved": true,
   "trick": "Work needs movement in the direction of the force. Hold a heavy bag still for an hour and you have done no work at all in physics, however tired you are. And power is not how much work but how fast, so the same work done in half the time is double the power.",
   "video": {
    "query": "work energy and power formula numericals class 9 physics",
@@ -252,7 +252,7 @@
  {
   "bucket": "IX|All|Physical Science",
   "chapter": "Sound",
-  "approved": false,
+  "approved": true,
   "trick": "Sound needs a material to travel through, so there is no sound in a vacuum. And one relation carries every numerical: speed equals frequency times wavelength. Write v = f λ at the top of the page before you read the question.",
   "video": {
    "query": "sound wave speed frequency wavelength echo class 9 physics numericals",

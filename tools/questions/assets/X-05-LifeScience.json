@@ -2,7 +2,7 @@
  {
   "bucket": "X|All|Life Science",
   "chapter": "Control and Coordination in Plants and Animals",
-  "approved": false,
+  "approved": true,
   "trick": "Nerves are fast and local, hormones are slow and everywhere. Touch a hot pan and the nerve answers in milliseconds; grow taller and a hormone has been at work for years. If the response is instant, look for a nerve; if it lasts, look for a hormone.",
   "video": {
    "query": "control and coordination hormones nervous system class 10 life science",
@@ -46,7 +46,7 @@
  {
   "bucket": "X|All|Life Science",
   "chapter": "Continuity of Life: Cell Division and Reproduction",
-  "approved": false,
+  "approved": true,
   "trick": "Mitosis copies, meiosis halves. Mitosis makes two cells identical to the parent for growth and repair; meiosis makes four cells with half the chromosomes, for gametes. Count the products and the chromosome number and you can never confuse them.",
   "video": {
    "query": "mitosis meiosis stages prophase metaphase anaphase telophase class 10 biology",
@@ -91,7 +91,7 @@
  {
   "bucket": "X|All|Life Science",
   "chapter": "Heredity and Common Genetic Diseases",
-  "approved": false,
+  "approved": true,
   "trick": "Draw the Punnett square every time, even when you think you know. Two minutes of grid beats a guessed ratio, and the two ratios worth knowing by heart are 3:1 for a monohybrid cross and 9:3:3:1 for a dihybrid.",
   "video": {
    "query": "Mendel monohybrid cross Punnett square 3:1 ratio class 10 life science",
@@ -153,7 +153,7 @@
  {
   "bucket": "X|All|Life Science",
   "chapter": "Evolution and Adaptation",
-  "approved": false,
+  "approved": true,
   "trick": "Nothing evolves because it wants to. Variation comes first, by chance, and the environment then decides which variations survive. Any explanation that has an animal deciding to change is Lamarck's, and Lamarck was wrong.",
   "video": {
    "query": "evolution Darwin natural selection adaptation class 10 life science",
@@ -198,7 +198,7 @@
  {
   "bucket": "X|All|Life Science",
   "chapter": "Environment, Biodiversity and Conservation",
-  "approved": false,
+  "approved": true,
   "trick": "In-situ means in its own place, ex-situ means out of it. A national park or a sanctuary protects an animal where it already lives; a zoo, a seed bank or a botanical garden protects it somewhere else. The Latin tells you the answer.",
   "video": {
    "query": "biodiversity conservation in situ ex situ national parks class 10 life science",

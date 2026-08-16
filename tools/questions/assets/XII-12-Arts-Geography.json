@@ -2,24 +2,59 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Plate Tectonics and Landforms",
-  "approved": false,
+  "approved": true,
   "trick": "Three boundaries, three outcomes. Divergent plates pull apart and make mid-ocean ridges and rift valleys; convergent plates collide and make fold mountains, trenches and volcanoes; transform plates slide past and make faults like the San Andreas. The Himalayas are convergent, the Mid-Atlantic Ridge divergent — name the boundary and the landform follows.",
-  "video": { "query": "plate tectonics divergent convergent transform boundaries class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "plate tectonics divergent convergent transform boundaries class 12 geography",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which plate boundary produces each feature?",
-    "bins": ["Divergent", "Convergent", "Transform"],
+    "bins": [
+     "Divergent",
+     "Convergent",
+     "Transform"
+    ],
     "items": [
-     { "label": "Mid-Atlantic Ridge", "bin": "Divergent" },
-     { "label": "The Himalayas", "bin": "Convergent" },
-     { "label": "San Andreas Fault", "bin": "Transform" },
-     { "label": "East African Rift Valley", "bin": "Divergent" },
-     { "label": "Mariana Trench", "bin": "Convergent" },
-     { "label": "Sea-floor spreading", "bin": "Divergent" },
-     { "label": "Subduction of an oceanic plate", "bin": "Convergent" },
-     { "label": "Shallow-focus earthquakes with no volcanism", "bin": "Transform" },
-     { "label": "The Andes", "bin": "Convergent" }
+     {
+      "label": "Mid-Atlantic Ridge",
+      "bin": "Divergent"
+     },
+     {
+      "label": "The Himalayas",
+      "bin": "Convergent"
+     },
+     {
+      "label": "San Andreas Fault",
+      "bin": "Transform"
+     },
+     {
+      "label": "East African Rift Valley",
+      "bin": "Divergent"
+     },
+     {
+      "label": "Mariana Trench",
+      "bin": "Convergent"
+     },
+     {
+      "label": "Sea-floor spreading",
+      "bin": "Divergent"
+     },
+     {
+      "label": "Subduction of an oceanic plate",
+      "bin": "Convergent"
+     },
+     {
+      "label": "Shallow-focus earthquakes with no volcanism",
+      "bin": "Transform"
+     },
+     {
+      "label": "The Andes",
+      "bin": "Convergent"
+     }
     ]
    }
   }
@@ -27,22 +62,51 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Geomorphic Processes: Weathering, Karst and Fluvial",
-  "approved": false,
+  "approved": true,
   "trick": "Karst is what water does to limestone by dissolving it, so its landforms come in pairs — sinkholes and caverns below, stalactites hanging and stalagmites rising within. Remember which is which: stalacTites cling Tight to the ceiling, stalaGmites Grow from the Ground.",
-  "video": { "query": "karst topography stalactite stalagmite fluvial landforms class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "karst topography stalactite stalagmite fluvial landforms class 12 geography",
+   "video_id": "cQfsVcjiVNM",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each landform with the process and place that make it.",
     "pairs": [
-     { "left": "Stalactite", "right": "Deposit of calcium carbonate hanging from a cave roof" },
-     { "left": "Stalagmite", "right": "Deposit rising from a cave floor beneath a drip" },
-     { "left": "Sinkhole or doline", "right": "A surface depression where limestone has dissolved away" },
-     { "left": "Lapies", "right": "A grooved and ridged limestone surface cut by solution" },
-     { "left": "Ox-bow lake", "right": "A cut-off meander in the lower course of a river" },
-     { "left": "Waterfall and gorge", "right": "Vertical erosion in the youthful upper course" },
-     { "left": "Delta", "right": "Deposition where a river meets the sea and loses velocity" },
-     { "left": "Alluvial fan", "right": "Deposition where a stream leaves a steep slope for a plain" }
+     {
+      "left": "Stalactite",
+      "right": "Deposit of calcium carbonate hanging from a cave roof"
+     },
+     {
+      "left": "Stalagmite",
+      "right": "Deposit rising from a cave floor beneath a drip"
+     },
+     {
+      "left": "Sinkhole or doline",
+      "right": "A surface depression where limestone has dissolved away"
+     },
+     {
+      "left": "Lapies",
+      "right": "A grooved and ridged limestone surface cut by solution"
+     },
+     {
+      "left": "Ox-bow lake",
+      "right": "A cut-off meander in the lower course of a river"
+     },
+     {
+      "left": "Waterfall and gorge",
+      "right": "Vertical erosion in the youthful upper course"
+     },
+     {
+      "left": "Delta",
+      "right": "Deposition where a river meets the sea and loses velocity"
+     },
+     {
+      "left": "Alluvial fan",
+      "right": "Deposition where a stream leaves a steep slope for a plain"
+     }
     ]
    }
   }
@@ -50,23 +114,56 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Atmospheric Circulation and Rainfall",
-  "approved": false,
+  "approved": true,
   "trick": "Winds are named for where they come FROM, not where they go — a westerly blows from the west. Rainfall has three types by cause: convectional from heating, orographic from a mountain barrier, and cyclonic or frontal from air masses meeting. Cherrapunji's rain is orographic, and that example is asked for by name.",
-  "video": { "query": "atmospheric circulation trade winds westerlies types of rainfall class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "atmospheric circulation trade winds westerlies types of rainfall class 12 geography",
+   "video_id": "9FTUbUW7dqM",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "What kind of rainfall is each?",
-    "bins": ["Convectional", "Orographic", "Cyclonic"],
+    "bins": [
+     "Convectional",
+     "Orographic",
+     "Cyclonic"
+    ],
     "items": [
-     { "label": "Afternoon thunderstorms in the equatorial belt", "bin": "Convectional" },
-     { "label": "Heavy rain on the windward Western Ghats", "bin": "Orographic" },
-     { "label": "Rain along a front where warm and cold air meet", "bin": "Cyclonic" },
-     { "label": "The rain shadow of the Deccan plateau", "bin": "Orographic" },
-     { "label": "The Kalbaisakhi of Bengal in April", "bin": "Convectional" },
-     { "label": "Rain from a temperate depression crossing north India in winter", "bin": "Cyclonic" },
-     { "label": "Cherrapunji's exceptional totals", "bin": "Orographic" },
-     { "label": "Rising heated air cooling and condensing over land in summer", "bin": "Convectional" }
+     {
+      "label": "Afternoon thunderstorms in the equatorial belt",
+      "bin": "Convectional"
+     },
+     {
+      "label": "Heavy rain on the windward Western Ghats",
+      "bin": "Orographic"
+     },
+     {
+      "label": "Rain along a front where warm and cold air meet",
+      "bin": "Cyclonic"
+     },
+     {
+      "label": "The rain shadow of the Deccan plateau",
+      "bin": "Orographic"
+     },
+     {
+      "label": "The Kalbaisakhi of Bengal in April",
+      "bin": "Convectional"
+     },
+     {
+      "label": "Rain from a temperate depression crossing north India in winter",
+      "bin": "Cyclonic"
+     },
+     {
+      "label": "Cherrapunji's exceptional totals",
+      "bin": "Orographic"
+     },
+     {
+      "label": "Rising heated air cooling and condensing over land in summer",
+      "bin": "Convectional"
+     }
     ]
    }
   }
@@ -74,19 +171,44 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Oceanography: Salinity and Currents",
-  "approved": false,
+  "approved": true,
   "trick": "Salinity is highest where evaporation beats rainfall and no river dilutes — so it peaks in enclosed subtropical seas, and the Dead Sea and Lake Van are the extreme cases. For currents, the rule of thumb is that warm currents flow away from the equator and cold currents flow towards it, and where they meet you get fog and the world's great fishing grounds.",
-  "video": { "query": "ocean salinity distribution warm and cold currents class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "ocean salinity distribution warm and cold currents class 12 geography",
+   "video_id": "0I6uNGNJ13w",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the oceans.",
     "items": [
-     { "statement": "The average salinity of ocean water is about 35 parts per thousand.", "is_true": true, "why": "Roughly 35 grams of dissolved salt per kilogram of sea water, of which sodium chloride is the largest part." },
-     { "statement": "Salinity is highest at the equator.", "is_true": false, "why": "Heavy equatorial rainfall dilutes it. Salinity peaks in the subtropics, around 20° to 30°, where evaporation is high and rain is low." },
-     { "statement": "Warm currents generally flow from the equator towards the poles.", "is_true": true, "why": "The Gulf Stream and the Kuroshio are examples; cold currents such as the Labrador and Peru flow the other way." },
-     { "statement": "The meeting of warm and cold currents produces rich fishing grounds.", "is_true": true, "why": "Mixing brings nutrients up and supports plankton — the Grand Banks off Newfoundland is the classic case, along with dense fog." },
-     { "statement": "Tides are caused mainly by the gravitational pull of the sun.", "is_true": false, "why": "The moon dominates because it is far closer, though the sun reinforces it at spring tides." }
+     {
+      "statement": "The average salinity of ocean water is about 35 parts per thousand.",
+      "is_true": true,
+      "why": "Roughly 35 grams of dissolved salt per kilogram of sea water, of which sodium chloride is the largest part."
+     },
+     {
+      "statement": "Salinity is highest at the equator.",
+      "is_true": false,
+      "why": "Heavy equatorial rainfall dilutes it. Salinity peaks in the subtropics, around 20° to 30°, where evaporation is high and rain is low."
+     },
+     {
+      "statement": "Warm currents generally flow from the equator towards the poles.",
+      "is_true": true,
+      "why": "The Gulf Stream and the Kuroshio are examples; cold currents such as the Labrador and Peru flow the other way."
+     },
+     {
+      "statement": "The meeting of warm and cold currents produces rich fishing grounds.",
+      "is_true": true,
+      "why": "Mixing brings nutrients up and supports plankton — the Grand Banks off Newfoundland is the classic case, along with dense fog."
+     },
+     {
+      "statement": "Tides are caused mainly by the gravitational pull of the sun.",
+      "is_true": false,
+      "why": "The moon dominates because it is far closer, though the sun reinforces it at spring tides."
+     }
     ]
    }
   }
@@ -94,22 +216,51 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Biodiversity and Biomes",
-  "approved": false,
+  "approved": true,
   "trick": "Biodiversity has three levels — genetic, species and ecosystem — and questions usually ask you to place an example at one of them. Hotspots are defined by two conditions together: exceptional endemism AND serious threat. India has four: the Himalaya, the Western Ghats and Sri Lanka, the Indo-Burma region, and Sundaland covering the Nicobars.",
-  "video": { "query": "biodiversity levels hotspots biomes india class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "biodiversity levels hotspots biomes india class 12 geography",
+   "video_id": "WsYTAPHkPSQ",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it means.",
     "pairs": [
-     { "left": "Genetic diversity", "right": "Variation within a species — the many varieties of rice grown in India" },
-     { "left": "Species diversity", "right": "The number and variety of species in a region" },
-     { "left": "Ecosystem diversity", "right": "The variety of habitats — forest, wetland, desert, coral reef" },
-     { "left": "Biodiversity hotspot", "right": "A region with exceptional endemism that is also under serious threat" },
-     { "left": "Endemic species", "right": "One found naturally in a single region and nowhere else" },
-     { "left": "Tropical rainforest biome", "right": "Highest biodiversity; heavy rainfall, evergreen and layered canopy" },
-     { "left": "Tundra biome", "right": "Cold, treeless, permafrost; few species and short growing season" },
-     { "left": "Savanna biome", "right": "Tropical grassland with scattered trees and a marked dry season" }
+     {
+      "left": "Genetic diversity",
+      "right": "Variation within a species — the many varieties of rice grown in India"
+     },
+     {
+      "left": "Species diversity",
+      "right": "The number and variety of species in a region"
+     },
+     {
+      "left": "Ecosystem diversity",
+      "right": "The variety of habitats — forest, wetland, desert, coral reef"
+     },
+     {
+      "left": "Biodiversity hotspot",
+      "right": "A region with exceptional endemism that is also under serious threat"
+     },
+     {
+      "left": "Endemic species",
+      "right": "One found naturally in a single region and nowhere else"
+     },
+     {
+      "left": "Tropical rainforest biome",
+      "right": "Highest biodiversity; heavy rainfall, evergreen and layered canopy"
+     },
+     {
+      "left": "Tundra biome",
+      "right": "Cold, treeless, permafrost; few species and short growing season"
+     },
+     {
+      "left": "Savanna biome",
+      "right": "Tropical grassland with scattered trees and a marked dry season"
+     }
     ]
    }
   }
@@ -117,19 +268,39 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Population: Density, Growth and Demographic Transition",
-  "approved": false,
+  "approved": true,
   "trick": "Density is people per square kilometre — arithmetic, not the same as pressure on the land. Growth rate is birth rate minus death rate, plus migration. In the demographic transition the death rate falls FIRST and the birth rate follows later, and the gap between the two falls is Stage 2, where population grows fastest.",
-  "video": { "query": "demographic transition theory stages population density growth class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "demographic transition theory stages population density growth class 12 geography",
+   "video_id": "FmFJbQlwj-A",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the stages of the demographic transition in order.",
     "items": [
-     { "label": "Stage 1: high stationary", "note": "High birth rate and high death rate; population nearly stable, and low" },
-     { "label": "Stage 2: early expanding", "note": "Death rate falls with better food and medicine while the birth rate stays high — the fastest growth" },
-     { "label": "Stage 3: late expanding", "note": "The birth rate begins to fall as families choose fewer children; growth slows" },
-     { "label": "Stage 4: low stationary", "note": "Both rates low; population large and nearly stable" },
-     { "label": "Stage 5: declining", "note": "Birth rate below death rate; population ages and shrinks, as in parts of Europe and Japan" }
+     {
+      "label": "Stage 1: high stationary",
+      "note": "High birth rate and high death rate; population nearly stable, and low"
+     },
+     {
+      "label": "Stage 2: early expanding",
+      "note": "Death rate falls with better food and medicine while the birth rate stays high — the fastest growth"
+     },
+     {
+      "label": "Stage 3: late expanding",
+      "note": "The birth rate begins to fall as families choose fewer children; growth slows"
+     },
+     {
+      "label": "Stage 4: low stationary",
+      "note": "Both rates low; population large and nearly stable"
+     },
+     {
+      "label": "Stage 5: declining",
+      "note": "Birth rate below death rate; population ages and shrinks, as in parts of Europe and Japan"
+     }
     ]
    }
   }
@@ -137,22 +308,51 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Human Settlements",
-  "approved": false,
+  "approved": true,
   "trick": "Rural settlements are classified by SHAPE and by pattern: compact or nucleated where water is scarce and defence matters, dispersed where land and water are plentiful. Urban settlements are classified by FUNCTION — administrative, industrial, port, cultural. Read whether the question is about form or about function.",
-  "video": { "query": "rural urban settlement patterns classification functions class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "rural urban settlement patterns classification functions class 12 geography",
+   "video_id": "AXymsrdCKag",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each settlement type or town with its description.",
     "pairs": [
-     { "left": "Compact or nucleated settlement", "right": "Houses close together, typical of fertile plains and where water is scarce" },
-     { "left": "Dispersed settlement", "right": "Isolated houses spread over an area, common in hills and forests" },
-     { "left": "Linear settlement", "right": "Houses strung along a road, river bank or canal" },
-     { "left": "Administrative town", "right": "Chandigarh, New Delhi — capital and government functions" },
-     { "left": "Industrial town", "right": "Jamshedpur, Durgapur — grown around manufacturing" },
-     { "left": "Port town", "right": "Kandla, Kochi — trade and shipping" },
-     { "left": "Cultural or religious town", "right": "Varanasi, Amritsar — pilgrimage and religious functions" },
-     { "left": "Conurbation", "right": "Several towns that have grown into one continuous built-up area" }
+     {
+      "left": "Compact or nucleated settlement",
+      "right": "Houses close together, typical of fertile plains and where water is scarce"
+     },
+     {
+      "left": "Dispersed settlement",
+      "right": "Isolated houses spread over an area, common in hills and forests"
+     },
+     {
+      "left": "Linear settlement",
+      "right": "Houses strung along a road, river bank or canal"
+     },
+     {
+      "left": "Administrative town",
+      "right": "Chandigarh, New Delhi — capital and government functions"
+     },
+     {
+      "left": "Industrial town",
+      "right": "Jamshedpur, Durgapur — grown around manufacturing"
+     },
+     {
+      "left": "Port town",
+      "right": "Kandla, Kochi — trade and shipping"
+     },
+     {
+      "left": "Cultural or religious town",
+      "right": "Varanasi, Amritsar — pilgrimage and religious functions"
+     },
+     {
+      "left": "Conurbation",
+      "right": "Several towns that have grown into one continuous built-up area"
+     }
     ]
    }
   }
@@ -160,25 +360,63 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Resources and Energy",
-  "approved": false,
+  "approved": true,
   "trick": "Watch statements that were true once. Jharkhand was long taught as India's largest coal producer, but Chhattisgarh and Odisha have overtaken it in recent years — so answer from the textbook you were taught, and know that the ranking has moved. The same caution applies to any 'largest producer' question in this chapter.",
-  "video": { "query": "conventional and non conventional energy resources india class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "conventional and non conventional energy resources india class 12 geography",
+   "video_id": "dOIFKiOl0Zs",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each energy source.",
-    "bins": ["Conventional", "Non-conventional"],
+    "bins": [
+     "Conventional",
+     "Non-conventional"
+    ],
     "items": [
-     { "label": "Coal", "bin": "Conventional" },
-     { "label": "Solar energy", "bin": "Non-conventional" },
-     { "label": "Petroleum", "bin": "Conventional" },
-     { "label": "Wind energy", "bin": "Non-conventional" },
-     { "label": "Natural gas", "bin": "Conventional" },
-     { "label": "Geothermal energy", "bin": "Non-conventional" },
-     { "label": "Firewood", "bin": "Conventional" },
-     { "label": "Tidal energy", "bin": "Non-conventional" },
-     { "label": "Biogas", "bin": "Non-conventional" },
-     { "label": "Hydroelectric power", "bin": "Conventional" }
+     {
+      "label": "Coal",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Solar energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Petroleum",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Wind energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Natural gas",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Geothermal energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Firewood",
+      "bin": "Conventional"
+     },
+     {
+      "label": "Tidal energy",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Biogas",
+      "bin": "Non-conventional"
+     },
+     {
+      "label": "Hydroelectric power",
+      "bin": "Conventional"
+     }
     ]
    }
   }
@@ -186,25 +424,64 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Agriculture and the Green Revolution",
-  "approved": false,
+  "approved": true,
   "trick": "Cropping seasons first: kharif is sown with the monsoon and harvested in autumn (rice, jute, cotton), rabi is sown in winter and harvested in spring (wheat, mustard, gram), zaid is the short summer season (melons, cucumber). Place the crop in its season before anything else in the question.",
-  "video": { "query": "kharif rabi zaid cropping seasons green revolution india class 12 geography", "video_id": null, "approved": false },
+  "video": {
+   "query": "kharif rabi zaid cropping seasons green revolution india class 12 geography",
+   "video_id": "2F6--Er-FSU",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which cropping season does each crop belong to?",
-    "bins": ["Kharif", "Rabi", "Zaid"],
+    "bins": [
+     "Kharif",
+     "Rabi",
+     "Zaid"
+    ],
     "items": [
-     { "label": "Rice", "bin": "Kharif" },
-     { "label": "Wheat", "bin": "Rabi" },
-     { "label": "Watermelon", "bin": "Zaid" },
-     { "label": "Jute", "bin": "Kharif" },
-     { "label": "Mustard", "bin": "Rabi" },
-     { "label": "Cucumber", "bin": "Zaid" },
-     { "label": "Cotton", "bin": "Kharif" },
-     { "label": "Gram", "bin": "Rabi" },
-     { "label": "Maize sown with the monsoon", "bin": "Kharif" },
-     { "label": "Barley", "bin": "Rabi" }
+     {
+      "label": "Rice",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Wheat",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Watermelon",
+      "bin": "Zaid"
+     },
+     {
+      "label": "Jute",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Mustard",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Cucumber",
+      "bin": "Zaid"
+     },
+     {
+      "label": "Cotton",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Gram",
+      "bin": "Rabi"
+     },
+     {
+      "label": "Maize sown with the monsoon",
+      "bin": "Kharif"
+     },
+     {
+      "label": "Barley",
+      "bin": "Rabi"
+     }
     ]
    }
   }
@@ -212,19 +489,44 @@
  {
   "bucket": "XII|Arts|Geography",
   "chapter": "Transport, Trade and International Organisations",
-  "approved": false,
+  "approved": true,
   "trick": "Railways were long taught as carrying most of India's freight, but NCERT now puts ROAD transport at roughly 70% of freight and 85% of passenger traffic. If a question asks which mode carries the most freight, the modern textbook answer is road — a case where the older answer has genuinely changed.",
-  "video": { "query": "transport modes india road rail freight share international trade class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "transport modes india road rail freight share international trade class 12",
+   "video_id": "hL83EiTORdA",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about transport and trade.",
     "items": [
-     { "statement": "Road transport now carries the larger share of India's freight traffic.", "is_true": true, "why": "NCERT puts roads at about 70% of freight and 85% of passenger traffic. Older texts gave that place to the railways, so check which book the question follows." },
-     { "statement": "Road transport is better suited to short hauls and door-to-door delivery.", "is_true": true, "why": "It needs no transhipment and reaches places rail cannot, which is precisely why its share grew." },
-     { "statement": "Pipelines are used only for water.", "is_true": false, "why": "They carry crude oil, petroleum products and natural gas — cheap to run once laid, though costly to build." },
-     { "statement": "The Golden Quadrilateral connects Delhi, Mumbai, Chennai and Kolkata.", "is_true": true, "why": "A super-highway project linking the four metropolitan cities, with north-south and east-west corridors added." },
-     { "statement": "The WTO was established in 1995 and succeeded GATT.", "is_true": true, "why": "It governs the rules of international trade and settles disputes between member countries." }
+     {
+      "statement": "Road transport now carries the larger share of India's freight traffic.",
+      "is_true": true,
+      "why": "NCERT puts roads at about 70% of freight and 85% of passenger traffic. Older texts gave that place to the railways, so check which book the question follows."
+     },
+     {
+      "statement": "Road transport is better suited to short hauls and door-to-door delivery.",
+      "is_true": true,
+      "why": "It needs no transhipment and reaches places rail cannot, which is precisely why its share grew."
+     },
+     {
+      "statement": "Pipelines are used only for water.",
+      "is_true": false,
+      "why": "They carry crude oil, petroleum products and natural gas — cheap to run once laid, though costly to build."
+     },
+     {
+      "statement": "The Golden Quadrilateral connects Delhi, Mumbai, Chennai and Kolkata.",
+      "is_true": true,
+      "why": "A super-highway project linking the four metropolitan cities, with north-south and east-west corridors added."
+     },
+     {
+      "statement": "The WTO was established in 1995 and succeeded GATT.",
+      "is_true": true,
+      "why": "It governs the rules of international trade and settles disputes between member countries."
+     }
     ]
    }
   }

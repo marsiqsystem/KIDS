@@ -2,21 +2,46 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Education Commissions: University, Mudaliar and Kothari",
-  "approved": false,
+  "approved": true,
   "trick": "Three commissions, three stages, three chairmen, and the dates run in order: Radhakrishnan 1948-49 for university education, Mudaliar 1952-53 for secondary, Kothari 1964-66 for the whole system. Kothari gave the 10+2+3 pattern and the phrase 'the destiny of India is now being shaped in her classrooms'.",
-  "video": { "query": "radhakrishnan mudaliar kothari commission recommendations class 12 education", "video_id": null, "approved": false },
+  "video": {
+   "query": "radhakrishnan mudaliar kothari commission recommendations class 12 education",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each commission with its chairman, years and chief recommendation.",
     "pairs": [
-     { "left": "University Education Commission", "right": "S. Radhakrishnan, 1948-49; on higher education and the university system" },
-     { "left": "Secondary Education Commission", "right": "A. Lakshmanaswami Mudaliar, 1952-53; multipurpose schools and a diversified curriculum" },
-     { "left": "Education Commission", "right": "D. S. Kothari, 1964-66; the first to review education at every stage" },
-     { "left": "The 10+2+3 pattern", "right": "Recommended by the Kothari Commission and adopted nationally" },
-     { "left": "'The destiny of India is now being shaped in her classrooms'", "right": "The opening sentence of the Kothari Commission report" },
-     { "left": "Three-language formula", "right": "Endorsed by Kothari and carried into the 1968 policy" },
-     { "left": "Neighbourhood school and the common school system", "right": "A Kothari recommendation intended to reduce social segregation" }
+     {
+      "left": "University Education Commission",
+      "right": "S. Radhakrishnan, 1948-49; on higher education and the university system"
+     },
+     {
+      "left": "Secondary Education Commission",
+      "right": "A. Lakshmanaswami Mudaliar, 1952-53; multipurpose schools and a diversified curriculum"
+     },
+     {
+      "left": "Education Commission",
+      "right": "D. S. Kothari, 1964-66; the first to review education at every stage"
+     },
+     {
+      "left": "The 10+2+3 pattern",
+      "right": "Recommended by the Kothari Commission and adopted nationally"
+     },
+     {
+      "left": "'The destiny of India is now being shaped in her classrooms'",
+      "right": "The opening sentence of the Kothari Commission report"
+     },
+     {
+      "left": "Three-language formula",
+      "right": "Endorsed by Kothari and carried into the 1968 policy"
+     },
+     {
+      "left": "Neighbourhood school and the common school system",
+      "right": "A Kothari recommendation intended to reduce social segregation"
+     }
     ]
    }
   }
@@ -24,20 +49,43 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "National Policy on Education and the Three-Language Formula",
-  "approved": false,
+  "approved": true,
   "trick": "Two policies and one revision: NPE 1968 followed Kothari, NPE 1986 was revised in 1992, and NEP 2020 replaced them. The three-language formula means the regional language, Hindi and English — with the third language in Hindi-speaking states being a modern Indian language, usually from the south.",
-  "video": { "query": "national policy on education 1968 1986 three language formula class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "national policy on education 1968 1986 three language formula class 12",
+   "video_id": "wJbVVEo8GeY",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the education policies in order.",
     "items": [
-     { "label": "Kothari Commission report", "note": "1966 — the basis of the first national policy" },
-     { "label": "National Policy on Education 1968", "note": "Adopted the 10+2+3 pattern and the three-language formula" },
-     { "label": "National Policy on Education 1986", "note": "Emphasised equality, Operation Blackboard and Navodaya Vidyalayas" },
-     { "label": "Programme of Action 1992", "note": "The revised plan for implementing the 1986 policy" },
-     { "label": "Right to Education Act 2009", "note": "Made elementary education a justiciable right" },
-     { "label": "National Education Policy 2020", "note": "Replaced the 1986 policy; proposed the 5+3+3+4 structure" }
+     {
+      "label": "Kothari Commission report",
+      "note": "1966 — the basis of the first national policy"
+     },
+     {
+      "label": "National Policy on Education 1968",
+      "note": "Adopted the 10+2+3 pattern and the three-language formula"
+     },
+     {
+      "label": "National Policy on Education 1986",
+      "note": "Emphasised equality, Operation Blackboard and Navodaya Vidyalayas"
+     },
+     {
+      "label": "Programme of Action 1992",
+      "note": "The revised plan for implementing the 1986 policy"
+     },
+     {
+      "label": "Right to Education Act 2009",
+      "note": "Made elementary education a justiciable right"
+     },
+     {
+      "label": "National Education Policy 2020",
+      "note": "Replaced the 1986 policy; proposed the 5+3+3+4 structure"
+     }
     ]
    }
   }
@@ -45,24 +93,60 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Indian Educational Thinkers: Tagore, Vivekananda and Gandhi",
-  "approved": false,
+  "approved": true,
   "trick": "One phrase each and they never blur. Tagore: freedom, nature and Santiniketan. Vivekananda: 'education is the manifestation of the perfection already in man', and man-making. Gandhi: Basic Education or Nai Talim, learning through a productive craft, in the mother tongue, self-supporting.",
-  "video": { "query": "tagore vivekananda gandhi educational philosophy basic education class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "tagore vivekananda gandhi educational philosophy basic education class 12",
+   "video_id": "dxwStpD4gJg",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which thinker does each idea belong to?",
-    "bins": ["Tagore", "Vivekananda", "Gandhi"],
+    "bins": [
+     "Tagore",
+     "Vivekananda",
+     "Gandhi"
+    ],
     "items": [
-     { "label": "Santiniketan and Visva-Bharati", "bin": "Tagore" },
-     { "label": "Education is the manifestation of the perfection already in man", "bin": "Vivekananda" },
-     { "label": "Basic Education, or Nai Talim", "bin": "Gandhi" },
-     { "label": "Teaching in the open air, under the trees", "bin": "Tagore" },
-     { "label": "Man-making and character-building education", "bin": "Vivekananda" },
-     { "label": "Craft-centred, self-supporting schooling in the mother tongue", "bin": "Gandhi" },
-     { "label": "Freedom of the child as the first condition of learning", "bin": "Tagore" },
-     { "label": "The Wardha Scheme, 1937", "bin": "Gandhi" },
-     { "label": "Education must build faith in one's own strength", "bin": "Vivekananda" }
+     {
+      "label": "Santiniketan and Visva-Bharati",
+      "bin": "Tagore"
+     },
+     {
+      "label": "Education is the manifestation of the perfection already in man",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Basic Education, or Nai Talim",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Teaching in the open air, under the trees",
+      "bin": "Tagore"
+     },
+     {
+      "label": "Man-making and character-building education",
+      "bin": "Vivekananda"
+     },
+     {
+      "label": "Craft-centred, self-supporting schooling in the mother tongue",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Freedom of the child as the first condition of learning",
+      "bin": "Tagore"
+     },
+     {
+      "label": "The Wardha Scheme, 1937",
+      "bin": "Gandhi"
+     },
+     {
+      "label": "Education must build faith in one's own strength",
+      "bin": "Vivekananda"
+     }
     ]
    }
   }
@@ -70,23 +154,54 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Western Educational Thinkers: Rousseau and Dewey",
-  "approved": false,
+  "approved": true,
   "trick": "Rousseau is the naturalist: Emile, follow nature, negative education, keep society away until the child is ready. Dewey is the pragmatist: education is life itself, not preparation for life, and the school is a miniature society where children learn by doing. Naturalism looks backward to nature, pragmatism forward to social use.",
-  "video": { "query": "rousseau emile naturalism dewey pragmatism learning by doing class 12 education", "video_id": null, "approved": false },
+  "video": {
+   "query": "rousseau emile naturalism dewey pragmatism learning by doing class 12 education",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Rousseau or Dewey?",
-    "bins": ["Rousseau", "Dewey"],
+    "bins": [
+     "Rousseau",
+     "Dewey"
+    ],
     "items": [
-     { "label": "Wrote Emile", "bin": "Rousseau" },
-     { "label": "Education is life itself, not a preparation for life", "bin": "Dewey" },
-     { "label": "Negative education — protect the child from society's corruption", "bin": "Rousseau" },
-     { "label": "The school as a miniature society", "bin": "Dewey" },
-     { "label": "'Everything is good as it comes from the hands of the Author of Nature'", "bin": "Rousseau" },
-     { "label": "Learning by doing; the project method", "bin": "Dewey" },
-     { "label": "Follow nature's own order of development", "bin": "Rousseau" },
-     { "label": "Truth is what works — the pragmatic test", "bin": "Dewey" }
+     {
+      "label": "Wrote Emile",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Education is life itself, not a preparation for life",
+      "bin": "Dewey"
+     },
+     {
+      "label": "Negative education — protect the child from society's corruption",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "The school as a miniature society",
+      "bin": "Dewey"
+     },
+     {
+      "label": "'Everything is good as it comes from the hands of the Author of Nature'",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Learning by doing; the project method",
+      "bin": "Dewey"
+     },
+     {
+      "label": "Follow nature's own order of development",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Truth is what works — the pragmatic test",
+      "bin": "Dewey"
+     }
     ]
    }
   }
@@ -94,21 +209,47 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Delors Commission and the Four Pillars of Education",
-  "approved": false,
+  "approved": true,
   "trick": "Two dates, and questions confuse them: the Delors Commission was CONSTITUTED by UNESCO in 1993, and its report 'Learning: The Treasure Within' was PUBLISHED in 1996. The four pillars are learning to know, learning to do, learning to live together, and learning to be — the fourth is the one most often left out.",
-  "video": { "query": "delors commission four pillars of education learning the treasure within class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "delors commission four pillars of education learning the treasure within class 12",
+   "video_id": "b8V3DsAxgbg",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each pillar or fact with what it means.",
     "pairs": [
-     { "left": "Learning to know", "right": "Acquiring the tools of understanding — concentration, memory and the ability to go on learning" },
-     { "left": "Learning to do", "right": "Competence to act on one's knowledge, including teamwork and handling situations" },
-     { "left": "Learning to live together", "right": "Understanding other people, managing conflict and working towards common goals" },
-     { "left": "Learning to be", "right": "The full development of the person — mind, body, judgement and responsibility" },
-     { "left": "Constituted in 1993", "right": "The year UNESCO set up the International Commission under Jacques Delors" },
-     { "left": "Published in 1996", "right": "The year the report 'Learning: The Treasure Within' appeared" },
-     { "left": "Jacques Delors", "right": "The chairman of the commission, formerly President of the European Commission" }
+     {
+      "left": "Learning to know",
+      "right": "Acquiring the tools of understanding — concentration, memory and the ability to go on learning"
+     },
+     {
+      "left": "Learning to do",
+      "right": "Competence to act on one's knowledge, including teamwork and handling situations"
+     },
+     {
+      "left": "Learning to live together",
+      "right": "Understanding other people, managing conflict and working towards common goals"
+     },
+     {
+      "left": "Learning to be",
+      "right": "The full development of the person — mind, body, judgement and responsibility"
+     },
+     {
+      "left": "Constituted in 1993",
+      "right": "The year UNESCO set up the International Commission under Jacques Delors"
+     },
+     {
+      "left": "Published in 1996",
+      "right": "The year the report 'Learning: The Treasure Within' appeared"
+     },
+     {
+      "left": "Jacques Delors",
+      "right": "The chairman of the commission, formerly President of the European Commission"
+     }
     ]
    }
   }
@@ -116,19 +257,44 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Right to Education Act and Constitutional Provisions",
-  "approved": false,
+  "approved": true,
   "trick": "Follow the sequence: Article 45 was a Directive Principle, the 86th Amendment of 2002 inserted Article 21A making education a fundamental right for ages 6 to 14, and the RTE Act 2009 came into force on 1 April 2010 to give it effect. A Directive Principle cannot be enforced in court; a fundamental right can — that is the whole significance of the change.",
-  "video": { "query": "right to education act 2009 article 21A 86th amendment provisions class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "right to education act 2009 article 21A 86th amendment provisions class 12",
+   "video_id": "iNLRAp0iM50",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the Right to Education.",
     "items": [
-     { "statement": "Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14.", "is_true": true, "why": "Inserted by the 86th Amendment in 2002; below six, early childhood care remains a Directive Principle under Article 45." },
-     { "statement": "The RTE Act came into force on 1 April 2010.", "is_true": true, "why": "Passed in 2009, it took effect the following financial year." },
-     { "statement": "The RTE Act requires private unaided schools to reserve 25% of Class I seats for disadvantaged children.", "is_true": true, "why": "One of its most debated provisions, upheld by the Supreme Court." },
-     { "statement": "Before 2002, education was a fundamental right enforceable in court.", "is_true": false, "why": "It was a Directive Principle under Article 45 — a moral direction to the state, not enforceable by a citizen." },
-     { "statement": "The RTE Act permits a school to detain a child before the end of the elementary stage.", "is_true": false, "why": "The no-detention provision as originally enacted barred holding back or expelling a child up to Class VIII." }
+     {
+      "statement": "Article 21A makes free and compulsory education a fundamental right for children aged 6 to 14.",
+      "is_true": true,
+      "why": "Inserted by the 86th Amendment in 2002; below six, early childhood care remains a Directive Principle under Article 45."
+     },
+     {
+      "statement": "The RTE Act came into force on 1 April 2010.",
+      "is_true": true,
+      "why": "Passed in 2009, it took effect the following financial year."
+     },
+     {
+      "statement": "The RTE Act requires private unaided schools to reserve 25% of Class I seats for disadvantaged children.",
+      "is_true": true,
+      "why": "One of its most debated provisions, upheld by the Supreme Court."
+     },
+     {
+      "statement": "Before 2002, education was a fundamental right enforceable in court.",
+      "is_true": false,
+      "why": "It was a Directive Principle under Article 45 — a moral direction to the state, not enforceable by a citizen."
+     },
+     {
+      "statement": "The RTE Act permits a school to detain a child before the end of the elementary stage.",
+      "is_true": false,
+      "why": "The no-detention provision as originally enacted barred holding back or expelling a child up to Class VIII."
+     }
     ]
    }
   }
@@ -136,22 +302,51 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Inclusive and Special Education",
-  "approved": false,
+  "approved": true,
   "trick": "Three words in ascending order of ambition: segregation puts children with disabilities in separate schools, integration places them in ordinary schools and expects them to cope, inclusion changes the school so that every child belongs. Inclusion is about adapting the system, not the child — that is the distinction being tested.",
-  "video": { "query": "inclusive education integration special education children with disabilities class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "inclusive education integration special education children with disabilities class 12",
+   "video_id": "HrgHdo-U0bQ",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it means.",
     "pairs": [
-     { "left": "Segregated special education", "right": "Children with disabilities taught in separate institutions" },
-     { "left": "Integrated education", "right": "Placement in an ordinary school, with the child expected to adjust to it" },
-     { "left": "Inclusive education", "right": "The school itself is adapted so that every child can learn in it" },
-     { "left": "Resource room", "right": "A room in an ordinary school where a specialist gives additional support" },
-     { "left": "Individualised Education Plan", "right": "A written plan of goals and support drawn up for one particular child" },
-     { "left": "Barrier-free environment", "right": "Ramps, accessible toilets and signage that remove physical obstacles" },
-     { "left": "RPwD Act, 2016", "right": "The Rights of Persons with Disabilities Act, which recognises 21 conditions" },
-     { "left": "Salamanca Statement, 1994", "right": "The UNESCO declaration that made inclusion an international principle" }
+     {
+      "left": "Segregated special education",
+      "right": "Children with disabilities taught in separate institutions"
+     },
+     {
+      "left": "Integrated education",
+      "right": "Placement in an ordinary school, with the child expected to adjust to it"
+     },
+     {
+      "left": "Inclusive education",
+      "right": "The school itself is adapted so that every child can learn in it"
+     },
+     {
+      "left": "Resource room",
+      "right": "A room in an ordinary school where a specialist gives additional support"
+     },
+     {
+      "left": "Individualised Education Plan",
+      "right": "A written plan of goals and support drawn up for one particular child"
+     },
+     {
+      "left": "Barrier-free environment",
+      "right": "Ramps, accessible toilets and signage that remove physical obstacles"
+     },
+     {
+      "left": "RPwD Act, 2016",
+      "right": "The Rights of Persons with Disabilities Act, which recognises 21 conditions"
+     },
+     {
+      "left": "Salamanca Statement, 1994",
+      "right": "The UNESCO declaration that made inclusion an international principle"
+     }
     ]
    }
   }
@@ -159,19 +354,43 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Open and Distance Learning",
-  "approved": false,
+  "approved": true,
   "trick": "Distance learning separates teacher and learner in space and time, and open learning removes the entry barriers — no age limit, no rigid qualification, learning at one's own pace. IGNOU (1985) is the national open university and NIOS the school-level board; questions usually want one of those two names.",
-  "video": { "query": "open and distance learning IGNOU NIOS features class 12 education", "video_id": null, "approved": false },
+  "video": {
+   "query": "open and distance learning IGNOU NIOS features class 12 education",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about open and distance learning.",
     "items": [
-     { "statement": "In distance education, teacher and learner are separated in space and often in time.", "is_true": true, "why": "Printed material, broadcasts and online platforms carry the teaching instead of a classroom." },
-     { "statement": "'Open' learning means the same thing as 'distance' learning.", "is_true": false, "why": "Open refers to the removal of entry barriers — age, qualification, pace. A course can be open and face-to-face, or distance and highly restricted." },
-     { "statement": "IGNOU was established in 1985 and is a national open university.", "is_true": true, "why": "It serves learners across the country and abroad through regional and study centres." },
-     { "statement": "NIOS provides open schooling up to the senior secondary stage.", "is_true": true, "why": "It gives a second chance to those who could not complete school in the formal system." },
-     { "statement": "Distance education is unsuited to working adults.", "is_true": false, "why": "It is designed for precisely them — flexible pace and no need to leave employment are among its chief advantages." }
+     {
+      "statement": "In distance education, teacher and learner are separated in space and often in time.",
+      "is_true": true,
+      "why": "Printed material, broadcasts and online platforms carry the teaching instead of a classroom."
+     },
+     {
+      "statement": "'Open' learning means the same thing as 'distance' learning.",
+      "is_true": false,
+      "why": "Open refers to the removal of entry barriers — age, qualification, pace. A course can be open and face-to-face, or distance and highly restricted."
+     },
+     {
+      "statement": "IGNOU was established in 1985 and is a national open university.",
+      "is_true": true,
+      "why": "It serves learners across the country and abroad through regional and study centres."
+     },
+     {
+      "statement": "NIOS provides open schooling up to the senior secondary stage.",
+      "is_true": true,
+      "why": "It gives a second chance to those who could not complete school in the formal system."
+     },
+     {
+      "statement": "Distance education is unsuited to working adults.",
+      "is_true": false,
+      "why": "It is designed for precisely them — flexible pace and no need to leave employment are among its chief advantages."
+     }
     ]
    }
   }
@@ -179,21 +398,46 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "Educational Bodies: NCERT, NCTE and UNESCO",
-  "approved": false,
+  "approved": true,
   "trick": "Read the name and the work is inside it. NCERT researches and trains, so it writes the textbooks; NCTE regulates teacher education; UGC funds universities; UNESCO is the UN's education, science and culture body in Paris, founded 1946. None of them runs a school or awards a school certificate — that is the board's job.",
-  "video": { "query": "NCERT NCTE UGC UNESCO functions educational organisations class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "NCERT NCTE UGC UNESCO functions educational organisations class 12",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each body with its work and its year or place.",
     "pairs": [
-     { "left": "NCERT", "right": "Founded 1961; school curriculum, textbooks and educational research" },
-     { "left": "NCTE", "right": "Statutory body for planning and regulating teacher education" },
-     { "left": "UGC", "right": "Founded 1956; funds universities and maintains standards in higher education" },
-     { "left": "UNESCO", "right": "Founded 1946, Paris; education, science and culture within the UN system" },
-     { "left": "NUEPA / NIEPA", "right": "Research and training in educational planning and administration" },
-     { "left": "SCERT", "right": "The state counterpart of NCERT" },
-     { "left": "NAAC", "right": "Assesses and accredits higher education institutions" }
+     {
+      "left": "NCERT",
+      "right": "Founded 1961; school curriculum, textbooks and educational research"
+     },
+     {
+      "left": "NCTE",
+      "right": "Statutory body for planning and regulating teacher education"
+     },
+     {
+      "left": "UGC",
+      "right": "Founded 1956; funds universities and maintains standards in higher education"
+     },
+     {
+      "left": "UNESCO",
+      "right": "Founded 1946, Paris; education, science and culture within the UN system"
+     },
+     {
+      "left": "NUEPA / NIEPA",
+      "right": "Research and training in educational planning and administration"
+     },
+     {
+      "left": "SCERT",
+      "right": "The state counterpart of NCERT"
+     },
+     {
+      "left": "NAAC",
+      "right": "Assesses and accredits higher education institutions"
+     }
     ]
    }
   }
@@ -201,24 +445,61 @@
  {
   "bucket": "XII|Arts|Education",
   "chapter": "School Programmes and Co-curricular Activities",
-  "approved": false,
+  "approved": true,
   "trick": "'Extra-curricular' is the older word and 'co-curricular' the accepted one, and the change of word carries the argument: these activities are not outside the curriculum but part of it, developing what the classroom cannot. Sort them by the aim served — physical, aesthetic, social, civic or intellectual.",
-  "video": { "query": "co curricular activities importance types school programme class 12 education", "video_id": null, "approved": false },
+  "video": {
+   "query": "co curricular activities importance types school programme class 12 education",
+   "video_id": "w6R6ZH2Ce5s",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which aim does each activity chiefly serve?",
-    "bins": ["Physical", "Aesthetic and cultural", "Social and civic", "Intellectual"],
+    "bins": [
+     "Physical",
+     "Aesthetic and cultural",
+     "Social and civic",
+     "Intellectual"
+    ],
     "items": [
-     { "label": "Athletics and games", "bin": "Physical" },
-     { "label": "School drama and music", "bin": "Aesthetic and cultural" },
-     { "label": "Scouts, Guides and NSS", "bin": "Social and civic" },
-     { "label": "Debate and quiz competitions", "bin": "Intellectual" },
-     { "label": "Yoga and drill", "bin": "Physical" },
-     { "label": "Painting and craft exhibition", "bin": "Aesthetic and cultural" },
-     { "label": "Student self-government and school parliament", "bin": "Social and civic" },
-     { "label": "Science club and wall magazine", "bin": "Intellectual" },
-     { "label": "Community cleanliness drive", "bin": "Social and civic" }
+     {
+      "label": "Athletics and games",
+      "bin": "Physical"
+     },
+     {
+      "label": "School drama and music",
+      "bin": "Aesthetic and cultural"
+     },
+     {
+      "label": "Scouts, Guides and NSS",
+      "bin": "Social and civic"
+     },
+     {
+      "label": "Debate and quiz competitions",
+      "bin": "Intellectual"
+     },
+     {
+      "label": "Yoga and drill",
+      "bin": "Physical"
+     },
+     {
+      "label": "Painting and craft exhibition",
+      "bin": "Aesthetic and cultural"
+     },
+     {
+      "label": "Student self-government and school parliament",
+      "bin": "Social and civic"
+     },
+     {
+      "label": "Science club and wall magazine",
+      "bin": "Intellectual"
+     },
+     {
+      "label": "Community cleanliness drive",
+      "bin": "Social and civic"
+     }
     ]
    }
   }

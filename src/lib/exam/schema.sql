@@ -142,3 +142,102 @@ create table if not exists results_meta (
 -- `create table if not exists` above will not add a column to a table that
 -- already exists, and this one was created before results were scheduled.
 alter table results_meta add column if not exists publish_at timestamptz;
+
+
+-- ------------------------------------------------- the offline written paper --
+--
+-- The 19 July 2026 OMR paper, marked on a machine that never touches the
+-- internet. `Desktop\KIDS OMR 2026` owns the marking; `export_for_web.py`
+-- writes a json of derived numbers and `scripts/import-offline-results.ts`
+-- loads it here. Nothing about a scan crosses -- no page image, no handwriting,
+-- no phone number. If a mark here is wrong it is wrong upstream, and re-running
+-- the export and the import is how it is corrected.
+--
+-- Published SEPARATELY from the online paper. A student sat both on the same
+-- morning and the two are marked, ranked and released independently, so this
+-- has its own switch (`offline_published` on results_meta) and flipping it
+-- cannot disturb the online result that has been live since 1 August.
+
+create table if not exists offline_results (
+  uid            char(9) primary key references students (uid),
+  -- The class whose PAPER was marked. For 46 students the workbook's two class
+  -- columns disagree, and for a handful a reviewer ruled from the class written
+  -- on the sheet itself; this is the one that decided the answer key.
+  class          text        not null,
+  stream         text,
+  marks          integer     not null,
+  -- `correct` includes questions granted grace, which are awarded to every
+  -- candidate. Kept that way so correct + wrong + blank = total_q on the page,
+  -- and the student is never shown an arithmetic they cannot follow.
+  correct        integer     not null,
+  wrong          integer     not null,
+  blank          integer     not null,
+  grace          integer     not null,
+  total_q        integer     not null,
+  class_rank     integer,
+  centre_rank    integer,
+  school_rank    integer,
+  percentile     numeric(4,1),
+  class_sat      integer     not null,
+  centre_sat     integer     not null,
+  school_sat     integer     not null,
+  class_avg      numeric(5,2) not null,
+  class_high     integer     not null,
+  ranked         boolean     not null default true,
+  -- [{ name, key_id, first, last, total, correct, wrong, blank, grace, marks }]
+  -- Seven sections for IX/X; English & GK plus three chosen subjects for XI/XII.
+  sections       jsonb       not null,
+  -- The three optional subjects, XI/XII only. Read off the sheet, not the
+  -- workbook: the sheet is what the student actually answered.
+  panels         jsonb       not null default '[]'::jsonb,
+  -- The answer sheet itself, one character per question, 1..100. See
+  -- export_for_web.py for the encoding. 400 bytes instead of 100 json objects.
+  marked         text        not null,   -- a b c d, '-' blank, 1st of a double
+  second         text        not null,   -- the 2nd bubble of a double, else '-'
+  answer_key     text        not null,   -- a b c d, 'g' where grace was granted
+  outcome        text        not null,   -- c w b d g
+  form           text        not null,   -- X100 | XII100, the printed sheet
+  source         text        not null,   -- the scan's filename, for disputes
+  -- How many questions a person settled by eye rather than the reader measuring
+  -- them. 17,196 across 592 sheets, mostly sheets typed out from the paper.
+  hand_set       integer     not null default 0,
+  computed_at    timestamptz not null default now()
+);
+
+create index if not exists offline_results_class_idx on offline_results (class);
+
+-- How the cohort found each question, keyed by the ANSWER KEY rather than by a
+-- question number on the page. IX and X sit one paper of 100, but XI and XII
+-- each answer English & GK plus three subjects of their own choosing, so "Q37"
+-- is not the same question for two classmates. Keyed this way, "61% got this
+-- right" always means 61% of the people who actually sat that block.
+create table if not exists offline_question_stats (
+  key_id       text    not null,        -- ix-paper | xii-arts-his | ...
+  n            integer not null,        -- 1-based within that key
+  correct_pct  numeric(4,1) not null,   -- share of those who SAT it
+  sat          integer not null,
+  primary key (key_id, n)
+);
+
+-- The class average for each named section, which the result page draws as a
+-- line across every bar. Streamed separately from the per-question stats
+-- because a section is what a student recognises ("Physical Science"), and a
+-- key id is not.
+create table if not exists offline_section_stats (
+  class    text        not null,
+  stream   text        not null default '',
+  section  text        not null,
+  total    integer     not null,
+  sat      integer     not null,
+  avg      numeric(5,2) not null,
+  primary key (class, stream, section)
+);
+
+-- The offline paper's own switch, alongside the online one. Same two-step:
+-- `offline_published` says the office stands behind the marks,
+-- `offline_publish_at` says when students may see them.
+alter table results_meta add column if not exists offline_published    boolean not null default false;
+alter table results_meta add column if not exists offline_published_at timestamptz;
+alter table results_meta add column if not exists offline_publish_at   timestamptz;
+alter table results_meta add column if not exists offline_totals       jsonb not null default '{}'::jsonb;
+alter table results_meta add column if not exists offline_computed_at  timestamptz;

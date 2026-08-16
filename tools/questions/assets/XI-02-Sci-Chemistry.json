@@ -2,12 +2,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "Some Basic Concepts of Chemistry",
-  "approved": false,
+  "approved": true,
   "trick": "The empirical formula is always found the same way: divide the percentage of each element by its atomic mass, then divide every answer by the smallest of them. Percentage, divide by mass, divide by smallest — three steps, every time.",
   "video": {
    "query": "mole concept empirical and molecular formula class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "MfadB5RYDWY",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "step-solve",
@@ -53,12 +54,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "Structure of the Atom",
-  "approved": false,
+  "approved": true,
   "trick": "Each model exists because the one before it failed at a particular experiment. Thomson could not explain the gold foil scattering, Rutherford could not explain why the electron does not spiral in, Bohr could not explain many-electron atoms. Learn the failure and the next model makes sense.",
   "video": {
    "query": "structure of atom Bohr model quantum numbers class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "-eKWcuoj36k",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "match-pairs",
@@ -96,12 +98,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "Classification of Elements and Periodicity",
-  "approved": false,
+  "approved": true,
   "trick": "Across a period the nuclear charge rises while the shell stays the same, so atoms shrink and hold their electrons tighter. Down a group a new shell is added, so atoms grow and lose electrons more easily. Two sentences, and every trend follows from one of them.",
   "video": {
    "query": "periodic classification periodicity atomic radius ionisation enthalpy class 11",
-   "video_id": null,
-   "approved": false
+   "video_id": "wXtQXh03GYE",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "sort-bins",
@@ -151,12 +154,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "Chemical Bonding and Molecular Structure",
-  "approved": false,
+  "approved": true,
   "trick": "Count the lone pairs, because they decide the shape. Ammonia and methane both have four electron pairs around the central atom, but ammonia's lone pair pushes the bonds closer, so methane is tetrahedral and ammonia is trigonal pyramidal. Always give the shape of the atoms, not of the electron pairs.",
   "video": {
    "query": "chemical bonding VSEPR shapes of molecules hybridisation class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "2_gEGKGDuDc",
+   "approved": true,
+   "language": "ENGLISH"
   },
   "interactive": {
    "template": "match-pairs",
@@ -194,12 +198,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "States of Matter: Gases and Liquids",
-  "approved": false,
+  "approved": true,
   "trick": "Every gas law is the ideal gas equation with something held constant. Hold temperature and you get Boyle, hold pressure and you get Charles, hold volume and you get Gay-Lussac. Learn PV = nRT and derive the rest rather than memorising four laws.",
   "video": {
    "query": "gas laws Boyle Charles ideal gas equation class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "QWduKfQjZYE",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "formula-pick",
@@ -249,12 +254,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "The Solid State",
-  "approved": false,
+  "approved": true,
   "trick": "Crystalline solids have a sharp melting point because every bond is the same length and they all break at once. Amorphous solids soften over a range because their bonds vary. If a question mentions a definite melting point, it is crystalline.",
   "video": {
    "query": "solid state crystalline amorphous unit cell class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "o-YlinG72h0",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "odd-one-out",
@@ -275,12 +281,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "Hydrogen and its Compounds",
-  "approved": false,
+  "approved": true,
   "trick": "Hydrogen sits awkwardly in the periodic table because it behaves like two families at once: it loses an electron like an alkali metal and gains one like a halogen. Every question about its position is really about that double resemblance.",
   "video": {
    "query": "hydrogen isotopes hydrides hard and soft water class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "HIm0hOF2HSQ",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "true-false",
@@ -319,12 +326,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "The s-Block Elements",
-  "approved": false,
+  "approved": true,
   "trick": "The s-block metals are so reactive that none is found free in nature, and reactivity increases down the group because the outer electron gets further from the nucleus. That single rule predicts almost everything, including why caesium reacts violently with water and lithium only fizzes.",
   "video": {
    "query": "s block elements alkali alkaline earth metals properties class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "1uJk4K_irP8",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "fill-blank",
@@ -355,12 +363,13 @@
  {
   "bucket": "XI|Science|Chemistry",
   "chapter": "The p-Block Elements",
-  "approved": false,
+  "approved": true,
   "trick": "The group number tells you the valence electrons: group 13 has three, group 14 four, group 15 five. And the first element of every p-block group behaves oddly compared with the rest, because it is small and has no d orbitals — boron, carbon and nitrogen are all exceptions to their own families.",
   "video": {
    "query": "p block elements group 13 14 15 boron carbon family class 11 chemistry",
-   "video_id": null,
-   "approved": false
+   "video_id": "ubpBY0pIaF8",
+   "approved": true,
+   "language": "BILINGUAL"
   },
   "interactive": {
    "template": "sort-bins",

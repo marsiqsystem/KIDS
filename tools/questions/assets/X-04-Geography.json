@@ -2,7 +2,7 @@
  {
   "bucket": "X|All|Geography",
   "chapter": "Latitude, Longitude and the Global Grid",
-  "approved": false,
+  "approved": true,
   "trick": "Every longitude sum reduces to one number: four minutes. The Earth turns 360 degrees in 24 hours, so one degree of longitude is four minutes of time. Multiply the difference in degrees by four and you have the difference in minutes, every time.",
   "video": {
    "query": "latitude longitude time zones standard meridian calculation class 9 geography",
@@ -64,7 +64,7 @@
  {
   "bucket": "X|All|Geography",
   "chapter": "Endogenetic Forces and Landform Building",
-  "approved": false,
+  "approved": true,
   "trick": "Endo means inside, exo means outside. Anything driven by heat and movement inside the Earth, folding, faulting, volcanoes, earthquakes, is endogenetic and builds land up. Anything driven by weather at the surface wears it down.",
   "video": {
    "query": "endogenetic and exogenetic forces folding faulting volcanoes class 9 geography",
@@ -92,7 +92,7 @@
  {
   "bucket": "X|All|Geography",
   "chapter": "Exogenetic Processes: Weathering and Erosion",
-  "approved": false,
+  "approved": true,
   "trick": "Weathering breaks rock where it stands; erosion carries the pieces away. If nothing has moved, it is weathering. And within weathering, ask whether the rock has merely cracked, which is physical, or actually changed into a new substance, which is chemical.",
   "video": {
    "query": "physical and chemical weathering types erosion class 9 geography",
@@ -140,7 +140,7 @@
  {
   "bucket": "X|All|Geography",
   "chapter": "Depositional Landforms: Rivers, Glaciers and Wind",
-  "approved": false,
+  "approved": true,
   "trick": "Name the agent first and the landform follows. Rivers drop their load flat and wide, glaciers dump theirs in unsorted ridges, wind piles its load into dunes and blankets of loess. Ask what carried it, and the answer names itself.",
   "video": {
    "query": "depositional landforms delta moraine sand dune loess class 9 geography",

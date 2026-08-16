@@ -2,20 +2,43 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Introduction to Economics and the Central Problem",
-  "approved": false,
+  "approved": true,
   "trick": "The central problem exists because wants are unlimited and resources are scarce and have alternative uses. Strip out any one of those three and there is no economics left — that is why every definition in the chapter mentions scarcity.",
-  "video": { "query": "central problems of an economy scarcity choice class 11 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "central problems of an economy scarcity choice class 11 economics",
+   "video_id": "XsGM82C0VUk",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each central problem with the question it asks.",
     "pairs": [
-     { "left": "What to produce", "right": "Which goods, and in what quantities, given limited resources" },
-     { "left": "How to produce", "right": "Labour-intensive or capital-intensive technique" },
-     { "left": "For whom to produce", "right": "How the output is distributed among the people" },
-     { "left": "Scarcity", "right": "Resources are limited relative to unlimited wants" },
-     { "left": "Opportunity cost", "right": "The value of the next best alternative given up" },
-     { "left": "Alternative uses", "right": "The same resource could have been used for something else" }
+     {
+      "left": "What to produce",
+      "right": "Which goods, and in what quantities, given limited resources"
+     },
+     {
+      "left": "How to produce",
+      "right": "Labour-intensive or capital-intensive technique"
+     },
+     {
+      "left": "For whom to produce",
+      "right": "How the output is distributed among the people"
+     },
+     {
+      "left": "Scarcity",
+      "right": "Resources are limited relative to unlimited wants"
+     },
+     {
+      "left": "Opportunity cost",
+      "right": "The value of the next best alternative given up"
+     },
+     {
+      "left": "Alternative uses",
+      "right": "The same resource could have been used for something else"
+     }
     ]
    }
   }
@@ -23,19 +46,44 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Production Possibility Curve and Opportunity Cost",
-  "approved": false,
+  "approved": true,
   "trick": "Read the position of a point and it tells you the whole story: on the curve means full and efficient use, inside means unemployment or inefficiency, outside means unattainable with present resources. And the curve bows outward because resources are not equally good at both jobs.",
-  "video": { "query": "production possibility curve opportunity cost class 11 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "production possibility curve opportunity cost class 11 economics",
+   "video_id": "USOZWSxIAyU",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the production possibility curve.",
     "items": [
-     { "statement": "A point inside the curve means resources are not fully employed.", "is_true": true, "why": "The economy could produce more of both goods, so something is idle or being used inefficiently." },
-     { "statement": "A point outside the curve is attainable if the country simply works harder.", "is_true": false, "why": "It is unattainable with present resources and technology. Only growth in resources or better technology can move the curve outward." },
-     { "statement": "The curve is concave to the origin because of increasing opportunity cost.", "is_true": true, "why": "Resources are not equally suited to both goods, so each extra unit of one costs more of the other." },
-     { "statement": "Every point on the curve represents the same level of welfare.", "is_true": false, "why": "All points on the curve are efficient, but they are not equally desirable. Which one is best is a social choice, not a technical one." },
-     { "statement": "The discovery of a new technology shifts the curve outward.", "is_true": true, "why": "It raises what the same resources can produce, which is economic growth." }
+     {
+      "statement": "A point inside the curve means resources are not fully employed.",
+      "is_true": true,
+      "why": "The economy could produce more of both goods, so something is idle or being used inefficiently."
+     },
+     {
+      "statement": "A point outside the curve is attainable if the country simply works harder.",
+      "is_true": false,
+      "why": "It is unattainable with present resources and technology. Only growth in resources or better technology can move the curve outward."
+     },
+     {
+      "statement": "The curve is concave to the origin because of increasing opportunity cost.",
+      "is_true": true,
+      "why": "Resources are not equally suited to both goods, so each extra unit of one costs more of the other."
+     },
+     {
+      "statement": "Every point on the curve represents the same level of welfare.",
+      "is_true": false,
+      "why": "All points on the curve are efficient, but they are not equally desirable. Which one is best is a social choice, not a technical one."
+     },
+     {
+      "statement": "The discovery of a new technology shifts the curve outward.",
+      "is_true": true,
+      "why": "It raises what the same resources can produce, which is economic growth."
+     }
     ]
    }
   }
@@ -43,19 +91,44 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Consumer Behaviour: Utility Analysis",
-  "approved": false,
+  "approved": true,
   "trick": "Marginal utility is the extra satisfaction from one more unit, and it falls as you consume more — the fourth glass of water is worth far less than the first. Total utility is still rising while marginal utility falls, and it is highest exactly when marginal utility reaches zero.",
-  "video": { "query": "utility analysis law of diminishing marginal utility class 11 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "utility analysis law of diminishing marginal utility class 11 economics",
+   "video_id": "REsp2l-yRpw",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about utility.",
     "items": [
-     { "statement": "Total utility is maximum when marginal utility is zero.", "is_true": true, "why": "While marginal utility is positive each extra unit still adds something; once it turns negative total utility falls. The peak is exactly where it crosses zero." },
-     { "statement": "Marginal utility can be negative.", "is_true": true, "why": "Consuming past the point of satisfaction causes discomfort — the sixth sweet that makes you feel sick." },
-     { "statement": "If marginal utility is falling, total utility must also be falling.", "is_true": false, "why": "Total utility still rises so long as marginal utility is positive; it merely rises more slowly. This is the most misunderstood point in the chapter." },
-     { "statement": "The law of equi-marginal utility says a consumer equalises marginal utility per rupee across goods.", "is_true": true, "why": "Spending is shifted from one good to another until the last rupee spent on each yields the same satisfaction." },
-     { "statement": "Utility is the same thing as usefulness.", "is_true": false, "why": "Utility means want-satisfying power, not usefulness or morality. A cigarette has utility for a smoker while being harmful." }
+     {
+      "statement": "Total utility is maximum when marginal utility is zero.",
+      "is_true": true,
+      "why": "While marginal utility is positive each extra unit still adds something; once it turns negative total utility falls. The peak is exactly where it crosses zero."
+     },
+     {
+      "statement": "Marginal utility can be negative.",
+      "is_true": true,
+      "why": "Consuming past the point of satisfaction causes discomfort — the sixth sweet that makes you feel sick."
+     },
+     {
+      "statement": "If marginal utility is falling, total utility must also be falling.",
+      "is_true": false,
+      "why": "Total utility still rises so long as marginal utility is positive; it merely rises more slowly. This is the most misunderstood point in the chapter."
+     },
+     {
+      "statement": "The law of equi-marginal utility says a consumer equalises marginal utility per rupee across goods.",
+      "is_true": true,
+      "why": "Spending is shifted from one good to another until the last rupee spent on each yields the same satisfaction."
+     },
+     {
+      "statement": "Utility is the same thing as usefulness.",
+      "is_true": false,
+      "why": "Utility means want-satisfying power, not usefulness or morality. A cigarette has utility for a smoker while being harmful."
+     }
     ]
    }
   }
@@ -63,23 +136,55 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Demand and its Determinants",
-  "approved": false,
+  "approved": true,
   "trick": "A price change moves you along the demand curve; anything else shifts the whole curve. That is the difference between a change in quantity demanded and a change in demand, and it is the single most tested distinction in the chapter.",
-  "video": { "query": "law of demand determinants shift versus movement class 11 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "law of demand determinants shift versus movement class 11 economics",
+   "video_id": "6dGW-4glhDk",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Does each change move you along the curve, or shift the whole curve?",
-    "bins": ["Movement along the curve", "Shift of the whole curve"],
+    "bins": [
+     "Movement along the curve",
+     "Shift of the whole curve"
+    ],
     "items": [
-     { "label": "The price of the good itself falls", "bin": "Movement along the curve" },
-     { "label": "The price of the good itself rises", "bin": "Movement along the curve" },
-     { "label": "Consumers' incomes rise", "bin": "Shift of the whole curve" },
-     { "label": "The price of a substitute good rises", "bin": "Shift of the whole curve" },
-     { "label": "The price of a complementary good falls", "bin": "Shift of the whole curve" },
-     { "label": "Tastes and fashion turn against the good", "bin": "Shift of the whole curve" },
-     { "label": "The population of the town grows", "bin": "Shift of the whole curve" },
-     { "label": "Nothing changes but the good's own price", "bin": "Movement along the curve" }
+     {
+      "label": "The price of the good itself falls",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "The price of the good itself rises",
+      "bin": "Movement along the curve"
+     },
+     {
+      "label": "Consumers' incomes rise",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The price of a substitute good rises",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The price of a complementary good falls",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "Tastes and fashion turn against the good",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "The population of the town grows",
+      "bin": "Shift of the whole curve"
+     },
+     {
+      "label": "Nothing changes but the good's own price",
+      "bin": "Movement along the curve"
+     }
     ]
    }
   }
@@ -87,19 +192,39 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Production Function and the Law of Variable Proportions",
-  "approved": false,
+  "approved": true,
   "trick": "The law of variable proportions works in the short run, where at least one factor is fixed. Output rises at an increasing rate, then at a diminishing rate, then falls outright — three stages, and a sensible producer always operates in the second.",
-  "video": { "query": "law of variable proportions returns to a factor three stages class 11 economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "law of variable proportions returns to a factor three stages class 11 economics",
+   "video_id": "ArFOc_oABwg",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Put the stages of the law of variable proportions in order.",
     "items": [
-     { "label": "Stage I: increasing returns to the factor", "note": "Total product rises at an increasing rate; marginal product rises to its peak" },
-     { "label": "Marginal product reaches its maximum", "note": "The end of increasing returns" },
-     { "label": "Stage II: diminishing returns", "note": "Total product still rises but more slowly; marginal product falls towards zero" },
-     { "label": "Total product reaches its maximum and marginal product is zero", "note": "The rational producer stops here" },
-     { "label": "Stage III: negative returns", "note": "Marginal product is negative and total product actually falls" }
+     {
+      "label": "Stage I: increasing returns to the factor",
+      "note": "Total product rises at an increasing rate; marginal product rises to its peak"
+     },
+     {
+      "label": "Marginal product reaches its maximum",
+      "note": "The end of increasing returns"
+     },
+     {
+      "label": "Stage II: diminishing returns",
+      "note": "Total product still rises but more slowly; marginal product falls towards zero"
+     },
+     {
+      "label": "Total product reaches its maximum and marginal product is zero",
+      "note": "The rational producer stops here"
+     },
+     {
+      "label": "Stage III: negative returns",
+      "note": "Marginal product is negative and total product actually falls"
+     }
     ]
    }
   }
@@ -107,23 +232,55 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Collection and Organisation of Data",
-  "approved": false,
+  "approved": true,
   "trick": "Primary data is collected by the investigator for the purpose in hand; secondary data was collected by somebody else for some other purpose. The same figures can be primary to one person and secondary to another, which is why the definition names the collector, not the numbers.",
-  "video": { "query": "primary and secondary data collection classification class 11 statistics economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "primary and secondary data collection classification class 11 statistics economics",
+   "video_id": "ksh9dDddlhA",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Primary or secondary data, from the point of view of the person using it?",
-    "bins": ["Primary data", "Secondary data"],
+    "bins": [
+     "Primary data",
+     "Secondary data"
+    ],
     "items": [
-     { "label": "A student surveys her own class about their travel to school", "bin": "Primary data" },
-     { "label": "An investigator interviews shopkeepers face to face", "bin": "Primary data" },
-     { "label": "A researcher mails her own questionnaire to farmers", "bin": "Primary data" },
-     { "label": "Figures taken from the Census of India report", "bin": "Secondary data" },
-     { "label": "Rainfall figures copied from a newspaper", "bin": "Secondary data" },
-     { "label": "Data downloaded from the Reserve Bank's published bulletin", "bin": "Secondary data" },
-     { "label": "Costs more time and money but is exactly suited to the enquiry", "bin": "Primary data" },
-     { "label": "Cheap and quick, but may not fit the purpose it is being used for", "bin": "Secondary data" }
+     {
+      "label": "A student surveys her own class about their travel to school",
+      "bin": "Primary data"
+     },
+     {
+      "label": "An investigator interviews shopkeepers face to face",
+      "bin": "Primary data"
+     },
+     {
+      "label": "A researcher mails her own questionnaire to farmers",
+      "bin": "Primary data"
+     },
+     {
+      "label": "Figures taken from the Census of India report",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Rainfall figures copied from a newspaper",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Data downloaded from the Reserve Bank's published bulletin",
+      "bin": "Secondary data"
+     },
+     {
+      "label": "Costs more time and money but is exactly suited to the enquiry",
+      "bin": "Primary data"
+     },
+     {
+      "label": "Cheap and quick, but may not fit the purpose it is being used for",
+      "bin": "Secondary data"
+     }
     ]
    }
   }
@@ -131,20 +288,43 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Presentation of Data: Diagrams and Graphs",
-  "approved": false,
+  "approved": true,
   "trick": "Choose the diagram by the question. Comparing sizes calls for a bar diagram, showing parts of a whole calls for a pie chart, showing change over time calls for a line graph, and showing a frequency distribution calls for a histogram. Bars have gaps; histogram bars do not.",
-  "video": { "query": "presentation of data bar diagram pie chart histogram class 11 statistics", "video_id": null, "approved": false },
+  "video": {
+   "query": "presentation of data bar diagram pie chart histogram class 11 statistics",
+   "video_id": "ofEBft52tf0",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each diagram with the job it does best.",
     "pairs": [
-     { "left": "Simple bar diagram", "right": "Comparing the size of a few separate categories" },
-     { "left": "Pie chart", "right": "Showing how a whole divides into parts" },
-     { "left": "Line graph or time series", "right": "Showing how a value changes over time" },
-     { "left": "Histogram", "right": "A frequency distribution of continuous data; no gaps between bars" },
-     { "left": "Frequency polygon", "right": "Joining the midpoints of the tops of the histogram bars" },
-     { "left": "Ogive", "right": "A cumulative frequency curve, used to read off the median" }
+     {
+      "left": "Simple bar diagram",
+      "right": "Comparing the size of a few separate categories"
+     },
+     {
+      "left": "Pie chart",
+      "right": "Showing how a whole divides into parts"
+     },
+     {
+      "left": "Line graph or time series",
+      "right": "Showing how a value changes over time"
+     },
+     {
+      "left": "Histogram",
+      "right": "A frequency distribution of continuous data; no gaps between bars"
+     },
+     {
+      "left": "Frequency polygon",
+      "right": "Joining the midpoints of the tops of the histogram bars"
+     },
+     {
+      "left": "Ogive",
+      "right": "A cumulative frequency curve, used to read off the median"
+     }
     ]
    }
   }
@@ -152,9 +332,14 @@
  {
   "bucket": "XI|Commerce|Economics",
   "chapter": "Measures of Central Tendency",
-  "approved": false,
+  "approved": true,
   "trick": "Use the mean for balanced data, the median when a few extreme values would distort it, and the mode when you want the commonest value. One billionaire in a village raises the mean income enormously and barely moves the median — which is why the median is quoted for incomes.",
-  "video": { "query": "mean median mode calculation class 11 statistics economics", "video_id": null, "approved": false },
+  "video": {
+   "query": "mean median mode calculation class 11 statistics economics",
+   "video_id": "L74zHGhJ9Nk",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -163,25 +348,40 @@
     "steps": [
      {
       "ask": "What is the mean?",
-      "options": ["₹14,000", "₹25,714", "₹12,000"],
+      "options": [
+       "₹14,000",
+       "₹25,714",
+       "₹12,000"
+      ],
       "correct": 1,
       "why": "The total is ₹1,80,000 and there are 7 households, so the mean is about ₹25,714 — more than all but one household actually earns."
      },
      {
       "ask": "The values are already in order. What is the median?",
-      "options": ["₹14,000", "₹12,000", "₹25,714"],
+      "options": [
+       "₹14,000",
+       "₹12,000",
+       "₹25,714"
+      ],
       "correct": 0,
       "why": "With 7 values the median is the 4th, which is ₹14,000. The huge last value does not move it at all."
      },
      {
       "ask": "What is the mode?",
-      "options": ["₹14,000", "₹12,000", "There is no mode"],
+      "options": [
+       "₹14,000",
+       "₹12,000",
+       "There is no mode"
+      ],
       "correct": 1,
       "why": "₹12,000 appears twice and every other value once, so it is the most frequent."
      },
      {
       "ask": "Which average best describes this village?",
-      "options": ["The mean, because it uses every value", "The median, because one extreme value distorts the mean"],
+      "options": [
+       "The mean, because it uses every value",
+       "The median, because one extreme value distorts the mean"
+      ],
       "correct": 1,
       "why": "Six of the seven households earn far less than the mean. This is exactly why incomes are usually reported as medians."
      }

@@ -1,0 +1,390 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   THE PUBLISH MOMENT — SET 2026 stage instrument
+   --------------------------------------------------------------------------
+   Built for one screen: a 1920×1080 projector at the back of a hall. Every
+   size below is in that coordinate space and the whole stage is scaled to fit
+   with --stage-scale, so the layout can never reflow differently on the night
+   than it did in rehearsal.
+
+   Read at 15 metres, so: nothing under 20px, no thin greys on dark, and the
+   only moving thing at any moment is the thing the audience should be
+   looking at.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.stage {
+  --ink: #FBF7EF;
+  --ink-dim: #C9BCA8;
+  --deep: #2B1A1C;
+  --deeper: #1A0F11;
+  --maroon: #7B1E2B;
+  --accent: #C9A24B;
+  --accent-light: #E5BE7A;
+  --cool: #1E9E8C;
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #3A2226 0%, var(--deep) 45%, var(--deeper) 100%);
+  color: var(--ink);
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+}
+
+/* The 1920×1080 canvas, centred and scaled. */
+.stage-fit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--stage-scale, 1));
+  transform-origin: center center;
+}
+
+.stage-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Act I — the wait ─────────────────────────────────────────────────── */
+
+.stage-eyebrow {
+  font-size: 22px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.stage-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 96px;
+  line-height: 1.02;
+  margin: 22px 0 10px;
+}
+.stage-sub {
+  font-size: 26px;
+  color: var(--ink-dim);
+}
+
+.stage-stats {
+  display: flex;
+  gap: 96px;
+  margin-top: 54px;
+}
+.stage-stat-v {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 74px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stage-stat-l {
+  margin-top: 8px;
+  font-size: 19px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* The button. 480px across, held not clicked. */
+.stage-hold {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  margin-top: 66px;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  touch-action: none;
+}
+.stage-hold-disc {
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 34%, #A22A3A 0%, var(--maroon) 58%, #5A1520 100%);
+  box-shadow: 0 0 0 2px rgb(201 162 75 / 55%), 0 30px 90px rgb(0 0 0 / 55%),
+    0 0 120px rgb(201 162 75 / 18%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.stage-hold[data-charging="1"] .stage-hold-disc {
+  transform: scale(0.965);
+  box-shadow: 0 0 0 2px var(--accent), 0 18px 60px rgb(0 0 0 / 60%),
+    0 0 190px rgb(229 190 122 / 34%);
+}
+.stage-hold-word {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 62px;
+  letter-spacing: 0.04em;
+}
+.stage-hold-hint {
+  font-size: 19px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgb(251 247 239 / 72%);
+}
+.stage-ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+.stage-ring circle {
+  fill: none;
+  stroke-linecap: round;
+}
+.stage-ring .track { stroke: rgb(251 247 239 / 12%); stroke-width: 10; }
+.stage-ring .fill  { stroke: var(--accent-light); stroke-width: 10;
+  filter: drop-shadow(0 0 12px rgb(229 190 122 / 70%)); }
+
+/* Ambient drift, stilled at the moment of the drop. */
+.stage-breathe { animation: stageBreathe 5.5s ease-in-out infinite; }
+[data-freeze="1"] .stage-breathe { animation-play-state: paused; }
+@keyframes stageBreathe {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+
+/* The wait layer is carried away, not faded — the audience should feel it go. */
+.stage-carry { transition: transform 900ms cubic-bezier(.4,0,.2,1), opacity 700ms ease; }
+[data-carry="1"] .stage-carry { transform: translateY(-140px) scale(1.06); opacity: 0; }
+
+/* ── Act II — the declaration ─────────────────────────────────────────── */
+
+.stage-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 52%, rgb(255 247 226 / 95%) 0%,
+    rgb(229 190 122 / 40%) 26%, transparent 62%);
+  animation: stageFlash 1100ms ease-out both;
+  pointer-events: none;
+}
+@keyframes stageFlash {
+  0%   { opacity: 0; transform: scale(0.2); }
+  22%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(2.4); }
+}
+
+.stage-declare-word {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 190px;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  animation: stageLand 620ms cubic-bezier(.2,.9,.2,1) both;
+}
+.stage-declare-word.two {
+  color: var(--accent-light);
+  animation-delay: 320ms;
+}
+@keyframes stageLand {
+  from { opacity: 0; transform: translateY(46px) scale(0.94); filter: blur(9px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+.stage-declare-rule {
+  width: 620px;
+  height: 3px;
+  margin: 44px 0 22px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: stageLand 500ms ease both 720ms;
+}
+.stage-declare-line {
+  font-size: 26px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  animation: stageLand 500ms ease both 800ms;
+}
+.stage-confetti { position: absolute; inset: 0; pointer-events: none; }
+
+/* ── Act III — the boards ─────────────────────────────────────────────── */
+
+.stage-board {
+  position: absolute;
+  inset: 0;
+  padding: 68px 96px 96px;
+  display: flex;
+  flex-direction: column;
+}
+.stage-board-head { text-align: center; margin-bottom: 34px; }
+.stage-board-eyebrow {
+  font-size: 21px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent);
+}
+.stage-board-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 78px; line-height: 1.05; margin: 12px 0 8px;
+}
+.stage-board-sub { font-size: 24px; color: var(--ink-dim); }
+.stage-board-count {
+  margin-top: 10px; font-size: 18px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgb(201 188 168 / 70%);
+}
+
+.stage-rise { animation: stageRise 620ms cubic-bezier(.2,.9,.2,1) both; }
+@keyframes stageRise {
+  from { opacity: 0; transform: translateY(34px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* overview */
+.stage-cells {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-content: center;
+}
+.stage-cell {
+  border: 1px solid rgb(201 162 75 / 34%);
+  border-radius: 18px;
+  background: rgb(251 247 239 / 4%);
+  padding: 38px 34px;
+  text-align: center;
+}
+.stage-cell-v {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 88px; line-height: 1; color: var(--accent-light);
+  font-variant-numeric: tabular-nums;
+}
+.stage-cell-l { margin-top: 12px; font-size: 24px; }
+.stage-cell-n { margin-top: 5px; font-size: 18px; color: var(--ink-dim); }
+
+/* podium */
+.stage-podium { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 26px; align-items: end; }
+.stage-step {
+  border-radius: 18px;
+  border: 1px solid rgb(201 162 75 / 34%);
+  background: linear-gradient(180deg, rgb(251 247 239 / 8%), rgb(251 247 239 / 2%));
+  padding: 34px 28px;
+  text-align: center;
+}
+.stage-step.one {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgb(201 162 75 / 24%), rgb(201 162 75 / 5%));
+  padding: 48px 30px;
+  box-shadow: 0 0 80px rgb(201 162 75 / 20%);
+}
+.stage-step-rank {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 46px; color: var(--accent); line-height: 1;
+}
+.stage-step-name {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 40px; line-height: 1.16; margin: 14px 0 8px; text-wrap: balance;
+}
+.stage-step.one .stage-step-name { font-size: 50px; }
+.stage-step-school { font-size: 21px; color: var(--ink-dim); line-height: 1.4; }
+.stage-step-marks {
+  margin-top: 16px;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 56px; color: var(--accent-light); font-variant-numeric: tabular-nums;
+}
+.stage-step-marks span { font-size: 26px; color: var(--ink-dim); }
+
+.stage-tail { margin-top: 30px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 34px; }
+.stage-tail-row {
+  display: grid; grid-template-columns: 60px 1fr auto;
+  gap: 18px; align-items: baseline;
+  padding: 12px 18px; border-radius: 10px;
+  background: rgb(251 247 239 / 4%);
+}
+.stage-tail-rank { font-size: 26px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.stage-tail-name { font-size: 28px; }
+.stage-tail-sub  { font-size: 18px; color: var(--ink-dim); }
+.stage-tail-marks { font-size: 30px; color: var(--accent-light); font-variant-numeric: tabular-nums; }
+
+/* columns (streams) */
+.stage-cols { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-content: center; }
+
+/* list (zones, districts, centres, schools) */
+.stage-list { flex: 1; display: grid; align-content: start; gap: 9px; }
+.stage-list.two { grid-template-columns: 1fr 1fr; gap: 9px 34px; }
+.stage-list-row {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) 1.4fr auto;
+  gap: 24px; align-items: center;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 1px solid rgb(201 162 75 / 20%);
+  background: rgb(251 247 239 / 4%);
+}
+.stage-list-anchor {
+  font-size: 21px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+}
+.stage-list-name { font-family: var(--font-display, Georgia, serif); font-size: 32px; line-height: 1.2; }
+.stage-list-sub { font-size: 18px; color: var(--ink-dim); margin-top: 3px; }
+.stage-list-marks {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 40px; color: var(--accent-light); font-variant-numeric: tabular-nums;
+}
+
+/* finale */
+.stage-finale { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; }
+.stage-finale-row {
+  width: 1180px;
+  display: grid; grid-template-columns: 96px 1fr auto;
+  gap: 30px; align-items: center;
+  padding: 30px 40px;
+  border-radius: 20px;
+  border: 1px solid rgb(201 162 75 / 34%);
+  background: rgb(251 247 239 / 5%);
+}
+.stage-finale-row.one {
+  border-color: var(--accent);
+  background: linear-gradient(90deg, rgb(201 162 75 / 24%), rgb(201 162 75 / 5%));
+  box-shadow: 0 0 90px rgb(201 162 75 / 22%);
+}
+.stage-finale-rank { font-family: var(--font-display, Georgia, serif); font-size: 74px; color: var(--accent); line-height: 1; }
+.stage-finale-name { font-family: var(--font-display, Georgia, serif); font-size: 52px; line-height: 1.1; }
+.stage-finale-sub { font-size: 22px; color: var(--ink-dim); margin-top: 6px; }
+.stage-finale-marks { font-family: var(--font-display, Georgia, serif); font-size: 72px; color: var(--accent-light); font-variant-numeric: tabular-nums; }
+
+/* ── operator chrome — never for the audience, always for the driver ──── */
+.stage-rail { position: absolute; left: 96px; right: 96px; bottom: 40px; display: flex; align-items: center; gap: 16px; }
+.stage-pips { display: flex; gap: 7px; flex: 1; }
+.stage-pip { height: 4px; flex: 1; border-radius: 2px; background: rgb(251 247 239 / 14%); }
+.stage-pip[data-on="1"] { background: rgb(201 162 75 / 55%); }
+.stage-pip[data-on="2"] { background: var(--accent-light); }
+.stage-rail-label { font-size: 16px; letter-spacing: 0.2em; color: rgb(201 188 168 / 65%); }
+
+.stage-flag {
+  position: absolute; top: 26px; left: 50%; transform: translateX(-50%);
+  font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase;
+  padding: 8px 18px; border-radius: 999px;
+  border: 1px solid var(--accent); color: var(--accent-light);
+  background: rgb(43 26 28 / 80%);
+}
+.stage-error {
+  position: absolute; bottom: 92px; left: 50%; transform: translateX(-50%);
+  max-width: 1100px; text-align: center;
+  font-size: 22px; line-height: 1.5; color: #FFD9DD;
+  border: 1px solid #C98D95; background: rgb(123 30 43 / 55%);
+  padding: 18px 26px; border-radius: 12px;
+}
+.stage-help {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgb(26 15 17 / 88%); z-index: 5;
+}
+.stage-help dl { display: grid; grid-template-columns: auto 1fr; gap: 14px 30px; font-size: 26px; }
+.stage-help dt { color: var(--accent); letter-spacing: 0.12em; }
+
+.stage-locked {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 16px; text-align: center; padding: 40px;
+  background: #1A0F11; color: #FBF7EF;
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+}
+.stage-locked h1 { font-family: var(--font-display, Georgia, serif); font-size: 42px; }
+.stage-locked p { max-width: 520px; line-height: 1.6; color: #C9BCA8; }
+.stage-locked code { color: #E5BE7A; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-breathe, .stage-flash, .stage-rise,
+  .stage-declare-word, .stage-declare-rule, .stage-declare-line { animation: none; }
+  .stage-carry { transition: none; }
+}

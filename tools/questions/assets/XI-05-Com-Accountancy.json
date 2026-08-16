@@ -2,20 +2,43 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Introduction to Accounting",
-  "approved": false,
+  "approved": true,
   "trick": "Bookkeeping records, accounting interprets. Bookkeeping is the clerical half that writes transactions down; accounting is what turns those records into statements someone can make a decision from. Almost every 'difference between' question in this chapter is that one sentence.",
-  "video": { "query": "introduction to accounting bookkeeping objectives class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "introduction to accounting bookkeeping objectives class 11 accountancy",
+   "video_id": "fsYW1Iig3oI",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each accounting term with its meaning.",
     "pairs": [
-     { "left": "Capital", "right": "What the owner has invested; a liability of the business to the owner" },
-     { "left": "Drawings", "right": "Cash or goods taken out of the business by the owner" },
-     { "left": "Debtor", "right": "A person who owes money to the business" },
-     { "left": "Creditor", "right": "A person to whom the business owes money" },
-     { "left": "Asset", "right": "A resource owned by the business that yields future benefit" },
-     { "left": "Revenue", "right": "Income earned from the ordinary activities of the business" }
+     {
+      "left": "Capital",
+      "right": "What the owner has invested; a liability of the business to the owner"
+     },
+     {
+      "left": "Drawings",
+      "right": "Cash or goods taken out of the business by the owner"
+     },
+     {
+      "left": "Debtor",
+      "right": "A person who owes money to the business"
+     },
+     {
+      "left": "Creditor",
+      "right": "A person to whom the business owes money"
+     },
+     {
+      "left": "Asset",
+      "right": "A resource owned by the business that yields future benefit"
+     },
+     {
+      "left": "Revenue",
+      "right": "Income earned from the ordinary activities of the business"
+     }
     ]
    }
   }
@@ -23,20 +46,43 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Accounting Concepts, Principles and Conventions",
-  "approved": false,
+  "approved": true,
   "trick": "The business entity concept underlies everything else: the business and its owner are separate people. That is why the owner's capital is shown as a liability, and why money taken out is called drawings rather than an expense.",
-  "video": { "query": "accounting concepts conventions going concern accrual class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "accounting concepts conventions going concern accrual class 11 accountancy",
+   "video_id": "3NAMjJ6quuU",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each concept with what it means in practice.",
     "pairs": [
-     { "left": "Business entity concept", "right": "The business is treated as separate from its owner" },
-     { "left": "Going concern concept", "right": "The business is assumed to continue for the foreseeable future" },
-     { "left": "Money measurement concept", "right": "Only what can be expressed in money is recorded" },
-     { "left": "Dual aspect concept", "right": "Every transaction has two effects; the basis of double entry" },
-     { "left": "Conservatism or prudence", "right": "Provide for all losses, anticipate no profits" },
-     { "left": "Matching concept", "right": "Expenses are set against the revenues of the same period" }
+     {
+      "left": "Business entity concept",
+      "right": "The business is treated as separate from its owner"
+     },
+     {
+      "left": "Going concern concept",
+      "right": "The business is assumed to continue for the foreseeable future"
+     },
+     {
+      "left": "Money measurement concept",
+      "right": "Only what can be expressed in money is recorded"
+     },
+     {
+      "left": "Dual aspect concept",
+      "right": "Every transaction has two effects; the basis of double entry"
+     },
+     {
+      "left": "Conservatism or prudence",
+      "right": "Provide for all losses, anticipate no profits"
+     },
+     {
+      "left": "Matching concept",
+      "right": "Expenses are set against the revenues of the same period"
+     }
     ]
    }
   }
@@ -44,24 +90,60 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Classification of Accounts and the Rules of Debit and Credit",
-  "approved": false,
+  "approved": true,
   "trick": "Three accounts, three rules. Personal: debit the receiver, credit the giver. Real: debit what comes in, credit what goes out. Nominal: debit expenses and losses, credit incomes and gains. Identify the type first and the rule follows automatically.",
-  "video": { "query": "types of accounts golden rules of debit and credit class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "types of accounts golden rules of debit and credit class 11 accountancy",
+   "video_id": "t_RXtXGEDBo",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which type of account is each one?",
-    "bins": ["Personal account", "Real account", "Nominal account"],
+    "bins": [
+     "Personal account",
+     "Real account",
+     "Nominal account"
+    ],
     "items": [
-     { "label": "Ram's account", "bin": "Personal account" },
-     { "label": "Bank account", "bin": "Personal account" },
-     { "label": "Capital account", "bin": "Personal account" },
-     { "label": "Cash account", "bin": "Real account" },
-     { "label": "Furniture account", "bin": "Real account" },
-     { "label": "Building account", "bin": "Real account" },
-     { "label": "Salary account", "bin": "Nominal account" },
-     { "label": "Rent received account", "bin": "Nominal account" },
-     { "label": "Discount allowed account", "bin": "Nominal account" }
+     {
+      "label": "Ram's account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Bank account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Capital account",
+      "bin": "Personal account"
+     },
+     {
+      "label": "Cash account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Furniture account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Building account",
+      "bin": "Real account"
+     },
+     {
+      "label": "Salary account",
+      "bin": "Nominal account"
+     },
+     {
+      "label": "Rent received account",
+      "bin": "Nominal account"
+     },
+     {
+      "label": "Discount allowed account",
+      "bin": "Nominal account"
+     }
     ]
    }
   }
@@ -69,9 +151,13 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Recording of Transactions: Journal and Ledger",
-  "approved": false,
+  "approved": true,
   "trick": "The journal is the diary and the ledger is the filing cabinet. Every transaction is written once in date order in the journal, then sorted into its own account in the ledger. Journalise first, post second — never the other way round.",
-  "video": { "query": "journal entries ledger posting class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "journal entries ledger posting class 11 accountancy",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -80,19 +166,29 @@
     "steps": [
      {
       "ask": "Which two accounts are affected?",
-      "options": ["Furniture and Cash", "Purchases and Cash", "Furniture and Capital"],
+      "options": [
+       "Furniture and Cash",
+       "Purchases and Cash",
+       "Furniture and Capital"
+      ],
       "correct": 0,
       "why": "Furniture is an asset coming in and cash is an asset going out. Note it is not Purchases: that account is only for goods bought to resell."
      },
      {
       "ask": "Both are real accounts. Which is debited?",
-      "options": ["Furniture, because it comes in", "Cash, because it goes out"],
+      "options": [
+       "Furniture, because it comes in",
+       "Cash, because it goes out"
+      ],
       "correct": 0,
       "why": "For real accounts the rule is debit what comes in, credit what goes out. The furniture comes in, so it is debited."
      },
      {
       "ask": "So the entry is",
-      "options": ["Furniture A/c Dr ₹20,000; To Cash A/c ₹20,000", "Cash A/c Dr ₹20,000; To Furniture A/c ₹20,000"],
+      "options": [
+       "Furniture A/c Dr ₹20,000; To Cash A/c ₹20,000",
+       "Cash A/c Dr ₹20,000; To Furniture A/c ₹20,000"
+      ],
       "correct": 0,
       "why": "Furniture is debited and cash credited. The total of debits equals the total of credits, as it must in every entry."
      }
@@ -104,20 +200,43 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Subsidiary Books and Bank Transactions",
-  "approved": false,
+  "approved": true,
   "trick": "Subsidiary books exist because writing every credit sale in the journal would be unbearable. Each book takes one repeated kind of transaction. And remember the cash book is both a journal and a ledger account at once, which is why it needs no separate ledger posting.",
-  "video": { "query": "subsidiary books cash book bank reconciliation statement class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "subsidiary books cash book bank reconciliation statement class 11 accountancy",
+   "video_id": "XPMsEuVHZ4A",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Which subsidiary book records each transaction?",
     "pairs": [
-     { "left": "Credit sale of goods", "right": "Sales Book" },
-     { "left": "Credit purchase of goods", "right": "Purchases Book" },
-     { "left": "Goods returned by a customer", "right": "Sales Return Book" },
-     { "left": "Goods returned to a supplier", "right": "Purchases Return Book" },
-     { "left": "All receipts and payments of cash", "right": "Cash Book" },
-     { "left": "Bills of exchange accepted and received", "right": "Bills Receivable Book" }
+     {
+      "left": "Credit sale of goods",
+      "right": "Sales Book"
+     },
+     {
+      "left": "Credit purchase of goods",
+      "right": "Purchases Book"
+     },
+     {
+      "left": "Goods returned by a customer",
+      "right": "Sales Return Book"
+     },
+     {
+      "left": "Goods returned to a supplier",
+      "right": "Purchases Return Book"
+     },
+     {
+      "left": "All receipts and payments of cash",
+      "right": "Cash Book"
+     },
+     {
+      "left": "Bills of exchange accepted and received",
+      "right": "Bills Receivable Book"
+     }
     ]
    }
   }
@@ -125,19 +244,44 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Trial Balance",
-  "approved": false,
+  "approved": true,
   "trick": "A trial balance that agrees does not prove the books are right. An entry posted to the wrong account, or omitted altogether, leaves both sides equal and the error invisible. It proves arithmetical accuracy only, and examiners ask exactly that.",
-  "video": { "query": "trial balance preparation errors class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "trial balance preparation errors class 11 accountancy",
+   "video_id": "eB4m7Gm_Blk",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about the trial balance.",
     "items": [
-     { "statement": "An agreed trial balance proves that the accounts contain no errors.", "is_true": false, "why": "It proves arithmetical accuracy only. Errors of omission, of principle and compensating errors all leave it in agreement." },
-     { "statement": "All assets and expenses normally carry debit balances.", "is_true": true, "why": "And liabilities, capital and incomes carry credit balances. That pairing is what makes the two columns agree." },
-     { "statement": "If a transaction is completely omitted, the trial balance will not agree.", "is_true": false, "why": "Omitting the whole entry removes an equal debit and credit, so both sides fall by the same amount and it still agrees." },
-     { "statement": "The trial balance is prepared before the final accounts.", "is_true": true, "why": "It is the bridge between the ledger and the trading, profit and loss account and balance sheet." },
-     { "statement": "Purchases Return appears on the credit side of the trial balance.", "is_true": true, "why": "It reduces purchases, so its balance is a credit. Sales Return, by the same logic, is a debit." }
+     {
+      "statement": "An agreed trial balance proves that the accounts contain no errors.",
+      "is_true": false,
+      "why": "It proves arithmetical accuracy only. Errors of omission, of principle and compensating errors all leave it in agreement."
+     },
+     {
+      "statement": "All assets and expenses normally carry debit balances.",
+      "is_true": true,
+      "why": "And liabilities, capital and incomes carry credit balances. That pairing is what makes the two columns agree."
+     },
+     {
+      "statement": "If a transaction is completely omitted, the trial balance will not agree.",
+      "is_true": false,
+      "why": "Omitting the whole entry removes an equal debit and credit, so both sides fall by the same amount and it still agrees."
+     },
+     {
+      "statement": "The trial balance is prepared before the final accounts.",
+      "is_true": true,
+      "why": "It is the bridge between the ledger and the trading, profit and loss account and balance sheet."
+     },
+     {
+      "statement": "Purchases Return appears on the credit side of the trial balance.",
+      "is_true": true,
+      "why": "It reduces purchases, so its balance is a credit. Sales Return, by the same logic, is a debit."
+     }
     ]
    }
   }
@@ -145,9 +289,14 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Depreciation",
-  "approved": false,
+  "approved": true,
   "trick": "Straight line spreads the cost evenly; written down value charges more in the early years. So under the diminishing balance method the depreciation amount falls every year while the rate stays the same — that is the distinction most questions turn on.",
-  "video": { "query": "depreciation straight line written down value method class 11 accountancy", "video_id": null, "approved": false },
+  "video": {
+   "query": "depreciation straight line written down value method class 11 accountancy",
+   "video_id": "u02oXq9Y7bk",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
@@ -156,25 +305,40 @@
     "steps": [
      {
       "ask": "Straight line: what is the amount to be written off in total?",
-      "options": ["₹1,00,000", "₹90,000", "₹10,000"],
+      "options": [
+       "₹1,00,000",
+       "₹90,000",
+       "₹10,000"
+      ],
       "correct": 1,
       "why": "Cost minus scrap value, that is 1,00,000 − 10,000 = ₹90,000. Forgetting to deduct the scrap value is the standard error."
      },
      {
       "ask": "So the annual straight line depreciation is",
-      "options": ["₹10,000", "₹11,111", "₹9,000"],
+      "options": [
+       "₹10,000",
+       "₹11,111",
+       "₹9,000"
+      ],
       "correct": 0,
       "why": "₹90,000 ÷ 9 years = ₹10,000 a year, the same every year."
      },
      {
       "ask": "Written down value at 10%: what is the first year's charge?",
-      "options": ["₹10,000", "₹9,000"],
+      "options": [
+       "₹10,000",
+       "₹9,000"
+      ],
       "correct": 0,
       "why": "10% of the full cost of ₹1,00,000 is ₹10,000. In the first year both methods happen to agree here."
      },
      {
       "ask": "And the second year's charge?",
-      "options": ["₹10,000", "₹9,000", "₹8,100"],
+      "options": [
+       "₹10,000",
+       "₹9,000",
+       "₹8,100"
+      ],
       "correct": 1,
       "why": "The book value is now ₹90,000, and 10% of that is ₹9,000. The rate stays at 10% but the amount falls each year — that is the whole difference between the two methods."
      }
@@ -186,24 +350,60 @@
  {
   "bucket": "XI|Commerce|Accountancy",
   "chapter": "Final Accounts and Adjustments",
-  "approved": false,
+  "approved": true,
   "trick": "Every adjustment is entered twice — once in the trading or profit and loss account and once in the balance sheet. If an adjustment appears only once in your answer, you have made a mistake, whatever the figures say.",
-  "video": { "query": "final accounts trading profit and loss balance sheet adjustments class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "final accounts trading profit and loss balance sheet adjustments class 11",
+   "video_id": "-NchB9ZjLFw",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Where does each item finally appear?",
-    "bins": ["Trading Account", "Profit and Loss Account", "Balance Sheet"],
+    "bins": [
+     "Trading Account",
+     "Profit and Loss Account",
+     "Balance Sheet"
+    ],
     "items": [
-     { "label": "Opening stock", "bin": "Trading Account" },
-     { "label": "Purchases and carriage inwards", "bin": "Trading Account" },
-     { "label": "Wages paid in the factory", "bin": "Trading Account" },
-     { "label": "Salaries and rent of the office", "bin": "Profit and Loss Account" },
-     { "label": "Discount allowed", "bin": "Profit and Loss Account" },
-     { "label": "Depreciation for the year", "bin": "Profit and Loss Account" },
-     { "label": "Closing stock", "bin": "Balance Sheet" },
-     { "label": "Sundry debtors and creditors", "bin": "Balance Sheet" },
-     { "label": "Prepaid insurance", "bin": "Balance Sheet" }
+     {
+      "label": "Opening stock",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Purchases and carriage inwards",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Wages paid in the factory",
+      "bin": "Trading Account"
+     },
+     {
+      "label": "Salaries and rent of the office",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Discount allowed",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Depreciation for the year",
+      "bin": "Profit and Loss Account"
+     },
+     {
+      "label": "Closing stock",
+      "bin": "Balance Sheet"
+     },
+     {
+      "label": "Sundry debtors and creditors",
+      "bin": "Balance Sheet"
+     },
+     {
+      "label": "Prepaid insurance",
+      "bin": "Balance Sheet"
+     }
     ]
    }
   }

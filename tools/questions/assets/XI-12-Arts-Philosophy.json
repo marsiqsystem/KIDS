@@ -2,23 +2,57 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Branches of Philosophy: Epistemology and Metaphysics",
-  "approved": false,
+  "approved": true,
   "trick": "Three questions, three branches. What exists? — metaphysics. How do we know? — epistemology. What ought we to do? — ethics. Any term in this chapter can be placed by asking which of those three questions it answers.",
-  "video": { "query": "branches of philosophy epistemology metaphysics ethics class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "branches of philosophy epistemology metaphysics ethics class 11",
+   "video_id": "4TTwp-E3xsE",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which branch of philosophy does each question belong to?",
-    "bins": ["Metaphysics", "Epistemology", "Ethics", "Logic"],
+    "bins": [
+     "Metaphysics",
+     "Epistemology",
+     "Ethics",
+     "Logic"
+    ],
     "items": [
-     { "label": "Is reality ultimately one or many?", "bin": "Metaphysics" },
-     { "label": "Can the senses give certain knowledge?", "bin": "Epistemology" },
-     { "label": "Is an action right because of its consequences?", "bin": "Ethics" },
-     { "label": "Does this conclusion follow from these premises?", "bin": "Logic" },
-     { "label": "What is the nature of the soul?", "bin": "Metaphysics" },
-     { "label": "What is the difference between belief and knowledge?", "bin": "Epistemology" },
-     { "label": "What makes a life a good life?", "bin": "Ethics" },
-     { "label": "What is a valid syllogism?", "bin": "Logic" }
+     {
+      "label": "Is reality ultimately one or many?",
+      "bin": "Metaphysics"
+     },
+     {
+      "label": "Can the senses give certain knowledge?",
+      "bin": "Epistemology"
+     },
+     {
+      "label": "Is an action right because of its consequences?",
+      "bin": "Ethics"
+     },
+     {
+      "label": "Does this conclusion follow from these premises?",
+      "bin": "Logic"
+     },
+     {
+      "label": "What is the nature of the soul?",
+      "bin": "Metaphysics"
+     },
+     {
+      "label": "What is the difference between belief and knowledge?",
+      "bin": "Epistemology"
+     },
+     {
+      "label": "What makes a life a good life?",
+      "bin": "Ethics"
+     },
+     {
+      "label": "What is a valid syllogism?",
+      "bin": "Logic"
+     }
     ]
    }
   }
@@ -26,19 +60,44 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Indian Philosophy: Charvaka",
-  "approved": false,
+  "approved": true,
   "trick": "Charvaka accepts perception alone as a source of knowledge, and everything else follows from that one refusal — no inference, so no unseen soul, no afterlife, no God, and four elements rather than five, because ether is never perceived. It is the only openly materialist school, and the only nastika school that rejects the Vedas outright and offers nothing spiritual in return.",
-  "video": { "query": "charvaka lokayata materialism indian philosophy class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "charvaka lokayata materialism indian philosophy class 11",
+   "video_id": "PG7yTD6KTvo",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about Charvaka.",
     "items": [
-     { "statement": "Charvaka accepts perception (pratyaksha) as the only valid source of knowledge.", "is_true": true, "why": "It rejects inference and testimony, because both take you beyond what is actually seen." },
-     { "statement": "Charvaka accepts five elements, including ether.", "is_true": false, "why": "It accepts only four — earth, water, fire and air. Ether is never perceived, so by its own rule it cannot be admitted." },
-     { "statement": "Charvaka is an astika school because it is Indian.", "is_true": false, "why": "Astika and nastika turn on whether the Vedas are accepted as authority, not on being Indian. Charvaka, Buddhism and Jainism are all nastika." },
-     { "statement": "Charvaka holds that consciousness arises from matter.", "is_true": true, "why": "As the power to intoxicate arises when ingredients are fermented, consciousness is said to arise when the elements combine in a body — and ends with it." },
-     { "statement": "Charvaka is also known as Lokayata.", "is_true": true, "why": "Lokayata means 'of this world', which is exactly the school's position: this world is all there is." }
+     {
+      "statement": "Charvaka accepts perception (pratyaksha) as the only valid source of knowledge.",
+      "is_true": true,
+      "why": "It rejects inference and testimony, because both take you beyond what is actually seen."
+     },
+     {
+      "statement": "Charvaka accepts five elements, including ether.",
+      "is_true": false,
+      "why": "It accepts only four — earth, water, fire and air. Ether is never perceived, so by its own rule it cannot be admitted."
+     },
+     {
+      "statement": "Charvaka is an astika school because it is Indian.",
+      "is_true": false,
+      "why": "Astika and nastika turn on whether the Vedas are accepted as authority, not on being Indian. Charvaka, Buddhism and Jainism are all nastika."
+     },
+     {
+      "statement": "Charvaka holds that consciousness arises from matter.",
+      "is_true": true,
+      "why": "As the power to intoxicate arises when ingredients are fermented, consciousness is said to arise when the elements combine in a body — and ends with it."
+     },
+     {
+      "statement": "Charvaka is also known as Lokayata.",
+      "is_true": true,
+      "why": "Lokayata means 'of this world', which is exactly the school's position: this world is all there is."
+     }
     ]
    }
   }
@@ -46,25 +105,64 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Indian Philosophy: Buddhism and Jainism",
-  "approved": false,
+  "approved": true,
   "trick": "Both are nastika, both teach ahimsa, and questions exploit the overlap — so hold on to what is unique. Buddhism: Four Noble Truths, Eightfold Path, momentariness, no permanent soul. Jainism: three jewels, seven tattvas, syadvada, and a soul (jiva) that very much exists. When a question offers a doctrine both could claim, look for the word that decides it.",
-  "video": { "query": "buddhism four noble truths jainism syadvada anekantavada class 11 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "buddhism four noble truths jainism syadvada anekantavada class 11 philosophy",
+   "video_id": "3j6CtixEWKU",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which school does each doctrine belong to? Some belong to both.",
-    "bins": ["Buddhism", "Jainism", "Both"],
+    "bins": [
+     "Buddhism",
+     "Jainism",
+     "Both"
+    ],
     "items": [
-     { "label": "The Four Noble Truths", "bin": "Buddhism" },
-     { "label": "The three jewels: right faith, knowledge, conduct", "bin": "Jainism" },
-     { "label": "Ahimsa as a central principle", "bin": "Both" },
-     { "label": "Anatta — there is no permanent self", "bin": "Buddhism" },
-     { "label": "Syadvada — every judgement is conditional", "bin": "Jainism" },
-     { "label": "Rejection of the authority of the Vedas", "bin": "Both" },
-     { "label": "The doctrine of momentariness (kshanikavada)", "bin": "Buddhism" },
-     { "label": "Anekantavada — reality has many aspects", "bin": "Jainism" },
-     { "label": "The theory of dependent origination", "bin": "Buddhism" },
-     { "label": "Liberation from the cycle of rebirth as the goal", "bin": "Both" }
+     {
+      "label": "The Four Noble Truths",
+      "bin": "Buddhism"
+     },
+     {
+      "label": "The three jewels: right faith, knowledge, conduct",
+      "bin": "Jainism"
+     },
+     {
+      "label": "Ahimsa as a central principle",
+      "bin": "Both"
+     },
+     {
+      "label": "Anatta — there is no permanent self",
+      "bin": "Buddhism"
+     },
+     {
+      "label": "Syadvada — every judgement is conditional",
+      "bin": "Jainism"
+     },
+     {
+      "label": "Rejection of the authority of the Vedas",
+      "bin": "Both"
+     },
+     {
+      "label": "The doctrine of momentariness (kshanikavada)",
+      "bin": "Buddhism"
+     },
+     {
+      "label": "Anekantavada — reality has many aspects",
+      "bin": "Jainism"
+     },
+     {
+      "label": "The theory of dependent origination",
+      "bin": "Buddhism"
+     },
+     {
+      "label": "Liberation from the cycle of rebirth as the goal",
+      "bin": "Both"
+     }
     ]
    }
   }
@@ -72,22 +170,51 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "The Vedas and Vedanta",
-  "approved": false,
+  "approved": true,
   "trick": "The four parts of Vedic literature run in order of life as much as of text: Samhita the hymns, Brahmana the ritual, Aranyaka the forest, Upanishad the philosophy. Vedanta means literally 'the end of the Vedas' — it is the Upanishads, and that is why Vedanta is the philosophical part and not a separate book.",
-  "video": { "query": "vedas samhita brahmana aranyaka upanishad vedanta class 11 philosophy", "video_id": null, "approved": false },
+  "video": {
+   "query": "vedas samhita brahmana aranyaka upanishad vedanta class 11 philosophy",
+   "video_id": "wSl-jUE_om8",
+   "approved": true,
+   "language": "BENGALI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with what it means.",
     "pairs": [
-     { "left": "Samhita", "right": "The collection of hymns — the oldest layer" },
-     { "left": "Brahmana", "right": "Prose explaining the performance of sacrifice and ritual" },
-     { "left": "Aranyaka", "right": "The 'forest texts', bridging ritual and philosophy" },
-     { "left": "Upanishad", "right": "The philosophical conclusion of the Vedas — Vedanta" },
-     { "left": "Rigveda", "right": "The earliest Veda, hymns of praise" },
-     { "left": "Samaveda", "right": "The Veda of melodies and chants" },
-     { "left": "Brahman", "right": "The ultimate reality underlying everything" },
-     { "left": "Atman", "right": "The self, held by Vedanta to be one with Brahman" }
+     {
+      "left": "Samhita",
+      "right": "The collection of hymns — the oldest layer"
+     },
+     {
+      "left": "Brahmana",
+      "right": "Prose explaining the performance of sacrifice and ritual"
+     },
+     {
+      "left": "Aranyaka",
+      "right": "The 'forest texts', bridging ritual and philosophy"
+     },
+     {
+      "left": "Upanishad",
+      "right": "The philosophical conclusion of the Vedas — Vedanta"
+     },
+     {
+      "left": "Rigveda",
+      "right": "The earliest Veda, hymns of praise"
+     },
+     {
+      "left": "Samaveda",
+      "right": "The Veda of melodies and chants"
+     },
+     {
+      "left": "Brahman",
+      "right": "The ultimate reality underlying everything"
+     },
+     {
+      "left": "Atman",
+      "right": "The self, held by Vedanta to be one with Brahman"
+     }
     ]
    }
   }
@@ -95,23 +222,54 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Western Thinkers: Plato and Locke",
-  "approved": false,
+  "approved": true,
   "trick": "Plato is the rationalist: real knowledge is of eternal Forms, and the senses only show shadows. Locke is the empiricist: the mind begins as a blank slate, tabula rasa, and every idea arrives through experience. They answer the same question — where does knowledge come from — in exactly opposite ways.",
-  "video": { "query": "plato theory of forms locke tabula rasa empiricism rationalism class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "plato theory of forms locke tabula rasa empiricism rationalism class 11",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each idea by the thinker it belongs to.",
-    "bins": ["Plato", "Locke"],
+    "bins": [
+     "Plato",
+     "Locke"
+    ],
     "items": [
-     { "label": "The Theory of Forms or Ideas", "bin": "Plato" },
-     { "label": "The mind at birth is a tabula rasa", "bin": "Locke" },
-     { "label": "The Allegory of the Cave", "bin": "Plato" },
-     { "label": "All ideas come from sensation and reflection", "bin": "Locke" },
-     { "label": "Knowledge is recollection of what the soul already knew", "bin": "Plato" },
-     { "label": "The distinction between primary and secondary qualities", "bin": "Locke" },
-     { "label": "The senses give only opinion, not knowledge", "bin": "Plato" },
-     { "label": "There are no innate ideas", "bin": "Locke" }
+     {
+      "label": "The Theory of Forms or Ideas",
+      "bin": "Plato"
+     },
+     {
+      "label": "The mind at birth is a tabula rasa",
+      "bin": "Locke"
+     },
+     {
+      "label": "The Allegory of the Cave",
+      "bin": "Plato"
+     },
+     {
+      "label": "All ideas come from sensation and reflection",
+      "bin": "Locke"
+     },
+     {
+      "label": "Knowledge is recollection of what the soul already knew",
+      "bin": "Plato"
+     },
+     {
+      "label": "The distinction between primary and secondary qualities",
+      "bin": "Locke"
+     },
+     {
+      "label": "The senses give only opinion, not knowledge",
+      "bin": "Plato"
+     },
+     {
+      "label": "There are no innate ideas",
+      "bin": "Locke"
+     }
     ]
    }
   }
@@ -119,21 +277,47 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Philosophy of Education and Educational Thinkers",
-  "approved": false,
+  "approved": true,
   "trick": "Each philosophy hands education a different aim, and the aim gives away the school. Idealism aims at spiritual self-realisation, naturalism at growth by nature's own plan, pragmatism at solving real problems by doing. Match the aim to the -ism and the method follows on its own.",
-  "video": { "query": "idealism naturalism pragmatism philosophy of education class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "idealism naturalism pragmatism philosophy of education class 11",
+   "video_id": "vJFjWdEUeVQ",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each philosophy of education with what it holds.",
     "pairs": [
-     { "left": "Idealism", "right": "Education aims at self-realisation and the development of spiritual values" },
-     { "left": "Naturalism", "right": "Follow nature; the child grows by its own law and the teacher does not interfere" },
-     { "left": "Pragmatism", "right": "Truth is what works; education is learning by doing and by solving problems" },
-     { "left": "Realism", "right": "The world exists independently of the mind, so teach it as it is, through the senses" },
-     { "left": "Rousseau", "right": "Naturalism — Emile, the child left to nature's own schooling" },
-     { "left": "John Dewey", "right": "Pragmatism — education is life itself, not preparation for life" },
-     { "left": "Plato", "right": "Idealism — turning the soul towards the Good" }
+     {
+      "left": "Idealism",
+      "right": "Education aims at self-realisation and the development of spiritual values"
+     },
+     {
+      "left": "Naturalism",
+      "right": "Follow nature; the child grows by its own law and the teacher does not interfere"
+     },
+     {
+      "left": "Pragmatism",
+      "right": "Truth is what works; education is learning by doing and by solving problems"
+     },
+     {
+      "left": "Realism",
+      "right": "The world exists independently of the mind, so teach it as it is, through the senses"
+     },
+     {
+      "left": "Rousseau",
+      "right": "Naturalism — Emile, the child left to nature's own schooling"
+     },
+     {
+      "left": "John Dewey",
+      "right": "Pragmatism — education is life itself, not preparation for life"
+     },
+     {
+      "left": "Plato",
+      "right": "Idealism — turning the soul towards the Good"
+     }
     ]
    }
   }
@@ -141,22 +325,51 @@
  {
   "bucket": "XI|Arts|Philosophy",
   "chapter": "Theories of Learning",
-  "approved": false,
+  "approved": true,
   "trick": "Three experiments, three theories, and the animal tells you which is which. A dog and a bell is Pavlov's classical conditioning. A cat in a puzzle box is Thorndike's trial and error. A rat pressing a lever for food is Skinner's operant conditioning. Kohler's apes reaching a banana are the insight theory that rejects trial and error altogether.",
-  "video": { "query": "pavlov thorndike skinner kohler theories of learning class 11 psychology", "video_id": null, "approved": false },
+  "video": {
+   "query": "pavlov thorndike skinner kohler theories of learning class 11 psychology",
+   "video_id": "ngZIdTADWT8",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each theorist with the experiment and the idea it produced.",
     "pairs": [
-     { "left": "Pavlov", "right": "A dog salivating at a bell — classical conditioning" },
-     { "left": "Thorndike", "right": "A cat escaping a puzzle box — learning by trial and error" },
-     { "left": "Skinner", "right": "A rat pressing a lever for food — operant conditioning and reinforcement" },
-     { "left": "Kohler", "right": "An ape joining sticks to reach a banana — learning by insight" },
-     { "left": "Law of Effect", "right": "Thorndike: responses followed by satisfaction are repeated" },
-     { "left": "Law of Exercise", "right": "Thorndike: a connection strengthens with practice and weakens without it" },
-     { "left": "Unconditioned stimulus", "right": "The food, which produces the response without any learning" },
-     { "left": "Reinforcement", "right": "Anything that makes a response more likely to occur again" }
+     {
+      "left": "Pavlov",
+      "right": "A dog salivating at a bell — classical conditioning"
+     },
+     {
+      "left": "Thorndike",
+      "right": "A cat escaping a puzzle box — learning by trial and error"
+     },
+     {
+      "left": "Skinner",
+      "right": "A rat pressing a lever for food — operant conditioning and reinforcement"
+     },
+     {
+      "left": "Kohler",
+      "right": "An ape joining sticks to reach a banana — learning by insight"
+     },
+     {
+      "left": "Law of Effect",
+      "right": "Thorndike: responses followed by satisfaction are repeated"
+     },
+     {
+      "left": "Law of Exercise",
+      "right": "Thorndike: a connection strengthens with practice and weakens without it"
+     },
+     {
+      "left": "Unconditioned stimulus",
+      "right": "The food, which produces the response without any learning"
+     },
+     {
+      "left": "Reinforcement",
+      "right": "Anything that makes a response more likely to occur again"
+     }
     ]
    }
   }

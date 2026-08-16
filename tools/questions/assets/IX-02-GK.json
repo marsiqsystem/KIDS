@@ -2,7 +2,7 @@
  {
   "bucket": "IX|All|General Knowledge",
   "chapter": "GK: Space and the Natural World",
-  "approved": false,
+  "approved": true,
   "trick": "Sort the planets by what makes each one famous rather than by name alone: the hottest is Venus, the largest is Jupiter, the red one is Mars, the ringed one is Saturn. Examiners ask for the superlative, so learn the superlatives.",
   "video": {
    "query": "solar system planets facts largest hottest general knowledge for students",
@@ -48,7 +48,7 @@
  {
   "bucket": "IX|All|General Knowledge",
   "chapter": "GK: Indian National Symbols and Personalities",
-  "approved": false,
+  "approved": true,
   "trick": "The two commonest traps are a pair each. Bird is the peacock but animal is the tiger; the anthem is Jana Gana Mana but the song is Vande Mataram. Learn them as pairs and the questions stop being able to catch you.",
   "video": {
    "query": "national symbols of India list bird animal flower song anthem",
@@ -86,7 +86,7 @@
  {
   "bucket": "IX|All|General Knowledge",
   "chapter": "GK: Indian and World Geography",
-  "approved": false,
+  "approved": true,
   "trick": "Before you answer, ask whether the superlative is Indian or worldwide. The longest river in India is the Ganga, in the world the Nile; the highest peak in India is Kangchenjunga, in the world Everest. Same question, two answers.",
   "video": {
    "query": "Indian and world geography longest river highest mountain largest desert facts",
@@ -143,7 +143,7 @@
  {
   "bucket": "IX|All|General Knowledge",
   "chapter": "GK: International Organisations",
-  "approved": false,
+  "approved": true,
   "trick": "Most of these questions are really headquarters questions. Learn the city with the body: New York for the UN, Paris for UNESCO, Geneva for the WHO, Washington for the World Bank and the IMF. The odd one out is the International Court of Justice, at The Hague.",
   "video": {
    "query": "United Nations UNESCO WHO headquarters and functions general knowledge",

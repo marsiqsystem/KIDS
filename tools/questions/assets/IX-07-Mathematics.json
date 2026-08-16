@@ -2,7 +2,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Real Numbers and Surds",
-  "approved": false,
+  "approved": true,
   "trick": "To rationalise, multiply by the conjugate: change the sign in the middle. The middle terms then cancel and the surd disappears, because (a + b)(a − b) = a² − b². That one identity is the whole method.",
   "video": {
    "query": "rationalising the denominator surds conjugate class 9 maths",
@@ -55,7 +55,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Laws of Indices and Algebraic Identities",
-  "approved": false,
+  "approved": true,
   "trick": "Multiplying adds the powers, dividing subtracts them, a power of a power multiplies them. Say it as add, subtract, multiply and you will never mix the three up. And anything at all to the power zero is 1, except zero itself.",
   "video": {
    "query": "laws of indices and algebraic identities class 9 maths",
@@ -93,7 +93,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Coordinate Geometry",
-  "approved": false,
+  "approved": true,
   "trick": "Number the quadrants anticlockwise starting at the top right, and read the signs off the axes rather than memorising them. If the point is left of the vertical axis, x is negative; if it is below the horizontal axis, y is negative. That is all a quadrant is.",
   "video": {
    "query": "coordinate geometry quadrants signs of x and y class 9 maths",
@@ -140,7 +140,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Euclid's Axioms, Lines and Angles",
-  "approved": false,
+  "approved": true,
   "trick": "Euclid's axioms are the obvious truths that hold everywhere in mathematics; his postulates are the assumptions particular to geometry. If the statement would be just as true about numbers or weights, it is an axiom.",
   "video": {
    "query": "Euclid axioms postulates lines and angles class 9 maths",
@@ -186,7 +186,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Triangles: Properties and Congruence",
-  "approved": false,
+  "approved": true,
   "trick": "There are four congruence rules and one famous impostor. SSS, SAS, ASA and RHS all work; SSA does not, because two different triangles can be built from the same two sides and a non-included angle. If the angle is not between the two sides, stop.",
   "video": {
    "query": "triangle congruence criteria SSS SAS ASA RHS why SSA fails class 9",
@@ -214,7 +214,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Mensuration: Cube, Cuboid and Sphere",
-  "approved": false,
+  "approved": true,
   "trick": "Check the dimension before you check the formula. Anything measuring area must have length squared in it, anything measuring volume must have length cubed. That single check throws out most wrong options without any calculation.",
   "video": {
    "query": "surface area and volume of cube cuboid sphere formulas class 9 maths",
@@ -271,7 +271,7 @@
  {
   "bucket": "IX|All|Mathematics",
   "chapter": "Heron's Formula and Area of Triangles",
-  "approved": false,
+  "approved": true,
   "trick": "Heron's formula is for when you know all three sides and no height. Always compute s, the half perimeter, first and write it down; most mistakes in this topic are people using the full perimeter by accident.",
   "video": {
    "query": "Heron's formula area of triangle examples class 9 maths",

@@ -2,19 +2,44 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Relations and Functions",
-  "approved": false,
+  "approved": true,
   "trick": "Check the three properties one at a time and never assume. Reflexive needs (a,a) for EVERY a; symmetric needs the reverse of every pair present; transitive needs the shortcut of every chain. A relation can be symmetric and transitive and still fail to be reflexive, which is where most marks are lost.",
-  "video": { "query": "relations reflexive symmetric transitive equivalence functions class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "relations reflexive symmetric transitive equivalence functions class 12 maths",
+   "video_id": "nzhUetwBXWc",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "On the set A = {1, 2, 3}, mark each statement true or false.",
     "items": [
-     { "statement": "R = {(1,1), (2,2), (3,3)} is an equivalence relation.", "is_true": true, "why": "It is reflexive, and symmetric and transitive hold vacuously since there are no other pairs to check." },
-     { "statement": "R = {(1,2), (2,1)} is reflexive.", "is_true": false, "why": "It is symmetric, but (1,1), (2,2) and (3,3) are all missing, so it fails reflexivity — the classic trap." },
-     { "statement": "R = {(1,2), (2,3)} is transitive.", "is_true": false, "why": "It contains (1,2) and (2,3) but not (1,3), so the chain has no shortcut." },
-     { "statement": "A function f: A → A given by f = {(1,2), (2,3), (3,1)} is a bijection.", "is_true": true, "why": "Every element has exactly one image and every element is an image exactly once — one-one and onto." },
-     { "statement": "If f: A → B is one-one and A has more elements than B, f can still exist.", "is_true": false, "why": "A one-one function needs a distinct image for each element, which is impossible if the codomain is smaller." }
+     {
+      "statement": "R = {(1,1), (2,2), (3,3)} is an equivalence relation.",
+      "is_true": true,
+      "why": "It is reflexive, and symmetric and transitive hold vacuously since there are no other pairs to check."
+     },
+     {
+      "statement": "R = {(1,2), (2,1)} is reflexive.",
+      "is_true": false,
+      "why": "It is symmetric, but (1,1), (2,2) and (3,3) are all missing, so it fails reflexivity — the classic trap."
+     },
+     {
+      "statement": "R = {(1,2), (2,3)} is transitive.",
+      "is_true": false,
+      "why": "It contains (1,2) and (2,3) but not (1,3), so the chain has no shortcut."
+     },
+     {
+      "statement": "A function f: A → A given by f = {(1,2), (2,3), (3,1)} is a bijection.",
+      "is_true": true,
+      "why": "Every element has exactly one image and every element is an image exactly once — one-one and onto."
+     },
+     {
+      "statement": "If f: A → B is one-one and A has more elements than B, f can still exist.",
+      "is_true": false,
+      "why": "A one-one function needs a distinct image for each element, which is impossible if the codomain is smaller."
+     }
     ]
    }
   }
@@ -22,20 +47,70 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Inverse Trigonometric Functions",
-  "approved": false,
+  "approved": true,
   "trick": "Answer inside the principal range or the answer is wrong, however right the angle looks. sin⁻¹ lives in [−π/2, π/2], cos⁻¹ in [0, π], tan⁻¹ in (−π/2, π/2). So cos⁻¹(−½) is 2π/3, not −π/3 — the range for cos⁻¹ never goes negative.",
-  "video": { "query": "inverse trigonometric functions principal value branch class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "inverse trigonometric functions principal value branch class 12 maths",
+   "video_id": "rYZ1QCuD7Ag",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Find a principal value, checking the range at every step.",
     "problem": "Evaluate sin⁻¹(−1/2) + cos⁻¹(−1/2).",
     "steps": [
-     { "ask": "What is the principal range of sin⁻¹?", "options": ["[0, π]", "[−π/2, π/2]", "(−π/2, π/2)"], "correct": 1, "why": "sin⁻¹ takes values in [−π/2, π/2], closed at both ends." },
-     { "ask": "So what is sin⁻¹(−1/2)?", "options": ["−π/6", "7π/6", "11π/6"], "correct": 0, "why": "Both 7π/6 and 11π/6 have sine −1/2, but only −π/6 lies in the principal range." },
-     { "ask": "What is the principal range of cos⁻¹?", "options": ["[−π/2, π/2]", "[0, π]", "[0, 2π]"], "correct": 1, "why": "cos⁻¹ takes values in [0, π] — never negative, which is the point most often missed." },
-     { "ask": "So what is cos⁻¹(−1/2)?", "options": ["−π/3", "2π/3", "4π/3"], "correct": 1, "why": "cos(2π/3) = −1/2 and 2π/3 lies in [0, π]. −π/3 is outside the range and its cosine is +1/2 anyway." },
-     { "ask": "What is the sum?", "options": ["π/2", "−π/6 + 2π/3 = π/2", "π"], "correct": 1, "why": "−π/6 + 2π/3 = −π/6 + 4π/6 = 3π/6 = π/2. This is the identity sin⁻¹x + cos⁻¹x = π/2 at work." }
+     {
+      "ask": "What is the principal range of sin⁻¹?",
+      "options": [
+       "[0, π]",
+       "[−π/2, π/2]",
+       "(−π/2, π/2)"
+      ],
+      "correct": 1,
+      "why": "sin⁻¹ takes values in [−π/2, π/2], closed at both ends."
+     },
+     {
+      "ask": "So what is sin⁻¹(−1/2)?",
+      "options": [
+       "−π/6",
+       "7π/6",
+       "11π/6"
+      ],
+      "correct": 0,
+      "why": "Both 7π/6 and 11π/6 have sine −1/2, but only −π/6 lies in the principal range."
+     },
+     {
+      "ask": "What is the principal range of cos⁻¹?",
+      "options": [
+       "[−π/2, π/2]",
+       "[0, π]",
+       "[0, 2π]"
+      ],
+      "correct": 1,
+      "why": "cos⁻¹ takes values in [0, π] — never negative, which is the point most often missed."
+     },
+     {
+      "ask": "So what is cos⁻¹(−1/2)?",
+      "options": [
+       "−π/3",
+       "2π/3",
+       "4π/3"
+      ],
+      "correct": 1,
+      "why": "cos(2π/3) = −1/2 and 2π/3 lies in [0, π]. −π/3 is outside the range and its cosine is +1/2 anyway."
+     },
+     {
+      "ask": "What is the sum?",
+      "options": [
+       "π/2",
+       "−π/6 + 2π/3 = π/2",
+       "π"
+      ],
+      "correct": 1,
+      "why": "−π/6 + 2π/3 = −π/6 + 4π/6 = 3π/6 = π/2. This is the identity sin⁻¹x + cos⁻¹x = π/2 at work."
+     }
     ],
     "answer": "π/2 — as sin⁻¹x + cos⁻¹x = π/2 guarantees for every x in [−1, 1]."
    }
@@ -44,20 +119,49 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Matrices",
-  "approved": false,
+  "approved": true,
   "trick": "Matrix multiplication is not commutative: AB and BA are usually different and may not both exist. For AB to exist, the columns of A must equal the rows of B, and the answer has the rows of A and the columns of B. Check that shape rule before doing any arithmetic.",
-  "video": { "query": "matrix multiplication transpose symmetric skew symmetric class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "matrix multiplication transpose symmetric skew symmetric class 12 maths",
+   "video_id": "W4sFwj6CPOQ",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about matrices.",
     "items": [
-     { "statement": "If A is 2×3 and B is 3×4, then AB is 2×4.", "is_true": true, "why": "Inner dimensions match (3 = 3), and the product takes the outer ones." },
-     { "statement": "With A 2×3 and B 3×4, BA also exists.", "is_true": false, "why": "BA would need the columns of B (4) to equal the rows of A (2). They do not, so BA is undefined." },
-     { "statement": "For a skew-symmetric matrix, every diagonal element is zero.", "is_true": true, "why": "A' = −A forces aᵢᵢ = −aᵢᵢ, so 2aᵢᵢ = 0." },
-     { "statement": "(AB)' = A'B'.", "is_true": false, "why": "The order reverses: (AB)' = B'A'. This reversal is worth a mark on its own." },
-     { "statement": "Every square matrix can be written as the sum of a symmetric and a skew-symmetric matrix.", "is_true": true, "why": "A = ½(A + A') + ½(A − A'), the first symmetric and the second skew-symmetric." },
-     { "statement": "If AB = 0 then either A = 0 or B = 0.", "is_true": false, "why": "Unlike numbers, two non-zero matrices can multiply to the zero matrix." }
+     {
+      "statement": "If A is 2×3 and B is 3×4, then AB is 2×4.",
+      "is_true": true,
+      "why": "Inner dimensions match (3 = 3), and the product takes the outer ones."
+     },
+     {
+      "statement": "With A 2×3 and B 3×4, BA also exists.",
+      "is_true": false,
+      "why": "BA would need the columns of B (4) to equal the rows of A (2). They do not, so BA is undefined."
+     },
+     {
+      "statement": "For a skew-symmetric matrix, every diagonal element is zero.",
+      "is_true": true,
+      "why": "A' = −A forces aᵢᵢ = −aᵢᵢ, so 2aᵢᵢ = 0."
+     },
+     {
+      "statement": "(AB)' = A'B'.",
+      "is_true": false,
+      "why": "The order reverses: (AB)' = B'A'. This reversal is worth a mark on its own."
+     },
+     {
+      "statement": "Every square matrix can be written as the sum of a symmetric and a skew-symmetric matrix.",
+      "is_true": true,
+      "why": "A = ½(A + A') + ½(A − A'), the first symmetric and the second skew-symmetric."
+     },
+     {
+      "statement": "If AB = 0 then either A = 0 or B = 0.",
+      "is_true": false,
+      "why": "Unlike numbers, two non-zero matrices can multiply to the zero matrix."
+     }
     ]
    }
   }
@@ -65,19 +169,60 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Determinants and Systems of Equations",
-  "approved": false,
+  "approved": true,
   "trick": "The sign pattern of the cofactors alternates + − + along the top row, and a dropped minus sign is the commonest way a correct method produces a wrong answer. When |A| = 0 the system is not automatically inconsistent — check (adj A)B: if it is zero the system has infinitely many solutions, otherwise none.",
-  "video": { "query": "determinants cofactor adjoint inverse consistency of system class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "determinants cofactor adjoint inverse consistency of system class 12 maths",
+   "video_id": "fYBWxuTkn0o",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Expand a determinant, watching every sign.",
     "problem": "Evaluate |A| where A = [[1, 2, 3], [4, 5, 6], [7, 8, 10]], expanding along the first row.",
     "steps": [
-     { "ask": "What is the sign pattern along the first row?", "options": ["+ + +", "+ − +", "− + −"], "correct": 1, "why": "The cofactor sign is (−1)^(i+j), giving + − + across the first row." },
-     { "ask": "What is the minor of the element 1?", "options": ["5×10 − 6×8 = 2", "5×10 − 6×7 = 8", "4×10 − 6×7 = −2"], "correct": 0, "why": "Delete row 1 and column 1, leaving [[5,6],[8,10]], whose determinant is 50 − 48 = 2." },
-     { "ask": "What is the contribution of the element 2, with its sign?", "options": ["+2 × (4×10 − 6×7)", "−2 × (4×10 − 6×7)", "−2 × (5×10 − 6×8)"], "correct": 1, "why": "The minor is [[4,6],[7,10]] = 40 − 42 = −2, and the cofactor sign is minus, so the term is −2 × (−2) = +4." },
-     { "ask": "What is |A|?", "options": ["−3", "3", "0"], "correct": 0, "why": "1(2) − 2(−2) + 3(32 − 35) = 2 + 4 − 9 = −3. Losing the sign on the middle term would give +5 instead." }
+     {
+      "ask": "What is the sign pattern along the first row?",
+      "options": [
+       "+ + +",
+       "+ − +",
+       "− + −"
+      ],
+      "correct": 1,
+      "why": "The cofactor sign is (−1)^(i+j), giving + − + across the first row."
+     },
+     {
+      "ask": "What is the minor of the element 1?",
+      "options": [
+       "5×10 − 6×8 = 2",
+       "5×10 − 6×7 = 8",
+       "4×10 − 6×7 = −2"
+      ],
+      "correct": 0,
+      "why": "Delete row 1 and column 1, leaving [[5,6],[8,10]], whose determinant is 50 − 48 = 2."
+     },
+     {
+      "ask": "What is the contribution of the element 2, with its sign?",
+      "options": [
+       "+2 × (4×10 − 6×7)",
+       "−2 × (4×10 − 6×7)",
+       "−2 × (5×10 − 6×8)"
+      ],
+      "correct": 1,
+      "why": "The minor is [[4,6],[7,10]] = 40 − 42 = −2, and the cofactor sign is minus, so the term is −2 × (−2) = +4."
+     },
+     {
+      "ask": "What is |A|?",
+      "options": [
+       "−3",
+       "3",
+       "0"
+      ],
+      "correct": 0,
+      "why": "1(2) − 2(−2) + 3(32 − 35) = 2 + 4 − 9 = −3. Losing the sign on the middle term would give +5 instead."
+     }
     ],
     "answer": "|A| = −3, so A is invertible and the corresponding system has a unique solution."
    }
@@ -86,19 +231,44 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Continuity and Differentiability",
-  "approved": false,
+  "approved": true,
   "trick": "Differentiable implies continuous, but never the reverse — |x| at x = 0 is the counterexample to keep in your pocket. To test continuity at a point, check three things: the left limit, the right limit and the value of the function, and all three must agree.",
-  "video": { "query": "continuity differentiability chain rule class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "continuity differentiability chain rule class 12 maths",
+   "video_id": "RjXxizM9GFM",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about continuity and differentiability.",
     "items": [
-     { "statement": "Every differentiable function is continuous.", "is_true": true, "why": "Differentiability at a point requires the limit of the difference quotient to exist, which forces continuity there." },
-     { "statement": "Every continuous function is differentiable.", "is_true": false, "why": "f(x) = |x| is continuous everywhere but has no derivative at 0 — the left and right derivatives are −1 and +1." },
-     { "statement": "A function continuous at x = a must satisfy lim(x→a⁻)f(x) = lim(x→a⁺)f(x) = f(a).", "is_true": true, "why": "All three must exist and be equal; a jump or a hole breaks one of them." },
-     { "statement": "f(x) = 1/x is discontinuous at x = 0.", "is_true": true, "why": "It is not even defined at 0, so continuity cannot hold there — though it is continuous on its own domain." },
-     { "statement": "The derivative of a constant function is 1.", "is_true": false, "why": "It is 0. A constant does not change, so its rate of change is zero." }
+     {
+      "statement": "Every differentiable function is continuous.",
+      "is_true": true,
+      "why": "Differentiability at a point requires the limit of the difference quotient to exist, which forces continuity there."
+     },
+     {
+      "statement": "Every continuous function is differentiable.",
+      "is_true": false,
+      "why": "f(x) = |x| is continuous everywhere but has no derivative at 0 — the left and right derivatives are −1 and +1."
+     },
+     {
+      "statement": "A function continuous at x = a must satisfy lim(x→a⁻)f(x) = lim(x→a⁺)f(x) = f(a).",
+      "is_true": true,
+      "why": "All three must exist and be equal; a jump or a hole breaks one of them."
+     },
+     {
+      "statement": "f(x) = 1/x is discontinuous at x = 0.",
+      "is_true": true,
+      "why": "It is not even defined at 0, so continuity cannot hold there — though it is continuous on its own domain."
+     },
+     {
+      "statement": "The derivative of a constant function is 1.",
+      "is_true": false,
+      "why": "It is 0. A constant does not change, so its rate of change is zero."
+     }
     ]
    }
   }
@@ -106,20 +276,70 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Application of Derivatives",
-  "approved": false,
+  "approved": true,
   "trick": "f'(x) = 0 finds the candidates, not the answer — the second derivative decides which is which. f''> 0 means minimum, f'' < 0 means maximum, and if f'' = 0 the test says nothing and you must look at the sign change of f'. Remember which way round it goes: a positive second derivative bends the curve upwards, which is a valley.",
-  "video": { "query": "maxima minima second derivative test increasing decreasing class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "maxima minima second derivative test increasing decreasing class 12 maths",
+   "video_id": "thlCC4v6Ets",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Find and classify the turning points.",
     "problem": "f(x) = x³ − 6x² + 9x + 1.",
     "steps": [
-     { "ask": "What is f'(x)?", "options": ["3x² − 12x + 9", "3x² − 6x + 9", "x² − 12x + 9"], "correct": 0, "why": "Differentiate term by term: 3x², −12x, +9, and the constant vanishes." },
-     { "ask": "Where does f'(x) = 0?", "options": ["x = 1 and x = 3", "x = 0 and x = 3", "x = −1 and x = 3"], "correct": 0, "why": "3(x² − 4x + 3) = 3(x − 1)(x − 3) = 0." },
-     { "ask": "What is f''(x)?", "options": ["6x − 12", "6x − 6", "3x − 12"], "correct": 0, "why": "Differentiate f'(x) = 3x² − 12x + 9." },
-     { "ask": "At x = 1, f'' = −6. What does that mean?", "options": ["Local minimum", "Local maximum", "Point of inflection"], "correct": 1, "why": "A negative second derivative means the curve is concave down — a peak, so x = 1 is a local maximum." },
-     { "ask": "At x = 3, f'' = +6. What does that mean?", "options": ["Local minimum", "Local maximum", "Neither"], "correct": 0, "why": "Positive second derivative, concave up, a valley — x = 3 is a local minimum." }
+     {
+      "ask": "What is f'(x)?",
+      "options": [
+       "3x² − 12x + 9",
+       "3x² − 6x + 9",
+       "x² − 12x + 9"
+      ],
+      "correct": 0,
+      "why": "Differentiate term by term: 3x², −12x, +9, and the constant vanishes."
+     },
+     {
+      "ask": "Where does f'(x) = 0?",
+      "options": [
+       "x = 1 and x = 3",
+       "x = 0 and x = 3",
+       "x = −1 and x = 3"
+      ],
+      "correct": 0,
+      "why": "3(x² − 4x + 3) = 3(x − 1)(x − 3) = 0."
+     },
+     {
+      "ask": "What is f''(x)?",
+      "options": [
+       "6x − 12",
+       "6x − 6",
+       "3x − 12"
+      ],
+      "correct": 0,
+      "why": "Differentiate f'(x) = 3x² − 12x + 9."
+     },
+     {
+      "ask": "At x = 1, f'' = −6. What does that mean?",
+      "options": [
+       "Local minimum",
+       "Local maximum",
+       "Point of inflection"
+      ],
+      "correct": 1,
+      "why": "A negative second derivative means the curve is concave down — a peak, so x = 1 is a local maximum."
+     },
+     {
+      "ask": "At x = 3, f'' = +6. What does that mean?",
+      "options": [
+       "Local minimum",
+       "Local maximum",
+       "Neither"
+      ],
+      "correct": 0,
+      "why": "Positive second derivative, concave up, a valley — x = 3 is a local minimum."
+     }
     ],
     "answer": "Local maximum at x = 1 with f(1) = 5; local minimum at x = 3 with f(3) = 1."
    }
@@ -128,20 +348,70 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Probability",
-  "approved": false,
+  "approved": true,
   "trick": "Independent and mutually exclusive are opposites, not synonyms. Mutually exclusive means they cannot both happen, so P(A∩B) = 0; independent means one tells you nothing about the other, so P(A∩B) = P(A)P(B). Two events with non-zero probability can never be both.",
-  "video": { "query": "conditional probability independent mutually exclusive bayes theorem class 12", "video_id": null, "approved": false },
+  "video": {
+   "query": "conditional probability independent mutually exclusive bayes theorem class 12",
+   "video_id": "SRJ1B8XOP4Y",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "A Bayes' theorem problem, one step at a time.",
     "problem": "Bag I holds 3 red and 4 black balls; Bag II holds 5 red and 6 black. A bag is chosen at random and one ball drawn. It is red. What is the probability it came from Bag I?",
     "steps": [
-     { "ask": "What is P(Bag I)?", "options": ["1/2", "3/7", "8/18"], "correct": 0, "why": "The bag is chosen at random from two bags, so each has probability 1/2." },
-     { "ask": "What is P(red | Bag I)?", "options": ["3/7", "4/7", "3/11"], "correct": 0, "why": "Bag I has 3 red out of 7 balls." },
-     { "ask": "What is P(red | Bag II)?", "options": ["6/11", "5/11", "5/12"], "correct": 1, "why": "Bag II has 5 red out of 11 balls." },
-     { "ask": "What is the total probability of drawing red?", "options": ["½(3/7) + ½(5/11) = 34/77", "3/7 + 5/11", "8/18"], "correct": 0, "why": "½ × 3/7 = 3/14 and ½ × 5/11 = 5/22; adding gives 33/154 + 35/154 = 68/154 = 34/77." },
-     { "ask": "So P(Bag I | red)?", "options": ["33/68", "35/68", "1/2"], "correct": 0, "why": "Bayes: (3/14) ÷ (34/77) = 33/68. Note it is below ½, because Bag I has the lower share of red balls." }
+     {
+      "ask": "What is P(Bag I)?",
+      "options": [
+       "1/2",
+       "3/7",
+       "8/18"
+      ],
+      "correct": 0,
+      "why": "The bag is chosen at random from two bags, so each has probability 1/2."
+     },
+     {
+      "ask": "What is P(red | Bag I)?",
+      "options": [
+       "3/7",
+       "4/7",
+       "3/11"
+      ],
+      "correct": 0,
+      "why": "Bag I has 3 red out of 7 balls."
+     },
+     {
+      "ask": "What is P(red | Bag II)?",
+      "options": [
+       "6/11",
+       "5/11",
+       "5/12"
+      ],
+      "correct": 1,
+      "why": "Bag II has 5 red out of 11 balls."
+     },
+     {
+      "ask": "What is the total probability of drawing red?",
+      "options": [
+       "½(3/7) + ½(5/11) = 34/77",
+       "3/7 + 5/11",
+       "8/18"
+      ],
+      "correct": 0,
+      "why": "½ × 3/7 = 3/14 and ½ × 5/11 = 5/22; adding gives 33/154 + 35/154 = 68/154 = 34/77."
+     },
+     {
+      "ask": "So P(Bag I | red)?",
+      "options": [
+       "33/68",
+       "35/68",
+       "1/2"
+      ],
+      "correct": 0,
+      "why": "Bayes: (3/14) ÷ (34/77) = 33/68. Note it is below ½, because Bag I has the lower share of red balls."
+     }
     ],
     "answer": "33/68, a little under a half."
    }
@@ -150,21 +420,80 @@
  {
   "bucket": "XII|Science|Mathematics",
   "chapter": "Statistics: Variance and Standard Deviation",
-  "approved": false,
+  "approved": true,
   "trick": "Variance is the square of the standard deviation, so the standard deviation carries the same unit as the data and the variance does not. Adding a constant to every observation leaves both unchanged; multiplying every observation by k multiplies the standard deviation by |k| and the variance by k².",
-  "video": { "query": "mean variance standard deviation coefficient of variation class 12 maths", "video_id": null, "approved": false },
+  "video": {
+   "query": "mean variance standard deviation coefficient of variation class 12 maths",
+   "video_id": "4LxrzD-MRBk",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "step-solve",
    "data": {
     "prompt": "Compute a variance, then see what happens when the data are transformed.",
     "problem": "The observations are 2, 4, 4, 4, 5, 5, 7, 9.",
     "steps": [
-     { "ask": "What is the mean?", "options": ["5", "4.5", "6"], "correct": 0, "why": "The total is 40 over 8 observations, so the mean is 5." },
-     { "ask": "What is the sum of the squared deviations from the mean?", "options": ["32", "16", "40"], "correct": 0, "why": "9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32." },
-     { "ask": "What is the variance?", "options": ["4", "32", "2"], "correct": 0, "why": "32 ÷ 8 = 4." },
-     { "ask": "What is the standard deviation?", "options": ["4", "2", "16"], "correct": 1, "why": "It is the positive square root of the variance: √4 = 2." },
-     { "ask": "If 3 is added to every observation, the new standard deviation is?", "options": ["5", "2", "6"], "correct": 1, "why": "Adding a constant shifts every value and the mean equally, so the spread is untouched. It stays 2." },
-     { "ask": "If instead every observation is doubled, the new variance is?", "options": ["8", "16", "4"], "correct": 1, "why": "Standard deviation doubles to 4, so the variance becomes 4² = 16 — it multiplies by k², not by k." }
+     {
+      "ask": "What is the mean?",
+      "options": [
+       "5",
+       "4.5",
+       "6"
+      ],
+      "correct": 0,
+      "why": "The total is 40 over 8 observations, so the mean is 5."
+     },
+     {
+      "ask": "What is the sum of the squared deviations from the mean?",
+      "options": [
+       "32",
+       "16",
+       "40"
+      ],
+      "correct": 0,
+      "why": "9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32."
+     },
+     {
+      "ask": "What is the variance?",
+      "options": [
+       "4",
+       "32",
+       "2"
+      ],
+      "correct": 0,
+      "why": "32 ÷ 8 = 4."
+     },
+     {
+      "ask": "What is the standard deviation?",
+      "options": [
+       "4",
+       "2",
+       "16"
+      ],
+      "correct": 1,
+      "why": "It is the positive square root of the variance: √4 = 2."
+     },
+     {
+      "ask": "If 3 is added to every observation, the new standard deviation is?",
+      "options": [
+       "5",
+       "2",
+       "6"
+      ],
+      "correct": 1,
+      "why": "Adding a constant shifts every value and the mean equally, so the spread is untouched. It stays 2."
+     },
+     {
+      "ask": "If instead every observation is doubled, the new variance is?",
+      "options": [
+       "8",
+       "16",
+       "4"
+      ],
+      "correct": 1,
+      "why": "Standard deviation doubles to 4, so the variance becomes 4² = 16 — it multiplies by k², not by k."
+     }
     ],
     "answer": "Mean 5, variance 4, standard deviation 2. Adding 3 changes nothing; doubling gives sd 4 and variance 16."
    }

@@ -2,14 +2,25 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "The State: Meaning and Essential Elements",
-  "approved": false,
+  "approved": true,
   "trick": "Four elements and no more: population, territory, government, sovereignty. Drop sovereignty and you have a state within a state — West Bengal is not a state in political science, because it does not possess sovereignty. That distinction is the single most tested point in the chapter.",
-  "video": { "query": "elements of state population territory government sovereignty class 11 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "elements of state population territory government sovereignty class 11 political science",
+   "video_id": "x6f-mB4IE3U",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "odd-one-out",
    "data": {
     "prompt": "Which of these is NOT an essential element of the state?",
-    "items": ["Population", "Territory", "Government", "A written constitution", "Sovereignty"],
+    "items": [
+     "Population",
+     "Territory",
+     "Government",
+     "A written constitution",
+     "Sovereignty"
+    ],
     "odd": 3,
     "because": "The four essential elements are population, territory, government and sovereignty. A written constitution is not required — the United Kingdom is a state without one."
    }
@@ -18,20 +29,43 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "Theories of the Origin of the State",
-  "approved": false,
+  "approved": true,
   "trick": "Five explanations of where the state came from, and only one is accepted today. Divine origin says God made it, force says the strong seized it, patriarchal and matriarchal say the family grew into it, social contract says people agreed to it — and the evolutionary theory says all of these worked together over time, which is why it is the accepted view.",
-  "video": { "query": "theories of origin of state divine force social contract evolutionary class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "theories of origin of state divine force social contract evolutionary class 11",
+   "video_id": "1ocHJ1xVBFA",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each theory of the state's origin with what it claims.",
     "pairs": [
-     { "left": "Divine origin theory", "right": "The state was created by God and the ruler answers only to Him" },
-     { "left": "Force theory", "right": "The state arose when the strong subdued the weak — 'war begat the king'" },
-     { "left": "Patriarchal theory", "right": "The state grew out of the family, tracing descent through the father — Sir Henry Maine" },
-     { "left": "Matriarchal theory", "right": "The earliest families traced descent through the mother — McLennan and Morgan" },
-     { "left": "Social contract theory", "right": "The state was deliberately created by an agreement among people" },
-     { "left": "Evolutionary theory", "right": "The state grew slowly out of kinship, religion, force, property and political consciousness — the accepted view" }
+     {
+      "left": "Divine origin theory",
+      "right": "The state was created by God and the ruler answers only to Him"
+     },
+     {
+      "left": "Force theory",
+      "right": "The state arose when the strong subdued the weak — 'war begat the king'"
+     },
+     {
+      "left": "Patriarchal theory",
+      "right": "The state grew out of the family, tracing descent through the father — Sir Henry Maine"
+     },
+     {
+      "left": "Matriarchal theory",
+      "right": "The earliest families traced descent through the mother — McLennan and Morgan"
+     },
+     {
+      "left": "Social contract theory",
+      "right": "The state was deliberately created by an agreement among people"
+     },
+     {
+      "left": "Evolutionary theory",
+      "right": "The state grew slowly out of kinship, religion, force, property and political consciousness — the accepted view"
+     }
     ]
    }
   }
@@ -39,24 +73,60 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "Social Contract Theory: Hobbes, Locke and Rousseau",
-  "approved": false,
+  "approved": true,
   "trick": "All three start in a state of nature and all three end with a contract, but they disagree about what that state was like — and that disagreement decides everything after it. Hobbes: nasty, brutish and short, so surrender everything to an absolute sovereign. Locke: mostly peaceful but insecure, so surrender only some rights, and rebel if the trust is broken. Rousseau: happy and free, so obey only the General Will.",
-  "video": { "query": "hobbes locke rousseau social contract state of nature class 11 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "hobbes locke rousseau social contract state of nature class 11 political science",
+   "video_id": "Z3UU-NgZr6Q",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Which contract theorist does each position belong to?",
-    "bins": ["Hobbes", "Locke", "Rousseau"],
+    "bins": [
+     "Hobbes",
+     "Locke",
+     "Rousseau"
+    ],
     "items": [
-     { "label": "The state of nature was 'solitary, poor, nasty, brutish and short'", "bin": "Hobbes" },
-     { "label": "Men were born free but are everywhere in chains", "bin": "Rousseau" },
-     { "label": "The state of nature had natural rights to life, liberty and property", "bin": "Locke" },
-     { "label": "Wrote Leviathan and defended absolute sovereignty", "bin": "Hobbes" },
-     { "label": "Government is a trust, and may be resisted if it breaks that trust", "bin": "Locke" },
-     { "label": "Sovereignty lies in the General Will, which cannot be represented", "bin": "Rousseau" },
-     { "label": "Individuals surrendered all rights except the right to life", "bin": "Hobbes" },
-     { "label": "Held to be the philosopher of the Glorious Revolution and of limited government", "bin": "Locke" },
-     { "label": "Inspired the French Revolution and popular sovereignty", "bin": "Rousseau" }
+     {
+      "label": "The state of nature was 'solitary, poor, nasty, brutish and short'",
+      "bin": "Hobbes"
+     },
+     {
+      "label": "Men were born free but are everywhere in chains",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "The state of nature had natural rights to life, liberty and property",
+      "bin": "Locke"
+     },
+     {
+      "label": "Wrote Leviathan and defended absolute sovereignty",
+      "bin": "Hobbes"
+     },
+     {
+      "label": "Government is a trust, and may be resisted if it breaks that trust",
+      "bin": "Locke"
+     },
+     {
+      "label": "Sovereignty lies in the General Will, which cannot be represented",
+      "bin": "Rousseau"
+     },
+     {
+      "label": "Individuals surrendered all rights except the right to life",
+      "bin": "Hobbes"
+     },
+     {
+      "label": "Held to be the philosopher of the Glorious Revolution and of limited government",
+      "bin": "Locke"
+     },
+     {
+      "label": "Inspired the French Revolution and popular sovereignty",
+      "bin": "Rousseau"
+     }
     ]
    }
   }
@@ -64,22 +134,51 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "Sovereignty: Meaning and Characteristics",
-  "approved": false,
+  "approved": true,
   "trick": "Sovereignty is the supreme power of the state, and its characteristics are absoluteness, permanence, universality, inalienability and indivisibility. The last one is the trap: sovereignty may be divided in its exercise between centre and states, but in theory it cannot be divided and still be sovereignty.",
-  "video": { "query": "sovereignty meaning characteristics absoluteness inalienability class 11 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "sovereignty meaning characteristics absoluteness inalienability class 11 political science",
+   "video_id": "jZIWOEJ_PUE",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each characteristic or kind of sovereignty with its meaning.",
     "pairs": [
-     { "left": "Absoluteness", "right": "No legal power stands above the sovereign inside the state" },
-     { "left": "Permanence", "right": "Sovereignty lasts as long as the state; governments come and go" },
-     { "left": "Universality", "right": "It extends over every person and association within the territory" },
-     { "left": "Inalienability", "right": "It cannot be given away without destroying the state" },
-     { "left": "Indivisibility", "right": "There can be only one sovereign power in a state" },
-     { "left": "Legal sovereignty", "right": "The authority recognised by law as supreme lawmaker" },
-     { "left": "Political sovereignty", "right": "The body of citizens behind the legal sovereign — the electorate" },
-     { "left": "De facto sovereignty", "right": "Power actually obeyed, whether or not it is lawful" }
+     {
+      "left": "Absoluteness",
+      "right": "No legal power stands above the sovereign inside the state"
+     },
+     {
+      "left": "Permanence",
+      "right": "Sovereignty lasts as long as the state; governments come and go"
+     },
+     {
+      "left": "Universality",
+      "right": "It extends over every person and association within the territory"
+     },
+     {
+      "left": "Inalienability",
+      "right": "It cannot be given away without destroying the state"
+     },
+     {
+      "left": "Indivisibility",
+      "right": "There can be only one sovereign power in a state"
+     },
+     {
+      "left": "Legal sovereignty",
+      "right": "The authority recognised by law as supreme lawmaker"
+     },
+     {
+      "left": "Political sovereignty",
+      "right": "The body of citizens behind the legal sovereign — the electorate"
+     },
+     {
+      "left": "De facto sovereignty",
+      "right": "Power actually obeyed, whether or not it is lawful"
+     }
     ]
    }
   }
@@ -87,23 +186,54 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "Theories of Sovereignty: Monistic and Pluralist",
-  "approved": false,
+  "approved": true,
   "trick": "Monism says there is one sovereign, supreme over every association — Austin's position. Pluralism says the state is one association among many, and the church, the trade union and the family have authority of their own — Laski's position. The exam asks you to name which camp a sentence comes from, so tie each name to its camp.",
-  "video": { "query": "monistic and pluralistic theory of sovereignty austin laski class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "monistic and pluralistic theory of sovereignty austin laski class 11",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Sort each statement into the theory of sovereignty it belongs to.",
-    "bins": ["Monistic", "Pluralist"],
+    "bins": [
+     "Monistic",
+     "Pluralist"
+    ],
     "items": [
-     { "label": "Law is the command of the determinate superior", "bin": "Monistic" },
-     { "label": "The state is only one of many associations serving human needs", "bin": "Pluralist" },
-     { "label": "Sovereignty is indivisible and cannot be shared", "bin": "Monistic" },
-     { "label": "Authority should be distributed among churches, unions and local bodies", "bin": "Pluralist" },
-     { "label": "Associated with John Austin", "bin": "Monistic" },
-     { "label": "Associated with Laski and MacIver", "bin": "Pluralist" },
-     { "label": "The sovereign's power is legally unlimited", "bin": "Monistic" },
-     { "label": "The state earns obedience by service, not by command", "bin": "Pluralist" }
+     {
+      "label": "Law is the command of the determinate superior",
+      "bin": "Monistic"
+     },
+     {
+      "label": "The state is only one of many associations serving human needs",
+      "bin": "Pluralist"
+     },
+     {
+      "label": "Sovereignty is indivisible and cannot be shared",
+      "bin": "Monistic"
+     },
+     {
+      "label": "Authority should be distributed among churches, unions and local bodies",
+      "bin": "Pluralist"
+     },
+     {
+      "label": "Associated with John Austin",
+      "bin": "Monistic"
+     },
+     {
+      "label": "Associated with Laski and MacIver",
+      "bin": "Pluralist"
+     },
+     {
+      "label": "The sovereign's power is legally unlimited",
+      "bin": "Monistic"
+     },
+     {
+      "label": "The state earns obedience by service, not by command",
+      "bin": "Pluralist"
+     }
     ]
    }
   }
@@ -111,21 +241,47 @@
  {
   "bucket": "XI|Arts|Political Science",
   "chapter": "Political Thinkers: Aristotle, Austin and Laski",
-  "approved": false,
+  "approved": true,
   "trick": "One line each and the three are fixed. Aristotle: man is by nature a political animal, and the state exists for the good life — he is the father of political science. Austin: sovereignty is the command of a determinate superior. Laski: liberty and the state are not opposites, and the state must justify itself by what it does for people.",
-  "video": { "query": "aristotle austin laski political thinkers class 11 political science", "video_id": null, "approved": false },
+  "video": {
+   "query": "aristotle austin laski political thinkers class 11 political science",
+   "video_id": "u1lPu0p8_FA",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each thinker with the idea he is known for.",
     "pairs": [
-     { "left": "Aristotle", "right": "Man is by nature a political animal; the state comes into being for life and continues for the good life" },
-     { "left": "Austin", "right": "Law is the command of a determinate human superior, habitually obeyed" },
-     { "left": "Laski", "right": "Pluralism; the state is one association among many and must earn obedience" },
-     { "left": "Aristotle's Politics", "right": "The classification of governments into monarchy, aristocracy and polity, and their perversions" },
-     { "left": "Austin's determinate superior", "right": "A definite person or body whose commands are habitually obeyed and who obeys no one" },
-     { "left": "Laski on liberty", "right": "Liberty is the absence of restraint on those conditions that make for a full life" },
-     { "left": "'Father of Political Science'", "right": "The title given to Aristotle" }
+     {
+      "left": "Aristotle",
+      "right": "Man is by nature a political animal; the state comes into being for life and continues for the good life"
+     },
+     {
+      "left": "Austin",
+      "right": "Law is the command of a determinate human superior, habitually obeyed"
+     },
+     {
+      "left": "Laski",
+      "right": "Pluralism; the state is one association among many and must earn obedience"
+     },
+     {
+      "left": "Aristotle's Politics",
+      "right": "The classification of governments into monarchy, aristocracy and polity, and their perversions"
+     },
+     {
+      "left": "Austin's determinate superior",
+      "right": "A definite person or body whose commands are habitually obeyed and who obeys no one"
+     },
+     {
+      "left": "Laski on liberty",
+      "right": "Liberty is the absence of restraint on those conditions that make for a full life"
+     },
+     {
+      "left": "'Father of Political Science'",
+      "right": "The title given to Aristotle"
+     }
     ]
    }
   }

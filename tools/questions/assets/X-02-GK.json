@@ -2,7 +2,7 @@
  {
   "bucket": "X|All|General Knowledge",
   "chapter": "GK: Solar System and Space",
-  "approved": false,
+  "approved": true,
   "trick": "Learn the superlatives, because that is what gets asked. Largest Jupiter, hottest Venus, smallest and nearest to the Sun Mercury, red Mars, ringed Saturn, tilted on its side Uranus. And the Sun is a star, which quietly answers a surprising number of questions.",
   "video": {
    "query": "solar system planets facts space missions general knowledge class 10",
@@ -48,7 +48,7 @@
  {
   "bucket": "X|All|General Knowledge",
   "chapter": "GK: Indian National Symbols and Personalities",
-  "approved": false,
+  "approved": true,
   "trick": "The nicknames are worth more marks than they look. Bapu and Father of the Nation are Gandhi, Netaji is Subhas Chandra Bose, Chacha is Nehru, the Iron Man is Patel, the Missile Man is Kalam. Examiners ask by title far more often than by name.",
   "video": {
    "query": "Indian national symbols and famous personalities titles general knowledge",
@@ -93,7 +93,7 @@
  {
   "bucket": "X|All|General Knowledge",
   "chapter": "GK: Indian and World Geography",
-  "approved": false,
+  "approved": true,
   "trick": "Always ask whether the superlative is Indian or worldwide before you answer. Longest river: Ganga in India, Nile in the world. Highest peak: Kangchenjunga in India, Everest in the world. Same question, two different answers.",
   "video": {
    "query": "Indian and world geography superlatives rivers mountains deserts general knowledge",
@@ -149,7 +149,7 @@
  {
   "bucket": "X|All|General Knowledge",
   "chapter": "GK: International Organisations and Observances",
-  "approved": false,
+  "approved": true,
   "trick": "Observance days cluster around their subject: environment days fall in June, health days in April, and the education ones in the school year. If you cannot recall a date, recall the season and the theme, and the options usually narrow to one.",
   "video": {
    "query": "important international days and organisations list general knowledge",
@@ -193,7 +193,7 @@
  {
   "bucket": "X|All|General Knowledge",
   "chapter": "GK: Science and SI Units",
-  "approved": false,
+  "approved": true,
   "trick": "Instrument questions answer themselves if you read the name. A barometer measures baros, weight or pressure; a thermometer measures therme, heat; a seismograph writes down seismos, an earthquake. The Greek root is the answer.",
   "video": {
    "query": "scientific instruments and their uses SI units general knowledge",

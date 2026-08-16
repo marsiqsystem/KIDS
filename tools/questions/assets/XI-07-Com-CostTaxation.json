@@ -2,20 +2,43 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Basic Concepts of Cost",
-  "approved": false,
+  "approved": true,
   "trick": "Cost, expense and loss are three different things. A cost becomes an expense only when it is set against revenue, and it becomes a loss when it yields no benefit at all. Unsold stock is a cost sitting on the balance sheet, not yet an expense.",
-  "video": { "query": "basic concepts of cost cost accounting introduction class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "basic concepts of cost cost accounting introduction class 11",
+   "video_id": "4nqdW-9QsCo",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "match-pairs",
    "data": {
     "prompt": "Match each term with its meaning.",
     "pairs": [
-     { "left": "Cost", "right": "The amount of resources given up to obtain something" },
-     { "left": "Expense", "right": "A cost that has been matched against the revenue of a period" },
-     { "left": "Loss", "right": "A cost that brought no benefit in return" },
-     { "left": "Cost centre", "right": "A location or function for which costs are collected" },
-     { "left": "Cost unit", "right": "The unit of product or service against which cost is measured" },
-     { "left": "Cost object", "right": "Anything for which a separate measurement of cost is wanted" }
+     {
+      "left": "Cost",
+      "right": "The amount of resources given up to obtain something"
+     },
+     {
+      "left": "Expense",
+      "right": "A cost that has been matched against the revenue of a period"
+     },
+     {
+      "left": "Loss",
+      "right": "A cost that brought no benefit in return"
+     },
+     {
+      "left": "Cost centre",
+      "right": "A location or function for which costs are collected"
+     },
+     {
+      "left": "Cost unit",
+      "right": "The unit of product or service against which cost is measured"
+     },
+     {
+      "left": "Cost object",
+      "right": "Anything for which a separate measurement of cost is wanted"
+     }
     ]
    }
   }
@@ -23,20 +46,43 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Elements of Cost and Prime Cost",
-  "approved": false,
+  "approved": true,
   "trick": "The cost sheet builds in a fixed order and each level has a name. Prime cost is direct material plus direct labour plus direct expenses. Add factory overhead and it becomes works cost, add office overhead for cost of production, add selling overhead for total cost. Learn the ladder and the sheet writes itself.",
-  "video": { "query": "cost sheet prime cost works cost total cost format class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "cost sheet prime cost works cost total cost format class 11",
+   "video_id": "Get4efOFTeY",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "timeline-order",
    "data": {
     "prompt": "Build the cost sheet from the bottom up, in the correct order.",
     "items": [
-     { "label": "Direct material consumed", "note": "Opening stock plus purchases minus closing stock of raw material" },
-     { "label": "Add direct labour and direct expenses to get PRIME COST", "note": "The three direct elements together" },
-     { "label": "Add factory or works overhead to get WORKS COST", "note": "Factory rent, power, depreciation of machinery" },
-     { "label": "Add office and administration overhead to get COST OF PRODUCTION", "note": "Office salaries, office rent" },
-     { "label": "Add selling and distribution overhead to get TOTAL COST", "note": "Advertising, carriage outwards, salesmen's commission" },
-     { "label": "Add profit to get SALES", "note": "Watch whether profit is quoted on cost or on sales — they differ" }
+     {
+      "label": "Direct material consumed",
+      "note": "Opening stock plus purchases minus closing stock of raw material"
+     },
+     {
+      "label": "Add direct labour and direct expenses to get PRIME COST",
+      "note": "The three direct elements together"
+     },
+     {
+      "label": "Add factory or works overhead to get WORKS COST",
+      "note": "Factory rent, power, depreciation of machinery"
+     },
+     {
+      "label": "Add office and administration overhead to get COST OF PRODUCTION",
+      "note": "Office salaries, office rent"
+     },
+     {
+      "label": "Add selling and distribution overhead to get TOTAL COST",
+      "note": "Advertising, carriage outwards, salesmen's commission"
+     },
+     {
+      "label": "Add profit to get SALES",
+      "note": "Watch whether profit is quoted on cost or on sales — they differ"
+     }
     ]
    }
   }
@@ -44,23 +90,56 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Classification of Costs: Fixed, Variable, Direct and Indirect",
-  "approved": false,
+  "approved": true,
   "trick": "Two different questions are being asked and students merge them. Fixed or variable asks how the cost behaves when output changes; direct or indirect asks whether it can be traced to one product. Factory rent is fixed and indirect; raw material is variable and direct — but the two pairs are independent.",
-  "video": { "query": "classification of costs fixed variable direct indirect class 11 cost accounting", "video_id": null, "approved": false },
+  "video": {
+   "query": "classification of costs fixed variable direct indirect class 11 cost accounting",
+   "video_id": "nVhUkaicZ9g",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Does each cost stay the same in total as output rises, or change with it?",
-    "bins": ["Fixed cost", "Variable cost", "Semi-variable cost"],
+    "bins": [
+     "Fixed cost",
+     "Variable cost",
+     "Semi-variable cost"
+    ],
     "items": [
-     { "label": "Factory rent", "bin": "Fixed cost" },
-     { "label": "Salary of the works manager", "bin": "Fixed cost" },
-     { "label": "Insurance of the building", "bin": "Fixed cost" },
-     { "label": "Raw material consumed", "bin": "Variable cost" },
-     { "label": "Wages paid per piece produced", "bin": "Variable cost" },
-     { "label": "Power used by the machines", "bin": "Variable cost" },
-     { "label": "Telephone bill with a fixed rental plus call charges", "bin": "Semi-variable cost" },
-     { "label": "A supervisor's salary plus overtime that rises with output", "bin": "Semi-variable cost" }
+     {
+      "label": "Factory rent",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Salary of the works manager",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Insurance of the building",
+      "bin": "Fixed cost"
+     },
+     {
+      "label": "Raw material consumed",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Wages paid per piece produced",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Power used by the machines",
+      "bin": "Variable cost"
+     },
+     {
+      "label": "Telephone bill with a fixed rental plus call charges",
+      "bin": "Semi-variable cost"
+     },
+     {
+      "label": "A supervisor's salary plus overtime that rises with output",
+      "bin": "Semi-variable cost"
+     }
     ]
    }
   }
@@ -68,23 +147,55 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Objectives and Scope of Cost Accounting",
-  "approved": false,
+  "approved": true,
   "trick": "Financial accounting reports to outsiders and is compulsory; cost accounting reports to managers and is voluntary. That single difference explains all the others — why cost accounts can be as detailed as management wants and need follow no prescribed format.",
-  "video": { "query": "cost accounting objectives scope difference from financial accounting class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "cost accounting objectives scope difference from financial accounting class 11",
+   "video_id": "K01N5VA0QDw",
+   "approved": true,
+   "language": "BILINGUAL"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Financial accounting or cost accounting? Sort each feature.",
-    "bins": ["Financial accounting", "Cost accounting"],
+    "bins": [
+     "Financial accounting",
+     "Cost accounting"
+    ],
     "items": [
-     { "label": "Prepared mainly for shareholders, creditors and the government", "bin": "Financial accounting" },
-     { "label": "Prepared mainly for management inside the firm", "bin": "Cost accounting" },
-     { "label": "Legally compulsory for a company", "bin": "Financial accounting" },
-     { "label": "Voluntary, except where a cost audit is ordered", "bin": "Cost accounting" },
-     { "label": "Reports the results of the business as a whole", "bin": "Financial accounting" },
-     { "label": "Reports the cost of each product, job or process", "bin": "Cost accounting" },
-     { "label": "Prepared at the end of the accounting year", "bin": "Financial accounting" },
-     { "label": "Prepared continuously, as often as management needs", "bin": "Cost accounting" }
+     {
+      "label": "Prepared mainly for shareholders, creditors and the government",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared mainly for management inside the firm",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Legally compulsory for a company",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Voluntary, except where a cost audit is ordered",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Reports the results of the business as a whole",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Reports the cost of each product, job or process",
+      "bin": "Cost accounting"
+     },
+     {
+      "label": "Prepared at the end of the accounting year",
+      "bin": "Financial accounting"
+     },
+     {
+      "label": "Prepared continuously, as often as management needs",
+      "bin": "Cost accounting"
+     }
     ]
    }
   }
@@ -92,19 +203,44 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Introduction to Taxation",
-  "approved": false,
+  "approved": true,
   "trick": "A tax is a compulsory payment with no direct return promised, and that is what separates it from a fee. You pay a fee for a passport and get a passport; you pay income tax and get no specific thing in exchange.",
-  "video": { "query": "introduction to taxation canons of taxation objectives class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "introduction to taxation canons of taxation objectives class 11",
+   "video_id": "usuJYcOaNBw",
+   "approved": true,
+   "language": "ENGLISH"
+  },
   "interactive": {
    "template": "true-false",
    "data": {
     "prompt": "True or false? Mark each statement about taxation.",
     "items": [
-     { "statement": "A tax is a compulsory payment with no direct benefit promised in return.", "is_true": true, "why": "That is precisely what distinguishes a tax from a fee or a price, where something specific is received." },
-     { "statement": "Adam Smith's canons include equality, certainty, convenience and economy.", "is_true": true, "why": "These four are his original canons; later writers added productivity, elasticity and simplicity." },
-     { "statement": "A progressive tax takes a smaller proportion from higher incomes.", "is_true": false, "why": "Progressive means the rate rises with income. It is a regressive tax that falls more heavily, proportionally, on the poor." },
-     { "statement": "Taxes are levied only to raise revenue.", "is_true": false, "why": "They are also used to reduce inequality, discourage harmful consumption and steer investment. A tax on tobacco is not chiefly about revenue." },
-     { "statement": "The Union and the States both have powers to levy taxes in India.", "is_true": true, "why": "The Constitution divides taxation powers between them, which is exactly why GST needed a constitutional amendment." }
+     {
+      "statement": "A tax is a compulsory payment with no direct benefit promised in return.",
+      "is_true": true,
+      "why": "That is precisely what distinguishes a tax from a fee or a price, where something specific is received."
+     },
+     {
+      "statement": "Adam Smith's canons include equality, certainty, convenience and economy.",
+      "is_true": true,
+      "why": "These four are his original canons; later writers added productivity, elasticity and simplicity."
+     },
+     {
+      "statement": "A progressive tax takes a smaller proportion from higher incomes.",
+      "is_true": false,
+      "why": "Progressive means the rate rises with income. It is a regressive tax that falls more heavily, proportionally, on the poor."
+     },
+     {
+      "statement": "Taxes are levied only to raise revenue.",
+      "is_true": false,
+      "why": "They are also used to reduce inequality, discourage harmful consumption and steer investment. A tax on tobacco is not chiefly about revenue."
+     },
+     {
+      "statement": "The Union and the States both have powers to levy taxes in India.",
+      "is_true": true,
+      "why": "The Constitution divides taxation powers between them, which is exactly why GST needed a constitutional amendment."
+     }
     ]
    }
   }
@@ -112,23 +248,55 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "Direct and Indirect Taxes",
-  "approved": false,
+  "approved": true,
   "trick": "Ask who actually bears the burden. If the person who pays the tax cannot pass it on, it is direct; if the burden shifts to somebody else, it is indirect. Income tax stays with you; GST is collected by the shopkeeper but paid by you.",
-  "video": { "query": "direct and indirect taxes difference examples class 11 taxation", "video_id": null, "approved": false },
+  "video": {
+   "query": "direct and indirect taxes difference examples class 11 taxation",
+   "video_id": "yeSpQw3lXz8",
+   "approved": true,
+   "language": "HINDI"
+  },
   "interactive": {
    "template": "sort-bins",
    "data": {
     "prompt": "Direct or indirect? Sort each tax by whether its burden can be shifted.",
-    "bins": ["Direct tax", "Indirect tax"],
+    "bins": [
+     "Direct tax",
+     "Indirect tax"
+    ],
     "items": [
-     { "label": "Income tax", "bin": "Direct tax" },
-     { "label": "Corporate tax", "bin": "Direct tax" },
-     { "label": "Capital gains tax", "bin": "Direct tax" },
-     { "label": "Wealth tax", "bin": "Direct tax" },
-     { "label": "Goods and Services Tax", "bin": "Indirect tax" },
-     { "label": "Customs duty", "bin": "Indirect tax" },
-     { "label": "Excise duty", "bin": "Indirect tax" },
-     { "label": "The impact and the incidence fall on different people", "bin": "Indirect tax" }
+     {
+      "label": "Income tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Corporate tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Capital gains tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Wealth tax",
+      "bin": "Direct tax"
+     },
+     {
+      "label": "Goods and Services Tax",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Customs duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "Excise duty",
+      "bin": "Indirect tax"
+     },
+     {
+      "label": "The impact and the incidence fall on different people",
+      "bin": "Indirect tax"
+     }
     ]
    }
   }
@@ -136,16 +304,36 @@
  {
   "bucket": "XI|Commerce|Cost & Taxation",
   "chapter": "GST: Concept and Introduction",
-  "approved": false,
+  "approved": true,
   "trick": "GST is a destination-based tax on value added, and the split follows the state line. Within one state it is CGST plus SGST; across states it is IGST alone. Ask where the goods finish their journey and the right head names itself.",
-  "video": { "query": "GST concept CGST SGST IGST input tax credit class 11", "video_id": null, "approved": false },
+  "video": {
+   "query": "GST concept CGST SGST IGST input tax credit class 11",
+   "video_id": null,
+   "approved": false
+  },
   "interactive": {
    "template": "fill-blank",
    "data": {
     "prompt": "Complete these facts about GST. Two entries in the bank are decoys.",
     "text": "GST came into force in India on 1 July {1}. A sale within a single state attracts {2} and SGST together, while a sale from one state to another attracts {3}. GST is a {4}-based tax, meaning it accrues to the state where the goods are finally consumed. The mechanism that stops tax being charged on tax is called {5} tax credit, and the body that decides GST rates is the GST {6}.",
-    "answers": ["2017", "CGST", "IGST", "destination", "input", "Council"],
-    "bank": ["2017", "CGST", "IGST", "destination", "input", "Council", "2016", "origin"]
+    "answers": [
+     "2017",
+     "CGST",
+     "IGST",
+     "destination",
+     "input",
+     "Council"
+    ],
+    "bank": [
+     "2017",
+     "CGST",
+     "IGST",
+     "destination",
+     "input",
+     "Council",
+     "2016",
+     "origin"
+    ]
    }
   }
  }

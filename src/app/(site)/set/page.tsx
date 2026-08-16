@@ -127,10 +127,8 @@ export default function SetPage() {
             </p>
             <NameDobLookup />
             <p className="mt-6 mx-auto max-w-xl text-sm leading-relaxed text-on-surface-variant">
-              A very small number of students share the same first four letters and the same
-              date of birth, and a few have no date of birth on our register. If this box
-              cannot place you, it will say so &mdash; your Head of School holds the full list
-              of Unique IDs and can read yours out to you.
+              If this box cannot place you, it will say so &mdash; your Head of School holds
+              the full list of Unique IDs and can read yours out to you.
             </p>
           </div>
 

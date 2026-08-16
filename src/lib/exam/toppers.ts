@@ -144,7 +144,22 @@ export async function stageData(eventDate: string): Promise<StageData> {
   `) as unknown as Row[];
 
   const sorted = [...rows].sort(best);
-  const enrolled = (await sql`select count(*)::int as n from students`) as unknown as { n: number }[];
+
+  /**
+   * Schools are counted from the REGISTER, not from the sheets, and the demo
+   * account is left out.
+   *
+   * Two schools — Krits International and Khidderpore Milani Boys' — enrolled
+   * students who did not sit the written paper, so counting distinct schools
+   * among the marked sheets gives 110 and quietly drops two schools that took
+   * part. "KIDS Team (Demo)" is our own test account and is not a school at
+   * all, which is what `is_demo` is for. 112 is the number KIDS uses.
+   */
+  const [reg] = (await sql`
+    select count(*)::int as enrolled,
+           count(distinct school_name)::int as schools
+    from students where not is_demo
+  `) as unknown as { enrolled: number; schools: number }[];
 
   const overview = {
     appeared: rows.length,
@@ -152,7 +167,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
     highest: sorted[0]?.marks ?? 0,
     average: rows.length ? rows.reduce((a, r) => a + r.marks, 0) / rows.length : 0,
     centres: new Set(rows.map((r) => r.centre_code)).size,
-    schools: new Set(rows.map((r) => r.school_name)).size,
+    schools: reg?.schools ?? new Set(rows.map((r) => r.school_name)).size,
   };
 
   const boards: Board[] = [
@@ -160,7 +175,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
       id: "overview", eyebrow: "The Examination", title: "SET 2026 at a Glance",
       subtitle: `Students Evaluation Test · Project UDAAN · ${overview.centres} centres across ${
         new Set(rows.map((r) => districtOf(r.centre_code))).size} districts`,
-      count: `${num(rows.length)} sheets assessed of ${num(enrolled[0]?.n ?? rows.length)} enrolled`,
+      count: `${num(rows.length)} sheets assessed of ${num(reg?.enrolled ?? rows.length)} enrolled`,
       kind: "overview", entries: [],
     },
   ];

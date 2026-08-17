@@ -144,9 +144,15 @@ async function main(): Promise<number> {
       "Run scripts/withhold-schools.ts --list to create it, and set the hold list first.");
     return 1;
   }
+  // Count RESULTS held, not children enrolled at a held school. Most of those
+  // schools have absentees, so enrolment overstates what is actually being kept
+  // shut — 1,560 against 1,222 on 17 Aug. The number printed here is the one
+  // that gets repeated to the office, so it has to mean what it says.
   const heldNow = (await sql`
-    select count(distinct s.uid)::int n
-    from offline_withheld_schools w join students s on s.school_name = w.school_name`) as any[];
+    select count(*)::int n
+    from offline_results o
+    join students s on s.uid = o.uid
+    join offline_withheld_schools w on w.school_name = s.school_name`) as any[];
 
   const at = valueOf("--at") ? istToDate(valueOf("--at")!) : new Date();
   await sql`

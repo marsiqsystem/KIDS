@@ -37,6 +37,8 @@ export interface Student {
   centre_code: string;
   centre_name: string;
   dob: string | null;
+  /** Which medium's paper they sat. "" is the default (English). */
+  medium: string;
   is_demo: boolean;
 }
 
@@ -44,7 +46,7 @@ export interface Student {
 export async function findStudent(uid: string): Promise<Student | null> {
   const rows = (await sql`
     select uid, name, class, stream, school_code, school_name,
-           centre_code, centre_name, dob, is_demo
+           centre_code, centre_name, dob, is_demo, coalesce(medium, '') as medium
     from students
     where uid = ${uid}
   `) as Student[];

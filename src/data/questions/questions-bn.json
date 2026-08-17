@@ -1,0 +1,512 @@
+[
+ {
+  "id": "IX|All|General Paper|26|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 26,
+  "context": null,
+  "stem": "After how many years did the French king summon the French parliament, the 'Estates General'?",
+  "options": [
+   "125 years",
+   "150 years",
+   "175 years",
+   "185 years"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "IX|All|General Paper|27|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 27,
+  "context": null,
+  "stem": "Who was the leader of the Jacobin party?",
+  "options": [
+   "Danton",
+   "Hébert",
+   "Mirabeau",
+   "Robespierre"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "IX|All|General Paper|28|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 28,
+  "context": null,
+  "stem": "Who was known as the 'Father of the French Revolution'?",
+  "options": [
+   "Adam Smith",
+   "Montesquieu",
+   "Voltaire",
+   "Rousseau"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "IX|All|General Paper|29|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 29,
+  "context": null,
+  "stem": "Who was the author of 'General Will'?",
+  "options": [
+   "Voltaire",
+   "Rousseau",
+   "Diderot",
+   "Quesnay"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|30|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 30,
+  "context": null,
+  "stem": "When was the First French Republic established?",
+  "options": [
+   "1790",
+   "1791",
+   "1792",
+   "1793"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "IX|All|General Paper|31|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 31,
+  "context": null,
+  "stem": "One of the Directors who helped Napoleon seize power by bringing down the Directory government was—",
+  "options": [
+   "Abbé Sieyès",
+   "Reubell",
+   "Carnot",
+   "Marat"
+  ],
+  "answer": 0
+ },
+ {
+  "id": "IX|All|General Paper|32|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 32,
+  "context": null,
+  "stem": "In which year was the Bank of France established?",
+  "options": [
+   "1799",
+   "1800",
+   "1802",
+   "1807"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|33|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 33,
+  "context": null,
+  "stem": "Which battle is called the 'Battle of Nations'?",
+  "options": [
+   "Peninsula",
+   "Waterloo",
+   "Vitoria",
+   "Leipzig"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "IX|All|General Paper|34|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 34,
+  "context": null,
+  "stem": "Which historian described the 'Code Napoléon' as the 'Bible of French society'?",
+  "options": [
+   "David Thomson",
+   "Lefebvre",
+   "G. Rudé",
+   "Grant"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|35|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 35,
+  "context": null,
+  "stem": "How many articles did the 'Code Napoléon' contain?",
+  "options": [
+   "2187",
+   "2287",
+   "2387",
+   "2487"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|36|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 36,
+  "context": null,
+  "stem": "Who was called the 'Sick Man of Europe'?",
+  "options": [
+   "England",
+   "Turkey",
+   "Russia",
+   "France"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|37|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 37,
+  "context": null,
+  "stem": "When did the February Revolution take place in France?",
+  "options": [
+   "1830",
+   "1848",
+   "1859",
+   "1890"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "IX|All|General Paper|38|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 38,
+  "context": null,
+  "stem": "How many principles did the leaders of the Congress of Vienna adopt?",
+  "options": [
+   "3",
+   "4",
+   "5",
+   "6"
+  ],
+  "answer": 0
+ },
+ {
+  "id": "IX|All|General Paper|39|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 39,
+  "context": null,
+  "stem": "Who represented Russia at the Congress of Vienna?",
+  "options": [
+   "Nicholas I",
+   "Castlereagh",
+   "Alexander I",
+   "Talleyrand"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "IX|All|General Paper|40|BENGALI",
+  "class": "IX",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "History",
+  "q_no": 40,
+  "context": null,
+  "stem": "Where was the Congress of Vienna held?",
+  "options": [
+   "France",
+   "Austria",
+   "Prussia",
+   "Russia"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|41|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 41,
+  "context": null,
+  "stem": "The atmosphere is:",
+  "options": [
+   "the rock layer surrounding the Earth",
+   "the water layer surrounding the Earth",
+   "the gaseous layer surrounding the Earth",
+   "the soil layer covering the Earth"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|42|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 42,
+  "context": null,
+  "stem": "Which gas is present in the greatest quantity in the atmosphere?",
+  "options": [
+   "Oxygen",
+   "Nitrogen",
+   "Carbon dioxide",
+   "Argon"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|43|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 43,
+  "context": null,
+  "stem": "The lowest layer of the atmosphere is:",
+  "options": [
+   "Stratosphere",
+   "Mesosphere",
+   "Troposphere",
+   "Thermosphere"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|44|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 44,
+  "context": null,
+  "stem": "Most weather phenomena occur in the:",
+  "options": [
+   "Stratosphere",
+   "Troposphere",
+   "Mesosphere",
+   "Exosphere"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|45|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 45,
+  "context": null,
+  "stem": "The ozone layer is found in the:",
+  "options": [
+   "Troposphere",
+   "Thermosphere",
+   "Mesosphere",
+   "Stratosphere"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "X|All|General Paper|46|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 46,
+  "context": null,
+  "stem": "Air pressure is measured by:",
+  "options": [
+   "a hygrometer",
+   "a thermometer",
+   "a barometer",
+   "a rain gauge"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|47|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 47,
+  "context": null,
+  "stem": "Wind always blows:",
+  "options": [
+   "from low pressure towards high pressure",
+   "from high pressure towards low pressure",
+   "only from east to west",
+   "only from north to south"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|48|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 48,
+  "context": null,
+  "stem": "The instrument for measuring rainfall is:",
+  "options": [
+   "a barometer",
+   "an anemometer",
+   "a hygrometer",
+   "a rain gauge"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "X|All|General Paper|49|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 49,
+  "context": null,
+  "stem": "The hydrosphere includes:",
+  "options": [
+   "only the oceans",
+   "only rivers and lakes",
+   "all the water on Earth",
+   "only groundwater"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|50|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 50,
+  "context": null,
+  "stem": "About what percentage of the Earth's surface is covered by water?",
+  "options": [
+   "51%",
+   "61%",
+   "71%",
+   "81%"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|51|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 51,
+  "context": null,
+  "stem": "Which is the largest ocean on Earth?",
+  "options": [
+   "Atlantic Ocean",
+   "Indian Ocean",
+   "Arctic Ocean",
+   "Pacific Ocean"
+  ],
+  "answer": 3
+ },
+ {
+  "id": "X|All|General Paper|52|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 52,
+  "context": null,
+  "stem": "The continuous circulation of water between the land, the sea and the atmosphere is called:",
+  "options": [
+   "weathering",
+   "the water cycle",
+   "ocean currents",
+   "condensation"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|53|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 53,
+  "context": null,
+  "stem": "The process by which water vapour turns into water droplets is called:",
+  "options": [
+   "evaporation",
+   "condensation",
+   "infiltration",
+   "transpiration"
+  ],
+  "answer": 1
+ },
+ {
+  "id": "X|All|General Paper|54|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 54,
+  "context": null,
+  "stem": "Tides are caused mainly by:",
+  "options": [
+   "the gravitational pull of the Sun only",
+   "the gravitational pull of the Earth only",
+   "the gravitational pull of the Moon only",
+   "the gravitational pull of Mars"
+  ],
+  "answer": 2
+ },
+ {
+  "id": "X|All|General Paper|55|BENGALI",
+  "class": "X",
+  "stream": "All",
+  "subject": "General Paper",
+  "section": "Geography",
+  "q_no": 55,
+  "context": null,
+  "stem": "The Bay of Bengal is:",
+  "options": [
+   "part of the Pacific Ocean",
+   "part of the Atlantic Ocean",
+   "part of the Indian Ocean",
+   "part of the Arctic Ocean"
+  ],
+  "answer": 2
+ }
+]

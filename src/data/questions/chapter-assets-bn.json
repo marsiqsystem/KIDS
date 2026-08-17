@@ -1,0 +1,119 @@
+[
+ {
+  "bucket": "IX|All|History",
+  "chapter": "The French Revolution: Ideas, the Estates General and the Republic",
+  "approved": true,
+  "trick": "Hold on to three dates and the whole chapter lines up. 1614 — the last time the Estates General met. 1789 — Louis XVI is forced to recall it because the treasury is empty, 175 years later. 1792 — the monarchy is abolished and the First Republic proclaimed. Between the second and third date sit the thinkers who made it thinkable: Rousseau above all, whose General Will said sovereignty belongs to the people, and the Jacobins under Robespierre who acted on that idea to the letter.",
+  "video": {
+   "query": "ফরাসি বিপ্লব নবম শ্রেণী ইতিহাস স্টেটস জেনারেল জ্যাকোবিন রুশো",
+   "video_id": "szN9YM_vZ48",
+   "approved": true,
+   "language": "BENGALI",
+   "title": "WBBSE Class 9 History Chapter 1 Revision & MCQs: French Revolution Explained | Part 1",
+   "channel": "Dixit Classes"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each figure or body with what it is remembered for.",
+    "pairs": [
+     {"left": "Rousseau", "right": "The General Will — sovereignty belongs to the people"},
+     {"left": "Robespierre", "right": "Led the Jacobins through the Terror"},
+     {"left": "Montesquieu", "right": "The separation of powers"},
+     {"left": "Voltaire", "right": "Attacked the Church and defended free thought"},
+     {"left": "The Estates General", "right": "Recalled in 1789 after 175 years"},
+     {"left": "The National Convention", "right": "Proclaimed the First Republic in 1792"}
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "IX|All|History",
+  "chapter": "Napoleon: Rise, the Code and the Fall",
+  "approved": true,
+  "trick": "Read Napoleon in three movements and the questions sort themselves. RISE — 1799, the coup of 18 Brumaire, planned from inside the Directory by Sieyès, who meant to use Napoleon and was used instead. REFORM — 1800, the Bank of France; 1804, the Code Napoléon, one law for the whole country in place of a tangle of local custom, which Lefebvre called the Bible of French society. FALL — 1813, Leipzig, the Battle of Nations, where four powers at once finally broke him, two years before Waterloo finished it.",
+  "video": {
+   "query": "নেপোলিয়ন বোনাপার্ট উত্থান পতন সংস্কার নবম শ্রেণী ইতিহাস",
+   "video_id": "I8Q4HVmzcfk",
+   "approved": true,
+   "language": "BENGALI",
+   "title": "বিপ্লবী আদর্শ, নেপোলিয়নীয় সাম্রাজ্য ও জাতীয়তাবাদ | Napoleonic Empire In One Shot | Class 9 | WBBSE",
+   "channel": "PW Bangla 9 & 10",
+   "note": "Full-chapter One Shot covering rise, reforms and fall — replaces an earlier link that covered only the Code Napoléon."
+  },
+  "interactive": {
+   "template": "sort-bins",
+   "data": {
+    "prompt": "Sort each event into the part of Napoleon's career it belongs to.",
+    "bins": ["His rise to power", "His reforms", "His fall"],
+    "items": [
+     {"label": "The coup of 18 Brumaire, 1799", "bin": "His rise to power"},
+     {"label": "Abbé Sieyès plots from inside the Directory", "bin": "His rise to power"},
+     {"label": "The Bank of France is founded, 1800", "bin": "His reforms"},
+     {"label": "The Code Napoléon gives France one civil law", "bin": "His reforms"},
+     {"label": "Lefebvre calls the Code the Bible of French society", "bin": "His reforms"},
+     {"label": "The Battle of Leipzig, the Battle of Nations, 1813", "bin": "His fall"},
+     {"label": "Waterloo, 1815", "bin": "His fall"}
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "The Atmosphere: Composition, Layers and Weather Instruments",
+  "approved": true,
+  "trick": "Two lists and one rule carry this chapter. The layers from the ground up: troposphere, stratosphere, mesosphere, thermosphere — weather in the first because that is where the water vapour is, ozone in the second. The composition: nitrogen 78%, oxygen 21%, argon about 1%, carbon dioxide a trace — nearly four-fifths of the air is the gas you do not breathe for respiration. The rule: wind always blows from high pressure to low, never the other way. Then match each instrument to its quantity — barometer to pressure, rain gauge to rainfall, anemometer to wind speed, hygrometer to humidity.",
+  "video": {
+   "query": "বায়ুমণ্ডল স্তর ট্রপোস্ফিয়ার ওজোন দশম শ্রেণী ভূগোল",
+   "video_id": "MAs9IMxyiMM",
+   "approved": true,
+   "language": "BENGALI",
+   "title": "বায়ুমণ্ডল | Atmosphere | Geography Summary | WBBSE Class 10 | Madhyamik",
+   "channel": "PW Bangla 9 & 10"
+  },
+  "interactive": {
+   "template": "match-pairs",
+   "data": {
+    "prompt": "Match each instrument or layer with what belongs to it.",
+    "pairs": [
+     {"left": "Barometer", "right": "Air pressure"},
+     {"left": "Rain gauge", "right": "Rainfall"},
+     {"left": "Anemometer", "right": "Wind speed"},
+     {"left": "Hygrometer", "right": "Humidity"},
+     {"left": "Troposphere", "right": "Lowest layer, where weather happens"},
+     {"left": "Stratosphere", "right": "Holds about 90% of the ozone"},
+     {"left": "Nitrogen", "right": "About 78% of the air"},
+     {"left": "Oxygen", "right": "About 21% of the air"}
+    ]
+   }
+  }
+ },
+ {
+  "bucket": "X|All|Geography",
+  "chapter": "The Hydrosphere: Oceans, the Water Cycle and Tides",
+  "approved": true,
+  "trick": "The hydrosphere means all the water on Earth — not the oceans alone, which is the trap in almost every question on it. About 71% of the surface is under water, and the Pacific alone covers roughly a third of the planet, more than all the land put together. The water cycle turns endlessly through evaporation, condensation, precipitation and run-off; condensation is the stage that makes cloud, and it is simply evaporation run backwards. Tides come mainly from the Moon: far smaller than the Sun but far closer, and tidal pull falls away sharply with distance.",
+  "video": {
+   "query": "জলমণ্ডল জলচক্র জোয়ার ভাটা মহাসাগর দশম শ্রেণী ভূগোল",
+   "video_id": "zUMCL3wqlFA",
+   "approved": true,
+   "language": "BENGALI",
+   "title": "WBBSE CLASS 10 GEOGRAPHY CHAPTER 3 - বারিমণ্ডল (HYDROSPHERE) IN BENGALI",
+   "channel": "TUTORIC LEARNING ACADEMY"
+  },
+  "interactive": {
+   "template": "true-false",
+   "data": {
+    "prompt": "True or false?",
+    "items": [
+     {"statement": "The hydrosphere means the oceans and nothing else.", "is_true": false, "why": "It is all the water on Earth — oceans, rivers, lakes, groundwater, ice and the vapour in the air. Naming only one part is the commonest mistake on this chapter."},
+     {"statement": "About 71% of the Earth's surface is covered by water.", "is_true": true, "why": "Which leaves roughly 29% as land, and is why it is called the blue planet."},
+     {"statement": "The Atlantic is the largest ocean.", "is_true": false, "why": "The Pacific is, by a wide margin — about a third of the Earth's surface. The Atlantic is second."},
+     {"statement": "Condensation turns water vapour back into liquid droplets.", "is_true": true, "why": "It is evaporation run backwards, and it is the stage that forms cloud, mist and dew."},
+     {"statement": "Tides are caused mainly by the Sun.", "is_true": false, "why": "Mainly by the Moon. The Sun is far larger but far further away, and tidal pull falls off sharply with distance, so the Moon's effect is about twice the Sun's."},
+     {"statement": "The Bay of Bengal is part of the Indian Ocean.", "is_true": true, "why": "Its north-eastern arm, between India and Myanmar — the largest bay in the world."}
+    ]
+   }
+  }
+ }
+]

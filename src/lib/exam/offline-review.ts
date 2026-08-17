@@ -55,12 +55,22 @@ let cache: {
   why: Map<string, Explanation>;
 } | null = null;
 
+/**
+ * The `-bn` files hold ONLY the questions that differ between the two mediums —
+ * Class IX History Q26-40 and Class X Geography Q41-55, 30 in all. Everything
+ * else is a straight translation and shares one entry, so they are merged over
+ * the default bank under ids suffixed `|BN` and looked up first for a
+ * Bengali-medium candidate. A question with no `|BN` entry simply falls through
+ * to the shared one, which is why only those 30 are here.
+ */
 function bank() {
   if (!cache) {
+    const merge = <T extends { id: string }>(base: string, bn: string) =>
+      new Map([...load<T[]>(base), ...load<T[]>(bn)].map((x) => [x.id, x]));
     cache = {
-      bank: new Map(load<BankQuestion[]>("questions.json").map((q) => [q.id, q])),
-      chapter: new Map(load<ChapterRow[]>("question-chapters.json").map((c) => [c.id, c])),
-      why: new Map(load<Explanation[]>("explanations.json").map((e) => [e.id, e])),
+      bank: merge<BankQuestion>("questions.json", "questions-bn.json"),
+      chapter: merge<ChapterRow>("question-chapters.json", "question-chapters-bn.json"),
+      why: merge<Explanation>("explanations.json", "explanations-bn.json"),
     };
   }
   return cache;
@@ -123,13 +133,24 @@ function idFor(sheet: OfflineMarksheet, q: OfflineQuestion): string | null {
  * dropped: the student sat 100 questions and the sheet must show 100 rows, even
  * if one of them can only say what they marked.
  */
-export function reviewQuestions(sheet: OfflineMarksheet): ReviewedQuestion[] {
+export function reviewQuestions(
+  sheet: OfflineMarksheet,
+  medium = "",
+): ReviewedQuestion[] {
   const { bank: qs, chapter: chs, why: whys } = bank();
+  // A candidate who sat another medium's paper is shown that paper's question
+  // and explanation where the two differ. Falling back to the shared entry is
+  // what keeps this to the 30 questions that actually differ.
+  const suffix = medium ? `|${medium.trim().toUpperCase()}` : "";
+  const pick = <T>(m: Map<string, T>, id: string | null) =>
+    id ? (suffix ? m.get(id + suffix) ?? m.get(id) : m.get(id)) : undefined;
+
   return sheet.questions.map((q) => {
-    const id = idFor(sheet, q);
-    const b = id ? qs.get(id) : undefined;
-    const ch = id ? chs.get(id) : undefined;
-    const w = id ? whys.get(id) : undefined;
+    const base = idFor(sheet, q);
+    const id = base && suffix && qs.has(base + suffix) ? base + suffix : base;
+    const b = pick(qs, base);
+    const ch = pick(chs, base);
+    const w = pick(whys, base);
 
     const pickedIndex = q.marked ? LETTERS.indexOf(q.marked) : -1;
     const answerIndex = b && q.status !== "grace" ? b.answer : -1;

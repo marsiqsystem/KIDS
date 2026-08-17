@@ -565,7 +565,8 @@ async function writtenHalf(student: Student) {
       offlineQuestions: [], offlineLearn: [] as LearnCard[], marksheetHref: href,
     };
   }
-  const questions = reviewQuestions(sheet);
+  // The written paper differs by medium in 30 places; show this student theirs.
+  const questions = reviewQuestions(sheet, student.medium);
   // Only chapters with approved teaching content behind them: a card with a
   // heading and nothing under it is worse than no card.
   const learn: LearnCard[] = chapterScores(questions)

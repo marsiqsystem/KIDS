@@ -19,6 +19,18 @@ create table if not exists students (
 
 create index if not exists students_centre_idx on students (centre_code);
 
+-- Which medium's question paper this candidate was handed on 19 July 2026.
+-- '' is the default (English) paper. Only 'BENGALI' exists so far.
+--
+-- It has to be stored, not derived: the Bengali IX History (Q26-40) and X
+-- Geography (Q41-55) sections ask DIFFERENT QUESTIONS, so the result page must
+-- show a Bengali-medium candidate the questions and explanations from their own
+-- paper. It was briefly derived from `offline_withheld_schools`, which was
+-- wrong — that table records what is being held back, and it empties the moment
+-- everything is released.
+alter table students add column if not exists medium text not null default '';
+create index if not exists students_medium_idx on students (medium) where medium <> '';
+
 -- One row per student per exam. The primary key IS the one-attempt rule.
 create table if not exists attempts (
   uid           char(9) primary key references students (uid),

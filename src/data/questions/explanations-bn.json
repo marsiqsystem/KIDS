@@ -1,0 +1,302 @@
+[
+ {
+  "id": "IX|All|General Paper|26|BENGALI",
+  "approved": true,
+  "why_correct": "The Estates General had last met in 1614. Louis XVI recalled it in May 1789 only because the treasury was empty and no other body could approve new taxes — a gap of 175 years. That long silence is the point: the monarchy had governed without consulting the nation for over a century and a half, and calling it back was an admission that it could no longer do so.",
+  "why_wrong": {
+   "0": "125 years would place the previous meeting in 1664, under Louis XIV — precisely the reign when the monarchy was at its most absolute and least likely to summon it. Count back from 1789 to 1614.",
+   "1": "150 is close but not the figure. The arithmetic is 1789 minus 1614, and it is worth doing rather than estimating.",
+   "3": "185 years would put the previous meeting in 1604, before Louis XIII came to the throne. The last session was in 1614."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|27|BENGALI",
+  "approved": true,
+  "why_correct": "Maximilien Robespierre led the Jacobin club and, through the Committee of Public Safety, dominated the radical phase of the revolution from 1793 until his own execution in July 1794. When the paper asks for the leader of the Jacobins, it is Robespierre.",
+  "why_wrong": {
+   "0": "Danton was a major Jacobin figure and an early leader of the Committee of Public Safety, but he was overtaken and then executed by Robespierre's faction in April 1794. He is the second name here, not the first.",
+   "1": "Hébert led the more extreme Hébertists, a rival radical group. He too was guillotined in 1794 on Robespierre's watch.",
+   "2": "Mirabeau belonged to the early, moderate, constitutional-monarchy phase and died in 1791, before the Jacobins took power at all."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|28|BENGALI",
+  "approved": true,
+  "why_correct": "Rousseau is the thinker conventionally called the father of the French Revolution. His argument that sovereignty belongs to the people, not the crown, is the idea the revolutionaries acted on, and The Social Contract was read as its charter.",
+  "why_wrong": {
+   "0": "Adam Smith was a Scottish economist writing on trade and markets in The Wealth of Nations. He is not part of the French political tradition this question is about.",
+   "1": "Montesquieu mattered enormously — the separation of powers comes from him — but his influence runs towards constitutional government, and the title in question belongs to Rousseau.",
+   "2": "Voltaire attacked the Church and championed free thought, and he prepared the ground. The specific title, though, is Rousseau's."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|29|BENGALI",
+  "approved": true,
+  "why_correct": "The General Will is Rousseau's doctrine, set out in The Social Contract (1762): the collective will of the people as a whole, which he held to be the only legitimate basis of law. Note that the General Will is a concept, not a book — the question is loosely worded, but Rousseau is the answer either way.",
+  "why_wrong": {
+   "0": "Voltaire wrote against religious intolerance and censorship. The General Will is not his idea.",
+   "2": "Diderot edited the Encyclopédie, the great compendium of Enlightenment knowledge. A different contribution altogether.",
+   "3": "Quesnay led the Physiocrats, who wrote about agriculture as the source of wealth — economics, not the theory of sovereignty."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|30|BENGALI",
+  "approved": true,
+  "why_correct": "The First French Republic was proclaimed on 21 September 1792, the day after the victory at Valmy, when the National Convention met and abolished the monarchy. Louis XVI was executed four months later.",
+  "why_wrong": {
+   "0": "In 1790 France was still a monarchy. This is the year of the Civil Constitution of the Clergy, not of the republic.",
+   "1": "1791 gave France its first written constitution — but a constitution for a *constitutional monarchy*, with the king still on the throne.",
+   "3": "1793 is the year the king was executed and the Terror began. The republic had already been declared the previous September."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|31|BENGALI",
+  "approved": true,
+  "why_correct": "Abbé Sieyès was himself one of the five Directors, and he planned the coup of 18 Brumaire (November 1799) from the inside, expecting to use Napoleon and then control him. Napoleon took sole power instead. A conspirator on the inside is what made the coup work.",
+  "why_wrong": {
+   "1": "Reubell had been a Director but left before the coup, and he was not part of the plot.",
+   "2": "Carnot, the 'organiser of victory', was a Director earlier but had been purged in 1797 and was in exile.",
+   "3": "Marat was assassinated by Charlotte Corday in 1793, six years before the coup. He could not have taken any part in it."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|32|BENGALI",
+  "approved": true,
+  "why_correct": "Napoleon founded the Banque de France in January 1800, within weeks of taking power, to stabilise the currency and restore public credit after a decade of revolutionary inflation. It is one of the reforms that outlasted him — the bank still exists.",
+  "why_wrong": {
+   "0": "1799 is the year of the Brumaire coup itself. The bank came after Napoleon was in power, not before.",
+   "2": "1802 is the Concordat and the Peace of Amiens period. The bank was already two years old.",
+   "3": "1807 is far too late; by then the bank was well established and Napoleon was Emperor."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|33|BENGALI",
+  "approved": true,
+  "why_correct": "The Battle of Leipzig, October 1813, is called the Battle of Nations because so many nations fought Napoleon together — Russia, Prussia, Austria and Sweden in one coalition. It was the largest battle in Europe before the First World War and it drove Napoleon out of Germany.",
+  "why_wrong": {
+   "0": "The Peninsular War in Spain and Portugal drained Napoleon steadily — he called it his 'Spanish ulcer' — but it was a long campaign, not the battle with this name.",
+   "1": "Waterloo, 1815, was Napoleon's final defeat, but it was fought against Britain and Prussia, not the great coalition of nations.",
+   "2": "Vitoria (1813) was a British victory in Spain, part of the Peninsular campaign."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|34|BENGALI",
+  "approved": true,
+  "why_correct": "The historian Lefebvre compared the Code Napoléon to the Bible of French society — the phrase captures how completely one uniform law replaced the tangle of local customs France had before, and how deeply it settled into ordinary life.",
+  "why_wrong": {
+   "0": "David Thomson wrote Europe Since Napoleon and discusses the Code, but this particular description is not his.",
+   "2": "George Rudé is known for his work on revolutionary crowds — who took part in the revolution and why — rather than for this judgement on the Code.",
+   "3": "Grant is not the historian associated with this description."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|35|BENGALI",
+  "approved": true,
+  "why_correct": "The Code Napoléon is given as 2287 articles, gathering the whole of French civil law — property, contract, family, inheritance — into a single book for the first time. Its importance is less the number than the fact that one law now ran from Paris to the smallest village.",
+  "why_wrong": {
+   "0": "2187 is not the figure. If you find yourself guessing between four near numbers, fix the real one in memory rather than reasoning it out in the exam.",
+   "2": "2387 is not the figure.",
+   "3": "2487 is not the figure. Note that some sources give 2281 as the strict historical count; 2287 is the figure your textbook uses, and 2281 is not among these options."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|36|BENGALI",
+  "approved": true,
+  "why_correct": "The Ottoman Empire — Turkey — was called the Sick Man of Europe from the mid-nineteenth century, as it lost territory steadily and the other powers began calculating how to divide what remained. The phrase is usually credited to Tsar Nicholas I of Russia.",
+  "why_wrong": {
+   "0": "England in this period was at the height of its imperial power, not in decline.",
+   "2": "Russia was one of the powers waiting to profit from Ottoman weakness, not the sick man itself.",
+   "3": "France was a great power throughout, whatever its internal upheavals."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|37|BENGALI",
+  "approved": true,
+  "why_correct": "The February Revolution of 1848 overthrew King Louis Philippe and established the Second Republic. It set off risings across Europe that same year, which is why 1848 is remembered as the year of revolutions.",
+  "why_wrong": {
+   "0": "1830 was the July Revolution, which *installed* Louis Philippe. 1848 is the one that removed him — two revolutions, eighteen years apart, and easy to confuse.",
+   "2": "Nothing of this kind happened in 1859.",
+   "3": "By 1890 France had been a republic for twenty years."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|38|BENGALI",
+  "approved": true,
+  "why_correct": "The Congress of Vienna worked on three principles: legitimacy (restoring the old ruling houses), compensation (rewarding the victors with territory), and the balance of power (leaving no state strong enough to dominate again). Three, and each one is worth being able to name.",
+  "why_wrong": {
+   "1": "Four is one too many. The three are legitimacy, compensation and balance of power.",
+   "2": "Five is too many.",
+   "3": "Six is too many."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|39|BENGALI",
+  "approved": true,
+  "why_correct": "Tsar Alexander I represented Russia at Vienna in person, which was unusual — most powers sent ministers rather than monarchs. His personal presence gave Russia great weight in the settlement, particularly over Poland.",
+  "why_wrong": {
+   "0": "Nicholas I was Alexander's younger brother and did not become Tsar until 1825, ten years after the Congress.",
+   "1": "Castlereagh was there, but for Britain.",
+   "3": "Talleyrand was there for France — remarkably, as the defeated power, and he still managed to win France a place at the table."
+  }
+ },
+ {
+  "id": "IX|All|General Paper|40|BENGALI",
+  "approved": true,
+  "why_correct": "The Congress met at Vienna, the capital of Austria, from 1814 to 1815, hosted by Metternich — which is why the settlement carries his name as much as the city's.",
+  "why_wrong": {
+   "0": "France was the defeated power. The victors were not going to meet in Paris to redraw the map.",
+   "2": "Prussia was one of the four great powers present, but the Congress did not sit there.",
+   "3": "Russia was represented by the Tsar himself, but the meeting was in Vienna."
+  }
+ },
+ {
+  "id": "X|All|General Paper|41|BENGALI",
+  "approved": true,
+  "why_correct": "The atmosphere is the envelope of gases held around the Earth by gravity. Naming it as a gaseous layer is what separates it from the other three spheres — the lithosphere is rock, the hydrosphere is water, and the soil is part of the land surface.",
+  "why_wrong": {
+   "0": "A rock layer around the Earth is the lithosphere.",
+   "1": "A water layer is the hydrosphere, which is the very next chapter.",
+   "3": "Soil covers the land surface but does not surround the Earth, and it is not a gas."
+  }
+ },
+ {
+  "id": "X|All|General Paper|42|BENGALI",
+  "approved": true,
+  "why_correct": "Nitrogen makes up about 78% of the atmosphere by volume, with oxygen at about 21%. Nearly four-fifths of the air is the gas we do not breathe for respiration — which is the fact worth holding on to.",
+  "why_wrong": {
+   "0": "Oxygen is second, at about 21%. It is the gas we need, which is why it feels like it should be first, but it is not.",
+   "2": "Carbon dioxide is only about 0.04% — a trace, though a trace with an outsized effect on temperature.",
+   "3": "Argon is about 0.93%, third by volume and far behind the first two."
+  }
+ },
+ {
+  "id": "X|All|General Paper|43|BENGALI",
+  "approved": true,
+  "why_correct": "The troposphere is the lowest layer, reaching about 8 km at the poles and 18 km at the equator. It holds roughly three-quarters of the atmosphere's mass and almost all of its water vapour.",
+  "why_wrong": {
+   "0": "The stratosphere sits above the troposphere — second, not first.",
+   "1": "The mesosphere is third from the ground.",
+   "3": "The thermosphere is far above, where the air is so thin it barely registers as air."
+  }
+ },
+ {
+  "id": "X|All|General Paper|44|BENGALI",
+  "approved": true,
+  "why_correct": "Weather happens in the troposphere, because that is where the water vapour and the vertical mixing are. Cloud, rain, storm and wind all belong to this lowest layer — which is also why aircraft climb into the stratosphere to fly above the weather.",
+  "why_wrong": {
+   "0": "The stratosphere is stable and dry, which is exactly why weather does not form there.",
+   "2": "The mesosphere is where meteors burn up, not where weather forms.",
+   "3": "The exosphere is the outermost fringe, merging into space."
+  }
+ },
+ {
+  "id": "X|All|General Paper|45|BENGALI",
+  "approved": true,
+  "why_correct": "About 90% of atmospheric ozone sits in the stratosphere, roughly 15 to 35 km up, where it absorbs most of the Sun's ultraviolet radiation. Two facts travel together here: the stratosphere is the second layer, and it holds the ozone.",
+  "why_wrong": {
+   "0": "Ozone in the troposphere exists but is a pollutant near the ground, not the protective layer.",
+   "1": "The thermosphere is far above the ozone layer.",
+   "2": "The mesosphere lies above the stratosphere and holds little ozone."
+  }
+ },
+ {
+  "id": "X|All|General Paper|46|BENGALI",
+  "approved": true,
+  "why_correct": "A barometer measures atmospheric pressure. The name is the clue — 'baro' means weight, and pressure is the weight of the air column above you.",
+  "why_wrong": {
+   "0": "A hygrometer measures humidity, the water vapour in the air.",
+   "1": "A thermometer measures temperature.",
+   "3": "A rain gauge measures rainfall — which is the very next question, so keep the four instruments separate in your mind."
+  }
+ },
+ {
+  "id": "X|All|General Paper|47|BENGALI",
+  "approved": true,
+  "why_correct": "Wind blows from high pressure towards low pressure. Air moves to even out the difference, and the steeper the pressure gradient, the stronger the wind. Direction is set by pressure, not by the compass.",
+  "why_wrong": {
+   "0": "This is backwards. Air does not move from low pressure to high, any more than water flows uphill.",
+   "2": "There is no rule that wind only blows east to west. Prevailing winds vary with latitude.",
+   "3": "Nor is there any rule confining wind to north–south."
+  }
+ },
+ {
+  "id": "X|All|General Paper|48|BENGALI",
+  "approved": true,
+  "why_correct": "Rainfall is measured with a rain gauge, which simply collects fallen rain in a calibrated cylinder and reports the depth in millimetres.",
+  "why_wrong": {
+   "0": "A barometer measures air pressure.",
+   "1": "An anemometer measures wind speed.",
+   "2": "A hygrometer measures humidity — the vapour still in the air, not the rain that has already fallen."
+  }
+ },
+ {
+  "id": "X|All|General Paper|49|BENGALI",
+  "approved": true,
+  "why_correct": "The hydrosphere is all the water on Earth — oceans, seas, rivers, lakes, groundwater, ice and the vapour in the air. The word means the whole water realm, and any answer naming only one part of it is too narrow.",
+  "why_wrong": {
+   "0": "Oceans are the largest share by far, but they are not the whole of it.",
+   "1": "Rivers and lakes are a very small fraction of the world's water.",
+   "3": "Groundwater is one component among several."
+  }
+ },
+ {
+  "id": "X|All|General Paper|50|BENGALI",
+  "approved": true,
+  "why_correct": "About 71% of the Earth's surface is covered by water, which is why it is called the blue planet. Almost all of that is salt water in the oceans; fresh water is a small remainder.",
+  "why_wrong": {
+   "0": "51% would leave nearly half the planet as land, far more land than there is.",
+   "1": "61% is short of the mark.",
+   "3": "81% is too much — land is roughly 29%, not 19%."
+  }
+ },
+ {
+  "id": "X|All|General Paper|51|BENGALI",
+  "approved": true,
+  "why_correct": "The Pacific is the largest ocean, covering about a third of the Earth's surface — larger than all the land on the planet put together, and deeper than any other ocean.",
+  "why_wrong": {
+   "0": "The Atlantic is second, roughly half the Pacific's area.",
+   "1": "The Indian Ocean is third.",
+   "2": "The Arctic is the smallest and shallowest of the oceans."
+  }
+ },
+ {
+  "id": "X|All|General Paper|52|BENGALI",
+  "approved": true,
+  "why_correct": "The endless circulation of water between land, sea and atmosphere is the water cycle — evaporation, condensation, precipitation and run-off, turning without beginning or end. The word to notice in the question is 'continuous'.",
+  "why_wrong": {
+   "0": "Weathering is the breaking down of rock in place, not the movement of water.",
+   "2": "Ocean currents move water within the sea, but they are one part of the picture, not the whole cycle.",
+   "3": "Condensation is a single stage of the cycle, not the cycle itself."
+  }
+ },
+ {
+  "id": "X|All|General Paper|53|BENGALI",
+  "approved": true,
+  "why_correct": "Condensation is water vapour cooling and turning back into liquid droplets — the stage that forms cloud, mist and dew. It is evaporation run backwards.",
+  "why_wrong": {
+   "0": "Evaporation is the opposite: liquid water becoming vapour.",
+   "2": "Infiltration is water soaking down into the ground.",
+   "3": "Transpiration is water vapour released from plant leaves."
+  }
+ },
+ {
+  "id": "X|All|General Paper|54|BENGALI",
+  "approved": true,
+  "why_correct": "Tides are caused mainly by the Moon's gravitational pull. The Moon is far smaller than the Sun but far closer, and tidal force falls away sharply with distance, so the Moon's effect is roughly twice the Sun's. Note the option says 'only' — strictly the Sun contributes too, as spring and neap tides show, but the Moon is the dominant cause and this is the intended answer.",
+  "why_wrong": {
+   "0": "The Sun does affect tides, but its pull is about half the Moon's. It cannot be the main cause on its own.",
+   "1": "The Earth's own gravity holds the oceans to the planet; it does not raise the tidal bulge.",
+   "3": "Mars is far too distant and too small to have any measurable tidal effect on the Earth."
+  }
+ },
+ {
+  "id": "X|All|General Paper|55|BENGALI",
+  "approved": true,
+  "why_correct": "The Bay of Bengal is the north-eastern arm of the Indian Ocean, lying between India and Myanmar. It is the largest bay in the world, and the rivers of Bengal — the Ganga and the Brahmaputra among them — empty into it.",
+  "why_wrong": {
+   "0": "The Pacific lies far to the east, beyond Southeast Asia.",
+   "1": "The Atlantic is on the other side of Africa.",
+   "3": "The Arctic Ocean is at the North Pole."
+  }
+ }
+]

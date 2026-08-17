@@ -36,9 +36,17 @@ let cache: Map<string, ChapterAsset> | null = null;
 
 function all(): Map<string, ChapterAsset> {
   if (!cache) {
-    const p = path.join(process.cwd(), "src", "data", "questions", "chapter-assets.json");
-    const rows = JSON.parse(readFileSync(p, "utf8")) as ChapterAsset[];
-    cache = new Map(rows.map((r) => [`${r.bucket}|${r.chapter}`, r]));
+    // The Bengali file adds the chapters that only its paper covers -- the
+    // French Revolution and Napoleon for IX History, the Atmosphere and the
+    // Hydrosphere for X Geography. They sit in the SAME buckets as the English
+    // chapters and are told apart by chapter name, so the two merge without
+    // colliding and a chapter both papers share is defined once.
+    const read = (file: string) =>
+      JSON.parse(readFileSync(
+        path.join(process.cwd(), "src", "data", "questions", file), "utf8",
+      )) as ChapterAsset[];
+    cache = new Map([...read("chapter-assets.json"), ...read("chapter-assets-bn.json")]
+      .map((r) => [`${r.bucket}|${r.chapter}`, r]));
   }
   return cache;
 }

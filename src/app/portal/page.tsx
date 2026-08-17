@@ -547,7 +547,10 @@ function Closed({ student, name }: { student: Student; name: string }) {
  * number.
  */
 async function writtenHalf(student: Student) {
-  const { published } = await offlinePublicationState();
+  // Passed the student, not asked cohort-wide: a school on the withhold list
+  // reads as "not published yet" for its own pupils while everyone else's is
+  // open. Same answer, same words, same fallback view.
+  const { published } = await offlinePublicationState(student);
   const href = `/marksheet?id=${student.uid}&t=${signUid(student.uid, qrSecret())}`;
   if (!published) {
     return {

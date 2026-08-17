@@ -68,6 +68,14 @@ async function status(): Promise<void> {
   const [n] = (await sql`select count(*)::int n from offline_results`) as any[];
   const [q] = (await sql`select count(*)::int n from offline_question_stats`) as any[];
 
+  const held = (await sql`
+    select w.school_name, count(o.uid)::int sat
+    from offline_withheld_schools w
+    left join students s on s.school_name = w.school_name
+    left join offline_results o on o.uid = s.uid
+    group by w.school_name order by w.school_name`) as any[];
+  const heldSat = held.reduce((t, r) => t + r.sat, 0);
+
   const open = m?.offline_published && m?.offline_publish_at
     && new Date(m.offline_publish_at) <= new Date();
   console.log(`results in the table   ${n.n.toLocaleString()}`);
@@ -75,7 +83,9 @@ async function status(): Promise<void> {
   console.log(`imported               ${IST(m?.offline_computed_at)}`);
   console.log(`authorised             ${m?.offline_published ? `YES, ${IST(m.offline_published_at)}` : "no"}`);
   console.log(`opens                  ${IST(m?.offline_publish_at)}`);
-  console.log(`students can see it    ${open ? "YES — LIVE NOW" : "no"}`);
+  console.log(`schools held back      ${held.length ? `${held.length} — ${heldSat.toLocaleString()} results stay shut` : "none"}`);
+  console.log(`students can see it    ${open ? `YES — LIVE NOW${heldSat ? `, ${(n.n - heldSat).toLocaleString()} of them` : ""}` : "no"}`);
+  for (const h of held) console.log(`                       · ${h.school_name} (${h.sat})`);
   if (m?.offline_totals && Object.keys(m.offline_totals).length) {
     const t = m.offline_totals;
     console.log(`\n${t.sat?.toLocaleString()} sat · ${t.absent?.toLocaleString()} absent · ` +
@@ -123,6 +133,21 @@ async function main(): Promise<number> {
     return 1;
   }
 
+  // The withhold list is what keeps named schools shut once the switch is
+  // thrown, and the app fails CLOSED if it cannot read the table — a missing
+  // one would hold the entire cohort back rather than leak anybody. Either way
+  // publishing without it is not the release that was asked for, so check it is
+  // there before opening anything.
+  const [table] = (await sql`select to_regclass('offline_withheld_schools') as t`) as any[];
+  if (!table?.t) {
+    console.error("refusing: offline_withheld_schools does not exist. " +
+      "Run scripts/withhold-schools.ts --list to create it, and set the hold list first.");
+    return 1;
+  }
+  const heldNow = (await sql`
+    select count(distinct s.uid)::int n
+    from offline_withheld_schools w join students s on s.school_name = w.school_name`) as any[];
+
   const at = valueOf("--at") ? istToDate(valueOf("--at")!) : new Date();
   await sql`
     update results_meta
@@ -131,9 +156,13 @@ async function main(): Promise<number> {
         offline_publish_at = ${at.toISOString()}
     where id = true`;
 
+  const shut = heldNow[0]?.n ?? 0;
+  const scope = shut
+    ? `${n.n.toLocaleString()} results, less ${shut.toLocaleString()} held back by school`
+    : `${n.n.toLocaleString()} results`;
   console.log(at <= new Date()
-    ? `\nPUBLISHED. ${n.n.toLocaleString()} results are visible now.\n`
-    : `\nAUTHORISED. ${n.n.toLocaleString()} results open by themselves at ${IST(at)} IST.\n`);
+    ? `\nPUBLISHED. ${scope} — visible now.\n`
+    : `\nAUTHORISED. ${scope} — open by themselves at ${IST(at)} IST.\n`);
   await status();
   return 0;
 }

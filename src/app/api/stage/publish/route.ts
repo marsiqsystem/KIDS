@@ -50,6 +50,19 @@ export async function POST() {
       );
     }
 
+    // Schools held back stay held only while the app can read the list. It
+    // fails closed, so a missing table shuts the whole cohort rather than
+    // leaking a held school — but either way that is not the release the
+    // office authorised. Refuse rather than open something unintended on stage.
+    const [table] = (await sql`select to_regclass('offline_withheld_schools') as t`) as unknown as
+      { t: string | null }[];
+    if (!table?.t) {
+      return NextResponse.json(
+        { ok: false, message: "The withhold list is missing. Nothing was published — run scripts/withhold-schools.ts first." },
+        { status: 409 },
+      );
+    }
+
     await sql`
       update results_meta
       set offline_published = true,

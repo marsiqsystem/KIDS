@@ -54,7 +54,9 @@ export default async function MarksheetPage({
   const gate = await openPortal(id, t);
   if (!gate.ok) return <Refused />;
 
-  const { published } = await offlinePublicationState();
+  // Per-student, so a withheld school cannot reach its marksheet by the direct
+  // link either — the portal and the printable sheet must never disagree.
+  const { published } = await offlinePublicationState(gate.student);
   if (!published) return <Refused notYet />;
 
   const sheet = await findOfflineMarksheet(gate.student);

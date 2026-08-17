@@ -241,3 +241,26 @@ alter table results_meta add column if not exists offline_published_at timestamp
 alter table results_meta add column if not exists offline_publish_at   timestamptz;
 alter table results_meta add column if not exists offline_totals       jsonb not null default '{}'::jsonb;
 alter table results_meta add column if not exists offline_computed_at  timestamptz;
+
+-- Schools whose written results stay shut while the rest of the cohort's open.
+--
+-- The switch above is one lever for 7,287 children. This is the exception list
+-- in front of it: a student whose school is named here is told "not published
+-- yet", exactly as if the whole paper were still shut, on /portal and on
+-- /marksheet alike.
+--
+-- Deliberately NOT a change to any mark, rank or cohort figure. These children
+-- sat the same paper as everyone else and are counted in every average and
+-- every rank; only the door to their own page is closed. So a school can be
+-- released later by deleting one row — nothing is recomputed, and no classmate's
+-- rank moves when it is.
+--
+-- Keyed on `students.school_name` because that is the only school identity the
+-- roster actually carries: `school_code` is not unique across centres (a dozen
+-- schools share SC-01). `scripts/withhold-schools.ts` refuses any name that
+-- does not match a school exactly, so a typo cannot silently withhold nobody.
+create table if not exists offline_withheld_schools (
+  school_name text primary key,
+  reason      text,
+  added_at    timestamptz not null default now()
+);

@@ -123,6 +123,28 @@ const istDate = (d: Date) =>
   }).format(d);
 
 /**
+ * Is this school on the withhold list?
+ *
+ * Fails CLOSED: if the question cannot be answered, the answer is "yes, hold
+ * it". That matches how the switch below already treats a database it cannot
+ * reach — an unreachable gate reads as shut, never as open. The cost of that
+ * choice is that a missing `offline_withheld_schools` table would hold the
+ * whole cohort back, so `scripts/publish-offline.ts` and the stage endpoint
+ * both refuse to publish until the table exists.
+ */
+async function isWithheld(schoolName: string | null | undefined): Promise<boolean> {
+  if (!schoolName) return false;
+  try {
+    const rows = (await sql`
+      select 1 from offline_withheld_schools where school_name = ${schoolName}
+    `) as unknown[];
+    return rows.length > 0;
+  } catch {
+    return true;
+  }
+}
+
+/**
  * Is the written paper's result out?
  *
  * Both conditions, as for the online paper: authorised AND the announced moment
@@ -130,10 +152,22 @@ const istDate = (d: Date) =>
  * that cannot reach the results must say "not yet", never show an error and
  * never show an empty result full of zeroes.
  */
-export async function offlinePublicationState(): Promise<OfflinePublication> {
+export async function offlinePublicationState(
+  student?: Pick<Student, "school_name">,
+): Promise<OfflinePublication> {
   // Local-only escape hatch, same as the online one. NEVER set this in Vercel.
   if (process.env.KIDS_RESULTS_PREVIEW === "1") {
     return { published: true, publishedOn: istDate(new Date()) };
+  }
+  // A named school stays shut while the rest of the cohort is open. Asked
+  // BEFORE the switch, and failing closed, because the cost of the two errors
+  // is not symmetric: a withheld child shown "not yet" for an hour longer than
+  // needed is a delay; a withheld child shown their result is the thing the
+  // office asked not to happen. Callers that have no student in hand (the
+  // stage screen) skip this and read the cohort-wide switch, which is right —
+  // that screen asks "is the paper out?", not "may this child see theirs?".
+  if (student && (await isWithheld(student.school_name))) {
+    return { published: false, publishedOn: "" };
   }
   try {
     const rows = (await sql`

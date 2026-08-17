@@ -1,0 +1,28 @@
+{
+  "reason": "Bengali-medium schools held back from the SET 2026 written release, 17 Aug 2026",
+  "note": "Names are EXACT `students.school_name` values. The script refuses any name it cannot match, so do not tidy them by hand — take them from `--list-all`.",
+  "schools": [
+    "Nut Behari Das Boy's High School (H.S.)",
+    "G. R. Nut Behari Das Girl's High School (H.S.)",
+    "G. R. Mudialy Boy's High School (H.S.)",
+    "Garden Reach Mudialy Girl's High School (H.S.)",
+    "Santoshpure Shymaprasad Vidyalaya for Girl's (H.S.)",
+    "Bankim Ghosh Memorial Girls High School",
+    "Sarat Chandra Paul Girls' High School (H.S.)",
+    "The Kidderpore Academy",
+    "Khidderpore Milani Boys' High School",
+    "Khidderpore Milani Girls' High School",
+    "Baranagar Sree Sree Ram Krishna Vidyapith",
+    "Kamarhati Sagor Datt Free High School",
+    "Jay Kay Nagar High School (H.S)",
+    "Dr. Shyama Prasad Vidyalaya Bengali",
+    "Munsif danga High School",
+    "Chittranjan Boys High School",
+    "Purulia Town High School",
+    "Senior Madrasah Islahul Momenin,(Urdu and Bengali medium)",
+    "Shishu Siksha Kendra High School",
+    "Gandhi High Vidyalay, (Bengali medium)",
+    "Purulia Municipal Managed High School (H.S.)",
+    "Rajasthan Vidyapeeth, (Bengali medium)"
+  ]
+}

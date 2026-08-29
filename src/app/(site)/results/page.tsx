@@ -1675,8 +1675,13 @@ function OwnResult({ written }: { written: WrittenReport | null }) {
         </p>
       </div>
       <div className="flex flex-wrap gap-3">
+        {/* /set, not /portal. The portal opens on a token from the admit card's
+            QR code; reached cold it is only a sign-in wall. /set is the door a
+            student without their phone camera actually uses — and the only one
+            that is logged, so the "who checked their result" count depends on
+            this link staying pointed here. */}
         <Link
-          href="/portal"
+          href="/set"
           className="inline-flex items-center gap-2 bg-[var(--gold)] text-[var(--maroon)] font-bold text-[0.95rem] px-[24px] py-[13px] rounded-md no-underline"
         >
           Check your result

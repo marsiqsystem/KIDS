@@ -1,33 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { firstPhaseReport } from "@/lib/exam/report";
-import type { Band, ClassRow, FirstPhaseReport, Threshold } from "@/lib/exam/report";
+import { examReport } from "@/lib/exam/report";
+import type {
+  Band,
+  ClassRow,
+  ExamReport,
+  SectionRow,
+  StreamGroup,
+  Threshold,
+  WrittenReport,
+} from "@/lib/exam/report";
 import { publicationState } from "@/lib/exam/results";
+import { offlinePublicationState } from "@/lib/exam/offline-results";
+import PaperView from "./PaperView";
 import "./results.css";
 
 /**
- * The public report on the first phase of SET 2026–27.
+ * The public report on SET 2026–27.
  *
  * This is not the student's result page — that is /portal, reached by scanning
  * the admit card, and it is the only place a child's own marks appear. This page
  * is for head teachers, parents, partners and press: what happened on 19 July,
  * as a whole, honestly.
  *
- * Three rules the page is built around, and they are the reason several obvious
+ * Four rules the page is built around, and they are the reason several obvious
  * panels are missing:
  *
- *   1. ONLINE ONLY. The 100-question written paper sat the same morning is still
- *      being marked by hand. Every figure here is the 50-question online paper,
- *      and the page says so repeatedly rather than once.
- *   2. NO SUBJECTS. The online paper is one mixed paper per class. There are no
- *      subject toppers, no subject averages and no per-subject charts to build.
+ *   1. TWO PAPERS, NEVER ADDED. A 50-question online paper and a 100-question
+ *      written paper, sat the same morning, marked and published separately,
+ *      with different rosters. No figure here sums them. Where they stand side
+ *      by side it is as percentages of their own totals, and the page says so.
+ *   2. NOBODY IS NAMED. Not the sixty-four who scored 50 out of 50, not the one
+ *      student who answered all hundred written questions correctly. Every one
+ *      of them sees their own result on their own page. These are minors and
+ *      this is a public page.
  *   3. NOTHING THAT SHAMES. Best schools and fullest centres are celebrated;
- *      there is no bottom table and no failing-school list. These are
- *      under-resourced vernacular-medium schools and the page exists to
- *      encourage them.
+ *      there is no bottom table and no failing-school list. A *subject* may be
+ *      named as weak — that is a curriculum finding and it is the most useful
+ *      thing on the page. A school never is.
+ *   4. CLASSES ARE NOT RANKED AGAINST EACH OTHER. IX, X, XI and XII sat
+ *      different papers. The one exception is the seven sections of the Class IX
+ *      and X paper, which both years sat in full, so those genuinely compare.
  *
- * The four classes sat four different papers, so they are never ranked against
- * one another — where they appear side by side the page says why.
+ * The written half appears only once the written paper is published. Until then
+ * this page reports the online paper alone and says so, exactly as it did
+ * between 1 and 27 August 2026.
  *
  * Regenerated hourly rather than per visit: the tables behind it are a frozen
  * published snapshot, so there is nothing to be fresh about.
@@ -35,17 +52,20 @@ import "./results.css";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "SET 2026–27 First Phase Results — KIDS",
+  title: "SET 2026–27 Results — KIDS",
   description:
-    "The first-phase (online paper) results of the Students Evaluation Test 2026–27: 6,778 students from 112 schools at 21 centres across West Bengal, reported in full.",
+    "The full results of the Students Evaluation Test 2026–27: a 50-question online paper and a 100-question written paper, sat by students from 112 schools at 21 centres across West Bengal, reported in full.",
 };
 
 const TOTAL = 50;
+const WRITTEN_TOTAL = 100;
 const num = (v: number) => v.toLocaleString("en-IN");
 const marks = (v: number) => v.toFixed(2);
 const pct = (v: number) => `${v.toFixed(1)}%`;
 /** A mark out of 50, as a share of the bar it sits on. */
 const ofTotal = (v: number) => `${(v / TOTAL) * 100}%`;
+/** A mark out of 100 is already its own percentage. */
+const ofWritten = (v: number) => `${v}%`;
 
 const CARD =
   "bg-[var(--cream-surface)] border border-[var(--cream-muted)] rounded-[10px] shadow-[var(--shadow-sm)]";
@@ -55,17 +75,15 @@ const TD = "px-[18px] py-[13px] border-t border-[var(--cream-muted)] leading-[1.
 const HEADING =
   "font-[family-name:var(--font-display)] font-bold text-[clamp(1.7rem,3.4vw,2.44rem)] leading-[1.2] mt-2 mb-3 text-[var(--ink)]";
 const LEDE =
-  "max-w-[66ch] text-[clamp(0.95rem,1.4vw,1.05rem)] leading-[1.7] text-[var(--ink-muted)]";
-const NOTE = "text-[0.85rem] leading-[1.7] text-[var(--ink-muted)]";
+  "max-w-[68ch] text-[clamp(0.95rem,1.4vw,1.05rem)] leading-[1.7] text-[var(--ink-muted)]";
+const CARD_TITLE =
+  "font-[family-name:var(--font-display)] font-bold text-[1.3rem] text-[var(--ink)]";
 
 function Rule() {
   return (
     <div className="h-[2px] bg-[var(--gold)] mt-[clamp(48px,7vw,80px)] mb-[clamp(36px,5vw,56px)]" />
   );
 }
-
-/** "one" … "ten", for prose that would read badly with a numeral. */
-const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -83,7 +101,35 @@ function Star({ className = "" }: { className?: string }) {
   );
 }
 
-/** A labelled bar on a 0–50 or 0–100% track, used in five places. */
+/**
+ * A section, with the gold rule that separates it from the one above.
+ *
+ * The rule belongs to the section rather than sitting between two of them so
+ * that a section hidden by the reading-mode switch takes its rule with it.
+ * Without that, turning off the written paper leaves two gold rules touching.
+ */
+function Section({
+  paper,
+  label,
+  children,
+}: {
+  /** Which reading modes this section appears in. Omit for "always". */
+  paper?: "online" | "written" | "both";
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div data-paper={paper}>
+      <Rule />
+      <section>
+        <SectionLabel>{label}</SectionLabel>
+        {children}
+      </section>
+    </div>
+  );
+}
+
+/** A labelled bar on a 0–50, 0–100 or 0–100% track. */
 function BarRow({
   label,
   width,
@@ -110,71 +156,73 @@ function BarRow({
       style={{ gridTemplateColumns: `${labelWidth} 1fr ${valueWidth}` }}
     >
       <span className="text-[0.84rem] text-[var(--ink)] font-semibold tnum">{label}</span>
-      <span
-        className="block bg-[var(--cream-muted)] rounded-full relative"
-        style={{ height }}
-      >
+      <span className="block bg-[var(--cream-muted)] rounded-full relative" style={{ height }}>
         <span
           className="absolute inset-y-0 left-0 rounded-full"
           style={{ width, background: colour }}
         />
         {tick && (
           <span
-            className="absolute -top-[5px] -bottom-[5px]"
-            style={
-              tick.dotted
-                ? { left: tick.at, borderLeft: "2px dotted var(--ink)" }
-                : { left: tick.at, width: "2px", background: "var(--ink)" }
-            }
+            className="absolute -top-1 -bottom-1 w-0"
+            style={{
+              left: tick.at,
+              borderLeft: `2px ${tick.dotted ? "dotted" : "solid"} var(--ink)`,
+            }}
           />
         )}
       </span>
-      <span className="text-[0.82rem] text-[var(--ink-muted)] text-right tnum">{value}</span>
+      <span className="text-right text-[0.82rem] text-[var(--ink-muted)] tnum">{value}</span>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────────── the page ─── */
+function Aside({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] rounded-[10px] p-5">
+      <div className="font-[family-name:var(--font-display)] text-[1.3rem] font-bold text-[var(--maroon)] mb-1.5">
+        {title}
+      </div>
+      <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">{children}</p>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────── page ─── */
 
 export default async function ResultsPage() {
-  const { published } = await publicationState();
+  const [{ published }, { published: writtenOpen }] = await Promise.all([
+    publicationState(),
+    offlinePublicationState(),
+  ]);
   if (!published) return <NotPublishedYet />;
 
-  const report = await firstPhaseReport();
-  const { headline, classes, bands, thresholds, timing, hardest, easiest } = report;
+  const report = await examReport(writtenOpen);
+  const { headline, classes, bands, thresholds, hardest, easiest, written, both } = report;
 
   const overallTurnout = (headline.sat / headline.enrolled) * 100;
 
+  const body = (
+    <div className="w-full px-4 md:px-8 pt-[clamp(40px,6vw,68px)] pb-[clamp(60px,8vw,96px)]">
+      <Figures report={report} turnout={overallTurnout} />
+      {both && <Compared both={both} />}
+      <Distribution bands={bands} thresholds={thresholds} ranked={headline.ranked} written={written} />
+      <Classes classes={classes} written={written} />
+      {written && <Subjects written={written} />}
+      {written && <Zones written={written} />}
+      <Perfect classes={classes} headline={headline} written={written} />
+      <Schools report={report} />
+      <Centres report={report} turnout={overallTurnout} written={written} />
+      <Difficulty hardest={hardest} easiest={easiest} written={written} />
+      <WhatNext written={written} />
+      <OwnResult written={written} />
+      <Footnote written={written} />
+    </div>
+  );
+
   return (
     <div className="report min-h-screen">
-      <Hero headline={headline} />
-
-      <div className="w-full px-4 md:px-8 pb-[clamp(60px,8vw,96px)]">
-        <Headlines report={report} />
-        <Rule />
-        <Distribution bands={bands} thresholds={thresholds} ranked={headline.ranked} />
-        <Rule />
-        <Classes classes={classes} timing={timing} overallTurnout={overallTurnout} />
-        <Rule />
-        <FullMarks report={report} />
-        <Rule />
-        <Schools report={report} />
-        <Rule />
-        <Centres report={report} overallTurnout={overallTurnout} />
-        <Rule />
-        <Difficulty hardest={hardest} easiest={easiest} />
-        <Rule />
-        <WhatNext />
-        <OwnResult />
-
-        <p className="mt-[clamp(28px,4vw,44px)] text-[0.82rem] leading-[1.8] text-[var(--ink-muted)] max-w-[80ch]">
-          All figures on this page are drawn from the assessed online paper of the Students
-          Evaluation Test held on 19 July 2026, and are published for verification. They cover the
-          first phase only. Where a figure is an average, it is the average of the students who sat,
-          not of those registered. Schools or parents who believe a figure is wrong may write to
-          KIDS at the address below.
-        </p>
-      </div>
+      <Hero report={report} />
+      {written ? <PaperView>{body}</PaperView> : <div data-view="online">{body}</div>}
     </div>
   );
 }
@@ -189,7 +237,9 @@ export default async function ResultsPage() {
  * other page absorbs the navbar in PageHeader's `py-24`; this hero has to do it
  * itself, or the badge sits under the navigation.
  */
-function Hero({ headline }: { headline: FirstPhaseReport["headline"] }) {
+function Hero({ report }: { report: ExamReport }) {
+  const { headline, written } = report;
+
   return (
     <div className="sky relative overflow-hidden text-[var(--cream)] w-full px-4 md:px-8 pt-[calc(80px+clamp(40px,7vw,84px))] pb-[clamp(52px,8vw,96px)]">
       <Star className="absolute top-[12%] left-[8%] text-[var(--star-gold)] opacity-50 text-[12px]" />
@@ -201,91 +251,299 @@ function Hero({ headline }: { headline: FirstPhaseReport["headline"] }) {
       <div className="relative flex flex-col gap-5">
         <div className="flex flex-wrap gap-2.5 items-center">
           <span className="inline-flex items-center gap-1.5 bg-[var(--gold)] text-[var(--maroon)] text-[0.72rem] font-bold tracking-[0.08em] uppercase px-3 py-[5px] rounded-full">
-            <Star /> First phase · online paper
+            <Star /> {written ? "Complete result · both papers" : "First phase · online paper"}
           </span>
           <span className="text-[0.78rem] tracking-[0.08em] uppercase opacity-85">
             Project UDAAN
           </span>
         </div>
 
-        <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.1rem,5.2vw,3.6rem)] leading-[1.12] m-0 max-w-[20ch] text-[var(--cream)]">
-          SET 2026–27 · First Phase Results
+        <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.1rem,5.2vw,3.6rem)] leading-[1.12] m-0 max-w-[22ch] text-[var(--cream)]">
+          {written ? "SET 2026–27 · One exam, two papers" : "SET 2026–27 · First Phase Results"}
         </h1>
 
-        <p className="m-0 max-w-[60ch] text-[clamp(1rem,1.6vw,1.2rem)] leading-[1.6] text-[#e8f3f0]">
-          On Sunday, 19 July 2026, {num(headline.sat)} students from {num(headline.schools)} schools
-          sat the online paper of the Students Evaluation Test at {num(headline.centres)} centres
-          across West Bengal. This page reports what happened, in full.
-        </p>
-
-        <div className="flex gap-3.5 items-start max-w-[62ch] bg-[rgba(12,42,46,0.42)] border border-[rgba(201,162,75,0.55)] rounded-[10px] px-[18px] py-3.5">
-          <Star className="text-[var(--gold)] text-base leading-[1.5]" />
-          <p className="m-0 text-[0.92rem] leading-[1.6] text-[var(--on-dark)]">
-            These figures cover the{" "}
-            <strong className="text-[var(--gold-light)]">online paper only</strong> — 50 questions in
-            30 minutes. The 100-question written paper sat on the same day is still being marked by
-            hand. Its results will be published separately; no date has been set.
+        {written ? (
+          <p className="m-0 max-w-[62ch] text-[clamp(1rem,1.6vw,1.2rem)] leading-[1.6] text-[#e8f3f0]">
+            On Sunday, 19 July 2026, students from {num(headline.schools)} schools sat the Students
+            Evaluation Test at {num(headline.centres)} centres across West Bengal. They sat two
+            papers that morning: a 50-question online paper and a 100-question written paper by
+            subject. Both are now marked. This page reports both.
           </p>
-        </div>
+        ) : (
+          <p className="m-0 max-w-[60ch] text-[clamp(1rem,1.6vw,1.2rem)] leading-[1.6] text-[#e8f3f0]">
+            On Sunday, 19 July 2026, {num(headline.sat)} students from {num(headline.schools)}{" "}
+            schools sat the online paper of the Students Evaluation Test at {num(headline.centres)}{" "}
+            centres across West Bengal. This page reports what happened, in full.
+          </p>
+        )}
+
+        {written ? (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-3 max-w-[720px] mt-1">
+            <PaperNote
+              tone="var(--maroon-tint)"
+              name="Online paper"
+              detail="50 questions · 30 minutes · one mixed paper per class"
+            />
+            <PaperNote
+              tone="#a0beeb"
+              name="Written paper"
+              detail="100 questions · marked from the OMR sheet · by subject"
+            />
+          </div>
+        ) : (
+          <div className="flex gap-3.5 items-start max-w-[62ch] bg-[rgba(12,42,46,0.42)] border border-[rgba(201,162,75,0.55)] rounded-[10px] px-[18px] py-3.5">
+            <Star className="text-[var(--gold)] text-base leading-[1.5]" />
+            <p className="m-0 text-[0.92rem] leading-[1.6] text-[var(--on-dark)]">
+              These figures cover the{" "}
+              <strong className="text-[var(--gold-light)]">online paper only</strong> — 50 questions
+              in 30 minutes. The 100-question written paper sat on the same day is still being
+              marked by hand. Its results will be published separately.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── headlines ─── */
+function PaperNote({ tone, name, detail }: { tone: string; name: string; detail: string }) {
+  return (
+    <div
+      className="bg-[rgba(12,42,46,0.42)] border border-[rgba(232,201,204,0.4)] rounded-lg px-4 py-3.5"
+      style={{ borderLeft: `4px solid ${tone}` }}
+    >
+      <div
+        className="text-[0.7rem] tracking-[0.1em] uppercase font-bold"
+        style={{ color: tone }}
+      >
+        {name}
+      </div>
+      <div className="mt-1 text-[0.9rem] leading-[1.6] text-[var(--on-dark)]">{detail}</div>
+    </div>
+  );
+}
 
-function Headlines({ report }: { report: FirstPhaseReport }) {
-  const { headline } = report;
-  const stats = [
-    { value: num(headline.enrolled), label: "Students registered" },
-    { value: num(headline.sat), label: "Sat the online paper" },
-    { value: marks(headline.average), suffix: ` / ${TOTAL}`, label: "Average score" },
-    { value: num(headline.fullMarks), label: "Scored full marks" },
-  ];
+/* ─────────────────────────────────────────────────────── the figures ─── */
+
+/**
+ * The two papers as two cards, each against its own total and its own roster.
+ *
+ * The rosters differ — eighteen candidates were admitted after the online exam
+ * had already been sat — and a turnout figure that quietly mixed them would be
+ * wrong for both papers. Each card measures itself against its own.
+ */
+function Figures({ report, turnout }: { report: ExamReport; turnout: number }) {
+  const { headline, written } = report;
+  const onlineShare = (headline.average / TOTAL) * 100;
 
   return (
-    <section className="relative mt-[clamp(-32px,-4vw,-24px)]">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-[clamp(12px,1.6vw,20px)]">
-        {stats.map((s) => (
+    <section>
+      <SectionLabel>The exam in figures</SectionLabel>
+      <h2 className={HEADING}>
+        <span data-paper="both">Both papers, side by side</span>
+        <span data-only="online">The online paper in figures</span>
+        <span data-only="written">The written paper in figures</span>
+      </h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        <span data-paper="both">
+          The two papers are different lengths and different difficulties, so they are never added
+          together into a single mark. Each is reported against its own total and its own roster.
+        </span>
+        <span data-only="online">
+          Reported against its own total and its own roster. The 100-question written paper sat the
+          same morning is reported separately, and the two are never added together.
+        </span>
+        <span data-only="written">
+          Reported against its own total and its own roster. The 50-question online paper sat the
+          same morning is reported separately, and the two are never added together.
+        </span>
+      </p>
+
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        <div
+          data-paper="online"
+          className={`${CARD} shadow-[var(--shadow-md)] border-t-[3px] border-t-[var(--maroon)] p-[clamp(20px,3vw,30px)] h-full box-border`}
+        >
+          <div className="flex flex-wrap gap-2 items-center">
+            <span className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold">
+              Online paper
+            </span>
+            <span className="text-[0.74rem] text-[var(--ink-muted)]">50 questions · 30 minutes</span>
+          </div>
+          <div className="flex items-baseline gap-2 mt-3">
+            <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.6rem,6vw,3.4rem)] leading-none text-[var(--maroon)] tnum">
+              {marks(headline.average)}
+            </span>
+            <span className="text-[0.95rem] text-[var(--ink-muted)]">average of 50</span>
+          </div>
+          <div className="h-3 bg-[var(--cream-muted)] rounded-full mt-4 overflow-hidden">
+            <div className="h-full bg-[var(--maroon)]" style={{ width: `${onlineShare}%` }} />
+          </div>
+          <div className="mt-1.5 text-[0.78rem] text-[var(--ink-muted)]">
+            {pct(onlineShare)} of the paper answered correctly
+          </div>
+          <div className="grid gap-2 mt-5 text-[0.9rem]">
+            <Line
+              label="Sat the paper"
+              value={`${num(headline.sat)} of ${num(headline.enrolled)} · ${pct(turnout)}`}
+            />
+            <Line
+              label="Scored full marks"
+              value={`${num(headline.fullMarks)} students`}
+              colour="var(--maroon)"
+            />
+            <Line label="Marking" value="Machine, instant" />
+          </div>
+        </div>
+
+        {written && (
           <div
-            key={s.label}
-            className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--gold)] rounded-[10px] shadow-[var(--shadow-md)] px-[18px] py-5"
+            data-paper="written"
+            className={`${CARD} shadow-[var(--shadow-md)] border-t-[3px] border-t-[var(--royal-blue)] p-[clamp(20px,3vw,30px)] h-full box-border`}
           >
-            <div className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,2.9rem)] leading-[1.05] text-[var(--maroon)] tnum">
-              {s.value}
-              {s.suffix && (
-                <span className="text-[0.42em] text-[var(--ink-muted)] font-semibold">
-                  {s.suffix}
-                </span>
-              )}
+            <div className="flex flex-wrap gap-2 items-center">
+              <span className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--royal-blue)] font-bold">
+                Written paper
+              </span>
+              <span className="text-[0.74rem] text-[var(--ink-muted)]">
+                100 questions · by subject
+              </span>
             </div>
-            <div className="mt-1.5 text-[0.74rem] tracking-[0.08em] uppercase text-[var(--ink-muted)] font-semibold">
-              {s.label}
+            <div className="flex items-baseline gap-2 mt-3">
+              <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.6rem,6vw,3.4rem)] leading-none text-[var(--royal-blue)] tnum">
+                {marks(written.headline.average)}
+              </span>
+              <span className="text-[0.95rem] text-[var(--ink-muted)]">average of 100</span>
+            </div>
+            <div className="h-3 bg-[var(--cream-muted)] rounded-full mt-4 overflow-hidden">
+              <div
+                className="h-full bg-[var(--royal-blue)]"
+                style={{ width: ofWritten(written.headline.average) }}
+              />
+            </div>
+            <div className="mt-1.5 text-[0.78rem] text-[var(--ink-muted)]">
+              Marks run the whole way from 0 to 100 · median {num(written.headline.median)}
+            </div>
+            <div className="grid gap-2 mt-5 text-[0.9rem]">
+              <Line
+                label="Sat the paper"
+                value={`${num(written.headline.sat)} of ${num(written.headline.enrolled)} · ${pct(
+                  written.headline.turnout,
+                )}`}
+              />
+              <Line
+                label="Highest mark"
+                value={`${num(written.headline.highest)} · ${
+                  written.headline.perfect === 1
+                    ? "one student"
+                    : `${num(written.headline.perfect)} students`
+                }`}
+                colour="var(--royal-blue)"
+              />
+              <Line label="Marking" value="Assessed OMR" />
             </div>
           </div>
-        ))}
+        )}
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-x-7 gap-y-1 mt-[22px] pt-[18px] border-t border-[var(--cream-muted)] text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">
-        <p className="m-0">
-          <strong className="text-[var(--ink)]">{num(headline.centres)}</strong> exam centres
+      {written && (
+        <p className="mt-4 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[78ch]">
+          <span data-paper="both">Each paper&rsquo;s turnout is measured against its own roster.</span>
+          <span data-only="online">Turnout is measured against this paper&rsquo;s own roster.</span>
+          <span data-only="written">Turnout is measured against this paper&rsquo;s own roster.</span>{" "}
+          The written roster is {num(written.headline.enrolled - report.headline.enrolled)} students
+          larger than the online one, because a few candidates were admitted after the online exam
+          had already been sat.
         </p>
-        <p className="m-0">
-          <strong className="text-[var(--ink)]">{num(headline.schools)}</strong> schools represented
-        </p>
-        <p className="m-0">
-          <strong className="text-[var(--ink)]">Classes IX–XII</strong>, four papers
-        </p>
-        <p className="m-0">
-          <strong className="text-[var(--ink)]">Bengali · Hindi · Urdu</strong>
-        </p>
-      </div>
-
-      <p className="mt-[18px] text-[0.86rem] leading-[1.7] text-[var(--ink-muted)] max-w-[74ch]">
-        One mark for each correct answer. Nothing is deducted for a wrong answer. Fifty marks in
-        all, thirty minutes to answer.
-      </p>
+      )}
     </section>
+  );
+}
+
+function Line({ label, value, colour = "" }: { label: string; value: string; colour?: string }) {
+  return (
+    <div className="flex justify-between gap-3 border-t border-[var(--cream-muted)] pt-2">
+      <span className="text-[var(--ink-muted)]">{label}</span>
+      <span className="font-semibold tnum" style={colour ? { color: colour } : undefined}>
+        {value}
+      </span>
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────── the two papers compared ─── */
+
+/**
+ * The only place the two papers are held against each other, and only on the
+ * students who sat both — which is the only cohort on which the comparison
+ * means anything. Percentages of their own totals, never a sum.
+ */
+function Compared({ both }: { both: NonNullable<ExamReport["both"]> }) {
+  const gap = both.onlinePct - both.writtenPct;
+
+  return (
+    <Section paper="both" label="The two papers compared">
+      <h2 className={HEADING}>
+        The same children, {gap.toFixed(0)} points apart
+      </h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        {num(both.sat)} students sat both papers on the same morning. Putting both marks on a common
+        scale of 100 is the only fair way to hold them side by side.
+      </p>
+
+      <div className={`${CARD} p-[clamp(20px,3.4vw,34px)]`}>
+        <div className="grid gap-[22px]">
+          <ComparedBar label="Online paper" value={both.onlinePct} colour="var(--maroon)" />
+          <ComparedBar label="Written paper" value={both.writtenPct} colour="var(--royal-blue)" />
+        </div>
+
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(14px,2vw,24px)] mt-7 pt-6 border-t border-[var(--cream-muted)]">
+          <div>
+            <div className={CARD_TITLE}>The written paper is harder</div>
+            <p className="mt-1.5 mb-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
+              It is twice as long, it runs on subject syllabus rather than general aptitude, and it
+              asks students to hold a hundred questions in one sitting. {article(gap)} {gap.toFixed(0)}-point gap
+              on the same children, on the same morning, is a property of the papers — not of the
+              students.
+            </p>
+          </div>
+          <div>
+            <div className="flex items-baseline gap-2.5">
+              <span className="font-[family-name:var(--font-display)] font-bold text-[2.2rem] leading-none text-[var(--teal-ink)] tnum">
+                {both.correlation.toFixed(2)}
+              </span>
+              <span className="text-[0.9rem] text-[var(--ink-muted)]">
+                correlation between the two
+              </span>
+            </div>
+            <p className="mt-2 mb-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
+              Real, but far from perfect. A child who did well on one paper did not reliably do well
+              on the other. That is the clearest argument in the data for having set two papers
+              rather than one: each finds something the other misses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function ComparedBar({ label, value, colour }: { label: string; value: number; colour: string }) {
+  return (
+    <div>
+      <div className="flex justify-between items-baseline gap-3 mb-2">
+        <span className="text-[0.9rem] font-semibold text-[var(--ink)]">{label}</span>
+        <span
+          className="font-[family-name:var(--font-display)] font-bold text-[1.5rem] tnum"
+          style={{ color: colour }}
+        >
+          {pct(value)}
+        </span>
+      </div>
+      <div className="h-[26px] bg-[var(--cream-muted)] rounded-md overflow-hidden">
+        <div className="h-full" style={{ width: `${value}%`, background: colour }} />
+      </div>
+    </div>
   );
 }
 
@@ -295,10 +553,12 @@ function Distribution({
   bands,
   thresholds,
   ranked,
+  written,
 }: {
   bands: Band[];
   thresholds: Threshold[];
   ranked: number;
+  written: WrittenReport | null;
 }) {
   const tallest = Math.max(...bands.map((b) => b.students));
   const half = thresholds.filter((t) => t.share >= 50).at(-1);
@@ -309,16 +569,22 @@ function Distribution({
   const foot = bands[0];
 
   return (
-    <section>
-      <SectionLabel>Section one</SectionLabel>
-      <h2 className={HEADING}>How the whole cohort scored</h2>
+    <Section label="Distribution">
+      <h2 className={HEADING}>
+        <span data-paper="both">The shape of each paper</span>
+        <span data-only="online">The shape of the paper</span>
+        <span data-only="written">The shape of the paper</span>
+      </h2>
       <p className={`${LEDE} m-0 mb-2`}>
-        Every one of the {num(ranked)} ranked students, grouped by the marks they scored out of 50.
-        The tallest column is the most common band. Read it as the shape of the cohort, not as a
-        pass mark — there is no pass mark.
+        Read this as the shape of the cohort, not as a pass mark. There is no pass mark on
+        either paper.
       </p>
 
-      <div className={`${CARD} dist p-[clamp(18px,3vw,32px)] mt-6`}>
+      {/* ── the online histogram ────────────────────────────────────────── */}
+      <div data-paper="online" className={`${CARD} dist p-[clamp(18px,3vw,32px)] mt-6`}>
+        <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold mb-4">
+          Online paper · {num(ranked)} ranked students, marks out of 50
+        </div>
         <div className="flex items-end gap-[clamp(3px,0.8vw,12px)] h-[clamp(190px,26vw,300px)]">
           {bands.map((b) => {
             const emphasis = b.students === tallest || b.from === TOTAL;
@@ -362,14 +628,13 @@ function Distribution({
         </div>
 
         <div className="mt-2.5 text-[0.72rem] tracking-[0.06em] uppercase text-[var(--ink-muted)]">
-          Marks scored out of 50 · number of students in each band
+          Number of students in each band · {num(broadMiddle)} sit between 15 and 29
         </div>
       </div>
 
-      <div className={`${CARD} p-[clamp(18px,3vw,32px)] mt-[clamp(14px,2vw,22px)]`}>
-        <div className="font-[family-name:var(--font-display)] font-bold text-[1.3rem] text-[var(--ink)]">
-          How many reached each mark
-        </div>
+      {/* ── how many reached each online mark ───────────────────────────── */}
+      <div data-paper="online" className={`${CARD} p-[clamp(18px,3vw,32px)] mt-[clamp(14px,2vw,22px)]`}>
+        <div className={CARD_TITLE}>How many reached each mark</div>
         <p className="mt-1.5 mb-5 text-[0.9rem] leading-[1.7] text-[var(--ink-muted)] max-w-[66ch]">
           The same {num(ranked)} students read a different way: how many scored <em>at least</em> a
           given mark.{" "}
@@ -390,7 +655,9 @@ function Distribution({
               tick={half && t.mark === half.mark ? { at: `${t.share}%` } : undefined}
               value={
                 <>
-                  <strong className={t.mark === TOTAL ? "text-[var(--maroon)]" : "text-[var(--ink)]"}>
+                  <strong
+                    className={t.mark === TOTAL ? "text-[var(--maroon)]" : "text-[var(--ink)]"}
+                  >
                     {num(t.students)}
                   </strong>{" "}
                   · {pct(t.share)}
@@ -402,14 +669,20 @@ function Distribution({
 
         <div className="mt-3.5 pt-3 border-t border-[var(--cream-muted)] text-[0.8rem] text-[var(--ink-muted)] leading-[1.7]">
           The black tick marks the halfway point of the cohort. A student on {half?.mark} marks was,
-          near enough, the middle student of the first phase.
+          near enough, the middle student of the online paper.
         </div>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(14px,2vw,24px)] mt-[clamp(16px,2vw,24px)]">
+      {/* ── the written paper ───────────────────────────────────────────── */}
+      {written && <WrittenSpread written={written} />}
+
+      <div
+        data-paper="online"
+        className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(14px,2vw,24px)] mt-[clamp(16px,2vw,24px)]"
+      >
         <Aside title="A broad middle">
-          {num(broadMiddle)} students — just over half — scored between 15 and 29. This is where
-          most of the cohort sits.
+          {num(broadMiddle)} students — just over half — scored between 15 and 29 on the online
+          paper. This is where most of the cohort sits.
         </Aside>
         <Aside title="A second cluster at the top">
           {num(top?.students ?? 0)} students scored 45 or more. That is a real group, not a
@@ -421,810 +694,1032 @@ function Distribution({
           almost nothing. We report them rather than remove them.
         </Aside>
       </div>
-    </section>
+    </Section>
   );
 }
 
-function Aside({ title, children }: { title: string; children: React.ReactNode }) {
+/**
+ * The written paper's spread.
+ *
+ * Not a histogram: the written marks are reported to the office as a snapshot of
+ * totals rather than banded counts, so a bar chart here would be a chart of
+ * numbers we do not hold. The strip carries the two figures we do — the median
+ * and the mean, and the distance between them — and the rows below count the
+ * students above each landmark.
+ */
+function WrittenSpread({ written }: { written: WrittenReport }) {
+  const { headline, thresholds } = written;
+  const perfect = thresholds.find((t) => t.mark === 100);
+
   return (
-    <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] rounded-[10px] p-5">
-      <div className="font-[family-name:var(--font-display)] text-[1.3rem] font-bold text-[var(--maroon)] mb-1.5">
-        {title}
+    <div data-paper="written" className={`${CARD} p-[clamp(18px,3vw,32px)] mt-[clamp(14px,2vw,22px)]`}>
+      <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--royal-blue)] font-bold">
+        Written paper · {num(headline.sat)} students, marks out of 100
       </div>
-      <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">{children}</p>
+      <p className="mt-2.5 mb-[22px] text-[0.9rem] leading-[1.7] text-[var(--ink-muted)] max-w-[66ch]">
+        The written marks run the whole way from 0 to 100 — a far wider spread than the online
+        paper, which is what a hundred subject questions will do. The middle student scored{" "}
+        {num(headline.median)}.
+      </p>
+
+      <div
+        className="relative h-[30px] rounded-md"
+        style={{
+          background:
+            "linear-gradient(90deg, var(--cream-muted) 0%, var(--royal-blue-tint) 55%, var(--royal-blue) 100%)",
+        }}
+      >
+        <div
+          className="absolute -top-[7px] -bottom-[7px] w-0.5 bg-[var(--ink)]"
+          style={{ left: ofWritten(headline.median) }}
+        />
+        <div
+          className="absolute -top-[7px] -bottom-[7px] w-0 border-l-2 border-dotted border-[var(--maroon)]"
+          style={{ left: ofWritten(headline.average) }}
+        />
+      </div>
+      <div className="flex justify-between mt-2.5 text-[0.74rem] text-[var(--ink-muted)] tnum">
+        {[0, 25, 50, 75, 100].map((v) => (
+          <span key={v}>{v}</span>
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-x-5 gap-y-2 mt-3 text-[0.8rem] text-[var(--ink-muted)]">
+        <span className="inline-flex items-center gap-[7px]">
+          <span className="w-0.5 h-3.5 bg-[var(--ink)] inline-block" />
+          Median {num(headline.median)}
+        </span>
+        <span className="inline-flex items-center gap-[7px]">
+          <span className="w-0 h-3.5 border-l-2 border-dotted border-[var(--maroon)] inline-block" />
+          Average {marks(headline.average)}
+        </span>
+      </div>
+
+      <div className="grid gap-2.5 mt-6 pt-5 border-t border-[var(--cream-muted)]">
+        {thresholds.map((t) => (
+          <BarRow
+            key={t.mark}
+            label={t.mark === WRITTEN_TOTAL ? "All 100" : `${t.mark} or more`}
+            width={t.share < 0.6 ? "6px" : `${t.share}%`}
+            colour={t.mark >= 90 ? "var(--gold)" : "var(--royal-blue)"}
+            value={
+              t.mark === WRITTEN_TOTAL ? (
+                <>
+                  <strong className="text-[var(--maroon)]">{num(t.students)}</strong>{" "}
+                  {t.students === 1 ? "student" : "students"}
+                </>
+              ) : (
+                <>
+                  <strong className="text-[var(--ink)]">{num(t.students)}</strong> · {pct(t.share)}
+                </>
+              )
+            }
+          />
+        ))}
+      </div>
+
+      {perfect && perfect.students > 0 && (
+        <div className="mt-4 pt-3 border-t border-[var(--cream-muted)] text-[0.82rem] leading-[1.7] text-[var(--ink-muted)]">
+          {perfect.students === 1
+            ? "One student answered all one hundred questions correctly — the only perfect written paper in the exam."
+            : `${num(perfect.students)} students answered all one hundred questions correctly.`}
+        </div>
+      )}
     </div>
   );
 }
 
-/* ────────────────────────────────────────────────────────── class by class ─── */
+/* ─────────────────────────────────────────────────────── class by class ─── */
 
-function Classes({
-  classes,
-  timing,
-  overallTurnout,
-}: {
-  classes: ClassRow[];
-  timing: FirstPhaseReport["timing"];
-  overallTurnout: number;
-}) {
-  const turnout = (c: ClassRow) => (c.sat / c.registered) * 100;
-  const gap = (c: ClassRow) => Math.abs(c.average - c.median);
-
-  const lowest = classes.reduce((a, b) => (turnout(a) <= turnout(b) ? a : b));
-  const highest = classes.reduce((a, b) => (turnout(a) >= turnout(b) ? a : b));
-  const uneven = classes.reduce((a, b) => (gap(a) >= gap(b) ? a : b));
-  const tight = classes.filter((c) => gap(c) < 1).map((c) => c.cls);
-
+function Classes({ classes, written }: { classes: ClassRow[]; written: WrittenReport | null }) {
   return (
-    <section>
-      <SectionLabel>Section two</SectionLabel>
-      <h2 className={HEADING}>Class by class</h2>
+    <Section label="Class by class">
+      <h2 className={HEADING}>Four classes, four sets of papers</h2>
 
-      <div className="flex gap-3 items-start max-w-[70ch] bg-[var(--maroon-tint)] rounded-[10px] px-[18px] py-3.5 mb-6">
-        <Star className="text-[var(--maroon)] text-[0.95rem] leading-[1.6]" />
-        <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--maroon)]">
-          <strong>Four different papers.</strong> Class IX, X, XI and XII each sat a paper written
-          for their own year. A mark on one paper is not the same as a mark on another, so these
-          four columns are not a ranking of the classes.
+      <div className="flex gap-3.5 items-start bg-[var(--cream-surface)] border border-[var(--gold)] rounded-[10px] px-[18px] py-3.5 mb-6 max-w-[76ch]">
+        <Star className="text-[var(--gold)] text-base leading-[1.5]" />
+        <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
+          <strong className="text-[var(--ink)]">These four columns are not a ranking.</strong> Class
+          IX, X, XI and XII each sat papers written for their own year, on their own syllabus. A
+          mark on one class&rsquo;s paper is not the same as a mark on another&rsquo;s — so Class XII
+          standing highest says nothing about Class X&rsquo;s students.
         </p>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(232px,1fr))] gap-[clamp(14px,2vw,22px)]">
-        {classes.map((c) => (
-          <div key={c.cls} className={`${CARD} overflow-hidden`}>
-            <div className="bg-[var(--maroon)] text-[var(--cream)] px-[18px] py-2.5 flex justify-between items-baseline">
-              <span className="font-[family-name:var(--font-display)] font-bold text-[1.25rem]">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        {classes.map((c) => {
+          const w = written?.classes.find((r) => r.cls === c.cls);
+          return (
+            <div key={c.cls} className={`${CARD} p-[clamp(18px,2.4vw,26px)] flex flex-col gap-5`}>
+              <div className="font-[family-name:var(--font-display)] font-bold text-[1.45rem] text-[var(--maroon)]">
                 Class {c.cls}
-              </span>
-              <span className="text-[0.72rem] tracking-[0.08em] uppercase opacity-85">Own paper</span>
+              </div>
+
+              <div data-paper="online">
+                <div className="text-[0.68rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold">
+                  Online · of 50
+                </div>
+                <div className="flex items-baseline gap-2 mt-1.5">
+                  <span className="font-[family-name:var(--font-display)] font-bold text-[2rem] leading-none text-[var(--ink)] tnum">
+                    {marks(c.average)}
+                  </span>
+                  <span className="text-[0.8rem] text-[var(--ink-muted)] tnum">
+                    median {num(c.median)}
+                  </span>
+                </div>
+                <div className="h-2.5 bg-[var(--cream-muted)] rounded-full mt-2.5 overflow-hidden">
+                  <div className="h-full bg-[var(--maroon)]" style={{ width: ofTotal(c.average) }} />
+                </div>
+                <div className="mt-2 text-[0.8rem] text-[var(--ink-muted)] tnum">
+                  {num(c.sat)} sat · {num(c.fullMarks)} scored 50
+                </div>
+              </div>
+
+              {w && (
+                <div data-paper="written">
+                  <div className="text-[0.68rem] tracking-[0.1em] uppercase text-[var(--royal-blue)] font-bold">
+                    Written · of 100
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1.5">
+                    <span className="font-[family-name:var(--font-display)] font-bold text-[2rem] leading-none text-[var(--ink)] tnum">
+                      {marks(w.average)}
+                    </span>
+                    <span className="text-[0.8rem] text-[var(--ink-muted)] tnum">
+                      median {num(w.median)}
+                    </span>
+                  </div>
+                  <div className="h-2.5 bg-[var(--cream-muted)] rounded-full mt-2.5 overflow-hidden">
+                    <div
+                      className="h-full bg-[var(--royal-blue)]"
+                      style={{ width: ofWritten(w.average) }}
+                    />
+                  </div>
+                  <div className="mt-2 text-[0.8rem] text-[var(--ink-muted)] tnum">
+                    {num(w.sat)} sat · highest {num(w.highest)}
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="p-[18px]">
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-[family-name:var(--font-display)] font-bold text-[2.2rem] text-[var(--maroon)] leading-none tnum">
-                  {marks(c.average)}
-                </span>
-                <span className="text-[0.8rem] text-[var(--ink-muted)]">average of {TOTAL}</span>
-              </div>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
 
-              <div className="relative h-2.5 bg-[var(--cream-muted)] rounded-full mt-3.5 mb-1.5">
-                <div
-                  className="absolute inset-y-0 left-0 bg-[var(--maroon)] rounded-full"
-                  style={{ width: ofTotal(c.average) }}
-                />
-                <div
-                  className="absolute -top-1 -bottom-1 w-0.5 bg-[var(--teal)]"
-                  style={{ left: ofTotal(c.median) }}
-                />
-              </div>
-              <div className="flex justify-between text-[0.68rem] text-[var(--ink-muted)] tnum">
-                <span>0</span>
-                <span className="text-[var(--teal)] font-semibold">
-                  Median {c.median.toFixed(1)}
-                </span>
-                <span>{TOTAL}</span>
-              </div>
+/* ──────────────────────────────────────────────── subjects, written paper ─── */
 
-              <div className="mt-4 grid gap-2 text-[0.86rem]">
-                <Line label="Sat / registered" value={`${num(c.sat)} / ${num(c.registered)}`} />
-                <Line label="Highest score" value={num(c.highest)} />
-                <Line
-                  label="Full marks"
-                  value={`${num(c.fullMarks)} students`}
-                  colour="text-[var(--maroon)]"
+/**
+ * What students found hard, rather than only how much.
+ *
+ * The online paper is one mixed paper per class and can never answer this
+ * question; the written paper is sat by subject, so for the first time in SET
+ * the exam has a curriculum finding in it. That is the most useful thing on this
+ * page for a head teacher, which is why it is given the most room.
+ *
+ * A subject is named as weak. A school never is — see the rules at the top.
+ */
+function Subjects({ written }: { written: WrittenReport }) {
+  const { sections, streams } = written;
+  const fell = sections.filter((s) => s.fell);
+  const commerce = streams.find((g) => g.stream === "Commerce");
+  const science = streams.find((g) => g.stream === "Science");
+  const arts = streams.find((g) => g.stream === "Arts");
+
+  // "Answered least well" is read off the figures beside it, never asserted: the
+  // lowest section of each paper, whatever it turns out to be.
+  const lowest = [
+    { group: "Class IX", row: [...sections].sort((a, b) => a.ix - b.ix)[0], value: (r: SectionRow) => r.ix },
+    { group: "Class X", row: [...sections].sort((a, b) => a.x - b.x)[0], value: (r: SectionRow) => r.x },
+  ];
+  const lowestStream = (g: StreamGroup | undefined, cls: "xi" | "xii") => {
+    if (!g) return null;
+    const rows = g.subjects.filter((s) => s[cls] !== null);
+    return rows.sort((a, b) => (a[cls] ?? 0) - (b[cls] ?? 0))[0] ?? null;
+  };
+  const lowXi = lowestStream(arts, "xi");
+  const lowXii = lowestStream(arts, "xii");
+
+  const maths = {
+    ix: sections.find((s) => s.section === "Mathematics")?.ix,
+    x: sections.find((s) => s.section === "Mathematics")?.x,
+    xi: science?.subjects.find((s) => s.subject === "Mathematics")?.xi,
+  };
+  const topCommerce = commerce?.subjects.slice(0, 3) ?? [];
+
+  return (
+    <Section paper="written" label="Subjects · written paper">
+      <h2 className={HEADING}>Where the cohort is strong, and where it needs help</h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        The written paper is sat by subject, so for the first time the exam can say <em>what</em>{" "}
+        students found hard rather than only how much. Every figure below is the share of that
+        subject&rsquo;s questions answered correctly. A subject may be named as weak; a school never
+        is.
+      </p>
+
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        <Finding title="Answered least well, paper by paper">
+          {lowest.map(({ group, row, value }) => row && (
+            <span key={group} className="block">
+              {group} — {row.section}, {pct(value(row))}.
+            </span>
+          ))}
+          {lowXi && (
+            <span className="block">
+              Class XI Arts — {lowXi.subject}, {pct(lowXi.xi ?? 0)}.
+            </span>
+          )}
+          {lowXii && (
+            <span className="block">
+              Class XII Arts — {lowXii.subject}, {pct(lowXii.xii ?? 0)}.
+            </span>
+          )}
+          <span className="block mt-2">
+            Four separate papers and four separate cohorts. This is a curriculum signal, not a school
+            one.
+          </span>
+        </Finding>
+
+        <Finding title="Mathematics is weak in the school years">
+          Class IX {pct(maths.ix ?? 0)} and Class X {pct(maths.x ?? 0)} — the years where the
+          foundation is laid.
+          {maths.xi != null && (
+            <> It recovers to {pct(maths.xi)} in Class XI Science, where only students who chose it
+            sit it.</>
+          )}
+        </Finding>
+
+        {topCommerce.length === 3 && (
+          <Finding title="Commerce is the strongest stream">
+            {topCommerce
+              .map((s) => `${s.subject} ${pct(Math.max(s.xi ?? 0, s.xii ?? 0))}`)
+              .join(", ")}
+            . Commerce students answered around three questions in four correctly.
+          </Finding>
+        )}
+
+        <Finding title="English is answered best in Class XII">
+          {streams
+            .map((g) => `${g.stream} ${g.english.xii != null ? pct(g.english.xii) : "—"}`)
+            .join(" · ")}
+          . English &amp; General Knowledge is the strongest section of all three Class XII papers.
+          In vernacular-medium schools that is worth stating plainly.
+        </Finding>
+      </div>
+
+      {/* ── the seven sections of the IX and X paper ─────────────────────── */}
+      <div className={`${CARD} p-[clamp(20px,3vw,32px)] mt-[clamp(16px,2.4vw,28px)]`}>
+        <div className={CARD_TITLE}>Classes IX and X · seven sections of one paper</div>
+        <p className="mt-1.5 mb-5 text-[0.9rem] leading-[1.7] text-[var(--ink-muted)] max-w-[70ch]">
+          Every student in these two years sat all seven sections, so the two years can be compared
+          section by section — the one place on this page where two classes are held against each
+          other, and it is honest because it is the same seven sections either side.
+        </p>
+
+        <div className="grid gap-4">
+          {sections.map((s) => (
+            <div key={s.section}>
+              <div className="flex justify-between items-baseline gap-3">
+                <span
+                  className={`text-[0.86rem] font-semibold ${
+                    s.fell ? "text-[var(--maroon)]" : "text-[var(--ink)]"
+                  }`}
+                >
+                  {s.section}
+                  {s.fell && <Star className="ml-1.5 text-[var(--gold)] text-[0.7rem]" />}
+                </span>
+              </div>
+              <div className="grid gap-1 mt-1.5">
+                <SectionBar label="IX" value={s.ix} colour="var(--teal)" />
+                <SectionBar
+                  label="X"
+                  value={s.x}
+                  colour={s.fell ? "var(--maroon)" : "var(--royal-blue)"}
                 />
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5 pt-4 border-t border-[var(--cream-muted)] text-[0.8rem] text-[var(--ink-muted)]">
+          <Key colour="var(--teal)">Class IX</Key>
+          <Key colour="var(--royal-blue)">Class X</Key>
+          <Key colour="var(--maroon)">Where Class X fell furthest below Class IX</Key>
+        </div>
+
+        {fell.length === 2 && (
+          <p className="mt-4 mb-0 text-[0.9rem] leading-[1.7] text-[var(--ink-muted)] max-w-[70ch]">
+            Class X answered <strong className="text-[var(--ink)]">less</strong> of{" "}
+            {fell[0].section} and {fell[1].section} correctly than Class IX did, on the year&rsquo;s
+            own paper — {pct(fell[0].ix)} down to {pct(fell[0].x)}, and {pct(fell[1].ix)} down to{" "}
+            {pct(fell[1].x)}. Those two sections are where a teaching intervention would show the
+            fastest return.
+          </p>
+        )}
+      </div>
+
+      {/* ── XI and XII by subject and stream ─────────────────────────────── */}
+      <div className={`${CARD} p-[clamp(20px,3vw,32px)] mt-[clamp(14px,2vw,22px)]`}>
+        <div className={CARD_TITLE}>Classes XI and XII · by subject and stream</div>
+        <p className="mt-1.5 mb-4 text-[0.9rem] leading-[1.7] text-[var(--ink-muted)] max-w-[70ch]">
+          Twenty-five questions per subject. Each row shows Class XI and Class XII on the same 0–100
+          scale, so the movement between the two years is visible at a glance. Each subject sits
+          under the stream whose students actually sat it.
+        </p>
+        <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6 text-[0.8rem] text-[var(--ink-muted)]">
+          <Key colour="var(--teal)">Class XI</Key>
+          <Key colour="var(--royal-blue)">Class XII</Key>
+        </div>
+
+        {streams.map((g) => (
+          <div key={g.stream} className="mb-7 last:mb-0">
+            <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold mb-3">
+              {g.stream}
+            </div>
+            <div className="grid gap-2.5">
+              {g.subjects.map((s) => (
+                <SubjectBar key={s.subject} label={s.subject} xi={s.xi} xii={s.xii} />
+              ))}
             </div>
           </div>
         ))}
-      </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(14px,2vw,22px)] mt-[clamp(14px,2vw,22px)]">
-        <div className={`${CARD} p-[clamp(18px,3vw,28px)]`}>
-          <div className="font-[family-name:var(--font-display)] font-bold text-[1.25rem] text-[var(--ink)]">
-            Who turned up, class by class
+        <div className="pt-5 border-t border-[var(--cream-muted)]">
+          <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold mb-3">
+            English &amp; General Knowledge · sat by every stream
           </div>
-          <p className="mt-1.5 mb-[18px] text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">
-            Share of each class&rsquo;s registered students who sat the online paper. The dotted
-            line is the overall figure, {pct(overallTurnout)}.
-          </p>
-          <div className="grid gap-3">
-            {classes.map((c) => (
-              <BarRow
-                key={c.cls}
-                label={`Class ${c.cls}`}
-                width={`${turnout(c)}%`}
-                colour={c.cls === lowest.cls ? "var(--maroon-light)" : "var(--maroon)"}
-                tick={{ at: `${overallTurnout}%`, dotted: true }}
-                height="16px"
-                labelWidth="66px"
-                valueWidth="92px"
-                value={<strong className="text-[var(--ink)]">{pct(turnout(c))}</strong>}
+          <div className="grid gap-2.5">
+            {streams.map((g) => (
+              <SubjectBar
+                key={g.stream}
+                label={`${g.stream} stream`}
+                xi={g.english.xi}
+                xii={g.english.xii}
               />
             ))}
           </div>
-          <p className={`${NOTE} mt-4 pt-3 border-t border-[var(--cream-muted)]`}>
-            Class {lowest.cls} had the lowest turnout of the four:{" "}
-            {num(lowest.registered - lowest.sat)} of its {num(lowest.registered)} registered students
-            did not sit. Class {highest.cls} turned up in the greatest proportion.
-          </p>
         </div>
 
-        <div className={`${CARD} p-[clamp(18px,3vw,28px)]`}>
-          <div className="font-[family-name:var(--font-display)] font-bold text-[1.25rem] text-[var(--ink)]">
-            Average against middle student
-          </div>
-          <p className="mt-1.5 mb-[18px] text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">
-            Each bar runs 0 to {TOTAL}.{" "}
-            <span className="text-[var(--maroon)] font-semibold">●</span> is the average,{" "}
-            <span className="text-[var(--teal)] font-semibold">●</span> the median. A wide gap means
-            an uneven class.
-          </p>
-          <div className="grid gap-4">
-            {classes.map((c) => (
-              <div key={c.cls} className="grid grid-cols-[66px_1fr_74px] items-center gap-3">
-                <span className="text-[0.86rem] font-semibold">Class {c.cls}</span>
-                <span className="block h-1.5 bg-[var(--cream-muted)] rounded-full relative">
-                  <span
-                    className="absolute inset-y-0 bg-[var(--maroon-tint)]"
-                    style={{
-                      left: ofTotal(Math.min(c.average, c.median)),
-                      width: ofTotal(gap(c)),
-                    }}
-                  />
-                  <span
-                    className="absolute top-1/2 w-[11px] h-[11px] -mt-[5.5px] -ml-[5.5px] bg-[var(--teal)] rounded-full"
-                    style={{ left: ofTotal(c.median) }}
-                  />
-                  <span
-                    className="absolute top-1/2 w-[11px] h-[11px] -mt-[5.5px] -ml-[5.5px] bg-[var(--maroon)] rounded-full"
-                    style={{ left: ofTotal(c.average) }}
-                  />
-                </span>
-                <span
-                  className={`text-right text-[0.8rem] tnum ${
-                    c.cls === uneven.cls
-                      ? "text-[var(--maroon)] font-bold"
-                      : "text-[var(--ink-muted)]"
-                  }`}
-                >
-                  {gap(c).toFixed(1)} gap
-                </span>
-              </div>
-            ))}
-          </div>
-          <p className={`${NOTE} mt-4 pt-3 border-t border-[var(--cream-muted)]`}>
-            {tight.length > 0 && (
-              <>
-                Class {tight.join(" and ")} {tight.length > 1 ? "are" : "is"} tightly clustered —
-                most students scored close to their class average.{" "}
-              </>
-            )}
-            Class {uneven.cls} is the uneven one.
-          </p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(14px,2vw,24px)] mt-[clamp(16px,2vw,24px)]">
-        <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--teal)] rounded-[10px] p-5">
-          <div className="font-[family-name:var(--font-display)] text-[1.2rem] font-bold text-[var(--ink)] mb-1.5">
-            What the median tells us
-          </div>
-          <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
-            The average is the arithmetic mean; the median is the mark of the middle student. In
-            Class {uneven.cls} the median ({uneven.median.toFixed(1)}) sits well below the average (
-            {marks(uneven.average)}). That gap means a long tail of low scores pulling one number
-            away from the other — a group of Class {uneven.cls} students who found this paper hard.
-            It is the clearest signal in the data of where support is needed.
-          </p>
-        </div>
-
-        <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--gold)] rounded-[10px] p-5">
-          <div className="font-[family-name:var(--font-display)] text-[1.2rem] font-bold text-[var(--ink)] mb-1.5">
-            How the half hour was used
-          </div>
-          <p className="mt-0 mb-3 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
-            {num(timing.byHand)} students submitted their paper themselves. {num(timing.autoSubmitted)}{" "}
-            were submitted automatically when the window closed at 11:00.
-          </p>
-          <div className="flex gap-6 flex-wrap">
-            <Minutes value={timing.averageMinutes} label="Average time taken" />
-            <Minutes value={timing.medianMinutes} label="Median time taken" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Line({ label, value, colour = "" }: { label: string; value: string; colour?: string }) {
-  return (
-    <div className="flex justify-between gap-2.5 border-t border-[var(--cream-muted)] pt-2">
-      <span className="text-[var(--ink-muted)]">{label}</span>
-      <span className={`tnum font-semibold ${colour}`}>{value}</span>
-    </div>
-  );
-}
-
-function Minutes({ value, label }: { value: number; label: string }) {
-  return (
-    <div>
-      <div className="font-[family-name:var(--font-display)] font-bold text-[1.6rem] text-[var(--maroon)] tnum">
-        {value.toFixed(1)}
-        <span className="text-[0.55em] text-[var(--ink-muted)]"> min</span>
-      </div>
-      <div className="text-[0.72rem] tracking-[0.06em] uppercase text-[var(--ink-muted)]">
-        {label}
-      </div>
-    </div>
-  );
-}
-
-/* ──────────────────────────────────────────────────────────── full marks ─── */
-
-function FullMarks({ report }: { report: FirstPhaseReport }) {
-  const { classes, headline, fullMarkStudents } = report;
-
-  return (
-    <section>
-      <SectionLabel>Section three</SectionLabel>
-      <h2 className={HEADING}>Full marks</h2>
-      <p className={`${LEDE} m-0 mb-5`}>
-        {num(headline.fullMarks)} students answered all fifty questions correctly. Marks are taken
-        directly from the assessed paper and published as they stand.
-      </p>
-
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-[clamp(12px,1.6vw,18px)] mb-[clamp(22px,3vw,32px)]">
-        {classes.map((c) => (
-          <div
-            key={c.cls}
-            className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--gold)] rounded-[10px] p-[18px]"
-          >
-            <div className="text-[0.72rem] tracking-[0.1em] uppercase text-[var(--ink-muted)] font-semibold">
-              Class {c.cls} · top score
-            </div>
-            <div className="font-[family-name:var(--font-display)] font-bold text-[2.1rem] text-[var(--maroon)] leading-[1.1] mt-1 tnum">
-              {num(c.highest)}
-              <span className="text-[0.45em] text-[var(--ink-muted)]"> / {TOTAL}</span>
-            </div>
-            <div className="mt-2 text-[0.86rem] text-[var(--ink-muted)] leading-[1.6]">
-              reached by <strong className="text-[var(--ink)]">{num(c.fullMarks)} students</strong>{" "}
-              of {num(c.sat)}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <p className="m-0 mb-5 max-w-[68ch] text-[0.9rem] leading-[1.7] text-[var(--ink-muted)]">
-        Every class has a top score of {TOTAL}, so there is no single topper in any class — there is
-        a group of them. The list below is a list of equals, not a ranking: it is grouped by class
-        and set alphabetically within each, and carries no internal order.
-      </p>
-
-      <div className={`${CARD} overflow-x-auto`}>
-        <table className="w-full min-w-[560px] text-[0.92rem] border-collapse">
-          <thead>
-            <tr>
-              <th className={`${TH} text-left w-14`}>#</th>
-              <th className={`${TH} text-left`}>Student</th>
-              <th className={`${TH} text-left w-24`}>Class</th>
-              <th className={`${TH} text-left`}>School</th>
-              <th className={`${TH} text-right w-24`}>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {fullMarkStudents.map((s, i) => (
-              <tr key={`${s.name}-${s.cls}-${i}`} className={i % 2 === 1 ? "bg-[rgba(242,233,218,0.4)]" : ""}>
-                <td className={`${TD} text-[var(--gold)]`}>
-                  <Star />
-                </td>
-                <td className={`${TD} font-semibold text-[var(--ink)]`}>{s.name}</td>
-                <td className={`${TD} text-[var(--ink-muted)]`}>Class {s.cls}</td>
-                <td className={`${TD} text-[var(--ink-muted)]`}>{s.school}</td>
-                <td className={`${TD} text-right font-bold text-[var(--maroon)] tnum`}>
-                  {TOTAL} / {TOTAL}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="scroll-hint hidden text-[0.76rem] tracking-[0.06em] uppercase text-[var(--ink-muted)] mt-2">
-        Scroll the table sideways →
-      </div>
-      <p className={`${NOTE} mt-3.5 max-w-[74ch]`}>
-        Every student here scored the same {TOTAL} out of {TOTAL}. Names, classes and schools are as
-        recorded on the exam register. Each of them can also see their own marked answer sheet on
-        their personal result page.
-      </p>
-    </section>
-  );
-}
-
-/* ──────────────────────────────────────────────────────────────── schools ─── */
-
-function Schools({ report }: { report: FirstPhaseReport }) {
-  const { schools, headline } = report;
-
-  return (
-    <section>
-      <SectionLabel>Section four</SectionLabel>
-      <h2 className={HEADING}>Schools we want to thank</h2>
-      <p className={`${LEDE} m-0 mb-[22px] max-w-[68ch]`}>
-        The {WORDS[schools.length] ?? schools.length} schools whose students averaged highest in the
-        first phase. The figure
-        is the average of the students <em>from that school who sat the online paper</em> — so a
-        school with {num(Math.min(...schools.map((s) => s.sat)))} students and one with{" "}
-        {num(Math.max(...schools.map((s) => s.sat)))} are measured the same way. Only schools with at
-        least 25 students sitting are listed, because small groups swing wildly. This is not a league
-        table, and there is no bottom of it.
-      </p>
-
-      <div className={`${CARD} p-[clamp(18px,3vw,32px)] mb-[clamp(14px,2vw,22px)]`}>
-        <div className="font-[family-name:var(--font-display)] font-bold text-[1.25rem] text-[var(--ink)]">
-          School averages against the whole cohort
-        </div>
-        <p className="mt-1.5 mb-5 text-[0.88rem] leading-[1.7] text-[var(--ink-muted)] max-w-[68ch]">
-          Each bar runs 0 to {TOTAL}. The dotted line is the overall average of{" "}
-          {marks(headline.average)}.
+        <p className="mt-5 pt-4 border-t border-[var(--cream-muted)] mb-0 text-[0.82rem] leading-[1.7] text-[var(--ink-muted)] max-w-[74ch]">
+          Every subject shown was sat by at least thirty candidates. Where fewer than thirty students
+          sat a subject the figure is withheld: an average built on a handful of children is noise,
+          and it can identify them. That is why a few subjects appear for one year only.
         </p>
-        <div className="grid gap-[11px]">
+      </div>
+    </Section>
+  );
+}
+
+function Finding({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className={`${CARD} p-[clamp(18px,2.4vw,24px)]`}>
+      <div className="font-[family-name:var(--font-display)] font-bold text-[1.12rem] leading-[1.35] text-[var(--maroon)] mb-2">
+        {title}
+      </div>
+      <p className="m-0 text-[0.9rem] leading-[1.75] text-[var(--ink-muted)] tnum">{children}</p>
+    </div>
+  );
+}
+
+function Key({ colour, children }: { colour: string; children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-[7px]">
+      <span
+        className="w-4 h-[9px] rounded-full inline-block"
+        style={{ background: colour }}
+      />
+      {children}
+    </span>
+  );
+}
+
+function SectionBar({ label, value, colour }: { label: string; value: number; colour: string }) {
+  return (
+    <div className="grid grid-cols-[26px_1fr_clamp(58px,9vw,74px)] items-center gap-2.5">
+      <span className="text-[0.76rem] text-[var(--ink-muted)] font-semibold tnum">{label}</span>
+      <span className="block h-3 bg-[var(--cream-muted)] rounded-full overflow-hidden">
+        <span className="block h-full rounded-full" style={{ width: `${value}%`, background: colour }} />
+      </span>
+      <span className="text-right text-[0.8rem] text-[var(--ink-muted)] tnum">{pct(value)}</span>
+    </div>
+  );
+}
+
+/** One subject, Class XI over Class XII, on a shared 0–100 scale. */
+function SubjectBar({
+  label,
+  xi,
+  xii,
+}: {
+  label: string;
+  xi: number | null;
+  xii: number | null;
+}) {
+  return (
+    <div className="subj grid grid-cols-[clamp(104px,17vw,168px)_1fr_clamp(96px,15vw,120px)] items-center gap-[clamp(8px,1.5vw,16px)]">
+      <span className="text-[0.84rem] font-semibold text-[var(--ink)] leading-[1.35]">{label}</span>
+      <span className="grid gap-[3px]">
+        {xi !== null && (
+          <span className="block h-[9px] bg-[var(--cream-muted)] rounded-full overflow-hidden">
+            <span className="block h-full bg-[var(--teal)] rounded-full" style={{ width: `${xi}%` }} />
+          </span>
+        )}
+        {xii !== null && (
+          <span className="block h-[9px] bg-[var(--cream-muted)] rounded-full overflow-hidden">
+            <span
+              className="block h-full bg-[var(--royal-blue)] rounded-full"
+              style={{ width: `${xii}%` }}
+            />
+          </span>
+        )}
+      </span>
+      <span className="subj-value text-right text-[0.82rem] text-[var(--ink-muted)] tnum">
+        {xi !== null && xii !== null
+          ? `${xi.toFixed(1)} → ${xii.toFixed(1)}`
+          : xi !== null
+            ? `XI only · ${xi.toFixed(1)}`
+            : `XII only · ${(xii ?? 0).toFixed(1)}`}
+      </span>
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────── zones ─── */
+
+function Zones({ written }: { written: WrittenReport }) {
+  const { zones, headline } = written;
+  const spread = Math.max(...zones.map((z) => z.average)) - Math.min(...zones.map((z) => z.average));
+
+  return (
+    <Section paper="written" label="Zones · written paper">
+      <h2 className={HEADING}>The three zones performed alike</h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        Just {marks(spread)} marks out of a hundred separate the highest zone from the lowest. On a
+        cohort of {num(headline.sat)} children drawn from every centre in the exam, that is the
+        finding: where a child sits the exam is not what decides their mark.
+      </p>
+
+      <div className={`${CARD} p-[clamp(20px,3vw,32px)]`}>
+        <div className="grid gap-4">
+          {zones.map((z) => (
+            <BarRow
+              key={z.zone}
+              labelWidth="clamp(112px,20vw,190px)"
+              valueWidth="clamp(58px,9vw,76px)"
+              height="18px"
+              colour="var(--royal-blue)"
+              width={ofWritten(z.average)}
+              label={
+                <span className="block">
+                  <span className="block text-[0.88rem] text-[var(--ink)] font-semibold">
+                    {z.zone}
+                  </span>
+                  <span className="block text-[0.76rem] text-[var(--ink-muted)] font-normal">
+                    {num(z.sat)} sat
+                  </span>
+                </span>
+              }
+              value={<strong className="text-[var(--ink)]">{marks(z.average)}</strong>}
+            />
+          ))}
+        </div>
+        <div className="mt-5 pt-4 border-t border-[var(--cream-muted)] text-[0.82rem] leading-[1.7] text-[var(--ink-muted)]">
+          Bars run 0 to 100. All three zones sit within{" "}
+          {marks(
+            Math.max(...zones.map((z) => Math.abs(z.average - headline.average))),
+          )}{" "}
+          marks of the cohort average of {marks(headline.average)}.
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────── perfect papers ─── */
+
+/**
+ * The top of the exam, without a single name.
+ *
+ * The office named the sixty-four full-mark students when the online paper was
+ * published alone; the redesign took the names off, and they stay off. Every one
+ * of them can see their own result on their own page, which is where a child's
+ * name belongs on a public internet.
+ */
+function Perfect({
+  classes,
+  headline,
+  written,
+}: {
+  classes: ClassRow[];
+  headline: ExamReport["headline"];
+  written: WrittenReport | null;
+}) {
+  const mostFull = Math.max(...classes.map((c) => c.fullMarks));
+  const ix = written?.classes.find((c) => c.cls === "IX");
+  const x = written?.classes.find((c) => c.cls === "X");
+  // Only one class can be named as the perfect paper's when exactly one class
+  // reaches the top mark and exactly one student scored it. Otherwise the page
+  // reports the mark and leaves the class out, rather than guessing.
+  const atTop = written?.classes.filter((c) => c.highest === written.headline.highest) ?? [];
+  const perfectClass =
+    written && written.headline.perfect === 1 && atTop.length === 1 ? atTop[0] : null;
+
+  return (
+    <Section label="The top of the exam">
+      <h2 className={HEADING}>Perfect papers</h2>
+
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        <div
+          data-paper="online"
+          className={`${CARD} border-t-[3px] border-t-[var(--maroon)] p-[clamp(20px,3vw,30px)]`}
+        >
+          <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold">
+            Online paper
+          </div>
+          <div className="font-[family-name:var(--font-display)] font-bold text-[clamp(3rem,8vw,4.4rem)] leading-none text-[var(--maroon)] mt-2 tnum">
+            {num(headline.fullMarks)}
+          </div>
+          <p className="mt-1.5 mb-5 text-[0.98rem] leading-[1.6] text-[var(--ink-muted)]">
+            students scored <strong className="text-[var(--ink)]">50 out of 50</strong>.
+          </p>
+
+          <div className="grid gap-2">
+            {classes.map((c) => (
+              <BarRow
+                key={c.cls}
+                labelWidth="clamp(64px,10vw,84px)"
+                valueWidth="clamp(34px,6vw,48px)"
+                height="12px"
+                colour="var(--gold)"
+                width={`${mostFull === 0 ? 0 : (c.fullMarks / mostFull) * 100}%`}
+                label={`Class ${c.cls}`}
+                value={<strong className="text-[var(--ink)]">{num(c.fullMarks)}</strong>}
+              />
+            ))}
+          </div>
+
+          <p className="mt-5 pt-4 border-t border-[var(--cream-muted)] mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)]">
+            No student is named here — every one of the {num(headline.fullMarks)} sees their own
+            result on their portal.
+          </p>
+        </div>
+
+        {written && (
+          <div
+            data-paper="written"
+            className={`${CARD} border-t-[3px] border-t-[var(--royal-blue)] p-[clamp(20px,3vw,30px)]`}
+          >
+            <div className="text-[0.7rem] tracking-[0.1em] uppercase text-[var(--royal-blue)] font-bold">
+              Written paper
+            </div>
+            <div className="flex items-baseline gap-2.5 mt-2">
+              <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(3rem,8vw,4.4rem)] leading-none text-[var(--royal-blue)] tnum">
+                {num(written.headline.highest)}
+              </span>
+              <span className="text-[0.95rem] text-[var(--ink-muted)]">
+                out of 100 —{" "}
+                {written.headline.perfect === 1 ? "once" : `${num(written.headline.perfect)} times`}
+              </span>
+            </div>
+            <p className="mt-2 mb-5 text-[0.98rem] leading-[1.6] text-[var(--ink-muted)]">
+              {perfectClass ? (
+                <>One student, in Class {perfectClass.cls}, answered every one of the hundred
+                questions correctly.</>
+              ) : written.headline.perfect === 1 ? (
+                <>One student answered every one of the hundred questions correctly.</>
+              ) : (
+                <>{num(written.headline.perfect)} students answered every one of the hundred
+                questions correctly.</>
+              )}
+            </p>
+
+            <div className="grid gap-2 text-[0.9rem]">
+              {written.thresholds
+                .filter((t) => t.mark === 90 || t.mark === 75)
+                .map((t) => (
+                  <Line
+                    key={t.mark}
+                    label={`Scored ${t.mark} or more`}
+                    value={`${num(t.students)} students`}
+                  />
+                ))}
+              {written.classHighs.map((c) => (
+                <Line key={c.cls} label={`Highest in Class ${c.cls}`} value={num(c.highest)} />
+              ))}
+            </div>
+
+            {ix && x && ix.highest === x.highest && (
+              <p className="mt-5 pt-4 border-t border-[var(--cream-muted)] mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)]">
+                Class IX and Class X produced their highest marks on the same figure,{" "}
+                {num(ix.highest)}, on two different papers.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+
+      {written && (
+        <p className="mt-5 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[76ch]">
+          Final merit under Project UDAAN is decided on both papers together. Nothing on this page is
+          a final award.
+        </p>
+      )}
+    </Section>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────── schools ─── */
+
+function Schools({ report }: { report: ExamReport }) {
+  const { schools, headline, written } = report;
+
+  return (
+    <Section paper="online" label="Schools · online paper">
+      <h2 className={HEADING}>Schools we want to thank</h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        The {word(schools.length)} schools whose students averaged highest on the online paper. The figure
+        is the average of the students <em>from that school who sat</em>, so a school with 26
+        students and one with 208 are measured the same way. Only schools with at least 25 students
+        sitting are listed, because small groups swing wildly. This is not a league table, and there
+        is no bottom of it.
+      </p>
+
+      <div className={`${CARD} p-[clamp(20px,3vw,32px)]`}>
+        <div className="grid gap-3.5">
           {schools.map((s) => (
-            <div key={s.school} className="grid grid-cols-[minmax(0,1fr)] gap-1">
-              <div className="flex justify-between gap-3 text-[0.83rem] leading-[1.4]">
-                <span>{s.school}</span>
-                <span className="font-bold text-[var(--maroon)] tnum whitespace-nowrap">
+            <div key={s.school}>
+              <div className="flex justify-between items-baseline gap-3 mb-1.5">
+                <span className="text-[0.88rem] text-[var(--ink)] leading-[1.4]">
+                  {s.school}{" "}
+                  <span className="text-[var(--ink-muted)] text-[0.8rem] tnum">
+                    · {num(s.sat)} sat
+                  </span>
+                </span>
+                <span className="font-[family-name:var(--font-display)] font-bold text-[1.05rem] text-[var(--maroon)] tnum shrink-0">
                   {marks(s.average)}
                 </span>
               </div>
-              <span className="block h-[15px] bg-[var(--cream-muted)] rounded-full relative">
+              <span className="block h-3 bg-[var(--cream-muted)] rounded-full relative overflow-hidden">
                 <span
-                  className="absolute inset-y-0 left-0 bg-[var(--maroon)] rounded-full"
+                  className="absolute inset-y-0 left-0 rounded-full bg-[var(--maroon)]"
                   style={{ width: ofTotal(s.average) }}
                 />
                 <span
-                  className="absolute -top-1 -bottom-1 border-l-2 border-dotted border-[var(--ink)]"
+                  className="absolute inset-y-0 w-0.5 bg-[var(--ink)] opacity-60"
                   style={{ left: ofTotal(headline.average) }}
                 />
               </span>
             </div>
           ))}
         </div>
-        <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 pt-3 border-t border-[var(--cream-muted)] text-[0.8rem] text-[var(--ink-muted)]">
+
+        <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5 pt-4 border-t border-[var(--cream-muted)] text-[0.8rem] text-[var(--ink-muted)]">
+          <Key colour="var(--maroon)">School average</Key>
           <span className="inline-flex items-center gap-[7px]">
-            <span className="w-4 h-2 bg-[var(--maroon)] rounded-full inline-block" />
-            School average
-          </span>
-          <span className="inline-flex items-center gap-[7px]">
-            <span className="w-4 border-t-2 border-dotted border-[var(--ink)] inline-block" />
+            <span className="w-0.5 h-3.5 bg-[var(--ink)] inline-block" />
             Cohort average, {marks(headline.average)}
           </span>
           <span>Scale: 0 to {TOTAL} marks</span>
         </div>
       </div>
 
-      <div className={`${CARD} overflow-x-auto`}>
-        <table className="w-full min-w-[620px] text-[0.93rem] border-collapse">
-          <thead>
-            <tr>
-              <th className={`${TH} text-left`}>School</th>
-              <th className={`${TH} text-right w-[120px]`}>Students sat</th>
-              <th className={`${TH} text-right w-40`}>Average of {TOTAL}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {schools.map((s, i) => (
-              <tr key={s.school} className={i % 2 === 1 ? "bg-[rgba(242,233,218,0.4)]" : ""}>
-                <td className={TD}>
-                  <Star className="text-[var(--gold)] mr-2" />
-                  {s.school}
-                </td>
-                <td className={`${TD} text-right text-[var(--ink-muted)] tnum`}>{num(s.sat)}</td>
-                <td className={`${TD} text-right font-bold text-[var(--maroon)] tnum`}>
-                  {marks(s.average)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="scroll-hint hidden text-[0.76rem] tracking-[0.06em] uppercase text-[var(--ink-muted)] mt-2">
-        Scroll the table sideways →
-      </div>
-      <p className={`${NOTE} mt-3.5`}>
+      <p className="mt-4 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[78ch]">
         {num(headline.schools)} schools took part in all. Every one of them sent students into a
         paper they had never seen before.
+        {written && (
+          <> School-level figures for the written paper will be added here when the per-school
+          written breakdown is published.</>
+        )}
       </p>
-    </section>
+    </Section>
   );
 }
 
-/* ──────────────────────────────────────────────────────────────── centres ─── */
-
-/* The scatter's two scales, fixed so the plot is honest: 80% turnout sits at
-   x=140 and every percentage point is 40px; 20 marks sits at y=256 and every
-   mark is 16.8px up. Both are clamped to the plotting area rather than allowed
-   to run off the axes. */
-const scatterX = (turnout: number) => Math.min(575, Math.max(65, 140 + (turnout - 80) * 40));
-const scatterY = (average: number) => Math.min(285, Math.max(25, 256 - (average - 20) * 16.8));
+/* ───────────────────────────────────────────────────────────── centres ─── */
 
 function Centres({
   report,
-  overallTurnout,
+  turnout,
+  written,
 }: {
-  report: FirstPhaseReport;
-  overallTurnout: number;
+  report: ExamReport;
+  turnout: number;
+  written: WrittenReport | null;
 }) {
   const { centres, headline } = report;
 
-  // Only the four extremes are labelled: the highest and lowest averages, and
-  // the two fullest halls. Eight labels on a 600-unit canvas collide.
-  const byAverage = [...centres].sort((a, b) => a.average - b.average);
-  const labelled = new Set(
-    [
-      byAverage[0]?.centre,
-      byAverage[byAverage.length - 1]?.centre,
-      centres[0]?.centre,
-      centres[1]?.centre,
-    ].filter(Boolean),
-  );
-  const best = byAverage[byAverage.length - 1];
-  // Sorted by turnout, so the last row is the emptiest hall of the eight.
-  const bestIsEmptiest = best?.centre === centres[centres.length - 1]?.centre;
-
   return (
-    <section>
-      <SectionLabel>Section five</SectionLabel>
-      <h2 className={HEADING}>Centres and turnout</h2>
-      <p className={`${LEDE} m-0 mb-6 max-w-[68ch]`}>
-        {num(headline.centres)} centres opened on 19 July. Turnout is the share of registered
-        students at a centre who actually sat the online paper.
+    <Section paper="online" label="Centres and turnout">
+      <h2 className={HEADING}>{numberWord(headline.centres)} centres</h2>
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        {numberWord(headline.centres)} centres opened on 19 July{written ? " for both papers" : ""}.
+        Turnout is the share of students on a centre&rsquo;s roster who sat the online paper.
       </p>
 
-      <div
-        className={`${CARD} grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[clamp(16px,2.4vw,28px)] items-center p-[clamp(20px,3vw,28px)] mb-6`}
-      >
-        <div>
-          <div className="flex items-baseline gap-2.5">
-            <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.4rem,6vw,3.4rem)] text-[var(--maroon)] leading-none tnum">
-              {pct(overallTurnout)}
-            </span>
-            <span className="text-[0.9rem] text-[var(--ink-muted)]">overall turnout</span>
-          </div>
-          <div className="flex h-4 rounded-full overflow-hidden mt-4 bg-[var(--cream-muted)]">
-            <div className="bg-[var(--maroon)]" style={{ width: `${overallTurnout}%` }} />
-            <div className="bg-[var(--maroon-tint)]" style={{ width: `${100 - overallTurnout}%` }} />
-          </div>
-          <div className="flex justify-between mt-2 text-[0.8rem] text-[var(--ink-muted)] tnum">
-            <span>
-              <strong className="text-[var(--maroon)]">{num(headline.sat)}</strong> sat
-            </span>
-            <span>
-              <strong className="text-[var(--ink)]">{num(headline.absent)}</strong> did not sit
-            </span>
-          </div>
+      <div className={`${CARD} p-[clamp(20px,3vw,32px)] mb-[clamp(14px,2vw,22px)]`}>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <span className="font-[family-name:var(--font-display)] font-bold text-[clamp(2.2rem,5vw,3rem)] leading-none text-[var(--maroon)] tnum">
+            {pct(turnout)}
+          </span>
+          <span className="text-[0.92rem] text-[var(--ink-muted)]">online turnout</span>
         </div>
-        <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">
-          {num(headline.absent)} registered students did not sit the online paper. We publish that
-          number because it matters: it is a phone shared between siblings, a network that dropped,
-          a family who moved, an exam morning that went wrong. Understanding it is part of the work
-          of the next phase.
+
+        <div className="flex h-[18px] rounded-full overflow-hidden mt-4 bg-[var(--cream-muted)]">
+          <div className="bg-[var(--maroon)]" style={{ width: `${turnout}%` }} />
+          <div className="bg-[var(--cream-muted)]" style={{ width: `${100 - turnout}%` }} />
+        </div>
+        <div className="flex flex-wrap justify-between gap-x-4 gap-y-1 mt-2 text-[0.82rem] text-[var(--ink-muted)] tnum">
+          <span>
+            <strong className="text-[var(--ink)]">{num(headline.sat)}</strong> sat
+          </span>
+          <span>
+            <strong className="text-[var(--ink)]">{num(headline.absent)}</strong> did not sit
+          </span>
+        </div>
+
+        {written && (
+          <div className="mt-4 pt-4 border-t border-[var(--cream-muted)] flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-[family-name:var(--font-display)] font-bold text-[1.6rem] leading-none text-[var(--royal-blue)] tnum">
+              {pct(written.headline.turnout)}
+            </span>
+            <span className="text-[0.88rem] text-[var(--ink-muted)] tnum">
+              written turnout · {num(written.headline.sat)} sat
+            </span>
+          </div>
+        )}
+
+        <p className="mt-4 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[76ch]">
+          {written
+            ? "More students sat the written paper than the online one. We publish the shortfall on both because it matters: it is a phone shared between siblings, a network that dropped, a family who moved, an exam morning that went wrong. Understanding it is part of the work of the next round."
+            : "We publish the shortfall because it matters: it is a phone shared between siblings, a network that dropped, a family who moved, an exam morning that went wrong. Understanding it is part of the work of the next round."}
         </p>
       </div>
 
       <div className={`${CARD} overflow-x-auto`}>
-        <table className="w-full min-w-[660px] text-[0.93rem] border-collapse">
+        <table className="w-full border-collapse text-[0.88rem] min-w-[540px]">
           <thead>
             <tr>
               <th className={`${TH} text-left`}>Exam centre</th>
-              <th className={`${TH} text-right w-[108px]`}>Registered</th>
-              <th className={`${TH} text-right w-20`}>Sat</th>
-              <th className={`${TH} text-right w-[104px]`}>Turnout</th>
-              <th className={`${TH} text-right w-[118px]`}>Average of {TOTAL}</th>
+              <th className={`${TH} text-right`}>Registered</th>
+              <th className={`${TH} text-right`}>Sat</th>
+              <th className={`${TH} text-right`}>Turnout</th>
+              <th className={`${TH} text-right`}>Average of 50</th>
             </tr>
           </thead>
           <tbody>
-            {centres.map((c, i) => (
-              <tr key={c.centre} className={i % 2 === 1 ? "bg-[rgba(242,233,218,0.4)]" : ""}>
+            {centres.map((c) => (
+              <tr key={c.centre}>
                 <td className={TD}>{c.centre}</td>
-                <td className={`${TD} text-right text-[var(--ink-muted)] tnum`}>
-                  {num(c.registered)}
-                </td>
+                <td className={`${TD} text-right tnum`}>{num(c.registered)}</td>
                 <td className={`${TD} text-right tnum`}>{num(c.sat)}</td>
-                <td className={`${TD} text-right font-bold text-[var(--maroon)] tnum`}>
+                <td className={`${TD} text-right tnum font-semibold text-[var(--maroon)]`}>
                   {pct(c.turnout)}
                 </td>
-                <td className={`${TD} text-right text-[var(--ink-muted)] tnum`}>
-                  {marks(c.average)}
-                </td>
+                <td className={`${TD} text-right tnum`}>{marks(c.average)}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div className="scroll-hint hidden text-[0.76rem] tracking-[0.06em] uppercase text-[var(--ink-muted)] mt-2">
+      <div className="scroll-hint hidden mt-2 text-[0.78rem] text-[var(--ink-muted)]">
         Scroll the table sideways →
       </div>
-      <p className={`${NOTE} mt-3.5 max-w-[74ch]`}>
-        The {WORDS[centres.length] ?? centres.length} centres with the highest turnout, of{" "}
-        {num(headline.centres)}. Averages
-        differ between centres partly because centres draw on different schools and different mixes
-        of classes.
+
+      <p className="mt-4 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[78ch]">
+        The {word(centres.length)} centres with the highest turnout, of {word(headline.centres)}.
+        Averages differ between centres partly because centres draw on different schools and
+        different mixes of classes.
       </p>
-
-      <div className={`${CARD} p-[clamp(18px,3vw,32px)] mt-[clamp(16px,2.4vw,26px)]`}>
-        <div className="font-[family-name:var(--font-display)] font-bold text-[1.25rem] text-[var(--ink)]">
-          Turnout does not predict marks
-        </div>
-        <p className="mt-1.5 mb-[18px] text-[0.88rem] leading-[1.7] text-[var(--ink-muted)] max-w-[68ch]">
-          Each dot is one of these {WORDS[centres.length] ?? centres.length} centres: turnout across
-          the bottom, average score up the side. If a full hall meant higher marks the dots would
-          climb to the right. They do not.
-        </p>
-        <div className="scroll-hint hidden text-[0.76rem] tracking-[0.06em] uppercase text-[var(--ink-muted)] mb-2">
-          Scroll sideways to see the whole chart →
-        </div>
-        {/* The chart is capped rather than run full-bleed: stretched across a
-            1900px screen the viewBox scales its 11px axis labels up with it,
-            until the axis type is larger than the headings around it. */}
-        <div className="overflow-x-auto">
-          <svg
-            viewBox="0 0 600 340"
-            role="img"
-            aria-label="Scatter plot of centre turnout against average score"
-            className="w-full max-w-[1100px] min-w-[430px] h-auto block"
-          >
-            <line x1="60" y1="256" x2="580" y2="256" stroke="#F2E9DA" strokeWidth="1" />
-            <line x1="60" y1="172" x2="580" y2="172" stroke="#F2E9DA" strokeWidth="1" />
-            <line x1="60" y1="88" x2="580" y2="88" stroke="#F2E9DA" strokeWidth="1" />
-            <line
-              x1="60"
-              y1={scatterY(headline.average)}
-              x2="580"
-              y2={scatterY(headline.average)}
-              stroke="#7B1E2B"
-              strokeWidth="1.5"
-              strokeDasharray="5 5"
-              opacity="0.55"
-            />
-            <text
-              x="576"
-              y={scatterY(headline.average) - 6}
-              textAnchor="end"
-              fontSize="11"
-              fill="#7B1E2B"
-            >
-              Cohort average {marks(headline.average)}
-            </text>
-
-            <line x1="60" y1="20" x2="60" y2="290" stroke="#6B5B5D" strokeWidth="1" />
-            <line x1="60" y1="290" x2="580" y2="290" stroke="#6B5B5D" strokeWidth="1" />
-            {[20, 25, 30].map((mark) => (
-              <text
-                key={mark}
-                x="50"
-                y={scatterY(mark) + 4}
-                textAnchor="end"
-                fontSize="11"
-                fill="#6B5B5D"
-              >
-                {mark}
-              </text>
-            ))}
-            {[80, 82, 84, 86, 88, 90].map((share) => (
-              <text
-                key={share}
-                x={scatterX(share)}
-                y="308"
-                textAnchor="middle"
-                fontSize="11"
-                fill="#6B5B5D"
-              >
-                {share}%
-              </text>
-            ))}
-            <text x="320" y="332" textAnchor="middle" fontSize="11" fill="#6B5B5D" letterSpacing="0.06em">
-              TURNOUT
-            </text>
-            <text
-              x="18"
-              y="155"
-              textAnchor="middle"
-              fontSize="11"
-              fill="#6B5B5D"
-              letterSpacing="0.06em"
-              transform="rotate(-90 18 155)"
-            >
-              AVERAGE OF {TOTAL}
-            </text>
-
-            {centres.map((c) => {
-              const x = scatterX(c.turnout);
-              const y = scatterY(c.average);
-              const isBest = c.centre === best?.centre;
-              const right = x > 420;
-              // The centre name only, without the "High School (H.S.)" tail —
-              // a full name is four times the width of the plot.
-              const short = c.centre.split(/\s+(?:High|Islamic)\b/)[0];
-              return (
-                <g key={c.centre}>
-                  <circle cx={x} cy={y} r="7" fill={isBest ? "#C9A24B" : "#7B1E2B"} />
-                  {labelled.has(c.centre) && (
-                    <text
-                      x={right ? x - 10 : x + 12}
-                      y={y + 4}
-                      textAnchor={right ? "end" : "start"}
-                      fontSize="11.5"
-                      fill="#2B1A1C"
-                    >
-                      {short} · {marks(c.average)}
-                    </text>
-                  )}
-                </g>
-              );
-            })}
-          </svg>
-        </div>
-        <p className={`${NOTE} mt-3.5 pt-3 border-t border-[var(--cream-muted)]`}>
-          The two fullest centres sat at opposite ends of the score range, and the highest-scoring
-          centre of the {WORDS[centres.length] ?? centres.length} — {best?.centre}, at{" "}
-          {marks(best?.average ?? 0)} —
-          {bestIsEmptiest ? " had the lowest turnout of them" : " is nowhere near the fullest"}.
-          Turnout and attainment are two separate problems, and each needs its own answer.
-        </p>
-      </div>
-    </section>
+    </Section>
   );
 }
 
-/* ───────────────────────────────────────────────────────────── difficulty ─── */
+/**
+ * Small counts spelled out, because "The 8 schools" and "of 21" read as a
+ * spreadsheet in the middle of a sentence. Every figure a reader compares stays
+ * a numeral; only these do not.
+ */
+const WORDS: Record<number, string> = {
+  1: "one",
+  2: "two",
+  3: "three",
+  4: "four",
+  5: "five",
+  6: "six",
+  7: "seven",
+  8: "eight",
+  9: "nine",
+  10: "ten",
+  20: "twenty",
+  21: "twenty-one",
+  22: "twenty-two",
+};
+const word = (v: number) => WORDS[v] ?? num(v);
+const numberWord = (v: number) => {
+  const w = WORDS[v];
+  return w ? w.charAt(0).toUpperCase() + w.slice(1) : num(v);
+};
+
+/** "An 8-point gap", "A 7-point gap" — the article agrees with how the digit is said. */
+const article = (v: number) => ([8, 11, 18].includes(Math.round(v)) ? "An" : "A");
+
+/* ────────────────────────────────────────────────────────── difficulty ─── */
 
 function Difficulty({
   hardest,
   easiest,
+  written,
 }: {
-  hardest: FirstPhaseReport["hardest"];
-  easiest: FirstPhaseReport["easiest"];
+  hardest: ExamReport["hardest"];
+  easiest: ExamReport["easiest"];
+  written: WrittenReport | null;
 }) {
   return (
-    <section>
-      <SectionLabel>Section six</SectionLabel>
+    <Section paper="online" label="Question difficulty · online paper">
       <h2 className={HEADING}>The hardest and easiest questions</h2>
-      <p className={`${LEDE} m-0 mb-6 max-w-[68ch]`}>
-        For every question we know the share of students in that class who answered it correctly.
-        Across all four papers that share ran from about {Math.round(hardest.correctPct)}% to{" "}
-        {Math.round(easiest.correctPct)}%.
+      <p className={`${LEDE} m-0 mb-[26px]`}>
+        For every online question we know the share of students in that class who answered it
+        correctly. Across all four papers that share ran from about {Math.round(hardest.correctPct)}%
+        to {Math.round(easiest.correctPct)}%.
       </p>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(16px,2.4vw,26px)]">
-        <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--maroon)] rounded-[10px] p-[clamp(20px,3vw,28px)]">
-          <div className="text-[0.72rem] tracking-[0.1em] uppercase text-[var(--maroon)] font-bold">
-            Hardest question
-          </div>
-          <div className="font-[family-name:var(--font-display)] font-bold text-[1.5rem] text-[var(--ink)] mt-2 mb-4">
-            Class {hardest.cls} · Question {hardest.n}
-          </div>
-          <div className="h-3.5 bg-[var(--cream-muted)] rounded-full overflow-hidden">
-            <div className="h-full bg-[var(--maroon)]" style={{ width: `${hardest.correctPct}%` }} />
-          </div>
-          <div className="flex items-baseline gap-2 mt-3">
-            <span className="font-[family-name:var(--font-display)] font-bold text-[2rem] text-[var(--maroon)] tnum">
-              {pct(hardest.correctPct)}
-            </span>
-            <span className="text-[0.88rem] text-[var(--ink-muted)]">
-              of Class {hardest.cls} answered it correctly
-            </span>
-          </div>
-          <p className="mt-3.5 text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">
-            Fewer than one student in {WORDS[Math.round(100 / hardest.correctPct)] ?? "ten"}. A
-            question this hard tells the paper-setters as much as it tells the students.
-          </p>
-        </div>
 
-        <div className="bg-[var(--cream-surface)] border border-[var(--cream-muted)] border-t-[3px] border-t-[var(--teal)] rounded-[10px] p-[clamp(20px,3vw,28px)]">
-          <div className="text-[0.72rem] tracking-[0.1em] uppercase text-[var(--teal-ink)] font-bold">
-            Easiest question
-          </div>
-          <div className="font-[family-name:var(--font-display)] font-bold text-[1.5rem] text-[var(--ink)] mt-2 mb-4">
-            Class {easiest.cls} · Question {easiest.n}
-          </div>
-          <div className="h-3.5 bg-[var(--cream-muted)] rounded-full overflow-hidden">
-            <div className="h-full bg-[var(--teal)]" style={{ width: `${easiest.correctPct}%` }} />
-          </div>
-          <div className="flex items-baseline gap-2 mt-3">
-            <span className="font-[family-name:var(--font-display)] font-bold text-[2rem] text-[var(--teal-ink)] tnum">
-              {pct(easiest.correctPct)}
-            </span>
-            <span className="text-[0.88rem] text-[var(--ink-muted)]">
-              of Class {easiest.cls} answered it correctly
-            </span>
-          </div>
-          <p className="mt-3.5 text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">
-            About {WORDS[Math.round(easiest.correctPct / 10)] ?? "nine"} students in ten. Almost the
-            whole year group had this one.
-          </p>
-        </div>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        <Extreme
+          kind="Hardest question"
+          extreme={hardest}
+          colour="var(--maroon)"
+          note="A question this hard tells the paper-setters as much as it tells the students."
+        />
+        <Extreme
+          kind="Easiest question"
+          extreme={easiest}
+          colour="var(--teal)"
+          note="Almost the whole year group had this one."
+        />
       </div>
-    </section>
+
+      {written && (
+        <p className="mt-4 mb-0 text-[0.85rem] leading-[1.7] text-[var(--ink-muted)] max-w-[78ch]">
+          The same question-by-question analysis for the hundred written questions per class is
+          prepared and will be published alongside the text of the questions once KIDS confirms it.
+        </p>
+      )}
+    </Section>
   );
 }
 
-/* ────────────────────────────────────────────────────────── what comes next ─── */
-
-function WhatNext() {
-  const items = [
-    {
-      title: "The written paper",
-      text: "The 100-question OMR paper sat at the centres on the same morning is still being marked by hand. It carries the subject papers — English, Mathematics, Physical Science and Life Science. No publication date has been set.",
-    },
-    {
-      title: "Merit and scholarships",
-      text: "Final merit under Project UDAAN is decided once both papers are marked. Nothing on this page is a final award.",
-    },
-    {
-      title: "Felicitation",
-      text: "Students, schools and centres will be honoured at the UDAAN felicitation ceremony. Dates will be announced to schools directly and published here.",
-    },
-  ];
-
+function Extreme({
+  kind,
+  extreme,
+  colour,
+  note,
+}: {
+  kind: string;
+  extreme: ExamReport["hardest"];
+  colour: string;
+  note: string;
+}) {
   return (
-    <section>
-      <SectionLabel>What comes next</SectionLabel>
-      <h2 className={`${HEADING} mb-5`}>The exam is not over</h2>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(16px,2.4vw,26px)]">
-        {items.map((item) => (
-          <div key={item.title} className="flex gap-3.5 items-start">
-            <Star className="text-[var(--gold)] text-[1.1rem] leading-[1.5]" />
-            <div>
-              <div className="font-[family-name:var(--font-display)] font-bold text-[1.2rem] text-[var(--ink)] mb-1.5">
-                {item.title}
-              </div>
-              <p className="m-0 text-[0.92rem] leading-[1.7] text-[var(--ink-muted)]">{item.text}</p>
-            </div>
-          </div>
-        ))}
+    <div className={`${CARD} p-[clamp(20px,3vw,28px)]`}>
+      <div
+        className="text-[0.7rem] tracking-[0.1em] uppercase font-bold"
+        style={{ color: colour }}
+      >
+        {kind}
       </div>
-    </section>
+      <div className="mt-1.5 text-[1.05rem] font-semibold text-[var(--ink)]">
+        Class {extreme.cls} · Question {extreme.n}
+      </div>
+      <div className="h-3 bg-[var(--cream-muted)] rounded-full mt-4 overflow-hidden">
+        <div className="h-full" style={{ width: `${extreme.correctPct}%`, background: colour }} />
+      </div>
+      <div className="flex items-baseline gap-2.5 mt-3">
+        <span
+          className="font-[family-name:var(--font-display)] font-bold text-[1.9rem] leading-none tnum"
+          style={{ color: colour }}
+        >
+          {pct(extreme.correctPct)}
+        </span>
+        <span className="text-[0.86rem] text-[var(--ink-muted)]">
+          of Class {extreme.cls} answered it correctly
+        </span>
+      </div>
+      <p className="mt-3 mb-0 text-[0.88rem] leading-[1.7] text-[var(--ink-muted)]">{note}</p>
+    </div>
   );
 }
 
-function OwnResult() {
+/* ─────────────────────────────────────────────────────── what comes next ─── */
+
+function WhatNext({ written }: { written: WrittenReport | null }) {
+  const fell = written?.sections.filter((s) => s.fell) ?? [];
+
   return (
-    <div className="bg-[linear-gradient(160deg,var(--maroon)_0%,var(--maroon-deep)_100%)] text-[var(--cream)] rounded-xl p-[clamp(26px,4vw,44px)] mt-[clamp(44px,6vw,72px)] grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(20px,3vw,40px)] items-center">
+    <Section label="What comes next">
+      <h2 className={HEADING}>From results to action</h2>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-[clamp(14px,2vw,24px)]">
+        <Next title="Merit and scholarships">
+          {written
+            ? "Final merit under Project UDAAN is decided on both papers together. Awards are announced to schools directly."
+            : "Merit under Project UDAAN is decided once the written paper is marked as well. Awards are announced to schools directly."}
+        </Next>
+        <Next title="Teaching where it is needed">
+          {fell.length === 2 ? (
+            <>
+              {fell[0].section} and {fell[1].section} in Classes IX and X are where the subject data
+              points most clearly. Teacher training and residential coaching will be planned against
+              these findings.
+            </>
+          ) : (
+            <>
+              Teacher training and residential coaching will be planned against the subject findings
+              of the written paper.
+            </>
+          )}
+        </Next>
+        <Next title="Felicitation">
+          Students, schools and centres will be honoured at the UDAAN felicitation ceremony. Dates
+          will be announced to schools and published here.
+        </Next>
+      </div>
+    </Section>
+  );
+}
+
+function Next({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className={`${CARD} p-[clamp(18px,2.4vw,24px)] flex gap-3.5 items-start`}>
+      <Star className="text-[var(--gold)] text-base leading-[1.4] shrink-0" />
       <div>
-        <div className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.5rem,3vw,2rem)] leading-[1.2] text-[var(--gold-light)]">
+        <div className="font-[family-name:var(--font-display)] font-bold text-[1.12rem] text-[var(--ink)] mb-1.5">
+          {title}
+        </div>
+        <p className="m-0 text-[0.9rem] leading-[1.7] text-[var(--ink-muted)]">{children}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────── your own result ─── */
+
+function OwnResult({ written }: { written: WrittenReport | null }) {
+  return (
+    <div className="sky text-[var(--cream)] rounded-[12px] mt-[clamp(48px,7vw,80px)] p-[clamp(24px,4vw,40px)] flex flex-wrap gap-6 items-center justify-between">
+      <div className="max-w-[52ch]">
+        <div className="font-[family-name:var(--font-display)] font-bold text-[clamp(1.4rem,3vw,1.9rem)] leading-[1.25]">
           Looking for your own result?
         </div>
-        <p className="mt-2.5 text-[0.98rem] leading-[1.7] text-[var(--on-dark)] max-w-[46ch]">
-          Students see their own marks, class rank and answer sheet on their personal result page.
-          Open it by scanning the QR code on your admit card.
+        <p className="mt-2 mb-0 text-[0.95rem] leading-[1.7] text-[var(--on-dark)]">
+          {written
+            ? "Both papers, your class rank and your answer sheets are on your personal result page. Sign in with the roll number on your admit card, or scan its QR code."
+            : "Your marks and your class rank are on your personal result page. Sign in with the roll number on your admit card, or scan its QR code."}
         </p>
       </div>
-      <div className="flex gap-3 flex-wrap">
+      <div className="flex flex-wrap gap-3">
         <Link
-          href="/set"
-          className="inline-flex items-center gap-2 bg-[var(--gold)] text-[var(--maroon)] font-bold text-[0.98rem] px-[26px] py-[13px] rounded-md no-underline"
+          href="/portal"
+          className="inline-flex items-center gap-2 bg-[var(--gold)] text-[var(--maroon)] font-bold text-[0.95rem] px-[24px] py-[13px] rounded-md no-underline"
         >
           Check your result
         </Link>
         <Link
-          href="/udaan"
-          className="inline-flex items-center gap-2 bg-transparent text-[var(--cream)] border-[1.5px] border-[rgba(253,251,247,0.5)] font-semibold text-[0.98rem] px-[26px] py-[13px] rounded-md no-underline"
+          href="/set"
+          className="inline-flex items-center gap-2 border border-[rgba(243,239,230,0.5)] text-[var(--cream)] font-semibold text-[0.95rem] px-[24px] py-[13px] rounded-md no-underline"
         >
-          About Project UDAAN
+          About SET
         </Link>
       </div>
     </div>
   );
 }
 
-/* ───────────────────────────────────────────────────────────── the gate ─── */
+function Footnote({ written }: { written: WrittenReport | null }) {
+  return (
+    <p className="mt-[clamp(28px,4vw,44px)] text-[0.82rem] leading-[1.8] text-[var(--ink-muted)] max-w-[80ch]">
+      All figures on this page are drawn from the assessed papers of the Students Evaluation Test
+      held on 19 July 2026, and are published for verification.
+      {written ? (
+        <>
+          {" "}
+          The online paper is marked out of 50 and the written paper out of 100; the two are never
+          added together. Where a figure is an average, it is the average of the students{" "}
+          <strong className="text-[var(--ink)]">who sat</strong>, never of those registered, and each
+          paper&rsquo;s turnout is measured against that paper&rsquo;s own roster. Subject figures
+          are withheld where fewer than thirty candidates sat the subject.
+        </>
+      ) : (
+        <>
+          {" "}
+          They cover the online paper only. Where a figure is an average, it is the average of the
+          students <strong className="text-[var(--ink)]">who sat</strong>, not of those registered.
+        </>
+      )}{" "}
+      Schools or parents who believe a figure is wrong may write to KIDS at the address below.
+    </p>
+  );
+}
 
-/**
- * Before the results open — and if the database is unreachable.
- *
- * The same gate the student portal uses, for the same reason: a page that cannot
- * reach the results tables must say "not yet", never show an error or, worse,
- * an empty report full of zeroes.
- */
+/* ──────────────────────────────────────────────────────── not published ─── */
+
 function NotPublishedYet() {
   return (
     <div className="report min-h-screen">
@@ -1237,9 +1732,9 @@ function NotPublishedYet() {
             SET 2026–27 results are not published yet
           </h1>
           <p className="m-0 max-w-[60ch] text-[clamp(1rem,1.6vw,1.15rem)] leading-[1.6] text-[#e8f3f0]">
-            The first-phase report will appear on this page as soon as the results are declared.
-            Students will find their own marks on their personal result page, opened by scanning the
-            QR code on their admit card.
+            The report will appear on this page as soon as the results are declared. Students will
+            find their own marks on their personal result page, opened by scanning the QR code on
+            their admit card.
           </p>
           <Link
             href="/set"

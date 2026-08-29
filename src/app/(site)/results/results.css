@@ -89,3 +89,48 @@
     display: block;
   }
 }
+
+/* ─────────────────────────────────────────────── the second paper ─── */
+
+/* The written paper's colour, from the design system's institutional blue. It
+   exists so that no figure on this page is ambiguous about which paper it came
+   from: maroon is always out of 50, blue is always out of 100. */
+.report {
+  --royal-blue: #1e4da1;
+  --royal-blue-tint: #c7d5ec;
+}
+
+/* Reading mode.
+ *
+ * The page reports two papers, and most readers want one of them: a head
+ * teacher checking the written result, a journalist quoting the online one. The
+ * toggle at the top sets `data-view` on the wrapper and the rules below decide
+ * what is on the page — no re-render, no second fetch, and every section is in
+ * the HTML for a reader with JavaScript off, which is the honest default.
+ *
+ *   data-paper="online"   in "both" and "online"   — of 50
+ *   data-paper="written"  in "both" and "written"  — of 100
+ *   data-paper="both"     only when both are shown — comparisons
+ *   data-only="online"    ONLY in "online"         — wording that changes
+ */
+.report [data-view="online"] [data-paper="written"],
+.report [data-view="online"] [data-paper="both"],
+.report [data-view="written"] [data-paper="online"],
+.report [data-view="written"] [data-paper="both"],
+.report [data-view="both"] [data-only],
+.report [data-view="online"] [data-only="written"],
+.report [data-view="written"] [data-only="online"] {
+  display: none;
+}
+
+/* A subject row is label / bars / figure. On a phone the figure will not fit
+   beside them, so it drops to its own line under the label. */
+@media (max-width: 640px) {
+  .report .subj {
+    grid-template-columns: 104px 1fr;
+  }
+  .report .subj > .subj-value {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+}

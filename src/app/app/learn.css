@@ -1,0 +1,369 @@
+/* The Learn tab — chapter browse, one chapter, the video.
+ *
+ * Scoped to `.app` like the rest; adds nothing to the palette.
+ */
+
+/* ------------------------------------------------------------ the browse -- */
+
+.app-browse {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.app-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 12px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  color: var(--ink-muted);
+}
+
+.app-search:focus-within {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.app-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  /* 16px or iOS zooms the page on focus and the student loses the list. */
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+.app-search input:focus-visible {
+  outline: none;
+}
+
+.app-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.app-filter {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 999px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.app-filter--on {
+  border-color: var(--maroon);
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+.app-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The subject header sticks and carries its own totals, so a student scrolling
+   the middle of a long list always knows which subject they are inside. */
+.app-group__head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 8px 2px 6px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream-muted);
+}
+
+.app-group__name {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--maroon);
+}
+
+.app-group__meta {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+.app-chapter {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  min-height: 62px;
+}
+
+.app-chapter:hover {
+  border-color: var(--maroon-light);
+}
+
+.app-chapter__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* A long chapter name wraps to two lines rather than truncating — the name is
+   the only thing identifying it, and half a name identifies nothing. */
+.app-chapter__name {
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.app-chapter__meta {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app-chapter__video {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--maroon-wash);
+  color: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-chapter__go {
+  flex: none;
+  color: var(--ink-muted);
+}
+
+.app-ring {
+  flex: none;
+}
+
+.app-ring__track {
+  stroke: var(--cream-muted);
+}
+
+.app-ring__fill {
+  stroke: var(--maroon);
+}
+
+/* -------------------------------------------------------- the chapter page */
+
+.app-trick {
+  background: var(--gold-wash);
+  border: 1px solid var(--gold-edge);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.app-trick__label {
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+.app-trick p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- video -- */
+
+.app-video {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 16:9, and the frame is only ever a frame — no title bar, no channel avatar,
+   nothing that navigates away. */
+.app-video__frame,
+.app-video__poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--maroon-deep);
+  border: 0;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+}
+
+.app-video__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.app-video__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+}
+
+.app-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: rgba(123, 30, 43, 0.92);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+}
+
+.app-video__label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background: rgba(43, 26, 28, 0.78);
+  color: var(--cream);
+  border-radius: var(--radius-sm);
+  padding: 4px 9px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+.app-video__credit {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app-asked {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--teal);
+}
+
+/* --------------------------------------------------------------- history -- */
+
+.app-history__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.app-history__score {
+  margin-left: auto;
+  font-family: var(--font-data);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.app-history__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.app-history__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 999px;
+  border: 1.5px solid var(--cream-muted);
+  background: var(--white);
+}
+
+.app-history__dot--right {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.app-history__dot--wrong {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.app-history__what {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink);
+  /* The stem is the only way to tell two questions of a chapter apart, but a
+     history list is a list — two lines each, then it gives way. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.app-history__how {
+  flex: none;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------- chooser additions */
+
+.app-choice__adds {
+  flex: none;
+  border-radius: 999px;
+  background: var(--gold-wash);
+  border: 1px solid var(--gold-edge);
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-ink);
+  white-space: nowrap;
+}
+
+.app-choose__total {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.app-choose__total b {
+  margin-left: auto;
+  font-family: var(--font-data);
+  font-size: 15px;
+  color: var(--maroon);
+}

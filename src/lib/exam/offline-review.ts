@@ -59,9 +59,13 @@ let cache: {
  * The `-bn` files hold ONLY the questions that differ between the two mediums —
  * Class IX History Q26-40 and Class X Geography Q41-55, 30 in all. Everything
  * else is a straight translation and shares one entry, so they are merged over
- * the default bank under ids suffixed `|BN` and looked up first for a
- * Bengali-medium candidate. A question with no `|BN` entry simply falls through
- * to the shared one, which is why only those 30 are here.
+ * the default bank under ids suffixed with the medium and looked up first for a
+ * candidate of that medium. The suffix is the medium value itself, uppercased —
+ * `|BENGALI`, not `|BN` — because `idFor` below builds it from
+ * `students.medium`, so a suffix that does not EQUAL the column value matches
+ * nothing and every candidate silently falls through to the English paper. A
+ * question with no such entry falls through by design, which is why only those
+ * 30 are here.
  */
 function bank() {
   if (!cache) {

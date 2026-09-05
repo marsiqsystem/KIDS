@@ -1,0 +1,753 @@
+/* My Record — designs 5a and 5d.
+ *
+ * Same arrangement as loop.css: classes scoped under `.app`, tokens inherited
+ * from app.css, drawn at 360px and stretched to the shell's column. Nothing
+ * here reaches outside `.app`.
+ *
+ * The three answer states are named once and used by the bars, the bubbles, the
+ * map cells and the option rows. Four places drifting apart is how a "wrong"
+ * green ends up in front of a child.
+ */
+
+.app {
+  --ok-bg: #d3ede8;
+  --ok-line: #57b3a4;
+  --ok-ink: #0b5f53;
+  --no-bg: #f6e2e4;
+  --no-line: #c98d95;
+  --no-ink: #7b1e2b;
+  --skip-bg: #f2e9da;
+  --skip-line: #d0bc9e;
+  --skip-ink: #5c4d4f;
+}
+
+/* ------------------------------------------------------------ 5a cards --- */
+
+.app .rec-lede {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app .rec-lede b {
+  color: var(--ink);
+}
+
+.app .rec-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgb(43 26 28 / 5%);
+}
+
+.app .rec-card--quiet {
+  background: var(--cream-surface);
+  box-shadow: none;
+}
+
+.app .rec-card--wait {
+  background: var(--gold-wash);
+  border-color: var(--gold-edge);
+}
+
+/* Grey, never red. A missing paper is an absence, and the record must not let a
+   parent read it as a failure. */
+.app .rec-card--absent {
+  background: var(--cream-surface);
+  border-color: var(--cream-muted);
+  box-shadow: none;
+  color: var(--ink-muted);
+}
+
+.app .rec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.app .rec-head__name {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+.app .rec-head__note {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app .rec-score {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.app .rec-score__mark {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.app .rec-score__n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.app .rec-score__of {
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.app .rec-score__pctl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.app .rec-score__pctln {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--maroon);
+}
+
+.app .rec-score__pctll {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.app .rec-tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.app .rec-tally span {
+  padding: 4px 9px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app .rec-tally__ok {
+  background: var(--ok-bg);
+  border-color: var(--ok-line);
+  color: var(--ok-ink);
+}
+
+.app .rec-tally__no {
+  background: var(--no-bg);
+  border-color: var(--no-line);
+  color: var(--no-ink);
+}
+
+.app .rec-tally__sk {
+  background: var(--skip-bg);
+  border-color: var(--skip-line);
+  color: var(--skip-ink);
+}
+
+.app .rec-ranks {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+.app .rec-rank {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--cream-muted);
+}
+
+.app .rec-rank:last-child {
+  border-bottom: 0;
+}
+
+.app .rec-rank dt {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.app .rec-rank dd {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.app .rec-rank dd b {
+  font-family: var(--font-data);
+  font-size: 14px;
+  color: var(--maroon);
+}
+
+.app .rec-ranks__note,
+.app .rec-wait__foot,
+.app .rec-absent__foot {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app .rec-wait__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.app .rec-wait__body,
+.app .rec-absent__body {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.app .rec-steps {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.app .rec-steps__done {
+  color: var(--ok-ink);
+}
+
+.app .rec-steps__now {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------ practice line --- */
+
+.app .rec-spark {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app .rec-spark svg {
+  width: 100%;
+  height: 64px;
+  overflow: visible;
+}
+
+.app .rec-spark__axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.app .rec-spark__axis span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: var(--ink-muted);
+}
+
+.app .rec-spark__axis b {
+  font-family: var(--font-data);
+  font-size: 11px;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------ section bars --- */
+
+.app .rec-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.app .rec-bar__line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.app .rec-bar__name {
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.app .rec-bar__score {
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.app .rec-bar__avg {
+  color: var(--ink-muted);
+}
+
+/* The track is scaled to the section's own size, so a 10-mark section can never
+   look like a 15-mark one just because both were answered in full. */
+.app .rec-bar__track {
+  position: relative;
+  height: 10px;
+  background: var(--cream-muted);
+  border-radius: 999px;
+  overflow: visible;
+}
+
+.app .rec-bar__fill {
+  display: block;
+  height: 100%;
+  background: var(--maroon);
+  border-radius: 999px;
+}
+
+.app .rec-bar__mark {
+  position: absolute;
+  top: -2px;
+  width: 2px;
+  height: 14px;
+  background: var(--ink);
+  border-radius: 1px;
+}
+
+/* ------------------------------------------------------- 5d the sheet --- */
+
+.app .sheet-back {
+  align-self: flex-start;
+  font-size: 13px;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.app .sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.app .sheet-tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.app .sheet-tally span {
+  padding: 4px 9px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app .sheet-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app .sheet-band {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Sticky, because the band a question belongs to is the one thing a scrolling
+   student loses first — and on the map it is the whole diagnosis. */
+.app .sheet-band__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+  background: var(--cream);
+}
+
+.app .sheet-band__name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--maroon);
+}
+
+.app .sheet-band__range {
+  font-family: var(--font-data);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.app .sheet-band__score {
+  margin-left: auto;
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--ink);
+}
+
+/* 5d-i — the bubbles, four across, the way the sheet was filled in. */
+
+.app .sheet-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.app .sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 5px 8px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.app .sheet-row--correct {
+  border-color: var(--ok-line);
+}
+
+.app .sheet-row--wrong,
+.app .sheet-row--double {
+  border-color: var(--no-line);
+}
+
+.app .sheet-row--grace {
+  border-color: var(--gold-edge);
+  background: var(--gold-wash);
+}
+
+.app .sheet-row__n {
+  flex: none;
+  width: 26px;
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+.app .sheet-row__bubbles {
+  display: flex;
+  gap: 6px;
+}
+
+.app .sheet-bub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--skip-line);
+  border-radius: 999px;
+  font-family: var(--font-data);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* A ring is the key; a fill is what the child marked. Both at once is a correct
+   answer and reads as one shape, which is the point. */
+.app .sheet-bub--key {
+  border: 2px solid var(--ok-line);
+  color: var(--ok-ink);
+}
+
+.app .sheet-bub--marked {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.app .sheet-bub--key.sheet-bub--marked {
+  background: var(--ok-line);
+  border-color: var(--ok-ink);
+  color: var(--white);
+}
+
+.app .sheet-row__word {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* 5d-ii — the map: the whole paper on one screen. */
+
+.app .sheet-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  gap: 5px;
+}
+
+.app .sheet-cell {
+  aspect-ratio: 1;
+  border: 1px solid var(--skip-line);
+  border-radius: var(--radius-sm);
+  background: var(--skip-bg);
+  font-family: var(--font-data);
+  font-size: 11px;
+  color: var(--skip-ink);
+  cursor: pointer;
+}
+
+.app .sheet-cell--correct {
+  background: var(--ok-bg);
+  border-color: var(--ok-line);
+  color: var(--ok-ink);
+}
+
+.app .sheet-cell--wrong,
+.app .sheet-cell--double {
+  background: var(--no-bg);
+  border-color: var(--no-line);
+  color: var(--no-ink);
+}
+
+.app .sheet-cell--grace {
+  background: var(--gold-wash);
+  border-color: var(--gold-edge);
+  color: var(--gold-ink);
+}
+
+/* ------------------------------------------------------ the tap panel --- */
+
+.app .sheet-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgb(43 26 28 / 45%);
+  padding: 0;
+}
+
+.app .sheet-panel__card {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 86dvh;
+  overflow-y: auto;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--cream);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.app .sheet-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app .sheet-panel__n {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--maroon);
+}
+
+.app .sheet-panel__close {
+  padding: 4px 10px;
+  background: none;
+  border: 1px solid var(--cream-muted);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.app .sheet-panel__verdict {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.app .sheet-panel__stem {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.app .sheet-panel__stem--gone {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.app .sheet-panel__options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app .sheet-opt {
+  display: flex;
+  gap: 9px;
+  padding: 8px 10px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.app .sheet-opt--key {
+  background: var(--ok-bg);
+  border-color: var(--ok-line);
+  color: var(--ok-ink);
+}
+
+.app .sheet-opt--marked {
+  background: var(--no-bg);
+  border-color: var(--no-line);
+  color: var(--no-ink);
+}
+
+.app .sheet-opt__letter {
+  flex: none;
+  font-family: var(--font-data);
+  font-weight: 600;
+}
+
+.app .sheet-why {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 11px;
+  background: var(--cream-surface);
+  border-radius: var(--radius-md);
+}
+
+.app .sheet-why p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.app .sheet-why__chapter {
+  font-weight: 600;
+  color: var(--maroon) !important;
+}
+
+.app .sheet-why__other {
+  color: var(--ink-muted) !important;
+}
+
+.app .sheet-why__failed {
+  margin: 0;
+  font-size: 12px;
+  color: var(--no-ink);
+}
+
+/* --------------------------------------------------- the online paper --- */
+
+.app .online-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app .online-q {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+}
+
+.app .online-q--correct {
+  border-color: var(--ok-line);
+}
+
+.app .online-q--wrong {
+  border-color: var(--no-line);
+}
+
+.app .online-q__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.app .online-q__n {
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app .online-q__word {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app .online-q--correct .online-q__word {
+  color: var(--ok-ink);
+}
+
+.app .online-q--wrong .online-q__word {
+  color: var(--no-ink);
+}
+
+.app .online-q__context {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.app .online-q__stem {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.app .online-q__class {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}

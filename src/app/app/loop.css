@@ -1,0 +1,675 @@
+/* The daily loop — home set card, subject chooser, player, summary.
+ *
+ * Split from app.css, which owns the front door and the shell. Both are scoped
+ * to `.app` and share its tokens; this file adds nothing to the palette.
+ */
+
+.app-h1 {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.app-lede {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.app-sub {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* Visible to a screen reader, to nobody else. The New/Again chips are a row of
+   five identical words without it. */
+.app-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------- the subject chooser */
+
+.app-choose {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+}
+
+.app-choice--on {
+  border-color: var(--maroon);
+  background: var(--maroon-wash);
+}
+
+/* The real checkbox is the accessible control; the tick is only its picture. */
+.app-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.app-choice input:focus-visible + .app-choice__body {
+  outline: 2px solid var(--maroon);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.app-choice__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.app-choice__name {
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--ink);
+}
+
+.app-choice__meta {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.app-choice__tick {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1.5px solid var(--cream-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--cream);
+  background: var(--white);
+}
+
+.app-choice--on .app-choice__tick {
+  background: var(--maroon);
+  border-color: var(--maroon);
+}
+
+.app-choose__tally {
+  background: var(--cream-surface);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.app-choose__tally p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app-choose__tally b {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------------ streak - */
+
+.app-streak {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+}
+
+.app-streak__count {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-streak__n {
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--maroon);
+}
+
+.app-streak__label {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+.app-streak__week {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.app-chip {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--cream-muted);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.app-chip--on {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--cream);
+}
+
+.app-chip--today {
+  box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* ------------------------------------------------------------ the set card - */
+
+.app-set {
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-set__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.app-set__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--ink);
+}
+
+.app-set__meta {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app-set__line {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.app-set__chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.app-tag {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.app-tag--new {
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+.app-tag--again {
+  background: var(--cream-muted);
+  color: var(--ink-muted);
+}
+
+.app-set__note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------- the supply meter */
+
+/* Always on screen, by ruling: the student can see at any moment how many
+   questions they have never met. When it reaches zero the app says so plainly
+   and stops manufacturing a daily set out of nothing. */
+.app-supply {
+  background: var(--cream-surface);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-supply__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.app-supply__count {
+  margin-left: auto;
+  font-family: var(--font-data);
+  color: var(--ink);
+}
+
+.app-supply__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--cream-muted);
+  overflow: hidden;
+}
+
+.app-supply__bar span {
+  display: block;
+  height: 100%;
+  background: var(--maroon);
+  border-radius: 999px;
+}
+
+.app-supply__note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.app-supply__note b {
+  color: var(--ink);
+}
+
+/* ================================================================ the player */
+
+.app-play {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.app-play__bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--cream-muted);
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.app-play__progress {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-play__count {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.app-play__pips {
+  display: flex;
+  gap: 4px;
+}
+
+.app-pip {
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--cream-muted);
+}
+
+.app-pip--done {
+  background: var(--maroon);
+}
+
+.app-pip--at {
+  background: var(--gold);
+}
+
+.app-play__saved {
+  flex: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.app-play__body {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.app-play__chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.app-play__chaptername {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--maroon);
+}
+
+/* A repeat is announced before it is read, never after. */
+.app-play__seen {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.app-play__context {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  padding-left: 10px;
+  border-left: 2px solid var(--cream-muted);
+}
+
+/* Vernacular stems run long and need a taller box than English at the same
+   optical size — design 3f measures a Bengali teardown at 1,300px against 890
+   in English. The screen scrolls; the text is never shrunk to fit. */
+.app-play__stem {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.app-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px;
+  text-align: left;
+  background: var(--white);
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.app-option:disabled {
+  cursor: default;
+}
+
+.app-option--picked {
+  border-color: var(--maroon);
+  background: var(--maroon-wash);
+}
+
+.app-option--right {
+  border-color: var(--teal);
+  background: #e7f5f2;
+}
+
+.app-option--wrong {
+  border-color: var(--danger);
+  background: var(--danger-wash);
+}
+
+.app-option__letter {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--cream-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.app-option__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-option__flag {
+  flex: none;
+  align-self: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------------ the teardown - */
+
+.app-teardown {
+  background: var(--cream-surface);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-teardown__verdict {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.app-teardown--right .app-teardown__verdict {
+  color: var(--teal);
+}
+
+/* The same wrong answer twice. The one place this app raises its voice. */
+.app-teardown__again {
+  margin: 0;
+  background: var(--gold-wash);
+  border: 1px solid var(--gold-edge);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--gold-ink);
+}
+
+.app-teardown__why {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.app-teardown__others {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--cream-muted);
+}
+
+.app-teardown__row {
+  display: flex;
+  gap: 9px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.app-teardown__letter {
+  flex: none;
+  font-family: var(--font-data);
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.app-teardown__return {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.app-play__foot {
+  flex: none;
+  position: sticky;
+  bottom: 0;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--cream);
+  border-top: 1px solid var(--cream-muted);
+}
+
+/* =============================================================== the summary */
+
+.app-summary__head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.app-score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.app-score__n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.1;
+  color: var(--maroon);
+}
+
+.app-score__of {
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.app-return {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.app-return__n {
+  flex: none;
+  width: 18px;
+  font-family: var(--font-data);
+  color: var(--ink-muted);
+}
+
+.app-return__what {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+}
+
+.app-return__how {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app-return__when {
+  flex: none;
+  font-family: var(--font-data);
+  font-size: 12.5px;
+  color: var(--maroon);
+}
+
+/* ------------------------------------------------------------- 320px pass -- */
+
+/* Nothing is removed at 320; three things shrink. Tap targets do not move —
+   the nav stays 64px per tab and every button stays 52. A long school name
+   truncates in a subtitle, never a question, an option or an explanation. */
+@media (max-width: 359px) {
+  .app-shell__body,
+  .app-play__body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .app-chip {
+    width: 20px;
+    height: 20px;
+  }
+
+  .app-nav__tab span {
+    font-size: 10px;
+  }
+
+  .app-nav {
+    --nav-height: 64px;
+  }
+
+  .app-sub {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

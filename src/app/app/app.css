@@ -1,0 +1,697 @@
+/* KIDS design-system tokens, scoped to the student app.
+ *
+ * Same arrangement as portal.css and for the same reason: the live site still
+ * runs the older palette (#570000 / #7b5805), the app was designed against the
+ * KIDS design system proper, and scoping the tokens to `.app` lets the app be
+ * the design without repainting the rest of the site.
+ *
+ * Fonts follow portal.css rather than the design system's Inter. The site
+ * already self-hosts Playfair Display and Montserrat; every extra family is
+ * another download for a student on 3G. Display keeps Playfair, body reuses
+ * Montserrat, and the User ID uses a system monospace stack that costs nothing.
+ *
+ * The app is a phone. Every screen here is drawn at 360px and stretched to a
+ * 420px column on anything wider — never a desktop layout, because there is no
+ * desktop student.
+ */
+
+.app {
+  --maroon: #7b1e2b;
+  --maroon-deep: #3d0a10;
+  --maroon-light: #9a3340;
+  --maroon-tint: #e8c9cc;
+  --maroon-wash: #f6e9e9;
+
+  --gold: #c9a24b;
+  --gold-light: #e5be7a;
+  --star-gold: #f4c12a;
+  --gold-wash: #faf1dc;
+  --gold-edge: #e3cfa0;
+  --gold-ink: #5c4a22;
+
+  --teal: #1e9e8c;
+
+  --cream: #fdfbf7;
+  --cream-surface: #fbf7ef;
+  --cream-muted: #f2e9da;
+  --ink: #2b1a1c;
+  --ink-muted: #6b5b5d;
+  --white: #ffffff;
+
+  --danger: #b22234;
+  --danger-wash: #fbe9ea;
+
+  --gradient-maroon: linear-gradient(160deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+
+  --font-display: var(--font-newsreader), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-work-sans), "Montserrat", system-ui, sans-serif;
+  --font-data: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* The five-tab bar is 72px of target plus whatever the handset's own gesture
+     bar claims. Screens reserve both, or the last card sits under the nav. */
+  --nav-height: 72px;
+
+  min-height: 100dvh;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app *,
+.app *::before,
+.app *::after {
+  box-sizing: border-box;
+}
+
+/* The phone column. On a laptop the app does not spread out — it stays a phone
+   in the middle of the screen, because that is the only shape it was drawn in
+   and a stretched version of it would be a design nobody reviewed. */
+.app-frame {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+}
+
+@media (min-width: 480px) {
+  .app-frame {
+    box-shadow: 0 0 0 1px var(--cream-muted);
+  }
+}
+
+/* ------------------------------------------------------------ the crest --- */
+
+.app-crest {
+  flex: none;
+  background: var(--gradient-maroon);
+  padding: 26px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-crest__watermark {
+  position: absolute;
+  right: -16px;
+  bottom: -26px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+.app-crest__mark {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+.app-crest__institute {
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--star-gold);
+}
+
+.app-crest__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+/* ----------------------------------------------------------------- body --- */
+
+.app-body {
+  flex: 1;
+  padding: 20px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.app-hint {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* ---------------------------------------------------- the User ID field --- */
+
+/* Nine boxes, grouped 1 · 2 · 2 · 4 the way the number is printed: District,
+   Centre, School, and the four digits that are the student's own. A child
+   checking a number off a card checks it a piece at a time.
+
+   One real input sits transparent on top of all nine boxes. Nine separate
+   inputs would each need focus juggling, would break paste, and would defeat
+   the phone's own autofill — this way there is one caret, one value, and the
+   boxes are only ever a picture of it. */
+.app-uid {
+  position: relative;
+}
+
+.app-uid__boxes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.app-uid__sep {
+  color: #c7b7b9;
+  font-size: 12px;
+}
+
+.app-uid__box {
+  width: 32px;
+  height: 52px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.app-uid__box--live {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.app-uid--bad .app-uid__box {
+  border-color: var(--danger);
+  background: var(--danger-wash);
+}
+
+.app-uid__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  font-size: 16px; /* below 16px, iOS zooms the whole page on focus */
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ------------------------------------------------------------- controls --- */
+
+.app-input {
+  min-height: 52px;
+  width: 100%;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  padding: 0 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.app-input:focus-visible {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.app-input--bad {
+  border-color: var(--danger);
+  background: var(--danger-wash);
+}
+
+.app-password {
+  min-height: 52px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  padding: 0 6px 0 14px;
+  gap: 8px;
+}
+
+.app-password:focus-within {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.app-password--bad {
+  border-color: var(--danger);
+  background: var(--danger-wash);
+}
+
+.app-password__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+}
+
+.app-password__input:focus-visible {
+  outline: none;
+}
+
+.app-password__reveal {
+  min-height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--maroon);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.app-password__reveal:hover {
+  background: var(--maroon-wash);
+}
+
+.app-btn {
+  min-height: 52px;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--maroon);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.app-btn:hover {
+  filter: brightness(0.94);
+}
+
+.app-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+  filter: none;
+}
+
+.app-btn--outline {
+  background: transparent;
+  border: 1.5px solid var(--maroon);
+  color: var(--maroon);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.app-btn--outline:hover {
+  background: var(--maroon-wash);
+  filter: none;
+}
+
+.app-btn--quiet {
+  min-height: 48px;
+  background: transparent;
+  color: var(--maroon);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.app-btn--quiet:hover {
+  background: var(--maroon-wash);
+  filter: none;
+}
+
+.app-btn--small {
+  min-height: 44px;
+  font-size: 14.5px;
+}
+
+.app-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-or::before,
+.app-or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--cream-muted);
+}
+
+.app-or span {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.app-foot {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.app-foot a {
+  color: var(--maroon);
+  font-weight: 600;
+  text-decoration-color: var(--gold);
+}
+
+/* --------------------------------------------------------------- notices --- */
+
+.app-alert {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+
+.app-alert svg {
+  flex: none;
+  margin-top: 2px;
+  stroke: var(--danger);
+}
+
+.app-alert p {
+  flex: 1;
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.app-alert b {
+  font-weight: 700;
+}
+
+.app-card {
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.app-card--cream {
+  background: var(--cream-surface);
+  border-radius: 12px;
+  padding: 14px;
+  gap: 11px;
+}
+
+.app-card--gold {
+  background: var(--gold-wash);
+  border-color: var(--gold-edge);
+  border-radius: 12px;
+  padding: 12px 13px;
+  gap: 5px;
+}
+
+.app-card--gold p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gold-ink);
+}
+
+.app-card h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.app-card h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.app-card p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.app-datum {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.app-datum__label {
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.app-datum__uid {
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.app-datum__value {
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.app-rule-gold {
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+  border: none;
+  margin: 0;
+}
+
+.app-contact {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------- the title bar --- */
+
+.app-titlebar {
+  flex: none;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--cream-muted);
+  background: var(--cream);
+}
+
+.app-titlebar__back {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+}
+
+.app-titlebar__back:hover {
+  background: var(--maroon-wash);
+}
+
+.app-titlebar h1 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+/* ----------------------------------------------------------- the five tabs --- */
+
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.app-shell__body {
+  flex: 1;
+  padding: 16px 16px calc(var(--nav-height) + env(safe-area-inset-bottom) + 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.app-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0 auto;
+  max-width: 420px;
+  display: flex;
+  background: var(--white);
+  border-top: 1px solid var(--cream-muted);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app-nav__tab {
+  flex: 1;
+  min-height: var(--nav-height);
+  padding: 9px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-top: 2.5px solid transparent;
+  text-decoration: none;
+  color: var(--ink-muted);
+  position: relative;
+}
+
+.app-nav__tab svg {
+  stroke: currentColor;
+}
+
+.app-nav__tab span {
+  font-weight: 600;
+  font-size: 10.5px;
+  color: currentColor;
+}
+
+.app-nav__tab[aria-current="page"] {
+  border-top-color: var(--maroon);
+  background: var(--maroon-wash);
+  color: var(--maroon);
+}
+
+/* The one gold dot in the whole bar. Exam is dimmed and dotless for 364 days
+   of the year; the dot is what makes the 365th unmissable, so nothing else is
+   ever allowed to wear one. */
+.app-nav__dot {
+  position: absolute;
+  top: 7px;
+  right: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--gold);
+  border: 1.5px solid var(--white);
+}
+
+/* ------------------------------------------------------------ placeholders --- */
+
+.app-soon {
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-soon h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.app-soon p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.app-eyebrow {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Day / month / year, sized to what goes in them: two digits, two digits,
+   four. Equal thirds would leave DD looking like it wants more than a day. */
+.app-dob {
+  display: flex;
+  gap: 8px;
+}
+
+.app-dob .app-input {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-data);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0 4px;
+}
+
+.app-dob .app-input--year {
+  flex: 1.8;
+}

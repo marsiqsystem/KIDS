@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "check:qr": "node scripts/check-qr-tokens.ts",
-    "seed:students": "node scripts/seed-students.ts"
+    "seed:students": "node scripts/seed-students.ts",
+    "schema:app": "node scripts/apply-app-schema.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

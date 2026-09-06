@@ -1,5 +1,5 @@
 import { sql, findStudent, type Student } from "@/lib/exam/db";
-import { hashPassword, verifyPassword } from "@/lib/app/passwords";
+import { hashPassword, verifyPassword, passwordProblem } from "@/lib/app/passwords";
 
 /**
  * Who may open the student app, and what happens when they cannot.
@@ -198,4 +198,50 @@ export async function setPassword(uid: string, password: string): Promise<void> 
      where uid = ${uid}
   `;
   await logAppEvent(uid, "password_set");
+}
+
+// -------------------------------------------------------- change password --
+
+export type PasswordChange =
+  | { ok: true }
+  /** No account row — a session for a student who has never claimed. */
+  | { ok: false; reason: "no_account" }
+  | { ok: false; reason: "wrong_current" }
+  | { ok: false; reason: "bad_new"; message: string }
+  | { ok: false; reason: "same" };
+
+/**
+ * A student changing their own password, from Profile.
+ *
+ * Design 7a: it asks for the password they use now — no code, no gateway, no
+ * bill. That check is the whole security of the operation on a shared handset,
+ * where the threat is not a stranger but the brother who was handed the phone
+ * while the account was still open.
+ *
+ * Deliberately NOT wired to the lockout counter. Three wrong guesses at the
+ * front door lock an account because that is a stranger with an admit card;
+ * three wrong guesses here are a child who has forgotten which of two passwords
+ * they set, already signed in, with nothing to gain by guessing. Locking them
+ * out of a screen they are already past would only cost them the sign-in.
+ */
+export async function changePassword(
+  uid: string,
+  current: string,
+  next: string,
+): Promise<PasswordChange> {
+  const account = await findAccount(uid);
+  if (!account) return { ok: false, reason: "no_account" };
+
+  if (!(await verifyPassword(current, account.password_hash))) {
+    await logAppEvent(uid, "bad_password", { at: "change" });
+    return { ok: false, reason: "wrong_current" };
+  }
+
+  const problem = passwordProblem(next, uid);
+  if (problem) return { ok: false, reason: "bad_new", message: problem };
+
+  if (current === next) return { ok: false, reason: "same" };
+
+  await setPassword(uid, next);
+  return { ok: true };
 }

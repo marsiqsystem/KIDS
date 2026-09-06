@@ -128,3 +128,23 @@ create table if not exists app_sets (
   finished_at  timestamptz,
   primary key (uid, on_date)
 );
+
+
+-- ---------------------------------------------------------- the notices ---
+--
+-- Design 7b. The notices themselves are NOT stored: they are computed from
+-- this student's own record when they look (see src/lib/app/notices.ts), so
+-- there is no fan-out to write, retry or repair, and a school withheld after
+-- the fact cannot leave a stale "your results are published" behind.
+--
+-- What has to be stored is which ones have been read, because "read" is the
+-- one fact about a notice that is not derivable from anything else.
+create table if not exists app_notice_reads (
+  uid        char(9)     not null references students (uid),
+  -- Carries the event's identity, not a row id: `results:17 August 2026|...`,
+  -- `paper-open:X100`, `daily:2026-09-07`. A genuinely new event therefore has
+  -- a new key and is correctly unread, and "read" survives a redeploy.
+  notice_key text        not null,
+  read_at    timestamptz not null default now(),
+  primary key (uid, notice_key)
+);

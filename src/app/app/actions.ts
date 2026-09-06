@@ -170,5 +170,8 @@ export async function signOutAction(): Promise<void> {
   const uid = await sessionUid();
   if (uid) await logAppEvent(uid, "signout");
   await destroySession();
-  redirect("/app/sign-in");
+  // Not straight to the password box. Design 7a: the screen after sign-out says
+  // the phone is clear and offers the next child the door — on a shared handset
+  // that sentence is the whole point of having signed out.
+  redirect("/app/sign-in?left=1");
 }

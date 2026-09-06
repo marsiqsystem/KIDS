@@ -2,6 +2,9 @@ import Link from "next/link";
 import { requireStudent } from "@/lib/app/gate";
 import { firstName } from "@/lib/exam/portal-auth";
 import { loopState, streakFor, answersFor, istToday } from "@/lib/app/loop";
+import { unreadCount } from "@/lib/app/notices";
+import NoticeBell from "@/components/app/NoticeBell";
+import "../notices.css";
 
 /**
  * Home. Design 3b, and 3c's end states.
@@ -37,12 +40,18 @@ const onDay = (date: Date) =>
 export default async function HomePage() {
   const student = await requireStudent();
   const state = await loopState(student);
+  // After loopState, never beside it: loopState is what mints today's set, and
+  // the bell counts a set that exists rather than causing one to.
+  const unread = await unreadCount(student);
 
   // Nothing chosen yet: the only honest thing on this screen is the chooser.
   if (state.needsSubjects) {
     return (
       <>
-        <h1 className="app-h1">Hello, {firstName(student.name)}</h1>
+        <div className="not-head">
+          <h1 className="app-h1">Hello, {firstName(student.name)}</h1>
+          <NoticeBell unread={unread} />
+        </div>
         <div className="app-soon">
           <h2>Choose what to practise</h2>
           <p>
@@ -81,13 +90,16 @@ export default async function HomePage() {
 
   return (
     <>
-      <div>
-        <h1 className="app-h1">
-          {greeting()}, {firstName(student.name)}
-        </h1>
-        <p className="app-sub">
-          Class {student.class}{" · "}{state.sections.join(", ")}
-        </p>
+      <div className="not-head">
+        <div>
+          <h1 className="app-h1">
+            {greeting()}, {firstName(student.name)}
+          </h1>
+          <p className="app-sub">
+            Class {student.class}{" · "}{state.sections.join(", ")}
+          </p>
+        </div>
+        <NoticeBell unread={unread} />
       </div>
 
       {streak.days > 0 || streak.week.some((d) => d.done) ? (

@@ -1,0 +1,291 @@
+/* Profile — design 7a.
+ *
+ * The screen is identity first and settings second, so it is built out of two
+ * shapes only: a card that states a fact, and a row that goes somewhere. There
+ * are no toggles on it. Everything a student can change here they change on a
+ * screen of its own, because on a 360px handset a switch that fires on touch is
+ * a setting changed by accident.
+ *
+ * Row heights follow the design: 64px in English, and never below 60 at 320.
+ * The tokens come from app.css, which this file assumes is already loaded.
+ */
+
+/* A form inside the shell. `.app-body` cannot be used here — the shell already
+   pads its children, and the two together push the first field off the fold. */
+.app-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------- the identity --- */
+
+.pro-id {
+  background: var(--gradient-maroon);
+  border-radius: var(--radius-lg);
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: var(--cream);
+}
+
+.pro-id__label {
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.pro-id__uid {
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.08em;
+  /* Nine digits are read left to right in every script this app is drawn in,
+     Urdu included. The card around it may mirror; this never does. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.pro-id__name {
+  margin-top: 5px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+/* Class, school, centre, medium — the exam record, read back. */
+.pro-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pro-fact {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--cream-muted);
+}
+
+.pro-fact:first-child {
+  border-top: none;
+}
+
+.pro-fact__label {
+  flex: none;
+  width: 74px;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-top: 3px;
+}
+
+.pro-fact__value {
+  flex: 1;
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------- the rows --- */
+
+.pro-rows {
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pro-row {
+  min-height: 64px;
+  width: 100%;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  border-top: 1px solid var(--cream-muted);
+  background: transparent;
+  text-align: left;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.pro-row:first-child {
+  border-top: none;
+}
+
+.pro-row:hover {
+  background: var(--maroon-wash);
+}
+
+.pro-row__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pro-row__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.pro-row__note {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+
+.pro-row__go {
+  flex: none;
+  color: var(--maroon);
+}
+
+/* A row that is drawn but cannot be used yet — dimmed with the reason under
+   it, never hidden. Design 7a's offline state makes the same argument: a
+   student must be able to see that the door exists before they can be told it
+   is shut. */
+.pro-row--off {
+  cursor: default;
+}
+
+.pro-row--off:hover {
+  background: transparent;
+}
+
+.pro-row--off .pro-row__title {
+  color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------------ sign out --- */
+
+/* Sign-out is a card with a promise in it, not a footer link. On a shared
+   handset a child hands the phone over mid-evening, and the question they are
+   really asking is "does my work go with it". */
+.pro-out {
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.pro-out h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.pro-out ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pro-out li {
+  display: flex;
+  gap: 9px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.pro-out li svg {
+  flex: none;
+  margin-top: 3px;
+  stroke: var(--teal);
+}
+
+/* --------------------------------------------------------------- help --- */
+
+.pro-help {
+  background: var(--cream-surface);
+  border: 1px solid var(--cream-muted);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pro-help__who {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15.5px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.pro-help a {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--maroon);
+  text-decoration: none;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pro-help address {
+  font-style: normal;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.pro-version {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* --------------------------------------------------------------- done --- */
+
+.pro-done {
+  background: var(--gold-wash);
+  border: 1px solid var(--gold-edge);
+  border-radius: 12px;
+  padding: 12px 13px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--gold-ink);
+}
+
+/* Urdu and Bengali are the harder tests, and Urdu is the one drawn. Three
+   things flip and nothing else: the rows mirror, the chevrons mirror with them,
+   and the User ID above stays ltr. */
+[dir="rtl"] .pro-row__go {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 340px) {
+  .pro-row {
+    min-height: 60px;
+    padding: 10px 12px;
+  }
+
+  .pro-fact__label {
+    width: 66px;
+  }
+}

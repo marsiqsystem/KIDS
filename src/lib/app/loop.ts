@@ -509,3 +509,43 @@ export async function streakFor(uid: string): Promise<{ days: number; week: { da
 
   return { days, week };
 }
+
+/**
+ * Today's set if one has already been built, and null if not — read-only.
+ *
+ * `loopState` MINTS the set as a side effect of being asked, which is right on
+ * Home: the student is standing in front of it and the five must be fixed
+ * before they can be shown. It is wrong everywhere else. A bell counting
+ * notices, or a Profile screen mentioning the daily set in passing, must not be
+ * the thing that decides which five questions a child gets today.
+ */
+export async function existingSet(uid: string): Promise<DailySet | null> {
+  const onDate = istToday();
+  const rows = (await sql`
+    select on_date::text as on_date, question_ids, new_count, built_at, started_at, finished_at
+    from app_sets where uid = ${uid} and on_date = ${onDate}::date
+  `) as {
+    on_date: string; question_ids: string[]; new_count: number;
+    built_at: Date; started_at: Date | null; finished_at: Date | null;
+  }[];
+
+  const row = rows[0];
+  if (!row) return null;
+
+  const answered = (await sql`
+    select count(*)::int as n from app_answers
+    where uid = ${uid}
+      and question_id = any(${row.question_ids})
+      and (last_answered_at at time zone 'Asia/Kolkata')::date = ${onDate}::date
+  `) as { n: number }[];
+
+  return {
+    onDate: row.on_date,
+    questionIds: row.question_ids,
+    newCount: row.new_count,
+    builtAt: row.built_at,
+    answered: answered[0]?.n ?? 0,
+    startedAt: row.started_at,
+    finishedAt: row.finished_at,
+  };
+}

@@ -55,3 +55,10 @@ next-env.d.ts
 # PUBLIC. Keep the export on the machine, hand it to the importer by path.
 offline-results.json
 scripts/offline-results.json
+
+# Portable working context that moves with this FOLDER, never with git.
+# .claude/context/memory holds ~96 notes naming real students, marks, disputes
+# and internal decisions; BRIEFING.md summarises them. This repo is PUBLIC.
+# See .claude/context/README.md.
+/.claude/context/
+/.claude/settings.local.json

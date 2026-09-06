@@ -5,6 +5,7 @@ import { useActionState, useState } from "react";
 import UidField from "./UidField";
 import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
+import DeviceField from "./DeviceField";
 import { signInAction, type FormState } from "@/app/app/actions";
 
 export default function SignInForm({ initialUid = "" }: { initialUid?: string }) {
@@ -13,6 +14,7 @@ export default function SignInForm({ initialUid = "" }: { initialUid?: string })
 
   return (
     <form action={formAction} className="app-body">
+      <DeviceField />
       <div className="app-field">
         <label className="app-label" htmlFor="uid-entry">
           User ID · 9 digits from your admit card

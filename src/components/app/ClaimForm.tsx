@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import UidField from "./UidField";
 import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
+import DeviceField from "./DeviceField";
 import { claimAction, type FormState } from "@/app/app/actions";
 
 /**
@@ -21,6 +22,7 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
 
   return (
     <form action={formAction} className="app-body">
+      <DeviceField />
       <div className="app-field">
         <label className="app-label">User ID · 9 digits from your admit card</label>
         <UidField value={uid} onChange={setUid} invalid={state.field === "uid"} autoFocus={!initialUid} />

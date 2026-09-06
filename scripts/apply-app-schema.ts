@@ -32,6 +32,7 @@ const TABLES = [
   "app_answers",
   "app_sets",
   "app_notice_reads",
+  "app_devices",
 ];
 
 /**

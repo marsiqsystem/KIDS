@@ -14,18 +14,34 @@ export const dynamic = "force-dynamic";
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ id?: string; left?: string }>;
+  searchParams: Promise<{ id?: string; left?: string; moved?: string }>;
 }) {
   // Already signed in — a shared handset's second child gets here by tapping a
   // bookmark, and should land in the app rather than at a password box.
   if (await sessionUid()) redirect("/app");
 
-  const { id, left } = await searchParams;
+  const { id, left, moved } = await searchParams;
   const initialUid = (id ?? "").replace(/\D/g, "").slice(0, 9);
 
   return (
     <div className="app-frame">
       <Crest />
+      {moved && (
+        // Phase 0. This account was signed into on another phone, so this one
+        // fell out. Said plainly and without accusing anybody: on a shared
+        // handset it is usually a sibling, and the child reading it needs to
+        // know it happened, not to be told they did something wrong.
+        <div style={{ padding: "16px 16px 0" }}>
+          <div className="app-card app-card--gold" role="status">
+            <h3>You were signed out — this account was opened on another phone.</h3>
+            <p>
+              Your account works on one phone at a time. If that was you on your new phone, nothing
+              is wrong — sign in here again and this phone becomes the one. If it was not you,
+              sign in and change your password straight away.
+            </p>
+          </div>
+        </div>
+      )}
       {left && (
         // The screen after sign-out is not a marketing page. It says the phone
         // is clear, and then gets out of the way of the next child.

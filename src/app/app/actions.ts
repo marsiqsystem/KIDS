@@ -1,10 +1,28 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { signIn, claimAccount, logAppEvent } from "@/lib/app/accounts";
 import { passwordProblem } from "@/lib/app/passwords";
 import { createSession, destroySession, sessionUid } from "@/lib/app/session";
+import { bindDevice, readDeviceId } from "@/lib/app/devices";
 import { firstName } from "@/lib/exam/portal-auth";
+
+/**
+ * Bind the account to the phone it was just opened on, then issue the session
+ * for that phone. Phase 0.
+ *
+ * Done here, in the two actions that hand out a session, rather than anywhere
+ * a page might reach: binding is an event, and the event is signing in. The
+ * device id arrives as a hidden field from DeviceField; a missing one yields an
+ * unbound session and never a refusal.
+ */
+async function startSession(uid: string, formData: FormData): Promise<void> {
+  const deviceId = readDeviceId(formData.get("deviceId"));
+  const userAgent = (await headers()).get("user-agent");
+  await bindDevice(uid, deviceId, userAgent);
+  await createSession(uid, deviceId);
+}
 
 /**
  * The front door's server actions.
@@ -50,7 +68,7 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
   const result = await signIn(uid, password);
 
   if (result.ok) {
-    await createSession(uid);
+    await startSession(uid, formData);
   } else {
     switch (result.reason) {
       case "unknown_id":
@@ -162,7 +180,7 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
     }
   }
 
-  await createSession(uid);
+  await startSession(uid, formData);
   redirect("/app");
 }
 

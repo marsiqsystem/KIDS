@@ -4,6 +4,7 @@ import { chosenSections } from "@/lib/app/loop";
 import { poolFor } from "@/lib/app/bank";
 import { signOutAction } from "@/app/app/actions";
 import { unreadCount } from "@/lib/app/notices";
+import { listDevices } from "@/lib/app/devices";
 import "../../profile.css";
 
 /**
@@ -70,10 +71,11 @@ export default async function ProfilePage({
   searchParams: Promise<{ changed?: string }>;
 }) {
   const student = await requireStudent();
-  const [{ changed }, sections, unread] = await Promise.all([
+  const [{ changed }, sections, unread, devices] = await Promise.all([
     searchParams,
     chosenSections(student.uid),
     unreadCount(student),
+    listDevices(student.uid),
   ]);
 
   // What the subjects row is worth saying: the sections themselves, and how
@@ -179,6 +181,39 @@ export default async function ProfilePage({
           </span>
         </span>
       </div>
+
+      {/* Phase 0. The one screen in the app that answers "has somebody else
+          been in my account" — the question the August link-sharing dispute
+          could not answer at all, because nothing was ever written down.
+          Shown only once there is a second phone to show: on the ordinary
+          account this is noise, and a security notice that appears for
+          everybody is a security notice nobody reads. */}
+      {devices.length > 1 && (
+        <div className="app-card pro-devices">
+          <h2>Phones this account has been opened on</h2>
+          <ul>
+            {devices.map((d) => (
+              <li key={d.device_id} className={d.is_current ? "is-current" : undefined}>
+                <span className="pro-devices__what">
+                  {d.label ?? "Unknown device"}
+                  {d.is_current && <em> · this phone</em>}
+                </span>
+                <span className="pro-devices__when">
+                  {d.sign_ins} sign-in{d.sign_ins === 1 ? "" : "s"} · last{" "}
+                  {new Date(d.last_seen_at).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "long",
+                  })}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p>
+            Your account works on one phone at a time — the top one. If you do not recognise a
+            phone on this list, change your password now and it is locked out.
+          </p>
+        </div>
+      )}
 
       <div className="pro-out">
         <h2>Sign out — someone else needs this phone</h2>

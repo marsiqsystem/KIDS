@@ -2,6 +2,9 @@ package org.kidskolkata.set;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.webkit.WebView;
+
+import androidx.activity.OnBackPressedCallback;
 
 import com.getcapacitor.BridgeActivity;
 
@@ -40,5 +43,46 @@ public class MainActivity extends BridgeActivity {
             WindowManager.LayoutParams.FLAG_SECURE
         );
         super.onCreate(savedInstanceState);
+
+        registerBackHandler();
+    }
+
+    /**
+     * Make the phone's Back button go back a page instead of shutting the app.
+     *
+     * Capacitor ships no back handling of its own, so the activity got
+     * Android's default — finish() — and Back closed the app from any screen.
+     * On a five-tab app where a student taps into a chapter, a question and an
+     * explanation, that is the difference between an app and a leaflet.
+     *
+     * Registered on the OnBackPressedDispatcher rather than by overriding
+     * onBackPressed(), which is deprecated and, for an app targeting SDK 36,
+     * is no longer called at all: Android 16 turns predictive back on by
+     * default. The dispatcher is the one route that works under both.
+     *
+     * The WebView's own history is the right thing to walk. Next's client-side
+     * navigation pushes real history entries, so goBack() lands on the previous
+     * screen and the router picks it up. When there is nothing left to go back
+     * to — the sign-in screen, or the home tab — the callback stands down and
+     * hands the press back to the system, which closes the app as it should.
+     */
+    private void registerBackHandler() {
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                WebView webView = getBridge() == null ? null : getBridge().getWebView();
+
+                if (webView != null && webView.canGoBack()) {
+                    webView.goBack();
+                    return;
+                }
+
+                // Nothing to go back to: disable this callback and re-dispatch,
+                // so the system default runs. Calling finish() directly would
+                // skip whatever else is listening.
+                setEnabled(false);
+                getOnBackPressedDispatcher().onBackPressed();
+            }
+        });
     }
 }

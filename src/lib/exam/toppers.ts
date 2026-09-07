@@ -133,7 +133,15 @@ function bestOfEach(rows: Row[], groupBy: (r: Row) => string): Entry[] {
  * Everything the stage needs, in one read.
  *
  * Absentees are not in `offline_results` at all, so nothing here has to filter
- * them out — the table is exactly the students who sat and were marked.
+ * them out — the table is very nearly exactly the students who sat and were
+ * marked.
+ *
+ * "Very nearly", because that assumption is no longer quite safe: a demo
+ * account can now carry a row, put there by scripts/seed-demo-marks.ts so the
+ * student app has something to show on a KIDS phone. A board on the ceremony
+ * screen naming the KIDS team would be an unforgivable way to find that out,
+ * so this reads real children only — the same `is_demo` rule the register
+ * counts and the school reports already apply.
  */
 export async function stageData(eventDate: string): Promise<StageData> {
   const rows = (await sql`
@@ -141,6 +149,7 @@ export async function stageData(eventDate: string): Promise<StageData> {
            s.name, s.school_name, s.centre_code, s.centre_name
     from offline_results o
     join students s on s.uid = o.uid
+    where not s.is_demo
   `) as unknown as Row[];
 
   const sorted = [...rows].sort(best);

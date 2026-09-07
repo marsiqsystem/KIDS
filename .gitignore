@@ -73,3 +73,8 @@ scripts/offline-results.json
 # repeated here so a keystore left anywhere in the tree is still caught.
 *.jks
 *.keystore
+
+# Generated per build by native/build-apk.mjs — carries the server URL for
+# the no-connection page. Differs between a laptop, preview and production
+# build, so it is not a source file.
+/native/www/server.js

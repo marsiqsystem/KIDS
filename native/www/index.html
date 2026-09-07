@@ -52,5 +52,28 @@
     The app needs the internet to reach your record. Turn on mobile data or
     Wi-Fi, then try again — nothing you have answered is lost.
   </p>
-  <button onclick="location.reload()">Try again</button>
+  <button id="retry">Try again</button>
+  <p id="target" style="font-size:12px;opacity:.55;margin:14px 0 0"></p>
 </main>
+
+<!--
+  Which server this build talks to. Written by native/build-apk.mjs at build
+  time and gitignored, because it differs per build: this laptop, the branch
+  preview, production.
+
+  It matters here because "Try again" must go back to the APP, not reload this
+  error page — reloading the error page shows the error page, which is the most
+  useless button in software.
+-->
+<script src="./server.js" onerror="void 0"></script>
+<script>
+  var target = (window.KIDS_SERVER || "");
+  document.getElementById("retry").onclick = function () {
+    if (target) location.href = target;
+    else location.reload();
+  };
+  if (target) {
+    document.getElementById("target").textContent = target.replace(/^https?:\/\//, "");
+  }
+</script>
+

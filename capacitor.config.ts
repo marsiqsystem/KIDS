@@ -62,6 +62,18 @@ const config: CapacitorConfig = {
      * should stay blocked for anything a student installs.
      */
     cleartext: url.startsWith("http://"),
+    /**
+     * What to show when the server cannot be reached.
+     *
+     * Without this the WebView simply fails and leaves a white rectangle, with
+     * nothing on screen to say the app is fine and the network is not. That is
+     * exactly what happened on the first install, and it is indistinguishable
+     * from a broken app — so it cost an evening working out that the answer was
+     * "no dev server was running".
+     *
+     * A student on a bus with no signal must never see that blank screen.
+     */
+    errorPath: "index.html",
   },
 
   android: {

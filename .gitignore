@@ -62,3 +62,14 @@ scripts/offline-results.json
 # See .claude/context/README.md.
 /.claude/context/
 /.claude/settings.local.json
+
+# Built APKs. Signed or not, a binary does not belong in the repo — the release
+# ones go to GitHub Releases, which is also where the website's download link
+# points (Vercel bandwidth will not survive 9,655 students x 20-40 MB).
+/native/dist/
+*.apk
+
+# Signing keys for the Android app. See android/.gitignore — same reasoning,
+# repeated here so a keystore left anywhere in the tree is still caught.
+*.jks
+*.keystore

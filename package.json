@@ -9,9 +9,13 @@
     "lint": "eslint",
     "check:qr": "node scripts/check-qr-tokens.ts",
     "seed:students": "node scripts/seed-students.ts",
-    "schema:app": "node scripts/apply-app-schema.ts"
+    "schema:app": "node scripts/apply-app-schema.ts",
+    "app:apk": "node native/build-apk.mjs",
+    "app:sync": "cap sync android"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.1",
+    "@capacitor/core": "^8.5.1",
     "@gsap/react": "^2.1.2",
     "@neondatabase/serverless": "^1.1.0",
     "framer-motion": "^12.38.0",
@@ -26,6 +30,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.0",

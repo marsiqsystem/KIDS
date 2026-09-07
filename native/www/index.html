@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SET · KIDS</title>
+
+<!--
+  The no-connection screen.
+
+  The app loads every screen from the server, so this file is the only thing it
+  can show when the phone is offline. It is deliberately plain: no fonts to
+  fetch, no script, nothing that itself needs a network. A spinner that spins
+  forever is what this replaces.
+
+  It says what is wrong and what to do, and it does not apologise in the voice
+  of an error message — the reader is a fourteen-year-old who has opened their
+  study app on a bus.
+-->
+
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: #faf7f2;
+    color: #2a2422;
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 22rem; text-align: center; }
+  .crest {
+    width: 56px; height: 56px; margin: 0 auto 20px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    background: #7b1e2b; color: #fff;
+    font-weight: 700; letter-spacing: .06em; font-size: 15px;
+  }
+  h1 { font-size: 19px; margin: 0 0 10px; }
+  p { margin: 0 0 18px; opacity: .8; font-size: 14.5px; }
+  button {
+    font: inherit; font-weight: 600;
+    padding: 12px 22px; border: 0; border-radius: 10px;
+    background: #7b1e2b; color: #fff;
+  }
+</style>
+
+<main>
+  <div class="crest">SET</div>
+  <h1>No connection</h1>
+  <p>
+    The app needs the internet to reach your record. Turn on mobile data or
+    Wi-Fi, then try again — nothing you have answered is lost.
+  </p>
+  <button onclick="location.reload()">Try again</button>
+</main>

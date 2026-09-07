@@ -16,8 +16,12 @@ import "../../../profile.css";
  */
 export const dynamic = "force-dynamic";
 
-export default async function ChangePasswordPage() {
-  const student = await requireStudent();
+export default async function ChangePasswordPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ must?: string }>;
+}) {
+  const [student, { must }] = await Promise.all([requireStudent(), searchParams]);
 
   return (
     <>
@@ -30,6 +34,19 @@ export default async function ChangePasswordPage() {
           {student.uid.slice(0, 3)} {student.uid.slice(3, 6)} {student.uid.slice(6)} · {student.name}
         </p>
       </div>
+
+      {/* Arrived here straight from sign-in because the office set this
+          password by hand. Says so plainly: a child who is bounced to a form
+          without explanation assumes something has gone wrong. */}
+      {must && (
+        <div className="app-card app-card--gold" role="status">
+          <h3>Choose your own password now</h3>
+          <p>
+            The one you just used was set for you by KIDS, and someone else knows it. Type it once
+            more below as your current password, then pick one only you know.
+          </p>
+        </div>
+      )}
 
       <PasswordChangeForm />
     </>

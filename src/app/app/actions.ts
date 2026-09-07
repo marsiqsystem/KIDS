@@ -69,6 +69,12 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
 
   if (result.ok) {
     await startSession(uid, formData);
+    // An office-issued password is a one-time key, never a standing password.
+    // schema.sql promises the student "is made to choose a new one before
+    // anything else happens"; this is the line that makes that true. Without
+    // it, must_change was written and never read, and a password a teacher
+    // knows would quietly become the child's permanent one.
+    if (result.mustChange) redirect("/app/profile/password?must=1");
   } else {
     switch (result.reason) {
       case "unknown_id":

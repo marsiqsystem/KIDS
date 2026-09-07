@@ -43,9 +43,15 @@ Design for those five. The teaching is the easy part.
 - **It runs 3–4 months**, not a school year. Everything should feel like a
   finite, intense, ending-soon programme. A student should always know how far
   through it they are.
-- **They all attend an ordinary school during the day.** This is not full-time.
-  It is early morning and evening — which makes the structure harder and more
-  important, not less.
+- **It is a WHOLE-DAY programme — wake to sleep**, not an evening class with
+  homework attached. The app owns the day from the alarm that starts it to the
+  block that ends it. This is the single most important line in the brief: it is
+  what makes the residential comparison literal rather than poetic.
+- These are Class X students who still attend their own schools, so school
+  hours sit *inside* the day the programme owns rather than outside it. The app
+  should carry them through that stretch — something to take in, something to
+  recall at lunch — not go dark for seven hours. If we have that wrong, say so
+  and we will correct it rather than have you design around a guess.
 - **Vernacular medium.** The cohort is Bengali-, Hindi- and Urdu-medium. See §7.
 - **Cheap Android phones on 3G**, often shared with a sibling or a parent.
 - Some have never had anything that was theirs alone and exclusive. Being one
@@ -81,10 +87,12 @@ day absorbs the daily loop rather than competing with it.
 
 ### Student — phone, 360×760
 
-**8a · The Day.** The centrepiece. A student's day as a vertical timeline of
-blocks with times: wake, meditate, morning revision, school (a long dead zone —
-design it honestly), evening study, live class, homework, wind down, sleep.
-Blocks tick off. It must read as *today*, not as a settings screen. Show it in at
+**8a · The Day.** The centrepiece. The student's whole day as a vertical
+timeline of blocks with times: wake, meditate, morning revision, school, the
+carry-through of school hours, evening study, live class, homework, wind down,
+sleep. **The day is driven by alarms** (see 8w), so this screen is what a
+student opens *because their phone just went off*, not something they remember
+to visit. Blocks tick off. It must read as *today*, not as a settings screen. Show it in at
 least three states: **6 a.m. untouched**, **mid-evening with the class about to
 start**, and **11 p.m. with two things missed**. The missed state is the hardest
 and most important screen in this brief — see §6.
@@ -152,6 +160,21 @@ fire a poll, start recording, end.
 
 **8t · Build the day.** The teacher or the office sets the routine in §8a. What
 is fixed for everyone, what a student may move.
+
+**8w · Alarms.** The programme wakes them up. Design: the alarm firing at 5:30
+on a locked phone; the "I'm up" acknowledgement that starts the day; snooze and
+what it costs; and the screen where a student sees every alarm the programme
+holds and which ones they may move. An alarm a child cannot turn off is an alarm
+they will uninstall the app to escape — design the negotiation, not a cage.
+
+Note for you rather than a task: alarms are real Android local notifications, so
+they fire with the app closed. Two engineering limits shape the design — Android
+12+ restricts exact alarms and requires the user to grant them, and cheap
+handsets (Xiaomi, Oppo, Vivo) aggressively kill background apps unless the
+student exempts us. **So there must be a first-run screen that earns those two
+permissions**, and it has to be persuasive rather than technical. Please design
+that; it is the difference between a programme that wakes 65 children and one
+that wakes 20.
 
 ### Two small ones we owe regardless
 
@@ -238,6 +261,17 @@ From Turn 2's review, still outstanding and now required:
   whose entire cohort is vernacular-medium. We need the class screen and the
   task list with real Bengali strings, and at least one Urdu screen proving
   Nastaliq is not squashed.
+- **Urdu is right-to-left, so one Urdu artboard must be fully mirrored** — the
+  timeline, the back chevrons, the progress that fills the other way. That is a
+  layout problem only you can answer, and it is the reason the Urdu screen is
+  not optional.
+
+**Out of your scope, so you do not spend a turn on it:** the in-app language
+switcher itself. Umar is right that it is not a design question — we are
+building it as ordinary localisation work. What we need from you is the
+*layout* proof above: whether a Bengali stem, a Hindi task title and a mirrored
+Urdu day survive at 360px and 320px. Design in English; give us those screens as
+evidence.
 - **A 320px pass.** Screens are drawn at 360; the cheapest phones are not.
 - **Empty, failure and edge states**: no class scheduled, teacher hasn't posted,
   connection dropped mid-class, submission failed, joined late, phone rang.
@@ -268,8 +302,10 @@ well and the decisions were genuinely Umar's to make.
 
 1. **Where does coaching attach?** Sixth tab, a takeover of Home for the 65, or
    a separate mode? Five tabs are settled and a sixth is a real cost.
-2. **What is the shape of the day**, given they are at school 8–3:30? Is this a
-   5:30 a.m. programme, a 7 p.m. programme, or both? Draw the one you believe.
+2. **What happens to school hours?** The programme owns the whole day, but
+   these children are in a classroom for seven of them. Does the app go quiet,
+   carry something small through, or treat school as a block it tracks like any
+   other? Draw the one you believe.
 3. **How prescriptive is the routine?** Fixed by the teacher for everyone, or a
    template each student adjusts? Argue it.
 4. **Does the ritual block survive?** If you think meditation-at-6 a.m. will be
@@ -287,6 +323,7 @@ System** file (maroon `#7B1E2B`, gold `#C9A24B`, teal, cream; Playfair Display
 for display, Montserrat for body — the built product self-hosts these two and
 adding a third family is another download on a 3G connection).
 
-Priority if you cannot do it all: **8a The Day**, **8d–8f the live class**,
-**8k the room**, and **8n missing days** first. Those four decide whether this
+Priority if you cannot do it all: **8a The Day**, **8w Alarms and the
+permission screen**, **8d–8f the live class**, **8k the room**, and **8n missing
+days** first. Those four decide whether this
 feels like a hostel or like a website.

@@ -112,7 +112,17 @@ const rand = rng(Number(uid));
 
 /* ------------------------------------------------- the written paper (OMR) --- */
 
-const LETTERS = ["A", "B", "C", "D"];
+/**
+ * LOWERCASE, and it matters.
+ *
+ * The OMR replica in OfflineSheet.tsx decides a bubble is filled by comparing
+ * the stored character against the literal list ["a","b","c","d"]. The first
+ * version of this fixture wrote "A".."D", so every comparison failed silently:
+ * the sheet rendered in full, every bubble empty, no answer and no key marked.
+ * Nothing errored — it just showed a blank OMR sheet, which is a perfectly
+ * plausible thing for a sheet to look like.
+ */
+const LETTERS = ["a", "b", "c", "d"];
 
 /**
  * The blocks of this student's form, built from THEIR class and stream.

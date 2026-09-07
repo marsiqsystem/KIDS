@@ -1,7 +1,6 @@
 package org.kidskolkata.set;
 
 import android.os.Bundle;
-import android.view.WindowManager;
 import android.webkit.WebView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -11,37 +10,31 @@ import com.getcapacitor.BridgeActivity;
 /**
  * The app's one and only screen — everything inside it is the web app.
  *
- * The single piece of native code here is FLAG_SECURE, and it is the one thing
- * in this whole project a browser genuinely cannot do. With it set, Android
- * itself refuses screenshots and screen recording: the shortcut does nothing, a
- * recording captures a black rectangle, and the app's window does not appear in
- * the recent-apps thumbnail either.
+ * Two pieces of native behaviour live here: the Back button, and the
+ * screenshot block registered as the ScreenGuard plugin.
  *
- * That last part matters more than it sounds. A question paper photographed off
- * a screen and sent round a WhatsApp group is the failure mode this programme
- * has actually suffered, and it is the reason a paper leaks before the exam is
- * over.
+ * FLAG_SECURE is NOT set here any more. It was, for the whole app, on the
+ * reasoning that nothing in here needs capturing. In use that was plainly
+ * wrong: a student photographing their own marksheet to send to a parent got a
+ * black rectangle and no explanation. A result belongs to the child.
  *
- * Its honest limit, so nobody mistakes what it protects: it stops the phone
- * capturing its own screen. It does nothing about a second phone pointed at the
- * first. No software on this device can address that — a hall and an
- * invigilator can, which is what the offline half of SET already does.
+ * The block now belongs to the exam alone, switched on by the screen that is
+ * running a paper — see ScreenGuardPlugin and ScreenGuard.tsx. A question paper
+ * leaking out of a live exam is the real harm, and it is the one this
+ * programme has actually suffered.
  *
- * Set for the whole app rather than only the exam screen, deliberately: the
- * record screens show a child's own marks and the daily loop shows bank
- * questions, and neither is improved by being screenshotted. There is nothing
- * in this app a student needs to capture, and turning the flag on and off
- * around one route is a race waiting to be lost at exactly the wrong moment.
+ * Its honest limit, unchanged: it stops the phone capturing its own screen. It
+ * does nothing about a second phone pointed at the first. No software on this
+ * device can address that — a hall and an invigilator can, which is what the
+ * offline half of SET already does.
  */
 public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // Before super.onCreate, so the flag is in place before the window is
-        // ever drawn — set afterwards, the first frame can still be captured.
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_SECURE,
-            WindowManager.LayoutParams.FLAG_SECURE
-        );
+        // Before super.onCreate: the bridge reads the registry as it starts, so
+        // a plugin registered afterwards is not there when the first page loads.
+        registerPlugin(ScreenGuardPlugin.class);
+
         super.onCreate(savedInstanceState);
 
         registerBackHandler();

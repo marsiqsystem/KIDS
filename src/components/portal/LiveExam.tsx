@@ -7,6 +7,7 @@ import { EXAM } from "@/lib/exam/config";
 import { useServerCountdown } from "./Countdown";
 import AnswersReceived, { formatIstClock } from "./AnswersReceived";
 import Paper, { ClockFace } from "./Paper";
+import ScreenGuard from "@/components/app/ScreenGuard";
 
 /**
  * The real exam.
@@ -292,6 +293,12 @@ export default function LiveExam({
 
   return (
     <>
+      {/* From here until the paper leaves the screen, the Android app refuses
+          screenshots and screen recording. Mounted HERE and not in <Paper>,
+          which the practice test also renders: practice is not an exam, and a
+          student revising should be able to keep a question. Does nothing in a
+          browser — see ScreenGuard.tsx. */}
+      <ScreenGuard />
       <Paper
         questions={questions}
         answers={list}

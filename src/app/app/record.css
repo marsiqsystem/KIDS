@@ -751,3 +751,31 @@
   font-size: 11.5px;
   color: var(--ink-muted);
 }
+
+/* --------------------------------------------- the portal's result view ---
+ *
+ * My Record now renders the same <ResultView> the portal shows on a scan, so
+ * these rules only have to seat it inside the app shell. Everything it paints
+ * with is defined by `.portal` in portal.css; nothing about its own look is
+ * restated here, on purpose — a second opinion about the result page's colours
+ * is how the two screens would start to drift.
+ */
+.app .rec-portal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Bleed back over the shell's 16px gutter. ResultView is a full-width card
+   with its own internal padding, and nesting it inside the body gutter gives
+   the OMR sheet two — which costs 32px on a 360px screen, the width of about
+   four bubbles. */
+.app .rec-portal__view {
+  margin-inline: -16px;
+}
+
+/* The result card carries its own bottom rounding and shadow; the practice
+   strip below it is an app card again, so it needs the gutter back. */
+.app .rec-portal > .rec-card {
+  margin-inline: 0;
+}

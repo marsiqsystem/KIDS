@@ -21,12 +21,8 @@ import GetDirections from "@/components/GetDirections";
 import PortalShell from "@/components/portal/PortalShell";
 import ErrorScreen from "@/components/portal/ErrorScreen";
 import ResultView from "@/components/portal/result/ResultView";
-import { publicationState, findOnlineMarksheet } from "@/lib/exam/results";
-import { offlinePublicationState, findOfflineMarksheet } from "@/lib/exam/offline-results";
-import { reviewQuestions, chapterScores } from "@/lib/exam/offline-review";
-import { chapterAsset, PLAYABLE } from "@/lib/exam/chapter-assets";
-import type { LearnCard } from "@/components/portal/result/LearnIt";
-import { signUid, qrSecret } from "@/lib/qr-token";
+import { publicationState } from "@/lib/exam/results";
+import { resultViewProps } from "@/lib/exam/result-page";
 import Countdown from "@/components/portal/Countdown";
 import DeviceCheck from "@/components/portal/DeviceCheck";
 import Checklist from "@/components/portal/Checklist";
@@ -65,21 +61,12 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   // an exam that happened in July.
   const publication = await publicationState();
   if (publication.published) {
-    const written = await writtenHalf(student);
     return (
       <PortalShell verifiedAs={name}>
         <div className="bg-[var(--cream-muted)] px-3 py-4 sm:px-5 sm:py-6">
-          <ResultView
-            name={student.name}
-            uid={student.uid}
-            classLabel={student.class}
-            stream={student.stream}
-            school={student.school_name}
-            centre={student.centre_name}
-            publishedOn={publication.publishedOn}
-            online={await findOnlineMarksheet(student)}
-            {...written}
-          />
+          {/* The same props the app's My Record tab builds. One result page,
+              assembled once — see src/lib/exam/result-page.ts. */}
+          <ResultView {...(await resultViewProps(student))} />
         </div>
       </PortalShell>
     );
@@ -546,48 +533,3 @@ function Closed({ student, name }: { student: Student; name: string }) {
  * online one, and a student who sat both is shown two tracks, never one blended
  * number.
  */
-async function writtenHalf(student: Student) {
-  // Passed the student, not asked cohort-wide: a school on the withhold list
-  // reads as "not published yet" for its own pupils while everyone else's is
-  // open. Same answer, same words, same fallback view.
-  const { published } = await offlinePublicationState(student);
-  const href = `/marksheet?id=${student.uid}&t=${signUid(student.uid, qrSecret())}`;
-  if (!published) {
-    return {
-      offline: null, offlinePublished: false,
-      offlineQuestions: [], offlineLearn: [] as LearnCard[], marksheetHref: href,
-    };
-  }
-  const sheet = await findOfflineMarksheet(student);
-  if (!sheet) {
-    return {
-      offline: null, offlinePublished: true,
-      offlineQuestions: [], offlineLearn: [] as LearnCard[], marksheetHref: href,
-    };
-  }
-  // The written paper differs by medium in 30 places; show this student theirs.
-  const questions = reviewQuestions(sheet, student.medium);
-  // Only chapters with approved teaching content behind them: a card with a
-  // heading and nothing under it is worse than no card.
-  const learn: LearnCard[] = chapterScores(questions)
-    .filter((c) => c.lost >= 2)
-    .slice(0, 8)
-    .map((c) => {
-      const a = chapterAsset(sheet.class, sheet.stream, c.section, c.chapter);
-      return a && {
-        chapter: c.chapter, section: c.section, correct: c.correct, total: c.total,
-        trick: a.trick,
-        videoId: a.video.video_id ?? null,
-        videoLanguage: a.video.language ?? null,
-        template: a.interactive.template,
-        data: a.interactive.data,
-        playable: PLAYABLE.has(a.interactive.template),
-      };
-    })
-    .filter((x): x is LearnCard => Boolean(x));
-
-  return {
-    offline: sheet, offlinePublished: true,
-    offlineQuestions: questions, offlineLearn: learn, marksheetHref: href,
-  };
-}

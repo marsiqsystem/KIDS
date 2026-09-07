@@ -59,6 +59,18 @@ export interface ResultViewProps {
   offlineQuestions: ReviewedQuestion[];
   offlineLearn: LearnCard[];
   marksheetHref: string;
+  /**
+   * Where this is being shown. The result itself is identical either way; the
+   * advice around it is not.
+   *
+   * "portal" is a student who scanned their admit card, holding a signed link
+   * that anyone they forward it to can open. "app" is a student signed in on
+   * their own phone, where there is no link to leak, sharing is answered by the
+   * device binding instead, and — because the Android build sets FLAG_SECURE —
+   * the screenshot the portal recommends is refused by the operating system.
+   * Telling them to take one would be advice that cannot be followed.
+   */
+  surface?: "portal" | "app";
 }
 
 export default function ResultView(props: ResultViewProps) {
@@ -208,6 +220,7 @@ function Landing({
   publishedOn,
   onOpenOnline,
   onOpenOffline,
+  surface,
 }: ResultViewProps & { onOpenOnline: () => void; onOpenOffline: () => void }) {
   return (
     <>
@@ -344,7 +357,7 @@ function Landing({
       </div>
 
       <div className="px-4 pb-[22px] lap:px-9 lap:pb-[30px]">
-        <Privacy />
+        <Privacy surface={surface} />
       </div>
     </>
   );
@@ -383,6 +396,7 @@ function Marksheet({
   classLabel,
   onBack,
   setOpenQ,
+  surface,
 }: ResultViewProps & {
   online: OnlineMarksheet;
   onBack: () => void;
@@ -710,7 +724,7 @@ function Marksheet({
         </div>
 
         <OfflinePending />
-        <Privacy />
+        <Privacy surface={surface} />
         </div>
       </div>
     </>
@@ -1028,13 +1042,23 @@ export function StarRule() {
   );
 }
 
-export function Privacy() {
+export function Privacy({ surface = "portal" }: { surface?: "portal" | "app" }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--cream-muted)] bg-[var(--cream-surface)] p-3.5">
       <div className="lbl mb-1.5">Keep this private</div>
       <p className="text-[0.82rem] leading-[1.6]">
-        This link is yours alone. Anyone who opens it can see your result, so do not post it in a
-        group. If you want to show someone, send a screenshot instead.
+        {surface === "app" ? (
+          <>
+            This is your account, on your phone. Your result opens only for someone signed in as
+            you, and your account works on one phone at a time — if you sign in somewhere else,
+            this phone is signed out.
+          </>
+        ) : (
+          <>
+            This link is yours alone. Anyone who opens it can see your result, so do not post it in
+            a group. If you want to show someone, send a screenshot instead.
+          </>
+        )}
       </p>
     </div>
   );

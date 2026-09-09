@@ -13,36 +13,68 @@ without a signed token, and only the app mints them.
 
 ---
 
-## What it costs
+## What it costs — start at zero
+
+**Nothing here has to be paid for today.** The app side is provider-agnostic:
+the server is three environment variables, so moving from a free box to a paid
+one later is one DNS record and one env var, with no code change and no rework.
+Take the free path, and buy only when a real class shows us it is needed.
 
 | item | cost |
 | --- | --- |
-| VPS, 4 GB / 2 vCPU, Mumbai or Bangalore | **₹1,100–2,100 / month** |
+| Oracle Cloud **Always Free** — 2 OCPU / 12 GB, Mumbai | **₹0** |
+| or a trial credit: Oracle $300/30d · DigitalOcean $200/60d · GCP $300/90d | **₹0 for most of the programme** |
+| or a paid VPS, 4 GB / 2 vCPU, Mumbai or Bangalore | ₹1,100–2,100 / month |
 | `live.kidskolkata.org` | **₹0** — a DNS record on a domain we already own |
 | TLS certificate | **₹0** — Let's Encrypt, the installer does it |
 | Recording | **₹0** — record locally, post unlisted to YouTube |
 
-**₹4,500–8,500 for the whole 3–4 month programme.** Cancel the VPS when it ends.
-
 Sizing is set by one number: the teacher's video at ~1.5 Mbps out to 65 students
 is **~100 Mbps sustained, ~65 GB per 90-minute class**, about 800 GB a month at
-three classes a week. Any of the providers below include several TB. Students
-are **audio-only by default** — 65 open cameras is not a class, and it costs
-roughly ten times the server.
+three classes a week. Oracle's free tier allows 10 TB of egress a month, so the
+load fits inside it with room to spare. Students are **audio-only by default** —
+65 open cameras is not a class, and it costs roughly ten times the server.
+
+### What free must NOT mean
+
+**Not `meet.jit.si`.** It is free, but it is 8x8's server with 8x8's auth, and it
+will not accept our tokens. That throws away exclusivity, moderator control and
+attendance — the entire reason we chose Jitsi over Meet. Managed **JaaS** fails
+the same test on price: the free tier is 25 monthly active users and we have 66,
+which lands us on the $99/mo tier, about ₹8,700 — four times a paid VPS.
 
 ---
 
-## 1. Take the VPS
+## 1. Take the machine
 
-Pick one, region **Mumbai** or **Bangalore** (latency matters; a European
-server adds ~150 ms to every exchange with a child in Kolkata):
+**First choice — Oracle Cloud Always Free.** <https://www.oracle.com/cloud/free/>
+Create the account (a card is required for identity, not billing), set the home
+region to **Mumbai**, and launch a VM with the **`VM.Standard.A1.Flex`** shape at
+**2 OCPU / 12 GB**, Ubuntu 24.04 (arm64 — Jitsi packages exist for it).
 
-* DigitalOcean — Bangalore — <https://www.digitalocean.com/pricing/droplets>
-* Vultr — Mumbai — <https://www.vultr.com/pricing/>
-* Akamai / Linode — Mumbai — <https://www.linode.com/pricing/>
+Two things to know. The A1 shape is often **"out of host capacity"**; if Mumbai
+refuses, try again later in the day rather than switching to a paid box. And
+Oracle **reclaims Always Free instances that sit idle**, which a three-classes-a-
+week machine could trip — a trivial cron that keeps it busy is enough to avoid it.
 
-Choose **Ubuntu 24.04 LTS**, **4 GB RAM, 2 vCPU**. Add your SSH key when it asks.
-Write down the IP address it gives you.
+**Second choice — a trial credit.** DigitalOcean (Bangalore), Vultr (Mumbai) or
+Akamai/Linode (Mumbai), 4 GB / 2 vCPU, Ubuntu 24.04 LTS. ⚠️ Trials auto-convert
+to paid — put the cancellation date in your diary the day you sign up.
+
+**Only if both disappoint in a real class**, take the paid VPS at ₹1,100–2,100/mo
+and cancel it when the programme ends.
+
+Whichever you take: add your SSH key when it asks, and write down the IP address.
+
+### Before any of that — test it on your own laptop
+
+You do not need a server to prove the important thing works. Docker Jitsi runs
+locally, free, no account:
+<https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/>
+
+That is enough to mint a token, join a room and run the step-8 moderator test.
+It is not enough to teach on — a laptop behind a home router cannot serve 65
+children — but it finds the trap in step 6 before any money is involved.
 
 ## 2. Point the name at it
 

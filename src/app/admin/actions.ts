@@ -95,7 +95,21 @@ export async function bootstrapAdmin(_prev: State, formData: FormData): Promise<
     name: fullName,
   });
 
-  refresh();
+  /**
+   * Deliberately NO revalidatePath here, unlike every other action in this file.
+   *
+   * This one action changes which screen the page renders: the moment the row
+   * exists, hasAnyAdmin() is true and AdminPage returns StaffSignIn instead of
+   * Bootstrap. Revalidating swaps the component out — and takes with it the
+   * only copy of the password that has just been generated, which is stored
+   * nowhere and cannot be re-derived.
+   *
+   * That is not hypothetical. It happened on the first real bootstrap: the
+   * account was created, the screen turned into a sign-in form, and the
+   * password was lost, leaving the one admin locked out of his own control
+   * centre. Bootstrap renders the password and offers a link; the navigation is
+   * the operator's, taken once they have written it down.
+   */
   return { ok: true, secret: { staffId: "A-0001", password } };
 }
 

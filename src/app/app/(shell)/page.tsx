@@ -4,7 +4,9 @@ import { firstName } from "@/lib/exam/portal-auth";
 import { loopState, streakFor, answersFor, istToday } from "@/lib/app/loop";
 import { unreadCount } from "@/lib/app/notices";
 import NoticeBell from "@/components/app/NoticeBell";
+import NextClass from "@/components/app/NextClass";
 import "../notices.css";
+import "./class/class.css";
 
 /**
  * Home. Design 3b, and 3c's end states.
@@ -101,6 +103,8 @@ export default async function HomePage() {
         </div>
         <NoticeBell unread={unread} />
       </div>
+
+      <NextClass uid={student.uid} />
 
       {streak.days > 0 || streak.week.some((d) => d.done) ? (
         <div className="app-streak">

@@ -4,8 +4,10 @@ import { signOut } from "@/app/admin/actions";
 import type { Staff, StaffListRow, AuditRow } from "@/lib/admin/staff";
 import type { Batch, MemberRow, BatchTeacher } from "@/lib/admin/batches";
 import type { Overview, StudentRow } from "@/lib/admin/students";
+import type { LiveClass } from "@/lib/admin/classes";
 import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
+import ClassesPanel from "./ClassesPanel";
 
 export interface OpenBatch {
   batch: Batch;
@@ -35,6 +37,8 @@ export default async function ControlCentre({
   openBatch,
   students,
   events,
+  classes,
+  liveReady,
 }: {
   staff: Staff;
   tab: string;
@@ -45,6 +49,8 @@ export default async function ControlCentre({
   openBatch: OpenBatch | null;
   students: StudentRow[];
   events: AuditRow[];
+  classes: LiveClass[];
+  liveReady: boolean;
 }) {
   const isAdmin = staff.role === "admin";
 
@@ -53,10 +59,14 @@ export default async function ControlCentre({
         ["overview", "Overview"],
         ["staff", "Teachers & admins"],
         ["batches", "Batches"],
+        ["classes", "Classes"],
         ["students", "Students"],
         ["audit", "Activity"],
       ]
-    : [["batches", "My batches"]];
+    : [
+        ["batches", "My batches"],
+        ["classes", "Classes"],
+      ];
 
   return (
     <main className="min-h-screen bg-[#141010] text-[#e8e0dc]">
@@ -106,6 +116,9 @@ export default async function ControlCentre({
             teachers={staffList.filter((s) => !s.disabled_at)}
             canEdit={isAdmin}
           />
+        ) : null}
+        {tab === "classes" ? (
+          <ClassesPanel classes={classes} batches={batches} configured={liveReady} />
         ) : null}
         {tab === "students" ? <StudentsPanel students={students} query={query} /> : null}
         {tab === "audit" ? <AuditPanel events={events} /> : null}

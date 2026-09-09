@@ -4,6 +4,8 @@ import { currentStaff } from "@/lib/admin/session";
 import { hasAnyAdmin, listStaff, recentEvents } from "@/lib/admin/staff";
 import { batchMembers, batchTeachers, batchesForTeacher, listBatches } from "@/lib/admin/batches";
 import { overview, searchStudents } from "@/lib/admin/students";
+import { recentClasses } from "@/lib/admin/classes";
+import { liveConfigured } from "@/lib/live/jitsi";
 import Bootstrap from "@/components/admin/Bootstrap";
 import StaffSignIn from "@/components/admin/StaffSignIn";
 import FirstPassword from "@/components/admin/FirstPassword";
@@ -64,7 +66,7 @@ export default async function AdminPage({
     return (
       <ControlCentre
         staff={staff}
-        tab="batches"
+        tab={tab === "classes" ? "classes" : "batches"}
         query=""
         batches={mine}
         openBatch={
@@ -76,6 +78,8 @@ export default async function AdminPage({
         staffList={[]}
         students={[]}
         events={[]}
+        classes={tab === "classes" ? await recentClasses(staff.staff_id) : []}
+        liveReady={liveConfigured()}
       />
     );
   }
@@ -100,6 +104,8 @@ export default async function AdminPage({
       }
       students={tab === "students" && q ? await searchStudents(q) : []}
       events={tab === "audit" ? await recentEvents(150) : []}
+      classes={tab === "classes" ? await recentClasses() : []}
+      liveReady={liveConfigured()}
     />
   );
 }

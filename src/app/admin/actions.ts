@@ -21,6 +21,15 @@ import {
   unassignTeacher,
 } from "@/lib/admin/batches";
 import {
+  cancelClass,
+  createClass,
+  endClass,
+  findClass,
+  setRecording,
+  startClass,
+  teachesBatch,
+} from "@/lib/admin/classes";
+import {
   createStaffSession,
   destroyStaffSession,
   requireStaff,
@@ -305,4 +314,136 @@ export async function unassignFromBatch(_prev: State, formData: FormData): Promi
   );
   refresh();
   return done("Teacher removed from the batch.");
+}
+
+/* --------------------------------------------------------- live classes --- */
+
+/**
+ * Who may touch a class: the office, or a teacher who takes that batch.
+ *
+ * Not requireStaff("admin"), because a teacher must be able to open their own
+ * room at six in the evening without ringing the office first.
+ */
+async function requireClassRights(batchId: string) {
+  const staff = await requireStaff();
+  if (staff.role === "admin") return staff;
+  if (await teachesBatch(staff.staff_id, batchId)) return staff;
+  throw new Error("You do not take that batch.");
+}
+
+/**
+ * Read a date and a time out of the form as Kolkata wall-clock.
+ *
+ * The trap this exists for: `new Date("2026-09-12T18:00")` is parsed in the
+ * SERVER's timezone, and the server is Vercel, which is UTC. A class typed as 6
+ * pm would be stored as 6 pm UTC — half past eleven at night in Kolkata — and
+ * every child would be told the wrong hour by a screen that looked right to the
+ * person who typed it.
+ *
+ * Everyone in this programme is in one city, so the offset is a constant rather
+ * than a per-user setting. If KIDS ever runs a batch in another timezone this
+ * has to become a real choice, and it should fail loudly here rather than
+ * quietly mislead.
+ */
+const IST = "+05:30";
+
+function istWallClock(date: string, time: string): Date | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+  if (!/^\d{2}:\d{2}$/.test(time)) return null;
+
+  const at = new Date(`${date}T${time}:00${IST}`);
+  return Number.isNaN(at.getTime()) ? null : at;
+}
+
+export async function newClass(_prev: State, formData: FormData): Promise<State> {
+  const batchId = String(formData.get("batchId") ?? "");
+  if (!batchId) return { message: "Choose a batch.", field: "batchId" };
+
+  const by = await requireClassRights(batchId);
+
+  const title = String(formData.get("title") ?? "").trim();
+  if (!title) return { message: "Give the class a name.", field: "title" };
+
+  const startsAt = istWallClock(
+    String(formData.get("date") ?? ""),
+    String(formData.get("time") ?? ""),
+  );
+  if (!startsAt) return { message: "Enter a date and a time.", field: "date" };
+
+  const minutes = Number(formData.get("minutes") ?? 90);
+  if (!Number.isFinite(minutes) || minutes < 5 || minutes > 600) {
+    return { message: "A class runs between 5 and 600 minutes.", field: "minutes" };
+  }
+
+  await createClass({
+    batchId,
+    title,
+    subject: String(formData.get("subject") ?? ""),
+    startsAt,
+    minutes,
+    by: by.staff_id,
+  });
+
+  refresh();
+  return done(`“${title}” scheduled.`);
+}
+
+/**
+ * Open the room.
+ *
+ * Until this is pressed no student token is minted, so the class does not
+ * merely look shut — it is shut.
+ */
+export async function openClass(_prev: State, formData: FormData): Promise<State> {
+  const classId = String(formData.get("classId") ?? "");
+  const live = await findClass(classId);
+  if (!live) return { message: "No such class." };
+
+  const by = await requireClassRights(live.batch_id);
+  await startClass(classId, by.staff_id);
+
+  refresh();
+  return done("The room is open. Students can join now.");
+}
+
+export async function closeClass(_prev: State, formData: FormData): Promise<State> {
+  const classId = String(formData.get("classId") ?? "");
+  const live = await findClass(classId);
+  if (!live) return { message: "No such class." };
+
+  const by = await requireClassRights(live.batch_id);
+  await endClass(classId, by.staff_id);
+
+  refresh();
+  return done("Class ended. The room no longer admits anybody.");
+}
+
+export async function callOffClass(_prev: State, formData: FormData): Promise<State> {
+  const classId = String(formData.get("classId") ?? "");
+  const live = await findClass(classId);
+  if (!live) return { message: "No such class." };
+
+  const by = await requireClassRights(live.batch_id);
+  await cancelClass(classId, by.staff_id);
+
+  refresh();
+  return done("Class cancelled.");
+}
+
+/** The unlisted YouTube link, pasted in after the class. */
+export async function saveRecording(_prev: State, formData: FormData): Promise<State> {
+  const classId = String(formData.get("classId") ?? "");
+  const live = await findClass(classId);
+  if (!live) return { message: "No such class." };
+
+  const by = await requireClassRights(live.batch_id);
+  const url = String(formData.get("url") ?? "").trim();
+
+  if (url && !/^https?:\/\//i.test(url)) {
+    return { message: "Paste the whole link, starting with https://", field: "url" };
+  }
+
+  await setRecording(classId, url, by.staff_id);
+  refresh();
+  return done(url ? "Recording link saved." : "Recording link removed.");
 }

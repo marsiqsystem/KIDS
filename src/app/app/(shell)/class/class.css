@@ -1,0 +1,120 @@
+/* The live class, on a phone.
+ *
+ * The room fills what is left of the shell once the tab bar has taken its
+ * share. Jitsi lays itself out inside whatever box it is given, so the job here
+ * is only to give it an honest one — a percentage height inside a column that
+ * knows how tall it is, never a viewport unit, which on a phone browser is a
+ * lie the moment the address bar moves.
+ */
+
+.cls-live {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.cls-live__head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 0.5rem;
+}
+
+.cls-live__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #c0453f;
+  box-shadow: 0 0 0 0.2rem rgba(192, 69, 63, 0.18);
+  flex: none;
+}
+
+.cls-live__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cls-live__sub {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.cls-live__frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.cls-live__note {
+  flex: none;
+  padding: 0.5rem 1rem 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  opacity: 0.65;
+}
+
+/* The screen they get when there is nothing to join yet — which, for a class
+ * that starts at six, is most of the day. It is not an error state and does not
+ * look like one. */
+
+.cls-wait {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 2rem 1.25rem;
+}
+
+.cls-wait__body {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.75;
+  max-width: 32ch;
+}
+
+/* The card on Home. */
+
+.cls-card {
+  display: block;
+  margin: 0.75rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cls-card--live {
+  border-color: rgba(192, 69, 63, 0.55);
+  background: rgba(192, 69, 63, 0.08);
+}
+
+.cls-card__top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.cls-card--live .cls-card__top {
+  color: #e0736c;
+  opacity: 1;
+}
+
+.cls-card__title {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cls-card__when {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  opacity: 0.65;
+}

@@ -168,3 +168,81 @@ create table if not exists admin_events (
 
 create index if not exists admin_events_at_idx on admin_events (at desc);
 create index if not exists admin_events_target_idx on admin_events (target_kind, target_id, at desc);
+
+
+-- ---------------------------------------------------------- live classes ---
+
+-- A class in the timetable, and later the room it was taught in.
+--
+-- The coaching programme is three to four months of Class X teaching, run
+-- inside the app rather than on Google Meet. A row here is scheduled by the
+-- office before it happens, becomes joinable when the teacher starts it, and
+-- keeps its recording link afterwards.
+--
+-- `room` is the Jitsi room name, minted once and never reused. It is random
+-- rather than derived from the date because a guessable room is one a child
+-- can type into a public Jitsi instance and sit in alone. It is not the
+-- security boundary either way — the server refuses anyone without a signed
+-- token — but there is no reason to publish a name.
+--
+-- A class belongs to a batch, never to a list of students: the same rule the
+-- rest of the control centre keeps, so that a child moved between batches is
+-- moved once.
+create table if not exists admin_classes (
+  id           bigserial   primary key,
+  batch_id     bigint      not null references admin_batches (id),
+  title        text        not null,
+  subject      text,
+  starts_at    timestamptz not null,
+  minutes      integer     not null default 90,
+  room         text        not null unique,
+  created_at   timestamptz not null default now(),
+  created_by   text        not null references admin_staff (staff_id),
+  -- Set when the teacher opens the room. Until then no student token is
+  -- minted, so "starts at 6" is a plan and this is the fact.
+  started_at   timestamptz,
+  started_by   text        references admin_staff (staff_id),
+  ended_at     timestamptz,
+  cancelled_at timestamptz,
+  cancelled_by text        references admin_staff (staff_id),
+  -- The unlisted YouTube link, pasted after the class. Jibri needs roughly its
+  -- own machine, so the teacher records locally and posts it.
+  recording_url text
+);
+
+create index if not exists admin_classes_batch_idx
+  on admin_classes (batch_id, starts_at desc);
+
+create index if not exists admin_classes_upcoming_idx
+  on admin_classes (starts_at) where cancelled_at is null;
+
+
+-- Who was issued a token for a class.
+--
+-- Read this for what it is. A row means the person tapped Join and we signed a
+-- token for them — not that they stayed, listened, or were awake. Every figure
+-- off this table is a FLOOR, the same caveat the result-page counter carries:
+-- we can prove nobody got in without a row here, and nothing more than that.
+--
+-- Presence proper would come from the server's own events. It is not built,
+-- and this table is not it.
+create table if not exists admin_class_attendance (
+  id         bigserial   primary key,
+  class_id   bigint      not null references admin_classes (id),
+  -- Exactly one of these is set. A teacher is not a student and must not be
+  -- counted as one when the register is read.
+  uid        text        references students (uid),
+  staff_id   text        references admin_staff (staff_id),
+  moderator  boolean     not null default false,
+  first_at   timestamptz not null default now(),
+  last_at    timestamptz not null default now(),
+  tokens     integer     not null default 1,
+  constraint admin_class_attendance_who
+    check ((uid is not null) <> (staff_id is not null))
+);
+
+create unique index if not exists admin_class_attendance_student_idx
+  on admin_class_attendance (class_id, uid) where uid is not null;
+
+create unique index if not exists admin_class_attendance_staff_idx
+  on admin_class_attendance (class_id, staff_id) where staff_id is not null;

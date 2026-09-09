@@ -48,6 +48,8 @@ const TABLES = [
   "admin_batch_members",
   "admin_batch_teachers",
   "admin_events",
+  "admin_classes",
+  "admin_class_attendance",
 ];
 
 /**

@@ -150,7 +150,19 @@ jicofo {
 ```
 
 In the Prosody config, make sure **`muc_allowners` is NOT in `modules_enabled`**.
-If the line exists, delete it.
+If the line exists, delete it — that module makes every participant an owner.
+
+And the flag our token sends has to be read by something. Add the plugin that
+reads it to the same `modules_enabled` list:
+
+```lua
+"token_affiliation";
+```
+
+The app signs `context.user.moderator` inside the token — nested there, not as a
+top-level claim, which Jitsi ignores silently. `token_affiliation` is what turns
+that into actual ownership, and with `enable-auto-owner` off it is the *only*
+thing that does.
 
 Then restart all three:
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { isAdmin, adminConfigured } from "@/lib/admin/auth";
+import { currentStaff } from "@/lib/admin/session";
 import { stageData } from "@/lib/exam/toppers";
 import { offlinePublicationState } from "@/lib/exam/offline-results";
 import StageShow from "@/components/stage/StageShow";
@@ -34,13 +34,15 @@ export default async function StagePage({
 }) {
   const { rehearse } = await searchParams;
 
-  if (!adminConfigured() || !(await isAdmin())) {
+  const staff = await currentStaff();
+  if (staff?.role !== "admin") {
     return (
       <main className="stage-locked">
         <h1>The Publish Moment</h1>
         <p>
           This screen declares the SET 2026 written results. Sign in at <code>/admin</code> on
-          this same browser first, then come back.
+          this same browser first, with an <strong>admin</strong> account — a teacher account can
+          reach the control centre but may not publish — then come back.
         </p>
       </main>
     );

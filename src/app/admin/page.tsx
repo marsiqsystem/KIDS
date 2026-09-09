@@ -1,17 +1,105 @@
 import type { Metadata } from "next";
-import { isAdmin, adminConfigured } from "@/lib/admin/auth";
-import AdminLogin from "@/components/admin/AdminLogin";
-import AdminDashboard from "@/components/admin/AdminDashboard";
+import { adminConfigured } from "@/lib/admin/auth";
+import { currentStaff } from "@/lib/admin/session";
+import { hasAnyAdmin, listStaff, recentEvents } from "@/lib/admin/staff";
+import { batchMembers, batchTeachers, batchesForTeacher, listBatches } from "@/lib/admin/batches";
+import { overview, searchStudents } from "@/lib/admin/students";
+import Bootstrap from "@/components/admin/Bootstrap";
+import StaffSignIn from "@/components/admin/StaffSignIn";
+import FirstPassword from "@/components/admin/FirstPassword";
+import ControlCentre from "@/components/admin/ControlCentre";
 
 export const metadata: Metadata = {
-  title: "SET 2026 · Control room",
+  title: "KIDS · Control centre",
   robots: { index: false, follow: false },
 };
 
-// Never cache: the gate is per-request and the numbers are live.
+// Never cached: the gate is per-request and the page is the office's live view
+// of who exists. Note what is NOT here any more — the 12-second poll that used
+// to sit on this screen and once burned 110 Neon CU hours. A control centre is
+// a page somebody leaves open all day; it reloads when they ask it to.
 export const dynamic = "force-dynamic";
 
-export default async function AdminPage() {
-  if (!(await isAdmin())) return <AdminLogin configured={adminConfigured()} />;
-  return <AdminDashboard />;
+/**
+ * The KIDS control centre.
+ *
+ * This replaced the SET 2026 exam control room, whose job finished when the
+ * online paper did. The marks that screen watched are still in the database and
+ * still reach every student through their QR code — what has gone is a
+ * dashboard for an exam that is over, not the record of it.
+ *
+ * Four doors, in order:
+ *
+ *   1. No admin exists         → bootstrap with KIDS_ADMIN_KEY.
+ *   2. Nobody signed in        → the Staff ID sign-in.
+ *   3. Signed in, must_change  → replace the one-time password, nothing else.
+ *   4. Signed in               → the control centre, admin or teacher.
+ */
+export default async function AdminPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tab?: string; q?: string; batch?: string }>;
+}) {
+  const staff = await currentStaff();
+
+  if (!staff) {
+    if (!(await hasAnyAdmin())) return <Bootstrap configured={adminConfigured()} />;
+    return <StaffSignIn />;
+  }
+
+  // Nothing else on this screen is reachable until the issued password is gone.
+  if (staff.must_change) return <FirstPassword staff={staff} />;
+
+  const { tab = "overview", q = "", batch = "" } = await searchParams;
+  const isAdmin = staff.role === "admin";
+
+  /**
+   * A teacher sees their own batches and nothing else — no staff list, no
+   * register, no audit trail. Enforced here by not loading it, as well as in
+   * the actions by requireStaff("admin").
+   */
+  if (!isAdmin) {
+    const mine = await batchesForTeacher(staff.staff_id);
+    const open = mine.find((b) => b.id === batch) ?? null;
+    return (
+      <ControlCentre
+        staff={staff}
+        tab="batches"
+        query=""
+        batches={mine}
+        openBatch={
+          open
+            ? { batch: open, members: await batchMembers(open.id), teachers: await batchTeachers(open.id) }
+            : null
+        }
+        overview={null}
+        staffList={[]}
+        students={[]}
+        events={[]}
+      />
+    );
+  }
+
+  // Only what the chosen tab needs. Loading all five panels on every render is
+  // the same mistake the poll was, spread across a page instead of a timer.
+  const batches = tab === "batches" || tab === "overview" ? await listBatches(true) : [];
+  const open = batch ? (batches.find((b) => b.id === batch) ?? null) : null;
+
+  return (
+    <ControlCentre
+      staff={staff}
+      tab={tab}
+      query={q}
+      overview={tab === "overview" ? await overview() : null}
+      staffList={tab === "staff" || tab === "batches" ? await listStaff() : []}
+      batches={batches}
+      openBatch={
+        open
+          ? { batch: open, members: await batchMembers(open.id), teachers: await batchTeachers(open.id) }
+          : null
+      }
+      students={tab === "students" && q ? await searchStudents(q) : []}
+      events={tab === "audit" ? await recentEvents(150) : []}
+    />
+  );
 }

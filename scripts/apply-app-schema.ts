@@ -1,5 +1,5 @@
 /**
- * Create the student app's tables.
+ * Create the student app's tables, and the control centre's.
  *
  *   node scripts/apply-app-schema.ts            # create anything missing
  *   node scripts/apply-app-schema.ts --status   # what exists right now
@@ -24,6 +24,16 @@ if (!url) {
 
 const sql = neon(url);
 
+/**
+ * The schema files this script owns, applied in this order.
+ *
+ * The control centre's tables come second because admin_batches.created_by
+ * references admin_staff, and admin_batch_members.uid references students —
+ * which the exam schema provides and which is already there on any database
+ * that has ever held a result.
+ */
+const FILES = ["../src/lib/app/schema.sql", "../src/lib/admin/schema.sql"];
+
 /** The tables this file is responsible for, in dependency order. */
 const TABLES = [
   "app_accounts",
@@ -33,6 +43,11 @@ const TABLES = [
   "app_sets",
   "app_notice_reads",
   "app_devices",
+  "admin_staff",
+  "admin_batches",
+  "admin_batch_members",
+  "admin_batch_teachers",
+  "admin_events",
 ];
 
 /**
@@ -42,13 +57,15 @@ const TABLES = [
  * statement in half. Same reasoning as publish-results.ts.
  */
 async function apply() {
-  const ddl = readFileSync(new URL("../src/lib/app/schema.sql", import.meta.url), "utf8")
-    .replace(/--[^\n]*/g, "")
-    .split(";")
-    .map((s) => s.trim())
-    .filter(Boolean);
+  for (const file of FILES) {
+    const ddl = readFileSync(new URL(file, import.meta.url), "utf8")
+      .replace(/--[^\n]*/g, "")
+      .split(";")
+      .map((s) => s.trim())
+      .filter(Boolean);
 
-  for (const statement of ddl) await sql.query(statement);
+    for (const statement of ddl) await sql.query(statement);
+  }
 }
 
 async function status() {
@@ -71,6 +88,6 @@ const wantsStatus = process.argv.includes("--status");
 
 if (!wantsStatus) {
   await apply();
-  console.log("Applied src/lib/app/schema.sql.\n");
+  console.log(`Applied ${FILES.map((f) => f.replace("../", "")).join(" and ")}.\n`);
 }
 await status();

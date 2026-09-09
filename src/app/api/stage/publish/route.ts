@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { sql } from "@/lib/exam/db";
-import { isAdmin } from "@/lib/admin/auth";
+import { currentStaff } from "@/lib/admin/session";
 
 /**
  * The publish button, for real.
@@ -10,8 +10,10 @@ import { isAdmin } from "@/lib/admin/auth";
  * same refusals in front of it — a stage is a worse place than a terminal to
  * discover the table is empty.
  *
- * Admin cookie required. This endpoint publishes children's results to the
- * public internet; it cannot be reachable by anyone who wanders onto /stage.
+ * An admin staff session is required. This endpoint publishes children's
+ * results to the public internet; it cannot be reachable by anyone who wanders
+ * onto /stage. It used to accept the shared KIDS_ADMIN_KEY cookie — now it
+ * wants a named admin, so the publish lands in admin_events against a person.
  *
  * Idempotent: holding the button a second time re-stamps `offline_publish_at`
  * to now, which changes nothing that is already open. An operator who is not
@@ -21,7 +23,8 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST() {
-  if (!(await isAdmin())) {
+  const staff = await currentStaff();
+  if (staff?.role !== "admin") {
     return NextResponse.json({ ok: false, message: "Not signed in as admin." }, { status: 401 });
   }
 

@@ -256,47 +256,113 @@ own **"Authentication required"** box, they have reached the server without a
 token, which means they went to the Jitsi address directly instead of through
 the app.
 
-### ⚠️ Where the laptop stage ENDS — 11 Sep 2026
+### ⚠️ A black box tells you nothing — make the page speak — 11 Sep 2026
 
-**A self-signed certificate cannot be accepted for an iframe.** This is the
-ceiling of stage two, and it is worth knowing before you spend another evening
-below it.
+**This section replaced a wrong one.** It first said a self-signed certificate
+cannot be accepted for an iframe, and that this is why a phone could not join.
+That was a guess built on an absence of log entries, and the 10 Sep session
+disproves it: the frame loaded then, self-signed certificate and all, and Jitsi's
+own interface appeared. Written down because the wrong version cost real money.
 
-The class is an embed: the app's page loads, and the page's iframe loads Jitsi
-from `KIDS_JITSI_DOMAIN`. A browser will let you click through a certificate
-warning in a **top-level tab**, and Chromium cannot show that warning inside a
-**frame** — so the frame fails silently. On a phone: a black box, no error
-message, and **nothing in the prosody log at all**, because no request was ever
-made. Accepting the certificate in a separate tab first does not help; the
-exception does not reach the sub-frame.
+What actually stopped the phone was **`allowedDevOrigins` in `next.config.ts`
+holding the previous LAN address.** Next blocks cross-origin requests to dev-only
+assets, so every `/_next/*` chunk was refused, React never hydrated, and the
+server-rendered page still appeared. On a class screen that is a **black box with
+no error at all** — no script tag, no request, nothing in any server log, because
+no client code ever ran.
 
-How to tell this apart from anything else, in one command:
+**The rule: when an embed shows nothing, make it say what it is doing before
+theorising.** A `stage` string rendered inside the box — "starting" /
+"fetching …/external_api.js" / "opening the room" — settled in one reload what
+two hours of log reading had not. `starting` is in the server-rendered HTML, so
+seeing it *is* the proof that no JavaScript ran. `JitsiRoom` keeps that line.
+
+Three real faults were found on the paid box, none of which the laptop could have
+shown, and every one silent:
+
+**`enable-auto-owner` defaults to TRUE, and `jicofo.conf` has no `conference`
+block at all** to hint that it exists. Left alone, all 65 students get mute, kick
+and end-meeting over their own teacher. HOCON merges top-level objects, so
+appending a `jicofo { conference { enable-auto-owner = false } }` block is safer
+than editing theirs.
+
+**The token modules silently fail to load: `module 'inspect' not found`.**
+Prosody on Ubuntu 24.04 runs **Lua 5.4**; `lua-inspect` only ships files for
+5.1-5.3. So `authentication = "token"` reads perfectly in the config while
+nothing enforces it. Copy `/usr/share/lua/5.3/inspect.lua` to `5.4/`. ⚠️ **Always
+read the log after a restart** — a name in `modules_enabled` is not a loaded
+module.
+
+**Never preseed `jitsi-meet/jvb-hostname`.** It is the postinst's private memory
+of what it configured last time, not an input. Set it, and the package concludes
+it has already done this host and **never writes the nginx vhost** — Let's
+Encrypt then fails with a 404 on the ACME challenge and nothing serves the site.
+Preseed `jitsi-videobridge/jvb-hostname` only.
+
+Also: `prejoinPageEnabled` is **gone** from current Jitsi and ignored in silence
+— the option is `prejoinConfig: { enabled: false }`. And `external_api.js` sizes
+the iframe itself; on a phone it came out ~250px tall inside a full-height box,
+so Jitsi laid its whole interface out for a 250px viewport. Both fixed in
+`JitsiRoom`.
+
+### Rebuild it in one paste
+
+Everything above, in order, for a fresh Ubuntu 24.04 box. Set the three values,
+paste as root. ⚠️ Reuse the **same** `SECRET` that is already in `.env.local`, or
+the app and the server will disagree and every join fails with nothing on screen.
 
 ```bash
-docker logs --since 5m docker-jitsi-meet-prosody-1 | grep -i bosh
+HOST=live.kidskolkata.org
+EMAIL=<your address>
+SECRET=<the KIDS_JITSI_SECRET already in .env.local>
+
+export DEBIAN_FRONTEND=noninteractive
+hostnamectl set-hostname $HOST
+sed -i "1s|^|$(curl -s -4 ifconfig.me) $HOST|
+|" /etc/hosts
+
+# ports. 4443/tcp is not optional: a student whose network blocks outbound UDP
+# has no other way in, and it looks like a broken camera.
+ufw allow 22/tcp && ufw allow 80/tcp && ufw allow 443/tcp
+ufw allow 10000/udp && ufw allow 4443/tcp && ufw --force enable
+
+apt-get update -qq && apt-get -y -qq upgrade
+apt-get install -y -qq gnupg2 nginx-full curl lua-inspect
+curl -fsSL https://download.jitsi.org/jitsi-key.gpg.key   | gpg --dearmor -o /usr/share/keyrings/jitsi-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/"   > /etc/apt/sources.list.d/jitsi-stable.list
+apt-get update -qq
+
+# NOT jitsi-meet/jvb-hostname - see above.
+echo "jitsi-videobridge2 jitsi-videobridge/jvb-hostname string $HOST" | debconf-set-selections
+echo "jitsi-meet-web-config jitsi-meet/cert-choice select Generate a new self-signed certificate" | debconf-set-selections
+apt-get install -y -qq jitsi-meet jitsi-meet-tokens
+
+rm -f /etc/nginx/sites-enabled/default
+systemctl reload nginx
+/usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh $EMAIL $HOST
+
+# prosody runs Lua 5.4; lua-inspect ships only up to 5.3
+cp /usr/share/lua/5.3/inspect.lua /usr/share/lua/5.4/inspect.lua
+
+CFG=/etc/prosody/conf.d/$HOST.cfg.lua
+sed -i "s|^    app_id=\"\"|    app_id=\"kids\"|" $CFG
+sed -i "s|^    app_secret=\"\"|    app_secret=\"$SECRET\"
+    allow_empty_token = false|" $CFG
+sed -i '0,/"token_verification";/s//"token_verification";
+        "token_affiliation";/' $CFG
+grep -c muc_allowners $CFG   # must be 0
+
+cat >> /etc/jitsi/jicofo/jicofo.conf <<'EOF'
+jicofo { conference { enable-auto-owner = false } }
+EOF
+
+systemctl restart prosody jicofo jitsi-videobridge2
+sleep 6
+journalctl -u prosody --since '1 min ago' --no-pager | grep -i error   # must be EMPTY
 ```
 
-One BOSH session for the teacher and none for the student means the student's
-frame never loaded. It is **not** the token, the room, the moderator config or
-the batch — none of that code ran. Do not go looking there.
-
-In the Android APK it is worse: Android's WebView cancels SSL errors outright,
-with no "Advanced → Proceed" for the student to tap.
-
-**So a laptop with a self-signed certificate can prove tokens, refusal of a
-stranger, and the config — but it cannot put a phone in a room.** The moderator
-test needs two participants; if one of them has to be a handset, it needs a real
-certificate, which means this machine, from step 2 on. Two windows on the same
-laptop is the free alternative — but ⚠️ signing a student in on the laptop
-**rebinds their account to it and signs the phone out** (`src/lib/app/gate.ts`,
-one account one phone), so the phone needs one more sign-in afterwards.
-
-**Not a certificate problem, found the same evening:** on the phone the room's
-box had **collapsed to zero height** — a title, a white gap, no class and no
-error. `.cls-live` asked for `height: 100%` inside `.app-shell`, which carries
-`min-height: 100dvh` and not `height`, so the percentage resolved to auto. Fixed
-by growing with `flex: 1` instead. The lesson for anything embedded: a black box
-means the frame is there and empty, a **white** one means the frame has no size.
+Then from your own machine, not the box: `curl -I https://$HOST/external_api.js`
+must return 200 with no certificate override.
 
 ## 2. Point the name at it
 

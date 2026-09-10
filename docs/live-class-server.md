@@ -13,68 +13,94 @@ without a signed token, and only the app mints them.
 
 ---
 
-## What it costs — start at zero
+## What it costs — and how to know before you pay
 
-**Nothing here has to be paid for today.** The app side is provider-agnostic:
-the server is three environment variables, so moving from a free box to a paid
-one later is one DNS record and one env var, with no code change and no rework.
-Take the free path, and buy only when a real class shows us it is needed.
+**Oracle is out.** The Always Free tier was the plan and it was the right plan —
+10 TB of egress a month, free forever. Our signup was refused **twice**, in September
+2026, with Oracle's generic "an error occurred while creating your account",
+and support never replied. Do not spend another evening on it,
+and note that the **Oracle $300 trial is not a fallback** — it needs the same
+signup that keeps refusing.
 
-| item | cost |
-| --- | --- |
-| Oracle Cloud **Always Free** — 2 OCPU / 12 GB, Mumbai | **₹0** |
-| or a trial credit: Oracle $300/30d · DigitalOcean $200/60d · GCP $300/90d | **₹0 for most of the programme** |
-| or a paid VPS, 4 GB / 2 vCPU, Mumbai or Bangalore | ₹1,100–2,100 / month |
-| `live.kidskolkata.org` | **₹0** — a DNS record on a domain we already own |
-| TLS certificate | **₹0** — Let's Encrypt, the installer does it |
-| Recording | **₹0** — record locally, post unlisted to YouTube |
+**Nothing else is free either, and it is worth knowing exactly why.** The
+blocker is not CPU or memory, it is **egress** — the teacher's video has to be
+sent out once per student:
 
-Sizing is set by one number: the teacher's video at ~1.5 Mbps out to 65 students
-is **~100 Mbps sustained, ~65 GB per 90-minute class**, about 800 GB a month at
-three classes a week. Oracle's free tier allows 10 TB of egress a month, so the
-load fits inside it with room to spare. Students are **audio-only by default** —
-65 open cameras is not a class, and it costs roughly ten times the server.
+| free tier | egress per month | how far it gets us |
+| --- | --- | --- |
+| Google Cloud always-free | **1 GB** | about two minutes of one class |
+| AWS free tier (12 months) | **15 GB** | a quarter of one class |
+| Azure free | credit for 30 days | not a term |
+| Oracle always-free | 10 TB | would have been plenty — but refused |
+| Jitsi's own hosted **JaaS** | free to **25 monthly users**; we have 66 | next tier ≈ ₹8,700/mo |
+
+So this gets paid for. The good news is that it is small, and that **you can
+prove it works for about ₹60 before committing to a single month.**
+
+### The three machines worth considering
+
+All three carry far more bandwidth than the ~800 GB a month this needs, so
+choose on price, location and **whether they bill by the hour**:
+
+| | spec | price | India? | hourly? |
+| --- | --- | --- | --- | --- |
+| **Vultr** — Mumbai / Bangalore / Delhi | 4 GB / 2 vCPU | ~$20/mo (**≈₹2.4/hour**) | yes | **yes** |
+| **DigitalOcean** — Bangalore | 4 GB / 2 vCPU | ~$24/mo | yes | **yes** |
+| **Contabo** — Mumbai | 8 GB / 4 vCPU | ~$7/mo (**≈₹620**) + India location fee | yes | **no, monthly** |
+
+**Contabo is the cheapest to run. Vultr is the cheapest to be sure with.** Take
+Vultr for the proof because destroying the instance stops the meter the same
+minute; move the whole install to Contabo afterwards if you want the lower bill,
+which is an hour's work and no change to the app.
+
+⚠️ Powering an instance *off* does not stop the charge on any of these. Only
+**destroying** it does.
+
+### Prove it before you pay for a month
+
+Two stages, in this order. Do not skip to the second.
+
+**Stage one — your own laptop, ₹0, no account, no card.** Docker Jitsi runs
+locally:
+<https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/>
+
+That is enough to mint a token, join a room and settle the moderator question in
+step 6 — the trap most likely to bite us. It is *not* enough to teach on: a
+laptop behind a home router cannot serve 65 children. It answers "is the
+software right", not "will it hold".
+
+**Stage two — a real machine, for hours not months.** Take the Vultr box, work
+through steps 2-7 below, run the whole of step 8, then **destroy it**. A full
+day of this costs under ₹60. Only when step 8 passes end to end do you keep a
+machine running and start paying by the month.
 
 ### What free must NOT mean
 
 **Not `meet.jit.si`.** It is free, but it is 8x8's server with 8x8's auth, and it
 will not accept our tokens. That throws away exclusivity, moderator control and
-attendance — the entire reason we chose Jitsi over Meet. Managed **JaaS** fails
-the same test on price: the free tier is 25 monthly active users and we have 66,
-which lands us on the $99/mo tier, about ₹8,700 — four times a paid VPS.
+attendance — the entire reason we chose Jitsi over Meet.
 
 ---
 
 ## 1. Take the machine
 
-**First choice — Oracle Cloud Always Free.** <https://www.oracle.com/cloud/free/>
-Create the account (a card is required for identity, not billing), set the home
-region to **Mumbai**, and launch a VM with the **`VM.Standard.A1.Flex`** shape at
-**2 OCPU / 12 GB**, Ubuntu 24.04 (arm64 — Jitsi packages exist for it).
+**For the proof: Vultr, Mumbai.** <https://www.vultr.com/> — "Cloud Compute",
+regular performance, **4 GB / 2 vCPU**, **Ubuntu 24.04 LTS**, Mumbai. Add your
+SSH key when it asks, and write down the IP address.
 
-Two things to know. The A1 shape is often **"out of host capacity"**; if Mumbai
-refuses, try again later in the day rather than switching to a paid box. And
-Oracle **reclaims Always Free instances that sit idle**, which a three-classes-a-
-week machine could trip — a trivial cron that keeps it busy is enough to avoid it.
+**For the term, once it is proven: Contabo, Mumbai**, 8 GB / 4 vCPU. Same install
+from step 2 onwards, at roughly a third of the price. Contabo bills monthly with
+no hourly option, which is exactly why it is the second machine and not the
+first.
 
-**Second choice — a trial credit.** DigitalOcean (Bangalore), Vultr (Mumbai) or
-Akamai/Linode (Mumbai), 4 GB / 2 vCPU, Ubuntu 24.04 LTS. ⚠️ Trials auto-convert
-to paid — put the cancellation date in your diary the day you sign up.
+⚠️ Whatever you take, **put the cancellation date in your diary the day you sign
+up**, and destroy the proof machine the moment step 8 passes.
 
-**Only if both disappoint in a real class**, take the paid VPS at ₹1,100–2,100/mo
-and cancel it when the programme ends.
-
-Whichever you take: add your SSH key when it asks, and write down the IP address.
-
-### Before any of that — test it on your own laptop
-
-You do not need a server to prove the important thing works. Docker Jitsi runs
-locally, free, no account:
-<https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-docker/>
-
-That is enough to mint a token, join a room and run the step-8 moderator test.
-It is not enough to teach on — a laptop behind a home router cannot serve 65
-children — but it finds the trap in step 6 before any money is involved.
+Sizing is set by one number: the teacher's video at ~1.5 Mbps out to 65 students
+is **~100 Mbps sustained, ~65 GB per 90-minute class**, about 800 GB a month at
+three classes a week. Every option in the table above carries at least 3 TB.
+Students are **audio-only by default** — 65 open cameras is not a class, and it
+costs roughly ten times the server.
 
 ## 2. Point the name at it
 
@@ -178,10 +204,40 @@ Send me the `app_secret` and I will put it in `.env.local` and in Vercel as
 
 ## 8. The test that actually matters
 
-Once the app side is up we join the same room twice: once as you, once as a
-student account. The student must have **no mute, no kick and no "end meeting"**
-in their menu. If they do, step 6 did not take, and we find that now rather than
-in front of 65 children.
+**This is the list that decides whether you pay for a month.** Every line has to
+pass. Any one of them failing means the server config is wrong, not the code —
+the app side is already verified against the database.
+
+Work down it in order; the cheap ones first, so a failure costs minutes.
+
+1. **The room refuses a stranger.** Open `https://live.kidskolkata.org/<room>`
+   directly in a browser, with no token. It must refuse. If any room opens, the
+   whole reason we chose Jitsi over Meet is gone.
+2. **The room refuses a student before the teacher opens it.** No token is
+   minted until "Open the room" is pressed, so joining early must fail.
+3. **Two accounts in one room** — you as A-0001, and a student account. Both see
+   and hear each other.
+4. ⚠️ **The student has no mute-others, no kick, and no "end meeting"** in their
+   menu. This is the one that has already been designed around twice; if it
+   fails, step 6 did not take.
+5. **Audio and video actually flow** — not just "connected". If the picture is
+   frozen or silent, **UDP 10000 is closed** somewhere. Check both the provider's
+   firewall *and* the machine's own `ufw`/`iptables`; the Ubuntu images block
+   everything but 22 by default.
+6. **On a real phone, on mobile data** — a ₹8,000 Android handset on 4G, not
+   your laptop on wifi. That is what a student has, and it is the only test that
+   represents them.
+7. **It holds 65.** The only honest way to know is to load it. Jitsi's own tool
+   does exactly this without needing 65 children:
+   <https://github.com/jitsi/jitsi-meet-torture> ("malleus" runs many fake
+   participants against a room). Watch CPU on the videobridge while it runs. If
+   4 GB / 2 vCPU strains, this is the moment to find out — before the term, not
+   during it.
+8. **A rehearsal with real people.** Five or six students from the batch, for
+   twenty minutes, on their own phones. Nothing simulated finds what this finds.
+
+Only after 1-8 pass do you keep a machine running and start paying monthly.
+Destroy the proof machine as soon as they do.
 
 ---
 

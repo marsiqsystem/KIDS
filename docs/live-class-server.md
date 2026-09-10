@@ -213,6 +213,48 @@ real handset, 65 simulated, a rehearsal — need the hourly machine.
 
 **When you are done:** `docker compose down`. Add `-v` to delete its data too.
 
+### What actually went wrong on the laptop — 10 Sep 2026
+
+Every one of these cost time. They are here so they cost it once.
+
+**`gen-passwords.sh` will not run on Windows.** Git rewrites its line endings on
+clone and bash dies on the ``. Skip it — the script only fills in six
+`*_PASSWORD=` lines, and PowerShell does the same job with
+`[System.Security.Cryptography.RandomNumberGenerator]`.
+
+**`CONFIG` ends up defined twice.** `env.example` ships it uncommented as
+`~/.jitsi-meet-cfg`; adding your own line leaves both. The last wins, but do not
+leave it ambiguous — delete the first.
+
+**Pin the image.** Cloning master and running `docker compose up` pulls
+`unstable`. Set `JITSI_IMAGE_VERSION` to a release tag, or every problem you hit
+could be their bug rather than your config.
+
+**The generated config is NOT under `/config`.** It is written to
+`/run/prosody/config/conf.d/jitsi-meet.cfg.lua` and `/run/jicofo/config/jicofo.conf`.
+Read those to check your settings actually took.
+
+**⚠️ `PUBLIC_URL` unset is the one that will waste your evening.** With it blank,
+the server tells every client to connect back to `https://localhost:8443`. On the
+machine running Docker that works perfectly. On a phone, "localhost" is the
+phone, so the room loads its whole interface and then says **"You have been
+disconnected"** — a failure that looks like a network fault and is not. Set
+`PUBLIC_URL` to the address clients actually use.
+
+**`ENABLE_XMPP_WEBSOCKET=0` is a laptop-only crutch.** A self-signed certificate
+accepted for `https://` is not always honoured for `wss://`, so turning
+WebSockets off and falling back to BOSH removes a variable while testing. **Do
+not carry it to production** — with a real Let's Encrypt certificate, leave
+WebSockets on.
+
+**Two things that look like failures and are not.** Jitsi's pre-join screen
+("Join meeting", camera preview, "your devices are working properly") is served
+to anyone and means nothing about authentication — the check happens when you
+press Join. And students never log in to Jitsi at all: if anyone sees Jitsi's
+own **"Authentication required"** box, they have reached the server without a
+token, which means they went to the Jitsi address directly instead of through
+the app.
+
 ## 2. Point the name at it
 
 In the DNS for `kidskolkata.org`, add one record:

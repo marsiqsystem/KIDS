@@ -44,19 +44,33 @@ export default function JitsiRoom({
 }) {
   const box = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
+  /**
+   * What the embed is doing, said out loud.
+   *
+   * A black box is the worst possible failure: it looks identical whether
+   * the script was blocked, the effect never ran, or the room is simply
+   * slow. On 11 Sep it cost an evening on a phone that turned out never to
+   * have made a single request. A child waiting for a class deserves to be
+   * told which of those it is, and so does whoever they tell.
+   */
+  const [stage, setStage] = useState("starting");
 
   useEffect(() => {
     let api: JitsiApi | null = null;
     let cancelled = false;
 
     async function start() {
+      setStage(`fetching https://${domain}/external_api.js`);
       try {
         await loadScript(`https://${domain}/external_api.js`);
       } catch {
         if (!cancelled) setFailed(true);
         return;
       }
-      if (cancelled || !box.current || !window.JitsiMeetExternalAPI) return;
+      if (cancelled) return;
+      if (!box.current) return setStage("loaded, but the box was gone");
+      if (!window.JitsiMeetExternalAPI) return setStage("loaded, but no JitsiMeetExternalAPI");
+      setStage("opening the room");
 
       api = new window.JitsiMeetExternalAPI(domain, {
         roomName: room,
@@ -74,7 +88,18 @@ export default function JitsiRoom({
            */
           startWithAudioMuted: !moderator,
           startWithVideoMuted: !moderator,
-          prejoinPageEnabled: false,
+          /**
+           * No pre-join screen: tapping the class in the app IS the intent to
+           * join, and a second "Join meeting" button in front of a
+           * fourteen-year-old is a step to get stuck on.
+           *
+           * ⚠️ The option is `prejoinConfig.enabled`. The old flat
+           * `prejoinPageEnabled` is gone from current Jitsi and is ignored in
+           * silence — the same failure shape as a top-level `moderator` claim.
+           * Checked against /etc/jitsi/meet/<host>-config.js on the server
+           * (Jitsi 2.0.11146), not from memory.
+           */
+          prejoinConfig: { enabled: false },
           /**
            * Without this, a phone browser — and the Capacitor WebView the
            * students actually use — tries to hand the class to the Jitsi Meet
@@ -99,6 +124,8 @@ export default function JitsiRoom({
             : ["microphone", "camera", "chat", "raisehand", "tileview", "hangup"],
         },
       });
+
+      setStage("");
 
       if (onLeave) {
         api.addListener("readyToClose", () => {
@@ -130,7 +157,23 @@ export default function JitsiRoom({
     );
   }
 
-  return <div ref={box} className="h-full w-full" />;
+  return (
+    /* The iframe is created by external_api.js, which sizes it itself. On a
+       phone it came out ~250px tall inside a full-height box, so Jitsi laid
+       its entire interface out for a 250px viewport - toolbar tucked under
+       the titlebar, our black background showing through beneath. Pinned
+       here rather than in either surface's stylesheet: the teacher console
+       styles this box with Tailwind and has no CSS file of its own, so a
+       rule in the student's would fix one screen and not the other. */
+    <div className="relative h-full w-full [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:!h-full [&>iframe]:!w-full [&>iframe]:border-0">
+      <div ref={box} className="h-full w-full" />
+      {stage ? (
+        <p className="pointer-events-none absolute inset-x-0 top-1/2 px-4 text-center text-xs text-white/70">
+          {stage}
+        </p>
+      ) : null}
+    </div>
+  );
 }
 
 /** Load a script once, and resolve on the copy already loading if there is one. */

@@ -10,7 +10,17 @@
 .cls-live {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* Grow into the shell body rather than ask for `height: 100%`.
+   *
+   * `.app-shell` carries `min-height: 100dvh`, not `height`, so its height is
+   * indefinite and a percentage height here resolves to auto — the column
+   * shrinks to its text, the room's box collapses to nothing, and the phone
+   * shows a title, a white gap and no class. Nothing says so on screen.
+   *
+   * `flex: 1` is resolved against the body's *used* height, which flex has
+   * already worked out, so it does not need the parent to have declared one.
+   * Still no viewport units: the address bar moving must not resize a class. */
+  flex: 1 1 auto;
   min-height: 0;
 }
 

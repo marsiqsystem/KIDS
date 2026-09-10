@@ -161,7 +161,8 @@ create table if not exists admin_events (
                                       -- | locked | batch_created | batch_archived
                                       -- | member_added | member_removed
                                       -- | teacher_assigned | teacher_unassigned
-  target_kind text,                   -- staff | batch | student
+                                      -- | post_written | post_retracted
+  target_kind text,                   -- staff | batch | student | post
   target_id   text,
   detail      jsonb
 );
@@ -246,3 +247,49 @@ create unique index if not exists admin_class_attendance_student_idx
 
 create unique index if not exists admin_class_attendance_staff_idx
   on admin_class_attendance (class_id, staff_id) where staff_id is not null;
+
+
+-- ----------------------------------------------------------------- posts ---
+--
+-- Something the office wants to say, that is not derivable from a child's own
+-- record.
+--
+-- Everything else in the student's notice list is COMPUTED — results published,
+-- a paper opening, today's set waiting (see src/lib/app/notices.ts). A post is
+-- the one kind that cannot be: "no class on Thursday, Eid" is not a fact about
+-- anybody's marks, so somebody has to type it.
+--
+-- What has NOT changed is the fan-out. One row is written here, and every
+-- student who should see it computes that when they look, exactly as the other
+-- four kinds do. There is no per-student copy, so there is no job to write, no
+-- job to retry, and nothing to repair when a child joins a batch tomorrow — a
+-- post written last week is simply there for them the moment they are added,
+-- and gone the moment they are removed. A table of 9,714 rows per announcement
+-- would have had to answer all three of those questions.
+--
+-- A post is never edited. Retract it and write another: the notice's key is
+-- `post:<id>`, and a student who has read one has read the words that were
+-- there. Editing the body under a read mark would tell somebody they had been
+-- told something they were never shown.
+create table if not exists admin_posts (
+  id           bigserial   primary key,
+  title        text        not null,
+  body         text        not null,
+  -- 'all' reaches every claimed account. 'batch' reaches whoever is in that
+  -- batch AT THE MOMENT THEY LOOK, which is why batch_id is a reference and not
+  -- a captured list of UIDs.
+  audience     text        not null check (audience in ('all', 'batch')),
+  batch_id     bigint      references admin_batches (id),
+  posted_at    timestamptz not null default now(),
+  posted_by    text        not null references admin_staff (staff_id),
+  -- Taken down, never deleted: "what did the office tell them in October" is a
+  -- question with the same shape as "who was in the morning batch", and the
+  -- audit row alone does not carry the words.
+  retracted_at timestamptz,
+  retracted_by text        references admin_staff (staff_id),
+  constraint admin_posts_audience_batch
+    check ((audience = 'batch') = (batch_id is not null))
+);
+
+create index if not exists admin_posts_live_idx
+  on admin_posts (posted_at desc) where retracted_at is null;

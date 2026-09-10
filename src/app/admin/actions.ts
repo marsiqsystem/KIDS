@@ -29,6 +29,7 @@ import {
   startClass,
   teachesBatch,
 } from "@/lib/admin/classes";
+import { createPost, findPost, retractPost } from "@/lib/admin/posts";
 import {
   createStaffSession,
   destroyStaffSession,
@@ -319,12 +320,14 @@ export async function unassignFromBatch(_prev: State, formData: FormData): Promi
 /* --------------------------------------------------------- live classes --- */
 
 /**
- * Who may touch a class: the office, or a teacher who takes that batch.
+ * Who may act on one batch: the office, or a teacher who takes it.
  *
  * Not requireStaff("admin"), because a teacher must be able to open their own
- * room at six in the evening without ringing the office first.
+ * room at six in the evening — or tell that batch the room has moved — without
+ * ringing the office first. It says nothing about anybody ELSE's batch, and
+ * nothing at all about writing to the whole register, which stays admin-only.
  */
-async function requireClassRights(batchId: string) {
+async function requireBatchRights(batchId: string) {
   const staff = await requireStaff();
   if (staff.role === "admin") return staff;
   if (await teachesBatch(staff.staff_id, batchId)) return staff;
@@ -359,7 +362,7 @@ export async function newClass(_prev: State, formData: FormData): Promise<State>
   const batchId = String(formData.get("batchId") ?? "");
   if (!batchId) return { message: "Choose a batch.", field: "batchId" };
 
-  const by = await requireClassRights(batchId);
+  const by = await requireBatchRights(batchId);
 
   const title = String(formData.get("title") ?? "").trim();
   if (!title) return { message: "Give the class a name.", field: "title" };
@@ -399,7 +402,7 @@ export async function openClass(_prev: State, formData: FormData): Promise<State
   const live = await findClass(classId);
   if (!live) return { message: "No such class." };
 
-  const by = await requireClassRights(live.batch_id);
+  const by = await requireBatchRights(live.batch_id);
   await startClass(classId, by.staff_id);
 
   refresh();
@@ -411,7 +414,7 @@ export async function closeClass(_prev: State, formData: FormData): Promise<Stat
   const live = await findClass(classId);
   if (!live) return { message: "No such class." };
 
-  const by = await requireClassRights(live.batch_id);
+  const by = await requireBatchRights(live.batch_id);
   await endClass(classId, by.staff_id);
 
   refresh();
@@ -423,7 +426,7 @@ export async function callOffClass(_prev: State, formData: FormData): Promise<St
   const live = await findClass(classId);
   if (!live) return { message: "No such class." };
 
-  const by = await requireClassRights(live.batch_id);
+  const by = await requireBatchRights(live.batch_id);
   await cancelClass(classId, by.staff_id);
 
   refresh();
@@ -436,7 +439,7 @@ export async function saveRecording(_prev: State, formData: FormData): Promise<S
   const live = await findClass(classId);
   if (!live) return { message: "No such class." };
 
-  const by = await requireClassRights(live.batch_id);
+  const by = await requireBatchRights(live.batch_id);
   const url = String(formData.get("url") ?? "").trim();
 
   if (url && !/^https?:\/\//i.test(url)) {
@@ -446,4 +449,62 @@ export async function saveRecording(_prev: State, formData: FormData): Promise<S
   await setRecording(classId, url, by.staff_id);
   refresh();
   return done(url ? "Recording link saved." : "Recording link removed.");
+}
+
+
+/* ------------------------------------------------------------------ posts --- */
+
+/**
+ * Write a post.
+ *
+ * Two audiences and a rule about who may reach them: an admin may write to
+ * everybody, a teacher only to a batch they actually take. That is not a
+ * courtesy — "everybody" is 9,714 children on the register, and a teacher who
+ * takes one coaching batch has no business addressing all of them.
+ *
+ * The words are not sent anywhere. One row is written, and every student who
+ * should see it works that out when they next open Notices.
+ */
+export async function writePost(_prev: State, formData: FormData): Promise<State> {
+  const batchId = String(formData.get("batchId") ?? "").trim();
+
+  const by = batchId ? await requireBatchRights(batchId) : await requireStaff("admin");
+
+  const title = String(formData.get("title") ?? "").trim();
+  if (!title) return { message: "Give the post a heading.", field: "title" };
+  if (title.length > 120) return { message: "Keep the heading under 120 characters.", field: "title" };
+
+  const body = String(formData.get("body") ?? "").trim();
+  if (!body) return { message: "There is nothing to say in it yet.", field: "body" };
+  if (body.length > 1200) return { message: "Keep a post under 1,200 characters.", field: "body" };
+
+  await createPost({ title, body, batchId: batchId || null, by: by.staff_id });
+
+  refresh();
+  return done(
+    batchId
+      ? "Posted. Everybody in that batch will see it in Notices."
+      : "Posted to everybody with an app account.",
+  );
+}
+
+/**
+ * Take a post down.
+ *
+ * It leaves every screen at once, including the students who have already read
+ * it. A wrong date corrected is no use while the wrong one is still showing.
+ */
+export async function takePostDown(_prev: State, formData: FormData): Promise<State> {
+  const id = String(formData.get("postId") ?? "");
+  const post = await findPost(id);
+  if (!post) return { message: "No such post." };
+  if (post.retracted_at) return { message: "That post is already down." };
+
+  const by = post.batch_id
+    ? await requireBatchRights(post.batch_id)
+    : await requireStaff("admin");
+
+  await retractPost(id, by.staff_id);
+  refresh();
+  return done("Taken down. Nobody will see it again.");
 }

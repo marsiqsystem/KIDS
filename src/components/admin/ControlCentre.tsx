@@ -5,9 +5,11 @@ import type { Staff, StaffListRow, AuditRow } from "@/lib/admin/staff";
 import type { Batch, MemberRow, BatchTeacher } from "@/lib/admin/batches";
 import type { Overview, StudentRow } from "@/lib/admin/students";
 import type { LiveClass } from "@/lib/admin/classes";
+import type { Post } from "@/lib/admin/posts";
 import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
 import ClassesPanel from "./ClassesPanel";
+import PostsPanel from "./PostsPanel";
 
 export interface OpenBatch {
   batch: Batch;
@@ -38,6 +40,7 @@ export default async function ControlCentre({
   students,
   events,
   classes,
+  posts,
   liveReady,
 }: {
   staff: Staff;
@@ -50,6 +53,7 @@ export default async function ControlCentre({
   students: StudentRow[];
   events: AuditRow[];
   classes: LiveClass[];
+  posts: Post[];
   liveReady: boolean;
 }) {
   const isAdmin = staff.role === "admin";
@@ -60,12 +64,14 @@ export default async function ControlCentre({
         ["staff", "Teachers & admins"],
         ["batches", "Batches"],
         ["classes", "Classes"],
+        ["posts", "Posts"],
         ["students", "Students"],
         ["audit", "Activity"],
       ]
     : [
         ["batches", "My batches"],
         ["classes", "Classes"],
+        ["posts", "Posts"],
       ];
 
   return (
@@ -119,6 +125,9 @@ export default async function ControlCentre({
         ) : null}
         {tab === "classes" ? (
           <ClassesPanel classes={classes} batches={batches} configured={liveReady} />
+        ) : null}
+        {tab === "posts" ? (
+          <PostsPanel posts={posts} batches={batches} canPostToAll={isAdmin} />
         ) : null}
         {tab === "students" ? <StudentsPanel students={students} query={query} /> : null}
         {tab === "audit" ? <AuditPanel events={events} /> : null}

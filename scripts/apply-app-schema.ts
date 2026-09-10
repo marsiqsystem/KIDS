@@ -50,6 +50,7 @@ const TABLES = [
   "admin_events",
   "admin_classes",
   "admin_class_attendance",
+  "admin_posts",
 ];
 
 /**

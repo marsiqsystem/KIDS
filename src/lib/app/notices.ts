@@ -3,19 +3,22 @@ import { publicationState } from "@/lib/exam/results";
 import { offlinePublicationState } from "@/lib/exam/offline-results";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
 import { existingSet } from "@/lib/app/loop";
+import { postsFor } from "@/lib/admin/posts";
 
 /**
  * Notices from KIDS — design 7b.
  *
- * Four things will ever appear here: results published, a paper opening soon, a
- * paper open now, and today's set waiting. Never another student's marks, never
- * a rank, and never a message for missing a day.
+ * Five things will ever appear here: results published, a paper opening soon, a
+ * paper open now, today's set waiting, and a post from the office. Never
+ * another student's marks, never a rank, and never a message for missing a day.
  *
- * Nothing is queued and nothing is sent. A notice is not a row somebody writes
- * — it is a fact about this student's own record, computed when they look. That
- * is deliberate: a fan-out table of 9,714 rows per announcement would need a
- * job to write it, a job to retry it, and a way to repair it when a school is
- * withheld after the fact. The gates that decide whether a result may be seen
+ * Nothing is queued and nothing is sent. Four of the five are not rows at all —
+ * they are facts about this student's own record, computed when they look. The
+ * fifth, a post, is one row for the whole institute or one batch, and WHO can
+ * see it is still computed at the moment they look. That is deliberate: a
+ * fan-out table of 9,714 rows per announcement would need a job to write it, a
+ * job to retry it, and a way to repair it when a school is withheld after the
+ * fact. The gates that decide whether a result may be seen
  * (`offlinePublicationState`, which honours the withhold list per school) are
  * the same ones the record screen asks, so a notice can never appear for a
  * result the student is not allowed to open.
@@ -25,7 +28,7 @@ import { existingSet } from "@/lib/app/loop";
  * new event (tomorrow's set, a second paper) is never mistaken for a read one.
  */
 
-export type NoticeKind = "results" | "paper-soon" | "paper-open" | "daily";
+export type NoticeKind = "results" | "paper-soon" | "paper-open" | "daily" | "post";
 
 export interface Notice {
   /** Stable across requests and deploys; carries the event's identity. */
@@ -107,12 +110,14 @@ export async function markNoticesRead(uid: string, keys: string[]): Promise<void
 
 /** Every notice for this student, newest first. */
 export async function noticesFor(student: Student, now: Date = new Date()): Promise<Notice[]> {
-  const [online, offline, read, set] = await Promise.all([
+  const [online, offline, read, set, posts] = await Promise.all([
     publicationState(),
     offlinePublicationState(student),
     readKeys(student.uid),
     // Read-only on purpose: a bell must not be what decides today's five.
     existingSet(student.uid),
+    // Never throws the screen away for the sake of an announcement.
+    postsFor(student.uid).catch(() => []),
   ]);
 
   const out: Notice[] = [];
@@ -205,6 +210,28 @@ export async function noticesFor(student: Student, now: Date = new Date()): Prom
       at: set.builtAt,
       when: agoInDays(set.builtAt, now),
       action: { label: set.answered > 0 ? "Carry on" : "Start", href: "/app/set" },
+      read: false,
+    });
+  }
+
+  // ------------------------------------------------------ from the office --
+  //
+  // The one kind somebody types. `postsFor` has already decided this student
+  // may see it — audience 'all', or a batch they are in at this moment — so
+  // nothing here filters again; it only turns rows into the same shape as the
+  // other four.
+  //
+  // The key is the row id, and a post is never edited. Retracting one takes it
+  // off every screen, read or not: a corrected date is no use while the wrong
+  // one is still showing.
+  for (const p of posts) {
+    out.push({
+      key: `post:${p.id}`,
+      kind: "post",
+      title: p.title,
+      body: p.body,
+      at: p.posted_at,
+      when: agoInDays(p.posted_at, now),
       read: false,
     });
   }

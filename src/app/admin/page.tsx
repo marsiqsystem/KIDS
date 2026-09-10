@@ -5,6 +5,7 @@ import { hasAnyAdmin, listStaff, recentEvents } from "@/lib/admin/staff";
 import { batchMembers, batchTeachers, batchesForTeacher, listBatches } from "@/lib/admin/batches";
 import { overview, searchStudents } from "@/lib/admin/students";
 import { recentClasses } from "@/lib/admin/classes";
+import { listPosts } from "@/lib/admin/posts";
 import { liveConfigured } from "@/lib/live/jitsi";
 import Bootstrap from "@/components/admin/Bootstrap";
 import StaffSignIn from "@/components/admin/StaffSignIn";
@@ -66,7 +67,7 @@ export default async function AdminPage({
     return (
       <ControlCentre
         staff={staff}
-        tab={tab === "classes" ? "classes" : "batches"}
+        tab={tab === "classes" || tab === "posts" ? tab : "batches"}
         query=""
         batches={mine}
         openBatch={
@@ -79,6 +80,7 @@ export default async function AdminPage({
         students={[]}
         events={[]}
         classes={tab === "classes" ? await recentClasses(staff.staff_id) : []}
+        posts={tab === "posts" ? await listPosts(staff.staff_id) : []}
         liveReady={liveConfigured()}
       />
     );
@@ -86,7 +88,10 @@ export default async function AdminPage({
 
   // Only what the chosen tab needs. Loading all five panels on every render is
   // the same mistake the poll was, spread across a page instead of a timer.
-  const batches = tab === "batches" || tab === "overview" ? await listBatches(true) : [];
+  const batches =
+    tab === "batches" || tab === "overview" || tab === "classes" || tab === "posts"
+      ? await listBatches(true)
+      : [];
   const open = batch ? (batches.find((b) => b.id === batch) ?? null) : null;
 
   return (
@@ -105,6 +110,7 @@ export default async function AdminPage({
       students={tab === "students" && q ? await searchStudents(q) : []}
       events={tab === "audit" ? await recentEvents(150) : []}
       classes={tab === "classes" ? await recentClasses() : []}
+      posts={tab === "posts" ? await listPosts() : []}
       liveReady={liveConfigured()}
     />
   );

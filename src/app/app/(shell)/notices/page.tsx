@@ -7,9 +7,9 @@ import "../../notices.css";
 /**
  * Notices from KIDS — design 7b.
  *
- * Four things will ever appear here: results published, a paper opening soon, a
- * paper open now, and today's set waiting. Never another student's marks, never
- * a rank, and never a message for missing a day.
+ * Five things will ever appear here: results published, a paper opening soon, a
+ * paper open now, today's set waiting, and a post from KIDS. Never another
+ * student's marks, never a rank, and never a message for missing a day.
  *
  * A read notice loses its dot and its tint but is NOT hidden. A student who
  * half-remembers being told something must be able to find it a week later, and
@@ -74,8 +74,9 @@ export default async function NoticesPage() {
           <Bell />
           <h2>Nothing from KIDS just now</h2>
           <p>
-            Results and exam papers are announced here. Most weeks there is nothing, and that is
-            normal — your daily set does not need a notice to be waiting for you.
+            Results, exam papers and anything KIDS wants to tell your class are announced here.
+            Most weeks there is nothing, and that is normal — your daily set does not need a
+            notice to be waiting for you.
           </p>
         </div>
       ) : (
@@ -111,8 +112,8 @@ export default async function NoticesPage() {
       )}
 
       <p className="not-foot">
-        Only four things ever appear here: your results, a paper opening, a paper open now, and your
-        daily set. KIDS does not send SMS — messages cost money the institute would rather spend on
+        Only five things ever appear here: your results, a paper opening, a paper open now, your
+        daily set, and a post from KIDS or your teacher. KIDS does not send SMS — messages cost money the institute would rather spend on
         the exam.
       </p>
     </>

@@ -1,4 +1,5 @@
 import type { CapacitorConfig } from "@capacitor/cli";
+import { APP_BUILD } from "./src/lib/app/app-build";
 
 /**
  * The Android app.
@@ -79,10 +80,19 @@ const config: CapacitorConfig = {
   android: {
     /**
      * The WebView identifies itself so the server can tell the app from the
-     * website. describeDevice() in src/lib/app/devices.ts reads this to label a
-     * device "The KIDS app" on the Profile screen.
+     * website. Two things read it: describeDevice() in src/lib/app/devices.ts,
+     * which labels a device "The KIDS app" on the Profile screen, and
+     * appVersion() in src/lib/app/app-version.ts, which compares the build
+     * number against what the server expects.
+     *
+     * The number comes from src/lib/app/app-build.ts rather than being typed
+     * here, because the server reads that same file. A version check with its
+     * two halves typed separately lies the first time somebody edits one.
+     *
+     * Build 1 shipped as "KIDS-App/1.0" before this existed; appBuildFrom()
+     * reads that as 1, so the phones already in the field are told correctly.
      */
-    appendUserAgent: "KIDS-App/1.0",
+    appendUserAgent: `KIDS-App/${APP_BUILD}`,
     // A student on a ₹8,000 handset is the case that matters; hardware
     // acceleration off would show immediately in the daily loop's transitions.
     webContentsDebuggingEnabled: false,

@@ -1,5 +1,8 @@
+import { headers } from "next/headers";
 import TabBar from "@/components/app/TabBar";
+import UpdateNotice from "@/components/app/UpdateNotice";
 import { requireStudent } from "@/lib/app/gate";
+import { appVersion, apkUrl } from "@/lib/app/app-version";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
 
 /**
@@ -9,6 +12,10 @@ import { windowFor, phaseOf } from "@/lib/exam/schedule";
  * middleware). The docs are explicit that a proxy is for optimistic checks and
  * not for session management or authorization, and a layout that already has to
  * run on every request is the cheapest honest place to do the real check.
+ *
+ * The update card lives here for the same reason: this is the one component on
+ * the student's side of the door that renders on every tab, and reading one
+ * request header costs nothing next to the gate that already ran.
  */
 export const dynamic = "force-dynamic";
 
@@ -20,10 +27,18 @@ export default async function ShellLayout({ children }: { children: React.ReactN
   const window = windowFor(student);
   const examLive = window ? phaseOf(window) === "scanning" || phaseOf(window) === "live" : false;
 
+  // Only ever true inside the Android app. A browser is never told to update.
+  const version = appVersion((await headers()).get("user-agent"));
+
   return (
     <div className="app-frame">
       <div className="app-shell">
-        <div className="app-shell__body">{children}</div>
+        <div className="app-shell__body">
+          {version.stale ? (
+            <UpdateNotice expected={version.expected} note={version.note} href={apkUrl()} />
+          ) : null}
+          {children}
+        </div>
         <TabBar examLive={examLive} />
       </div>
     </div>

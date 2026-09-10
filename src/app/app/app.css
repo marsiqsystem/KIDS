@@ -695,3 +695,68 @@
 .app-dob .app-input--year {
   flex: 1.8;
 }
+
+/* ------------------------------------------------------- update available ---
+ *
+ * A sideloaded app never updates itself, so this card is the only way a student
+ * finds out a newer one exists. It sits above the tab content on every screen
+ * until it is dismissed, and dismissal lasts until a NEWER build appears — an
+ * app that cannot update itself has not earned the right to nag.
+ *
+ * Gold rather than red. This is worth doing, not something they have done wrong.
+ */
+.app-update {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--gold-edge);
+  border-radius: var(--radius-md);
+  background: var(--gold-wash);
+  color: var(--gold-ink);
+}
+
+.app-update__text {
+  flex: 1 1 190px;
+  min-width: 0;
+}
+
+.app-update__text strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.app-update__text p {
+  margin: 3px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.app-update__acts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+/* The button is content-width here, not the full-width one the forms use. */
+.app-update .app-btn {
+  width: auto;
+  padding: 0 18px;
+  background: var(--gold-ink);
+}
+
+.app-update__later {
+  border: none;
+  background: none;
+  padding: 6px 2px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--gold-ink);
+  opacity: 0.75;
+  cursor: pointer;
+}

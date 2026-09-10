@@ -22,6 +22,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, copyFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { APP_BUILD } from "../src/lib/app/app-build.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
@@ -113,10 +114,10 @@ const task = release ? "assembleRelease" : "assembleDebug";
 const gradlew = join(root, "android", process.platform === "win32" ? "gradlew.bat" : "gradlew");
 run(`"${gradlew}"`, [task, "--no-daemon"], join(root, "android"));
 
-// Copy the APK out of Gradle's tree under a name that says what it points at.
-// An APK on a phone cannot be asked which server it was built for, and two
-// identically named files in a downloads folder is how the wrong one gets sent
-// to a student.
+// Copy the APK out of Gradle's tree under a name that says what it points at
+// AND which build it is. An APK on a phone cannot be asked either question, and
+// two identically named files in a downloads folder is how the wrong one gets
+// sent to a student — which has already cost an evening.
 const built = release
   ? join(root, "android/app/build/outputs/apk/release/app-release-unsigned.apk")
   : join(root, "android/app/build/outputs/apk/debug/app-debug.apk");
@@ -124,7 +125,12 @@ const built = release
 const label = target.replace(/^https?:\/\//, "").replace(/[^a-z0-9]+/gi, "-");
 const out = join(root, "native", "dist");
 mkdirSync(out, { recursive: true });
-const final = join(out, `kids-set-${label}${release ? "-release" : "-debug"}.apk`);
+const final = join(out, `kids-set-b${APP_BUILD}-${label}${release ? "-release" : "-debug"}.apk`);
 copyFileSync(built, final);
 
 console.log(`\nAPK  ${final}`);
+console.log(`     build ${APP_BUILD}, pointing at ${target}`);
+console.log("     Students on an older build see an update card in the app.");
+console.log("     If a build carries something the SERVER needs the phone to have,");
+console.log("     bump APP_BUILD in src/lib/app/app-build.ts BEFORE building:");
+console.log("     the number is baked into the user-agent at sync time.");

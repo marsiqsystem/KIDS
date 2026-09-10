@@ -46,7 +46,13 @@ export default async function HomePage() {
   // the bell counts a set that exists rather than causing one to.
   const unread = await unreadCount(student);
 
-  // Nothing chosen yet: the only honest thing on this screen is the chooser.
+  // Nothing chosen yet: the chooser is the main thing on this screen — but not
+  // the ONLY thing. A class the student is expected at outranks picking
+  // practice subjects, and every child starts here: on the first morning of a
+  // coaching programme nobody has chosen anything yet, so a card rendered only
+  // in the branch below would be invisible to the whole batch on the one day it
+  // matters most. NextClass renders nothing when there is no class, so it costs
+  // this screen nothing the rest of the time.
   if (state.needsSubjects) {
     return (
       <>
@@ -54,6 +60,9 @@ export default async function HomePage() {
           <h1 className="app-h1">Hello, {firstName(student.name)}</h1>
           <NoticeBell unread={unread} />
         </div>
+
+        <NextClass uid={student.uid} />
+
         <div className="app-soon">
           <h2>Choose what to practise</h2>
           <p>

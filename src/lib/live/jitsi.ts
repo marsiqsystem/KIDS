@@ -42,6 +42,22 @@ export function liveDomain(): string {
 }
 
 /**
+ * The domain with any port stripped.
+ *
+ * The `sub` claim must equal the server's XMPP domain, and an XMPP domain never
+ * carries a port — but the domain we embed from does, whenever Jitsi is not on
+ * 443. Docker Jitsi on a laptop is exactly that case: the iframe loads from
+ * `localhost:8443` while Prosody knows itself as `localhost`, and a token
+ * signed with the port in `sub` is refused with nothing on screen to say why.
+ *
+ * Production is unaffected — `live.kidskolkata.org` has no port — so this costs
+ * nothing there and makes the free laptop test possible.
+ */
+function xmppDomain(): string {
+  return DOMAIN.replace(/:\d+$/, "");
+}
+
+/**
  * A room name nobody can guess.
  *
  * Not the security boundary — the token is — but a room called
@@ -88,7 +104,9 @@ export function mintToken(room: string, who: TokenSubject, minutes = 180): strin
   const payload = {
     aud: APP_ID,
     iss: APP_ID,
-    sub: DOMAIN,
+    // The XMPP domain, never the embed host: they differ the moment Jitsi is
+    // not on port 443. See xmppDomain().
+    sub: xmppDomain(),
     room,
     // Long enough to cover a 90-minute class and a late arrival, short enough
     // that a token copied out of a phone is dead by the next one.

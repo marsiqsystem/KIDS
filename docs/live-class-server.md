@@ -132,6 +132,87 @@ three classes a week. Every option in the table above carries at least 3 TB.
 Students are **audio-only by default** — 65 open cameras is not a class, and it
 costs roughly ten times the server.
 
+## 1b. Stage two in full — Jitsi on your own laptop, ₹0
+
+Everything below runs on the laptop. No account, no card, no server. It proves
+the moderator question (§6), which is the one most likely to be wrong.
+
+Needs **Docker Desktop** running. Commands are PowerShell.
+
+**Get it and generate its passwords.** `gen-passwords.sh` is a shell script, so
+it goes through the Git Bash that ships with Git for Windows:
+
+```powershell
+cd ~\Desktop
+git clone https://github.com/jitsi/docker-jitsi-meet.git
+cd docker-jitsi-meet
+Copy-Item env.example .env
+bash ./gen-passwords.sh
+```
+
+**Then edit `.env`.** These lines exist but are commented out — uncomment and set
+them, or add them at the end. `JWT_APP_SECRET` is any long random string; it has
+to match `KIDS_JITSI_SECRET` exactly, and it is the whole security of the thing.
+
+```ini
+CONFIG=./.jitsi-cfg          # ⚠️ NOT the default ~/.jitsi-meet-cfg — docker compose
+                             # does not expand ~ on Windows and fails obscurely
+ENABLE_AUTH=1
+ENABLE_GUESTS=0              # no token, no entry. This is the leaked-link test.
+AUTH_TYPE=jwt
+JWT_APP_ID=kids
+JWT_APP_SECRET=<a long random string>
+JWT_ACCEPTED_ISSUERS=kids
+JWT_ACCEPTED_AUDIENCES=kids
+ENABLE_AUTO_OWNER=0          # ⚠️ §6. Without this every student is a moderator.
+XMPP_MUC_MODULES=token_affiliation   # ⚠️ §6. What makes our token's flag mean anything.
+```
+
+Those last two are the trap. `enable-auto-owner` hands ownership to whoever
+arrives, and `token_affiliation` is the only module that reads
+`context.user.moderator` out of our token. Verified against the images'
+own templates, not from memory: `ENABLE_AUTO_OWNER` feeds jicofo's
+`enable-auto-owner`, `XMPP_MUC_MODULES` feeds Prosody's MUC module list, and
+`mod_token_affiliation.lua` ships inside the prosody image already.
+
+**Start it:**
+
+```powershell
+docker compose up -d
+docker compose ps          # all containers should say running
+```
+
+**Accept the certificate once.** Open <https://localhost:8443> and click through
+the warning. It is self-signed, so until a human accepts it the embedded room
+fails silently with nothing on screen to explain why.
+
+**Point the app at it** — in `.env.local`, and never in the repo:
+
+```ini
+KIDS_JITSI_DOMAIN=localhost:8443
+KIDS_JITSI_APP_ID=kids
+KIDS_JITSI_SECRET=<the same string as JWT_APP_SECRET>
+```
+
+Restart `npm run dev` — env files are read at boot.
+
+**Set up the two accounts** (one browser each; use a private window for the
+second so the sessions do not collide):
+
+1. `/admin?tab=batches` → open **Class X Coaching 2026** → paste **213999417**
+   into the roster box. That is the demo record, and it is the student.
+2. `/admin?tab=students` → search `213999417` → **Issue** a password. Write it
+   down; it shows once.
+3. `/admin?tab=classes` → schedule a class on that batch for a few minutes
+   from now → **Open the room**.
+4. Private window → `/app/sign-in` as 213999417 → Home shows the class card →
+   Join.
+
+Then run §8. Checks 1-5 are all answerable here, for nothing. Checks 6-8 — a
+real handset, 65 simulated, a rehearsal — need the hourly machine.
+
+**When you are done:** `docker compose down`. Add `-v` to delete its data too.
+
 ## 2. Point the name at it
 
 In the DNS for `kidskolkata.org`, add one record:

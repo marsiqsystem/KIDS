@@ -37,6 +37,36 @@ sent out once per student:
 So this gets paid for. The good news is that it is small, and that **you can
 prove it works for about ₹60 before committing to a single month.**
 
+### Three different jobs — only one of them costs anything
+
+The paid machine is for **65 students at once**. It is not for "having a
+server", and most of the work never touches it. Do not pay for a stage you are
+not at.
+
+| stage | what it is | what it needs | cost |
+| --- | --- | --- | --- |
+| **Building the screens** | the join card, the refusals, scheduling, the console, attendance | **no video server at all** | **₹0** |
+| **Two people in a room** | a teacher and one student, checking it works and the menus are right | Docker Jitsi on a laptop | **₹0** |
+| **A real class** | 65 students, on their own phones, on mobile data | a proper machine in India | ₹620/mo up |
+
+The middle row is the one that answers "do I need to pay to test?" — **no**. Two
+people for an hour move about **1 GB**. Sixty-five for ninety minutes move about
+**65 GB**. The bill exists because of the second number, and nothing in
+development produces it.
+
+The top row is worth noticing too: the app treats the video server as three
+environment variables, so with none of them set every class screen still
+renders. A teacher can schedule, open, end and cancel a class; a student sees
+the card on Home and the honest refusal ("this has not started yet", "you are
+not in this batch"). Only the room embed itself needs Jitsi to exist. Most of
+what is left to build and check can be built and checked for nothing.
+
+Two limits on the laptop stage, so they are not discovered late: a self-signed
+certificate makes phone browsers complain (fine on the laptop itself, awkward on
+a handset), and a laptop behind a home router cannot serve a real class. When
+real phones over the real internet are needed, take an **hourly** box for that
+session and destroy it after — a couple of hours is a few rupees, not a month.
+
 ### The three machines worth considering
 
 All three carry far more bandwidth than the ~800 GB a month this needs, so

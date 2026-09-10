@@ -18,10 +18,12 @@
  *   * **Anyone who forgets their password.** There is no SMS gateway to pay
  *     for, so there is no code to send. /app/reset says a person clears it.
  *
- * That screen told students "your school signs in and clears the password" and
- * nothing behind it existed. This is the office end of it, as a script, until
- * there is a school-facing screen. It is not the school end: a teacher cannot
- * run this, and the sentence on /app/reset is still ahead of what is built.
+ * That screen once told students "your school signs in and clears the password"
+ * and nothing behind it existed. It no longer says that, and the office end now
+ * exists as a SCREEN as well — /admin, Students tab, admin accounts only, which
+ * is where a forgotten password should be cleared while the child is standing
+ * there. This script remains for the jobs a screen is bad at: setting a chosen
+ * password, doing it in bulk, and working when nobody can sign in to /admin.
  *
  * What it deliberately does NOT do
  * --------------------------------

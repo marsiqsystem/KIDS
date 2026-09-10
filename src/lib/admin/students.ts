@@ -63,6 +63,15 @@ export interface StudentRow {
   school_name: string;
   medium: string | null;
   claimed: boolean;
+  /** True while an office-issued password is still standing, unused. */
+  must_change: boolean;
+  /**
+   * Whether the three-wrong-guesses lockout is running RIGHT NOW, decided by
+   * the database's clock. Not a timestamp for the component to compare against
+   * its own — "is this locked" is a fact about the server, and asking it during
+   * render would be both the wrong clock and an impure call.
+   */
+  locked_out: boolean;
   batches: string | null;
 }
 
@@ -75,6 +84,12 @@ export interface StudentRow {
  *
  * A nine-digit query is treated as a UID and matched exactly — a prefix search
  * on a number that long only ever returns the same one row more slowly.
+ *
+ * Demo records are hidden from a name or school search, and findable by their
+ * exact UID. They are excluded from every COUNT for the reason this file's
+ * header gives; but somebody who has typed all nine digits already knows the
+ * record exists, and the office has to be able to act on 213999417 — it is the
+ * account the programme is rehearsed on.
  */
 export async function searchStudents(query: string, limit = 100): Promise<StudentRow[]> {
   const q = query.trim();
@@ -86,6 +101,8 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
   return (await sql`
     select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
            (a.uid is not null) as claimed,
+           coalesce(a.must_change, false) as must_change,
+           coalesce(a.locked_until > now(), false) as locked_out,
            (select string_agg(b.name, ', ' order by b.name)
               from admin_batch_members m
               join admin_batches b on b.id = m.batch_id
@@ -93,7 +110,7 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
                and b.archived_at is null) as batches
       from students s
       left join app_accounts a on a.uid = s.uid
-     where not s.is_demo
+     where (not s.is_demo or ${isUid})
        and case when ${isUid}
                 then s.uid = ${q}
                 else lower(s.name) like ${like} or lower(s.school_name) like ${like}

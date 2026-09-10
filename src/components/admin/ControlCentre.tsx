@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LogOut, Search } from "lucide-react";
-import { signOut } from "@/app/admin/actions";
+import { resetStudentPassword, signOut } from "@/app/admin/actions";
 import type { Staff, StaffListRow, AuditRow } from "@/lib/admin/staff";
 import type { Batch, MemberRow, BatchTeacher } from "@/lib/admin/batches";
 import type { Overview, StudentRow } from "@/lib/admin/students";
@@ -10,6 +10,7 @@ import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
 import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
+import { RowAction } from "./ui";
 
 export interface OpenBatch {
   batch: Batch;
@@ -129,7 +130,9 @@ export default async function ControlCentre({
         {tab === "posts" ? (
           <PostsPanel posts={posts} batches={batches} canPostToAll={isAdmin} />
         ) : null}
-        {tab === "students" ? <StudentsPanel students={students} query={query} /> : null}
+        {tab === "students" ? (
+          <StudentsPanel students={students} query={query} canReset={isAdmin} />
+        ) : null}
         {tab === "audit" ? <AuditPanel events={events} /> : null}
       </div>
     </main>
@@ -199,7 +202,15 @@ function Stat({ label, value, note }: { label: string; value: string; note?: str
  * A plain GET form: no JavaScript, no fetch, and the query lives in the URL so
  * a search can be shared or reloaded. 9,714 names is not a page.
  */
-function StudentsPanel({ students, query }: { students: StudentRow[]; query: string }) {
+function StudentsPanel({
+  students,
+  query,
+  canReset,
+}: {
+  students: StudentRow[];
+  query: string;
+  canReset: boolean;
+}) {
   return (
     <div className="space-y-5">
       <form method="get" className="flex flex-wrap gap-2">
@@ -223,7 +234,8 @@ function StudentsPanel({ students, query }: { students: StudentRow[]; query: str
 
       {!query ? (
         <p className="text-sm text-[#6b5c57]">
-          Search for a child by their nine-digit User ID, their name, or their school.
+          Search for a child by their nine-digit User ID, their name, or their school. This is
+          where a forgotten app password is cleared — /app/reset sends them here.
         </p>
       ) : students.length === 0 ? (
         <p className="text-sm text-[#d98b8b]">Nobody on the register matches “{query}”.</p>
@@ -238,6 +250,7 @@ function StudentsPanel({ students, query }: { students: StudentRow[]; query: str
                 <Th>School</Th>
                 <Th>App</Th>
                 <Th>Batches</Th>
+                {canReset ? <Th>Password</Th> : null}
               </tr>
             </thead>
             <tbody className="divide-y divide-[#2a2321]">
@@ -251,13 +264,24 @@ function StudentsPanel({ students, query }: { students: StudentRow[]; query: str
                   </Td>
                   <Td>{s.school_name}</Td>
                   <Td>
-                    {s.claimed ? (
-                      <span className="text-[#8fbfae]">Claimed</span>
-                    ) : (
-                      <span className="text-[#6b5c57]">—</span>
-                    )}
+                    <AppState s={s} />
                   </Td>
                   <Td>{s.batches ?? <span className="text-[#6b5c57]">—</span>}</Td>
+                  {canReset ? (
+                    <Td>
+                      <RowAction
+                        action={resetStudentPassword}
+                        fields={{ uid: s.uid }}
+                        confirm={
+                          s.claimed
+                            ? `Clear ${s.name}'s password? Their old one stops working at once.`
+                            : `Open an app account for ${s.name} and issue a password?`
+                        }
+                      >
+                        {s.claimed ? "Reset" : "Issue"}
+                      </RowAction>
+                    </Td>
+                  ) : null}
                 </tr>
               ))}
             </tbody>
@@ -271,6 +295,24 @@ function StudentsPanel({ students, query }: { students: StudentRow[]; query: str
       )}
     </div>
   );
+}
+
+/**
+ * What state this child's app account is in — the three things the office is
+ * actually asked about at the counter.
+ *
+ * "Locked" matters most: three wrong guesses lock an account for fifteen
+ * minutes, and a child standing there being told "it says wrong password" is
+ * usually this, not a forgotten one. Issuing a password clears it.
+ *
+ * Whether the lockout is still running was decided by the database's clock in
+ * the query that fetched this row, not here.
+ */
+function AppState({ s }: { s: StudentRow }) {
+  if (!s.claimed) return <span className="text-[#6b5c57]">Never claimed</span>;
+  if (s.locked_out) return <span className="text-[#d98b8b]">Locked out</span>;
+  if (s.must_change) return <span className="text-[#c9a86b]">Password issued</span>;
+  return <span className="text-[#8fbfae]">Claimed</span>;
 }
 
 /* ----------------------------------------------------------------- audit --- */

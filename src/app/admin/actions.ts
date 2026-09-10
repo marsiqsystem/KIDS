@@ -30,6 +30,7 @@ import {
   teachesBatch,
 } from "@/lib/admin/classes";
 import { createPost, findPost, retractPost } from "@/lib/admin/posts";
+import { resetAppPassword } from "@/lib/admin/app-passwords";
 import {
   createStaffSession,
   destroyStaffSession,
@@ -59,7 +60,7 @@ export type State = {
    * A one-time password to show the operator exactly once. It is never stored
    * in plaintext and never re-derivable — losing it means issuing another.
    */
-  secret?: { staffId: string; password: string };
+  secret?: { staffId: string; password: string; who?: "staff" | "student" };
 };
 
 const done = (message: string): State => ({ ok: true, message });
@@ -507,4 +508,41 @@ export async function takePostDown(_prev: State, formData: FormData): Promise<St
   await retractPost(id, by.staff_id);
   refresh();
   return done("Taken down. Nobody will see it again.");
+}
+
+
+/* -------------------------------------------------- a student's password --- */
+
+/**
+ * Clear a child's app password and issue a one-time one.
+ *
+ * This is what /app/reset sends them to the office for. It was a script until
+ * now, which meant every forgotten password went through whoever had a terminal
+ * and the .env file — one person.
+ *
+ * Admin only, deliberately, even though a teacher can post to their own batch
+ * and open their own room. Those two acts are addressed to a class; this one
+ * hands somebody the keys to one child's account, and "just me for now" is
+ * where the office is. Widening it to a batch's teacher is a decision to take
+ * when there are teachers, not a default to ship before there are.
+ */
+export async function resetStudentPassword(_prev: State, formData: FormData): Promise<State> {
+  const by = await requireStaff("admin");
+  const uid = String(formData.get("uid") ?? "").trim();
+
+  try {
+    const issued = await resetAppPassword(uid, by.staff_id);
+    refresh();
+    return {
+      ok: true,
+      message: issued.existed
+        ? "Password cleared. They must choose a new one when they sign in."
+        : "Account opened. They must choose their own password when they sign in.",
+      // Shown once, and derivable from nothing afterwards. Losing it means
+      // issuing another, which is two clicks.
+      secret: { staffId: issued.uid, password: issued.password, who: "student" },
+    };
+  } catch (e) {
+    return { message: e instanceof Error ? e.message : "That did not work." };
+  }
 }

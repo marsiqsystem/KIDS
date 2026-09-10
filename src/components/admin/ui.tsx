@@ -97,14 +97,17 @@ export function Alert({ state }: { state: State }) {
  * somebody's password on request.
  */
 export function SecretBox({ secret }: { secret: NonNullable<State["secret"]> }) {
+  const student = secret.who === "student";
   return (
     <div className="rounded border border-[#8a6f66] bg-[#241c1a] p-4">
       <p className="text-xs font-semibold text-[#c9b8b2]">
-        Give these to {secret.staffId}. They will not be shown again.
+        {student
+          ? "Read this out to the student. It will not be shown again."
+          : `Give these to ${secret.staffId}. They will not be shown again.`}
       </p>
       <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2">
         <span className="text-xs text-[#9c8c86]">
-          Staff ID
+          {student ? "User ID" : "Staff ID"}
           <strong className="ml-2 font-mono text-base text-[#e8e0dc]">{secret.staffId}</strong>
         </span>
         <span className="text-xs text-[#9c8c86]">
@@ -124,7 +127,9 @@ export function SecretBox({ secret }: { secret: NonNullable<State["secret"]> }) 
         </button>
       </div>
       <p className="mt-3 text-xs text-[#6b5c57]">
-        They must replace this password the first time they sign in.
+        {student
+          ? "They sign in with these two, and the app makes them choose their own password before anything else."
+          : "They must replace this password the first time they sign in."}
       </p>
     </div>
   );

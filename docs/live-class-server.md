@@ -218,7 +218,8 @@ real handset, 65 simulated, a rehearsal — need the hourly machine.
 Every one of these cost time. They are here so they cost it once.
 
 **`gen-passwords.sh` will not run on Windows.** Git rewrites its line endings on
-clone and bash dies on the ``. Skip it — the script only fills in six
+clone and bash dies on the `
+`. Skip it — the script only fills in six
 `*_PASSWORD=` lines, and PowerShell does the same job with
 `[System.Security.Cryptography.RandomNumberGenerator]`.
 
@@ -254,6 +255,48 @@ press Join. And students never log in to Jitsi at all: if anyone sees Jitsi's
 own **"Authentication required"** box, they have reached the server without a
 token, which means they went to the Jitsi address directly instead of through
 the app.
+
+### ⚠️ Where the laptop stage ENDS — 11 Sep 2026
+
+**A self-signed certificate cannot be accepted for an iframe.** This is the
+ceiling of stage two, and it is worth knowing before you spend another evening
+below it.
+
+The class is an embed: the app's page loads, and the page's iframe loads Jitsi
+from `KIDS_JITSI_DOMAIN`. A browser will let you click through a certificate
+warning in a **top-level tab**, and Chromium cannot show that warning inside a
+**frame** — so the frame fails silently. On a phone: a black box, no error
+message, and **nothing in the prosody log at all**, because no request was ever
+made. Accepting the certificate in a separate tab first does not help; the
+exception does not reach the sub-frame.
+
+How to tell this apart from anything else, in one command:
+
+```bash
+docker logs --since 5m docker-jitsi-meet-prosody-1 | grep -i bosh
+```
+
+One BOSH session for the teacher and none for the student means the student's
+frame never loaded. It is **not** the token, the room, the moderator config or
+the batch — none of that code ran. Do not go looking there.
+
+In the Android APK it is worse: Android's WebView cancels SSL errors outright,
+with no "Advanced → Proceed" for the student to tap.
+
+**So a laptop with a self-signed certificate can prove tokens, refusal of a
+stranger, and the config — but it cannot put a phone in a room.** The moderator
+test needs two participants; if one of them has to be a handset, it needs a real
+certificate, which means this machine, from step 2 on. Two windows on the same
+laptop is the free alternative — but ⚠️ signing a student in on the laptop
+**rebinds their account to it and signs the phone out** (`src/lib/app/gate.ts`,
+one account one phone), so the phone needs one more sign-in afterwards.
+
+**Not a certificate problem, found the same evening:** on the phone the room's
+box had **collapsed to zero height** — a title, a white gap, no class and no
+error. `.cls-live` asked for `height: 100%` inside `.app-shell`, which carries
+`min-height: 100dvh` and not `height`, so the percentage resolved to auto. Fixed
+by growing with `flex: 1` instead. The lesson for anything embedded: a black box
+means the frame is there and empty, a **white** one means the frame has no size.
 
 ## 2. Point the name at it
 

@@ -76,6 +76,14 @@ export default function JitsiRoom({
         roomName: room,
         jwt,
         parentNode: box.current,
+        /**
+         * Asked for explicitly. Left out, external_api.js picks its own size
+         * for the iframe and Jitsi lays its whole interface out to match —
+         * which on a phone meant a toolbar floating in the top third of the
+         * screen with black underneath it.
+         */
+        width: "100%",
+        height: "100%",
         userInfo: { displayName },
         configOverwrite: {
           /**
@@ -158,14 +166,21 @@ export default function JitsiRoom({
   }
 
   return (
-    /* The iframe is created by external_api.js, which sizes it itself. On a
-       phone it came out ~250px tall inside a full-height box, so Jitsi laid
-       its entire interface out for a 250px viewport - toolbar tucked under
-       the titlebar, our black background showing through beneath. Pinned
-       here rather than in either surface's stylesheet: the teacher console
-       styles this box with Tailwind and has no CSS file of its own, so a
-       rule in the student's would fix one screen and not the other. */
-    <div className="relative h-full w-full [&>iframe]:absolute [&>iframe]:inset-0 [&>iframe]:!h-full [&>iframe]:!w-full [&>iframe]:border-0">
+    /* The iframe is created by external_api.js, which sizes it itself. Left
+       alone it came out a few hundred pixels tall inside a full-height box, so
+       Jitsi laid its entire interface out for that - toolbar floating in the
+       top third of a phone, our black background showing through beneath.
+       Pinned here rather than in either surface's stylesheet: the teacher
+       console styles this box with Tailwind and has no CSS file of its own, so
+       a rule in the student's would fix one screen and not the other.
+
+       ⚠️ `&_iframe`, a DESCENDANT selector, not `&>iframe`. The iframe is
+       created inside the ref'd box, so it is this element's GRANDchild, and
+       the child combinator matched nothing at all - the rule was here from
+       11 Sep and had never once applied. A selector that silently matches
+       nothing looks exactly like a selector that is wrong about what it does;
+       the only way to tell is to look at the rendered tree. */
+    <div className="relative h-full w-full [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:!h-full [&_iframe]:!w-full [&_iframe]:border-0">
       <div ref={box} className="h-full w-full" />
       {stage ? (
         <p className="pointer-events-none absolute inset-x-0 top-1/2 px-4 text-center text-xs text-white/70">

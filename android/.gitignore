@@ -65,7 +65,13 @@ captures/
 .cxx/
 
 # Google Services (e.g. APIs or Firebase)
-# google-services.json
+# UNCOMMENTED DELIBERATELY. Google treats this file as non-secret, and it does
+# ship inside every APK, but it still names the Firebase project and its API
+# keys and this repo is PUBLIC. Nothing is lost by keeping it out: it is one
+# download from the Firebase console, and native/README.md says where from.
+# The real secret is the service account, KIDS_FCM_SERVICE_ACCOUNT, which is an
+# environment variable and is never a file in this tree.
+google-services.json
 
 # Freeline
 freeline.py

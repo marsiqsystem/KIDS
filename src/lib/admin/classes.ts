@@ -1,6 +1,7 @@
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "@/lib/admin/staff";
 import { newRoomName } from "@/lib/live/jitsi";
+import { sendToBatch } from "@/lib/app/push";
 
 /**
  * Live classes.
@@ -165,16 +166,57 @@ export async function createClass(input: {
  * the time it really began.
  */
 export async function startClass(id: string, by: string): Promise<void> {
+  /**
+   * `was_open` is read from a snapshot taken BEFORE the update, in the same
+   * statement. It cannot be derived afterwards: `coalesce(started_at, now())`
+   * leaves the row looking identical whether this call opened the room or found
+   * it already open, and the difference is what decides whether 65 phones ring.
+   */
   const rows = (await sql`
-    update admin_classes
-       set started_at = coalesce(started_at, now()),
-           started_by = coalesce(started_by, ${by})
-     where id = ${id} and cancelled_at is null
-    returning id::text
-  `) as { id: string }[];
+    with before as (
+      select id, started_at from admin_classes
+       where id = ${id} and cancelled_at is null
+    ),
+    opened as (
+      update admin_classes c
+         set started_at = coalesce(c.started_at, now()),
+             started_by = coalesce(c.started_by, ${by})
+        from before b
+       where c.id = b.id
+      returning c.id::text as id, c.batch_id::text as batch_id, c.title,
+                (b.started_at is not null) as was_open
+    )
+    select * from opened
+  `) as { id: string; batch_id: string; title: string; was_open: boolean }[];
 
-  if (!rows[0]) throw new Error("That class was cancelled.");
+  const row = rows[0];
+  if (!row) throw new Error("That class was cancelled.");
   await logAdminEvent(by, "class_started", { kind: "batch", id }, { class_id: id });
+
+  /**
+   * Tell the batch their room is open — the second of the two moments worth a
+   * push (src/lib/app/push.ts explains why there are only two).
+   *
+   * Guarded by `was_open` because the update is idempotent: a teacher whose
+   * browser reloads calls this again, and 65 children must not get a second
+   * notification saying the class has started. Only the call that actually
+   * moved `started_at` sends.
+   *
+   * Awaited but never allowed to throw. A class that was opened is open
+   * whether or not Firebase answered, and a teacher standing in front of a
+   * room must never see an error because a notification did not go out.
+   */
+  if (!row.was_open) {
+    try {
+      await sendToBatch(row.batch_id, {
+        title: "Your class has started",
+        body: `${row.title} — the room is open now.`,
+        path: `/app/class/${id}`,
+      });
+    } catch (err) {
+      console.error(`Push: could not announce class ${id}.`, err);
+    }
+  }
 }
 
 export async function endClass(id: string, by: string): Promise<void> {

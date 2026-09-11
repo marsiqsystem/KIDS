@@ -1,5 +1,6 @@
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "@/lib/admin/staff";
+import { sendToAll, sendToBatch, oneLine, pushConfigured } from "@/lib/app/push";
 
 /**
  * Posts — the one notice somebody has to type.
@@ -112,6 +113,39 @@ export async function createPost(input: {
     audience,
     batchId: input.batchId,
   });
+
+  /**
+   * Push it, to whoever has the app and a token.
+   *
+   * This is the one notice a person types, so it is the one with a real moment
+   * of sending - the other four are states of a student's own record and have
+   * no instant to fire at (src/lib/app/push.ts). The audience is still
+   * computed, not fanned out: sendToBatch and sendToAll read the membership now
+   * and the student's notice list will read it again when they look, so a child
+   * added to the batch tomorrow sees the post without ever having been sent it.
+   *
+   * Never allowed to throw. The post is written; a notification that did not
+   * leave must not make it look as though it was not.
+   *
+   * The audit row is written even when the count is zero, and only when push is
+   * actually configured. That makes the three states tell themselves apart: no
+   * row means push is off, a row saying 0 means it is on and nobody was
+   * reachable, and a row with a number means phones took it. A row written only
+   * on success would collapse the first two, which are the two worth telling
+   * apart when somebody asks why nothing arrived.
+   */
+  try {
+    if (pushConfigured()) {
+      const message = { title, body: oneLine(body), path: "/app/notices" };
+      const phones = input.batchId
+        ? await sendToBatch(input.batchId, message)
+        : await sendToAll(message);
+      await logAdminEvent(input.by, "post_pushed", { kind: "post", id }, { phones });
+    }
+  } catch (err) {
+    console.error(`Push: could not send post ${id}.`, err);
+  }
+
   return id;
 }
 

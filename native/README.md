@@ -82,6 +82,57 @@ certificate SHA-256 `b9b4bc…6c876`, `versionCode=2`, 5.7 MB. **If that SHA-256
 ever changes, the key changed** and no existing installation can take the
 update.
 
+## Push notifications
+
+Native, through **Firebase Cloud Messaging** — not a service worker. Android's
+System WebView has no Push API, so inside this APK a web-push subscription
+cannot exist at all; the full reasoning is at the top of `src/lib/app/push.ts`.
+Two things are pushed and only two: a **post** written in the control centre,
+and a **class being opened** by its teacher. The other three notice kinds are
+states of a student's own record, with no instant at which anything happened.
+
+FCM is free — this is not the paid-billing trap that Firebase phone auth is.
+
+**Everything is inert until it is configured.** With `KIDS_FCM_SERVICE_ACCOUNT`
+unset, every send returns 0 and writes nothing; with no `google-services.json`
+the Gradle plugin is not applied and the app never asks for a token. Neither is
+an error, and a post is still written and a class still opened either way.
+
+To turn it on, once:
+
+1. **Firebase console → Add project.** Name it KIDS; Analytics is not needed.
+2. **Add an Android app**, package name **`org.kidskolkata.set`** — it must match
+   `applicationId` exactly or the token is issued for a different app.
+3. Download **`google-services.json`** into **`android/app/`**. It is gitignored
+   (this repo is public), so it has to be downloaded again on any other machine.
+4. **Project settings → Service accounts → Generate new private key.** That JSON
+   is the secret. Put the **whole file, on one line** into `.env.local` and into
+   Vercel as **`KIDS_FCM_SERVICE_ACCOUNT`**. One variable rather than three,
+   because splitting a multi-line PEM across variables is how one of them ends
+   up belonging to a different project.
+5. **Bump `APP_BUILD` to 3** in `src/lib/app/app-build.ts`, with a line in
+   `BUILD_NOTES`, then `npm run app:apk -- --release`. A new APK is unavoidable:
+   the push plugin is native code, so a phone on build 2 can never receive a
+   notification however the server is configured.
+
+Then check it end to end, in this order, because each step's failure looks like
+the next one's:
+
+* The app asks for notification permission on first launch after installing
+  build 3. If it never asks, `google-services.json` is missing from the build.
+* `select uid, push_token is not null from app_devices` — a token reached the
+  database. If not, look for "Push: Firebase would not issue a token" in the
+  WebView console.
+* Write a post to batch 7 from /admin and watch the phone. The audit row
+  `post_pushed` carries how many phones took it, and the three states tell
+  themselves apart: **no row** means push is not configured at all, a row saying
+  **0** means it is configured and nobody was reachable, and a number means
+  phones took it.
+
+Only the phone an account is **currently bound to** is sent to — the same rule
+`requireStudent()` enforces on every page. A student who moves handsets stops
+being reachable on the old one at the moment their session does.
+
 ## Getting it to a student
 
 There is no store, so the APK is a file on the internet that a student

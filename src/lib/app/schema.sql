@@ -187,3 +187,29 @@ create index if not exists app_devices_seen_idx on app_devices (uid, last_seen_a
 -- One account, one phone at a time — which is the whole of the answer to a
 -- password passed round a classroom.
 alter table app_accounts add column if not exists current_device_id char(32);
+
+-- Push, for the Android app. See src/lib/app/push.ts.
+--
+-- The Firebase registration token lives on the device row rather than in a
+-- table of its own, because a token identifies an INSTALLATION and that is
+-- exactly what this row already is. It also means the device rule and the push
+-- list cannot disagree: only the phone an account is bound to is sent to, so a
+-- student who moves handsets stops being reachable on the old one at the same
+-- moment their session does, with nothing separate to remember to clear.
+--
+-- Null is the ordinary state. A browser has no token, an iPhone has no token
+-- (Android's WebView has no Push API and iOS is not packaged at all), and an
+-- Android student who declines the permission has no token. Every send is a
+-- courtesy to whoever happens to have one.
+alter table app_devices add column if not exists push_token    text;
+alter table app_devices add column if not exists push_token_at timestamptz;
+
+-- Set when FCM says a token is gone — the app was uninstalled, or Firebase
+-- retired it. Stamped rather than nulled on purpose: "had a token and it
+-- stopped working" is a different fact from "never registered", and the
+-- difference is the only way to tell whether push is reaching anybody. A new
+-- token from the same installation clears it.
+alter table app_devices add column if not exists push_failed_at timestamptz;
+
+create index if not exists app_devices_push_idx
+  on app_devices (uid) where push_token is not null;

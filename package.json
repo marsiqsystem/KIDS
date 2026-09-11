@@ -16,6 +16,7 @@
   "dependencies": {
     "@capacitor/android": "^8.5.1",
     "@capacitor/core": "^8.5.1",
+    "@capacitor/push-notifications": "^8.1.2",
     "@gsap/react": "^2.1.2",
     "@neondatabase/serverless": "^1.1.0",
     "framer-motion": "^12.38.0",

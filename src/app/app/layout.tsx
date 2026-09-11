@@ -20,6 +20,26 @@ export const metadata: Metadata = {
   // Not a public page. It is a door with children's names behind it, and there
   // is nothing here for a search engine to index.
   robots: { index: false, follow: false },
+  /**
+   * The iPhone half of the programme.
+   *
+   * There is no way to install a native iOS app without paying Apple, so an
+   * iPhone student adds this to their home screen instead — and what they get
+   * is decided here, not by the manifest, which iOS mostly ignores.
+   *
+   * `title` is the label under the icon: "SET · KIDS", not the institute's
+   * full name inherited from the site's root layout, which a home screen
+   * truncates to "KIDS - Kabitirtha In…".
+   *
+   * `capable` opens it without Safari's address bar and toolbar, which is the
+   * whole difference between an app and a bookmark. `black-translucent` puts
+   * the maroon crest behind the status bar rather than a grey strip above it.
+   */
+  appleWebApp: {
+    capable: true,
+    title: "SET · KIDS",
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport: Viewport = {

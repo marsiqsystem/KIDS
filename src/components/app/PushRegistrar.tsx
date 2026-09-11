@@ -127,7 +127,16 @@ export default function PushRegistrar() {
       });
 
       await PushNotifications.register();
-    })();
+    })().catch((err) => {
+      /**
+       * A build with no google-services.json has the plugin but no Firebase to
+       * talk to, and `register()` throws. That state is normal — it is every
+       * build until the Firebase project exists — and it must cost the student
+       * nothing. Notifications are a courtesy; the notices are in the app
+       * whether or not any of this worked.
+       */
+      console.error("Push: not available on this build.", err);
+    });
 
     return () => {
       live = false;

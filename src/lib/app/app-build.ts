@@ -12,7 +12,7 @@
  * Do NOT bump it for a change to the screens: those are served fresh from the
  * server on every load, so every phone already has them.
  */
-export const APP_BUILD = 2;
+export const APP_BUILD = 3;
 
 /**
  * What changed, shown to the student so "update" is a request with a reason
@@ -21,4 +21,5 @@ export const APP_BUILD = 2;
  */
 export const BUILD_NOTES: Record<number, string> = {
   2: "Points at the live KIDS server instead of a test machine, and shows a proper screen when your phone has no signal.",
+  3: "Lets you speak in a live class. Build 2 could only listen — your microphone and camera were never asked for, so raising your hand and being unmuted did nothing.",
 };

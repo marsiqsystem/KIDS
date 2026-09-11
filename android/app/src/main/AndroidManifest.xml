@@ -38,4 +38,33 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+      The live class.
+
+      Capacitor's BridgeWebChromeClient already asks the student for these at
+      the moment the class calls getUserMedia, and grants the web request if
+      they agree. What it cannot do is ask for a permission the manifest has
+      not declared: Android returns "denied" for those without showing anything.
+
+      So until 11 Sep 2026 a student in the app could only ever LISTEN. Raising
+      a hand and being unmuted did nothing, and Jitsi told them to "use the
+      camera button in the address bar" - in an app that has no address bar.
+
+      Declared, not requested at launch. A child opening the app to do ten
+      questions is never asked for a microphone; the ask happens the first time
+      they unmute themselves in a class, which is the moment it makes sense.
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+      A phone with no camera must still be able to install this and sit in a
+      class. Without these two lines the CAMERA permission implies the hardware
+      is required, and the Play Store rule follows the manifest even for a
+      sideloaded APK.
+    -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
 </manifest>

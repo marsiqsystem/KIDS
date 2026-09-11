@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import Link from "next/link";
 import { CalendarPlus, Radio, Video } from "lucide-react";
-import { callOffClass, closeClass, newClass, saveRecording } from "@/app/admin/actions";
+import { callOffClass, closeClass, newClass, openClass, saveRecording } from "@/app/admin/actions";
 import type { Batch } from "@/lib/admin/batches";
 import type { LiveClass } from "@/lib/admin/classes";
 import { Alert, Field, RowAction, Submit, INPUT, SURFACE } from "./ui";
@@ -176,13 +176,29 @@ function ClassRow({ c, configured }: { c: LiveClass; configured: boolean }) {
 
       {!c.cancelled_at && !done ? (
         <div className="mt-3 flex flex-wrap items-center gap-2">
+          {/*
+            Two different things, and they were one until 11 Sep 2026.
+            "Go to the room" is navigation — the class is already open, walk in.
+            "Open the room" is an EVENT: it sets started_at, which is the only
+            thing that lets a student's token be minted. A Link cannot do that,
+            and while both were a Link the button sent the teacher to a page
+            saying "go back to Classes and press Open the room" — the button
+            they had just pressed. A class could not be opened from the console
+            at all.
+          */}
           {configured ? (
-            <Link
-              href={`/admin/class/${c.id}`}
-              className="rounded bg-[#8a6f66] px-3 py-1.5 text-xs font-semibold text-[#141010]"
-            >
-              {open ? "Go to the room" : "Open the room"}
-            </Link>
+            open ? (
+              <Link
+                href={`/admin/class/${c.id}`}
+                className="rounded bg-[#8a6f66] px-3 py-1.5 text-xs font-semibold text-[#141010]"
+              >
+                Go to the room
+              </Link>
+            ) : (
+              <RowAction action={openClass} fields={{ classId: c.id }} primary>
+                Open the room
+              </RowAction>
+            )
           ) : null}
           {open ? (
             <RowAction

@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { adminConfigured, keyIsValid } from "@/lib/admin/auth";
 import {
   createStaff,
@@ -407,7 +408,15 @@ export async function openClass(_prev: State, formData: FormData): Promise<State
   await startClass(classId, by.staff_id);
 
   refresh();
-  return done("The room is open. Students can join now.");
+  /**
+   * Straight into the room, because that is what the button says.
+   *
+   * A teacher presses "Open the room" at the moment they are ready to teach,
+   * not to read a confirmation and then press a second thing. Returning a
+   * sentence here would leave them on the console with 65 students walking
+   * into a room they are not in yet.
+   */
+  redirect(`/admin/class/${classId}`);
 }
 
 export async function closeClass(_prev: State, formData: FormData): Promise<State> {

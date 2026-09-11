@@ -147,12 +147,15 @@ export function RowAction({
   fields,
   children,
   danger,
+  primary,
   confirm,
 }: {
   action: (prev: State, formData: FormData) => Promise<State>;
   fields: Record<string, string>;
   children: React.ReactNode;
   danger?: boolean;
+  /** The one action on a row a teacher is looking for. Filled, not outlined. */
+  primary?: boolean;
   confirm?: string;
 }) {
   const [state, formAction] = useActionState(action, {});
@@ -171,7 +174,9 @@ export function RowAction({
         {Object.entries(fields).map(([k, v]) => (
           <input key={k} type="hidden" name={k} value={v} />
         ))}
-        <RowButton danger={danger}>{children}</RowButton>
+        <RowButton danger={danger} primary={primary}>
+          {children}
+        </RowButton>
       </form>
       {state.secret ? (
         <div className="mt-2">
@@ -187,7 +192,15 @@ export function RowAction({
   );
 }
 
-function RowButton({ danger, children }: { danger?: boolean; children: React.ReactNode }) {
+function RowButton({
+  danger,
+  primary,
+  children,
+}: {
+  danger?: boolean;
+  primary?: boolean;
+  children: React.ReactNode;
+}) {
   const { pending } = useFormStatus();
   return (
     <button
@@ -196,7 +209,9 @@ function RowButton({ danger, children }: { danger?: boolean; children: React.Rea
       className={`rounded border px-2.5 py-1 text-xs disabled:opacity-50 ${
         danger
           ? "border-[#6b3f3f] text-[#d98b8b] hover:bg-[#2a1c1c]"
-          : "border-[#3a2f2c] text-[#c9b8b2] hover:bg-[#241c1a]"
+          : primary
+            ? "border-transparent bg-[#8a6f66] px-3 py-1.5 font-semibold text-[#141010]"
+            : "border-[#3a2f2c] text-[#c9b8b2] hover:bg-[#241c1a]"
       }`}
     >
       {pending ? "…" : children}

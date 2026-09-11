@@ -6,6 +6,8 @@ import { unreadCount } from "@/lib/app/notices";
 import NoticeBell from "@/components/app/NoticeBell";
 import NextClass from "@/components/app/NextClass";
 import TheDay from "@/components/app/TheDay";
+import DayLate from "@/components/app/DayLate";
+import DayAway from "@/components/app/DayAway";
 import { dayFor } from "@/lib/app/day";
 import "../notices.css";
 import "./class/class.css";
@@ -57,9 +59,20 @@ export default async function HomePage() {
    */
   const day = await dayFor(student);
   if (day) {
-    return (
-      <TheDay day={day} name={firstName(student.name)} greeting={greeting()} />
-    );
+    /**
+     * Three shapes, and the day decides which — not a clock literal here.
+     * `late` is past the programme own wind-down block with something missed;
+     * `away` is two days or more without opening it at all.
+     */
+    if (day.shape === "away" || day.shape === "late") {
+      const { days } = await streakFor(student.uid);
+      return day.shape === "away" ? (
+        <DayAway day={day} streak={days} />
+      ) : (
+        <DayLate day={day} streak={days} />
+      );
+    }
+    return <TheDay day={day} name={firstName(student.name)} greeting={greeting()} />;
   }
 
   const state = await loopState(student);

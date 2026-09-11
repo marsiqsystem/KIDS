@@ -237,3 +237,102 @@
 .sit__done {
   margin-top: 8px;
 }
+
+/* ------------------------------------------- the night, and coming back --- */
+
+/* Deep maroon rather than the morning's cream, because it is night and the
+ * screen should know that. Design 8n. No red anywhere: red is for an error,
+ * and a child who missed a class has not made one. */
+.day--late {
+  min-height: 100%;
+  margin: -14px -16px -8px;
+  padding: 22px 18px 26px;
+  background: var(--gradient-maroon, linear-gradient(160deg, #7b1e2b 0%, #3d0a10 100%));
+  color: var(--cream, #fdfbf7);
+}
+
+.day--late .day__when,
+.day--late .day__left,
+.day--late .day__said {
+  color: rgba(253, 251, 247, 0.72);
+}
+
+.late__panel {
+  margin-top: 16px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  background: rgba(253, 251, 247, 0.07);
+  border: 1px solid rgba(253, 251, 247, 0.1);
+}
+
+.late__panel h2 {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(253, 251, 247, 0.6);
+}
+
+.late__panel p {
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(253, 251, 247, 0.86);
+}
+
+/* The panel that names a person. Gold, once, and only here — the whole
+ * premise of a residential programme is that somebody noticed. */
+.late__panel--person {
+  border-color: rgba(201, 162, 75, 0.42);
+  background: rgba(201, 162, 75, 0.1);
+}
+
+.late__panel--person h2 {
+  color: var(--gold-light, #e5be7a);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.92rem;
+}
+
+.late__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.late__list--plain li + li {
+  margin-top: 10px;
+}
+
+.late__list--star li::before {
+  content: "★";
+  color: var(--gold, #c9a24b);
+  margin-right: 7px;
+}
+
+.late__note {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(253, 251, 247, 0.12);
+  font-size: 0.8rem;
+}
+
+.late__tomorrow {
+  margin: 20px 0 12px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(253, 251, 247, 0.78);
+}
+
+.day--late .app-btn--outline {
+  margin-top: 11px;
+  border-color: rgba(253, 251, 247, 0.4);
+  color: var(--cream, #fdfbf7);
+}
+
+.day--late .app-btn--quiet {
+  color: rgba(253, 251, 247, 0.75);
+}

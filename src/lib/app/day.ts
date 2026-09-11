@@ -79,6 +79,29 @@ export interface Day {
   /** How many of the counted blocks are done, and how many there are. */
   done: number;
   countable: number;
+  /**
+   * Which shape the screen takes, decided by the day itself rather than by a
+   * clock literal in a component.
+   *
+   *   `morning` — the full spine, one card open.
+   *   `late`    — past the wind-down, and something did not happen. Design 8n:
+   *               what you DID, then plainly what you did not, then the fact
+   *               that a person already noticed, and only then a way back.
+   *   `away`    — not opened for two days or more. Design 8n-ii.
+   */
+  shape: "morning" | "late" | "away";
+  /** Whole programme days before today with nothing marked at all. */
+  awayDays: number;
+  /**
+   * The teacher of this batch, by name.
+   *
+   * On the screens that say a person noticed, this is that person. Null when
+   * nobody is assigned — and then those screens say nothing about anyone
+   * noticing, because an invented teacher is worse than none.
+   */
+  teacher: string | null;
+  /** Where a missed class was recorded, when she has posted it. */
+  recording: string | null;
 }
 
 /** Minutes since midnight in Kolkata. */
@@ -158,6 +181,7 @@ interface ClassRow {
   started_at: Date | null;
   ended_at: Date | null;
   cancelled_at: Date | null;
+  recording_url: string | null;
 }
 
 export async function dayFor(student: Student, now: Date = new Date()): Promise<Day | null> {
@@ -196,7 +220,7 @@ export async function dayFor(student: Student, now: Date = new Date()): Promise<
      */
     sql`
       select c.id::text, c.title, c.subject, c.starts_at, c.minutes,
-             c.started_at, c.ended_at, c.cancelled_at
+             c.started_at, c.ended_at, c.cancelled_at, c.recording_url
         from admin_classes c
         join admin_batch_members m
           on m.batch_id = c.batch_id and m.uid = ${student.uid} and m.removed_at is null
@@ -205,6 +229,45 @@ export async function dayFor(student: Student, now: Date = new Date()): Promise<
        limit 1
     `,
   ])) as [BlockRow[], MarkRow[], ClassRow[]];
+
+  /**
+   * Two more facts the evening needs, fetched only once the programme is known
+   * so that 9,649 students never pay for them.
+   *
+   * `away` counts programme days BEFORE today on which nothing at all was
+   * marked, back as far as a fortnight. It stops at the first day that has a
+   * mark, so a student who kept Tuesday and missed Wednesday and Thursday is
+   * two days away, not three.
+   */
+  const [teacherRows, keptRows] = (await Promise.all([
+    sql`
+      select s.full_name
+        from admin_batch_teachers t
+        join admin_staff s on s.staff_id = t.staff_id
+        join admin_batch_members m on m.batch_id = t.batch_id
+       where m.uid = ${student.uid} and m.removed_at is null and t.removed_at is null
+       order by t.assigned_at
+       limit 1
+    `,
+    sql`
+      select distinct on_date::text as on_date from coaching_marks
+       where uid = ${student.uid}
+         and on_date < ${date}::date
+         and on_date >= ${date}::date - 14
+    `,
+  ])) as [{ full_name: string }[], { on_date: string }[]];
+
+  const kept = new Set(keptRows.map((r) => r.on_date));
+  let awayDays = 0;
+  for (let back = 1; back <= 14; back += 1) {
+    const d = new Date(`${date}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() - back);
+    const iso = d.toISOString().slice(0, 10);
+    // Days before the programme began are not days the student was away.
+    if (iso < startsOn) break;
+    if (kept.has(iso)) break;
+    awayDays += 1;
+  }
 
   const marks = new Map(markRows.map((m) => [m.kind, m]));
   const live = classRows[0];
@@ -326,6 +389,18 @@ export async function dayFor(student: Student, now: Date = new Date()): Promise<
 
   const countable = blocks.filter((b) => b.status !== "uncounted").length;
   const done = blocks.filter((b) => b.status === "done").length;
+  const missed = blocks.filter((b) => b.status === "missed").length;
+
+  /**
+   * The day is late once it is past the wind-down — the block that says the
+   * app goes quiet. Taken from the programme's own spine rather than from a
+   * literal hour here, so a teacher who moves the wind-down moves this too.
+   */
+  const winddown = blocks.find((b) => b.kind === "winddown");
+  const isLate = winddown ? nowMinutes >= toMinutes(winddown.at) : nowMinutes >= 21 * 60 + 45;
+
+  const shape =
+    awayDays >= 2 ? "away" : isLate && missed > 0 ? "late" : "morning";
 
   return {
     programme: { id: programme.id, name: programme.name, week, weeks: programme.weeks, daysLeft },
@@ -333,6 +408,10 @@ export async function dayFor(student: Student, now: Date = new Date()): Promise<
     blocks,
     done,
     countable,
+    shape,
+    awayDays,
+    teacher: teacherRows[0]?.full_name ?? null,
+    recording: live?.recording_url ?? null,
   };
 }
 

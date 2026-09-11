@@ -5,8 +5,11 @@ import { loopState, streakFor, answersFor, istToday } from "@/lib/app/loop";
 import { unreadCount } from "@/lib/app/notices";
 import NoticeBell from "@/components/app/NoticeBell";
 import NextClass from "@/components/app/NextClass";
+import TheDay from "@/components/app/TheDay";
+import { dayFor } from "@/lib/app/day";
 import "../notices.css";
 import "./class/class.css";
+import "./day.css";
 
 /**
  * Home. Design 3b, and 3c's end states.
@@ -41,6 +44,24 @@ const onDay = (date: Date) =>
 
 export default async function HomePage() {
   const student = await requireStudent();
+
+  /**
+   * For the 65 on the coaching programme, Home IS the day — Design turn 8,
+   * ruled A on 11 Sep. Not a sixth tab: a sixth tab is paid for by all 9,714
+   * students so that 65 can use it, and at 360px five destinations are already
+   * 72px each. When the programme ends this returns to the feed below, and the
+   * day it held becomes a page in Record.
+   *
+   * One lookup, and it is null for 9,649 students. Everything after this line
+   * is the ordinary Home that was here before and is untouched.
+   */
+  const day = await dayFor(student);
+  if (day) {
+    return (
+      <TheDay day={day} name={firstName(student.name)} greeting={greeting()} />
+    );
+  }
+
   const state = await loopState(student);
   // After loopState, never beside it: loopState is what mints today's set, and
   // the bell counts a set that exists rather than causing one to.

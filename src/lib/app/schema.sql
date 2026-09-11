@@ -213,3 +213,97 @@ alter table app_devices add column if not exists push_failed_at timestamptz;
 
 create index if not exists app_devices_push_idx
   on app_devices (uid) where push_token is not null;
+
+
+-- ------------------------------------------------------------ the day ---
+--
+-- Design turn 8, part one. For a student on the coaching programme, Home
+-- stops being a feed and becomes THE DAY: one vertical spine, times down the
+-- left, exactly one card open — the block that is now.
+--
+-- Ruled by Umar on 11 Sep, and the shape of these tables follows from it:
+--
+--   * Home BECOMES the day for those 65. No sixth tab: a sixth tab is paid for
+--     by all 9,714 students so that 65 can use it, and it would make coaching
+--     a place you visit rather than a day you are inside.
+--   * TWO blocks are fixed for everybody — the 5:30 wake and the class —
+--     because a day nobody shares is not a day together. The rest move inside
+--     a window the teacher sets. 65 children in 112 households have different
+--     school buses and different mothers who need help at seven; a rigid
+--     routine is wrong about most of them by week two.
+--   * School is carried, never tracked. Nothing rings between 10:30 and 4:30
+--     and nothing inside it is counted — the app would otherwise be marking a
+--     child present at something it cannot see.
+
+-- One per batch. The programme is a thing with a beginning and an end, and the
+-- end is designed rather than a silence: see the last-day screen.
+create table if not exists coaching_programmes (
+  id           bigserial   primary key,
+  batch_id     bigint      not null references admin_batches (id),
+  name         text        not null,
+  starts_on    date        not null,
+  weeks        integer     not null default 14,
+  -- School, as a plain window in IST. Not a block a student completes.
+  school_from  time        not null default '10:30',
+  school_to    time        not null default '16:30',
+  -- ISO weekday numbers, 1 = Monday. Six days here, because they are Indian
+  -- school children and Saturday is a school day.
+  school_days  integer[]   not null default '{1,2,3,4,5,6}',
+  created_at   timestamptz not null default now(),
+  archived_at  timestamptz
+);
+
+create unique index if not exists coaching_programmes_batch_idx
+  on coaching_programmes (batch_id) where archived_at is null;
+
+-- The spine. One row per block per programme, in the order they happen.
+--
+-- `at_time` is where the block sits by default. `window_from`/`window_to` are
+-- how far a student may move it — equal to at_time on a fixed block. Turn 8
+-- is explicit that the teacher's build-the-day screen sets a WINDOW per block
+-- rather than a clock time, so the window is the real field and the time is
+-- the default inside it.
+create table if not exists coaching_blocks (
+  id           bigserial   primary key,
+  programme_id bigint      not null references coaching_programmes (id),
+  -- wake | ritual | revision | daily | school | class | homework | winddown
+  --
+  -- Three of these are not their own content: `daily` opens the set that
+  -- src/lib/app/loop.ts already builds, `class` reads admin_classes for the
+  -- day, and `school` is a dashed stretch with nothing to complete. The day
+  -- assembles things that exist rather than becoming a second copy of them.
+  kind         text        not null,
+  label        text        not null,
+  subtitle     text,
+  at_time      time        not null,
+  window_from  time        not null,
+  window_to    time        not null,
+  minutes      integer,
+  -- Fixed for all 65. Only the wake and the class, by ruling.
+  fixed        boolean     not null default false,
+  sort         integer     not null,
+  removed_at   timestamptz
+);
+
+create index if not exists coaching_blocks_programme_idx
+  on coaching_blocks (programme_id, sort) where removed_at is null;
+
+-- What a student actually did, one row per block per day.
+--
+-- Keyed by (uid, on_date, kind) rather than by block id so that moving or
+-- re-creating a block cannot orphan a day a child already kept. The date is
+-- IST: a student finishing revision at 11 p.m. in Kolkata is still on today.
+--
+-- Absence is "not done", and for a school block it means nothing at all —
+-- nothing inside school hours is ever counted or missed.
+create table if not exists coaching_marks (
+  uid      char(9)     not null references students (uid),
+  on_date  date        not null,
+  kind     text        not null,
+  done_at  timestamptz not null default now(),
+  -- "up at 5:34", "9 minutes", whatever the block itself wants to remember.
+  detail   jsonb,
+  primary key (uid, on_date, kind)
+);
+
+create index if not exists coaching_marks_uid_idx on coaching_marks (uid, on_date desc);

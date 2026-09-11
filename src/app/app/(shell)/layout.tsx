@@ -4,6 +4,7 @@ import UpdateNotice from "@/components/app/UpdateNotice";
 import PushRegistrar from "@/components/app/PushRegistrar";
 import { requireStudent } from "@/lib/app/gate";
 import { appVersion, apkUrl } from "@/lib/app/app-version";
+import { pushConfigured } from "@/lib/app/push";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
 
 /**
@@ -34,9 +35,9 @@ export default async function ShellLayout({ children }: { children: React.ReactN
   return (
     <div className="app-frame">
       <div className="app-shell">
-        {/* Renders nothing. Inside the Android app it hands Firebase's token to
-            the server; in a browser it does not even load the plugin. */}
-        <PushRegistrar />
+        {/* Renders nothing, and does nothing at all until there is a Firebase
+            project to talk to — the server is the only side that knows. */}
+        <PushRegistrar enabled={pushConfigured()} />
         <div className="app-shell__body">
           {version.stale ? (
             <UpdateNotice expected={version.expected} note={version.note} href={apkUrl()} />

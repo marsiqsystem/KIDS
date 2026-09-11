@@ -53,11 +53,22 @@ function rememberAsked(): void {
   }
 }
 
-export default function PushRegistrar() {
+export default function PushRegistrar({ enabled }: { enabled: boolean }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isApp()) return;
+    /**
+     * `enabled` is the SERVER's answer to "is there a Firebase project?" —
+     * pushConfigured(), read in the shell layout.
+     *
+     * Without it this asked a student for notification permission, created a
+     * channel and called register() on a build that had no Firebase behind it.
+     * That is a permission prompt with nothing on the other end of it, and it
+     * put native code that cannot work in the path of every sign-in. A phone
+     * has no way to know whether the server it loaded these screens from can
+     * send it anything; only the server knows, so the server says.
+     */
+    if (!enabled || !isApp()) return;
     let live = true;
 
     (async () => {
@@ -141,7 +152,7 @@ export default function PushRegistrar() {
     return () => {
       live = false;
     };
-  }, [router]);
+  }, [enabled, router]);
 
   return null;
 }

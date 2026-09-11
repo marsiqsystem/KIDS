@@ -5,6 +5,8 @@ import PushRegistrar from "@/components/app/PushRegistrar";
 import { requireStudent } from "@/lib/app/gate";
 import { appVersion, apkUrl } from "@/lib/app/app-version";
 import { pushConfigured } from "@/lib/app/push";
+import { touchPresence } from "@/lib/app/room";
+import { programmeFor } from "@/lib/app/day";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
 
 /**
@@ -28,6 +30,21 @@ export default async function ShellLayout({ children }: { children: React.ReactN
   // days a year this is false, which is the design's whole point about the tab.
   const window = windowFor(student);
   const examLive = window ? phaseOf(window) === "scanning" || phaseOf(window) === "live" : false;
+
+  /**
+   * Say this student is in the room — Design 8k.
+   *
+   * Here rather than on a timer or a socket: presence is POLLED when the app
+   * opens, which is what 3G and a battery at 12% can afford. One upsert, and
+   * only for the 65 — the programme lookup is the same one Home already does,
+   * and for 9,649 students both are a single indexed miss.
+   *
+   * Never awaited into the render path in a way that could fail it. A room
+   * that did not update is not a reason for a child to see an error.
+   */
+  if (await programmeFor(student.uid)) {
+    void touchPresence(student.uid).catch(() => {});
+  }
 
   // Only ever true inside the Android app. A browser is never told to update.
   const version = appVersion((await headers()).get("user-agent"));

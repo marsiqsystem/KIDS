@@ -14,7 +14,18 @@ import DayAction from "@/components/app/DayAction";
  * of text. Nine cards would be nine things asking to be tapped; a day is one
  * thing you are in the middle of.
  */
-export default function TheDay({ day, name, greeting }: { day: Day; name: string; greeting: string }) {
+export default function TheDay({
+  day,
+  name,
+  greeting,
+  present,
+}: {
+  day: Day;
+  name: string;
+  greeting: string;
+  /** How many of the batch are in the room now, for the line at the foot. */
+  present: number;
+}) {
   return (
     <div className="day">
       <div className="day__head">
@@ -38,6 +49,18 @@ export default function TheDay({ day, name, greeting }: { day: Day; name: string
           </li>
         ))}
       </ol>
+
+      {/* "19 of your batch are studying now · See the room." Design puts this
+          at the foot of the evening screen, and it is the only place on the
+          day that mentions anybody else. Hidden when the student is the only
+          one here: the room says "you are the first" properly, and a count of
+          one on the day reads as an empty building. */}
+      {present > 1 ? (
+        <Link href="/app/room" className="day__room">
+          <b>{present}</b> of your batch are working now
+          <span>See the room</span>
+        </Link>
+      ) : null}
     </div>
   );
 }

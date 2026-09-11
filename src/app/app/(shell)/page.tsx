@@ -9,6 +9,7 @@ import TheDay from "@/components/app/TheDay";
 import DayLate from "@/components/app/DayLate";
 import DayAway from "@/components/app/DayAway";
 import { dayFor } from "@/lib/app/day";
+import { roomFor } from "@/lib/app/room";
 import "../notices.css";
 import "./class/class.css";
 import "./day.css";
@@ -72,7 +73,15 @@ export default async function HomePage() {
         <DayLate day={day} streak={days} />
       );
     }
-    return <TheDay day={day} name={firstName(student.name)} greeting={greeting()} />;
+    const room = await roomFor(student.uid);
+    return (
+      <TheDay
+        day={day}
+        name={firstName(student.name)}
+        greeting={greeting()}
+        present={room?.present ?? 0}
+      />
+    );
   }
 
   const state = await loopState(student);

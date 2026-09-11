@@ -1,5 +1,6 @@
 "use server";
 
+import { markBlock } from "@/lib/app/day";
 import { redirect } from "next/navigation";
 import { requireStudent } from "@/lib/app/gate";
 import { questionById, chaptersFor } from "@/lib/app/bank";
@@ -10,6 +11,7 @@ import {
   markSetStarted,
   markSetFinished,
   loopState,
+  answersFor,
 } from "@/lib/app/loop";
 
 /**
@@ -70,6 +72,29 @@ export async function answerQuestion(questionId: string, chosen: number): Promis
   const after = await loopState(student);
   if (after.set && after.set.answered >= after.set.questionIds.length) {
     await markSetFinished(student.uid, after.set.onDate);
+
+    /**
+     * And closes the 7:10 block, for a student whose Home is The Day.
+     *
+     * Design turn 8 is explicit that the daily set is not a competing card —
+     * it IS the 7:10 block, opened from the timeline and scored into the same
+     * streak. Marked here rather than when the day screen is next drawn,
+     * because this is the moment the work was actually finished; a block that
+     * only went green when a child happened to return to Home would be lying
+     * about when they did it.
+     *
+     * "4 right of 5" is counted from the student's own answer rows. DailySet
+     * has no notion of correctness — it knows which five questions and how
+     * many were answered, which is a different question.
+     *
+     * For the 9,649 students with no programme this writes a row nothing ever
+     * reads, which is cheaper than asking first whether they are on one.
+     */
+    const rows = await answersFor(student.uid);
+    const right = after.set.questionIds.filter((id) => rows.get(id)?.was_correct).length;
+    await markBlock(student.uid, "daily", {
+      score: `${right} right of ${after.set.questionIds.length}`,
+    });
   }
 
   return {

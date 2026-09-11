@@ -307,3 +307,32 @@ create table if not exists coaching_marks (
 );
 
 create index if not exists coaching_marks_uid_idx on coaching_marks (uid, on_date desc);
+
+
+-- Who is in the room. Design 8k.
+--
+-- 65 squares, one per student, NOBODY NAMED — not even the student themselves,
+-- so there is nothing on the screen to compare yourself against. The bars say
+-- what the room is DOING, never who: a child can see the corridor is full
+-- without being able to check on any one person in it.
+--
+-- One row per student, updated in place. Presence is POLLED when the app opens
+-- rather than held on a socket, which is what 3G and a battery at 12% can
+-- afford — Design is explicit about it and it is also the only honest thing a
+-- web app in a WebView can promise.
+--
+-- `doing` is only ever what the app can actually observe. There is no row for
+-- homework because homework does not exist yet; a bar for it would be a number
+-- made up about children.
+create table if not exists coaching_presence (
+  uid      char(9)     primary key references students (uid),
+  seen_at  timestamptz not null default now(),
+  -- here | practising | watching | class | sitting
+  doing    text        not null default 'here',
+  -- A study hour runs until this moment even if the app is closed: the going
+  -- matters more than what you do when you arrive, and a phone that locks
+  -- itself after thirty seconds must not end the hour.
+  until    timestamptz
+);
+
+create index if not exists coaching_presence_seen_idx on coaching_presence (seen_at desc);

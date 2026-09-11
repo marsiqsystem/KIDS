@@ -5,6 +5,7 @@ import { currentStaff } from "@/lib/admin/session";
 import { findClass, noteTokenIssued, teachesBatch } from "@/lib/admin/classes";
 import { liveConfigured, liveDomain, mintToken } from "@/lib/live/jitsi";
 import JitsiRoom from "@/components/live/JitsiRoom";
+import { endClassFromRoom } from "@/app/admin/actions";
 
 export const dynamic = "force-dynamic";
 
@@ -101,6 +102,12 @@ export default async function TeacherRoom({ params }: { params: Promise<{ id: st
           displayName={staff.full_name}
           moderator
           onLeave="/admin?tab=classes"
+          /* Finishing the lesson happens where the lesson is. Before this, a
+             teacher pressed Jitsi's "end meeting", the room emptied, and the
+             console still said HAPPENING NOW — because ending a CALL and
+             ending a CLASS are two different facts and only one was written
+             down. They then had to leave and find a second button on a list. */
+          onEndClass={endClassFromRoom.bind(null, id)}
         />
       </div>
     </main>

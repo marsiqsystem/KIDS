@@ -419,6 +419,27 @@ export async function openClass(_prev: State, formData: FormData): Promise<State
   redirect(`/admin/class/${classId}`);
 }
 
+/**
+ * End the class from inside the room.
+ *
+ * The console's "End the class" is a form on a list; this is the same act
+ * reached from the one place a teacher actually is when a lesson finishes.
+ * Until it existed, pressing Jitsi's own "end meeting" left the class LIVE in
+ * our database: the room emptied, the console still said HAPPENING NOW, and a
+ * student could walk back in. Jitsi ending a call and KIDS ending a class were
+ * two different facts and only one of them was being recorded.
+ *
+ * Takes a plain id rather than a FormData because the caller is a click
+ * handler, not a form.
+ */
+export async function endClassFromRoom(classId: string): Promise<void> {
+  const live = await findClass(classId);
+  if (!live) return;
+  const by = await requireBatchRights(live.batch_id);
+  await endClass(classId, by.staff_id);
+  refresh();
+}
+
 export async function closeClass(_prev: State, formData: FormData): Promise<State> {
   const classId = String(formData.get("classId") ?? "");
   const live = await findClass(classId);

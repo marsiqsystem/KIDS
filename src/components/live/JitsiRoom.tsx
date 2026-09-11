@@ -35,6 +35,7 @@ export default function JitsiRoom({
   displayName,
   moderator,
   onLeave,
+  onEndClass,
 }: {
   domain: string;
   room: string;
@@ -43,8 +44,20 @@ export default function JitsiRoom({
   moderator: boolean;
   /** Where to send them when the call ends. */
   onLeave?: string;
+  /**
+   * Ends the CLASS, not the call — the teacher's surface only.
+   *
+   * These are two different facts and only one of them used to be written
+   * down. Jitsi's own "end meeting" empties the room; it knows nothing about
+   * admin_classes, so the console went on saying HAPPENING NOW and a student
+   * could walk straight back in. The teacher had to leave the room and find a
+   * second button on a list to finish what they had already finished.
+   */
+  onEndClass?: () => Promise<void>;
 }) {
   const box = useRef<HTMLDivElement>(null);
+  const apiRef = useRef<JitsiApi | null>(null);
+  const [ending, setEnding] = useState(false);
   const [failed, setFailed] = useState(false);
   /**
    * What the embed is doing, said out loud.
@@ -141,6 +154,7 @@ export default function JitsiRoom({
         },
       });
 
+      apiRef.current = api;
       setStage("");
 
       /**
@@ -215,6 +229,7 @@ export default function JitsiRoom({
 
     return () => {
       cancelled = true;
+      apiRef.current = null;
       // Without this the call keeps running behind a navigation — the
       // microphone stays live and the child has no idea. The daily loop's
       // player learned the same lesson about tearing down on the way out.
@@ -265,18 +280,56 @@ export default function JitsiRoom({
           {stage}
         </p>
       ) : null}
-      {/* Only the teacher, and only once the conference has answered. Says what
-          IS, not what was asked for — see the note by the toggle above. */}
-      {moderator && moderated !== null ? (
-        <p
-          className={`pointer-events-none absolute inset-x-0 top-0 px-3 py-1 text-center text-[11px] ${
-            moderated ? "bg-black/50 text-white/70" : "bg-[#6b3f3f] font-semibold text-white"
+      {/* The teacher's own strip, above the room: what is true, and the one
+          thing finishing a lesson means. Ours, not Jitsi's, because Jitsi's
+          hangup cannot tell "I am leaving" from "we are finished" and must not
+          be made to guess on a teacher's behalf. */}
+      {moderator && (moderated !== null || onEndClass) ? (
+        <div
+          className={`absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-3 py-1 text-[11px] ${
+            moderated === false ? "bg-[#6b3f3f] text-white" : "bg-black/50 text-white/70"
           }`}
         >
-          {moderated
-            ? "Students are held muted until you allow them."
-            : "⚠ Students can unmute themselves — the server is not holding them."}
-        </p>
+          <span className={moderated === false ? "font-semibold" : undefined}>
+            {moderated === null
+              ? ""
+              : moderated
+                ? "Students are held muted until you allow them."
+                : "⚠ Students can unmute themselves — the server is not holding them."}
+          </span>
+          {onEndClass ? (
+            <button
+              type="button"
+              disabled={ending}
+              onClick={async () => {
+                if (!window.confirm("End the class for everybody?")) return;
+                setEnding(true);
+                /**
+                 * Order matters. Empty the room FIRST, while we still have a
+                 * conference to give the order to — a student already inside
+                 * keeps their call alive whatever the database says, because
+                 * the room is Jitsi's and the class is ours. Then write down
+                 * that the class is over, which is what shuts the door behind
+                 * them.
+                 */
+                try {
+                  apiRef.current?.executeCommand("endConference");
+                } catch {
+                  // Not supported, or the conference is already gone. The
+                  // class still has to be ended; that is the half that counts.
+                }
+                try {
+                  await onEndClass();
+                } finally {
+                  if (onLeave) window.location.href = onLeave;
+                }
+              }}
+              className="shrink-0 rounded border border-[#8a6f66] px-2 py-0.5 font-semibold text-white disabled:opacity-50"
+            >
+              {ending ? "Ending…" : "End the class"}
+            </button>
+          ) : null}
+        </div>
       ) : null}
     </div>
   );

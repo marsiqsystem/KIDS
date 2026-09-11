@@ -73,6 +73,8 @@ scripts/offline-results.json
 # repeated here so a keystore left anywhere in the tree is still caught.
 *.jks
 *.keystore
+# and the file that holds its passwords in plain text.
+keystore.properties
 
 # Generated per build by native/build-apk.mjs — carries the server URL for
 # the no-connection page. Differs between a laptop, preview and production

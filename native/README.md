@@ -9,8 +9,10 @@ in step with the first.
 
 ```bash
 npm run app:apk -- --url=http://192.168.0.135:3000   # this laptop, for testing
-npm run app:apk -- --url=https://<branch>.vercel.app # the student-app preview
-npm run app:apk                                      # production
+npm run app:apk -- --url=https://<branch>.vercel.app # a Vercel preview
+npm run app:apk                                      # production, debug-signed
+npm run app:apk -- --release                         # production, SIGNED — the
+                                                     # only one to give a student
 ```
 
 The APK lands in `native/dist/`, named after the server it points at — an APK
@@ -27,9 +29,90 @@ named files in a downloads folder is how the wrong one reaches a student.
 * **Android SDK** with platform 35 — at `%LOCALAPPDATA%\Android\Sdk` here.
 * `android/local.properties` pointing at that SDK, with **forward slashes**: in
   a Java properties file `C:\Users` reads as a broken `\u` escape.
+* For `--release`, **`android/keystore.properties`** — see *Signing* below. The
+  build refuses `--release` without it rather than produce an unsigned APK that
+  no phone will install.
 
 On another laptop, both of those have to exist there too, and
 `~/.gradle/gradle.properties` needs its `org.gradle.java.home` line corrected.
+
+## Signing
+
+A release APK is signed with `kids-release.jks` — made 11 Sep 2026, alias
+`kids`, RSA 4096, valid until 2054. **It is the app's identity.** Android only
+installs an update over an app when both carry the same signature, so losing the
+key strands every student who has already installed, and leaking it lets anyone
+sign an APK that Android accepts as this one.
+
+It is **not in this repo and never will be** — the repo is public, and `*.jks`,
+`*.keystore` and `keystore.properties` are gitignored in both `.gitignore` and
+`android/.gitignore`. It lives outside the tree in
+`Desktop\SET 2026\KIDS app signing key\`, with a `READ ME FIRST.txt` beside it
+carrying the password and saying why a backup off this laptop matters.
+
+The build finds it through `android/keystore.properties`, also gitignored:
+
+```properties
+storeFile=C:/.../kids-release.jks
+storePassword=...
+keyAlias=kids
+keyPassword=...
+```
+
+On another machine, both the `.jks` and that file have to be copied across.
+`build-apk.mjs --release` prints the `keytool` line when the file is missing —
+but **do not run it**: a second key is a different app, and a phone carrying the
+first one can never be updated from it.
+
+`versionCode` comes from `APP_BUILD` in `src/lib/app/app-build.ts`, passed to
+Gradle as `-PkidsBuild`. That is the same number the user-agent carries, so the
+version check and Android's own update rule cannot disagree. Android refuses an
+update whose `versionCode` is not higher than the installed one, so **bump
+`APP_BUILD` before building any APK meant to replace one already on a phone.**
+
+Check what came out, before sending it anywhere:
+
+```bash
+"$ANDROID_HOME/build-tools/35.0.0/apksigner.bat" verify --print-certs -v <apk>
+"$ANDROID_HOME/build-tools/35.0.0/aapt2.exe" dump badging <apk> | head -1
+```
+
+Build 2 verifies under APK Signature Scheme v2, DN `CN=KIDS Kolkata SET`,
+certificate SHA-256 `b9b4bc…6c876`, `versionCode=2`, 5.7 MB. **If that SHA-256
+ever changes, the key changed** and no existing installation can take the
+update.
+
+## Getting it to a student
+
+There is no store, so the APK is a file on the internet that a student
+downloads. It goes to **GitHub Releases** on this repo, not to Vercel — Vercel's
+bandwidth will not survive thousands of downloads, and GitHub's release assets
+are free and unmetered. A release APK carries no secret: the only thing baked
+into it is the public server URL.
+
+Per release, in the web UI (there is no `gh` CLI on this machine):
+
+1. **Releases → Draft a new release** on `marsiqsystem/KIDS`.
+2. Tag `app-b<APP_BUILD>` — `app-b2` for build 2 — on `main`. Title the same.
+3. In the body, the one line from `BUILD_NOTES[APP_BUILD]` — it is what the
+   student already read on the update card, so it should match.
+4. Attach the APK from `native/dist/`, but **rename it to `kids-set.apk`**
+   first. The name in `native/dist/` deliberately carries the build number and
+   the server, which is right on a laptop holding several; the uploaded asset
+   must have the *same* name every time, because that is what makes the link
+   below permanent.
+5. Publish.
+
+Then, once ever, in Vercel → Settings → Environment Variables:
+
+```
+KIDS_APK_URL = https://github.com/marsiqsystem/KIDS/releases/latest/download/kids-set.apk
+```
+
+`/releases/latest/download/` always resolves to the newest published release, so
+this value never needs changing again. Without it set, `apkUrl()` in
+`src/lib/app/app-version.ts` returns null and the update card tells the student
+to ask KIDS — true, but a dead end.
 
 ## What this actually buys over the website
 
@@ -70,16 +153,11 @@ both — this shell for Android, the same URL for iPhone.
   offline mode and cannot be one until the ten server actions become an HTTP
   API and the screens are exported statically. `native/www/index.html` is the
   no-connection screen, and the only thing in here the server does not serve.
-* **It is a debug build.** Debug-signed, fine for sideloading and testing,
-  wrong for handing to students. A release build needs a keystore — which is
-  the app's identity: lose it and no student can install an update over what
-  they have; leak it and anyone can sign an APK claiming to be this one. It is
-  gitignored in two places and must be backed up somewhere that is not this
-  repo.
-* **A sideloaded APK never auto-updates.** There is no store to do it. A
-  version check on launch plus an "Update available" link is not optional —
-  without it, students sit on old versions forever with no way to reach them.
-  Not built yet.
+* **A sideloaded APK never auto-updates.** There is no store to do it. The
+  version check is built — `src/lib/app/app-version.ts` reads the build number
+  out of the user-agent and shows a card to a phone that is behind — but a card
+  can only *tell* a student. They still install the new file by hand, so every
+  build number costs 65 people a download.
 * Android will warn about "unknown sources" on install. Students need telling
   that is expected, which is a short page on the website, also not built yet.
 
@@ -88,7 +166,8 @@ both — this shell for Android, the same URL for iPhone.
 | path | what |
 | --- | --- |
 | `capacitor.config.ts` | app id, name, and the server URL (`KIDS_APP_URL`) |
-| `native/build-apk.mjs` | the build, with JDK/SDK discovery |
+| `native/build-apk.mjs` | the build, with JDK/SDK discovery and the signing check |
+| `android/keystore.properties` | where the release key is, and its password (gitignored) |
 | `native/www/index.html` | the no-connection screen |
 | `android/` | the generated native project; `MainActivity.java` is ours |
 | `android/app/src/main/res/mipmap-*/` | launcher icons, from `public/android-chrome-512x512.png` |

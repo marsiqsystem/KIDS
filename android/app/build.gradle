@@ -1,5 +1,33 @@
 apply plugin: 'com.android.application'
 
+/**
+ * Release signing.
+ *
+ * The key that signs an APK is the app's identity. Android will only install an
+ * update over an app if both carry the SAME signature - so losing this key
+ * means no student who already has the app can ever be updated again, and
+ * leaking it means anyone can sign an APK that claims to be this one. It is
+ * never in this repo (see android/.gitignore, and the root .gitignore, which
+ * both catch it twice).
+ *
+ * Create android/keystore.properties beside this project, pointing at a
+ * keystore kept outside the tree:
+ *
+ *     storeFile=C:/Users/.../kids-release.jks
+ *     storePassword=...
+ *     keyAlias=kids
+ *     keyPassword=...
+ *
+ * With the file absent, a release build still runs but comes out unsigned, so
+ * a contributor without the key can compile. `native/build-apk.mjs --release`
+ * refuses in that case rather than hand anyone an APK no phone will install.
+ */
+def signing = new Properties()
+def signingFile = rootProject.file("keystore.properties")
+if (signingFile.exists()) {
+    signingFile.withInputStream { signing.load(it) }
+}
+
 android {
     namespace = "org.kidskolkata.set"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,8 +35,14 @@ android {
         applicationId "org.kidskolkata.set"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // The one number, from src/lib/app/app-build.ts, passed in by
+        // native/build-apk.mjs. Android refuses to install an update whose
+        // versionCode is not higher than the installed one, so a build number
+        // that only lived in the user-agent would eventually block its own
+        // update. Defaults to 1 for a build started from Android Studio.
+        def kidsBuild = (project.findProperty("kidsBuild") ?: "1").toString().toInteger()
+        versionCode = kidsBuild
+        versionName = "1.0.${kidsBuild}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,8 +50,21 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        if (signing.containsKey("storeFile")) {
+            release {
+                storeFile file(signing["storeFile"])
+                storePassword signing["storePassword"]
+                keyAlias signing["keyAlias"]
+                keyPassword signing["keyPassword"]
+            }
+        }
+    }
     buildTypes {
         release {
+            // Null when there is no keystore.properties: an unsigned release,
+            // which is what this build produced before the key existed.
+            signingConfig signingConfigs.findByName("release")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

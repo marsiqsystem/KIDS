@@ -3,7 +3,7 @@
  *
  *   node native/build-apk.mjs                     -> production, www.kidskolkata.org
  *   node native/build-apk.mjs --url=http://192.168.0.135:3000
- *   node native/build-apk.mjs --release           -> unsigned release build
+ *   node native/build-apk.mjs --release           -> signed release build
  *
  * Or `npm run app:apk -- --url=...`.
  *
@@ -31,6 +31,36 @@ const flag = (name) => args.find((a) => a.startsWith(`--${name}=`))?.split("=").
 
 const url = flag("url") ?? process.env.KIDS_APP_URL ?? "";
 const release = args.includes("--release");
+
+/**
+ * The release key. android/app/build.gradle signs with it when
+ * android/keystore.properties exists, and produces an UNSIGNED apk when it
+ * does not — which is correct for a contributor without the key, and wrong for
+ * anybody expecting something installable. So check here and refuse, rather
+ * than let an unsigned file land in native/dist/ under a confident name.
+ */
+const signingFile = join(root, "android", "keystore.properties");
+if (release && !existsSync(signingFile)) {
+  console.error(`A release build needs the signing key, and android/keystore.properties is not here.
+It is gitignored, so it does not travel with the repo - it is on the machine that
+made the key, and in whatever backup that key was put in.
+
+To create the key for the first time (once, ever: every later update must be
+signed by this same file, or no student can install it over what they have):
+
+  keytool -genkeypair -v -keystore kids-release.jks -alias kids \
+          -keyalg RSA -keysize 4096 -validity 10000
+
+Keep the .jks OUTSIDE this tree, back it up somewhere that is not this repo,
+then write android/keystore.properties:
+
+  storeFile=C:/path/to/kids-release.jks
+  storePassword=...
+  keyAlias=kids
+  keyPassword=...
+`);
+  process.exit(1);
+}
 
 /** A JDK 21+, from the environment or from where this laptop keeps one. */
 function findJdk() {
@@ -112,14 +142,19 @@ const task = release ? "assembleRelease" : "assembleDebug";
 // directory is not on the PATH, so `gradlew.bat` alone is "not recognized".
 // Quoted, because "GADZET ZONE" has a space in it.
 const gradlew = join(root, "android", process.platform === "win32" ? "gradlew.bat" : "gradlew");
-run(`"${gradlew}"`, [task, "--no-daemon"], join(root, "android"));
+// APP_BUILD reaches the native side twice and must agree both times: capacitor
+// bakes it into the user-agent at sync time, and Gradle needs it as versionCode
+// — Android refuses an update whose versionCode is not higher than the
+// installed one, so a build number that only lived in the user-agent would
+// eventually block its own update.
+run(`"${gradlew}"`, [task, `-PkidsBuild=${APP_BUILD}`, "--no-daemon"], join(root, "android"));
 
 // Copy the APK out of Gradle's tree under a name that says what it points at
 // AND which build it is. An APK on a phone cannot be asked either question, and
 // two identically named files in a downloads folder is how the wrong one gets
 // sent to a student — which has already cost an evening.
 const built = release
-  ? join(root, "android/app/build/outputs/apk/release/app-release-unsigned.apk")
+  ? join(root, "android/app/build/outputs/apk/release/app-release.apk")
   : join(root, "android/app/build/outputs/apk/debug/app-debug.apk");
 
 const label = target.replace(/^https?:\/\//, "").replace(/[^a-z0-9]+/gi, "-");

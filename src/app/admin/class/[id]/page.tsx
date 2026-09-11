@@ -92,7 +92,8 @@ export default async function TeacherRoom({ params }: { params: Promise<{ id: st
         </span>
       </header>
 
-      <div className="min-h-0 grow">
+      {/* `relative`, because JitsiRoom fills its parent absolutely. */}
+      <div className="relative min-h-0 grow">
         <JitsiRoom
           domain={liveDomain()}
           room={live.room}

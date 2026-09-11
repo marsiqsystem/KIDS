@@ -166,22 +166,31 @@ export default function JitsiRoom({
   }
 
   return (
-    /* The iframe is created by external_api.js, which sizes it itself. Left
-       alone it came out a few hundred pixels tall inside a full-height box, so
-       Jitsi laid its entire interface out for that - toolbar floating in the
-       top third of a phone, our black background showing through beneath.
-       Pinned here rather than in either surface's stylesheet: the teacher
-       console styles this box with Tailwind and has no CSS file of its own, so
-       a rule in the student's would fix one screen and not the other.
+    /* ⚠️ THIS COMPONENT FILLS ITS PARENT ABSOLUTELY. Whatever renders it must
+       carry `position: relative` and a real height of its own.
 
-       ⚠️ `&_iframe`, a DESCENDANT selector, not `&>iframe`. The iframe is
-       created inside the ref'd box, so it is this element's GRANDchild, and
-       the child combinator matched nothing at all - the rule was here from
-       11 Sep and had never once applied. A selector that silently matches
-       nothing looks exactly like a selector that is wrong about what it does;
-       the only way to tell is to look at the rendered tree. */
-    <div className="relative h-full w-full [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:!h-full [&_iframe]:!w-full [&_iframe]:border-0">
-      <div ref={box} className="h-full w-full" />
+       Not `h-full`, which is `height: 100%`, which resolves against the
+       PARENT'S height - and the parent on both surfaces is a flex item whose
+       height CSS does not consider definite. It resolves to auto, the wrapper
+       collapses to zero, and with the iframe pinned to `inset-0` inside it the
+       class becomes zero by zero: Jitsi running perfectly, audio flowing, and
+       nothing at all on screen. class.css already carries this same warning one
+       level up about `.app-shell`; it is the same trap twice.
+
+       The iframe itself is created by external_api.js, which sizes it. Left
+       alone it came out a few hundred pixels tall, so Jitsi laid its whole
+       interface out for that - a toolbar floating in the top third of a phone
+       with black underneath. Pinned here rather than in either surface's
+       stylesheet: the teacher console styles its box with Tailwind and has no
+       CSS file of its own, so a rule in the student's would fix one screen and
+       not the other.
+
+       `&_iframe` is a DESCENDANT selector. `&>iframe`, which was here first,
+       matched nothing at all - the iframe is created inside the ref'd box and
+       so is this element's grandchild. A selector that silently matches nothing
+       looks exactly like one that is wrong about what it does. */
+    <div className="absolute inset-0 [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:!h-full [&_iframe]:!w-full [&_iframe]:border-0">
+      <div ref={box} className="absolute inset-0" />
       {stage ? (
         <p className="pointer-events-none absolute inset-x-0 top-1/2 px-4 text-center text-xs text-white/70">
           {stage}

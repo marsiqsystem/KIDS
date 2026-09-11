@@ -55,6 +55,11 @@
   min-height: 0;
   overflow: hidden;
   background: #000;
+  /* JitsiRoom fills this absolutely, so this is its containing block. It has
+   * to be, because a percentage height inside a flex item resolves to auto —
+   * the same trap this file already warns about for `.app-shell`, and it cost
+   * an afternoon twice. */
+  position: relative;
 }
 
 .cls-live__note {

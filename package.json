@@ -11,7 +11,8 @@
     "seed:students": "node scripts/seed-students.ts",
     "schema:app": "node scripts/apply-app-schema.ts",
     "app:apk": "node native/build-apk.mjs",
-    "app:sync": "cap sync android"
+    "app:sync": "cap sync android",
+    "app:icons": "node native/build-icons.mjs"
   },
   "dependencies": {
     "@capacitor/android": "^8.5.1",

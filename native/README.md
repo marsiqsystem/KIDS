@@ -218,6 +218,7 @@ both — this shell for Android, the same URL for iPhone.
 | --- | --- |
 | `capacitor.config.ts` | app id, name, and the server URL (`KIDS_APP_URL`) |
 | `native/build-apk.mjs` | the build, with JDK/SDK discovery and the signing check |
+| `native/build-icons.mjs` | every launcher icon, Android and web, from one logo |
 | `android/keystore.properties` | where the release key is, and its password (gitignored) |
 | `native/www/index.html` | the no-connection screen |
 | `android/` | the generated native project; `MainActivity.java` is ours |

@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react";
 interface JitsiApi {
   dispose(): void;
   addListener(event: string, handler: (...args: unknown[]) => void): void;
+  executeCommand(command: string, ...args: unknown[]): void;
 }
 
 declare global {
@@ -134,6 +135,37 @@ export default function JitsiRoom({
       });
 
       setStage("");
+
+      /**
+       * Every class runs in moderated mode, switched on by the teacher's own
+       * embed the moment they arrive.
+       *
+       * What this buys: a student cannot put their own microphone or camera on.
+       * The SERVER refuses it — they raise a hand, the teacher approves them in
+       * the participants pane, and only then does their microphone work.
+       *
+       * Be exact about the limit, because it is the sort of thing that gets
+       * promised and then discovered in front of sixty-five children: nobody in
+       * Jitsi can switch ON someone else's microphone, moderator or not. It is
+       * a deliberate rule of the client and there is no setting for it. The
+       * teacher grants permission; the child still presses the button. So the
+       * microphone and camera buttons stay in the student's toolbar — they are
+       * what a newly-approved child presses to answer — and moderation is what
+       * makes them inert until then. Removing the buttons would look stricter
+       * and would actually be weaker: it enforces nothing on anyone who reaches
+       * the room another way, and it would leave an approved student with no
+       * way to speak.
+       *
+       * Done here rather than left to the teacher to remember. A rule that has
+       * to be switched on before each lesson is a rule that is off for the
+       * first ten minutes of some lesson in November.
+       */
+      if (moderator) {
+        api.addListener("videoConferenceJoined", () => {
+          api?.executeCommand("toggleModeration", true, "audio");
+          api?.executeCommand("toggleModeration", true, "video");
+        });
+      }
 
       if (onLeave) {
         api.addListener("readyToClose", () => {

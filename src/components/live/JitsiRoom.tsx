@@ -19,6 +19,7 @@ interface JitsiApi {
   dispose(): void;
   addListener(event: string, handler: (...args: unknown[]) => void): void;
   executeCommand(command: string, ...args: unknown[]): void;
+  isModerationOn(mediaType: string): Promise<boolean>;
 }
 
 declare global {
@@ -55,6 +56,12 @@ export default function JitsiRoom({
    * told which of those it is, and so does whoever they tell.
    */
   const [stage, setStage] = useState("starting");
+  /**
+   * Whether the server is actually holding students muted. Null until the
+   * answer is known; only ever set on the teacher's side, because only a
+   * moderator may ask.
+   */
+  const [moderated, setModerated] = useState<boolean | null>(null);
 
   useEffect(() => {
     let api: JitsiApi | null = null;
@@ -164,6 +171,36 @@ export default function JitsiRoom({
         api.addListener("videoConferenceJoined", () => {
           api?.executeCommand("toggleModeration", true, "audio");
           api?.executeCommand("toggleModeration", true, "video");
+
+          /**
+           * Then ASK whether it took, and put the answer on the teacher's own
+           * screen.
+           *
+           * `toggle-moderation` returns nothing and fails silently: the handler
+           * in the served bundle begins `if (!isModerator(state)) return`, and
+           * beyond that it dispatches into a feature that does nothing at all
+           * unless Prosody's `av_moderation` module is loaded. Every one of
+           * those failures looks exactly like success from here.
+           *
+           * This project has now been caught three times by an absence read as
+           * a result — the token modules that were named but never loaded, a
+           * CSS rule that matched nothing, an install whose seds quietly did
+           * not run. So the teacher is told, in a line above their own video,
+           * whether students are actually held. A wrong answer on screen is
+           * worth more than a right one nobody can see.
+           *
+           * Queried once the conference is up, and refreshed from the
+           * conference's own event thereafter.
+           */
+          void api
+            ?.isModerationOn("audio")
+            .then((on) => setModerated(on))
+            .catch(() => setModerated(false));
+        });
+
+        api.addListener("moderationStatusChanged", (...args) => {
+          const e = args[0] as { mediaType?: string; enabled?: boolean } | undefined;
+          if (e?.mediaType === "audio") setModerated(Boolean(e.enabled));
         });
       }
 
@@ -226,6 +263,19 @@ export default function JitsiRoom({
       {stage ? (
         <p className="pointer-events-none absolute inset-x-0 top-1/2 px-4 text-center text-xs text-white/70">
           {stage}
+        </p>
+      ) : null}
+      {/* Only the teacher, and only once the conference has answered. Says what
+          IS, not what was asked for — see the note by the toggle above. */}
+      {moderator && moderated !== null ? (
+        <p
+          className={`pointer-events-none absolute inset-x-0 top-0 px-3 py-1 text-center text-[11px] ${
+            moderated ? "bg-black/50 text-white/70" : "bg-[#6b3f3f] font-semibold text-white"
+          }`}
+        >
+          {moderated
+            ? "Students are held muted until you allow them."
+            : "⚠ Students can unmute themselves — the server is not holding them."}
         </p>
       ) : null}
     </div>

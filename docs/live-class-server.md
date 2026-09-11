@@ -344,25 +344,49 @@ systemctl reload nginx
 # prosody runs Lua 5.4; lua-inspect ships only up to 5.3
 cp /usr/share/lua/5.3/inspect.lua /usr/share/lua/5.4/inspect.lua
 
+# \n, NOT a line break. GNU sed refuses a literal newline in the replacement
+# half of an s||| command - "unterminated `s' command" - and changes nothing.
+# Written across two lines, as these were until 11 Sep, both of these fail
+# while everything around them succeeds: the config keeps app_secret="" and
+# never gains token_affiliation, and the only sign is two lines of sed output
+# scrolling past in the middle of a long install.
 CFG=/etc/prosody/conf.d/$HOST.cfg.lua
 sed -i "s|^    app_id=\"\"|    app_id=\"kids\"|" $CFG
-sed -i "s|^    app_secret=\"\"|    app_secret=\"$SECRET\"
-    allow_empty_token = false|" $CFG
-sed -i '0,/"token_verification";/s//"token_verification";
-        "token_affiliation";/' $CFG
-grep -c muc_allowners $CFG   # must be 0
+sed -i "s|^    app_secret=\"\"|    app_secret=\"$SECRET\"\n    allow_empty_token = false|" $CFG
+sed -i '0,/"token_verification";/s//"token_verification";\n        "token_affiliation";/' $CFG
+
+# All four must be right. Check them, do not assume the seds landed.
+grep -c muc_allowners $CFG        # must be 0
+grep app_secret $CFG              # must show 64 characters, not ""
+grep allow_empty_token $CFG       # must be false
+grep token_affiliation $CFG       # must be present
 
 cat >> /etc/jitsi/jicofo/jicofo.conf <<'EOF'
 jicofo { conference { enable-auto-owner = false } }
 EOF
 
 systemctl restart prosody jicofo jitsi-videobridge2
-sleep 6
+sleep 8
 journalctl -u prosody --since '1 min ago' --no-pager | grep -i error   # must be EMPTY
+
+# An empty error grep is an ABSENCE. Ask prosody what it actually loaded:
+prosodyctl shell module list $HOST              # must list auth_token
+prosodyctl shell module list conference.$HOST   # must list token_verification
+                                                # AND token_affiliation
 ```
 
 Then from your own machine, not the box: `curl -I https://$HOST/external_api.js`
 must return 200 with no certificate override.
+
+⚠️ The certificate does **not** land in `/etc/letsencrypt/live/`. This installer
+uses acme.sh, which keeps it under `/opt/acmesh/.acme.sh/$HOST_ecc/` and deploys
+it into the nginx config. Looking in the wrong place reads as "no certificate"
+when there is one; check it from outside instead:
+
+```bash
+echo | openssl s_client -connect $HOST:443 -servername $HOST 2>/dev/null \
+  | openssl x509 -noout -subject -issuer -dates
+```
 
 ## 2. Point the name at it
 

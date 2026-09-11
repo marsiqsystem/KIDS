@@ -1,5 +1,28 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { CapacitorConfig } from "@capacitor/cli";
 import { APP_BUILD } from "./src/lib/app/app-build";
+
+/**
+ * Is there a Firebase project for this build to talk to?
+ *
+ * The push plugin drags `com.google.firebase:firebase-messaging` into the APK,
+ * and Firebase initialises itself from a ContentProvider at process start —
+ * before any of our code runs, before the WebView exists, before a JavaScript
+ * guard could possibly help. With no `google-services.json` the Gradle plugin
+ * writes none of the resources it looks for, and build 3 died on launch:
+ * the icon was tapped, the app closed, and nothing on the phone said why.
+ *
+ * So the plugin is included natively only when the file it needs is actually
+ * there. Tied to the file rather than to a flag on purpose — a flag is a second
+ * thing to remember, and this cannot drift: drop `google-services.json` into
+ * `android/app/` and the next build carries push; take it away and it does not.
+ *
+ * The npm package stays installed either way, so PushRegistrar's dynamic import
+ * still resolves and the web build is unaffected. It never runs: the server
+ * tells it whether push is configured (see the shell layout).
+ */
+const hasFirebase = existsSync(join(__dirname, "android", "app", "google-services.json"));
 
 /**
  * The Android app.
@@ -78,6 +101,12 @@ const config: CapacitorConfig = {
   },
 
   android: {
+    /**
+     * An allowlist, not a blocklist: `[]` means no Capacitor plugins are built
+     * into the Android project at all, which is what every build before the
+     * Firebase project exists should be. See `hasFirebase` above.
+     */
+    includePlugins: hasFirebase ? ["@capacitor/push-notifications"] : [],
     /**
      * The WebView identifies itself so the server can tell the app from the
      * website. Two things read it: describeDevice() in src/lib/app/devices.ts,

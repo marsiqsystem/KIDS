@@ -77,10 +77,17 @@ Check what came out, before sending it anywhere:
 "$ANDROID_HOME/build-tools/35.0.0/aapt2.exe" dump badging <apk> | head -1
 ```
 
-Build 2 verifies under APK Signature Scheme v2, DN `CN=KIDS Kolkata SET`,
-certificate SHA-256 `b9b4bc…6c876`, `versionCode=2`, 5.7 MB. **If that SHA-256
+Build 5 verifies under APK Signature Scheme v2, DN `CN=KIDS Kolkata SET`,
+certificate SHA-256 `b9b4bc…6c876`, `versionCode=5`, 5.7 MB. **If that SHA-256
 ever changes, the key changed** and no existing installation can take the
 update.
+
+⚠️ **The build 2 that reached a phone was DEBUG-signed**, made before the key
+existed. Android refuses an update across a signature change, so that one phone
+had to uninstall before it could take build 3. That was a one-time cost and it
+is behind us — every build from 3 onward carries the key above — but it is the
+reason "it installs over the top" was wrong once, and it would be wrong again
+for anybody still holding a debug build.
 
 ## Push notifications
 
@@ -94,9 +101,24 @@ states of a student's own record, with no instant at which anything happened.
 FCM is free — this is not the paid-billing trap that Firebase phone auth is.
 
 **Everything is inert until it is configured.** With `KIDS_FCM_SERVICE_ACCOUNT`
-unset, every send returns 0 and writes nothing; with no `google-services.json`
-the Gradle plugin is not applied and the app never asks for a token. Neither is
-an error, and a post is still written and a class still opened either way.
+unset every send returns 0 and writes nothing, and the shell layout tells
+`PushRegistrar` not to touch the plugin at all. A post is still written and a
+class still opened either way.
+
+⚠️ **The plugin is not even IN the APK until `android/app/google-services.json`
+exists.** `capacitor.config.ts` sets `android.includePlugins` from whether that
+file is present. This is not tidiness — it is the fix for build 3, which died
+on launch with no screen and nothing on the phone to say why. The push plugin
+drags `firebase-messaging` in, and Firebase initialises itself from a
+ContentProvider at process start: before our code, before the WebView, before
+any JavaScript guard could matter. With none of the resources the Gradle plugin
+would have written, it took the app down with it.
+
+**The rule that came out of it: never ship a native plugin for a service that
+does not exist yet.** Unused native code is not inert — a ContentProvider runs
+whether anything calls it or not. Tying the decision to the file rather than to
+a flag means it cannot drift: drop `google-services.json` in and the next build
+carries push; take it away and it does not.
 
 To turn it on, once:
 
@@ -110,10 +132,11 @@ To turn it on, once:
    Vercel as **`KIDS_FCM_SERVICE_ACCOUNT`**. One variable rather than three,
    because splitting a multi-line PEM across variables is how one of them ends
    up belonging to a different project.
-5. **Bump `APP_BUILD` to 3** in `src/lib/app/app-build.ts`, with a line in
+5. **Bump `APP_BUILD`** in `src/lib/app/app-build.ts`, with a line in
    `BUILD_NOTES`, then `npm run app:apk -- --release`. A new APK is unavoidable:
-   the push plugin is native code, so a phone on build 2 can never receive a
-   notification however the server is configured.
+   the push plugin is native code, and no build made before step 3 even
+   contains it, so an older phone can never receive a notification however the
+   server is configured.
 
 Then check it end to end, in this order, because each step's failure looks like
 the next one's:
@@ -144,7 +167,7 @@ into it is the public server URL.
 Per release, in the web UI (there is no `gh` CLI on this machine):
 
 1. **Releases → Draft a new release** on `marsiqsystem/KIDS`.
-2. Tag `app-b<APP_BUILD>` — `app-b2` for build 2 — on `main`. Title the same.
+2. Tag `app-b<APP_BUILD>` — `app-b5` for build 5 — on `main`. Title the same.
 3. In the body, the one line from `BUILD_NOTES[APP_BUILD]` — it is what the
    student already read on the update card, so it should match.
 4. Attach the APK from `native/dist/`, but **rename it to `kids-set.apk`**

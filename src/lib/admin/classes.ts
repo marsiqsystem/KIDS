@@ -292,7 +292,23 @@ export async function nextClassFor(uid: string): Promise<LiveClass | null> {
       join admin_batch_members m on m.batch_id = c.batch_id
      where m.uid = ${uid} and m.removed_at is null
        and c.cancelled_at is null and c.ended_at is null
-       and c.starts_at > now() - interval '1 hour'
+       and (
+             -- OPEN: on the student's Home for as long as it could still be
+             -- running — its own length plus half an hour for overrunning.
+             -- "Started within the last hour" could not do this job: classes
+             -- are 90 minutes, so it took the card off every phone half way
+             -- through the lesson, and a child who joined late or whose app
+             -- reloaded had no way back in.
+             --
+             -- Bounded rather than "until ended", because ending a class is a
+             -- button a teacher forgets. One left open yesterday would
+             -- otherwise sit on sixty-five phones for ever.
+             (c.started_at is not null
+              and c.started_at + make_interval(mins => c.minutes + 30) > now())
+             -- NOT YET OPENED: the one coming, plus an hour's grace for a
+             -- teacher running late. Yesterday's class is not today's news.
+             or (c.started_at is null and c.starts_at > now() - interval '1 hour')
+           )
      order by c.starts_at
      limit 1
   `) as LiveClass[];

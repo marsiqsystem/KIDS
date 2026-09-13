@@ -1,7 +1,7 @@
 import { paperIdFor, PAPERS } from "./config";
 import { getPaper } from "./papers";
 import { loadQuestionSets } from "./question-sets";
-import { openPaperNow, nextScheduledPaper, phaseOfPaper, type ExamPaper } from "./phases";
+import { openPaperNow, nextScheduledPaper, paperByCode, phaseOfPaper, type ExamPaper } from "./phases";
 import type { Student } from "./db";
 
 /**
@@ -135,6 +135,20 @@ export async function windowFor(
   const paper = (await openPaperNow(now)) ?? (await nextScheduledPaper(now));
   if (!paper) return null;
   return toWindow(student, paper);
+}
+
+/**
+ * The window for ONE named sitting, whatever else is scheduled.
+ *
+ * The admit-card portal is July's door and only July's. Asking it "what is open
+ * now" would, once Phase 2 is scheduled, hand a Phase 2 paper to anybody holding
+ * a July QR link -- with no check-in, which is the whole point of Phase 2. So
+ * the portal asks for P1-ONLINE by name.
+ */
+export async function windowForPaper(student: Student, code: string): Promise<ExamWindow | null> {
+  await loadQuestionSets();
+  const paper = await paperByCode(code).catch(() => null);
+  return paper ? toWindow(student, paper) : null;
 }
 
 export function phaseOf(window: ExamWindow, now: Date = new Date()): Phase {

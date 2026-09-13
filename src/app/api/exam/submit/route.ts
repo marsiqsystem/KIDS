@@ -23,10 +23,10 @@ export async function POST(request: NextRequest) {
   const gated = await gate(body?.id, body?.t);
   if (!gated.ok) return NextResponse.json(gated.body, { status: gated.status });
 
-  const { student, paper } = gated.ctx;
+  const { student, paper, window } = gated.ctx;
   const answers = cleanAnswers(body?.answers, paper);
 
-  const accepted = await submit(student.uid, answers, scoreAnswers(paper, answers));
+  const accepted = await submit(student.uid, answers, scoreAnswers(paper, answers), window.examPaperId);
   if (accepted) {
     await logEvent(student.uid, "submit", { answered: Object.keys(answers).length });
   }

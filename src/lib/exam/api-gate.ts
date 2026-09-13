@@ -1,5 +1,5 @@
 import { openPortal } from "./portal-auth";
-import { windowFor, phaseOf, type ExamWindow, type Phase } from "./schedule";
+import { windowForPaper, phaseOf, type ExamWindow, type Phase } from "./schedule";
 import { getPaper, type Paper } from "./papers";
 import type { Student } from "./db";
 
@@ -50,7 +50,9 @@ export async function gate(id: unknown, token: unknown): Promise<GateResult> {
   }
 
   const student = gated.student;
-  const window = await windowFor(student);
+  // July's paper, by name. The admit-card link is July's credential, and a later
+  // paper is sat in the app after checking in at a centre -- never through here.
+  const window = await windowForPaper(student, "P1-ONLINE");
   if (!window) {
     return fail(409, "no_window", "No exam is scheduled for you.");
   }

@@ -23,9 +23,9 @@ export async function POST(request: NextRequest) {
   const gated = await gate(body?.id, body?.t);
   if (!gated.ok) return NextResponse.json(gated.body, { status: gated.status });
 
-  const { student, paper } = gated.ctx;
+  const { student, paper, window } = gated.ctx;
 
-  const saved = await saveDraft(student.uid, cleanAnswers(body?.answers, paper));
+  const saved = await saveDraft(student.uid, cleanAnswers(body?.answers, paper), window.examPaperId);
 
   return NextResponse.json(
     { ok: true, saved, savedAt: new Date().toISOString() },

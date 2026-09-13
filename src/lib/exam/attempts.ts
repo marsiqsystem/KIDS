@@ -1,3 +1,4 @@
+import { randomInt } from "node:crypto";
 import { sql } from "./db";
 
 /**
@@ -97,12 +98,17 @@ export async function startOrResume(
  * Refuses after the deadline, so a phone that wakes up at 11:04 and flushes a
  * queued draft cannot overwrite a submitted paper.
  */
-export async function saveDraft(uid: string, answers: Record<string, number>): Promise<boolean> {
+export async function saveDraft(
+  uid: string,
+  answers: Record<string, number>,
+  examPaperId: string,
+): Promise<boolean> {
   const rows = (await sql`
     update attempts
        set answers = ${JSON.stringify(answers)}::jsonb,
            last_sync_at = now()
      where uid = ${uid}
+       and exam_paper_id = ${examPaperId}::bigint
        and status = 'in_progress'
        and now() < deadline_at
     returning uid
@@ -132,14 +138,17 @@ export async function submit(
   uid: string,
   answers: Record<string, number>,
   score: number,
+  examPaperId: string,
 ): Promise<boolean> {
   const rows = (await sql`
     update attempts
        set answers = ${JSON.stringify(answers)}::jsonb,
            status = 'submitted',
            submitted_at = now(),
-           score = ${score}
+           score = ${score},
+           receipt = coalesce(receipt, ${mintReceipt()})
      where uid = ${uid}
+       and exam_paper_id = ${examPaperId}::bigint
        and status = 'in_progress'
        and now() < deadline_at + interval '2 minutes'
     returning uid
@@ -160,10 +169,19 @@ export async function submit(
  * even if you don't press Submit" — so a student who loses their phone at 10:58
  * still has a marked paper.
  */
-export async function finalise(uid: string, score: (answers: Record<string, number>) => number) {
+export async function finalise(
+  uid: string,
+  score: (answers: Record<string, number>) => number,
+  examPaperId: string,
+) {
+  // BOTH statements are scoped to the one paper. Before September 2026 a student
+  // had one attempt and `where uid = …` was enough; now a student can have
+  // July's, a mock's and Phase 2's, and an unscoped update here would close a
+  // live Phase 2 paper early and give it the mock's mark.
   const rows = (await sql`
     select answers from attempts
-     where uid = ${uid} and status = 'in_progress' and now() >= deadline_at
+     where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint
+       and status = 'in_progress' and now() >= deadline_at
   `) as { answers: Record<string, number> }[];
 
   if (!rows.length) return false;
@@ -173,14 +191,33 @@ export async function finalise(uid: string, score: (answers: Record<string, numb
     update attempts
        set status = 'submitted',
            submitted_at = deadline_at,
-           score = ${score(answers)}
-     where uid = ${uid} and status = 'in_progress'
+           score = ${score(answers)},
+           receipt = coalesce(receipt, ${mintReceipt()})
+     where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint and status = 'in_progress'
   `;
   await logEvent(uid, "autosubmit", { answered: Object.keys(answers).length });
   return true;
 }
 
-export async function findAttempt(uid: string): Promise<Attempt | null> {
-  const rows = (await sql`select * from attempts where uid = ${uid}`) as Attempt[];
+export async function findAttempt(uid: string, examPaperId: string): Promise<Attempt | null> {
+  const rows = (await sql`
+    select * from attempts where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint
+  `) as Attempt[];
   return rows[0] ?? null;
+}
+
+/**
+ * A receipt number: K-9F2R-4180. Design 6d, rule 9.
+ *
+ * What a student quotes if they ever ask about a paper, so it is short, read
+ * aloud easily, and never ambiguous: no 0/O, 1/I/L, 5/S, 8/B. Random rather
+ * than derived from the UID, because a receipt that can be computed from an ID
+ * proves nothing. Stamped once -- `coalesce` keeps the first -- so a retried
+ * submit never changes the number a child has already written down.
+ */
+export function mintReceipt(): string {
+  const A = "ACDEFGHJKMNPQRTUVWXY";
+  const D = "234679";
+  const pick = (set: string) => set[randomInt(set.length)];
+  return `K-${pick(D)}${pick(A)}${pick(D)}${pick(A)}-${pick(D)}${pick(D)}${pick(D)}${pick(D)}`;
 }

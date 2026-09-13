@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
   // Window has closed. If they were mid-attempt and never pressed Submit, that
   // draft becomes their paper now — this is the "auto-submitted at 11:00" promise.
   if (phase === "over") {
-    await finalise(student.uid, (answers) => scoreAnswers(paper, answers));
+    await finalise(student.uid, (answers) => scoreAnswers(paper, answers), window.examPaperId);
     return NextResponse.json({ ok: true, state: "over" });
   }
 
@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
   // reissued config) the student's own deadline is the one they were promised.
   // Trusting the window instead would hand out a paper whose time is already up.
   if (new Date(attempt.deadline_at) <= new Date()) {
-    await finalise(student.uid, (answers) => scoreAnswers(paper, answers));
+    await finalise(student.uid, (answers) => scoreAnswers(paper, answers), window.examPaperId);
     return NextResponse.json({ ok: true, state: "over" });
   }
 

@@ -404,6 +404,12 @@ alter table attempts         add column if not exists exam_paper_id bigint refer
 alter table online_results   add column if not exists exam_paper_id bigint references exam_papers (id);
 alter table offline_results  add column if not exists exam_paper_id bigint references exam_papers (id);
 
+-- The receipt a student is shown when their paper is in (Design 6d, rule 9).
+-- July's 6,780 attempts have none: no receipt existed then, and inventing one
+-- after the fact would be a number nobody was ever shown.
+alter table attempts add column if not exists receipt text;
+create unique index if not exists attempts_receipt_idx on attempts (receipt) where receipt is not null;
+
 
 -- --------------------------------------------------------- question sets --
 --

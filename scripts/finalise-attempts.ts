@@ -15,7 +15,7 @@
  */
 import { readFileSync } from "node:fs";
 import { neon } from "@neondatabase/serverless";
-import { getPaper, scoreAnswers } from "../src/lib/exam/papers.ts";
+import { getPaper, registerLoadedPapers, scoreAnswers } from "../src/lib/exam/papers.ts";
 
 // The Next runtime loads .env.local for us; a bare node script does not.
 try {
@@ -30,10 +30,20 @@ try {
 const commit = process.argv.includes("--commit");
 const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL ?? "");
 
-type Row = { uid: string; paper_id: string; answers: Record<string, number> };
+type Row = { uid: string; paper_id: string; exam_paper_id: string; answers: Record<string, number> };
+
+// Papers after July live in the database, not in set2026-papers.ts. Without
+// this, every Phase 2 attempt would be reported NOT FOUND and left unmarked.
+registerLoadedPapers(
+  new Map(
+    ((await sql`select code, questions, answer_key from exam_question_sets`) as {
+      code: string; questions: never[]; answer_key: number[];
+    }[]).map((r) => [r.code, { id: r.code, questions: r.questions, key: r.answer_key }]),
+  ),
+);
 
 const expired = (await sql`
-  select uid, paper_id, answers
+  select uid, paper_id, exam_paper_id::text, answers
     from attempts
    where status = 'in_progress'
      and now() >= deadline_at
@@ -69,7 +79,7 @@ for (const row of expired) {
     await sql`
       update attempts
          set status = 'submitted', submitted_at = deadline_at, score = ${score}
-       where uid = ${row.uid} and status = 'in_progress'
+       where uid = ${row.uid} and exam_paper_id = ${row.exam_paper_id}::bigint and status = 'in_progress'
     `;
     await sql`
       insert into exam_events (uid, kind, detail)

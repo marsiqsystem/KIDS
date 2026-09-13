@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { openPortal, firstName } from "@/lib/exam/portal-auth";
 import { EXAM } from "@/lib/exam/config";
-import { windowFor, phaseOf } from "@/lib/exam/schedule";
+import { windowForPaper, phaseOf } from "@/lib/exam/schedule";
 import { findAttempt } from "@/lib/exam/attempts";
 import { CENTRES, type Centre } from "@/lib/centres";
 import type { Student } from "@/lib/exam/db";
@@ -73,7 +73,9 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   }
 
   // Which paper, and when — the same 19 July window for every verified student.
-  const examWindow = await windowFor(student);
+  // July's window, by name: this page is July's door. A later paper is sat in the
+  // app, after checking in at a centre. See windowForPaper().
+  const examWindow = await windowForPaper(student, "P1-ONLINE");
   if (!examWindow) return <ErrorScreen reason="no_class" uid={student.uid} />;
 
   // A student who has already submitted is done, whatever the clock says. Show the
@@ -81,7 +83,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   // keep a finished student from being told their test "is on Sunday". An
   // in_progress attempt is deliberately NOT caught here: during the live window it
   // must still fall through to resume.
-  const attempt = await findAttempt(student.uid);
+  const attempt = await findAttempt(student.uid, examWindow.examPaperId);
   if (attempt?.status === "submitted") {
     // auto-submit stamps submitted_at at the deadline; a hand-submit lands before it.
     const timedOut =

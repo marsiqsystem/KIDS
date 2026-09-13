@@ -57,22 +57,31 @@ export async function logEvent(uid: string, kind: EventKind, detail?: unknown): 
  * died at 10:47 scans their card again and lands here, and must come back to
  * their answers and their ORIGINAL deadline. If this issued a fresh deadline on
  * every call, a student could farm extra time by pulling the battery.
+ *
+ * `paperId` and `examPaperId` are two different things and both are needed.
+ * `paperId` is the CLASS paper ('SET2026-IX') -- which questions this child was
+ * handed. `examPaperId` is the row in `exam_papers` -- which sitting this is,
+ * July's or December's. Before the phase migration only the first existed, and
+ * an attempt could therefore only ever belong to one exam.
  */
 export async function startOrResume(
   uid: string,
   paperId: string,
   deadline: Date,
+  examPaperId: string,
 ): Promise<Attempt> {
   const rows = (await sql`
     with attempted as (
-      insert into attempts (uid, paper_id, deadline_at)
-      values (${uid}, ${paperId}, ${deadline.toISOString()})
-      on conflict (uid) do nothing
+      insert into attempts (uid, paper_id, deadline_at, exam_paper_id)
+      values (${uid}, ${paperId}, ${deadline.toISOString()}, ${examPaperId}::bigint)
+      on conflict (uid, exam_paper_id) do nothing
       returning *
     )
     select * from attempted
     union all
-    select * from attempts where uid = ${uid} and not exists (select 1 from attempted)
+    select * from attempts
+     where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint
+       and not exists (select 1 from attempted)
   `) as Attempt[];
 
   return rows[0];

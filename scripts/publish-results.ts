@@ -348,7 +348,27 @@ for (const r of marked) {
 
 console.log("Writing results…");
 
-await sql`delete from online_results`;
+/**
+ * Which paper these marks belong to.
+ *
+ * Since September 2026 `online_results` is keyed on (uid, exam_paper_id), because a
+ * student now sits more than one paper in a cycle. Resolved by code rather than
+ * hardcoded as an id: ids differ between the live database and any rebuild of
+ * it, and a wrong number here would file a whole sitting under the wrong paper.
+ */
+const [examPaper] = (await sql`
+  select id::text from exam_papers where code = 'P1-ONLINE'
+`) as { id: string }[];
+if (!examPaper) {
+  console.error("No exam paper P1-ONLINE. Run scripts/migrate-exam-phases.ts first.");
+  process.exit(1);
+}
+
+// SCOPED, and it must stay scoped. Before the phase migration this table held
+// one exam and `delete from online_results` was correct; now it holds a row per
+// paper, and an unscoped delete here would silently take Phase 2's marks out
+// with Phase 1's on the next republish.
+await sql`delete from online_results where exam_paper_id = ${examPaper.id}::bigint`;
 
 // Everyone who sat gets a stored result — including the three who are out of
 // the statistics. They are owed their marksheet; they are not owed a rank.
@@ -359,7 +379,7 @@ const COLUMNS = [
   "class_rank", "centre_rank", "school_rank", "percentile",
   "class_sat", "centre_sat", "school_sat", "class_avg", "class_high",
   "started_at", "submitted_at", "minutes_taken", "timed_out", "ranked",
-  "answers", "paper_id",
+  "answers", "paper_id", "exam_paper_id",
 ];
 
 const values = stored.map((r) => {
@@ -379,7 +399,7 @@ const values = stored.map((r) => {
     schoolSat.get(`${r.is_demo}|${r.centre_code}|${r.school_code}|${r.class}`) ?? 0,
     Math.round((agg.sum / agg.n) * 100) / 100, agg.high,
     r.started_at, r.submitted_at, r.minutesTaken, r.timedOut, ranked,
-    JSON.stringify(r.answers ?? {}), r.paper_id,
+    JSON.stringify(r.answers ?? {}), r.paper_id, examPaper.id,
   ];
 });
 

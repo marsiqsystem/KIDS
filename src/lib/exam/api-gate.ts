@@ -50,7 +50,7 @@ export async function gate(id: unknown, token: unknown): Promise<GateResult> {
   }
 
   const student = gated.student;
-  const window = windowFor(student);
+  const window = await windowFor(student);
   if (!window) {
     return fail(409, "no_window", "No exam is scheduled for you.");
   }

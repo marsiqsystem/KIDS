@@ -162,6 +162,23 @@ async function main(): Promise<number> {
   console.log(`  writing ${rows.length.toLocaleString()} results…`);
   const CHUNK = 250;
   let done = 0;
+
+/**
+ * Which paper these marks belong to.
+ *
+ * Since September 2026 `offline_results` is keyed on (uid, exam_paper_id), because a
+ * student now sits more than one paper in a cycle. Resolved by code rather than
+ * hardcoded as an id: ids differ between the live database and any rebuild of
+ * it, and a wrong number here would file a whole sitting under the wrong paper.
+ */
+const [examPaper] = (await sql`
+  select id::text from exam_papers where code = 'P1-OFFLINE'
+`) as { id: string }[];
+if (!examPaper) {
+  console.error("No exam paper P1-OFFLINE. Run scripts/migrate-exam-phases.ts first.");
+  process.exit(1);
+}
+
   for (let i = 0; i < rows.length; i += CHUNK) {
     const slice = rows.slice(i, i + CHUNK);
     await Promise.all(slice.map((r) => {
@@ -175,7 +192,7 @@ async function main(): Promise<number> {
           class_rank, centre_rank, school_rank, percentile,
           class_sat, centre_sat, school_sat, class_avg, class_high, ranked,
           sections, panels, marked, second, answer_key, outcome,
-          form, source, hand_set, computed_at
+          form, source, hand_set, computed_at, exam_paper_id
         ) values (
           ${r.uid}, ${r.class}, ${r.stream || null},
           ${r.marks}, ${r.correct}, ${r.wrong}, ${r.blank}, ${r.grace}, ${r.total_q},
@@ -186,9 +203,9 @@ async function main(): Promise<number> {
           ${!r.is_demo},
           ${JSON.stringify(r.sections)}, ${JSON.stringify(r.panels)},
           ${r.marked}, ${r.second}, ${r.key}, ${r.outcome},
-          ${r.form}, ${r.source}, ${r.hand_set}, now()
+          ${r.form}, ${r.source}, ${r.hand_set}, now(), ${examPaper.id}::bigint
         )
-        on conflict (uid) do update set
+        on conflict (uid, exam_paper_id) do update set
           class = excluded.class, stream = excluded.stream, marks = excluded.marks,
           correct = excluded.correct, wrong = excluded.wrong, blank = excluded.blank,
           grace = excluded.grace, total_q = excluded.total_q,

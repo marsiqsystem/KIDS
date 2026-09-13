@@ -10,7 +10,7 @@ import { windowFor, phaseOf } from "@/lib/exam/schedule";
  */
 export default async function ExamPage() {
   const student = await requireStudent();
-  const window = windowFor(student);
+  const window = await windowFor(student);
   const phase = window ? phaseOf(window) : null;
 
   return (

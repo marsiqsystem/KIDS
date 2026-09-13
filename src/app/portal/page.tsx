@@ -73,7 +73,7 @@ export default async function PortalPage({ searchParams }: { searchParams: Searc
   }
 
   // Which paper, and when — the same 19 July window for every verified student.
-  const examWindow = windowFor(student);
+  const examWindow = await windowFor(student);
   if (!examWindow) return <ErrorScreen reason="no_class" uid={student.uid} />;
 
   // A student who has already submitted is done, whatever the clock says. Show the

@@ -50,6 +50,20 @@ if (!url) {
 }
 const sql = neon(url);
 
+// Which sitting these demo marks belong to. Both results tables have been keyed
+// on (uid, exam_paper_id) since September 2026 -- see
+// scripts/migrate-exam-phases.ts. Resolved by code, never by a hardcoded id:
+// ids differ between the live database and any rebuild of it.
+const papers = Object.fromEntries(
+  ((await sql`select id::text, code from exam_papers`) as { id: string; code: string }[])
+    .map((p) => [p.code, p.id]),
+) as Record<string, string>;
+if (!papers["P1-OFFLINE"] || !papers["P1-ONLINE"]) {
+  console.error("No Phase 1 papers. Run scripts/migrate-exam-phases.ts first.");
+  process.exit(1);
+}
+
+
 const args = process.argv.slice(2);
 const uid = (args.find((a) => /^\d{9}$/.test(a)) ?? "").trim();
 const remove = args.includes("--remove");
@@ -256,16 +270,16 @@ await sql`
     class_rank, centre_rank, school_rank, percentile,
     class_sat, centre_sat, school_sat, class_avg, class_high, ranked,
     sections, panels, marked, second, answer_key, outcome,
-    form, source, hand_set, computed_at
+    form, source, hand_set, computed_at, exam_paper_id
   ) values (
     ${uid}, ${student.class}, ${student.stream}, ${marks}, ${correct}, ${wrong}, ${blank}, 0, ${totalQ},
     ${classRank}, 1, 1, ${percentile},
     ${offCohort.sat}, 1, 1, ${offCohort.avg}, ${offCohort.high}, true,
     ${JSON.stringify(sections)}, ${JSON.stringify(BLOCKS.slice(1).map((b) => b.name))},
     ${marked.join("")}, ${second.join("")}, ${key.join("")}, ${outcome.join("")},
-    ${`${cls}100`}, ${"demo-fixture"}, 0, now()
+    ${`${cls}100`}, ${"demo-fixture"}, 0, now(), ${papers["P1-OFFLINE"]}::bigint
   )
-  on conflict (uid) do update set
+  on conflict (uid, exam_paper_id) do update set
     class = excluded.class, stream = excluded.stream, marks = excluded.marks,
     correct = excluded.correct, wrong = excluded.wrong, blank = excluded.blank,
     grace = excluded.grace, total_q = excluded.total_q,
@@ -327,15 +341,15 @@ await sql`
     class_rank, centre_rank, school_rank, percentile,
     class_sat, centre_sat, school_sat, class_avg, class_high,
     started_at, submitted_at, minutes_taken, timed_out, ranked,
-    answers, paper_id, computed_at
+    answers, paper_id, computed_at, exam_paper_id
   ) values (
     ${uid}, ${onMarks}, ${onCorrect}, ${onWrong}, ${onBlank},
     ${onRank}, 1, 1, ${onCohort.sat ? Number((100 * (onCohort.sat - onRank) / onCohort.sat).toFixed(1)) : null},
     ${onCohort.sat}, 1, 1, ${onCohort.avg}, ${onCohort.high},
     ${started.toISOString()}, ${submitted.toISOString()}, ${41}, false, true,
-    ${JSON.stringify(answers)}, ${paperId}, now()
+    ${JSON.stringify(answers)}, ${paperId}, now(), ${papers["P1-ONLINE"]}::bigint
   )
-  on conflict (uid) do update set
+  on conflict (uid, exam_paper_id) do update set
     marks = excluded.marks, correct = excluded.correct, wrong = excluded.wrong,
     blank = excluded.blank, class_rank = excluded.class_rank,
     centre_rank = excluded.centre_rank, school_rank = excluded.school_rank,

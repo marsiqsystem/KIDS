@@ -154,7 +154,7 @@ export async function noticesFor(student: Student, now: Date = new Date()): Prom
   }
 
   // -------------------------------------------------------------- a paper --
-  const window = windowFor(student);
+  const window = await windowFor(student);
   if (window) {
     const phase = phaseOf(window, now);
 

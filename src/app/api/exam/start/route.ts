@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, state: "over" });
   }
 
-  const attempt = await startOrResume(student.uid, paper.id, deadlineFor(window));
+  const attempt = await startOrResume(student.uid, paper.id, deadlineFor(window), window.examPaperId);
 
   if (attempt.status === "submitted") {
     // One attempt only. They have already sat it.

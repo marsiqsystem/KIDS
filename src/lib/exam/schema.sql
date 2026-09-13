@@ -276,3 +276,130 @@ create table if not exists offline_withheld_schools (
   reason      text,
   added_at    timestamptz not null default now()
 );
+
+
+-- ------------------------------------------------- series, phases and papers --
+--
+-- Until September 2026 this database could hold exactly one exam. `attempts`,
+-- `online_results` and `offline_results` were each keyed on the student alone,
+-- the window was a hardcoded date in src/lib/exam/config.ts, and publication
+-- was two booleans on a single `results_meta` row. SET 2026 was not a row --
+-- it was the shape of the tables.
+--
+-- SET 2026 Phase 2, in December, cannot exist in that shape, and neither can a
+-- mock. These three tables are what the exam becomes instead.
+--
+-- Three levels, because the vocabulary has three levels and collapsing any two
+-- of them loses something the award needs:
+--
+--   series  SET 2026            the whole cycle a child is awarded on
+--   phase   Phase 1 / Phase 2   a sitting, months apart
+--   paper   the offline OMR     what a student actually sat, and was marked on
+--
+-- Phase 1 was TWO papers on one morning (an online 50 and an offline 100) and
+-- the award counts only the offline one -- Umar's ruling, 13 September. That is
+-- exactly why `phase` and `paper` are not one table: the ruling is stored as
+-- `exam_phases.award_paper_id`, one foreign key, rather than as a condition
+-- written into whichever query happens to compute the award.
+
+create table if not exists exam_series (
+  id          bigserial   primary key,
+  code        text        not null unique,   -- 'SET2026'
+  name        text        not null,
+  -- How a student's award is computed across the phases.
+  --
+  -- DATA, deliberately, and not logic in a page: on 13 September the measured
+  -- gap between the two Phase 1 formats was 7.91 points in the online paper's
+  -- favour, which means averaging an OMR mark with an online one ranks a
+  -- student who sat both BELOW one who sat only the second. That may be
+  -- re-decided in December with the real marks in hand, and when it is it
+  -- should be one update here and not a released deployment.
+  award_rule  text        not null default 'average'
+                check (award_rule in ('average', 'best', 'latest', 'sum')),
+  -- What to do with a student who has a mark for only some of the phases.
+  --
+  --   'alone'    the marks they have stand, and they rank in the same list.
+  --              Umar's ruling: the 2,304 who missed Phase 1, and everyone who
+  --              registers between now and December, are ranked on Phase 2 by
+  --              itself.
+  --   'separate' they are ranked in their own list instead, so a one-phase mark
+  --              is never compared against a two-phase average.
+  incomplete  text        not null default 'alone'
+                check (incomplete in ('alone', 'separate')),
+  created_at  timestamptz not null default now()
+);
+
+create table if not exists exam_phases (
+  id          bigserial   primary key,
+  series_id   bigint      not null references exam_series (id),
+  code        text        not null,          -- 'P1' | 'P2'
+  name        text        not null,          -- 'Phase 1' | 'Phase 2'
+  ordinal     integer     not null,
+  -- Which paper's mark represents this phase in the award. For Phase 1 this is
+  -- the OFFLINE paper, never the online one. Deliberately NOT a declared
+  -- foreign key: exam_papers is created below this table, and the whole set is
+  -- written by one script (scripts/migrate-exam-phases.ts), which checks it.
+  award_paper_id bigint,
+  created_at  timestamptz not null default now(),
+  unique (series_id, code)
+);
+
+create table if not exists exam_papers (
+  id          bigserial   primary key,
+  phase_id    bigint      not null references exam_phases (id),
+  code        text        not null,          -- 'P1-OFFLINE' | 'P1-ONLINE' | 'P2-ONLINE'
+  name        text        not null,
+  -- 'offline' is marked by the OMR tool and imported; 'online' is sat in the
+  -- app and marked here. Nothing else is a mode.
+  mode        text        not null check (mode in ('online', 'offline')),
+  -- A mock is sat, marked and shown to the student exactly like a live paper.
+  -- It is excluded from every award and every published total, and that is the
+  -- only difference. November's rehearsal is a mock.
+  kind        text        not null default 'live' check (kind in ('live', 'mock')),
+  max_marks   integer     not null,
+  question_count integer,
+
+  -- The window. Absolute and server-side, exactly as config.ts insisted: a
+  -- phone's clock is whatever its owner set it to, so it is never consulted for
+  -- anything that matters. All null for an offline paper, which has no app
+  -- window at all.
+  scan_opens_at    timestamptz,
+  starts_at        timestamptz,
+  ends_at          timestamptz,
+  duration_minutes integer,
+
+  -- Must a student be marked present at a centre before the paper will open?
+  --
+  -- False for everything sat in July -- the invigilator at the desk was the
+  -- check, and the app never knew about it. True for December, where a student
+  -- scans the invigilator's rotating code from their own phone and the
+  -- attendance register writes itself.
+  requires_checkin boolean not null default false,
+
+  -- Publication, per paper. Replaces the two booleans on the single
+  -- `results_meta` row, which could only ever describe one exam. Visible to a
+  -- student only when `published` AND now() >= publish_at, so the switch can be
+  -- thrown hours early and still open to the second -- the same rule
+  -- results_meta already used, kept deliberately identical.
+  published    boolean     not null default false,
+  published_at timestamptz,
+  publish_at   timestamptz,
+
+  created_at  timestamptz not null default now(),
+  archived_at timestamptz,
+  unique (phase_id, code)
+);
+
+create index if not exists exam_papers_phase_idx on exam_papers (phase_id);
+
+-- Which paper a row of marks belongs to.
+--
+-- Added here as nullable so a fresh database and an existing one take the same
+-- path; scripts/migrate-exam-phases.ts backfills July's rows, makes the column
+-- NOT NULL and then moves the primary key. Named `exam_paper_id` and not
+-- `paper_id` on purpose: `attempts.paper_id` already exists and means something
+-- completely different (the CLASS paper, 'SET2026-IX'), and two columns a
+-- letter apart meaning different things is a bug waiting for a tired evening.
+alter table attempts         add column if not exists exam_paper_id bigint references exam_papers (id);
+alter table online_results   add column if not exists exam_paper_id bigint references exam_papers (id);
+alter table offline_results  add column if not exists exam_paper_id bigint references exam_papers (id);

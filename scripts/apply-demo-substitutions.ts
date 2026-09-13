@@ -41,6 +41,19 @@ try {
 const commit = process.argv.includes("--commit");
 const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL ?? "");
 
+// The substitutions are all from 19 July 2026, so they belong to the Phase 1
+// online paper. `attempts` has been keyed on (uid, exam_paper_id) since
+// September 2026 -- see scripts/migrate-exam-phases.ts. Resolved by code and
+// never by a hardcoded id: ids differ between the live database and a rebuild.
+const [p1online] = (await sql`
+  select id::text from exam_papers where code = 'P1-ONLINE'
+`) as { id: string }[];
+if (!p1online) {
+  console.error("No P1-ONLINE paper. Run scripts/migrate-exam-phases.ts first.");
+  process.exit(1);
+}
+const examPaperId = p1online.id;
+
 type Sub = { demoUid: string; studentUid: string; meritEligible: boolean; note?: string };
 const SUBS: Sub[] = JSON.parse(
   readFileSync(new URL("./demo-substitutions.json", import.meta.url), "utf8"),
@@ -179,12 +192,12 @@ for (const sub of SUBS) {
     // for a student who never started at all.
     sql`
       insert into attempts (uid, paper_id, status, started_at, deadline_at, submitted_at,
-                            answers, last_sync_at, score, merit_eligible)
+                            answers, last_sync_at, score, merit_eligible, exam_paper_id)
       values (${student.uid.trim()}, ${demo.paper_id}, ${demo.status},
               ${demo.started_at}, ${demo.deadline_at}, ${demo.submitted_at},
               ${JSON.stringify(demo.answers ?? {})}::jsonb, ${demo.last_sync_at},
-              ${demo.score}, ${sub.meritEligible})
-      on conflict (uid) do update
+              ${demo.score}, ${sub.meritEligible}, ${examPaperId}::bigint)
+      on conflict (uid, exam_paper_id) do update
         set paper_id      = excluded.paper_id,
             status        = excluded.status,
             started_at    = excluded.started_at,

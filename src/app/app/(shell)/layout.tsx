@@ -28,7 +28,7 @@ export default async function ShellLayout({ children }: { children: React.ReactN
 
   // The gold dot, driven by the real exam schedule rather than a flag. For 364
   // days a year this is false, which is the design's whole point about the tab.
-  const window = windowFor(student);
+  const window = await windowFor(student);
   const examLive = window ? phaseOf(window) === "scanning" || phaseOf(window) === "live" : false;
 
   /**

@@ -4,6 +4,8 @@
  *   node --env-file=.env.local scripts/seed-coaching-programme.ts 7
  *   node --env-file=.env.local scripts/seed-coaching-programme.ts 7 --starts=2026-09-15
  *   node --env-file=.env.local scripts/seed-coaching-programme.ts 7 --status
+ *   node --env-file=.env.local scripts/seed-coaching-programme.ts 7 --archive
+ *   node --env-file=.env.local scripts/seed-coaching-programme.ts 7 --restore
  *
  * This exists because the teacher's build-the-day screen is Design's turn 8
  * PART TWO and is not built. The day has to come from somewhere in the
@@ -40,6 +42,8 @@ const args = process.argv.slice(2);
 const batchId = args.find((a) => /^\d+$/.test(a));
 const flag = (n: string) => args.find((a) => a.startsWith(`--${n}=`))?.split("=")[1];
 const statusOnly = args.includes("--status");
+const archive = args.includes("--archive");
+const restore = args.includes("--restore");
 
 if (!batchId) {
   console.error("Which batch? e.g. `… seed-coaching-programme.ts 7`");
@@ -162,6 +166,81 @@ if (statusOnly) {
     }
     console.log();
   }
+  process.exit(0);
+}
+
+/**
+ * Stand a programme down, and put it back.
+ *
+ * `archived_at` was always in the schema and nothing could ever set it. A
+ * programme can be postponed before it starts, and when that happened on
+ * 13 September 2026 it left a live row whose day still had a 6:30 "Live class"
+ * block in it, fixed, for a lesson that was not going to happen.
+ *
+ * Archiving is the honest answer and not a destructive one. `programmeFor()`
+ * and the room both read `archived_at is null`, so one timestamp turns Home
+ * back into the feed for all 66 rows and takes the room with it. Every block,
+ * every mark a child has made and the whole presence history stay exactly
+ * where they are, so `--restore` is the same switch the other way.
+ *
+ * Deleting the rows would also stop the day. It would also throw away the only
+ * record of it, and there is no reason to.
+ */
+if (archive || restore) {
+  if (archive && restore) {
+    console.error("Pick one: --archive or --restore.");
+    process.exit(1);
+  }
+
+  if (archive) {
+    if (!existing[0]) {
+      console.error(`Batch ${batchId} has no live programme. Nothing to archive.`);
+      process.exit(1);
+    }
+    await sql`
+      update coaching_programmes set archived_at = now()
+       where id = ${existing[0].id}::bigint and archived_at is null
+    `;
+    const members = (await sql`
+      select count(*)::int as n from admin_batch_members
+       where batch_id = ${batchId}::bigint and removed_at is null
+    `) as { n: number }[];
+    console.log(`
+  "${existing[0].name}" archived.`);
+    console.log(`  ${members[0].n} students go back to the Home feed, and /app/room closes.`);
+    console.log("  Nothing was deleted — blocks, marks and presence are all still there.");
+    console.log(`  Put it back with: … seed-coaching-programme.ts ${batchId} --restore
+`);
+    process.exit(0);
+  }
+
+  if (existing[0]) {
+    console.error(
+      `Batch ${batchId} already has a LIVE programme ("${existing[0].name}").
+` +
+        "Archive that one first — the schema allows only one live programme per batch.",
+    );
+    process.exit(1);
+  }
+
+  // The most recently archived one, which is the one anybody means.
+  const archived = (await sql`
+    select id::text, name from coaching_programmes
+     where batch_id = ${batchId}::bigint and archived_at is not null
+     order by archived_at desc limit 1
+  `) as { id: string; name: string }[];
+
+  if (!archived[0]) {
+    console.error(`Batch ${batchId} has no archived programme to restore.`);
+    process.exit(1);
+  }
+
+  await sql`
+    update coaching_programmes set archived_at = null where id = ${archived[0].id}::bigint
+  `;
+  console.log(`
+  "${archived[0].name}" is live again. Check it with --status.
+`);
   process.exit(0);
 }
 

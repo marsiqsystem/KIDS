@@ -182,18 +182,25 @@ export async function deskCounts(examPaperId: string, centre: string): Promise<D
         where s.centre_code = ${centre} and not s.is_demo
           and exists (select 1 from exam_question_sets q
                        where q.exam_paper_id = ${examPaperId}::bigint and q.class = s.class)) as expected,
-      (select count(*)::int from exam_checkins c
-        where c.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}) as checked_in,
+      -- Every figure below excludes demo accounts, like "expected" above: a room
+      -- told "1 of 163 checked in" when the one is the KIDS team rehearsing has
+      -- been told something false. Demo accounts can still be FOUND at the desk.
       (select count(*)::int from exam_checkins c join students s on s.uid = c.uid
         where c.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}
-          and s.centre_code <> ${centre}) as from_elsewhere,
-      (select count(*)::int from attempts a join exam_checkins c
-          on c.uid = a.uid and c.exam_paper_id = a.exam_paper_id
-        where a.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}) as started,
-      (select count(*)::int from attempts a join exam_checkins c
-          on c.uid = a.uid and c.exam_paper_id = a.exam_paper_id
+          and not s.is_demo) as checked_in,
+      (select count(*)::int from exam_checkins c join students s on s.uid = c.uid
+        where c.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}
+          and s.centre_code <> ${centre} and not s.is_demo) as from_elsewhere,
+      (select count(*)::int from attempts a
+          join exam_checkins c on c.uid = a.uid and c.exam_paper_id = a.exam_paper_id
+          join students s on s.uid = a.uid
         where a.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}
-          and a.status = 'submitted') as submitted
+          and not s.is_demo) as started,
+      (select count(*)::int from attempts a
+          join exam_checkins c on c.uid = a.uid and c.exam_paper_id = a.exam_paper_id
+          join students s on s.uid = a.uid
+        where a.exam_paper_id = ${examPaperId}::bigint and c.centre_code = ${centre}
+          and a.status = 'submitted' and not s.is_demo) as submitted
   `) as { expected: number; checked_in: number; from_elsewhere: number; started: number; submitted: number }[];
   return {
     expected: r.expected,

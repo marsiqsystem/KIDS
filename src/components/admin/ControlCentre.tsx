@@ -9,7 +9,7 @@ import type { Post } from "@/lib/admin/posts";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
 import type { ClaimTotals, SchoolClaims, UnclaimedRow } from "@/lib/admin/claims";
 import type { PendingCorrection } from "@/lib/admin/corrections";
-import type { AdminPaper, CentreRow } from "@/lib/admin/exams";
+import type { AdminPaper, AwardState, CentreRow } from "@/lib/admin/exams";
 import type { ContentChapter } from "@/lib/admin/content";
 import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
@@ -61,6 +61,7 @@ export default async function ControlCentre({
   papers = null,
   centres = null,
   content = null,
+  award = null,
 }: {
   staff: Staff;
   tab: string;
@@ -85,6 +86,7 @@ export default async function ControlCentre({
   papers?: AdminPaper[] | null;
   centres?: CentreRow[] | null;
   content?: { choice: string; chapters: ContentChapter[] } | null;
+  award?: AwardState | null;
 }) {
   const isAdmin = staff.role === "admin";
 
@@ -167,7 +169,7 @@ export default async function ControlCentre({
             centres={(centres ?? []).map(({ centre_code, centre_name }) => ({ centre_code, centre_name }))}
           />
         ) : null}
-        {tab === "results" && papers ? <ResultsPanel papers={papers} /> : null}
+        {tab === "results" && papers ? <ResultsPanel papers={papers} award={award ?? null} /> : null}
         {tab === "centres" && centres ? <CentresPanel centres={centres} /> : null}
         {tab === "content" && content ? <ContentPanel choice={content.choice} chapters={content.chapters} /> : null}
         {tab === "staff" ? <StaffPanel staff={staffList} me={staff} /> : null}

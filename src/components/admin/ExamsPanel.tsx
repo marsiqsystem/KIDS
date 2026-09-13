@@ -4,13 +4,17 @@ import { useActionState } from "react";
 import Link from "next/link";
 import {
   assignInvigilatorAction,
+  computeAwardAction,
   createMockAction,
+  markPaperAction,
+  setAwardRuleAction,
+  setAwardVisibleAction,
   unassignInvigilatorAction,
   schedulePaperAction,
   setResultsAction,
   unschedulePaperAction,
 } from "@/app/admin/actions";
-import type { AdminPaper, CentreRow } from "@/lib/admin/exams";
+import type { AdminPaper, AwardState, CentreRow } from "@/lib/admin/exams";
 import { Alert, Field, INPUT, RowAction, Submit, SURFACE } from "./ui";
 
 const n = (x: number) => x.toLocaleString("en-IN");
@@ -293,60 +297,234 @@ function NewMock() {
 /* ---------------------------------------------------------------- Results --- */
 
 /**
- * Results — whether students can see each paper's marks.
+ * Results — mark, check, publish. And the award.
  *
- * Reads and writes exactly what the result pages read, which for Phase 1 is
- * still `results_meta`. Withdrawing hides every child's result for that paper at
- * once, including on the public lookup, so the button asks first.
+ * Three steps for every paper after July, never merged into one button:
+ * marking computes results that nobody can see; the office reads what they came
+ * to; publishing opens them. Phase 1 is shown with the one control it still
+ * needs, and writes the columns July's result pages actually read.
+ *
+ * The award has one decision left in it — what to do with a student who sat
+ * only one phase — and this is where it is made, looking at what each rule does
+ * to the top of every list rather than at an argument about it.
  */
-export function ResultsPanel({ papers }: { papers: AdminPaper[] }) {
+export function ResultsPanel({ papers, award }: { papers: AdminPaper[]; award: AwardState | null }) {
   return (
-    <div className="space-y-3">
-      {papers.map((p) => {
-        const p1 = p.phase_code === "P1";
-        return (
-          <article key={p.id} className={`flex flex-wrap items-center gap-x-6 gap-y-3 rounded px-5 py-4 ${SURFACE}`}>
-            <div className="min-w-0 flex-1">
-              <h3 className="text-sm font-bold">{p.name}</h3>
-              <p className="text-xs text-[#6b5c57]">
-                {n(p.results)} marked{p.kind === "mock" ? " · mock" : ""}
-              </p>
-            </div>
-            <span className={`text-xs font-semibold ${p.visible ? "text-[#8fbfae]" : "text-[#9c8c86]"}`}>
-              {p.visible ? "Students can see these" : "Not published"}
-            </span>
-            {p1 ? (
-              p.visible ? (
-                <RowAction
-                  action={setResultsAction}
-                  fields={{ paperId: p.id, visible: "0" }}
-                  danger
-                  confirm={`Withdraw ${p.name}?\n\n${n(p.results)} students will see "results are not published" instead of their marks — on the app, the portal and the public lookup — until it is published again.`}
-                >
-                  Withdraw
-                </RowAction>
-              ) : (
-                <RowAction
-                  action={setResultsAction}
-                  fields={{ paperId: p.id, visible: "1" }}
-                  primary
-                  confirm={`Publish ${p.name} to ${n(p.results)} students now?`}
-                >
-                  Publish now
-                </RowAction>
-              )
-            ) : (
-              <span className="max-w-xs text-xs text-[#6b5c57]">
-                {p.results === 0 ? "No marks yet." : ""} Publishing this paper arrives with Phase 2 marking.
-              </span>
-            )}
-          </article>
-        );
-      })}
-      <p className="pt-2 text-xs text-[#6b5c57]">
-        For a ceremony, the hold-to-publish stage screen at <span className="font-mono">/stage</span> still works.
-      </p>
+    <div className="space-y-6">
+      <section className="space-y-3">
+        {papers.map((p) => (
+          <PaperResults key={p.id} p={p} />
+        ))}
+        <p className="pt-1 text-xs text-[#6b5c57]">
+          For a ceremony, the hold-to-publish stage screen at <span className="font-mono">/stage</span> still works for Phase 1.
+        </p>
+      </section>
+
+      {award ? <AwardSection a={award} papers={papers} /> : null}
     </div>
+  );
+}
+
+function PaperResults({ p }: { p: AdminPaper }) {
+  const [state, mark, marking] = useActionState(markPaperAction, {});
+  const p1 = p.phase_code === "P1";
+  const closed = p.closed;
+
+  return (
+    <article className={`rounded px-5 py-4 ${SURFACE}`}>
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <div className="min-w-0 flex-1">
+          <h3 className="text-sm font-bold">{p.name}</h3>
+          <p className="text-xs text-[#6b5c57]">
+            {p1
+              ? `${n(p.results)} marked in August`
+              : p.computed_at
+                ? `Marked ${ist(p.computed_at)} · ${n(p.totals?.sat ?? 0)} papers`
+                : p.starts_at
+                  ? closed ? "Closed · not marked yet" : `Closes ${ist(p.ends_at)}`
+                  : "Not scheduled"}
+            {p.kind === "mock" ? " · mock" : ""}
+          </p>
+        </div>
+
+        <span className={`text-xs font-semibold ${p.visible ? "text-[#8fbfae]" : "text-[#9c8c86]"}`}>
+          {p.visible ? "Students can see these" : "Not published"}
+        </span>
+
+        {!p1 && !p.visible && closed ? (
+          <form action={mark}>
+            <input type="hidden" name="paperId" value={p.id} />
+            <button
+              type="submit"
+              disabled={marking}
+              className="rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a] disabled:opacity-50"
+            >
+              {marking ? "Marking…" : p.computed_at ? "Mark again" : "Mark and rank"}
+            </button>
+          </form>
+        ) : null}
+
+        {p.visible ? (
+          <RowAction
+            action={setResultsAction}
+            fields={{ paperId: p.id, visible: "0" }}
+            danger
+            confirm={`Withdraw ${p.name}?\n\nEvery student who sat it will see "results are not published" instead of their marks until it is published again.`}
+          >
+            Withdraw
+          </RowAction>
+        ) : p1 || p.computed_at ? (
+          <RowAction
+            action={setResultsAction}
+            fields={{ paperId: p.id, visible: "1" }}
+            primary
+            confirm={`Publish ${p.name} now?\n\nEvery student who sat it sees their marks and rank the next time they open the app.`}
+          >
+            Publish now
+          </RowAction>
+        ) : null}
+      </div>
+
+      <Alert state={state} />
+
+      {!p1 && p.totals ? (
+        <div className="mt-3 overflow-x-auto">
+          <table className="w-full text-left text-xs tabular-nums">
+            <thead className="text-[#6b5c57]">
+              <tr>
+                <th className="py-1 pr-4 font-semibold">Class</th>
+                <th className="py-1 pr-4 text-right font-semibold">Sat</th>
+                <th className="py-1 pr-4 text-right font-semibold">Average</th>
+                <th className="py-1 text-right font-semibold">Highest</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#2a2321] text-[#c9b8b2]">
+              {p.totals.cohorts.map((c) => (
+                <tr key={c.cohort}>
+                  <td className="py-1 pr-4">{c.cohort}</td>
+                  <td className="py-1 pr-4 text-right">{n(c.sat)}</td>
+                  <td className="py-1 pr-4 text-right">{c.average}</td>
+                  <td className="py-1 text-right">{c.highest}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {p.totals.finalised ? (
+            <p className="mt-2 text-xs text-[#6b5c57]">
+              {n(p.totals.finalised)} papers were submitted automatically when time ran out, from the last answers saved.
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
+function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
+  const [ruleState, setRule] = useActionState(setAwardRuleAction, {});
+  const [computeState, compute, computing] = useActionState(computeAwardAction, {});
+  const current = `${a.award_rule}/${a.incomplete}`;
+  const stale = Boolean(a.award_computed_at) && a.award_rule_used !== current;
+  const p2 = papers.find((p) => p.code === "P2-ONLINE");
+
+  return (
+    <section className={`space-y-4 rounded p-5 ${SURFACE}`}>
+      <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+        <h2 className="text-sm font-bold">{a.name} award</h2>
+        <span className={`text-xs font-semibold ${a.visible ? "text-[#8fbfae]" : "text-[#9c8c86]"}`}>
+          {a.visible ? "Published" : "Not published"}
+        </span>
+      </div>
+      <p className="max-w-3xl text-xs leading-relaxed text-[#6b5c57]">
+        The average of each student&rsquo;s Phase 1 written mark and Phase 2 mark, both as marks out of 100.
+        {p2?.computed_at ? "" : " Phase 2 must be marked before the award can be computed."}
+      </p>
+
+      <div className="rounded border border-[#6b5a3a] bg-[#221c12] p-4">
+        <h3 className="text-xs font-semibold text-[#d9b877]">A student who sat only one phase</h3>
+        <p className="mt-1 max-w-3xl text-xs leading-relaxed text-[#9c8c86]">
+          In September the online format scored about 8 points higher than the written paper for the same students on
+          the same morning. Ranking a one-phase average beside a two-phase one can therefore put students who sat once
+          above students who sat twice. The table below shows how often that happens in the real marks.
+        </p>
+        <form action={setRule} className="mt-3 flex flex-wrap items-center gap-4 text-xs text-[#c9b8b2]">
+          <input type="hidden" name="seriesId" value={a.series_id} />
+          <label className="flex items-center gap-2">
+            <input type="radio" name="rule" value="alone" defaultChecked={a.incomplete === "alone"} disabled={a.award_published} />
+            One list for everyone
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="radio" name="rule" value="separate" defaultChecked={a.incomplete === "separate"} disabled={a.award_published} />
+            Two lists: both phases, and one phase
+          </label>
+          {!a.award_published ? <Submit>Use this rule</Submit> : null}
+          <Alert state={ruleState} />
+        </form>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        {!a.award_published ? (
+          <form action={compute}>
+            <input type="hidden" name="seriesId" value={a.series_id} />
+            <button
+              type="submit"
+              disabled={computing || !p2?.computed_at}
+              className="rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a] disabled:opacity-40"
+            >
+              {computing ? "Computing…" : a.award_computed_at ? "Compute again" : "Compute the award"}
+            </button>
+          </form>
+        ) : null}
+        {a.award_published ? (
+          <RowAction action={setAwardVisibleAction} fields={{ seriesId: a.series_id, visible: "0" }} danger
+            confirm="Withdraw the award? Students stop seeing their award mark and rank.">
+            Withdraw the award
+          </RowAction>
+        ) : a.award_computed_at && !stale ? (
+          <RowAction action={setAwardVisibleAction} fields={{ seriesId: a.series_id, visible: "1" }} primary
+            confirm={`Publish the award to ${n(a.students)} students now?`}>
+            Publish the award
+          </RowAction>
+        ) : null}
+        <span className="text-xs text-[#6b5c57]">
+          {a.award_computed_at
+            ? stale
+              ? "The rule has changed since it was computed — compute again before publishing."
+              : `Computed ${ist(a.award_computed_at)} for ${n(a.students)} students, as ${a.incomplete === "alone" ? "one list" : "two lists"}.`
+            : "Not computed yet."}
+        </span>
+        <Alert state={computeState} />
+      </div>
+
+      {a.comparison?.length ? (
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs tabular-nums">
+            <thead className="text-[#6b5c57]">
+              <tr>
+                <th className="py-1 pr-4 font-semibold">Class</th>
+                <th className="py-1 pr-4 text-right font-semibold">Sat both</th>
+                <th className="py-1 pr-4 text-right font-semibold">Sat one</th>
+                <th className="py-1 pr-4 text-right font-semibold">One-phase students in the top 30, if one list</th>
+                <th className="py-1 text-right font-semibold">30th best two-phase mark</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#2a2321] text-[#c9b8b2]">
+              {a.comparison.map((c) => (
+                <tr key={c.cohort}>
+                  <td className="py-1 pr-4">{c.cohort}</td>
+                  <td className="py-1 pr-4 text-right">{n(c.bothPhases)}</td>
+                  <td className="py-1 pr-4 text-right">{n(c.onePhase)}</td>
+                  <td className={`py-1 pr-4 text-right ${c.onePhaseInTop30 > 0 ? "font-semibold text-[#d9b877]" : ""}`}>
+                    {c.onePhaseInTop30}
+                  </td>
+                  <td className="py-1 text-right">{c.top30Cutoff ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+    </section>
   );
 }
 

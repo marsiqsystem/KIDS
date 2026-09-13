@@ -42,6 +42,8 @@ import { approveCorrection, rejectCorrection } from "@/lib/admin/corrections";
 import {
   assignInvigilator,
   createMock,
+  setAwardVisible,
+  setIncompleteRule,
   istInstant,
   unassignInvigilator,
   schedulePaper,
@@ -49,6 +51,7 @@ import {
   unschedulePaper,
 } from "@/lib/admin/exams";
 import { youtubeId } from "@/lib/content/video-overrides";
+import { computeAward, computePaperResults } from "@/lib/exam/marking";
 import {
   createStaffSession,
   destroyStaffSession,
@@ -876,5 +879,53 @@ export async function unassignInvigilatorAction(_prev: State, formData: FormData
   if (!r.ok) return { message: r.message };
   refresh();
   return done("Taken off the desk.");
+}
+
+/* --------------------------------------------------------- marking + award --- */
+
+/**
+ * Mark and rank a paper after it closes. Nothing a student can see changes: the
+ * results are computed hidden, and published separately.
+ */
+export async function markPaperAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("paperId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No paper was named." };
+  const r = await computePaperResults(id);
+  if (!r.ok) return { message: r.message };
+  await logAdminEvent(staff.staff_id, "paper_marked", undefined, { paper: id, sat: r.totals.sat });
+  refresh();
+  return done(
+    `Marked ${r.totals.sat.toLocaleString("en-IN")} papers` +
+      (r.totals.finalised ? `, ${r.totals.finalised} of them submitted automatically at closing time` : "") +
+      `. Nothing is published yet.`,
+  );
+}
+
+export async function setAwardRuleAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const r = await setIncompleteRule(String(formData.get("seriesId") ?? ""), String(formData.get("rule") ?? ""), staff.staff_id);
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done("Rule changed. Compute the award again to see what it does.");
+}
+
+export async function computeAwardAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const seriesId = String(formData.get("seriesId") ?? "");
+  const r = await computeAward(seriesId);
+  if (!r.ok) return { message: r.message };
+  await logAdminEvent(staff.staff_id, "award_computed", undefined, { students: r.students });
+  refresh();
+  return done(`Computed for ${r.students.toLocaleString("en-IN")} students. Check the lists below before publishing.`);
+}
+
+export async function setAwardVisibleAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const visible = formData.get("visible") === "1";
+  const r = await setAwardVisible(String(formData.get("seriesId") ?? ""), visible, staff.staff_id);
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done(visible ? "The award is published. Students see it on My Record." : "The award is withdrawn.");
 }
 

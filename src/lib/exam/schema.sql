@@ -449,3 +449,107 @@ create table if not exists exam_question_sets (
 );
 
 create index if not exists exam_question_sets_paper_idx on exam_question_sets (exam_paper_id);
+
+
+-- ------------------------------------------------- results after July --
+--
+-- `online_results` and `offline_results` are JULY'S tables and stay that way.
+-- More than twenty readers -- the result page, the school reports, the toppers,
+-- the stage screen -- select from them by student alone and take the first
+-- row, which is correct only while each holds one paper. Writing a Phase 2 mark
+-- into either would put it on a child's July result page. So every paper after
+-- July, mocks included, is marked into this table instead.
+--
+-- A snapshot, exactly as July's was: computed once from the answer sheets and
+-- the loaded keys, re-marked rather than trusted, and fixed at publication. A
+-- rank is a position among two thousand classmates and must not move between
+-- two students opening their result a minute apart.
+--
+-- `cohort` is who a student is ranked against. A rank means something only
+-- among students who sat the same paper: Class X, or Class XI Science where the
+-- XI paper is split by stream. A Bengali-medium set is the SAME paper in another
+-- language and ranks with its class, as the July OMR paper did.
+
+create table if not exists exam_results (
+  uid            char(9)      not null references students (uid),
+  exam_paper_id  bigint       not null references exam_papers (id),
+  set_code       text         not null,
+  class          text         not null,
+  stream         text,
+  cohort         text         not null,
+  centre_code    text         not null,
+  school_code    text         not null,
+  -- 1 per correct answer; nothing deducted for a wrong one.
+  marks          integer      not null,
+  question_count integer      not null,
+  -- marks as a percentage of the set the student was handed. What the award
+  -- averages, so a 50-question set and a 100-question set weigh the same.
+  percent        numeric(5,2) not null,
+  correct        integer      not null,
+  wrong          integer      not null,
+  blank          integer      not null,
+  cohort_rank    integer,
+  centre_rank    integer,
+  school_rank    integer,
+  percentile     numeric(4,1),
+  cohort_sat     integer      not null,
+  cohort_avg     numeric(6,2),
+  cohort_high    integer,
+  -- False for demo accounts: marked and shown to themselves, ranked with no one.
+  ranked         boolean      not null,
+  receipt        text,
+  submitted_at   timestamptz,
+  timed_out      boolean      not null default false,
+  computed_at    timestamptz  not null default now(),
+  primary key (uid, exam_paper_id)
+);
+
+create index if not exists exam_results_paper_idx on exam_results (exam_paper_id, cohort);
+
+-- When each paper's results were last computed, and what they came to -- so the
+-- office can see what a Publish button is about to show nine thousand children.
+alter table exam_papers add column if not exists computed_at timestamptz;
+alter table exam_papers add column if not exists totals jsonb;
+
+
+-- ------------------------------------------------------------- the award --
+--
+-- SET 2026 is awarded on BOTH phases: the average of the Phase 1 OMR mark and the
+-- Phase 2 mark, each as a percentage (Umar, 13 September 2026). A student with a
+-- mark in only one phase is handled by exam_series.incomplete -- 'alone', ranked
+-- in the same list on the mark they have, or 'separate', ranked in a list of
+-- their own. That rule is NOT decided finally: on 13 September the measured gap
+-- between the two formats was 7.91 points in the online paper's favour, which
+-- tips a one-phase student above a two-phase one. So this table is recomputed
+-- from the rule whenever it changes, and the Results tab shows what each rule
+-- does to the top of the list before anything is published.
+
+create table if not exists exam_awards (
+  series_id     bigint       not null references exam_series (id),
+  uid           char(9)      not null references students (uid),
+  class         text         not null,
+  stream        text,
+  cohort        text         not null,
+  phase1_percent numeric(5,2),
+  phase2_percent numeric(5,2),
+  phases        integer      not null check (phases in (1, 2)),
+  award_percent numeric(5,2) not null,
+  -- 'both' or 'one'. With incomplete = 'alone' everyone ranks in 'all'.
+  list          text         not null check (list in ('all', 'both', 'one')),
+  rank          integer,
+  ranked        boolean      not null,
+  computed_at   timestamptz  not null default now(),
+  primary key (series_id, uid)
+);
+
+create index if not exists exam_awards_rank_idx on exam_awards (series_id, cohort, list, rank);
+
+alter table exam_series add column if not exists award_computed_at timestamptz;
+alter table exam_series add column if not exists award_published boolean not null default false;
+alter table exam_series add column if not exists award_publish_at timestamptz;
+alter table exam_series add column if not exists award_rule_used text;
+
+-- What "one list" would do to the top of each cohort, stored with every award
+-- computation whatever rule was used, so the choice between the rules is made
+-- looking at real numbers. See computeAward() in src/lib/exam/marking.ts.
+alter table exam_series add column if not exists award_comparison jsonb;

@@ -190,7 +190,9 @@ const rows = (await sql`
          a.paper_id, a.status, a.started_at, a.deadline_at, a.submitted_at,
          a.score, a.answers, coalesce(a.merit_eligible, true) as merit_eligible
   from students s
-  left join attempts a on a.uid = s.uid
+  -- July's paper only. attempts holds a row per paper since September 2026, and
+  -- a join on uid alone would count every Phase 2 student twice.
+  left join attempts a on a.uid = s.uid and a.exam_paper_id = (select id from exam_papers where code = 'P1-ONLINE')
 `) as Row[];
 
 console.log(`  ${rows.length} students.`);

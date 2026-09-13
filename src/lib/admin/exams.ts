@@ -40,6 +40,14 @@ export interface AdminPaper {
   /** Whether students can see marks right now, read from where the pages read it. */
   visible: boolean;
   counts_for_award: boolean;
+  /** Past its closing time, on the database clock -- never the office laptop's. */
+  closed: boolean;
+  /** When it was last marked, and what it came to. Null until it is. */
+  computed_at: Date | null;
+  totals: {
+    sat: number; finalised: number; average: number | null; highest: number | null;
+    cohorts: { cohort: string; sat: number; average: number; highest: number }[];
+  } | null;
   /** Who runs which desk, for a paper that needs a check-in. */
   invigilators: { centre_code: string; staff_id: string; full_name: string }[];
 }
@@ -61,6 +69,7 @@ export async function papersForAdmin(): Promise<AdminPaper[]> {
     select pa.id::text, pa.code, pa.name, ph.code as phase_code, ph.name as phase_name,
            pa.mode, pa.kind, pa.max_marks, pa.scan_opens_at, pa.starts_at, pa.ends_at,
            pa.duration_minutes, pa.requires_checkin, pa.published, pa.publish_at,
+           pa.computed_at, pa.totals, (pa.ends_at is not null and pa.ends_at <= now()) as closed,
            (ph.award_paper_id = pa.id) as counts_for_award,
            (select count(*)::int from attempts a where a.exam_paper_id = pa.id) as attempts,
            (select count(*)::int from online_results o where o.exam_paper_id = pa.id)
@@ -242,10 +251,15 @@ export async function setResultsVisible(
              offline_publish_at = case when ${visible} then now() else offline_publish_at end
        where id`;
   } else {
-    return {
-      ok: false,
-      message: "Results for this paper cannot be published from here yet — marking Phase 2 is still to be built.",
-    };
+    // Every later paper is read from exam_results by laterResultsFor(), which
+    // checks exam_papers.published and publish_at -- written just below. A paper
+    // that has never been marked has nothing to show, so it cannot be published.
+    const [m] = (await sql`
+      select computed_at from exam_papers where id = ${id}::bigint
+    `) as { computed_at: Date | null }[];
+    if (visible && !m?.computed_at) {
+      return { ok: false, message: "Mark this paper first. There are no results to publish yet." };
+    }
   }
 
   await sql`
@@ -343,6 +357,75 @@ export async function unassignInvigilator(
     delete from exam_invigilators
      where exam_paper_id = ${paperId}::bigint and centre_code = ${centre} and staff_id = ${staffId}`;
   await logAdminEvent(by, "invigilator_unassigned", { kind: "staff", id: staffId }, { centre });
+  return { ok: true };
+}
+
+/* ---------------------------------------------------------------- the award --- */
+
+export interface AwardState {
+  series_id: string;
+  name: string;
+  award_rule: string;
+  incomplete: "alone" | "separate";
+  award_computed_at: Date | null;
+  award_rule_used: string | null;
+  award_published: boolean;
+  visible: boolean;
+  comparison: {
+    cohort: string; bothPhases: number; onePhase: number; onePhaseInTop30: number; top30Cutoff: number | null;
+  }[] | null;
+  students: number;
+}
+
+export async function awardState(): Promise<AwardState | null> {
+  const [s] = (await sql`
+    select se.id::text as series_id, se.name, se.award_rule, se.incomplete, se.award_computed_at,
+           se.award_rule_used, se.award_published, se.award_comparison as comparison,
+           (se.award_published and (se.award_publish_at is null or now() >= se.award_publish_at)) as visible,
+           (select count(*)::int from exam_awards a where a.series_id = se.id and a.ranked) as students
+      from exam_series se where se.code = 'SET2026'
+  `) as AwardState[];
+  return s ?? null;
+}
+
+/**
+ * Choose what happens to a student with only one phase.
+ *
+ * The one open decision in the award (13 September 2026). Changing it does not
+ * change anything a student can see: it marks the award as needing to be
+ * computed again, and the office looks at the new top of each list before
+ * publishing.
+ */
+export async function setIncompleteRule(seriesId: string, rule: string, by: string): Promise<Scheduled> {
+  if (rule !== "alone" && rule !== "separate") return { ok: false, message: "Unknown rule." };
+  const [s] = (await sql`select award_published, incomplete from exam_series where id = ${seriesId}::bigint`) as
+    { award_published: boolean; incomplete: string }[];
+  if (!s) return { ok: false, message: "That series does not exist." };
+  if (s.award_published) return { ok: false, message: "The award is published. Withdraw it before changing the rule." };
+  if (s.incomplete === rule) return { ok: true };
+  await sql`update exam_series set incomplete = ${rule} where id = ${seriesId}::bigint`;
+  await logAdminEvent(by, "award_rule_changed", undefined, { from: s.incomplete, to: rule });
+  return { ok: true };
+}
+
+export async function setAwardVisible(seriesId: string, visible: boolean, by: string): Promise<Scheduled> {
+  const [s] = (await sql`
+    select award_computed_at, award_rule_used, award_rule, incomplete from exam_series where id = ${seriesId}::bigint
+  `) as { award_computed_at: Date | null; award_rule_used: string | null; award_rule: string; incomplete: string }[];
+  if (!s) return { ok: false, message: "That series does not exist." };
+  if (visible) {
+    if (!s.award_computed_at) return { ok: false, message: "Compute the award first." };
+    // Published only as computed: a rule changed since the last computation
+    // would otherwise publish ranks made under the old one.
+    if (s.award_rule_used !== `${s.award_rule}/${s.incomplete}`) {
+      return { ok: false, message: "The rule has changed since the award was computed. Compute it again first." };
+    }
+  }
+  await sql`
+    update exam_series set award_published = ${visible},
+           award_publish_at = case when ${visible} then now() else award_publish_at end
+     where id = ${seriesId}::bigint`;
+  await logAdminEvent(by, visible ? "award_published" : "award_withdrawn", undefined, {});
   return { ok: true };
 }
 

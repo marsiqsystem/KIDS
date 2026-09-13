@@ -2,6 +2,8 @@ import { requireStudent } from "@/lib/app/gate";
 import { practiceLine } from "@/lib/app/record";
 import { resultViewProps } from "@/lib/exam/result-page";
 import ResultView from "@/components/portal/result/ResultView";
+import LaterResults from "@/components/portal/result/LaterResults";
+import { awardFor, laterResultsFor } from "@/lib/exam/later-results";
 import PracticeStrip from "@/components/app/PracticeStrip";
 import "@/app/portal/portal.css";
 import "../../record.css";
@@ -34,9 +36,11 @@ export const dynamic = "force-dynamic";
 
 export default async function RecordPage() {
   const student = await requireStudent();
-  const [result, practice] = await Promise.all([
+  const [result, practice, later, award] = await Promise.all([
     resultViewProps(student),
     practiceLine(student.uid),
+    laterResultsFor(student),
+    awardFor(student),
   ]);
 
   return (
@@ -45,6 +49,9 @@ export default async function RecordPage() {
           its own internal spacing, and sitting it inside the app's body gutter
           would give it two. */}
       <div className="portal rec-portal__view">
+        {/* Phase 2, mocks and the award, above July. Renders nothing until
+            something after July is published. */}
+        <LaterResults results={later} award={award} />
         <ResultView {...result} surface="app" />
       </div>
 

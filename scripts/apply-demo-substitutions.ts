@@ -97,7 +97,7 @@ const rows = (await sql`
          a.started_at, a.deadline_at, a.submitted_at, a.last_sync_at,
          ${commit ? sql`a.merit_eligible` : sql`true as merit_eligible`}
     from students s
-    left join attempts a on a.uid = s.uid
+    left join attempts a on a.uid = s.uid and a.exam_paper_id = (select id from exam_papers where code = 'P1-ONLINE')
    where s.uid = any(${uids})
 `) as Row[];
 
@@ -211,7 +211,9 @@ for (const sub of SUBS) {
     // The mark now belongs to the student. Leaving it on the demo ID as well
     // would mean one paper counted twice — and these students are still holding
     // those demo admit cards, so scanning one must not show them a second result.
-    sql`delete from attempts where uid = ${sub.demoUid}`,
+    // July's attempt only: the demo account may since have sat a Phase 2
+    // rehearsal, and that is not part of this move.
+    sql`delete from attempts where uid = ${sub.demoUid} and exam_paper_id = ${examPaperId}::bigint`,
   ]);
 
   moved++;

@@ -9,7 +9,7 @@ import { listPosts } from "@/lib/admin/posts";
 import { pendingCount, pendingRegistrations, recentDecisions } from "@/lib/admin/registrations";
 import { claimTotals, claimsBySchool, unclaimedAtSchool } from "@/lib/admin/claims";
 import { pendingCorrectionCount, pendingCorrections } from "@/lib/admin/corrections";
-import { centresOverview, papersForAdmin } from "@/lib/admin/exams";
+import { awardState, centresOverview, papersForAdmin } from "@/lib/admin/exams";
 import { contentChapters } from "@/lib/admin/content";
 import { liveConfigured } from "@/lib/live/jitsi";
 import Bootstrap from "@/components/admin/Bootstrap";
@@ -128,6 +128,7 @@ export default async function AdminPage({
       corrections={tab === "corrections" ? await pendingCorrections() : null}
       papers={tab === "exams" || tab === "results" ? await papersForAdmin() : null}
       centres={tab === "centres" || tab === "exams" ? await centresOverview() : null}
+      award={tab === "results" ? await awardState() : null}
       content={tab === "content" ? await loadContent(cls) : null}
     />
   );

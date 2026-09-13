@@ -293,3 +293,102 @@ create table if not exists admin_posts (
 
 create index if not exists admin_posts_live_idx
   on admin_posts (posted_at desc) where retracted_at is null;
+
+
+-- ----------------------------------------------------------- registrations --
+--
+-- A child who is not on the SET 2026 register asking to be.
+--
+-- Every one of the 9,652 UIDs in `students` was minted outside this repo, by
+-- build_seed.py, from the master workbook on Umar's laptop. The app has never
+-- created one, and `students` has deliberately been read-only from /admin,
+-- because a correction made only here is reverted by the next reseed.
+--
+-- Registration changes that, and the shape of this table is what keeps it safe.
+-- An application is NOT a student. It has no UID, it is invisible to the exam,
+-- the merit list and every published total, and it stays that way until a named
+-- office account approves it -- Umar's ruling, 13 September. Approval is the
+-- moment a UID is minted and a row appears in `students`; before that there is
+-- nothing to revert and nothing to leak.
+--
+-- The school is chosen from the register, never typed. `school_code` is NOT a
+-- school identifier -- it is a per-centre index, and SC-01 names twenty-one
+-- different schools -- so a school is (centre_code, school_code) and this table
+-- stores both. 133 such pairs exist, with no collisions.
+
+create table if not exists app_registrations (
+  id           bigserial   primary key,
+
+  -- What the family typed. Kept exactly as entered even after approval, so a
+  -- dispute about a misspelt name can be answered with what was actually
+  -- submitted rather than with what the office corrected it to.
+  name         text        not null,
+  -- DD-MM-YYYY, matching `students.dob`, which is TEXT in that format and is
+  -- printed on the admit card the same way. Parsing it into a Date turns every
+  -- row into "Invalid Date" -- the claim screen already asks for day, month and
+  -- year in three boxes for exactly this reason.
+  dob          text        not null,
+  class        text        not null,          -- IX | X | XI | XII
+  stream       text,                          -- XI/XII only
+  centre_code  text        not null,
+  school_code  text        not null,
+  school_name  text        not null,
+  guardian_phone text,
+
+  -- Where the application came from, so the office can tell an app
+  -- registration from anything added later by another route.
+  source       text        not null default 'app',
+
+  -- The device that applied. This is what lets the app show a pending
+  -- application to the phone that made it, before any account exists to sign
+  -- in to -- and what makes "their app automatically opens their profile"
+  -- possible without a second login.
+  device_id    text,
+
+  status       text        not null default 'pending'
+                 check (status in ('pending', 'approved', 'rejected', 'withdrawn')),
+  applied_at   timestamptz not null default now(),
+
+  -- Set on approval. The UID minted for this child, and who minted it.
+  uid          char(9)     references students (uid),
+  decided_at   timestamptz,
+  decided_by   text        references admin_staff (staff_id),
+  -- Shown to the family, so a rejection is never a silent disappearance.
+  reason       text,
+
+  -- What the duplicate guard found when the application was made: the UIDs of
+  -- existing students with the same name and date of birth. Stored rather than
+  -- recomputed, because the office needs to see what the machine saw at the
+  -- time it decided, not what the register looks like today.
+  possible_duplicates jsonb not null default '[]'::jsonb
+);
+
+create index if not exists app_registrations_pending_idx
+  on app_registrations (applied_at) where status = 'pending';
+create index if not exists app_registrations_device_idx
+  on app_registrations (device_id) where status = 'pending';
+create index if not exists app_registrations_school_idx
+  on app_registrations (centre_code, school_code) where status = 'pending';
+
+-- One pending application per device. Not a security boundary -- a determined
+-- person clears app data and applies again -- but it stops the commonest real
+-- problem, which is a parent tapping Apply three times on a slow connection
+-- and the office seeing triplets.
+create unique index if not exists app_registrations_one_per_device
+  on app_registrations (device_id) where status = 'pending' and device_id is not null;
+
+-- The counter that mints a UID.
+--
+-- A UID is District(1) + Centre(2) + School(2) + GlobalSeq(4), so only the last
+-- four digits count up, and they count up ACROSS THE WHOLE REGISTER rather than
+-- within a school. The highest in use is 9719.
+--
+-- A table rather than `max(right(uid,4)) + 1`, because two approvals a second
+-- apart would read the same maximum and mint the same UID. One row, locked by
+-- the update that increments it, so the database serialises what the office
+-- cannot.
+create table if not exists uid_sequence (
+  id      boolean     primary key default true check (id),
+  next    integer     not null,
+  updated_at timestamptz not null default now()
+);

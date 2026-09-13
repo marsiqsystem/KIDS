@@ -1,4 +1,5 @@
-import { paperIdFor } from "./config";
+import { paperIdFor, PAPERS } from "./config";
+import { getPaper } from "./papers";
 import { openPaperNow, nextScheduledPaper, phaseOfPaper, type ExamPaper } from "./phases";
 import type { Student } from "./db";
 
@@ -47,11 +48,36 @@ export type ExamWindow = {
   requiresCheckin: boolean;
 };
 
+/**
+ * Which set of QUESTIONS this child is handed for this sitting.
+ *
+ * This used to be `paperIdFor(student.class)` and nothing else -- 'SET2026-X' --
+ * which was correct while there was one exam and becomes dangerous the moment
+ * there are two. Left alone, scheduling Phase 2 or a mock would open the JULY
+ * paper, with the July answer key, whose every answer is already public on the
+ * result page. So the question set is now named by the sitting AND the class:
+ *
+ *   P1-ONLINE   -> SET2026-X      the July papers, exactly as they were
+ *   anything    -> <code>-X       e.g. P2-ONLINE-X, loaded before December
+ *
+ * and a sitting whose questions have not been loaded is never opened at all --
+ * see toWindow below. There is no fallback to another paper, ever.
+ */
+export function questionSetFor(examPaperCode: string, cls: string | null): string | null {
+  const c = cls?.trim().toUpperCase();
+  if (!c || !(PAPERS as readonly string[]).includes(c)) return null;
+  return examPaperCode === "P1-ONLINE" ? paperIdFor(c) : `${examPaperCode}-${c}`;
+}
+
 function toWindow(student: Student, paper: ExamPaper): ExamWindow | null {
-  const paperId = paperIdFor(student.class);
+  const paperId = questionSetFor(paper.code, student.class);
   // No class on file, so no paper we could honestly hand them. Six students.
   if (!paperId) return null;
   if (!paper.starts_at || !paper.ends_at) return null;
+  // Scheduled, but its questions are not loaded: it does not open, and every
+  // screen says "no paper is open" rather than counting down to a paper that
+  // would fail -- or worse, to somebody else's.
+  if (!getPaper(paperId)) return null;
 
   return {
     paperId,

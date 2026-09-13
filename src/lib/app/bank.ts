@@ -1,3 +1,4 @@
+import { videoOverride } from "@/lib/content/video-overrides";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -293,7 +294,7 @@ export function chaptersFor(
       // material is withheld rather than shown, the same rule the marksheet's
       // reader applies.
       const usable = asset && asset.approved ? asset : null;
-      const video =
+      const fromFile =
         usable?.video?.video_id && usable.video.approved !== false
           ? {
               id: usable.video.video_id,
@@ -304,6 +305,14 @@ export function chaptersFor(
               start: usable.video.start ?? null,
             }
           : null;
+      // The office's change, if any, wins over the file -- including a change
+      // to "no video". See src/lib/content/video-overrides.ts.
+      const override = videoOverride(bucket, chapter);
+      const video = override
+        ? override.videoId
+          ? { id: override.videoId, language: override.language, duration: null, start: override.start }
+          : null
+        : fromFile;
 
       row = {
         key: chapterKey(bucket, chapter),

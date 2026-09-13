@@ -1,3 +1,4 @@
+import { loadVideoOverrides } from "@/lib/content/video-overrides";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireStudent } from "@/lib/app/gate";
@@ -29,6 +30,7 @@ export default async function ChapterPage({
   const { key } = await params;
   const { asked } = await searchParams;
 
+  await loadVideoOverrides();
   const chapter = chapterByKey(student.class, student.stream, student.medium, key);
   if (!chapter) notFound();
 

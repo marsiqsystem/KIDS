@@ -17,6 +17,7 @@
  */
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { videoOverride } from "@/lib/content/video-overrides";
 
 export type InteractiveTemplate =
   | "match-pairs" | "sort-bins" | "true-false" | "odd-one-out"
@@ -65,9 +66,21 @@ export function chapterAsset(
     cls === "IX" || cls === "X" || section === "English & General Knowledge"
       ? "All"
       : stream ?? "All";
-  const hit = all().get(`${cls}|${streamPart}|${section}|${chapter}`);
+  const bucket = `${cls}|${streamPart}|${section}`;
+  const hit = all().get(`${bucket}|${chapter}`);
   if (!hit || !hit.approved) return null;
-  return hit;
+  // The office's change over the file, the same rule the Learn tab applies.
+  // Returned as a copy: the cached row is shared by every request.
+  const override = videoOverride(bucket, chapter);
+  if (!override) return hit;
+  return {
+    ...hit,
+    video: {
+      ...hit.video,
+      video_id: override.videoId,
+      language: override.language ?? hit.video.language,
+    },
+  };
 }
 
 /** Which templates the page can actually play, as opposed to only show. */

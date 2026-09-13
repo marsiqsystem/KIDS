@@ -7,11 +7,19 @@ import type { Overview, StudentRow } from "@/lib/admin/students";
 import type { LiveClass } from "@/lib/admin/classes";
 import type { Post } from "@/lib/admin/posts";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
+import type { ClaimTotals, SchoolClaims, UnclaimedRow } from "@/lib/admin/claims";
+import type { PendingCorrection } from "@/lib/admin/corrections";
+import type { AdminPaper, CentreRow } from "@/lib/admin/exams";
+import type { ContentChapter } from "@/lib/admin/content";
 import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
 import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
 import ApplicationsPanel from "./ApplicationsPanel";
+import ClaimsPanel from "./ClaimsPanel";
+import CorrectionsPanel from "./CorrectionsPanel";
+import ContentPanel from "./ContentPanel";
+import { CentresPanel, ExamsPanel, ResultsPanel } from "./ExamsPanel";
 import { RowAction } from "./ui";
 
 export interface OpenBatch {
@@ -47,6 +55,12 @@ export default async function ControlCentre({
   liveReady,
   applications = null,
   waiting = 0,
+  claims = null,
+  corrections = null,
+  correctionsWaiting = 0,
+  papers = null,
+  centres = null,
+  content = null,
 }: {
   staff: Staff;
   tab: string;
@@ -64,18 +78,33 @@ export default async function ControlCentre({
   applications?: { pending: PendingRow[]; decided: DecidedRow[] } | null;
   /** Pending count for the tab label. An inbox nobody knows is full is never opened. */
   waiting?: number;
+  claims?: { totals: ClaimTotals; schools: SchoolClaims[]; open: { school: SchoolClaims; unclaimed: UnclaimedRow[] } | null } | null;
+  corrections?: PendingCorrection[] | null;
+  correctionsWaiting?: number;
+  /** Used by both Exams and Results. */
+  papers?: AdminPaper[] | null;
+  centres?: CentreRow[] | null;
+  content?: { choice: string; chapters: ContentChapter[] } | null;
 }) {
   const isAdmin = staff.role === "admin";
 
   const tabs = isAdmin
     ? [
+        // Ordered by how often the office will need them between now and
+        // December: the two inboxes first, then the register, then the exam.
         ["overview", "Overview"],
         ["applications", waiting > 0 ? `Applications (${waiting.toLocaleString("en-IN")})` : "Applications"],
-        ["staff", "Teachers & admins"],
+        ["corrections", correctionsWaiting > 0 ? `Corrections (${correctionsWaiting.toLocaleString("en-IN")})` : "Corrections"],
+        ["claims", "Claims"],
+        ["students", "Students"],
+        ["exams", "Exams"],
+        ["results", "Results"],
+        ["centres", "Centres"],
+        ["content", "Content"],
+        ["posts", "Posts"],
         ["batches", "Batches"],
         ["classes", "Classes"],
-        ["posts", "Posts"],
-        ["students", "Students"],
+        ["staff", "Teachers & admins"],
         ["audit", "Activity"],
       ]
     : [
@@ -127,6 +156,14 @@ export default async function ControlCentre({
         {tab === "applications" && applications ? (
           <ApplicationsPanel pending={applications.pending} decided={applications.decided} />
         ) : null}
+        {tab === "claims" && claims ? (
+          <ClaimsPanel totals={claims.totals} schools={claims.schools} open={claims.open} />
+        ) : null}
+        {tab === "corrections" && corrections ? <CorrectionsPanel pending={corrections} /> : null}
+        {tab === "exams" && papers ? <ExamsPanel papers={papers} /> : null}
+        {tab === "results" && papers ? <ResultsPanel papers={papers} /> : null}
+        {tab === "centres" && centres ? <CentresPanel centres={centres} /> : null}
+        {tab === "content" && content ? <ContentPanel choice={content.choice} chapters={content.chapters} /> : null}
         {tab === "staff" ? <StaffPanel staff={staffList} me={staff} /> : null}
         {tab === "batches" ? (
           <BatchesPanel

@@ -7,6 +7,10 @@ import { overview, searchStudents } from "@/lib/admin/students";
 import { recentClasses } from "@/lib/admin/classes";
 import { listPosts } from "@/lib/admin/posts";
 import { pendingCount, pendingRegistrations, recentDecisions } from "@/lib/admin/registrations";
+import { claimTotals, claimsBySchool, unclaimedAtSchool } from "@/lib/admin/claims";
+import { pendingCorrectionCount, pendingCorrections } from "@/lib/admin/corrections";
+import { centresOverview, papersForAdmin } from "@/lib/admin/exams";
+import { contentChapters } from "@/lib/admin/content";
 import { liveConfigured } from "@/lib/live/jitsi";
 import Bootstrap from "@/components/admin/Bootstrap";
 import StaffSignIn from "@/components/admin/StaffSignIn";
@@ -42,7 +46,7 @@ export const dynamic = "force-dynamic";
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ tab?: string; q?: string; batch?: string }>;
+  searchParams: Promise<{ tab?: string; q?: string; batch?: string; school?: string; cls?: string }>;
 }) {
   const staff = await currentStaff();
 
@@ -54,7 +58,7 @@ export default async function AdminPage({
   // Nothing else on this screen is reachable until the issued password is gone.
   if (staff.must_change) return <FirstPassword staff={staff} />;
 
-  const { tab = "overview", q = "", batch = "" } = await searchParams;
+  const { tab = "overview", q = "", batch = "", school = "", cls = "X" } = await searchParams;
   const isAdmin = staff.role === "admin";
 
   /**
@@ -119,6 +123,31 @@ export default async function AdminPage({
           : null
       }
       waiting={await pendingCount()}
+      correctionsWaiting={await pendingCorrectionCount()}
+      claims={tab === "claims" ? await loadClaims(school) : null}
+      corrections={tab === "corrections" ? await pendingCorrections() : null}
+      papers={tab === "exams" || tab === "results" ? await papersForAdmin() : null}
+      centres={tab === "centres" ? await centresOverview() : null}
+      content={tab === "content" ? await loadContent(cls) : null}
     />
   );
+}
+
+async function loadClaims(school: string) {
+  const [totals, schools] = await Promise.all([claimTotals(), claimsBySchool()]);
+  const [centre, code] = school.split("|");
+  const picked = schools.find((s) => s.centre_code === centre && s.school_code === code) ?? null;
+  return {
+    totals,
+    schools,
+    open: picked ? { school: picked, unclaimed: await unclaimedAtSchool(centre, code) } : null,
+  };
+}
+
+const CONTENT_CHOICES = new Set(["IX", "X", "XI|Science", "XI|Commerce", "XI|Arts", "XII|Science", "XII|Commerce", "XII|Arts"]);
+
+async function loadContent(raw: string) {
+  const choice = CONTENT_CHOICES.has(raw) ? raw : "X";
+  const [c, stream] = choice.split("|");
+  return { choice, chapters: await contentChapters(c, stream ?? null) };
 }

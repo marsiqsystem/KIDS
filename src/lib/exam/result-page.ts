@@ -3,6 +3,7 @@ import { publicationState, findOnlineMarksheet } from "@/lib/exam/results";
 import { offlinePublicationState, findOfflineMarksheet } from "@/lib/exam/offline-results";
 import { reviewQuestions, chapterScores } from "@/lib/exam/offline-review";
 import { chapterAsset, PLAYABLE } from "@/lib/exam/chapter-assets";
+import { loadVideoOverrides } from "@/lib/content/video-overrides";
 import type { LearnCard } from "@/components/portal/result/LearnIt";
 import type { ResultViewProps } from "@/components/portal/result/ResultView";
 import type { Student } from "@/lib/exam/db";
@@ -22,6 +23,10 @@ import type { Student } from "@/lib/exam/db";
  * did that once, and this only decides what to hand the screen.
  */
 export async function resultViewProps(student: Student): Promise<ResultViewProps> {
+  // Primes the video overrides that chapterAsset() reads synchronously further
+  // down. See src/lib/content/video-overrides.ts. At most one query a minute.
+  await loadVideoOverrides();
+
   const [publication, online, written] = await Promise.all([
     publicationState(),
     findOnlineMarksheet(student),

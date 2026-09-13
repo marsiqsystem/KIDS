@@ -1,3 +1,4 @@
+import { loadVideoOverrides } from "@/lib/content/video-overrides";
 import { requireStudent } from "@/lib/app/gate";
 import { chaptersFor } from "@/lib/app/bank";
 import { chosenSections, answersFor } from "@/lib/app/loop";
@@ -26,6 +27,7 @@ export default async function LearnPage() {
   ]);
 
   const chosen = new Set(mine);
+  await loadVideoOverrides();
   const chapters: BrowseChapter[] = chaptersFor(
     student.class,
     student.stream,

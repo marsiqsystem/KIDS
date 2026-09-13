@@ -94,6 +94,46 @@ for (let i = 0; i < students.length; i += BATCH) {
 }
 console.log("");
 
+/**
+ * Put approved corrections back.
+ *
+ * The upsert above has just written the workbook's values over every student in
+ * it -- which, before this step existed, is exactly how corrections made in the
+ * database were silently reverted. Corrections a student asked for and the
+ * office approved are kept as rows in `app_corrections`, so they are re-applied
+ * here, oldest first so a later correction to the same field wins.
+ *
+ * The statements mirror applyToRegister() in src/lib/admin/corrections.ts. This
+ * script cannot import that file (no path aliases on bare Node), so a field
+ * added there must be added here too.
+ *
+ * Once the workbook has been brought into line -- the control centre exports
+ * every approved correction -- re-applying is a no-op, which is the point.
+ */
+const corrections = (await sql`
+  select c.uid, c.field, c.new_value from app_corrections c
+   where c.status = 'approved' order by c.decided_at
+`.catch(() => [])) as { uid: string; field: string; new_value: string }[];
+
+for (const c of corrections) {
+  if (c.field === "name") await sql`update students set name = ${c.new_value} where uid = ${c.uid}`;
+  else if (c.field === "dob") await sql`update students set dob = ${c.new_value} where uid = ${c.uid}`;
+  else if (c.field === "stream") await sql`update students set stream = ${c.new_value} where uid = ${c.uid}`;
+  else if (c.field === "class")
+    await sql`update students set class = ${c.new_value},
+              stream = case when ${c.new_value} in ('IX','X') then null else stream end
+              where uid = ${c.uid}`;
+  else if (c.field === "school")
+    await sql`update students s set centre_code = x.centre_code, centre_name = x.centre_name,
+                     school_code = x.school_code, school_name = x.school_name
+                from (select centre_code, centre_name, school_code, school_name from students
+                       where centre_code || '|' || school_code = ${c.new_value} and not is_demo limit 1) x
+               where s.uid = ${c.uid}`;
+}
+if (corrections.length) {
+  console.log(`re-applied ${corrections.length} approved correction(s) over the workbook's values`);
+}
+
 const [{ count }] = (await sql`select count(*)::int as count from students`) as { count: number }[];
 const [{ demo }] = (await sql`select count(*)::int as demo from students where is_demo`) as { demo: number }[];
 const [{ nodob }] = (await sql`select count(*)::int as nodob from students where dob is null`) as { nodob: number }[];

@@ -168,18 +168,17 @@ export default async function ProfilePage({
           <Chevron />
         </Link>
 
-        {/* Drawn and dimmed rather than left out. A student who has spotted a
-            wrong mark must be able to see that the route exists, even on the
-            day it does not work yet — and the sentence under it says who to
-            reach in the meantime, so this is not a dead end. */}
-        <span className="pro-row pro-row--off">
+        {/* Drawn and dimmed until September 2026, so a student could see the
+            route existed before it worked. It works now for the details on
+            the record; a disputed MARK is still a question for the office,
+            and the screen behind this row says so. */}
+        <Link href="/app/profile/details" className="pro-row">
           <span className="pro-row__text">
-            <span className="pro-row__title">Something on my record is wrong</span>
-            <span className="pro-row__note">
-              Not open yet. Ring or write to the office below and say your User ID.
-            </span>
+            <span className="pro-row__title">My details are wrong</span>
+            <span className="pro-row__note">Name, date of birth, class or school</span>
           </span>
-        </span>
+          <Chevron />
+        </Link>
       </div>
 
       {/* Phase 0. The one screen in the app that answers "has somebody else

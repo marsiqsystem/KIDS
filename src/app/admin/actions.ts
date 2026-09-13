@@ -37,6 +37,16 @@ import {
   pendingRegistrations,
   rejectRegistration,
 } from "@/lib/admin/registrations";
+import { openLockedOutAtSchool, type IssuedSheetRow } from "@/lib/admin/claims";
+import { approveCorrection, rejectCorrection } from "@/lib/admin/corrections";
+import {
+  createMock,
+  istInstant,
+  schedulePaper,
+  setResultsVisible,
+  unschedulePaper,
+} from "@/lib/admin/exams";
+import { youtubeId } from "@/lib/content/video-overrides";
 import {
   createStaffSession,
   destroyStaffSession,
@@ -67,6 +77,8 @@ export type State = {
    * in plaintext and never re-derivable — losing it means issuing another.
    */
   secret?: { staffId: string; password: string; who?: "staff" | "student" };
+  /** A school's worth of one-time passwords. Shown once, like `secret`. */
+  sheet?: IssuedSheetRow[];
 };
 
 const done = (message: string): State => ({ ok: true, message });
@@ -669,3 +681,169 @@ export async function approveSchool(_prev: State, formData: FormData): Promise<S
   return done(`Approved ${approved}.${kept}${more}`);
 }
 
+/* ---------------------------------------------------------------- claims --- */
+
+/**
+ * Open every locked-out account at one school and return the sheet to print.
+ *
+ * "Locked out" is exact: no account and no date of birth, so the claim screen
+ * has nothing to check them against and they cannot get in by themselves.
+ */
+export async function openSchoolAccounts(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const centre = String(formData.get("centreCode") ?? "");
+  const school = String(formData.get("schoolCode") ?? "");
+  if (!centre || !school) return { message: "No school was named." };
+
+  const sheet = await openLockedOutAtSchool(centre, school, staff.staff_id);
+  if (sheet.length === 0) return { message: "Nobody at this school is locked out any more." };
+
+  refresh();
+  return {
+    ok: true,
+    message: `Opened ${sheet.length} accounts. Print this sheet now — the passwords are not stored and will not be shown again.`,
+    sheet,
+  };
+}
+
+/* ----------------------------------------------------------- corrections --- */
+
+export async function approveCorrectionAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("correctionId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No correction was named." };
+  try {
+    const changed = await approveCorrection(id, staff.staff_id);
+    if (!changed) return { message: "Somebody has already decided this one." };
+  } catch (e) {
+    return { message: e instanceof Error ? e.message : "That did not work." };
+  }
+  refresh();
+  return done("Changed on the register. Export the corrections for the master workbook when you can.");
+}
+
+export async function rejectCorrectionAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("correctionId") ?? "");
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (!/^\d+$/.test(id)) return { message: "No correction was named." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters." };
+  const changed = await rejectCorrection(id, staff.staff_id, reason);
+  if (!changed) return { message: "Somebody has already decided this one." };
+  refresh();
+  return done("Left as it was. The student sees your reason.");
+}
+
+/* ----------------------------------------------------------------- exams --- */
+
+export async function schedulePaperAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("paperId") ?? "");
+  const startsAt = istInstant(String(formData.get("date") ?? ""), String(formData.get("time") ?? ""));
+  if (!startsAt) return { message: "Choose a date and a start time.", field: "date" };
+
+  const result = await schedulePaper(
+    id,
+    {
+      startsAt,
+      durationMinutes: Number(formData.get("duration") ?? 0),
+      scanLeadMinutes: Number(formData.get("lead") ?? 0),
+      requiresCheckin: formData.get("checkin") === "on",
+    },
+    staff.staff_id,
+  );
+  if (!result.ok) return { message: result.message };
+  refresh();
+  return done("Scheduled. It opens only once its questions are loaded for every class sitting it.");
+}
+
+export async function unschedulePaperAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const result = await unschedulePaper(String(formData.get("paperId") ?? ""), staff.staff_id);
+  if (!result.ok) return { message: result.message };
+  refresh();
+  return done("Taken off the calendar. Every screen now says no paper is open.");
+}
+
+export async function createMockAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const result = await createMock(
+    {
+      name: String(formData.get("name") ?? ""),
+      maxMarks: Number(formData.get("maxMarks") ?? 0),
+      requiresCheckin: formData.get("checkin") === "on",
+    },
+    staff.staff_id,
+  );
+  if (!result.ok) return { message: result.message, field: "name" };
+  refresh();
+  return done(`Created ${result.code}. Schedule it below once its questions are ready.`);
+}
+
+/* --------------------------------------------------------------- results --- */
+
+/**
+ * Publish or withdraw a paper's results.
+ *
+ * Withdrawing Phase 1 hides 7,322 children's results from every screen at once,
+ * including the public /set door. The button confirms; this does not ask again.
+ */
+export async function setResultsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("paperId") ?? "");
+  const visible = formData.get("visible") === "1";
+  const result = await setResultsVisible(id, visible, staff.staff_id);
+  if (!result.ok) return { message: result.message };
+  refresh();
+  return done(
+    visible
+      ? "Published. Students see these results the next time they look."
+      : "Withdrawn. Every result page for this paper now says results are not published.",
+  );
+}
+
+/* --------------------------------------------------------------- content --- */
+
+/**
+ * Set, remove or restore a chapter's video.
+ *
+ * `mode` is one of three, because they are three different decisions:
+ *   set      use this YouTube video instead of whatever is there
+ *   remove   this chapter should show no video at all
+ *   restore  forget the office's change; show the reviewed file's video
+ */
+export async function setChapterVideo(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const bucket = String(formData.get("bucket") ?? "");
+  const chapter = String(formData.get("chapter") ?? "");
+  const mode = String(formData.get("mode") ?? "set");
+  if (!bucket || !chapter) return { message: "No chapter was named." };
+  if (!["set", "remove", "restore"].includes(mode)) return { message: "Unknown change." };
+
+  if (mode === "restore") {
+    await sql`delete from content_video_overrides where bucket = ${bucket} and chapter = ${chapter}`;
+  } else {
+    let id: string | null = null;
+    if (mode === "set") {
+      id = youtubeId(String(formData.get("video") ?? ""));
+      if (!id) return { message: "That is not a YouTube link or video id.", field: "video" };
+    }
+    const language = String(formData.get("language") ?? "").trim() || null;
+    await sql`
+      insert into content_video_overrides (bucket, chapter, video_id, language, set_by)
+      values (${bucket}, ${chapter}, ${id}, ${language}, ${staff.staff_id})
+      on conflict (bucket, chapter) do update
+        set video_id = excluded.video_id, language = excluded.language,
+            set_by = excluded.set_by, set_at = now()`;
+  }
+
+  await logAdminEvent(staff.staff_id, `video_${mode}`, undefined, { bucket, chapter });
+  refresh();
+  return done(
+    mode === "restore"
+      ? "Restored. Students see the original video within about a minute."
+      : mode === "remove"
+        ? "Removed. The chapter shows no video within about a minute."
+        : "Saved. Students see the new video within about a minute.",
+  );
+}

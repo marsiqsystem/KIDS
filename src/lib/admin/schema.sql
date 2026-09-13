@@ -392,3 +392,77 @@ create table if not exists uid_sequence (
   next    integer     not null,
   updated_at timestamptz not null default now()
 );
+
+
+-- ------------------------------------------------------------- corrections --
+--
+-- A student saying "that is not my name" -- or date of birth, class, stream or
+-- school.
+--
+-- `students` is built from the master workbook, and every earlier correction
+-- made only in the database was silently reverted by the next reseed. Two
+-- things here stop that happening again. Every approved correction is kept as a
+-- row, so scripts/seed-students.ts can put it back after any reseed; and every
+-- one can be exported, so the workbook itself can be brought into line and the
+-- two sources stop disagreeing.
+--
+-- One row per FIELD, not per request. A student who asks to change their name
+-- and their class has asked two questions, and the office may be sure of one
+-- and not the other.
+
+create table if not exists app_corrections (
+  id           bigserial   primary key,
+  uid          char(9)     not null references students (uid),
+  field        text        not null check (field in ('name', 'dob', 'class', 'stream', 'school')),
+  -- What the register said when the request was made. Stored, because the
+  -- register may change before anybody looks, and the office has to judge the
+  -- request against what the student actually saw.
+  old_value    text,
+  -- For 'school' this is the pair 'CTR-13|SC-04', because a school is the pair
+  -- and never its code alone. The UID does NOT change when a school does: a UID
+  -- is who the child is, not where they sit, and changing it would orphan every
+  -- mark they have.
+  new_value    text        not null,
+  note         text,
+  status       text        not null default 'pending'
+                 check (status in ('pending', 'approved', 'rejected')),
+  requested_at timestamptz not null default now(),
+  decided_at   timestamptz,
+  decided_by   text        references admin_staff (staff_id),
+  reason       text
+);
+
+-- One open question per field per student: asking again replaces nothing, it
+-- is simply refused until the first is answered.
+create unique index if not exists app_corrections_one_open
+  on app_corrections (uid, field) where status = 'pending';
+create index if not exists app_corrections_pending_idx
+  on app_corrections (requested_at) where status = 'pending';
+create index if not exists app_corrections_approved_idx
+  on app_corrections (decided_at) where status = 'approved';
+
+
+-- --------------------------------------------------------- video overrides --
+--
+-- A video the office has changed on a chapter.
+--
+-- The teaching content lives in JSON files in the repo, and a deployed site
+-- cannot write to its own files -- so an Upload button has nowhere to put
+-- anything. Videos are YouTube links, not files, which makes them the one piece
+-- of content that can be controlled from the control centre cheaply: this table
+-- is consulted over the top of the file. The file stays the record of what was
+-- reviewed; this is what the office has changed since.
+--
+-- A row with video_id NULL means "this chapter has no video", which is how a
+-- bad video is taken down. Deleting the row restores the file's video.
+
+create table if not exists content_video_overrides (
+  bucket      text        not null,   -- '<class>|<stream>|<section>', as the question bank has it
+  chapter     text        not null,
+  video_id    text,                   -- 11-character YouTube id, or null to remove
+  language    text,
+  start_at    integer,                -- seconds into the video
+  set_by      text        not null references admin_staff (staff_id),
+  set_at      timestamptz not null default now(),
+  primary key (bucket, chapter)
+);

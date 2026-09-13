@@ -33,6 +33,11 @@ import {
 import { createPost, findPost, retractPost } from "@/lib/admin/posts";
 import { resetAppPassword } from "@/lib/admin/app-passwords";
 import {
+  approveRegistration,
+  pendingRegistrations,
+  rejectRegistration,
+} from "@/lib/admin/registrations";
+import {
   createStaffSession,
   destroyStaffSession,
   requireStaff,
@@ -576,3 +581,91 @@ export async function resetStudentPassword(_prev: State, formData: FormData): Pr
     return { message: e instanceof Error ? e.message : "That did not work." };
   }
 }
+
+/* ---------------------------------------------------------- applications --- */
+
+/**
+ * Approve one application: mint a UID and put the child on the register.
+ *
+ * The most consequential button in the control centre, which is why it is
+ * admin-only (Umar's ruling, 13 September 2026: the main admin account approves)
+ * and why it is checked here, in the action, rather than only by hiding the tab
+ * from teachers.
+ */
+export async function approveApplication(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("registrationId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No application was named." };
+
+  const result = await approveRegistration(id, staff.staff_id);
+  if (!result.ok) {
+    return result.reason === "not_pending"
+      ? { message: "Somebody has already decided this one. Reload to see what they did." }
+      : { message: result.detail };
+  }
+
+  refresh();
+  return done(`Approved. Their User ID is ${result.uid}; their app opens the account by itself.`);
+}
+
+/**
+ * Turn an application down.
+ *
+ * A reason is asked for and not required. When one is given the family sees it,
+ * word for word, on the phone that applied -- so it is written to a parent, not
+ * to a colleague. With none, they are told to contact the office, which is at
+ * least never a silent disappearance.
+ */
+export async function rejectApplication(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("registrationId") ?? "");
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (!/^\d+$/.test(id)) return { message: "No application was named." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters.", field: "reason" };
+
+  const changed = await rejectRegistration(id, staff.staff_id, reason);
+  if (!changed) return { message: "Somebody has already decided this one. Reload to see what they did." };
+
+  refresh();
+  return done("Turned down. The family sees your reason on their phone.");
+}
+
+/**
+ * Approve every clean application from one school at once.
+ *
+ * Applications arrive in school-shaped clumps, and a school's list checked
+ * against the one its teacher sent is thirty decisions that are really one. So
+ * this approves them together -- EXCEPT any the duplicate guard flagged. Those
+ * are left in the queue for a person to open, because the whole cost of getting
+ * a duplicate wrong is a child with two UIDs and two places in the merit list,
+ * and that is not a decision to make in bulk.
+ *
+ * Sequential rather than parallel: each approval takes the next number off the
+ * UID counter, and forty of them racing each other gains a few seconds against
+ * a counter whose entire job is to be taken one at a time.
+ */
+export async function approveSchool(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const centre = String(formData.get("centreCode") ?? "");
+  const school = String(formData.get("schoolCode") ?? "");
+  if (!centre || !school) return { message: "No school was named." };
+
+  const group = (await pendingRegistrations(1000)).filter(
+    (r) => r.centre_code === centre && r.school_code === school,
+  );
+  const clean = group.filter((r) => r.duplicates.length === 0);
+  const held = group.length - clean.length;
+
+  let approved = 0;
+  for (const r of clean.slice(0, 60)) {
+    const result = await approveRegistration(r.id, staff.staff_id);
+    if (result.ok) approved += 1;
+    else if (result.reason === "no_prefix") return { message: result.detail };
+  }
+
+  refresh();
+  const more = clean.length > 60 ? ` ${clean.length - 60} more are waiting; press it again.` : "";
+  const kept = held ? ` ${held} flagged as a possible duplicate ${held === 1 ? "is" : "are"} still waiting for you.` : "";
+  return done(`Approved ${approved}.${kept}${more}`);
+}
+

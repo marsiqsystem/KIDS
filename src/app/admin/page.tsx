@@ -6,6 +6,7 @@ import { batchMembers, batchTeachers, batchesForTeacher, listBatches } from "@/l
 import { overview, searchStudents } from "@/lib/admin/students";
 import { recentClasses } from "@/lib/admin/classes";
 import { listPosts } from "@/lib/admin/posts";
+import { pendingCount, pendingRegistrations, recentDecisions } from "@/lib/admin/registrations";
 import { liveConfigured } from "@/lib/live/jitsi";
 import Bootstrap from "@/components/admin/Bootstrap";
 import StaffSignIn from "@/components/admin/StaffSignIn";
@@ -112,6 +113,12 @@ export default async function AdminPage({
       classes={tab === "classes" ? await recentClasses() : []}
       posts={tab === "posts" ? await listPosts() : []}
       liveReady={liveConfigured()}
+      applications={
+        tab === "applications"
+          ? { pending: await pendingRegistrations(), decided: await recentDecisions() }
+          : null
+      }
+      waiting={await pendingCount()}
     />
   );
 }

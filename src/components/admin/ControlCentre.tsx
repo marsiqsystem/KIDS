@@ -6,10 +6,12 @@ import type { Batch, MemberRow, BatchTeacher } from "@/lib/admin/batches";
 import type { Overview, StudentRow } from "@/lib/admin/students";
 import type { LiveClass } from "@/lib/admin/classes";
 import type { Post } from "@/lib/admin/posts";
+import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
 import StaffPanel from "./StaffPanel";
 import BatchesPanel from "./BatchesPanel";
 import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
+import ApplicationsPanel from "./ApplicationsPanel";
 import { RowAction } from "./ui";
 
 export interface OpenBatch {
@@ -43,6 +45,8 @@ export default async function ControlCentre({
   classes,
   posts,
   liveReady,
+  applications = null,
+  waiting = 0,
 }: {
   staff: Staff;
   tab: string;
@@ -56,12 +60,17 @@ export default async function ControlCentre({
   classes: LiveClass[];
   posts: Post[];
   liveReady: boolean;
+  /** Admin only. Null on every other tab, so nothing is read that is not shown. */
+  applications?: { pending: PendingRow[]; decided: DecidedRow[] } | null;
+  /** Pending count for the tab label. An inbox nobody knows is full is never opened. */
+  waiting?: number;
 }) {
   const isAdmin = staff.role === "admin";
 
   const tabs = isAdmin
     ? [
         ["overview", "Overview"],
+        ["applications", waiting > 0 ? `Applications (${waiting.toLocaleString("en-IN")})` : "Applications"],
         ["staff", "Teachers & admins"],
         ["batches", "Batches"],
         ["classes", "Classes"],
@@ -115,6 +124,9 @@ export default async function ControlCentre({
 
       <div className="mx-auto max-w-6xl px-5 py-6">
         {tab === "overview" && overview ? <OverviewPanel o={overview} batches={batches} /> : null}
+        {tab === "applications" && applications ? (
+          <ApplicationsPanel pending={applications.pending} decided={applications.decided} />
+        ) : null}
         {tab === "staff" ? <StaffPanel staff={staffList} me={staff} /> : null}
         {tab === "batches" ? (
           <BatchesPanel

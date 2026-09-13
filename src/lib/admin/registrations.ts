@@ -1,4 +1,5 @@
 import { sql } from "@/lib/exam/db";
+import { logAdminEvent } from "./staff";
 
 /**
  * Working the applications queue, and minting a UID.
@@ -21,6 +22,12 @@ export interface PendingRow {
   guardian_phone: string | null;
   applied_at: Date;
   possible_duplicates: string[];
+  /**
+   * The existing students the duplicate guard matched, resolved to something a
+   * person can judge. A bare UID is no use to the office at 4 pm with thirty
+   * applications open; "a name · class X · the same school" decides it at a glance.
+   */
+  duplicates: { uid: string; name: string; class: string; school_name: string }[];
 }
 
 /**
@@ -32,13 +39,66 @@ export interface PendingRow {
  */
 export async function pendingRegistrations(limit = 500): Promise<PendingRow[]> {
   return (await sql`
-    select id::text, name, dob, class, stream, centre_code, school_code,
-           school_name, guardian_phone, applied_at, possible_duplicates
-      from app_registrations
-     where status = 'pending'
-     order by centre_code, school_code, applied_at
+    select r.id::text, r.name, r.dob, r.class, r.stream, r.centre_code, r.school_code,
+           r.school_name, r.guardian_phone, r.applied_at, r.possible_duplicates,
+           coalesce((
+             select json_agg(json_build_object(
+                      'uid', s.uid, 'name', s.name, 'class', s.class,
+                      'school_name', s.school_name) order by s.uid)
+               from students s
+              where s.uid in (select jsonb_array_elements_text(r.possible_duplicates))
+           ), '[]'::json) as duplicates
+      from app_registrations r
+     where r.status = 'pending'
+     order by r.centre_code, r.school_code, r.applied_at
      limit ${limit}
   `) as PendingRow[];
+}
+
+/**
+ * How many applications are waiting.
+ *
+ * Shown on the tab itself, because an inbox nobody knows has anything in it is
+ * an inbox nobody opens. One count against a partial index that holds only the
+ * pending rows, so it stays cheap however many thousand have been decided.
+ */
+export async function pendingCount(): Promise<number> {
+  const [r] = (await sql`
+    select count(*)::int as n from app_registrations where status = 'pending'
+  `) as { n: number }[];
+  return r?.n ?? 0;
+}
+
+export interface DecidedRow {
+  id: string;
+  name: string;
+  class: string;
+  school_name: string;
+  status: "approved" | "rejected";
+  uid: string | null;
+  reason: string | null;
+  decided_at: Date;
+  decided_by: string | null;
+  decided_by_name: string | null;
+}
+
+/**
+ * What was decided most recently, and by whom.
+ *
+ * So the office can see what the last click did -- and so a second person
+ * sitting down at the queue can see what the first one already approved before
+ * wondering where half the list went.
+ */
+export async function recentDecisions(limit = 25): Promise<DecidedRow[]> {
+  return (await sql`
+    select r.id::text, r.name, r.class, r.school_name, r.status, r.uid, r.reason,
+           r.decided_at, r.decided_by, st.full_name as decided_by_name
+      from app_registrations r
+      left join admin_staff st on st.staff_id = r.decided_by
+     where r.status in ('approved', 'rejected')
+     order by r.decided_at desc
+     limit ${limit}
+  `) as DecidedRow[];
 }
 
 /**
@@ -147,11 +207,11 @@ export async function approveRegistration(id: string, staffId: string): Promise<
      where id = ${id}::bigint and status = 'pending'
   `;
 
-  await sql`
-    insert into admin_events (actor, action, target_kind, target_id, detail)
-    values (${staffId}, 'registration_approved', 'student', ${uid},
-            ${JSON.stringify({ registration: id, school: reg.school_name })}::jsonb)
-  `;
+  await logAdminEvent(staffId, "registration_approved", { kind: "student", id: uid }, {
+    registration: id,
+    name: reg.name,
+    school: reg.school_name,
+  });
 
   return { ok: true, uid };
 }
@@ -170,11 +230,9 @@ export async function rejectRegistration(
   `) as { id: string }[];
 
   if (rows.length) {
-    await sql`
-      insert into admin_events (actor, action, target_kind, target_id, detail)
-      values (${staffId}, 'registration_rejected', 'registration', ${id},
-              ${JSON.stringify({ reason })}::jsonb)
-    `;
+    await logAdminEvent(staffId, "registration_rejected", { kind: "registration", id }, {
+      reason: reason || null,
+    });
   }
   return rows.length > 0;
 }

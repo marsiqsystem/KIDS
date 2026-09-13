@@ -160,7 +160,13 @@ export default async function ControlCentre({
           <ClaimsPanel totals={claims.totals} schools={claims.schools} open={claims.open} />
         ) : null}
         {tab === "corrections" && corrections ? <CorrectionsPanel pending={corrections} /> : null}
-        {tab === "exams" && papers ? <ExamsPanel papers={papers} /> : null}
+        {tab === "exams" && papers ? (
+          <ExamsPanel
+            papers={papers}
+            staff={staffList.filter((s) => !s.disabled_at)}
+            centres={(centres ?? []).map(({ centre_code, centre_name }) => ({ centre_code, centre_name }))}
+          />
+        ) : null}
         {tab === "results" && papers ? <ResultsPanel papers={papers} /> : null}
         {tab === "centres" && centres ? <CentresPanel centres={centres} /> : null}
         {tab === "content" && content ? <ContentPanel choice={content.choice} chapters={content.chapters} /> : null}

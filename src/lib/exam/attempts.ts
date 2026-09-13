@@ -24,6 +24,9 @@ export interface Attempt {
   /** { "0": 2, "3": 1 } — question index → chosen option. Absent means unanswered. */
   answers: Record<string, number>;
   score: number | null;
+  /** K-4W7H-8474. Null for July's attempts, which predate receipts. */
+  receipt?: string | null;
+  exam_paper_id?: string;
 }
 
 /**
@@ -41,7 +44,11 @@ type EventKind =
   | "reset"
   | "blur"
   | "substitute"
-  | "lookup";
+  | "lookup"
+  // Phase 2, from September 2026: scanned in at a centre, and a paper released
+  // by an invigilator so it can carry on on another phone.
+  | "checkin"
+  | "moved";
 
 /** Append-only. The story of what happened, for when someone disputes a result. */
 export async function logEvent(uid: string, kind: EventKind, detail?: unknown): Promise<void> {

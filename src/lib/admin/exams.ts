@@ -40,6 +40,8 @@ export interface AdminPaper {
   /** Whether students can see marks right now, read from where the pages read it. */
   visible: boolean;
   counts_for_award: boolean;
+  /** Who runs which desk, for a paper that needs a check-in. */
+  invigilators: { centre_code: string; staff_id: string; full_name: string }[];
 }
 
 export async function papersForAdmin(): Promise<AdminPaper[]> {
@@ -48,6 +50,12 @@ export async function papersForAdmin(): Promise<AdminPaper[]> {
     select code, exam_paper_id::text, class, question_count, loaded_at
       from exam_question_sets order by code
   `) as { code: string; exam_paper_id: string; class: string; question_count: number; loaded_at: Date }[];
+
+  const desks = (await sql`
+    select i.exam_paper_id::text, i.centre_code, i.staff_id, st.full_name
+      from exam_invigilators i join admin_staff st on st.staff_id = i.staff_id
+     order by i.centre_code, st.full_name
+  `) as { exam_paper_id: string; centre_code: string; staff_id: string; full_name: string }[];
 
   const rows = (await sql`
     select pa.id::text, pa.code, pa.name, ph.code as phase_code, ph.name as phase_name,
@@ -61,7 +69,7 @@ export async function papersForAdmin(): Promise<AdminPaper[]> {
       join exam_phases ph on ph.id = pa.phase_id
      where pa.archived_at is null
      order by ph.ordinal, pa.kind desc, pa.code
-  `) as (Omit<AdminPaper, "loaded" | "visible"> & { published: boolean; publish_at: Date | null })[];
+  `) as (Omit<AdminPaper, "loaded" | "visible" | "sets" | "invigilators"> & { published: boolean; publish_at: Date | null })[];
 
   const [meta] = (await sql`
     select (published and publish_at is not null and now() >= publish_at) as online_open,
@@ -77,6 +85,9 @@ export async function papersForAdmin(): Promise<AdminPaper[]> {
       r.code === "P1-ONLINE"
         ? ["IX", "X", "XI", "XII"]
         : [...new Set(sets.filter((x) => x.exam_paper_id === r.id).map((x) => x.class))],
+    invigilators: desks
+      .filter((d) => d.exam_paper_id === r.id)
+      .map(({ centre_code, staff_id, full_name }) => ({ centre_code, staff_id, full_name })),
     sets: sets
       .filter((x) => x.exam_paper_id === r.id)
       .map((x) => ({ code: x.code, question_count: x.question_count, loaded_at: x.loaded_at })),
@@ -293,3 +304,45 @@ export async function centresOverview(): Promise<CentreRow[]> {
      order by s.centre_code
   `) as CentreRow[];
 }
+
+/**
+ * Put a member of staff on a centre's desk for a paper, or take them off.
+ *
+ * Any active staff account may be assigned; an invigilator is usually a teacher
+ * account made for the day in "Teachers & admins". Nobody is removed from a desk
+ * whose paper has already been sat there -- the record of who ran the room is
+ * part of the record of the paper.
+ */
+export async function assignInvigilator(
+  paperId: string, centre: string, staffId: string, by: string,
+): Promise<Scheduled> {
+  if (!/^CTR-\d{2}$/.test(centre)) return { ok: false, message: "Choose a centre." };
+  const [who] = (await sql`
+    select staff_id, full_name from admin_staff where staff_id = ${staffId} and disabled_at is null
+  `) as { staff_id: string; full_name: string }[];
+  if (!who) return { ok: false, message: "Choose a member of staff." };
+  const [p] = (await sql`select code from exam_papers where id = ${paperId}::bigint`) as { code: string }[];
+  if (!p) return { ok: false, message: "That paper does not exist." };
+
+  await sql`
+    insert into exam_invigilators (exam_paper_id, centre_code, staff_id, assigned_by)
+    values (${paperId}::bigint, ${centre}, ${staffId}, ${by})
+    on conflict do nothing`;
+  await logAdminEvent(by, "invigilator_assigned", { kind: "staff", id: staffId }, { paper: p.code, centre });
+  return { ok: true };
+}
+
+export async function unassignInvigilator(
+  paperId: string, centre: string, staffId: string, by: string,
+): Promise<Scheduled> {
+  const [{ n }] = (await sql`
+    select count(*)::int as n from exam_checkins where exam_paper_id = ${paperId}::bigint and centre_code = ${centre}
+  `) as { n: number }[];
+  if (n > 0) return { ok: false, message: "Students have already checked in at this desk. The record of who ran it stays." };
+  await sql`
+    delete from exam_invigilators
+     where exam_paper_id = ${paperId}::bigint and centre_code = ${centre} and staff_id = ${staffId}`;
+  await logAdminEvent(by, "invigilator_unassigned", { kind: "staff", id: staffId }, { centre });
+  return { ok: true };
+}
+

@@ -40,8 +40,10 @@ import {
 import { openLockedOutAtSchool, type IssuedSheetRow } from "@/lib/admin/claims";
 import { approveCorrection, rejectCorrection } from "@/lib/admin/corrections";
 import {
+  assignInvigilator,
   createMock,
   istInstant,
+  unassignInvigilator,
   schedulePaper,
   setResultsVisible,
   unschedulePaper,
@@ -847,3 +849,32 @@ export async function setChapterVideo(_prev: State, formData: FormData): Promise
         : "Saved. Students see the new video within about a minute.",
   );
 }
+
+/* ----------------------------------------------------------- invigilators --- */
+
+export async function assignInvigilatorAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const r = await assignInvigilator(
+    String(formData.get("paperId") ?? ""),
+    String(formData.get("centre") ?? ""),
+    String(formData.get("staffId") ?? ""),
+    staff.staff_id,
+  );
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done("Assigned. They open the desk from /admin/desk after signing in.");
+}
+
+export async function unassignInvigilatorAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const r = await unassignInvigilator(
+    String(formData.get("paperId") ?? ""),
+    String(formData.get("centre") ?? ""),
+    String(formData.get("staffId") ?? ""),
+    staff.staff_id,
+  );
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done("Taken off the desk.");
+}
+

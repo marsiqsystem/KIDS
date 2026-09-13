@@ -466,3 +466,46 @@ create table if not exists content_video_overrides (
   set_at      timestamptz not null default now(),
   primary key (bucket, chapter)
 );
+
+
+-- ------------------------------------------------------------- check-in --
+--
+-- Phase 2 is sat in the app, in a hall, under invigilators. A student is marked
+-- present by scanning the code on the invigilator's screen with their own phone,
+-- and the paper will not open for anyone who has not -- which is what stops the
+-- paper being sat from home. Ruled 14 September 2026: the code ROTATES every 30
+-- seconds, so a photograph sent to a friend is dead by the time it arrives. See
+-- src/lib/exam/checkin.ts.
+
+-- Who may run the desk at a centre for a paper. Ordinary staff accounts -- an
+-- invigilator is a teacher account assigned here -- so nobody needs a new kind
+-- of login, and every check-in they oversee is attributable to a named person.
+-- An admin may run any desk without being assigned.
+create table if not exists exam_invigilators (
+  exam_paper_id bigint      not null references exam_papers (id),
+  centre_code   text        not null,
+  staff_id      text        not null references admin_staff (staff_id),
+  assigned_at   timestamptz not null default now(),
+  assigned_by   text        not null,
+  primary key (exam_paper_id, centre_code, staff_id)
+);
+
+create index if not exists exam_invigilators_staff_idx on exam_invigilators (staff_id);
+
+-- One row per student per paper: present, at which centre, when, how.
+--
+-- `centre_code` is where they SCANNED, which is usually but not always the
+-- centre on their record. A child who turns up at the wrong hall is still
+-- checked in -- refusing a fourteen-year-old at the door on exam morning is
+-- worse than a flag on the office's board -- and the board shows the mismatch.
+create table if not exists exam_checkins (
+  uid           char(9)     not null references students (uid),
+  exam_paper_id bigint      not null references exam_papers (id),
+  centre_code   text        not null,
+  checked_in_at timestamptz not null default now(),
+  method        text        not null check (method in ('qr', 'code')),
+  device_id     text,
+  primary key (uid, exam_paper_id)
+);
+
+create index if not exists exam_checkins_centre_idx on exam_checkins (exam_paper_id, centre_code);

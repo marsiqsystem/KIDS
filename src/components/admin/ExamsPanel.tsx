@@ -1,8 +1,11 @@
 "use client";
 
 import { useActionState } from "react";
+import Link from "next/link";
 import {
+  assignInvigilatorAction,
   createMockAction,
+  unassignInvigilatorAction,
   schedulePaperAction,
   setResultsAction,
   unschedulePaperAction,
@@ -33,17 +36,30 @@ function ist(d: Date | null, withDate = true): string {
  * are loaded -- because a paper with a date and no questions does not open, and
  * the office should find that out here rather than at a centre in December.
  */
-export function ExamsPanel({ papers }: { papers: AdminPaper[] }) {
+export function ExamsPanel({
+  papers,
+  staff,
+  centres,
+}: {
+  papers: AdminPaper[];
+  staff: { staff_id: string; full_name: string }[];
+  centres: { centre_code: string; centre_name: string }[];
+}) {
   const phase1 = papers.filter((p) => p.phase_code === "P1");
   const later = papers.filter((p) => p.phase_code !== "P1");
 
   return (
     <div className="space-y-6">
       <section>
-        <h2 className="mb-2 text-sm font-bold">Phase 2 and mocks</h2>
+        <div className="mb-2 flex items-baseline justify-between">
+          <h2 className="text-sm font-bold">Phase 2 and mocks</h2>
+          <Link href="/admin/desk" className="text-xs text-[#c9b8b2] underline-offset-2 hover:underline">
+            Open the exam desks →
+          </Link>
+        </div>
         <div className="space-y-3">
           {later.map((p) => (
-            <PaperCard key={p.id} p={p} />
+            <PaperCard key={p.id} p={p} staff={staff} centres={centres} />
           ))}
         </div>
       </section>
@@ -71,7 +87,15 @@ export function ExamsPanel({ papers }: { papers: AdminPaper[] }) {
   );
 }
 
-function PaperCard({ p }: { p: AdminPaper }) {
+function PaperCard({
+  p,
+  staff,
+  centres,
+}: {
+  p: AdminPaper;
+  staff: { staff_id: string; full_name: string }[];
+  centres: { centre_code: string; centre_name: string }[];
+}) {
   const [state, action] = useActionState(schedulePaperAction, {});
   const scheduled = Boolean(p.starts_at);
   const allLoaded = p.loaded.length === CLASSES.length;
@@ -168,8 +192,76 @@ function PaperCard({ p }: { p: AdminPaper }) {
             </div>
           </form>
         )}
+
+        {p.requires_checkin ? <Invigilators p={p} staff={staff} centres={centres} /> : null}
       </div>
     </article>
+  );
+}
+
+function Invigilators({
+  p,
+  staff,
+  centres,
+}: {
+  p: AdminPaper;
+  staff: { staff_id: string; full_name: string }[];
+  centres: { centre_code: string; centre_name: string }[];
+}) {
+  const [state, action] = useActionState(assignInvigilatorAction, {});
+  const staffed = new Set(p.invigilators.map((i) => i.centre_code));
+  const unstaffed = centres.filter((c) => !staffed.has(c.centre_code));
+
+  return (
+    <div className="border-t border-[#2a2321] pt-4">
+      <h4 className="text-xs font-semibold text-[#9c8c86]">
+        Desks · {staffed.size} of {centres.length} centres have an invigilator
+      </h4>
+      {unstaffed.length > 0 && unstaffed.length < centres.length ? (
+        <p className="mt-1 text-xs text-[#d9b877]">
+          No one yet at {unstaffed.map((c) => c.centre_code).join(", ")}. An admin can run any desk meanwhile.
+        </p>
+      ) : null}
+
+      {p.invigilators.length > 0 ? (
+        <ul className="mt-2 flex flex-wrap gap-2">
+          {p.invigilators.map((i) => (
+            <li key={`${i.centre_code}|${i.staff_id}`} className="flex items-center gap-1 rounded border border-[#3a2f2c] px-2 py-1 text-xs">
+              <span className="font-mono text-[#6b5c57]">{i.centre_code}</span>
+              <span className="text-[#c9b8b2]">{i.full_name}</span>
+              <RowAction
+                action={unassignInvigilatorAction}
+                fields={{ paperId: p.id, centre: i.centre_code, staffId: i.staff_id }}
+              >
+                ×
+              </RowAction>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
+      <form action={action} className="mt-3 flex flex-wrap items-end gap-2">
+        <input type="hidden" name="paperId" value={p.id} />
+        <select name="centre" className={`${INPUT} max-w-[14rem]`} defaultValue="">
+          <option value="">Centre…</option>
+          {centres.map((c) => (
+            <option key={c.centre_code} value={c.centre_code}>
+              {c.centre_code} · {c.centre_name}
+            </option>
+          ))}
+        </select>
+        <select name="staffId" className={`${INPUT} max-w-[14rem]`} defaultValue="">
+          <option value="">Invigilator…</option>
+          {staff.map((s) => (
+            <option key={s.staff_id} value={s.staff_id}>
+              {s.full_name} · {s.staff_id}
+            </option>
+          ))}
+        </select>
+        <Submit>Assign</Submit>
+        <Alert state={state} />
+      </form>
+    </div>
   );
 }
 

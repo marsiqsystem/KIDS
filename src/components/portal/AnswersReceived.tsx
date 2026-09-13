@@ -33,6 +33,7 @@ export default function AnswersReceived({
   deadlineAtIso,
   filled,
   timedOut,
+  receipt = null,
 }: {
   name: string;
   classLabel: string;
@@ -44,6 +45,11 @@ export default function AnswersReceived({
   filled: boolean[];
   /** The clock ran out and we submitted for them, rather than they pressed Submit. */
   timedOut: boolean;
+  /**
+   * K-4W7H-8474 (Design 6d, rule 9). What a student quotes if they ever ask about
+   * this paper. Null for July's, which predate receipts.
+   */
+  receipt?: string | null;
 }) {
   const total = filled.length;
   const answered = filled.filter(Boolean).length;
@@ -86,6 +92,17 @@ export default function AnswersReceived({
               </>
             )}
           </p>
+          {receipt ? (
+            <div className="mx-auto mt-5 inline-flex flex-col items-center rounded-xl bg-[rgb(255_255_255/10%)] px-5 py-3">
+              <span className="text-xs uppercase tracking-widest text-[#d8e6e2]">Receipt number</span>
+              <span className="tnum mt-1 font-mono text-2xl font-semibold tracking-[0.12em] text-[var(--cream)]">
+                {receipt}
+              </span>
+              <span className="mt-1 max-w-xs text-xs text-[#d8e6e2]">
+                Keep this. Quote it if you ever need to ask about this paper.
+              </span>
+            </div>
+          ) : null}
         </div>
       </div>
 

@@ -52,8 +52,11 @@ export default function LiveExam({
   windowClosesIso,
   startsAtIso,
   serverNowIso,
+  api = "/api/exam",
+  paperKey = "SET2026",
 }: {
   uid: string;
+  /** The admit-card token for July's portal. Empty in the app, which uses its session. */
   token: string;
   label: string;
   /** First name, for the greeting and the footer. */
@@ -69,6 +72,16 @@ export default function LiveExam({
   windowClosesIso: string;
   startsAtIso: string;
   serverNowIso: string;
+  /**
+   * Where the paper is fetched from. `/api/exam` is July's portal, gated by the
+   * admit-card token; `/api/app/exam` is the app, gated by the session, the
+   * check-in and the phone. Same exam, two doors.
+   */
+  api?: string;
+  /**
+   * Which sitting, for the cache on this phone. See `cacheKey` below.
+   */
+  paperKey?: string;
 }) {
   const [stage, setStage] = useState<Stage>("waiting");
   const [error, setError] = useState("");
@@ -81,8 +94,14 @@ export default function LiveExam({
   // to render the "answers are in" screen truthfully.
   const [submittedAtMs, setSubmittedAtMs] = useState<number | null>(null);
   const [autoSubmitted, setAutoSubmitted] = useState(false);
+  const [receipt, setReceipt] = useState<string | null>(null);
 
-  const cacheKey = `kids:exam:${uid}`;
+  // Per student AND per sitting. It used to be per student only, which was safe
+  // while there was one exam. Answers are stored by question NUMBER and merged
+  // over the server's copy when a paper opens, so a July cache left on a phone
+  // would have been poured into a December paper, question 7 onto question 7.
+  const cacheKey = `kids:exam:${uid}:${paperKey}`;
+  const credentials = token ? { id: uid, t: token } : {};
 
   // The countdown to the start. When it reaches zero the waiting room becomes the
   // Start button on its own — no reload, because a student staring at the screen
@@ -125,10 +144,10 @@ export default function LiveExam({
     const cached = readCache();
 
     try {
-      const res = await fetch("/api/exam/start", {
+      const res = await fetch(`${api}/start`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ id: uid, t: token }),
+        body: JSON.stringify(credentials),
       });
       const data = await res.json();
 
@@ -172,7 +191,8 @@ export default function LiveExam({
       setError("We could not reach the exam. Check your signal and try again.");
       setStage("error");
     }
-  }, [uid, token, readCache, cache]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uid, token, api, readCache, cache]);
 
   /* ---------------------------------------------------------------- sync --- */
 
@@ -186,15 +206,24 @@ export default function LiveExam({
 
   const push = useCallback(
     async (path: "sync" | "submit") => {
-      const res = await fetch(`/api/exam/${path}`, {
+      const res = await fetch(`${api}/${path}`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ id: uid, t: token, answers: latest.current.answers }),
+        body: JSON.stringify({ ...credentials, answers: latest.current.answers }),
       });
+      if (res.status === 409 || res.status === 401 || res.status === 403) {
+        // Not a signal problem, so it must not be shown as one. The paper was
+        // moved to another phone by an invigilator, or the account was opened
+        // elsewhere: this phone can no longer save, and a student who keeps
+        // answering here is losing every answer. Say so and stop.
+        const data = await res.json().catch(() => ({}));
+        throw Object.assign(new Error("refused"), { refused: data?.message ?? "This phone can no longer save your paper." });
+      }
       if (!res.ok) throw new Error(String(res.status));
       return res.json();
     },
-    [uid, token],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [uid, token, api],
   );
 
   useEffect(() => {
@@ -205,7 +234,13 @@ export default function LiveExam({
       try {
         await push("sync");
         setSave("saved");
-      } catch {
+      } catch (e) {
+        const refused = (e as { refused?: string }).refused;
+        if (refused) {
+          setError(refused);
+          setStage("error");
+          return;
+        }
         // Not an error the student needs to see. Their answers are on their phone.
         setSave("offline");
       }
@@ -219,7 +254,8 @@ export default function LiveExam({
   const submit = useCallback(async () => {
     setStage("submitting");
     try {
-      await push("submit");
+      const data = await push("submit");
+      setReceipt(data?.receipt ?? null);
       setSubmittedAtMs(Date.now());
       setStage("submitted");
       try {
@@ -227,7 +263,13 @@ export default function LiveExam({
       } catch {
         /* nothing to clean up */
       }
-    } catch {
+    } catch (e) {
+      const refused = (e as { refused?: string }).refused;
+      if (refused) {
+        setError(refused);
+        setStage("error");
+        return;
+      }
       // Keep the paper on screen and let them try again. Their last synced draft
       // is already safe, and the server will finalise it at the deadline whatever
       // happens to this phone.
@@ -285,6 +327,7 @@ export default function LiveExam({
         deadlineAtIso={deadlineAt}
         filled={questions.map((_, i) => String(i) in answers)}
         timedOut={autoSubmitted}
+        receipt={receipt}
       />
     );
   }

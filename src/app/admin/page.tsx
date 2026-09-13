@@ -105,7 +105,7 @@ export default async function AdminPage({
       tab={tab}
       query={q}
       overview={tab === "overview" ? await overview() : null}
-      staffList={tab === "staff" || tab === "batches" ? await listStaff() : []}
+      staffList={tab === "staff" || tab === "batches" || tab === "exams" ? await listStaff() : []}
       batches={batches}
       openBatch={
         open
@@ -127,7 +127,7 @@ export default async function AdminPage({
       claims={tab === "claims" ? await loadClaims(school) : null}
       corrections={tab === "corrections" ? await pendingCorrections() : null}
       papers={tab === "exams" || tab === "results" ? await papersForAdmin() : null}
-      centres={tab === "centres" ? await centresOverview() : null}
+      centres={tab === "centres" || tab === "exams" ? await centresOverview() : null}
       content={tab === "content" ? await loadContent(cls) : null}
     />
   );

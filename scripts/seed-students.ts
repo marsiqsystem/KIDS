@@ -9,6 +9,10 @@
  * Idempotent: re-running updates existing rows rather than duplicating them, so
  * it is safe to run again after a correction to the master workbook. It never
  * touches `attempts` -- a re-seed must not wipe a student's exam.
+ *
+ * It also never DELETES, which matters more since registration opened: a child
+ * who applied through the app is on the register without being in the workbook,
+ * and a reseed must leave them exactly where they are. See the final check.
  */
 import { readFileSync } from "node:fs";
 import { neon } from "@neondatabase/serverless";
@@ -100,8 +104,51 @@ console.log(`  demo         : ${demo}`);
 console.log(`  without dob  : ${nodob}`);
 console.log(`  without class: ${noclass}  <- these cannot be given a paper`);
 
-if (count !== students.length) {
-  console.error(`\nFAIL — expected ${students.length} rows, found ${count}.`);
+/**
+ * Did every student in the workbook reach the database?
+ *
+ * This used to be `count === students.length`, which was right only while the
+ * database was a mirror of the workbook and nothing else could add a row. Since
+ * registration opened (September 2026) the app can put a child on the register
+ * too, so an exact-count check reports FAIL on a perfectly healthy database the
+ * first time anybody registers -- which would look like a disaster on exactly
+ * the day it must not.
+ *
+ * The real question was never "are the totals equal". It is "is every student in
+ * this file in the database", and that is what is asked now. Rows the file does
+ * not contain are reported rather than counted against it, and split into the
+ * ones that are explained -- an approved application -- and the ones that are
+ * not, which are worth a human look even though they do not fail the seed.
+ */
+const fileUids = students.map((s) => s.uid);
+
+const [{ seeded }] = (await sql`
+  select count(*)::int as seeded from students where uid = any(${fileUids}::text[])
+`) as { seeded: number }[];
+
+const extra = (await sql`
+  select s.uid, r.uid is not null as registered
+    from students s
+    left join app_registrations r on r.uid = s.uid and r.status = 'approved'
+   where s.uid <> all(${fileUids}::text[])
+   order by s.uid
+`) as { uid: string; registered: boolean }[];
+
+if (extra.length) {
+  const viaApp = extra.filter((e) => e.registered).length;
+  const unexplained = extra.filter((e) => !e.registered);
+  console.log(`\nnot in the workbook: ${extra.length}`);
+  console.log(`  registered in app : ${viaApp}  <- expected; approved applications`);
+  if (unexplained.length) {
+    console.log(`  unexplained       : ${unexplained.length}  <- from neither source; worth a look`);
+    for (const e of unexplained.slice(0, 10)) console.log(`      ${e.uid}`);
+  }
+}
+
+if (seeded !== students.length) {
+  console.error(
+    `\nFAIL — ${students.length} students in the file, ${seeded} of them in the database.`,
+  );
   process.exit(1);
 }
-console.log("\nOK — every student is in the database.");
+console.log("\nOK — every student in the workbook is in the database.");

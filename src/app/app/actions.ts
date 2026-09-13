@@ -2,7 +2,8 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { signIn, claimAccount, logAppEvent } from "@/lib/app/accounts";
+import { signIn, claimAccount, logAppEvent, openApprovedAccount } from "@/lib/app/accounts";
+import { applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
 import { passwordProblem } from "@/lib/app/passwords";
 import { createSession, destroySession, sessionUid } from "@/lib/app/session";
 import { bindDevice, readDeviceId } from "@/lib/app/devices";
@@ -198,4 +199,143 @@ export async function signOutAction(): Promise<void> {
   // the phone is clear and offers the next child the door — on a shared handset
   // that sentence is the whole point of having signed out.
   redirect("/app/sign-in?left=1");
+}
+
+/* ------------------------------------------------------- registration --- */
+
+/**
+ * "I am new to KIDS."
+ *
+ * Registration lives inside the app rather than on a web form, and that is a
+ * product decision with a reason: a family who registers on a website has
+ * credentials to keep and a second sign-in to get through when the app finally
+ * arrives. Here they install once, apply, and the same installation is handed
+ * its account the moment the office approves it.
+ *
+ * Nothing here creates a student. It creates an APPLICATION -- no UID, invisible
+ * to the exam and to every published total -- and a named office account turns
+ * it into a student later. See src/lib/admin/registrations.ts.
+ */
+export type RegisterState = {
+  field?: "name" | "dob" | "class" | "school";
+  message?: string;
+  ok?: boolean;
+};
+
+export async function registerAction(
+  _prev: RegisterState,
+  formData: FormData,
+): Promise<RegisterState> {
+  const name = String(formData.get("name") ?? "").trim();
+  const day = String(formData.get("dobDay") ?? "").trim().padStart(2, "0");
+  const month = String(formData.get("dobMonth") ?? "").trim().padStart(2, "0");
+  const year = String(formData.get("dobYear") ?? "").trim();
+  const cls = String(formData.get("class") ?? "").trim().toUpperCase();
+  const stream = String(formData.get("stream") ?? "").trim();
+  const school = String(formData.get("school") ?? "").trim();
+  const phone = String(formData.get("guardianPhone") ?? "").trim();
+  const deviceId = readDeviceId(formData.get("deviceId"));
+
+  if (name.length < 2) {
+    return { field: "name", message: "Type your full name, as it is written at school." };
+  }
+  if (!/^\d{2}$/.test(day) || !/^\d{2}$/.test(month) || !/^\d{4}$/.test(year)) {
+    return { field: "dob", message: "Type your date of birth as day, month and year." };
+  }
+  if (!["IX", "X", "XI", "XII"].includes(cls)) {
+    return { field: "class", message: "Choose the class you are in this year." };
+  }
+  // The school arrives as "CTR-13|SC-04" — the pair that identifies a school.
+  // `school_code` alone is a per-centre index and names twenty-one different
+  // schools, so it is never sent or stored on its own.
+  const [centreCode, schoolCode] = school.split("|");
+  if (!centreCode || !schoolCode) {
+    return { field: "school", message: "Choose your school from the list." };
+  }
+
+  const result = await applyToRegister({
+    name,
+    dob: `${day}-${month}-${year}`,
+    class: cls,
+    stream: cls === "XI" || cls === "XII" ? stream || null : null,
+    centre_code: centreCode,
+    school_code: schoolCode,
+    guardian_phone: phone || null,
+    device_id: deviceId,
+  });
+
+  if (!result.ok) {
+    switch (result.reason) {
+      case "incomplete":
+        return { field: "name", message: "Something is missing. Check every box and try again." };
+      case "unknown_school":
+        return { field: "school", message: "We do not know that school. Choose one from the list." };
+      case "already_pending":
+        // Not an error worth a red box: they tapped twice, or came back later.
+        return { ok: true };
+    }
+  }
+
+  return { ok: true };
+}
+
+/**
+ * What this phone applied for, if anything.
+ *
+ * Called from the client on mount rather than read during the render, because
+ * the installation id lives in localStorage and a server component cannot see
+ * it. One indexed lookup.
+ */
+export async function registrationStatusAction(
+  deviceId: string,
+): Promise<PendingApplication | null> {
+  const id = readDeviceId(deviceId);
+  if (!id) return null;
+  return applicationForDevice(id);
+}
+
+/**
+ * Approved — open the account, on this phone, without a sign-in.
+ *
+ * The office has already checked who this child is; that is what approval
+ * means, and it is a stronger check than the date of birth the claim screen
+ * asks for. So nothing is verified again here. The student chooses a password
+ * and is in.
+ *
+ * They are asked for one at all -- rather than simply being let through --
+ * because an account with no password can never be recovered onto another
+ * handset, and a lost phone would otherwise cost a child their registration.
+ */
+export async function finishRegistrationAction(
+  _prev: FormState,
+  formData: FormData,
+): Promise<FormState> {
+  const deviceId = readDeviceId(formData.get("deviceId"));
+  const password = String(formData.get("password") ?? "");
+
+  const application = deviceId ? await applicationForDevice(deviceId) : null;
+  if (!application || application.status !== "approved" || !application.uid) {
+    return {
+      field: "password",
+      message: "This application is not approved yet. Nothing to open.",
+    };
+  }
+
+  const uid = application.uid;
+  const problem = passwordProblem(password, uid);
+  if (problem) return { field: "password", message: problem, uid };
+
+  const opened = await openApprovedAccount(uid, password);
+  if (!opened) {
+    return {
+      field: "password",
+      message:
+        `${uid} already has a password. Sign in with it, or reset it if you do not remember.`,
+      action: { label: "Sign in", href: `/app/sign-in?id=${uid}` },
+      uid,
+    };
+  }
+
+  await startSession(uid, formData);
+  redirect("/app");
 }

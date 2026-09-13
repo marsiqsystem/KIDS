@@ -24,7 +24,7 @@ const KEY = "kids_device_id";
  * off this phone, and clearing the app's data throws it away. Those limits are
  * stated in src/lib/app/devices.ts, which is the only thing that reads it.
  */
-function readOrCreate(): string {
+export function readOrCreateDeviceId(): string {
   try {
     const existing = window.localStorage.getItem(KEY);
     if (existing && /^[0-9a-f]{32}$/.test(existing)) return existing;
@@ -45,7 +45,7 @@ export default function DeviceField() {
   // In an effect, not during render: this touches window, and the sign-in page
   // is server-rendered. The field is empty for the moment before hydration,
   // which cannot matter — nobody has typed a password yet.
-  useEffect(() => setDeviceId(readOrCreate()), []);
+  useEffect(() => setDeviceId(readOrCreateDeviceId()), []);
 
   return <input type="hidden" name="deviceId" value={deviceId} readOnly />;
 }

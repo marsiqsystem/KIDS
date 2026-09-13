@@ -175,6 +175,32 @@ export async function claimAccount(
   return { ok: true, student };
 }
 
+/**
+ * Put a password on a brand-new account, with no date-of-birth check.
+ *
+ * Only for a student who has just been approved through registration. The date
+ * of birth exists on the claim path to answer "are you the child this UID
+ * belongs to" for a register the office compiled months ago. For a registration
+ * that question was answered by a named office account approving the
+ * application an hour ago, which is a stronger check, not a weaker one -- and
+ * asking a child to re-type the date they themselves typed into the form would
+ * be theatre.
+ *
+ * Returns false if the account already has a password, so this can never
+ * overwrite one. That is the only way it can be misused, and it is closed.
+ */
+export async function openApprovedAccount(uid: string, password: string): Promise<boolean> {
+  if (await findAccount(uid)) return false;
+
+  await sql`
+    insert into app_accounts (uid, password_hash)
+    values (${uid}, ${await hashPassword(password)})
+    on conflict (uid) do nothing
+  `;
+  await logAppEvent(uid, "claim", { via: "registration" });
+  return true;
+}
+
 /** `1-1-2009`, `01-01-2009` and `01/01/2009` are the same date. */
 function normaliseDob(raw: string): string {
   const parts = (raw ?? "").trim().split(/[-/.\s]+/);

@@ -1,5 +1,6 @@
 import { paperIdFor, PAPERS } from "./config";
 import { getPaper } from "./papers";
+import { loadQuestionSets } from "./question-sets";
 import { openPaperNow, nextScheduledPaper, phaseOfPaper, type ExamPaper } from "./phases";
 import type { Student } from "./db";
 
@@ -63,21 +64,49 @@ export type ExamWindow = {
  * and a sitting whose questions have not been loaded is never opened at all --
  * see toWindow below. There is no fallback to another paper, ever.
  */
-export function questionSetFor(examPaperCode: string, cls: string | null): string | null {
+export function questionSetFor(
+  examPaperCode: string,
+  cls: string | null,
+  stream: string | null = null,
+  medium: string | null = null,
+): string | null {
   const c = cls?.trim().toUpperCase();
   if (!c || !(PAPERS as readonly string[]).includes(c)) return null;
-  return examPaperCode === "P1-ONLINE" ? paperIdFor(c) : `${examPaperCode}-${c}`;
+  if (examPaperCode === "P1-ONLINE") return paperIdFor(c);
+  return questionSetCandidates(examPaperCode, c, stream, medium).find((code) => getPaper(code)) ?? null;
+}
+
+/**
+ * The set codes that could serve this child, most specific first.
+ *
+ * A paper can be one set per class, or split by stream (XI and XII), or by
+ * medium (Bengali), or both -- decided by which sets are loaded, not by code.
+ * The first that exists is the one handed out.
+ */
+export function questionSetCandidates(
+  examPaperCode: string,
+  cls: string,
+  stream: string | null,
+  medium: string | null,
+): string[] {
+  const s = stream?.trim().toUpperCase() || null;
+  const m = medium?.trim().toUpperCase() || null;
+  const base = `${examPaperCode}-${cls}`;
+  return [
+    s && m ? `${base}-${s}-${m}` : null,
+    m ? `${base}-${m}` : null,
+    s ? `${base}-${s}` : null,
+    base,
+  ].filter((x): x is string => Boolean(x));
 }
 
 function toWindow(student: Student, paper: ExamPaper): ExamWindow | null {
-  const paperId = questionSetFor(paper.code, student.class);
-  // No class on file, so no paper we could honestly hand them. Six students.
-  if (!paperId) return null;
   if (!paper.starts_at || !paper.ends_at) return null;
-  // Scheduled, but its questions are not loaded: it does not open, and every
-  // screen says "no paper is open" rather than counting down to a paper that
-  // would fail -- or worse, to somebody else's.
-  if (!getPaper(paperId)) return null;
+  // No class on file, or scheduled but no questions loaded for this child: it
+  // does not open, and every screen says "no paper is open" rather than counting
+  // down to a paper that would fail -- or worse, to somebody else's.
+  const paperId = questionSetFor(paper.code, student.class, student.stream, student.medium);
+  if (!paperId || !getPaper(paperId)) return null;
 
   return {
     paperId,
@@ -102,6 +131,7 @@ export async function windowFor(
   student: Student,
   now: Date = new Date(),
 ): Promise<ExamWindow | null> {
+  await loadQuestionSets();
   const paper = (await openPaperNow(now)) ?? (await nextScheduledPaper(now));
   if (!paper) return null;
   return toWindow(student, paper);

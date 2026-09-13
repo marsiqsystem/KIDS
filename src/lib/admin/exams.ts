@@ -1,7 +1,5 @@
 import { sql } from "@/lib/exam/db";
-import { getPaper } from "@/lib/exam/papers";
-import { PAPERS } from "@/lib/exam/config";
-import { questionSetFor } from "@/lib/exam/schedule";
+import { loadQuestionSets } from "@/lib/exam/question-sets";
 import { logAdminEvent } from "./staff";
 
 /**
@@ -35,14 +33,22 @@ export interface AdminPaper {
   requires_checkin: boolean;
   attempts: number;
   results: number;
-  /** Which of IX, X, XI, XII have a question set loaded for this sitting. */
+  /** Which of IX, X, XI, XII have at least one question set loaded for this sitting. */
   loaded: string[];
+  /** Every set loaded for it, e.g. P2-ONLINE-XI-SCIENCE, with its size. */
+  sets: { code: string; question_count: number; loaded_at: Date }[];
   /** Whether students can see marks right now, read from where the pages read it. */
   visible: boolean;
   counts_for_award: boolean;
 }
 
 export async function papersForAdmin(): Promise<AdminPaper[]> {
+  await loadQuestionSets(true);
+  const sets = (await sql`
+    select code, exam_paper_id::text, class, question_count, loaded_at
+      from exam_question_sets order by code
+  `) as { code: string; exam_paper_id: string; class: string; question_count: number; loaded_at: Date }[];
+
   const rows = (await sql`
     select pa.id::text, pa.code, pa.name, ph.code as phase_code, ph.name as phase_name,
            pa.mode, pa.kind, pa.max_marks, pa.scan_opens_at, pa.starts_at, pa.ends_at,
@@ -66,13 +72,14 @@ export async function papersForAdmin(): Promise<AdminPaper[]> {
 
   return rows.map((r) => ({
     ...r,
+    // July's online paper lives in the repository file, not the table.
     loaded:
-      r.mode === "online"
-        ? (PAPERS as readonly string[]).filter((c) => {
-            const set = questionSetFor(r.code, c);
-            return set ? Boolean(getPaper(set)) : false;
-          })
-        : [],
+      r.code === "P1-ONLINE"
+        ? ["IX", "X", "XI", "XII"]
+        : [...new Set(sets.filter((x) => x.exam_paper_id === r.id).map((x) => x.class))],
+    sets: sets
+      .filter((x) => x.exam_paper_id === r.id)
+      .map((x) => ({ code: x.code, question_count: x.question_count, loaded_at: x.loaded_at })),
     visible:
       r.code === "P1-ONLINE" ? Boolean(meta?.online_open)
       : r.code === "P1-OFFLINE" ? Boolean(meta?.offline_open)

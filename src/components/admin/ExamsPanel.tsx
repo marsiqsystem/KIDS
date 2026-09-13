@@ -117,6 +117,20 @@ function PaperCard({ p }: { p: AdminPaper }) {
             </span>
           ) : null}
         </div>
+        {p.sets.length > 0 ? (
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#9c8c86]">
+            {p.sets.map((x) => (
+              <li key={x.code}>
+                <span className="font-mono text-[#c9b8b2]">{x.code}</span> · {x.question_count} questions
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-xs text-[#6b5c57]">
+            Questions are loaded from a file on the office laptop, never from GitHub:{" "}
+            <span className="font-mono">scripts/load-question-set.ts</span>.
+          </p>
+        )}
 
         {locked ? (
           <p className="text-xs text-[#9c8c86]">{n(p.attempts)} students have started this paper, so its window can no longer move.</p>

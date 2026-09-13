@@ -28,8 +28,27 @@ export type Paper = {
  * loudly rather than hand a child an empty paper — but for the four real ids it
  * now returns the real, examiner-approved 50-question papers.
  */
+/**
+ * Papers loaded from the database -- everything after July. Filled by
+ * src/lib/exam/question-sets.ts, which cannot be imported from here: this file
+ * is also loaded by scripts on bare Node, and it must not drag a database client
+ * in with it. So the loader pushes rows in, and this file only reads them.
+ */
+let loaded = new Map<string, Paper>();
+
+export function registerLoadedPapers(papers: Map<string, Paper>): void {
+  loaded = papers;
+}
+
+/**
+ * A paper by its set code.
+ *
+ * The July file first, and it always wins: those four papers are what 6,780
+ * students were marked on, and nothing loaded later may replace one of them
+ * under the same code.
+ */
 export function getPaper(paperId: string): Paper | null {
-  return SET2026_PAPERS[paperId] ?? null;
+  return SET2026_PAPERS[paperId] ?? loaded.get(paperId) ?? null;
 }
 
 /** The paper, stripped of its key, safe to send to a phone. */

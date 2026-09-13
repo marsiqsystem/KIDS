@@ -403,3 +403,43 @@ create index if not exists exam_papers_phase_idx on exam_papers (phase_id);
 alter table attempts         add column if not exists exam_paper_id bigint references exam_papers (id);
 alter table online_results   add column if not exists exam_paper_id bigint references exam_papers (id);
 alter table offline_results  add column if not exists exam_paper_id bigint references exam_papers (id);
+
+
+-- --------------------------------------------------------- question sets --
+--
+-- The questions for every paper after July.
+--
+-- July's four online papers live in src/lib/exam/set2026-papers.ts, answer keys
+-- and all, and that was acceptable only because they were committed on the
+-- morning of the exam. THE REPOSITORY IS PUBLIC. A paper for December committed
+-- in October is a paper every student can read in October. So from Phase 2 on,
+-- a question set is loaded into this table from a file kept off GitHub, by
+-- scripts/load-question-set.ts, and the repository never holds it.
+--
+-- `code` is what src/lib/exam/schedule.ts asks for, most specific first:
+--   P2-ONLINE-XI-SCIENCE-BENGALI, P2-ONLINE-XI-BENGALI, P2-ONLINE-XI-SCIENCE,
+--   P2-ONLINE-XI
+-- so a paper can be one set per class, or split by stream, or by medium, and
+-- the choice is made by what is loaded rather than by code.
+--
+-- The answer key sits in its own column, and nothing that sends questions to a
+-- phone ever selects it.
+
+create table if not exists exam_question_sets (
+  code           text        primary key,
+  exam_paper_id  bigint      not null references exam_papers (id),
+  class          text        not null check (class in ('IX', 'X', 'XI', 'XII')),
+  stream         text,
+  medium         text        not null default '',
+  -- [{ q, context?, options: [...] }] -- exactly the shape a student is shown.
+  questions      jsonb       not null,
+  -- [int], index of the correct option per question.
+  answer_key     jsonb       not null,
+  question_count integer     not null,
+  -- sha256 of the source file, so "is this the file we checked" has an answer.
+  checksum       text        not null,
+  loaded_at      timestamptz not null default now(),
+  loaded_by      text        not null
+);
+
+create index if not exists exam_question_sets_paper_idx on exam_question_sets (exam_paper_id);

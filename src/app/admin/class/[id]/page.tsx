@@ -116,13 +116,13 @@ export default async function TeacherRoom({ params }: { params: Promise<{ id: st
 
 function Shell({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <main className="min-h-screen bg-[#FDFBF7] px-6 py-12 text-[#2B1A1C]">
-      <div className="mx-auto max-w-md rounded-lg border border-[#F2E9DA] bg-[#FFFFFF] p-6">
+    <main className="flex min-h-screen items-center justify-center bg-[#FBF7EF] px-6 py-12 text-[#2B1A1C]">
+      <div className="w-full max-w-md rounded-[14px] border border-[#F2E9DA] bg-white p-6">
         <h1 className="mb-4 text-sm font-bold">{title}</h1>
         {children}
         <Link
           href="/admin?tab=classes"
-          className="mt-5 inline-block text-sm font-semibold text-[#137565] underline"
+          className="mt-5 inline-block text-sm font-semibold text-[#7B1E2B] underline underline-offset-2"
         >
           Back to classes
         </Link>

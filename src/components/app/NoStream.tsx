@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Empty } from "@/components/app/kit";
 
 /**
  * Class XI or XII with no stream on the register.
@@ -14,19 +15,12 @@ import Link from "next/link";
  */
 export default function NoStream({ cls }: { cls: string }) {
   return (
-    <div className="app-soon">
-      <h2>We do not hold your stream</h2>
-      <p>
-        Your record says Class {cls}, but not whether you are in Arts, Commerce or Science. That is
-        what decides which three subjects are yours, so we cannot build your practice without it.
-      </p>
-      <p>
-        The KIDS office can add it to your record. Tell them your User ID and your stream, and this
-        page will work the next time you open it.
-      </p>
-      <Link href="/app/reset" className="app-btn app-btn--outline">
-        How to reach the office
-      </Link>
+    <div className="k-card k-card--dashed">
+      <Empty title="Your stream is missing" line={`Class ${cls} needs a stream. Tell the KIDS office.`}>
+        <Link href="/app/reset" className="k-btn k-btn--outline k-btn--small">
+          Contact the office
+        </Link>
+      </Empty>
     </div>
   );
 }

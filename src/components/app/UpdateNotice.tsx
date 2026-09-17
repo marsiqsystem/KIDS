@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
+import { Download, X } from "lucide-react";
 
 /**
  * "There is a newer app" — design's own voice, not a system dialog.
@@ -66,27 +67,22 @@ export default function UpdateNotice({
 
   if (dismissed === String(expected)) return null;
 
+  // Redesign board 02: an icon, "New version", one line, one button.
   return (
-    <div className="app-update" role="status">
-      <div className="app-update__text">
-        <strong>A newer app is ready</strong>
-        <p>
-          {note ?? "This version is behind the one KIDS is running."}{" "}
-          {href
-            ? "Download it and install it over this one — you stay signed in."
-            : "Ask KIDS for the new file. Installing it over this one keeps you signed in."}
-        </p>
+    <div className="k-update" role="status">
+      <Download size={20} className="k-update__icon" aria-hidden="true" />
+      <div className="k-update__text">
+        <strong>New version</strong>
+        <span>{note ?? (href ? "Install it over this one." : "Ask KIDS for the new app.")}</span>
       </div>
-      <div className="app-update__acts">
-        {href ? (
-          <a className="app-btn app-btn--small" href={href}>
-            Get it
-          </a>
-        ) : null}
-        <button type="button" className="app-update__later" onClick={dismiss}>
-          Not now
-        </button>
-      </div>
+      {href ? (
+        <a className="k-btn k-btn--small" href={href}>
+          Update
+        </a>
+      ) : null}
+      <button type="button" className="k-update__later" onClick={dismiss} aria-label="Not now">
+        <X size={18} aria-hidden="true" />
+      </button>
     </div>
   );
 }

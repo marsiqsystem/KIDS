@@ -1,11 +1,11 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { Megaphone } from "lucide-react";
 import { takePostDown, writePost } from "@/app/admin/actions";
 import type { Batch } from "@/lib/admin/batches";
 import type { Post } from "@/lib/admin/posts";
-import { Alert, Field, RowAction, Submit, INPUT, SURFACE } from "./ui";
+import { Alert, RowAction, Submit, INPUT, SURFACE } from "./ui";
 
 /**
  * Posts — the office's own voice in the app.
@@ -67,8 +67,59 @@ export default function PostsPanel({
   );
 }
 
+/**
+ * What the child will see, while it is still being typed. Redesign board 10.
+ *
+ * A copy of the app's notice card rather than the card itself: that one is a
+ * server component inside the student's shell, and dragging it in here would
+ * couple the office tool to the student app's session. The risk of a copy is
+ * that the two drift, so this holds only the three things the office is
+ * actually deciding — the icon and tone for a post, the heading, and the words
+ * — and leaves the read dot, the mark-read control and the 90-day expiry to the
+ * real screen.
+ *
+ * It exists because the heading is the whole message for most students. It is
+ * the line under the bell, and it is easy to write one that makes sense only to
+ * the person who already knows what it is about.
+ */
+function Preview({ title, body, who }: { title: string; body: string; who: string }) {
+  return (
+    <div className="rounded-[14px] border border-[#F2E9DA] bg-[#FBF7EF] p-4">
+      <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B5B5D]">
+        Under the bell
+      </div>
+      <p className="mt-1 text-xs text-[#6B5B5D]">{who}</p>
+
+      <div className="mx-auto mt-3 w-full max-w-[330px] rounded-[18px] border border-[#E3D6C4] bg-white p-3">
+        <div className="flex gap-3">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#E6F5F2] text-[#137565]">
+            <Megaphone size={20} aria-hidden />
+          </span>
+          <div className="min-w-0">
+            <p className="text-[15px] font-bold leading-snug text-[#2B1A1C]">
+              {title || <span className="text-[#A79B9C]">Your heading</span>}
+            </p>
+            <p className="mt-1 whitespace-pre-wrap text-[13.5px] leading-relaxed text-[#4A3A3C]">
+              {body || <span className="text-[#A79B9C]">The words you type appear here.</span>}
+            </p>
+            <p className="mt-2 text-[12px] text-[#6B5B5D]">From KIDS · just now</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: boolean }) {
   const [state, action] = useActionState(writePost, {});
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [batchId, setBatchId] = useState(canPostToAll ? "" : (batches[0]?.id ?? ""));
+
+  const chosen = batches.find((b) => b.id === batchId);
+  const who = chosen
+    ? `${chosen.name} · ${chosen.student_count} student${chosen.student_count === 1 ? "" : "s"}`
+    : "Everybody with an app account";
 
   if (!canPostToAll && batches.length === 0) {
     return (
@@ -87,10 +138,16 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
         Write a post
       </h2>
 
-      <form action={action} className="space-y-4">
+      <form action={action} className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="space-y-4">
         <label className="block">
           <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Who sees it</span>
-          <select name="batchId" className={INPUT} defaultValue={canPostToAll ? "" : batches[0]!.id}>
+          <select
+            name="batchId"
+            className={INPUT}
+            value={batchId}
+            onChange={(e) => setBatchId(e.target.value)}
+          >
             {canPostToAll ? (
               <option value="">Everybody with an app account</option>
             ) : null}
@@ -106,13 +163,20 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
           </span>
         </label>
 
-        <Field
-          label="Heading"
-          name="title"
-          required
-          placeholder="No class on Thursday"
-          hint="This is the line they read under the bell. Keep it a sentence."
-        />
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Heading</span>
+          <input
+            name="title"
+            required
+            placeholder="No class on Thursday"
+            className={INPUT}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <span className="mt-1 block text-xs text-[#6B5B5D]">
+            This is the line they read under the bell. Keep it a sentence.
+          </span>
+        </label>
 
         <label className="block">
           <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">What it says</span>
@@ -123,6 +187,8 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
             maxLength={1200}
             placeholder="Thursday 17 September is a holiday. The Physical Science class moves to Friday, same time."
             className={INPUT}
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
           />
           <span className="mt-1 block text-xs text-[#6B5B5D]">
             Plain words. Never a mark, a rank, or another child&rsquo;s name.
@@ -133,6 +199,9 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
           <Submit>Post it</Submit>
           <Alert state={state} />
         </div>
+        </div>
+
+        <Preview title={title} body={body} who={who} />
       </form>
     </section>
   );

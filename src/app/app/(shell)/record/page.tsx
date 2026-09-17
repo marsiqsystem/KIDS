@@ -5,6 +5,7 @@ import ResultView from "@/components/portal/result/ResultView";
 import LaterResults from "@/components/portal/result/LaterResults";
 import { awardFor, laterResultsFor } from "@/lib/exam/later-results";
 import PracticeStrip from "@/components/app/PracticeStrip";
+import { Head } from "@/components/app/kit";
 import "@/app/portal/portal.css";
 import "../../record.css";
 
@@ -45,6 +46,9 @@ export default async function RecordPage() {
 
   return (
     <div className="rec-portal">
+      <div className="rec-portal__head">
+        <Head title="Record" />
+      </div>
       {/* Bleeds past the shell's padding: ResultView is a full-width card with
           its own internal spacing, and sitting it inside the app's body gutter
           would give it two. */}

@@ -5,6 +5,7 @@ import "./learn.css";
 import "./kit.css";
 import "./exam.css";
 import "./door.css";
+import "./tabs.css";
 
 /**
  * The student app.

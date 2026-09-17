@@ -1,45 +1,36 @@
 import Link from "next/link";
+import { Award, BellOff, CalendarClock, FilePenLine, Megaphone, Sparkle } from "lucide-react";
+import type { ReactNode } from "react";
 import { requireStudent } from "@/lib/app/gate";
-import { noticesFor } from "@/lib/app/notices";
+import { noticesFor, type NoticeKind } from "@/lib/app/notices";
 import { markReadAction } from "@/app/app/notice-actions";
+import { Empty, Head } from "@/components/app/kit";
 import "../../notices.css";
 
 /**
- * Notices from KIDS — design 7b.
+ * Notices from KIDS. Redesign board 07, 3C.
  *
- * Five things will ever appear here: results published, a paper opening soon, a
- * paper open now, today's set waiting, and a post from KIDS. Never another
- * student's marks, never a rank, and never a message for missing a day.
+ * Only five kinds ever exist, each with its own icon and colour: results
+ * published, a paper opening soon, a paper open now, today's set waiting, and a
+ * post from KIDS. Never another student's marks, never a rank, never a message
+ * for missing a day.
  *
- * A read notice loses its dot and its tint but is NOT hidden. A student who
- * half-remembers being told something must be able to find it a week later, and
- * on a shared handset that is often the only record of what was said.
+ * Unread is a gold dot and a border. A read notice drops to the cream surface
+ * but is NOT hidden, and opening this screen does not mark anything read —
+ * the student marks each one.
  *
- * Reading is not automatic on open. The list is where a student decides what
- * they have dealt with; opening the screen to check is not the same act, and a
- * results notice that cleared itself the first time a child glanced at the bell
- * would be gone before they had read it.
+ * Not drawn from the board: its "Your spelling was corrected" and "Version 1.4
+ * is out" rows. Neither is one of the five kinds.
  */
 export const dynamic = "force-dynamic";
 
-function Bell() {
-  return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-      <path d="M13.7 21a2 2 0 0 1-3.4 0" />
-    </svg>
-  );
-}
+const KIND: Record<NoticeKind, { icon: ReactNode; tone: string; from: string }> = {
+  results: { icon: <Award size={20} />, tone: "gold", from: "From the KIDS office" },
+  "paper-soon": { icon: <CalendarClock size={20} />, tone: "maroon", from: "From the KIDS office" },
+  "paper-open": { icon: <FilePenLine size={20} />, tone: "maroon", from: "From the KIDS office" },
+  daily: { icon: <Sparkle size={20} />, tone: "blue", from: "Your daily set" },
+  post: { icon: <Megaphone size={20} />, tone: "teal", from: "From KIDS" },
+};
 
 export default async function NoticesPage() {
   const student = await requireStudent();
@@ -48,74 +39,68 @@ export default async function NoticesPage() {
 
   return (
     <>
-      <div className="not-head">
-        <div>
-          <h1 className="app-h1">From KIDS</h1>
-          <p className="app-sub">
-            {unread.length > 0
-              ? `${unread.length} you have not read`
-              : "Nothing waiting to be read"}
-          </p>
-        </div>
-        {unread.length > 0 && (
-          <form action={markReadAction}>
-            {unread.map((n) => (
-              <input key={n.key} type="hidden" name="key" value={n.key} />
-            ))}
-            <button type="submit" className="not-clear">
-              Mark all read
-            </button>
-          </form>
-        )}
-      </div>
+      <Head
+        title="Notices"
+        back="/app"
+        aside={
+          unread.length > 0 ? (
+            <form action={markReadAction}>
+              {unread.map((n) => (
+                <input key={n.key} type="hidden" name="key" value={n.key} />
+              ))}
+              <button type="submit" className="nt-all">
+                Mark all read
+              </button>
+            </form>
+          ) : undefined
+        }
+      />
 
       {notices.length === 0 ? (
-        <div className="app-soon">
-          <Bell />
-          <h2>Nothing from KIDS just now</h2>
-          <p>
-            Results, exam papers and anything KIDS wants to tell your class are announced here.
-            Most weeks there is nothing, and that is normal — your daily set does not need a
-            notice to be waiting for you.
-          </p>
+        <div className="k-card k-card--dashed">
+          <Empty title="Nothing from KIDS" line="Results and papers show here." icon={<BellOff size={30} />} />
         </div>
       ) : (
-        <ul className="not-list">
-          {notices.map((n) => (
-            <li key={n.key} className={`not-item${n.read ? " not-item--read" : ""}`}>
-              <div className="not-item__head">
-                <h2 className="not-item__title">
-                  {!n.read && <span className="not-dot" aria-label="Unread" />}
-                  {n.title}
-                </h2>
-                <span className="not-item__when">{n.when}</span>
-              </div>
-              <p className="not-item__body">{n.body}</p>
-              <div className="not-item__acts">
-                {n.action && (
-                  <Link href={n.action.href} className="app-btn app-btn--outline app-btn--small">
-                    {n.action.label}
-                  </Link>
-                )}
-                {!n.read && (
-                  <form action={markReadAction}>
-                    <input type="hidden" name="key" value={n.key} />
-                    <button type="submit" className="not-clear">
-                      Mark read
-                    </button>
-                  </form>
-                )}
-              </div>
-            </li>
-          ))}
+        <ul className="nt-list">
+          {notices.map((n) => {
+            const kind = KIND[n.kind];
+            return (
+              <li key={n.key} className={`nt${n.read ? " nt--read" : ""}`}>
+                <span className={`nt__icon nt__icon--${kind.tone}`} aria-hidden="true">
+                  {kind.icon}
+                </span>
+                <div className="nt__body">
+                  <h2 className="nt__title">
+                    {!n.read ? <span className="nt__dot" aria-label="Unread" /> : null}
+                    {n.title}
+                  </h2>
+                  <p className="nt__text">{n.body}</p>
+                  <p className="nt__from">
+                    {kind.from} · {n.when}
+                  </p>
+                  {n.action || !n.read ? (
+                    <div className="nt__acts">
+                      {n.action ? (
+                        <Link href={n.action.href} className="k-btn k-btn--small">
+                          {n.action.label}
+                        </Link>
+                      ) : null}
+                      {!n.read ? (
+                        <form action={markReadAction}>
+                          <input type="hidden" name="key" value={n.key} />
+                          <button type="submit" className="k-btn k-btn--small k-btn--quiet">
+                            Mark read
+                          </button>
+                        </form>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
-
-      <p className="not-foot">
-        Only five things ever appear here: your results, a paper opening, a paper open now, your
-        daily set, and a post from KIDS or your teacher. KIDS does not send SMS — messages cost money the institute would rather spend on
-        the exam.
-      </p>
     </>
   );
 }

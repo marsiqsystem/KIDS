@@ -77,15 +77,13 @@ export default function VideoEmbed({
             </svg>
           </span>
           <span className="app-video__label">
-            Play inside the app
-            {duration ? ` · ${duration}` : ""}
+            {duration ? duration : "Play"}
           </span>
         </button>
       )}
 
       <p className="app-video__credit">
-        Hosted on YouTube and played here. KIDS does not host video.
-        {spoken ? ` This one is in ${spoken}.` : ""}
+        Hosted on YouTube{spoken ? ` · ${spoken}` : ""}
       </p>
     </div>
   );

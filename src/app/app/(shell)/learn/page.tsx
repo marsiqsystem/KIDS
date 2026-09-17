@@ -4,6 +4,7 @@ import { chaptersFor } from "@/lib/app/bank";
 import { chosenSections, answersFor } from "@/lib/app/loop";
 import ChapterBrowse, { type BrowseChapter } from "@/components/app/ChapterBrowse";
 import NoStream from "@/components/app/NoStream";
+import { Head } from "@/components/app/kit";
 
 /**
  * Learn. Design 4c.
@@ -50,14 +51,7 @@ export default async function LearnPage() {
 
   return (
     <>
-      <div>
-        <h1 className="app-h1">Learn</h1>
-        <p className="app-sub">
-          {chapters.length} chapters in Class {student.class}
-          {student.stream ? ` ${student.stream}` : ""} · {withVideo} have a video
-        </p>
-      </div>
-
+      <Head title="Learn" aside={`${withVideo} videos`} />
       <ChapterBrowse chapters={chapters} />
     </>
   );

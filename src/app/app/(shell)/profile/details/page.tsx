@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { requireStudent } from "@/lib/app/gate";
 import { listSchools } from "@/lib/app/registrations";
 import { correctionsFor, FIELD_LABEL } from "@/lib/app/corrections";
 import DetailsForm from "@/components/app/DetailsForm";
+import { Head } from "@/components/app/kit";
 import "../../../profile.css";
 
 export const dynamic = "force-dynamic";
@@ -25,48 +25,8 @@ export default async function DetailsPage() {
 
   return (
     <>
-      <div>
-        <Link href="/app/profile" className="app-btn app-btn--quiet" style={{ width: "auto", justifyContent: "flex-start", padding: 0 }}>
-          ← Profile
-        </Link>
-        <h1 className="app-h1">My details are wrong</h1>
-        <p className="app-sub">
-          Change what is wrong below and send it. The KIDS office checks it, and your record changes
-          when they agree.
-        </p>
-      </div>
-
-      {pending.length > 0 && (
-        <div className="app-card app-card--cream">
-          <h3>Waiting for the office</h3>
-          <dl className="app-kv">
-            {pending.map((c) => (
-              <div key={c.id} style={{ display: "contents" }}>
-                <dt>{FIELD_LABEL[c.field]}</dt>
-                <dd>{c.field === "school" ? "A different school" : c.new_value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      )}
-
-      {decided.length > 0 && (
-        <div className="app-card">
-          <h3>Answered</h3>
-          <dl className="app-kv">
-            {decided.map((c) => (
-              <div key={c.id} style={{ display: "contents" }}>
-                <dt>{FIELD_LABEL[c.field]}</dt>
-                <dd>
-                  {c.status === "approved"
-                    ? "Changed"
-                    : `Not changed${c.reason ? ` — ${c.reason}` : ""}`}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      )}
+      <Head title="Ask to change" back="/app/profile" />
+      <p className="k-line">A person at KIDS checks every change first.</p>
 
       <DetailsForm
         current={{
@@ -80,15 +40,32 @@ export default async function DetailsPage() {
         schools={schools}
       />
 
-      <div className="app-card">
-        <h3>A mark looks wrong?</h3>
-        <p>
-          That is not a detail on your record, it is a question about your paper — the office has to
-          look at the sheet itself. Write to{" "}
-          <a className="app-contact" href="mailto:kids.kol.org2003@gmail.com">kids.kol.org2003@gmail.com</a>{" "}
-          with your User ID.
-        </p>
-      </div>
+      {asked.length > 0 ? (
+        <div className="k-card">
+          <div className="k-label">Your requests</div>
+          <ul className="dt-asked">
+            {[...pending, ...decided].map((c) => (
+              <li key={c.id}>
+                <span className="dt-asked__what">
+                  {FIELD_LABEL[c.field]}
+                  {c.status === "rejected" && c.reason ? <span>&ldquo;{c.reason}&rdquo;</span> : null}
+                </span>
+                <span
+                  className={`k-chip ${
+                    c.status === "pending" ? "k-chip--line" : c.status === "approved" ? "k-chip--teal" : "k-chip--grey"
+                  }`}
+                >
+                  {c.status === "pending" ? "With the KIDS office" : c.status === "approved" ? "Approved" : "Not accepted"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      <p className="k-line dt-marks">
+        A mark looks wrong? Marks are not changed here — call or email the office.
+      </p>
     </>
   );
 }

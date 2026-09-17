@@ -1,6 +1,7 @@
-import Link from "next/link";
 import { requireStudent } from "@/lib/app/gate";
 import PasswordChangeForm from "@/components/app/PasswordChangeForm";
+import { Head } from "@/components/app/kit";
+import { groupUid } from "@/lib/app/uid";
 import "../../../profile.css";
 
 /**
@@ -25,28 +26,20 @@ export default async function ChangePasswordPage({
 
   return (
     <>
-      <div>
-        <Link href="/app/profile" className="app-btn app-btn--quiet" style={{ width: "auto", justifyContent: "flex-start", padding: 0 }}>
-          ← Profile
-        </Link>
-        <h1 className="app-h1">Change my password</h1>
-        <p className="app-sub">
-          {student.uid.slice(0, 3)} {student.uid.slice(3, 6)} {student.uid.slice(6)} · {student.name}
-        </p>
-      </div>
+      <Head title="Change password" back={must ? undefined : "/app/profile"} />
+      <p className="k-line k-mono">{groupUid(student.uid)}</p>
 
-      {/* Arrived here straight from sign-in because the office set this
-          password by hand. Says so plainly: a child who is bounced to a form
-          without explanation assumes something has gone wrong. */}
-      {must && (
-        <div className="app-card app-card--gold" role="status">
-          <h3>Choose your own password now</h3>
-          <p>
-            The one you just used was set for you by KIDS, and someone else knows it. Type it once
-            more below as your current password, then pick one only you know.
-          </p>
+      {/* Arrived straight from sign-in because the office set this password by
+          hand. Said plainly: a child bounced to a form assumes something broke. */}
+      {must ? (
+        <div className="door-alert door-alert--gold" role="status">
+          <div className="door-alert__text">
+            <p>
+              <strong>Choose your own password now.</strong> The one you used was set by KIDS.
+            </p>
+          </div>
         </div>
-      )}
+      ) : null}
 
       <PasswordChangeForm />
     </>

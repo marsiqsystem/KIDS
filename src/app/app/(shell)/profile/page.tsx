@@ -1,24 +1,40 @@
 import Link from "next/link";
+import {
+  Bell,
+  BookOpen,
+  ChevronRight,
+  Flame,
+  KeyRound,
+  LogOut,
+  Mail,
+  PencilLine,
+  Phone,
+  ShieldCheck,
+  Smartphone,
+} from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
 import { chosenSections } from "@/lib/app/loop";
 import { poolFor } from "@/lib/app/bank";
 import { signOutAction } from "@/app/app/actions";
 import { unreadCount } from "@/lib/app/notices";
 import { listDevices } from "@/lib/app/devices";
+import { groupUid } from "@/lib/app/uid";
+import { APP_BUILD } from "@/lib/app/app-build";
+import { OFFICE } from "@/components/app/door";
+import CoachingBlock from "@/components/app/CoachingBlock";
 import "../../profile.css";
 
 /**
- * Profile — design 7a. Identity, not settings.
+ * Profile. Redesign board 07, 3A — identity, not settings.
  *
- * Every fact on the top card is the exam record read back, and nothing on this
- * screen can edit it. That is the reason there is no medium toggle: medium is
- * record data, like the spelling of a school, and a child who has been entered
- * under the wrong one needs the office to correct the record — not a switch
- * that would leave the app and the marksheet disagreeing.
+ * The header is the child's identity at KIDS: initials, name, and the User ID
+ * beside them. Every fact under "What KIDS has on file" is the register read
+ * back; nothing here edits it, and the one door is "Ask to change", which files
+ * a request the office decides.
  *
- * Two things a student can change are here, each on a screen of its own: the
- * subjects their daily set draws from, and their password. No toggles: on a
- * 360px handset a switch that fires on touch is a setting changed by accident.
+ * Not drawn from the board: the star total (a proposal, not ruled) and "My KIDS
+ * card" (no such screen exists). Kept from the brief that the board dropped:
+ * My subjects, and My phones when a second phone has signed in.
  */
 export const dynamic = "force-dynamic";
 
@@ -29,47 +45,15 @@ function mediumName(medium: string): string {
   return m.charAt(0) + m.slice(1).toLowerCase();
 }
 
-function Chevron() {
-  return (
-    <svg
-      className="pro-row__go"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m9 6 6 6-6 6" />
-    </svg>
-  );
-}
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]!.toUpperCase())
+    .join("");
 
-function Tick() {
-  return (
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m4 12.5 5 5L20 6.5" />
-    </svg>
-  );
-}
-
-export default async function ProfilePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ changed?: string }>;
-}) {
+export default async function ProfilePage({ searchParams }: { searchParams: Promise<{ changed?: string }> }) {
   const student = await requireStudent();
   const [{ changed }, sections, unread, devices] = await Promise.all([
     searchParams,
@@ -78,185 +62,170 @@ export default async function ProfilePage({
     listDevices(student.uid),
   ]);
 
-  // What the subjects row is worth saying: the sections themselves, and how
-  // many questions they put behind the daily set. Counted from the bank in this
-  // student's own medium, never a literal.
-  const questions = sections.length
-    ? poolFor(student.class, student.stream, student.medium, sections).length
-    : 0;
+  const questions = sections.length ? poolFor(student.class, student.stream, student.medium, sections).length : 0;
 
   return (
     <>
-      <h1 className="app-h1">Profile</h1>
-
-      {changed && (
-        <p className="pro-done" role="status">
-          Your password is changed. Use the new one the next time you sign in.
-        </p>
-      )}
-
-      <div className="pro-id">
-        <span className="pro-id__label">Your User ID · never changes</span>
-        <span className="pro-id__uid">
-          {student.uid.slice(0, 3)} {student.uid.slice(3, 6)} {student.uid.slice(6)}
+      <header className="pf-hero">
+        <span className="pf-hero__avatar" aria-hidden="true">
+          {initials(student.name)}
         </span>
-        <span className="pro-id__name">{student.name}</span>
-      </div>
+        <div className="pf-hero__who">
+          <h1 className="pf-hero__name">{student.name}</h1>
+          <span className="pf-hero__uid">{groupUid(student.uid)}</span>
+        </div>
+      </header>
 
-      <div className="app-card">
-        <div className="pro-facts">
-          <div className="pro-fact">
-            <span className="pro-fact__label">Class</span>
-            <span className="pro-fact__value">
+      {changed ? (
+        <p className="pf-done" role="status">
+          <ShieldCheck size={18} aria-hidden="true" /> Password changed.
+        </p>
+      ) : null}
+
+      <CoachingBlock uid={student.uid} />
+
+      <div className="k-card pf-file">
+        <div className="pf-file__top">
+          <span className="k-label">On file</span>
+          <Link href="/app/profile/details" className="pf-file__ask">
+            Ask to change
+          </Link>
+        </div>
+        <dl className="pf-facts">
+          <div>
+            <dt>Class</dt>
+            <dd>
               {student.class}
               {student.stream ? ` · ${student.stream}` : ""}
-            </span>
+            </dd>
           </div>
-          <div className="pro-fact">
-            <span className="pro-fact__label">School</span>
-            <span className="pro-fact__value">{student.school_name}</span>
+          <div>
+            <dt>School</dt>
+            <dd>{student.school_name}</dd>
           </div>
-          <div className="pro-fact">
-            <span className="pro-fact__label">Centre</span>
-            <span className="pro-fact__value">
-              {student.centre_code} · {student.centre_name}
-            </span>
+          <div>
+            <dt>Centre</dt>
+            <dd>{student.centre_name}</dd>
           </div>
-          <div className="pro-fact">
-            <span className="pro-fact__label">Medium</span>
-            <span className="pro-fact__value">{mediumName(student.medium)}</span>
+          <div>
+            <dt>Medium</dt>
+            <dd>{mediumName(student.medium)}</dd>
           </div>
-        </div>
-        <p>
-          Your medium comes from your exam record, so it is not a switch here.
-          {student.medium
-            ? ` Where a question was written in ${mediumName(student.medium)} you get that one, and the explanations are in ${mediumName(student.medium)} too.`
-            : " Your questions and explanations are the English ones."}
-        </p>
+        </dl>
       </div>
 
-      <div className="pro-rows">
-        <Link href="/app/notices" className="pro-row">
-          <span className="pro-row__text">
-            <span className="pro-row__title">Notices from KIDS</span>
-            <span className="pro-row__note">
-              {unread > 0
-                ? `${unread} you have not read`
-                : "Results, exam papers and your daily set"}
+      <div className="pf-rows">
+        <Link href="/app/notices" className="k-row">
+          <span className="k-row__icon" aria-hidden="true">
+            <Bell size={20} />
+          </span>
+          <span className="k-row__text">
+            <span className="k-row__title">Notices</span>
+          </span>
+          {unread > 0 ? <span className="k-bell__n pf-count">{unread}</span> : null}
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
+        </Link>
+
+        <Link href="/app/subjects" className="k-row">
+          <span className="k-row__icon" aria-hidden="true">
+            <BookOpen size={20} />
+          </span>
+          <span className="k-row__text">
+            <span className="k-row__title">My subjects</span>
+            <span className="k-row__line">
+              {sections.length ? `${sections.length} chosen · ${questions} questions` : "None chosen yet"}
             </span>
           </span>
-          <Chevron />
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
         </Link>
 
-        <Link href="/app/subjects" className="pro-row">
-          <span className="pro-row__text">
-            <span className="pro-row__title">Change my subjects</span>
-            <span className="pro-row__note">
-              {sections.length
-                ? `${sections.join(", ")} · ${questions} questions`
-                : "You have not chosen any yet"}
-            </span>
+        <Link href="/app/profile/password" className="k-row">
+          <span className="k-row__icon" aria-hidden="true">
+            <KeyRound size={20} />
           </span>
-          <Chevron />
+          <span className="k-row__text">
+            <span className="k-row__title">Change my password</span>
+          </span>
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
         </Link>
 
-        <Link href="/app/profile/password" className="pro-row">
-          <span className="pro-row__text">
-            <span className="pro-row__title">Change my password</span>
-            <span className="pro-row__note">You will need the one you use now</span>
+        <Link href="/app/profile/details" className="k-row">
+          <span className="k-row__icon" aria-hidden="true">
+            <PencilLine size={20} />
           </span>
-          <Chevron />
-        </Link>
-
-        {/* Drawn and dimmed until September 2026, so a student could see the
-            route existed before it worked. It works now for the details on
-            the record; a disputed MARK is still a question for the office,
-            and the screen behind this row says so. */}
-        <Link href="/app/profile/details" className="pro-row">
-          <span className="pro-row__text">
-            <span className="pro-row__title">My details are wrong</span>
-            <span className="pro-row__note">Name, date of birth, class or school</span>
+          <span className="k-row__text">
+            <span className="k-row__title">My details are wrong</span>
           </span>
-          <Chevron />
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
         </Link>
       </div>
 
-      {/* Phase 0. The one screen in the app that answers "has somebody else
-          been in my account" — the question the August link-sharing dispute
-          could not answer at all, because nothing was ever written down.
-          Shown only once there is a second phone to show: on the ordinary
-          account this is noise, and a security notice that appears for
-          everybody is a security notice nobody reads. */}
-      {devices.length > 1 && (
-        <div className="app-card pro-devices">
-          <h2>Phones this account has been opened on</h2>
-          <ul>
+      {/* Shown only once there is a second phone to show: a security list that
+          appears for everybody is one nobody reads. */}
+      {devices.length > 1 ? (
+        <div className="k-card">
+          <div className="k-label">My phones</div>
+          <ul className="pf-phones">
             {devices.map((d) => (
-              <li key={d.device_id} className={d.is_current ? "is-current" : undefined}>
-                <span className="pro-devices__what">
-                  {d.label ?? "Unknown device"}
-                  {d.is_current && <em> · this phone</em>}
+              <li key={d.device_id}>
+                <Smartphone size={18} aria-hidden="true" />
+                <span className="pf-phones__what">
+                  {d.label ?? "Unknown phone"}
+                  <span>
+                    Last{" "}
+                    {new Date(d.last_seen_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
+                  </span>
                 </span>
-                <span className="pro-devices__when">
-                  {d.sign_ins} sign-in{d.sign_ins === 1 ? "" : "s"} · last{" "}
-                  {new Date(d.last_seen_at).toLocaleDateString("en-IN", {
-                    day: "numeric",
-                    month: "long",
-                  })}
-                </span>
+                {d.is_current ? <span className="k-chip k-chip--teal">This phone</span> : null}
               </li>
             ))}
           </ul>
-          <p>
-            Your account works on one phone at a time — the top one. If you do not recognise a
-            phone on this list, change your password now and it is locked out.
-          </p>
+          <p className="k-line">Not yours? Change your password now.</p>
         </div>
-      )}
+      ) : null}
 
-      <div className="pro-out">
-        <h2>Sign out — someone else needs this phone</h2>
-        <ul>
+      <div className="k-card pf-out">
+        <ul className="pf-out__keeps">
           <li>
-            <Tick />
-            <span>
-              Your streak, your record and your answers live on your User ID, not on this phone.
-            </span>
+            <Flame size={20} aria-hidden="true" />
+            <span>Streak kept</span>
           </li>
           <li>
-            <Tick />
-            <span>
-              Anything you answered today is already with KIDS. Signing out does not undo a day.
-            </span>
+            <ShieldCheck size={20} aria-hidden="true" />
+            <span>Record kept</span>
           </li>
           <li>
-            <Tick />
-            <span>
-              This phone is left with nothing of yours on it, so the next student does not open your
-              account. It all comes back when you sign in.
-            </span>
+            <Smartphone size={20} aria-hidden="true" />
+            <span>Phone freed</span>
           </li>
         </ul>
         <form action={signOutAction}>
-          <button type="submit" className="app-btn app-btn--outline">
-            Sign out
+          <button type="submit" className="k-btn k-btn--outline">
+            <LogOut size={18} aria-hidden="true" /> Sign out
           </button>
         </form>
+        <p className="k-line pf-center">Signing out frees this phone for another student.</p>
       </div>
 
-      <div className="pro-help">
-        <span className="app-eyebrow">Help</span>
-        <span className="pro-help__who">Kabitirtha Institute of Development &amp; Studies</span>
-        <a href="mailto:kids.kol.org2003@gmail.com">kids.kol.org2003@gmail.com</a>
-        <a href="tel:+919836414786">+91 98364 14786</a>
-        <address>
-          82A/H/5, Dr. Sudhir Basu Road, Kolkata 700023
-          <br />
-          Registered NGO · S/1L/19796
-        </address>
+      <div className="pf-help">
+        <span className="k-label">Contact KIDS</span>
+        <a className="k-row" href={`tel:${OFFICE.tel}`}>
+          <span className="k-row__icon" aria-hidden="true">
+            <Phone size={20} />
+          </span>
+          <span className="k-row__title k-mono">{OFFICE.phone}</span>
+        </a>
+        <a className="k-row" href={`mailto:${OFFICE.email}`}>
+          <span className="k-row__icon" aria-hidden="true">
+            <Mail size={20} />
+          </span>
+          <span className="k-row__title door-email">{OFFICE.email}</span>
+        </a>
       </div>
 
-      <p className="pro-version">SET student app · version 1.0</p>
+      <p className="pf-version">
+        {OFFICE.reg} · build {APP_BUILD}
+      </p>
     </>
   );
 }

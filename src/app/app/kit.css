@@ -1545,3 +1545,7 @@
   background: var(--cream-muted);
   color: var(--ink);
 }
+
+.k-btn--small {
+  white-space: nowrap;
+}

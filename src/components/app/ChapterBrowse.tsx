@@ -2,19 +2,21 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { ChevronRight, Play, Search } from "lucide-react";
+import { subjectHue, subjectInitials } from "@/lib/app/subjects";
 
 /**
- * The chapter list. Design 4c.
+ * Learn. Redesign board 07, 2A–2B, with the brief's search and four filters.
  *
- * Every row states the chapter's REAL size — "3 questions · 1 seen", "2
- * questions · done". That is the whole point of the screen: the median chapter
- * in this bank holds three questions, and a student must never tap into one
- * expecting a course. The subject header sticks and carries its own totals, and
- * a long chapter name wraps to two lines rather than truncating.
+ * On top, the student's subjects as rings — chapters touched of chapters there
+ * are, which is a measure of what has been SEEN, never of mastery. Subjects not
+ * chosen stay visible, dashed, with what adding them would bring.
  *
- * Filtering and search run in the browser over a list the server has already
- * narrowed to this student's class. It is a few hundred rows at most, and a
- * round trip per keystroke on a school's 3G would be far worse.
+ * Below, every chapter of the class and stream, grouped under a subject header
+ * in its colour. Each row states the chapter's REAL size — "2 of 3 seen" — so
+ * the library never looks bigger than it is. Search and filters run in the
+ * browser over a list the server has already narrowed; a round trip per
+ * keystroke on 3G would be far worse.
  */
 
 export interface BrowseChapter {
@@ -40,6 +42,7 @@ const FILTERS: { id: Filter; label: string }[] = [
 export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] }) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState<Set<Filter>>(new Set());
+  const [subject, setSubject] = useState<string | null>(null);
 
   const toggle = (id: Filter) =>
     setActive((was) => {
@@ -49,27 +52,38 @@ export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] 
       return next;
     });
 
-  const shown = useMemo(() => {
-    // Case-insensitive and script-agnostic: `localeCompare`-style folding is
-    // wrong for Bengali, so this is a plain lowercase contains, which works the
-    // same for "mirror", "অম্ল" and "Damodar".
-    const needle = query.trim().toLowerCase();
+  const subjects = useMemo(() => {
+    const out = new Map<string, { section: string; chapters: number; touched: number; questions: number; unseen: number; videos: number; mine: boolean }>();
+    for (const c of chapters) {
+      const s = out.get(c.section) ?? { section: c.section, chapters: 0, touched: 0, questions: 0, unseen: 0, videos: 0, mine: c.mine };
+      s.chapters += 1;
+      s.touched += c.seen > 0 ? 1 : 0;
+      s.questions += c.total;
+      s.unseen += c.total - c.seen;
+      s.videos += c.hasVideo ? 1 : 0;
+      out.set(c.section, s);
+    }
+    const all = [...out.values()];
+    return [...all.filter((s) => s.mine), ...all.filter((s) => !s.mine)];
+  }, [chapters]);
 
+  const shown = useMemo(() => {
+    // A plain lowercase contains: locale folding is wrong for Bengali, and this
+    // works the same for "mirror", "অম্ল" and "Damodar".
+    const needle = query.trim().toLowerCase();
     return chapters.filter((c) => {
-      if (needle && !c.chapter.toLowerCase().includes(needle) && !c.section.toLowerCase().includes(needle)) {
-        return false;
-      }
+      if (subject && c.section !== subject) return false;
+      if (needle && !c.chapter.toLowerCase().includes(needle) && !c.section.toLowerCase().includes(needle)) return false;
       if (active.has("mine") && !c.mine) return false;
       if (active.has("video") && !c.hasVideo) return false;
       if (active.has("fresh") && c.seen > 0) return false;
-      // "Weak" is a chapter where something has actually been got wrong. Not a
-      // guess from a low score on one question — a real mistake on record.
+      // A chapter where something has actually been got wrong — a real mistake
+      // on record, not a guess from one low score.
       if (active.has("weak") && c.wrong === 0) return false;
       return true;
     });
-  }, [chapters, query, active]);
+  }, [chapters, query, active, subject]);
 
-  // Group into sticky subject sections, preserving the server's order.
   const groups = useMemo(() => {
     const out: { section: string; rows: BrowseChapter[] }[] = [];
     for (const row of shown) {
@@ -80,13 +94,84 @@ export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] 
     return out;
   }, [shown]);
 
+  const mine = subjects.filter((s) => s.mine);
+  const others = subjects.filter((s) => !s.mine);
+
   return (
-    <div className="app-browse">
-      <label className="app-search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" />
-          <path d="m16.5 16.5 4 4" />
-        </svg>
+    <div className="lrn">
+      {!subject && !query && active.size === 0 ? (
+        <div className="lrn-subjects">
+          {mine.length > 0 ? (
+            <div className="k-label lrn-subjects__title">
+              My subjects <span>{mine.length}</span>
+            </div>
+          ) : null}
+          {mine.map((s) => (
+            <button
+              key={s.section}
+              type="button"
+              className="k-row lrn-subject"
+              style={{ "--hue": subjectHue(s.section) } as React.CSSProperties}
+              onClick={() => setSubject(s.section)}
+            >
+              <span
+                className="k-ring k-ring--small"
+                style={
+                  {
+                    "--pct": `${s.chapters ? Math.round((s.touched / s.chapters) * 100) : 0}%`,
+                    "--fill": "var(--hue)",
+                  } as React.CSSProperties
+                }
+                aria-hidden="true"
+              >
+                <span className="k-ring__hole">
+                  <span className="k-ring__n">
+                    {s.touched}/{s.chapters}
+                  </span>
+                </span>
+              </span>
+              <span className="k-row__text">
+                <span className="k-row__title">{s.section}</span>
+                <span className="k-row__line">
+                  {s.touched === s.chapters
+                    ? `All ${s.chapters} chapters seen`
+                    : `${s.chapters} chapters · ${s.videos} videos`}
+                </span>
+              </span>
+              <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
+            </button>
+          ))}
+
+          {others.length > 0 ? <div className="k-label lrn-subjects__title">Not chosen</div> : null}
+          {others.map((s) => (
+            <button
+              key={s.section}
+              type="button"
+              className="k-row lrn-subject lrn-subject--off"
+              style={{ "--hue": subjectHue(s.section) } as React.CSSProperties}
+              onClick={() => setSubject(s.section)}
+            >
+              <span className="lrn-subject__badge" aria-hidden="true">
+                {subjectInitials(s.section)}
+              </span>
+              <span className="k-row__text">
+                <span className="k-row__title">{s.section}</span>
+                <span className="k-row__line">
+                  {s.chapters} chapters · {s.questions} questions
+                </span>
+              </span>
+              {s.unseen > 0 ? <span className="k-chip k-chip--new">+{s.unseen}</span> : null}
+            </button>
+          ))}
+
+          <Link href="/app/subjects" className="k-btn k-btn--outline">
+            Change my subjects
+          </Link>
+        </div>
+      ) : null}
+
+      <label className="door-search lrn-search">
+        <Search size={20} aria-hidden="true" />
         <input
           type="search"
           value={query}
@@ -96,12 +181,23 @@ export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] 
         />
       </label>
 
-      <div className="app-filters" role="group" aria-label="Filters">
+      <div className="lrn-filters" role="group" aria-label="Filters">
+        {subject ? (
+          <button
+            type="button"
+            className="lrn-filter lrn-filter--on lrn-filter--subject"
+            style={{ "--hue": subjectHue(subject) } as React.CSSProperties}
+            onClick={() => setSubject(null)}
+            aria-label={`${subject}, tap to show every subject`}
+          >
+            {subject} ✕
+          </button>
+        ) : null}
         {FILTERS.map((f) => (
           <button
             key={f.id}
             type="button"
-            className={`app-filter${active.has(f.id) ? " app-filter--on" : ""}`}
+            className={`lrn-filter${active.has(f.id) ? " lrn-filter--on" : ""}`}
             onClick={() => toggle(f.id)}
             aria-pressed={active.has(f.id)}
           >
@@ -111,47 +207,42 @@ export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] 
       </div>
 
       {groups.length === 0 ? (
-        <p className="app-hint">
-          No chapter matches that. Try a shorter word, or clear the filters.
-        </p>
+        <p className="k-line lrn-none">Nothing matches. Clear a filter.</p>
       ) : (
         groups.map((group) => {
-          const questions = group.rows.reduce((n, r) => n + r.total, 0);
+          const hue = subjectHue(group.section);
+          const touched = group.rows.filter((r) => r.seen > 0).length;
           return (
-            <section key={group.section} className="app-group">
-              <header className="app-group__head">
-                <span className="app-group__name">{group.section}</span>
-                <span className="app-group__meta">
-                  {group.rows.length} chapter{group.rows.length === 1 ? "" : "s"} · {questions}{" "}
-                  question{questions === 1 ? "" : "s"}
+            <section key={group.section} className="lrn-group" style={{ "--hue": hue } as React.CSSProperties}>
+              <header className="lrn-group__head">
+                <span className="lrn-group__name">{group.section}</span>
+                <span className="lrn-group__meta">
+                  {touched} of {group.rows.length} chapters seen
                 </span>
               </header>
 
               {group.rows.map((row) => (
-                <Link key={row.key} href={`/app/learn/${row.key}`} className="app-chapter">
-                  <Ring done={row.seen} of={row.total} />
-                  <span className="app-chapter__body">
-                    <span className="app-chapter__name">{row.chapter}</span>
-                    <span className="app-chapter__meta">
-                      {row.total} question{row.total === 1 ? "" : "s"} ·{" "}
+                <Link
+                  key={row.key}
+                  href={`/app/learn/${row.key}`}
+                  className={`lrn-chapter${row.seen > 0 ? " lrn-chapter--touched" : ""}`}
+                >
+                  <span className="lrn-chapter__body">
+                    <span className="lrn-chapter__name">{row.chapter}</span>
+                    <span className="lrn-chapter__meta">
                       {row.seen === 0
-                        ? "not started"
-                        : row.seen >= row.total
-                          ? "done"
-                          : `${row.seen} seen`}
-                      {!row.hasVideo && " · no video yet"}
+                        ? `${row.total} question${row.total === 1 ? "" : "s"}`
+                        : `${row.seen} of ${row.total} seen`}
+                      {row.hasVideo ? (
+                        <span className="lrn-video">
+                          <Play size={11} fill="currentColor" aria-hidden="true" /> Video
+                        </span>
+                      ) : null}
                     </span>
                   </span>
-                  {row.hasVideo && (
-                    <span className="app-chapter__video" aria-label="Has a video">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M7.5 4.6v14.8L19.5 12z" />
-                      </svg>
-                    </span>
-                  )}
-                  <svg className="app-chapter__go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="m9 6 6 6-6 6" />
-                  </svg>
+                  {row.wrong > 0 ? <span className="k-chip k-chip--again">Weak</span> : null}
+                  {row.seen === 0 ? <span className="k-chip k-chip--new">New</span> : null}
+                  <ChevronRight size={18} className="lrn-chapter__go" aria-hidden="true" />
                 </Link>
               ))}
             </section>
@@ -159,32 +250,5 @@ export default function ChapterBrowse({ chapters }: { chapters: BrowseChapter[] 
         })
       )}
     </div>
-  );
-}
-
-/** How much of a chapter has been seen. Empty ring for one not started. */
-function Ring({ done, of }: { done: number; of: number }) {
-  const r = 14;
-  const circumference = 2 * Math.PI * r;
-  const share = of === 0 ? 0 : Math.min(done / of, 1);
-
-  return (
-    <svg className="app-ring" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
-      <circle cx="18" cy="18" r={r} fill="none" strokeWidth="5" className="app-ring__track" />
-      {share > 0 && (
-        <circle
-          cx="18"
-          cy="18"
-          r={r}
-          fill="none"
-          strokeWidth="5"
-          strokeLinecap="round"
-          className="app-ring__fill"
-          strokeDasharray={circumference}
-          strokeDashoffset={circumference * (1 - share)}
-          transform="rotate(-90 18 18)"
-        />
-      )}
-    </svg>
   );
 }

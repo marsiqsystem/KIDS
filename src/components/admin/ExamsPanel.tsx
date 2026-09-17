@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
+import { AlertCircle, Check } from "lucide-react";
 import {
   assignInvigilatorAction,
   computeAwardAction,
@@ -129,22 +130,13 @@ function PaperCard({
       </header>
 
       <div className="space-y-4 px-5 py-4">
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-[#6B5B5D]">Questions loaded:</span>
-          {CLASSES.map((c) => (
-            <span
-              key={c}
-              className={`rounded px-1.5 py-0.5 font-mono ${p.loaded.includes(c) ? "bg-[#E6F5F2] text-[#137565]" : "bg-[#FBE9EA] text-[#B22234]"}`}
-            >
-              {c}
-            </span>
-          ))}
-          {!allLoaded ? (
-            <span className="text-[#8A6D1F]">
-              A class without questions sees &ldquo;no paper is open&rdquo;, whatever the date says.
-            </span>
-          ) : null}
-        </div>
+        <Readiness p={p} centres={centres} />
+
+        {!allLoaded ? (
+          <p className="text-xs text-[#8A6D1F]">
+            A class without questions sees &ldquo;no paper is open&rdquo;, whatever the date says.
+          </p>
+        ) : null}
         {p.sets.length > 0 ? (
           <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#6B5B5D]">
             {p.sets.map((x) => (
@@ -200,6 +192,77 @@ function PaperCard({
         {p.requires_checkin ? <Invigilators p={p} staff={staff} centres={centres} /> : null}
       </div>
     </article>
+  );
+}
+
+/**
+ * Can this paper actually run? Redesign board 09.
+ *
+ * Every fact underneath this strip is already on the card somewhere — the class
+ * chips, the date in the form, the count of staffed centres. The strip exists
+ * because in December the office asks one question, and reading four scattered
+ * controls to answer it is how a paper reaches the morning with no questions in
+ * Class XI. Each line names what is missing rather than scoring the paper: a
+ * checklist that says "3 of 4" tells nobody which class to load.
+ *
+ * It is deliberately not a gate. Nothing here blocks Schedule — the office may
+ * well set the date in October and load the questions in December, and a tool
+ * that refuses that order would simply be worked around.
+ */
+function Readiness({ p, centres }: { p: AdminPaper; centres: { centre_code: string }[] }) {
+  const missing = CLASSES.filter((c) => !p.loaded.includes(c));
+  const staffed = new Set(p.invigilators.map((i) => i.centre_code)).size;
+
+  const lines: { ok: boolean; text: string }[] = [
+    {
+      ok: missing.length === 0,
+      text:
+        missing.length === 0
+          ? "Questions loaded for all four classes"
+          : `No questions for ${missing.join(", ")}`,
+    },
+    {
+      ok: Boolean(p.starts_at),
+      text: p.starts_at
+        ? `Opens ${ist(p.starts_at)} · ${p.duration_minutes} min`
+        : "No date yet",
+    },
+  ];
+
+  if (p.requires_checkin) {
+    lines.push({
+      ok: staffed === centres.length && centres.length > 0,
+      text:
+        centres.length === 0
+          ? "No centres on the register"
+          : staffed === centres.length
+            ? `An invigilator at all ${centres.length} centres`
+            : `${staffed} of ${centres.length} centres have an invigilator · an admin can run any desk`,
+    });
+  } else {
+    lines.push({ ok: true, text: "No centre scan — students sit this one wherever they are" });
+  }
+
+  const ready = lines.every((l) => l.ok);
+
+  return (
+    <div className={`rounded border px-4 py-3 ${ready ? "border-[#CDE7E0] bg-[#F3FAF8]" : "border-[#F2E9DA] bg-[#FBF7EF]"}`}>
+      <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B5B5D]">
+        {ready ? "Ready to run" : "Before this paper can run"}
+      </div>
+      <ul className="mt-2 grid gap-1.5 sm:grid-cols-3">
+        {lines.map((l) => (
+          <li key={l.text} className="flex items-start gap-2 text-xs">
+            {l.ok ? (
+              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#137565]" aria-hidden />
+            ) : (
+              <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#B22234]" aria-hidden />
+            )}
+            <span className={l.ok ? "text-[#4A3A3C]" : "text-[#B22234]"}>{l.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

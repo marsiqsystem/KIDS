@@ -51,40 +51,46 @@ export default async function DeskPage({
   const byPaper = new Map<string, typeof desks>();
   for (const d of desks) byPaper.set(d.exam_paper_id, [...(byPaper.get(d.exam_paper_id) ?? []), d]);
 
+  /**
+   * The chooser is the office's page and wears the console's light theme; the
+   * desk itself, above, stays black. That split is the honest one: choosing a
+   * desk happens on a laptop before the morning, and running one happens on a
+   * phone propped up in a hall for two hours, where a white screen is a lamp.
+   */
   return (
-    <main className="min-h-screen bg-[#141010] px-5 py-8 text-[#e8e0dc]">
+    <main className="min-h-screen bg-[#FBF7EF] px-5 py-8 text-[#2B1A1C]">
       <div className="mx-auto max-w-3xl space-y-6">
         <div>
-          <Link href="/admin" className="text-xs text-[#6b5c57] hover:text-[#c9b8b2]">← Control centre</Link>
-          <h1 className="mt-2 text-lg font-bold">Exam desks</h1>
-          <p className="mt-1 text-sm text-[#9c8c86]">
+          <Link href="/admin" className="text-xs text-[#6B5B5D] hover:text-[#7B1E2B]">← Control centre</Link>
+          <h1 className="mt-2 font-[family-name:var(--font-newsreader)] text-[30px] leading-tight">Exam desks</h1>
+          <p className="mt-1 text-[13.5px] text-[#6B5B5D]">
             Choose the paper and the centre you are running. The check-in code appears when check-in opens.
           </p>
         </div>
 
         {desks.length === 0 ? (
-          <p className="rounded border border-[#2a2321] bg-[#1a1514] p-4 text-sm text-[#9c8c86]">
+          <p className="rounded-[14px] border border-[#F2E9DA] bg-white p-4 text-sm text-[#6B5B5D]">
             {isAdmin
               ? "No paper needs a check-in yet. Schedule one in the Exams tab with “Scan in at a centre first” ticked."
               : "You have not been assigned to a desk. Ask the KIDS office to assign you in the Exams tab."}
           </p>
         ) : (
           [...byPaper.values()].map((list) => (
-            <section key={list[0].exam_paper_id} className="rounded border border-[#2a2321] bg-[#1a1514]">
-              <h2 className="border-b border-[#2a2321] px-4 py-3 text-sm font-bold">
+            <section key={list[0].exam_paper_id} className="overflow-hidden rounded-[14px] border border-[#F2E9DA] bg-white">
+              <h2 className="border-b border-[#F2E9DA] px-4 py-3 text-sm font-bold">
                 {list[0].paper_name}{" "}
-                <span className="font-normal text-[#6b5c57]">
+                <span className="font-normal text-[#6B5B5D]">
                   · {list[0].starts_at ? new Date(list[0].starts_at).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short", timeZone: "Asia/Kolkata" }) : "not scheduled"}
                 </span>
               </h2>
-              <ul className="grid grid-cols-1 gap-px bg-[#2a2321] sm:grid-cols-3">
+              <ul className="grid grid-cols-1 gap-px bg-[#F2E9DA] sm:grid-cols-3">
                 {list.map((d) => (
-                  <li key={d.centre_code} className="bg-[#1a1514]">
+                  <li key={d.centre_code} className="bg-white">
                     <Link
                       href={`/admin/desk?paper=${d.exam_paper_id}&centre=${d.centre_code}`}
-                      className="block px-4 py-3 text-sm hover:bg-[#241c1a]"
+                      className="block px-4 py-3 text-sm hover:bg-[#F6E9E9]"
                     >
-                      <span className="font-mono text-[#6b5c57]">{d.centre_code}</span> {d.centre_name}
+                      <span className="font-mono text-[#6B5B5D]">{d.centre_code}</span> {d.centre_name}
                     </Link>
                   </li>
                 ))}

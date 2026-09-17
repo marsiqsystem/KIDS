@@ -12,15 +12,7 @@ import type { BlockKind } from "@/lib/app/day";
  * screen honest while the server answers, which on 3G at half past five is
  * long enough to tap twice.
  */
-export default function DayAction({
-  kind,
-  label,
-  small,
-}: {
-  kind: BlockKind;
-  label: string;
-  small?: boolean;
-}) {
+export default function DayAction({ kind, label, small }: { kind: BlockKind; label: string; small?: boolean }) {
   const [pending, start] = useTransition();
 
   return (
@@ -28,7 +20,7 @@ export default function DayAction({
       type="button"
       disabled={pending}
       onClick={() => start(() => void markDay(kind))}
-      className={`app-btn${small ? " app-btn--outline app-btn--small" : ""}`}
+      className={`k-btn${small ? " k-btn--outline k-btn--small" : ""}`}
     >
       {pending ? "…" : label}
     </button>

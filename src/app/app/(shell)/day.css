@@ -1,482 +1,526 @@
-/* The Day — Design turn 8, part one.
+/* The Day, and the coaching screens around it — redesign boards 12–14.
  *
- * One vertical spine, times down the left, and exactly ONE open card. Every
- * other block is a line of text, which is the whole reason the screen reads as
- * a day rather than as nine cards competing for a tap.
- *
- * 360px is the real screen and 320px must hold. At 320 the time gutter drops
- * from 52px to 44px and nothing else moves. */
+ * One spine, times down the left, exactly one open card. School is dashed and
+ * counts nothing. Late is kind; away is the dawn sky; sitting still is the one
+ * screen that is rest rather than work. 320px must hold.
+ */
 
-.day {
-  padding: 14px 16px 8px;
+/* ------------------------------------------------------------- the head --- */
+
+.day-count {
+  flex: none;
+  text-align: center;
+  font-size: 11px;
+  color: var(--cream-muted);
 }
 
-.day__head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+.day-count b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cream);
+  font-variant-numeric: lining-nums;
 }
 
-.day__when {
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
+.day-count b span {
+  font-size: 16px;
+  color: var(--gold-light);
 }
 
-.day__greet {
-  margin: 2px 0 0;
-  font-family: var(--font-display, inherit);
-  font-size: 1.35rem;
-  line-height: 1.15;
-  font-weight: 700;
-}
+/* ------------------------------------------------------------ the spine --- */
 
-.day__left {
-  margin-top: 3px;
-  font-size: 0.78rem;
-  color: var(--ink-muted);
-}
-
-/* ---------------------------------------------------------- the spine --- */
-
-.day__spine {
-  margin: 18px 0 0;
+.day-spine {
+  margin: 4px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.day__block {
+.day-block {
   display: grid;
-  grid-template-columns: 52px 1fr;
-  column-gap: 10px;
-  padding-bottom: 14px;
+  grid-template-columns: 46px 22px 1fr;
+  column-gap: 8px;
   position: relative;
+  padding-bottom: 16px;
 }
 
-@media (max-width: 340px) {
-  .day__block {
-    grid-template-columns: 44px 1fr;
-  }
-}
-
-/* The line that makes it a spine. Drawn behind the time, never under the last
- * block — a day ends rather than trailing off. */
-.day__block:not(:last-child)::before {
+/* The line that makes it a spine, under the dots; a day ends rather than
+   trailing off, so the last block has none. */
+.day-block:not(:last-child)::before {
   content: "";
   position: absolute;
-  left: 21px;
-  top: 20px;
+  left: 64px;
+  top: 22px;
   bottom: 0;
-  width: 1px;
-  background: var(--cream-muted, #f2e9da);
+  width: 2px;
+  background: var(--cream-muted);
 }
 
-@media (max-width: 340px) {
-  .day__block:not(:last-child)::before {
-    left: 17px;
-  }
-}
-
-.day__block--school:not(:last-child)::before {
-  /* Dashed, because school is carried and never tracked. */
+.day-block--school:not(:last-child)::before,
+.day-block--school + .day-block::after {
   background: none;
-  border-left: 1px dashed var(--cream-muted, #f2e9da);
+  border-left: 2px dashed var(--dash);
 }
 
-.day__time {
-  font-variant-numeric: tabular-nums;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-  padding-top: 1px;
+.day-block__time {
+  padding-top: 2px;
   text-align: right;
+  font-family: var(--font-data);
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
 }
 
-.day__dot {
-  position: absolute;
-  left: 17px;
-  top: 6px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--cream-muted, #f2e9da);
+.day-block__dot {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  border: 2px solid var(--dash);
+  color: var(--white);
 }
 
-@media (max-width: 340px) {
-  .day__dot {
-    left: 13px;
-  }
+.day-block--done .day-block__dot {
+  background: var(--teal);
+  border-color: var(--teal);
 }
 
-.day__block--done .day__dot {
-  background: var(--teal, #1e9e8c);
+.day-block--now .day-block__dot {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 4px rgba(123, 30, 43, 0.14);
 }
 
-.day__block--now .day__dot {
-  background: var(--maroon, #7b1e2b);
-  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.16);
+.day-block--missed .day-block__dot {
+  border-color: var(--dash);
+  background: var(--cream-muted);
 }
 
-/* ------------------------------------------------- a block that is not now --- */
+.day-block--school .day-block__dot,
+.day-block--uncounted .day-block__dot {
+  border-style: dashed;
+}
 
-.day__label {
-  font-size: 0.88rem;
+.day-block__body {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.day-block__label {
+  display: block;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
-.day__block--done .day__label,
-.day__block--missed .day__label,
-.day__block--uncounted .day__label {
+.day-block--done .day-block__label,
+.day-block--missed .day-block__label,
+.day-block--uncounted .day-block__label,
+.day-block--school .day-block__label {
   font-weight: 500;
   color: var(--ink-muted);
 }
 
-.day__said {
-  font-size: 0.78rem;
+.day-block__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
   color: var(--ink-muted);
 }
 
-/* -------------------------------------------------------- the open card --- */
-
-.day__card {
-  background: var(--cream-surface, #fbf7ef);
-  border: 1px solid var(--cream-muted, #f2e9da);
-  border-radius: 12px;
-  padding: 12px 13px;
-  margin-top: -3px;
+.day-block__late {
+  margin-top: 8px;
 }
 
-.day__card .day__label {
-  font-size: 1rem;
+/* The one open card. */
+.day-card {
+  display: grid;
+  gap: 4px;
+  margin-top: -6px;
+  padding: 14px 14px 14px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 1.5px solid var(--maroon);
+  box-shadow: 0 4px 12px rgba(43, 26, 28, 0.08);
+}
+
+.day-card__label {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.day-card .k-btn {
+  margin-top: 8px;
+}
+
+.day-room {
+  margin-top: 4px;
+}
+
+.day-roomlink {
+  align-self: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--maroon);
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* ---------------------------------------------------- the next class card --- */
+
+.nc {
+  display: grid;
+  gap: 3px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nc--live {
+  border: 2px solid var(--gold);
+  background: var(--gold-wash);
+}
+
+.nc__top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
   font-weight: 700;
-  color: inherit;
-}
-
-.day__card p {
-  margin: 5px 0 0;
-  font-size: 0.8rem;
-  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--ink-muted);
 }
 
-.day__card .app-btn {
-  margin-top: 11px;
+.nc--live .nc__top {
+  color: var(--maroon);
 }
 
-/* A late wake keeps its button, on the line rather than in a card — you are
- * behind, and the screen says so without making a ceremony of it. */
-.day__late {
+.nc__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #c0453f;
+}
+
+.nc__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.nc__when {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.nc__who {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin-top: 6px;
-}
-
-/* ------------------------------------------------------------- school --- */
-
-.day__block--school .day__card,
-.day__block--school .day__label {
+  font-size: 12.5px;
   color: var(--ink-muted);
 }
 
-.day__carry {
-  margin: 6px 0 0;
+.nc__join {
+  margin-top: 10px;
+}
+
+/* ---------------------------------------------------------------- late --- */
+
+.late {
+  margin: -16px -16px 0;
+  min-height: calc(100dvh - var(--nav-height));
+  padding: 22px 18px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--maroon-deep);
+  color: var(--cream);
+}
+
+.late__when {
+  font-size: 12px;
+  color: var(--gold-light);
+}
+
+.late__title {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 27px;
+  color: var(--cream);
+}
+
+.late__card {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(253, 251, 247, 0.08);
+  border: 1px solid rgba(253, 251, 247, 0.12);
+}
+
+.late__card--quiet {
+  background: transparent;
+}
+
+.late__label {
+  color: rgba(253, 251, 247, 0.6);
+}
+
+.late__list {
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: var(--ink-muted);
+  display: grid;
+  gap: 9px;
+  font-size: 15px;
 }
 
-.day__carry li::before {
-  content: "★";
-  color: var(--gold, #c9a24b);
-  margin-right: 6px;
+.late__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.day__quiet {
-  margin-top: 5px;
-  font-size: 0.72rem;
-  color: var(--ink-muted);
-  opacity: 0.85;
+.late__tick {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--teal);
+  color: var(--white);
 }
 
-/* ------------------------------------------------- sitting still, 6 a.m. --- */
+.late__hollow {
+  flex: none;
+  color: rgba(253, 251, 247, 0.4);
+}
+
+.late__detail {
+  color: rgba(253, 251, 247, 0.6);
+  font-size: 13px;
+}
+
+.late__fact {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: rgba(253, 251, 247, 0.8);
+}
+
+.late__watch {
+  margin-top: 12px;
+  border-color: rgba(253, 251, 247, 0.4);
+  color: var(--cream);
+}
+
+.late__tomorrow {
+  margin: 4px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(253, 251, 247, 0.9);
+}
+
+.late__tomorrow strong {
+  color: var(--gold-light);
+}
+
+.late__more {
+  margin-top: auto;
+  color: var(--cream-muted);
+}
+
+/* ---------------------------------------------------------------- away --- */
+
+.away {
+  margin: -16px -16px 0;
+  min-height: calc(100dvh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient-sky);
+  color: var(--cream);
+}
+
+.away__sky {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 20px;
+  text-align: center;
+}
+
+.away__crest {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.away__crest img {
+  display: block;
+}
+
+.away__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--cream);
+}
+
+.away__line {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #cfe6e2;
+}
+
+.away__act {
+  padding: 0 18px 28px;
+}
+
+/* ---------------------------------------------------------- sitting still --- */
 
 .sit {
+  margin: -16px -16px 0;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-  padding: 32px 28px;
-  background: #0b0909;
+  gap: 10px;
+  padding: 32px 28px calc(32px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, #06080a 0%, var(--teal-dark) 100%);
   color: #efe7e3;
   text-align: center;
 }
 
-/* "It is the one screen in the app that does less the longer you look at it."
- * No timer animation, no breathing graphic, no audio — a cheap handset on 3G
- * should not be animating anything at six in the morning, and an audio track
- * is a download every day. */
-.sit__minutes {
-  font-size: 4.2rem;
-  font-weight: 300;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
+.sit__eyebrow {
+  color: rgba(239, 231, 227, 0.55);
 }
 
-.sit__label {
-  font-size: 0.86rem;
-  line-height: 1.6;
-  opacity: 0.72;
-  max-width: 22rem;
+.sit__minutes {
+  font-family: var(--font-display);
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.sit__unit {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(239, 231, 227, 0.55);
+}
+
+.sit__line {
+  margin: 18px 0 0;
+  font-size: 17px;
+}
+
+.sit__small {
+  margin: 0;
+  max-width: 18rem;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(239, 231, 227, 0.6);
 }
 
 .sit__done {
-  margin-top: 8px;
-}
-
-/* ------------------------------------------- the night, and coming back --- */
-
-/* Deep maroon rather than the morning's cream, because it is night and the
- * screen should know that. Design 8n. No red anywhere: red is for an error,
- * and a child who missed a class has not made one. */
-.day--late {
-  min-height: 100%;
-  margin: -14px -16px -8px;
-  padding: 22px 18px 26px;
-  background: var(--gradient-maroon, linear-gradient(160deg, #7b1e2b 0%, #3d0a10 100%));
-  color: var(--cream, #fdfbf7);
-}
-
-.day--late .day__when,
-.day--late .day__left,
-.day--late .day__said {
-  color: rgba(253, 251, 247, 0.72);
-}
-
-.late__panel {
-  margin-top: 16px;
-  padding: 13px 14px;
-  border-radius: 12px;
-  background: rgba(253, 251, 247, 0.07);
-  border: 1px solid rgba(253, 251, 247, 0.1);
-}
-
-.late__panel h2 {
-  margin: 0 0 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(253, 251, 247, 0.6);
-}
-
-.late__panel p {
-  margin: 4px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.55;
-  color: rgba(253, 251, 247, 0.86);
-}
-
-/* The panel that names a person. Gold, once, and only here — the whole
- * premise of a residential programme is that somebody noticed. */
-.late__panel--person {
-  border-color: rgba(201, 162, 75, 0.42);
-  background: rgba(201, 162, 75, 0.1);
-}
-
-.late__panel--person h2 {
-  color: var(--gold-light, #e5be7a);
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.92rem;
-}
-
-.late__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
-.late__list--plain li + li {
-  margin-top: 10px;
-}
-
-.late__list--star li::before {
-  content: "★";
-  color: var(--gold, #c9a24b);
-  margin-right: 7px;
-}
-
-.late__note {
-  margin-top: 10px;
-  padding-top: 9px;
-  border-top: 1px solid rgba(253, 251, 247, 0.12);
-  font-size: 0.8rem;
-}
-
-.late__tomorrow {
-  margin: 20px 0 12px;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  color: rgba(253, 251, 247, 0.78);
-}
-
-.day--late .app-btn--outline {
-  margin-top: 11px;
-  border-color: rgba(253, 251, 247, 0.4);
-  color: var(--cream, #fdfbf7);
-}
-
-.day--late .app-btn--quiet {
-  color: rgba(253, 251, 247, 0.75);
+  margin-top: 28px;
+  max-width: 280px;
+  background: rgba(239, 231, 227, 0.12);
+  color: #efe7e3;
 }
 
 /* ------------------------------------------------------------- the room --- */
 
 .room {
-  padding: 14px 16px 20px;
-}
-
-.room__head {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.room__back {
-  font-size: 0.76rem;
-  color: var(--maroon, #7b1e2b);
+  flex-direction: column;
+  gap: 14px;
 }
 
 .room__count {
-  margin: 10px 0 0;
-  font-size: 0.95rem;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
 .room__count b {
-  font-size: 1.4rem;
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--teal);
+  font-variant-numeric: lining-nums;
 }
 
-.room__count--alone {
+.room__count span {
+  font-size: 15px;
   color: var(--ink-muted);
 }
 
-/* One square each. Identical and unordered on purpose: a lit square is a
- * person present and nothing else about them can be read off this grid. */
+/* One square each, identical and unordered: a lit square is a person present,
+   and nothing else about them can be read off this grid. */
 .room__grid {
-  margin: 14px 0 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(26px, 1fr));
+  gap: 6px;
 }
 
 .room__sq {
   aspect-ratio: 1;
-  border-radius: 4px;
-  background: var(--cream-muted, #f2e9da);
+  border-radius: 6px;
+  background: var(--cream-muted);
 }
 
 .room__sq--on {
-  background: var(--teal, #1e9e8c);
+  background: var(--teal);
 }
 
 .room__note {
-  margin: 8px 0 0;
-  font-size: 0.74rem;
-  line-height: 1.5;
-  color: var(--ink-muted);
+  margin: -4px 0 0;
 }
 
-.room__doing,
-.room__sit {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--cream-muted, #f2e9da);
-}
-
-.room__doing h2,
-.room__sit h2 {
-  margin: 0 0 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-.room__doing ul {
-  margin: 0;
+.room__doing {
+  margin: 10px 0;
   padding: 0;
   list-style: none;
+  display: grid;
+  gap: 8px;
 }
 
 .room__doing li {
-  display: grid;
-  grid-template-columns: 8.5rem 1fr 1.6rem;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  padding: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
 }
 
 .room__doing b {
-  text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-.room__bar {
-  height: 6px;
-  border-radius: 3px;
-  background: var(--cream-muted, #f2e9da);
-  overflow: hidden;
-}
-
-.room__bar > span {
-  display: block;
-  height: 100%;
-  background: var(--teal, #1e9e8c);
-}
-
-.room__sit p {
-  margin: 0 0 11px;
-  font-size: 0.82rem;
-  line-height: 1.55;
-  color: var(--ink-muted);
+.room__sit {
+  display: grid;
+  gap: 10px;
 }
 
 .room__sitting {
+  margin: 0;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--teal, #1e9e8c) !important;
-}
-
-/* The one line on the day that mentions anybody else. */
-.day__room {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 4px;
-  padding: 11px 13px;
-  border-radius: 12px;
-  background: var(--cream-surface, #fbf7ef);
-  border: 1px solid var(--cream-muted, #f2e9da);
-  font-size: 0.82rem;
-  color: inherit;
-}
-
-.day__room b {
-  font-size: 1.05rem;
-}
-
-.day__room span {
-  font-weight: 600;
-  color: var(--maroon, #7b1e2b);
-  white-space: nowrap;
+  color: var(--teal);
 }

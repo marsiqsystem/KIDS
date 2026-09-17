@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CalendarX, CircleCheck, Hourglass, Unlink, Users, Wrench } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
 import { canStudentJoin, noteTokenIssued, type JoinRefusal } from "@/lib/admin/classes";
 import { liveConfigured, liveDomain, mintToken } from "@/lib/live/jitsi";
@@ -31,10 +32,7 @@ export default async function StudentClassPage({ params }: { params: Promise<{ i
   if (!liveConfigured()) {
     return (
       <Waiting title={live.title}>
-        <p>
-          The class cannot be opened from this app yet. Nothing is wrong at your end — tell your
-          teacher, and they will sort it out.
-        </p>
+        <p>This is ours to fix, not yours. Tell your teacher.</p>
       </Waiting>
     );
   }
@@ -66,53 +64,60 @@ export default async function StudentClassPage({ params }: { params: Promise<{ i
         />
       </div>
       <p className="cls-live__note">
-        You join muted, with your camera off. Raise your hand and your teacher will let you speak.
+        You join muted. Raise your hand; when your teacher allows it, tap your own mic.
       </p>
     </div>
   );
 }
 
 function Refused({ why }: { why: JoinRefusal }) {
-  const said: Record<JoinRefusal, { head: string; body: string }> = {
+  const said: Record<JoinRefusal, { head: string; body: string; icon: React.ReactNode }> = {
     "not-found": {
-      head: "There is no such class",
-      body: "This link does not point at anything. Check with your teacher.",
+      head: "This class is gone",
+      body: "Your classes are always on your day. Go through Home.",
+      icon: <Unlink size={22} />,
     },
     cancelled: {
       head: "This class was cancelled",
-      body: "Your teacher called it off. Watch the app for the next one.",
+      body: "Nothing is expected of you for it.",
+      icon: <CalendarX size={22} />,
     },
     "not-started": {
       head: "Not started yet",
-      body:
-        "Your teacher has not opened the room. Nobody can go in before they do — including them. Come back in a few minutes.",
+      body: "The room opens when your teacher opens it. Keep waiting.",
+      icon: <Hourglass size={22} />,
     },
     ended: {
       head: "This class has finished",
-      body: "If it was recorded, the link will appear here once your teacher posts it.",
+      body: "If it was recorded, it appears here once your teacher posts it.",
+      icon: <CircleCheck size={22} />,
     },
     "not-in-batch": {
-      head: "This is not your class",
-      body: "You are not in the batch this class was set for. If that looks wrong, tell the office.",
+      head: "This class is not yours",
+      body: "It belongs to another batch. You have not done anything wrong.",
+      icon: <Users size={22} />,
     },
   };
 
-  const { head, body } = said[why];
+  const { head, body, icon } = said[why];
 
   return (
-    <Waiting title={head}>
+    <Waiting title={head} icon={icon}>
       <p>{body}</p>
     </Waiting>
   );
 }
 
-function Waiting({ title, children }: { title: string; children: React.ReactNode }) {
+function Waiting({ title, icon, children }: { title: string; icon?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className="cls-wait">
-      <h1 className="app-h1">{title}</h1>
+      <span className="cls-wait__icon" aria-hidden="true">
+        {icon ?? <Wrench size={22} />}
+      </span>
+      <h1 className="cls-wait__title">{title}</h1>
       <div className="cls-wait__body">{children}</div>
-      <Link href="/app" className="app-btn">
-        Back to home
+      <Link href="/app" className="k-btn">
+        Back to your day
       </Link>
     </div>
   );

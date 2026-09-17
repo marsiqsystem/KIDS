@@ -72,64 +72,41 @@
 
 /* The screen they get when there is nothing to join yet — which, for a class
  * that starts at six, is most of the day. It is not an error state and does not
- * look like one. */
+ * look like one. Redesign board 14, the four refusals. */
 
 .cls-wait {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 2rem 1.25rem;
+  align-items: stretch;
+  gap: 12px;
+  padding: 24px 2px;
 }
 
-.cls-wait__body {
-  font-size: 0.85rem;
-  line-height: 1.6;
-  opacity: 0.75;
-  max-width: 32ch;
+.cls-wait__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--maroon-wash);
+  color: var(--maroon);
 }
 
-/* The card on Home. */
-
-.cls-card {
-  display: block;
-  margin: 0.75rem 0;
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.6rem;
-  text-decoration: none;
-  color: inherit;
+.cls-wait__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
 }
 
-.cls-card--live {
-  border-color: rgba(192, 69, 63, 0.55);
-  background: rgba(192, 69, 63, 0.08);
+.cls-wait__body p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-muted);
 }
 
-.cls-card__top {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-
-.cls-card--live .cls-card__top {
-  color: #e0736c;
-  opacity: 1;
-}
-
-.cls-card__title {
-  margin-top: 0.3rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.cls-card__when {
-  margin-top: 0.15rem;
-  font-size: 0.78rem;
-  opacity: 0.65;
+.cls-wait .k-btn {
+  margin-top: 12px;
 }

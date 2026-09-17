@@ -7,11 +7,11 @@
 
 /* While the paper or the camera is up, the tab bar steps away. Leaving is still
    one Android back away, and every answer is already on the phone. */
-.app-shell:has(.xp, .ci) .app-nav {
+.app-shell:has(.xp, .ci, .sit) .app-nav {
   display: none;
 }
 
-.app-shell:has(.xp, .ci) .app-shell__body {
+.app-shell:has(.xp, .ci, .sit) .app-shell__body {
   padding-bottom: 0;
 }
 

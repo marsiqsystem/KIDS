@@ -19,16 +19,16 @@ export default function StudyHour({ minutesLeft }: { minutesLeft: number | null 
     <>
       {sitting ? (
         <p className="room__sitting">
-          You are sitting with them · {minutesLeft} minute{minutesLeft === 1 ? "" : "s"} left
+          You are sitting with them · {minutesLeft} min left
         </p>
       ) : null}
       <button
         type="button"
         disabled={pending}
-        className={`app-btn${sitting ? " app-btn--outline" : ""}`}
+        className={`k-btn${sitting ? " k-btn--outline" : ""}`}
         onClick={() => start(() => void (sitting ? leaveTheRoom() : sitWithTheRoom()))}
       >
-        {pending ? "…" : sitting ? "Get up" : "Start a study hour"}
+        {pending ? "…" : sitting ? "Stop" : "Start a study hour"}
       </button>
     </>
   );

@@ -32,8 +32,8 @@ export default async function ChapterPracticePage({
         cards={cards}
         startAt={0}
         mode="practice"
-        title={chapter.chapter}
         doneHref={`/app/learn/${key}`}
+        leaveHref={`/app/learn/${key}`}
       />
     </div>
   );

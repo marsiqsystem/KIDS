@@ -3,48 +3,53 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Check, CloudCheck, Lightbulb, RotateCcw, WifiOff, X } from "lucide-react";
 import { answerQuestion, answerPractice, type Verdict } from "@/app/app/loop-actions";
 import type { PlayCard } from "@/lib/app/loop";
+import { subjectHue } from "@/lib/app/subjects";
+import Sheet from "@/components/app/Sheet";
 
 /**
- * The question player. Design 3d, with 2h's teardown — every option explained,
- * not only the one that was picked.
+ * The question player. Redesign board 02, 2B–2D.
  *
- * The cards arrive WITHOUT their answers. Committing to an option calls the
- * server, which writes the answer down and only then says what was right. So
- * the key is never in the page, and there is no way to see the answer without
- * having answered.
+ * The cards arrive WITHOUT their answers. Tapping an option calls the server,
+ * which writes the answer down and only then says what was right. So the key is
+ * never in the page, and there is no way to see the answer without having
+ * answered.
  *
- * A repeat is announced before it is read, and answering it the same wrong way
- * twice is the one moment this app raises its voice — quietly, in gold.
+ * Nothing to read but the question until the tap. Then: correct is teal with a
+ * star and three sparks; wrong reveals the key in teal and marks the chosen row
+ * in maroon wash — no red, no shake — and the "Why" sheet rises by itself,
+ * because that is the moment the explanation is for. On a right answer "Why?"
+ * stays a button.
  */
 
 const LETTERS = ["A", "B", "C", "D", "E"];
-
-const seenOn = (iso: string) =>
-  new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "numeric", month: "short" }).format(
-    new Date(iso),
-  );
 
 export default function QuestionPlayer({
   cards,
   startAt,
   mode = "daily",
-  title = "today’s set",
   doneHref = "/app/set/summary",
+  leaveHref = "/app",
 }: {
   cards: PlayCard[];
   startAt: number;
   /** "daily" is the five-a-day set; "practice" is one chapter, opened from Learn. */
   mode?: "daily" | "practice";
-  title?: string;
   doneHref?: string;
+  leaveHref?: string;
 }) {
   const router = useRouter();
-  const [at, setAt] = useState(Math.min(startAt, Math.max(cards.length - 1, 0)));
+  const first = Math.min(startAt, Math.max(cards.length - 1, 0));
+  const [at, setAt] = useState(first);
   const [chosen, setChosen] = useState<number | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
-  const [failed, setFailed] = useState<string | null>(null);
+  // What each question came to, for the dots across the top. The ones answered
+  // before this visit are unknown here and simply show as done.
+  const [results, setResults] = useState<Record<number, boolean>>({});
+  const [why, setWhy] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [pending, startTransition] = useTransition();
 
   const card = cards[at];
@@ -53,21 +58,25 @@ export default function QuestionPlayer({
   function commit(option: number) {
     if (verdict || pending) return;
     setChosen(option);
-    setFailed(null);
+    setFailed(false);
 
     startTransition(async () => {
       try {
-        setVerdict(await (mode === "daily" ? answerQuestion : answerPractice)(card.id, option));
+        const v = await (mode === "daily" ? answerQuestion : answerPractice)(card.id, option);
+        setVerdict(v);
+        setResults((r) => ({ ...r, [at]: v.correct }));
+        if (!v.correct) setWhy(true);
       } catch {
-        // The answer did not reach KIDS. Say so and let them try again rather
+        // The answer did not reach KIDS. Say so and let them tap again rather
         // than pretending it landed — this is a phone on a school's 3G.
         setChosen(null);
-        setFailed("That did not reach KIDS. Check your connection and tap the answer again.");
+        setFailed(true);
       }
     });
   }
 
   function next() {
+    setWhy(false);
     if (last) {
       router.push(doneHref);
       return;
@@ -75,15 +84,15 @@ export default function QuestionPlayer({
     setAt((i) => i + 1);
     setChosen(null);
     setVerdict(null);
-    setFailed(null);
+    setFailed(false);
   }
 
   if (!card) {
     return (
       <div className="app-body">
-        <p className="app-hint">This set has no questions left in it.</p>
-        <Link href="/app" className="app-btn app-btn--outline">
-          Back to home
+        <p className="k-line">No questions left here.</p>
+        <Link href={leaveHref} className="k-btn k-btn--outline">
+          Back
         </Link>
       </div>
     );
@@ -91,124 +100,179 @@ export default function QuestionPlayer({
 
   const repeatedMistake =
     verdict && !verdict.correct && verdict.previousChoice === chosen && verdict.previouslyWrong;
+  const hue = subjectHue(card.section);
+  const answerText = verdict ? card.options[verdict.answerIndex] : "";
 
-  return (
-    <div className="app-play">
-      <header className="app-play__bar">
-        <Link href="/app" className="app-titlebar__back" aria-label="Leave the set">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="m15 6-6 6 6 6" />
-          </svg>
-        </Link>
-        <div className="app-play__progress">
-          <span className="app-play__count">
-            Question {at + 1} of {cards.length}{" · "}{title}
-          </span>
-          <div className="app-play__pips" aria-hidden="true">
-            {cards.map((c, i) => (
-              <span key={c.id} className={`app-pip${i < at || (i === at && verdict) ? " app-pip--done" : ""}${i === at ? " app-pip--at" : ""}`} />
+  const teardown = verdict ? (
+    <>
+      <div className="qp-why__head">
+        <Lightbulb size={20} className="qp-why__bulb" aria-hidden="true" />
+        <span>Why {LETTERS[verdict.answerIndex]}</span>
+      </div>
+      {verdict.whyCorrect ? <p className="qp-why__body">{verdict.whyCorrect}</p> : null}
+
+      {Object.keys(verdict.whyWrong).length > 0 ? (
+        <>
+          <div className="qp-why__rule" />
+          <div className="k-label">Why not the others</div>
+          <div className="qp-why__others">
+            {Object.entries(verdict.whyWrong).map(([index, text]) => (
+              <p key={index}>
+                <strong>{LETTERS[Number(index)]} ·</strong> {text}
+              </p>
             ))}
           </div>
+        </>
+      ) : null}
+
+      {repeatedMistake ? (
+        <p className="qp-why__again">You chose {LETTERS[chosen!]} last time too.</p>
+      ) : null}
+
+      <div className="qp-back">
+        <RotateCcw size={18} aria-hidden="true" />
+        <span>
+          Back in <strong>{verdict.days} day{verdict.days === 1 ? "" : "s"}</strong>
+        </span>
+      </div>
+      <button type="button" className="k-btn" onClick={next}>
+        {last ? "Finish" : "Next"}
+      </button>
+    </>
+  ) : null;
+
+  return (
+    <div className="qp">
+      <header className="qp__bar">
+        <div className="qp__top">
+          <Link href={leaveHref} className="qp__leave" aria-label="Leave — your answers are kept">
+            <X size={24} aria-hidden="true" />
+          </Link>
+          <div className="qp__dots" aria-hidden="true">
+            {cards.map((c, i) => {
+              const r = results[i];
+              const kind =
+                i === at && !verdict
+                  ? "here"
+                  : r === true
+                    ? "right"
+                    : r === false
+                      ? "wrong"
+                      : i < first
+                        ? "done"
+                        : "todo";
+              return <span key={c.id} className={`qp__dot qp__dot--${kind}`} />;
+            })}
+          </div>
+          <span className="qp__count">
+            {at + 1}/{cards.length}
+          </span>
         </div>
-        {verdict && <span className="app-play__saved">Saved</span>}
+        <div className="qp__chips">
+          {mode === "daily" ? (
+            card.seen ? (
+              <span className="k-chip k-chip--again qp__again">Again</span>
+            ) : (
+              <span className="k-chip k-chip--new">New</span>
+            )
+          ) : null}
+          <span className="k-chip qp__subject" style={{ background: hue }}>
+            {card.section}
+          </span>
+          {card.chapter ? <span className="qp__chapter">{card.chapter}</span> : null}
+        </div>
       </header>
 
-      <div className="app-play__body">
-        <div className="app-play__chapter">
-          <span className="app-play__chaptername">{card.chapter ?? card.section}</span>
-          {card.seen && (
-            // Named before it is read. A student is never quietly served an old
-            // question as if it were new.
-            <span className="app-play__seen">
-              Seen {seenOn(card.seen.lastAnsweredAt)}
-              {card.seen.wasCorrect ? " · you had it right" : " · you had it wrong"}
+      <div className="qp__body">
+        {verdict?.correct ? (
+          <div className="qp__sparks" aria-hidden="true">
+            <span className="k-spark">★</span>
+            <span className="k-spark" style={{ fontSize: 20, animationDelay: "0.2s" }}>
+              ★
             </span>
-          )}
-        </div>
+            <span className="k-spark" style={{ animationDelay: "0.4s" }}>
+              ★
+            </span>
+          </div>
+        ) : null}
 
-        {card.context && <p className="app-play__context">{card.context}</p>}
-        <p className="app-play__stem">{card.stem}</p>
+        {card.context ? <p className="qp__context">{card.context}</p> : null}
+        <p className="qp__stem" lang={/[ঀ-৿]/.test(card.stem) ? "bn" : undefined}>
+          {card.stem}
+        </p>
 
-        <div className="app-options" role="group" aria-label="Options">
+        <div className="qp__options" role="group" aria-label="Options">
           {card.options.map((option, i) => {
             const isAnswer = verdict?.answerIndex === i;
             const isMine = chosen === i;
             const state = !verdict
               ? isMine
-                ? " app-option--picked"
+                ? "picked"
                 : ""
               : isAnswer
-                ? " app-option--right"
+                ? "right"
                 : isMine
-                  ? " app-option--wrong"
-                  : "";
-
+                  ? "wrong"
+                  : "faded";
             return (
               <button
                 key={i}
                 type="button"
-                className={`app-option${state}`}
+                className={`qp-opt${state ? ` qp-opt--${state}` : ""}`}
                 onClick={() => commit(i)}
                 disabled={!!verdict || pending}
                 aria-pressed={isMine}
               >
-                <span className="app-option__letter">{LETTERS[i]}</span>
-                <span className="app-option__text">{option}</span>
-                {verdict && isAnswer && <span className="app-option__flag">Correct</span>}
-                {verdict && isMine && !isAnswer && <span className="app-option__flag">You</span>}
+                <span className="qp-opt__mark">
+                  {state === "right" ? (
+                    <Check size={20} aria-label="Correct" />
+                  ) : state === "wrong" ? (
+                    <X size={18} aria-label="Your answer" />
+                  ) : (
+                    LETTERS[i]
+                  )}
+                </span>
+                <span className="qp-opt__text">{option}</span>
+                {state === "right" && verdict?.correct ? (
+                  <span className="qp-opt__star" aria-hidden="true">
+                    ★
+                  </span>
+                ) : null}
               </button>
             );
           })}
         </div>
 
-        {failed && (
-          <div className="app-card" role="alert">
-            <p style={{ margin: 0, fontSize: 14, color: "var(--ink)" }}>{failed}</p>
-          </div>
-        )}
-
-        {verdict && (
-          <div className={`app-teardown${verdict.correct ? " app-teardown--right" : ""}`}>
-            <span className="app-teardown__verdict">
-              {verdict.correct
-                ? "Right"
-                : `Not right · the answer is ${LETTERS[verdict.answerIndex]}`}
+        <div className="qp__foot">
+          {failed ? (
+            <span className="k-toast k-toast--wait" role="alert">
+              <WifiOff size={15} aria-hidden="true" /> Not sent. Check signal, tap again.
             </span>
-
-            {repeatedMistake && (
-              <p className="app-teardown__again">
-                You chose {LETTERS[chosen!]} last time too. Read the line for {LETTERS[chosen!]} below
-                before moving on — this one comes back in {verdict.days} day
-                {verdict.days === 1 ? "" : "s"}.
-              </p>
-            )}
-
-            {verdict.whyCorrect && <p className="app-teardown__why">{verdict.whyCorrect}</p>}
-
-            {Object.keys(verdict.whyWrong).length > 0 && (
-              <div className="app-teardown__others">
-                <span className="app-label">Why the others are wrong</span>
-                {Object.entries(verdict.whyWrong).map(([index, text]) => (
-                  <div key={index} className="app-teardown__row">
-                    <span className="app-teardown__letter">{LETTERS[Number(index)]}</span>
-                    <span>{text}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <span className="app-teardown__return">
-              Comes back in {verdict.days} day{verdict.days === 1 ? "" : "s"}.
+          ) : pending ? (
+            <span className="qp__status">Sending…</span>
+          ) : verdict ? (
+            <span className="qp__status">
+              <CloudCheck size={15} className="qp__saved" aria-hidden="true" /> Saved
             </span>
-          </div>
-        )}
+          ) : null}
+
+          {verdict ? (
+            <div className="qp__acts">
+              <button type="button" className="k-btn qp__whybtn" onClick={() => setWhy(true)}>
+                Why?
+              </button>
+              <button type="button" className="k-btn qp__next" onClick={next}>
+                {last ? "Finish" : "Next"}
+              </button>
+            </div>
+          ) : null}
+        </div>
       </div>
 
-      <footer className="app-play__foot">
-        <button type="button" className="app-btn" onClick={next} disabled={!verdict}>
-          {pending ? "Saving…" : last ? "Finish" : "Next question"}
-        </button>
-      </footer>
+      <Sheet open={why && !!verdict} onClose={() => setWhy(false)} title={undefined}>
+        <span className="app-sr">{`The answer is ${LETTERS[verdict?.answerIndex ?? 0]}: ${answerText}`}</span>
+        {teardown}
+      </Sheet>
     </div>
   );
 }

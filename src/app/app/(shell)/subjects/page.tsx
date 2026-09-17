@@ -3,6 +3,7 @@ import { offerSections, chosenSections, NEW_PER_DAY, answersFor } from "@/lib/ap
 import { poolFor } from "@/lib/app/bank";
 import SubjectChooser from "@/components/app/SubjectChooser";
 import NoStream from "@/components/app/NoStream";
+import { Head } from "@/components/app/kit";
 
 export const dynamic = "force-dynamic";
 
@@ -31,27 +32,12 @@ export default async function SubjectsPage() {
 
   return (
     <>
-      <div>
-        <span className="app-eyebrow">
-          Class {student.class}
-          {student.stream ? ` · ${student.stream}` : ""}
-        </span>
-        <h1 className="app-h1">What do you want to practise?</h1>
-        <p className="app-lede">
-          Choose what you want in your daily set. You can change this any day — nothing you have
-          already done is lost.
-        </p>
-      </div>
+      <Head title="My subjects" back="/app" aside={`${chosen.length} / ${sections.length}`} />
 
       {(student.class === "XI" || student.class === "XII") && (
-        // XI and XII answer FOUR blocks, not five: English & General Knowledge
-        // is one combined section of 25, plus three subjects of their own. The
-        // design says five; the question bank and every marksheet say four.
-        <p className="app-hint">
-          English &amp; General Knowledge is one combined section that everybody sits, plus the three
-          subjects you chose. That is how SET marks Class {student.class} — the same four sections
-          appear on your record.
-        </p>
+        // XI and XII answer four blocks: English & General Knowledge, which
+        // everybody sits, plus three subjects of their stream.
+        <p className="k-line">English &amp; GK is one section everyone sits.</p>
       )}
 
       <SubjectChooser

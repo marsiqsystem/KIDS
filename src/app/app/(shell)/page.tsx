@@ -1,13 +1,27 @@
 import Link from "next/link";
+import { Check, CheckCheck, ChevronRight, Lock, RotateCcw, Sparkle, X } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
 import { firstName } from "@/lib/exam/portal-auth";
-import { loopState, streakFor, answersFor, istToday } from "@/lib/app/loop";
+import {
+  loopState,
+  streakFor,
+  answersFor,
+  istToday,
+  offerSections,
+  NEW_PER_DAY,
+} from "@/lib/app/loop";
+import { poolFor } from "@/lib/app/bank";
 import { unreadCount } from "@/lib/app/notices";
-import NoticeBell from "@/components/app/NoticeBell";
+import { subjectShort } from "@/lib/app/subjects";
 import NextClass from "@/components/app/NextClass";
 import TheDay from "@/components/app/TheDay";
 import DayLate from "@/components/app/DayLate";
 import DayAway from "@/components/app/DayAway";
+import SubjectChooser from "@/components/app/SubjectChooser";
+import NoStream from "@/components/app/NoStream";
+import Sheet from "@/components/app/Sheet";
+import { MidnightCountdown } from "@/components/app/Clock";
+import { Hero, Ring, Streak, Celebrate } from "@/components/app/kit";
 import { dayFor } from "@/lib/app/day";
 import { roomFor } from "@/lib/app/room";
 import "../notices.css";
@@ -15,72 +29,52 @@ import "./class/class.css";
 import "./day.css";
 
 /**
- * Home. Design 3b, and 3c's end states.
+ * Home. Redesign board 02 — five states, one primary action at a time.
  *
  * Every number here is counted at request time from the question bank and this
- * student's own answers. There is not a literal on this page — the design's
- * "31 of 45" and "about seven more days" are its arithmetic, not its data.
+ * student's own answers. There is not a literal on this page — the board's
+ * "12 of 45" and "Best 11" are its arithmetic, not its data.
+ *
+ * Not drawn here, on purpose: the stars line under "Five done". Stars are a
+ * Design proposal awaiting a ruling, and a number that is not ruled is not
+ * shown.
  */
 export const dynamic = "force-dynamic";
 
 /** "Good morning" by the clock in Kolkata, not the server's. */
 function greeting(): string {
   const hour = Number(
-    new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Asia/Kolkata",
-      hour: "2-digit",
-      hour12: false,
-    }).format(new Date()),
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", hour12: false }).format(
+      new Date(),
+    ),
   );
   if (hour < 12) return "Good morning";
   if (hour < 17) return "Good afternoon";
   return "Good evening";
 }
 
-const dayName = (iso: string) =>
-  new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", weekday: "narrow" }).format(
-    new Date(`${iso}T06:00:00Z`),
-  );
-
 const onDay = (date: Date) =>
   new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "numeric", month: "long" }).format(date);
+
+const istDate = (date: Date) =>
+  new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(date);
 
 export default async function HomePage() {
   const student = await requireStudent();
 
   /**
-   * For the 65 on the coaching programme, Home IS the day — Design turn 8,
-   * ruled A on 11 Sep. Not a sixth tab: a sixth tab is paid for by all 9,714
-   * students so that 65 can use it, and at 360px five destinations are already
-   * 72px each. When the programme ends this returns to the feed below, and the
-   * day it held becomes a page in Record.
-   *
-   * One lookup, and it is null for 9,649 students. Everything after this line
-   * is the ordinary Home that was here before and is untouched.
+   * For the 65 on the coaching programme, Home IS the day — ruled 11 Sep. One
+   * lookup, null for everyone else; everything after it is the ordinary Home.
    */
   const day = await dayFor(student);
   if (day) {
-    /**
-     * Three shapes, and the day decides which — not a clock literal here.
-     * `late` is past the programme own wind-down block with something missed;
-     * `away` is two days or more without opening it at all.
-     */
     if (day.shape === "away" || day.shape === "late") {
       const { days } = await streakFor(student.uid);
-      return day.shape === "away" ? (
-        <DayAway day={day} streak={days} />
-      ) : (
-        <DayLate day={day} streak={days} />
-      );
+      return day.shape === "away" ? <DayAway day={day} streak={days} /> : <DayLate day={day} streak={days} />;
     }
     const room = await roomFor(student.uid);
     return (
-      <TheDay
-        day={day}
-        name={firstName(student.name)}
-        greeting={greeting()}
-        present={room?.present ?? 0}
-      />
+      <TheDay day={day} name={firstName(student.name)} greeting={greeting()} present={room?.present ?? 0} />
     );
   }
 
@@ -88,193 +82,283 @@ export default async function HomePage() {
   // After loopState, never beside it: loopState is what mints today's set, and
   // the bell counts a set that exists rather than causing one to.
   const unread = await unreadCount(student);
+  const name = firstName(student.name);
 
-  // Nothing chosen yet: the chooser is the main thing on this screen — but not
-  // the ONLY thing. A class the student is expected at outranks picking
-  // practice subjects, and every child starts here: on the first morning of a
-  // coaching programme nobody has chosen anything yet, so a card rendered only
-  // in the branch below would be invisible to the whole batch on the one day it
-  // matters most. NextClass renders nothing when there is no class, so it costs
-  // this screen nothing the rest of the time.
+  // 1A — nothing chosen. The whole screen is the invitation. A class the
+  // student is expected at still outranks it, so NextClass sits on top.
   if (state.needsSubjects) {
+    const noStream = (student.class === "XI" || student.class === "XII") && !student.stream;
+    const sections = noStream ? [] : offerSections(student);
+    const unseenBySection: Record<string, number> = {};
+    for (const s of sections) unseenBySection[s.section] = s.questions;
+
     return (
       <>
-        <div className="not-head">
-          <h1 className="app-h1">Hello, {firstName(student.name)}</h1>
-          <NoticeBell unread={unread} />
-        </div>
-
+        <Hero eyebrow={greeting()} title={name} chips={[{ label: `Class ${student.class}` }]} unread={unread} />
         <NextClass uid={student.uid} />
-
-        <div className="app-soon">
-          <h2>Choose what to practise</h2>
-          <p>
-            Your daily set is five questions drawn from the subjects you pick. Choose them once and
-            the app takes it from there.
-          </p>
-          <Link href="/app/subjects" className="app-btn">
-            Choose my subjects
-          </Link>
-        </div>
+        {noStream ? (
+          <NoStream cls={student.class} />
+        ) : (
+          <>
+            <div className="home-invite">
+              <h2 className="home-invite__title">Pick your subjects</h2>
+              <p className="k-line">Three is a good number.</p>
+            </div>
+            <SubjectChooser
+              face="tiles"
+              sections={sections}
+              chosen={[]}
+              perDay={NEW_PER_DAY}
+              unseenBySection={unseenBySection}
+            />
+          </>
+        )}
       </>
     );
   }
 
   const [streak, answers] = await Promise.all([streakFor(student.uid), answersFor(student.uid)]);
   const { supply, set } = state;
+  const today = istToday();
 
-  // "The three you are seeing again were wrong on 12, 18 and 21 August."
-  const wrongDates = (set?.questionIds ?? [])
-    .map((id) => answers.get(id))
-    // Untouched since the set was built, so last_answered_at really is the day
-    // they last got it wrong — not five minutes ago.
-    .filter((a) => a && !a.was_correct && set && a.last_answered_at.getTime() < set.builtAt.getTime())
-    .map((a) => onDay(a!.last_answered_at));
-
-  const done = set ? set.answered >= set.questionIds.length : false;
-  const revision = set ? set.questionIds.length - set.newCount : 0;
+  const allSeen = supply.total > 0 && supply.unseen === 0;
+  const chips = [
+    { label: `Class ${student.class}` },
+    ...(allSeen
+      ? [{ label: "★ All revision", gold: true }]
+      : state.sections.length <= 3
+        ? state.sections.map((s) => ({ label: subjectShort(s) }))
+        : [{ label: `${state.sections.length} subjects` }]),
+  ];
 
   // Was this question already familiar when the set was built? Answering it
-  // just now must not turn its own chip from New into Again — the set's
-  // composition is fixed at build time, and the line above the chips says so.
+  // just now must not turn its pip from New into Again — the set's composition
+  // is fixed at build time.
   const wasRevision = (id: string) => {
     const row = answers.get(id);
     return !!row && !!set && row.first_seen_at.getTime() < set.builtAt.getTime();
   };
 
+  // Answered today, and how — the pip carries its verdict once it lands.
+  const verdict = (id: string): "right" | "wrong" | null => {
+    const row = answers.get(id);
+    if (!row || istDate(row.last_answered_at) !== today) return null;
+    return row.was_correct ? "right" : "wrong";
+  };
+
+  // The ones coming back because they were wrong before, with the day.
+  const missed = (set?.questionIds ?? [])
+    .map((id) => answers.get(id))
+    .filter((a) => a && !a.was_correct && set && a.last_answered_at.getTime() < set.builtAt.getTime())
+    .map((a) => onDay(a!.last_answered_at));
+
+  const done = set ? set.answered >= set.questionIds.length : false;
+  const started = set ? set.answered > 0 : false;
+  const left = set ? set.questionIds.length - set.answered : 0;
+  const revision = set ? set.questionIds.length - set.newCount : 0;
+
+  // 1E — what adding a subject would bring, counted from the unchosen ones.
+  let adds: { section: string; n: number }[] = [];
+  if (allSeen) {
+    adds = offerSections(student)
+      .filter((s) => !state.sections.includes(s.section))
+      .map((s) => ({
+        section: s.section,
+        n: poolFor(student.class, student.stream, student.medium, [s.section]).filter((id) => !answers.has(id))
+          .length,
+      }))
+      .filter((a) => a.n > 0)
+      .slice(0, 2);
+  }
+
   return (
     <>
-      <div className="not-head">
-        <div>
-          <h1 className="app-h1">
-            {greeting()}, {firstName(student.name)}
-          </h1>
-          <p className="app-sub">
-            Class {student.class}{" · "}{state.sections.join(", ")}
-          </p>
-        </div>
-        <NoticeBell unread={unread} />
-      </div>
+      <Hero eyebrow={greeting()} title={name} chips={done ? undefined : chips} unread={unread} />
 
       <NextClass uid={student.uid} />
 
-      {streak.days > 0 || streak.week.some((d) => d.done) ? (
-        <div className="app-streak">
-          <div className="app-streak__count">
-            <span className="app-streak__n">{streak.days}</span>
-            <span className="app-streak__label">
-              day{streak.days === 1 ? "" : "s"} in a row
-            </span>
+      {!set ? (
+        // Nothing the loop can put in front of them in these subjects.
+        <div className="k-card k-card--dashed k-card--center home-more">
+          <div className="k-empty__mark k-empty__mark--teal">
+            <CheckCheck size={34} strokeWidth={1.9} aria-hidden="true" />
           </div>
-          <div className="app-streak__week" aria-label="This week">
-            {streak.week.map((d) => (
-              <span
-                key={d.date}
-                className={`app-chip${d.done ? " app-chip--on" : ""}${d.date === istToday() ? " app-chip--today" : ""}`}
-                title={d.date}
-              >
-                {dayName(d.date)}
+          <p className="k-h">Nothing to practise today</p>
+          <Link href="/app/subjects" className="k-btn k-btn--outline k-btn--inline">
+            Add a subject
+          </Link>
+        </div>
+      ) : done ? (
+        <>
+          {/* 1D — done. The crest pops once, then stillness. */}
+          <div className="k-card k-card--maroon k-card--center home-done">
+            <Celebrate />
+            <h2 className="home-done__title">Five done</h2>
+            <div className="k-pips k-pips--small k-pips--on-dark home-done__pips">
+              {set.questionIds.map((id, i) => {
+                const v = verdict(id);
+                return (
+                  <span key={id} className={`k-pip k-pip--${v ?? "todo"}`}>
+                    {v === "right" ? (
+                      <Check size={18} aria-label={`Question ${i + 1} right`} />
+                    ) : v === "wrong" ? (
+                      <X size={18} aria-label={`Question ${i + 1} wrong`} />
+                    ) : (
+                      i + 1
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+            <Link href="/app/set/summary" className="k-btn k-btn--gold">
+              See how it went
+            </Link>
+          </div>
+
+          <Streak days={streak.days} best={streak.best} week={streak.week} today={today} showWeek={false} />
+
+          <div className="k-card k-card--center">
+            <div className="home-locked" aria-hidden="true">
+              <span>
+                <Lock size={15} />
               </span>
-            ))}
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <p className="k-h">Tomorrow&rsquo;s five</p>
+            <div className="home-countdown">
+              <MidnightCountdown />
+            </div>
+            <p className="k-line">Opens at midnight</p>
+          </div>
+
+          <Link href="/app/learn" className="k-row">
+            <span className="k-row__text">
+              <span className="k-row__title">Practise a chapter</span>
+            </span>
+            <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
+          </Link>
+        </>
+      ) : (
+        <>
+          {/* 1B / 1C / 1E — today's five. */}
+          <div className={`k-card k-card--lead${started ? " k-card--live" : ""}`}>
+            <div className="k-card__top">
+              <h2 className="k-card__title">{started ? "Carry on" : "Today’s five"}</h2>
+              {started ? (
+                <span className="k-card__meta k-card__meta--maroon">{left} left</span>
+              ) : (
+                <span className={`k-card__meta${set.newCount === 0 ? " k-card__meta--maroon" : ""}`}>
+                  {set.newCount === 0
+                    ? `${set.questionIds.length} again`
+                    : revision === 0
+                      ? `${set.newCount} new`
+                      : `${set.newCount} new · ${revision} again`}
+                </span>
+              )}
+            </div>
+
+            <div className="k-pips" aria-label="Today's questions">
+              {set.questionIds.map((id, i) => {
+                const v = verdict(id);
+                const again = wasRevision(id);
+                const here = started && !v && set.questionIds.slice(0, i).every((q) => verdict(q));
+                const kind = v ?? (here ? "here" : started ? "todo" : again ? "again" : "new");
+                return (
+                  <span key={id} className={`k-pip k-pip--${kind}`}>
+                    {kind === "right" ? (
+                      <Check size={22} aria-label={`${i + 1}, right`} />
+                    ) : kind === "wrong" ? (
+                      <X size={22} aria-label={`${i + 1}, not this time`} />
+                    ) : kind === "new" ? (
+                      <Sparkle size={20} aria-label={`${i + 1}, new`} />
+                    ) : kind === "again" ? (
+                      <RotateCcw size={19} aria-label={`${i + 1}, again`} />
+                    ) : (
+                      i + 1
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+
+            {!started && missed.length > 0 ? (
+              <Sheet
+                trigger={
+                  <>
+                    {missed.length} you missed before <ChevronRight size={15} aria-hidden="true" />
+                  </>
+                }
+                triggerClass="home-missed"
+                title={`${missed.length} coming back`}
+              >
+                <p className="k-line">Wrong last time, on:</p>
+                <ul className="home-dates">
+                  {missed.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </Sheet>
+            ) : (
+              <div className="home-gap" />
+            )}
+
+            <Link href="/app/set" className="k-btn">
+              {started ? "Carry on" : "Start"}
+            </Link>
+          </div>
+
+          {started ? (
+            <Streak
+              days={streak.days}
+              best={streak.best}
+              week={streak.week}
+              today={today}
+              note="Finish to keep it"
+              showWeek={false}
+            />
+          ) : streak.days > 0 || streak.week.some((d) => d.done) ? (
+            <Streak days={streak.days} best={streak.best} week={streak.week} today={today} />
+          ) : null}
+        </>
+      )}
+
+      {/* The supply meter — always on Home. */}
+      {supply.total > 0 && !done ? (
+        <div className="k-card home-supply">
+          <Ring value={supply.seen} total={supply.total} label={`Seen ${supply.seen} of ${supply.total}`} />
+          <div>
+            <p className="k-h">{allSeen ? "Every one seen" : "Seen so far"}</p>
+            <p className="k-line">
+              {allSeen ? "Now it is all revision." : `${supply.unseen} you have never seen.`}
+            </p>
           </div>
         </div>
       ) : null}
 
-      {set ? (
-        <div className="app-set">
-          <div className="app-set__head">
-            <span className="app-set__title">Today&rsquo;s set</span>
-            <span className="app-set__meta">{set.questionIds.length} questions</span>
+      {allSeen && !done ? (
+        <div className="k-card k-card--dashed k-card--center home-more">
+          <div className="k-empty__mark k-empty__mark--teal">
+            <CheckCheck size={34} strokeWidth={1.9} aria-hidden="true" />
           </div>
-
-          <p className="app-set__line">
-            {set.newCount === 0
-              ? `${set.questionIds.length} questions, all revision`
-              : `${set.questionIds.length} questions — ${set.newCount} new, ${revision} revision`}
-          </p>
-
-          <div className="app-set__chips">
-            {set.questionIds.map((id, i) => (
-              <span
-                key={id}
-                className={`app-tag${wasRevision(id) ? " app-tag--again" : " app-tag--new"}`}
-              >
-                {wasRevision(id) ? "Again" : "New"}
-                <span className="app-sr">{` question ${i + 1}`}</span>
-              </span>
-            ))}
-          </div>
-
-          {wrongDates.length > 0 && (
-            <p className="app-set__note">
-              {wrongDates.length === 1
-                ? `The one you are seeing again was wrong on ${wrongDates[0]}.`
-                : `The ${wrongDates.length} you are seeing again were wrong on ${wrongDates
-                    .slice(0, -1)
-                    .join(", ")} and ${wrongDates[wrongDates.length - 1]}.`}
+          <p className="k-h">Want more new ones?</p>
+          <Link href="/app/subjects" className="k-btn k-btn--outline k-btn--inline">
+            Add a subject
+          </Link>
+          {adds.length > 0 ? (
+            <p className="k-line">
+              {adds.map((a, i) => (
+                <span key={a.section}>
+                  {i > 0 ? " · " : ""}
+                  {subjectShort(a.section)} adds <b>+{a.n}</b>
+                </span>
+              ))}
             </p>
-          )}
-
-          {done ? (
-            <>
-              <p className="app-set__note">You have finished today&rsquo;s set. Come back tomorrow.</p>
-              <Link href="/app/set/summary" className="app-btn app-btn--outline">
-                See how it went
-              </Link>
-            </>
-          ) : (
-            <Link href="/app/set" className="app-btn">
-              {set.answered > 0
-                ? `Carry on — ${set.questionIds.length - set.answered} left`
-                : "Start"}
-            </Link>
-          )}
+          ) : null}
         </div>
-      ) : (
-        <div className="app-soon">
-          <h2>Nothing to practise today</h2>
-          <p>
-            There are no questions in {state.sections.join(", ")} that the app can put in front of you
-            right now. Adding a subject would give it more to work with.
-          </p>
-          <Link href="/app/subjects" className="app-btn app-btn--outline">
-            Add another subject
-          </Link>
-        </div>
-      )}
-
-      <div className="app-supply">
-        <div className="app-supply__head">
-          <span>Questions in your subjects</span>
-          <span className="app-supply__count">
-            {supply.seen} of {supply.total}
-          </span>
-        </div>
-        <div className="app-supply__bar">
-          <span
-            style={{ width: supply.total ? `${Math.round((supply.seen / supply.total) * 100)}%` : "0%" }}
-          />
-        </div>
-        <p className="app-supply__note">
-          {supply.unseen === 0 ? (
-            <>
-              You have now seen all {supply.total} questions in your subjects. From here the set is
-              revision — the ones you got wrong come back first, and answering them right pushes them
-              further away.
-            </>
-          ) : (
-            <>
-              You have seen {supply.seen}. There are <b>{supply.unseen} you have never seen</b>
-              {supply.daysOfNew > 0 ? ` — about ${supply.daysOfNew} more day${supply.daysOfNew === 1 ? "" : "s"} of new questions.` : "."}
-            </>
-          )}
-        </p>
-        {supply.unseen === 0 && (
-          <Link href="/app/subjects" className="app-btn app-btn--outline app-btn--small">
-            Add another subject
-          </Link>
-        )}
-      </div>
+      ) : null}
     </>
   );
 }

@@ -309,16 +309,17 @@
 }
 
 .app-btn {
-  min-height: 52px;
+  min-height: 56px;
   width: 100%;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 14px;
   background: var(--maroon);
   color: var(--cream);
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 16.5px;
+  font-weight: 600;
+  font-size: 17px;
   cursor: pointer;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -598,13 +599,12 @@
 .app-nav__tab {
   flex: 1;
   min-height: var(--nav-height);
-  padding: 9px 2px 8px;
+  padding: 9px 2px 11px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  border-top: 2.5px solid transparent;
+  gap: 4px;
   text-decoration: none;
   color: var(--ink-muted);
   position: relative;
@@ -612,29 +612,50 @@
 
 .app-nav__tab svg {
   stroke: currentColor;
+  transition: transform 160ms ease-out;
+}
+
+.app-nav__tab:active svg {
+  transform: scale(0.92);
 }
 
 .app-nav__tab span {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 10.5px;
   color: currentColor;
 }
 
 .app-nav__tab[aria-current="page"] {
-  border-top-color: var(--maroon);
-  background: var(--maroon-wash);
   color: var(--maroon);
 }
 
-/* The one gold dot in the whole bar. Exam is dimmed and dotless for 364 days
-   of the year; the dot is what makes the 365th unmissable, so nothing else is
-   ever allowed to wear one. */
+.app-nav__tab[aria-current="page"] span {
+  font-weight: 700;
+}
+
+/* The short rule over the active tab. */
+.app-nav__tab[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 26px;
+  height: 3px;
+  margin-left: -13px;
+  border-radius: 999px;
+  background: var(--maroon);
+}
+
+/* The one gold dot in the whole bar. Exam is dotless for 364 days of the year;
+   the dot is what makes the 365th unmissable, so nothing else is ever allowed
+   to wear one. */
 .app-nav__dot {
   position: absolute;
-  top: 7px;
-  right: 18px;
-  width: 8px;
-  height: 8px;
+  top: 8px;
+  left: 50%;
+  margin-left: 9px;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
   background: var(--gold);
   border: 1.5px solid var(--white);

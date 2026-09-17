@@ -475,7 +475,9 @@ export async function playCards(student: Student, questionIds: string[]): Promis
  * inventing the mechanics would be inventing product. A missed day simply ends
  * the streak until Umar rules on it.
  */
-export async function streakFor(uid: string): Promise<{ days: number; week: { date: string; done: boolean }[] }> {
+export async function streakFor(
+  uid: string,
+): Promise<{ days: number; best: number; week: { date: string; done: boolean }[] }> {
   const rows = (await sql`
     select (finished_at at time zone 'Asia/Kolkata')::date::text as day
     from app_sets
@@ -507,7 +509,18 @@ export async function streakFor(uid: string): Promise<{ days: number; week: { da
     return { date, done: done.has(date) };
   });
 
-  return { days, week };
+  // The longest run ever, from the same rows — "Best 11" on Home. Counted, not
+  // stored, like everything else about the streak.
+  let best = 0;
+  let run = 0;
+  let previous: string | null = null;
+  for (const day of [...done].sort()) {
+    run = previous && dayBefore(day, 1) === previous ? run + 1 : 1;
+    best = Math.max(best, run);
+    previous = day;
+  }
+
+  return { days, best: Math.max(best, days), week };
 }
 
 /**

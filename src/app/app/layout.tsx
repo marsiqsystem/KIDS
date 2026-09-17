@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./app.css";
 import "./loop.css";
 import "./learn.css";
+import "./kit.css";
 
 /**
  * The student app.

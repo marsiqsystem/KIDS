@@ -1,22 +1,22 @@
 import Link from "next/link";
+import { Check, Minus, X } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
-import { loopState, answersFor } from "@/lib/app/loop";
-import { chapterOf } from "@/lib/app/bank";
+import { loopState, answersFor, streakFor, istToday } from "@/lib/app/loop";
+import { chapterOf, sectionOf } from "@/lib/app/bank";
+import { subjectHue } from "@/lib/app/subjects";
+import { Ring, Streak } from "@/components/app/kit";
 
 /**
- * The summary. Design 3e — score first, then the truth about what is left.
+ * The summary. Redesign board 02, 2E — the score is the hero.
  *
- * The "when these come back" list is read from the schedule that was actually
- * written when each answer was recorded, not recomputed here. If the two ever
- * disagreed, the student would have been told one thing and the app would do
- * another.
+ * "Coming back" is read from the schedule that was actually written when each
+ * answer was recorded, not recomputed here. If the two ever disagreed, the
+ * student would have been told one thing and the app would do another. A
+ * question not reached is not counted against anyone — it is still unseen.
  */
 export const dynamic = "force-dynamic";
 
-const onDay = (iso: string) =>
-  new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "numeric", month: "long" }).format(
-    new Date(`${iso}T06:00:00Z`),
-  );
+const istDate = (date: Date) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(date);
 
 export default async function SummaryPage() {
   const student = await requireStudent();
@@ -25,70 +25,102 @@ export default async function SummaryPage() {
     return (
       <div className="app-frame">
         <div className="app-body">
-          <p className="app-hint">There is no set to summarise today.</p>
-          <Link href="/app" className="app-btn app-btn--outline">Back to home</Link>
+          <p className="k-line">No set today.</p>
+          <Link href="/app" className="k-btn k-btn--outline">
+            Back to Home
+          </Link>
         </div>
       </div>
     );
   }
 
-  const answers = await answersFor(student.uid);
-  const rows = state.set.questionIds.map((id) => ({ id, row: answers.get(id) ?? null }));
-  const answered = rows.filter((r) => r.row);
-  const correct = answered.filter((r) => r.row!.was_correct).length;
+  const [answers, streak] = await Promise.all([answersFor(student.uid), streakFor(student.uid)]);
+  const today = istToday();
+  const rows = state.set.questionIds.map((id) => {
+    const row = answers.get(id) ?? null;
+    return { id, row: row && istDate(row.last_answered_at) === today ? row : null };
+  });
+  const correct = rows.filter((r) => r.row?.was_correct).length;
   const { supply } = state;
+  const newToday = [...answers.values()].filter((a) => istDate(a.first_seen_at) === today).length;
 
   return (
     <div className="app-frame">
-      <div className="app-body">
-        <div className="app-summary__head">
-          <span className="app-eyebrow">Set finished · {onDay(state.set.onDate)}</span>
-          <div className="app-score">
-            <span className="app-score__n">{correct}</span>
-            <span className="app-score__of">/ {answered.length} correct</span>
-          </div>
-          <p className="app-sub">
-            {state.set.newCount} new, {state.set.questionIds.length - state.set.newCount} revision
-          </p>
+      <header className="sum-hero">
+        <div className="sum-hero__score">
+          {correct}
+          <span> / {rows.length}</span>
         </div>
-
-        <div className="app-card">
-          <h3>When these come back</h3>
+        <p className="sum-hero__line">right today</p>
+        <div className="k-pips k-pips--small k-pips--on-dark sum-hero__pips">
           {rows.map(({ id, row }, i) => (
-            <div key={id} className="app-return">
-              <span className="app-return__n">{i + 1}</span>
-              <span className="app-return__what">
-                {chapterOf(id) ?? "This question"}
-                <span className="app-return__how">
-                  {!row ? "not reached" : row.was_correct ? "right" : "wrong"}
-                </span>
-              </span>
-              <span className="app-return__when">
-                {row ? `in ${row.interval_days} days` : "still unseen"}
-              </span>
-            </div>
+            <span key={id} className={`k-pip k-pip--${!row ? "todo" : row.was_correct ? "right" : "wrong"}`}>
+              {!row ? (
+                <Minus size={16} aria-label={`${i + 1}, not reached`} />
+              ) : row.was_correct ? (
+                <Check size={19} aria-label={`${i + 1}, right`} />
+              ) : (
+                <X size={19} aria-label={`${i + 1}, not this time`} />
+              )}
+            </span>
           ))}
-          <p>
-            Questions you did not reach have not been counted against you — they are still unseen.
-          </p>
+        </div>
+      </header>
+
+      <div className="app-body sum-body">
+        <Streak
+          days={streak.days}
+          best={streak.best}
+          week={streak.week}
+          today={today}
+          note={streak.best > streak.days ? `Best ${streak.best}` : undefined}
+          showWeek={false}
+        />
+
+        <div className="k-card">
+          <div className="k-label">Coming back</div>
+          <ul className="sum-back">
+            {rows.map(({ id, row }) => {
+              const chapter = chapterOf(id) ?? sectionOf(id) ?? "Question";
+              return (
+                <li key={id}>
+                  <span className="sum-back__dot" style={{ background: subjectHue(sectionOf(id) ?? "") }} />
+                  <span className="sum-back__name" title={chapter}>
+                    {chapter}
+                  </span>
+                  {row ? (
+                    <span className={`k-chip ${row.was_correct ? "k-chip--grey" : "k-chip--again"}`}>
+                      {row.interval_days} day{row.interval_days === 1 ? "" : "s"}
+                    </span>
+                  ) : (
+                    <span className="k-chip k-chip--line">Not reached</span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        <div className="app-supply">
-          <div className="app-supply__head">
-            <span>Questions in your subjects</span>
-            <span className="app-supply__count">{supply.seen} of {supply.total}</span>
+        {supply.total > 0 ? (
+          <div className="k-card home-supply">
+            <Ring value={supply.seen} total={supply.total} small />
+            <div>
+              <p className="k-h">
+                Seen {supply.seen} of {supply.total}
+              </p>
+              {newToday > 0 ? <p className="k-line">+{newToday} today</p> : null}
+            </div>
           </div>
-          <div className="app-supply__bar">
-            <span style={{ width: supply.total ? `${Math.round((supply.seen / supply.total) * 100)}%` : "0%" }} />
-          </div>
-          <p className="app-supply__note">
-            {supply.unseen === 0
-              ? `You have seen every question in your subjects. From here the set is revision.`
-              : `${supply.unseen} you have never seen.`}
-          </p>
-        </div>
+        ) : null}
 
-        <Link href="/app" className="app-btn">Back to home</Link>
+        <div className="sum-acts">
+          <Link href="/app/learn" className="k-btn">
+            Practise a chapter
+          </Link>
+          <Link href="/app" className="k-btn k-btn--quiet sum-home">
+            Back to Home
+          </Link>
+        </div>
       </div>
     </div>
   );

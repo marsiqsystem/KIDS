@@ -132,6 +132,12 @@ export default function DeskScreen({
             <p className="mt-3 text-sm text-[#9c8c86]">
               Scan with the SET app · the code changes in <span className="font-mono text-[#e8e0dc]">{left}s</span>
             </p>
+            {/* The camera is the fast path and the typed code is the one that has
+                actually been tested end to end. An invigilator facing a student
+                whose camera will not focus should not have to work that out. */}
+            <p className="mt-1 text-sm text-[#9c8c86]">
+              If the camera will not read it, they can type the six digits instead.
+            </p>
             {state.message ? <p className="mt-2 text-xs text-[#d9b877]">{state.message}</p> : null}
           </>
         ) : (

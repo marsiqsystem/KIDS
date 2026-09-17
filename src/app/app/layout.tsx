@@ -4,6 +4,7 @@ import "./loop.css";
 import "./learn.css";
 import "./kit.css";
 import "./exam.css";
+import "./door.css";
 
 /**
  * The student app.

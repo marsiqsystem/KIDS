@@ -50,10 +50,9 @@ const UNKNOWN_ID = (uid: string): FormState => ({
   // Names nobody. A stranger typing nine digits must not learn whether they
   // guessed a real child, and a student on the wrong number needs to be told
   // how the number is built, not who owns it.
-  message:
-    `There is no student with the ID ${uid}. Check the number on your admit card — ` +
-    `the last four digits are your own, the first five belong to your centre and school.`,
-  action: { label: "My school can look up my ID", href: `/app/reset?id=${uid}` },
+  // Redesign board 03: one sentence that says what to do next.
+  message: "No student with that number. Check the 9 digits on your KIDS card.",
+  action: { label: "Ask the office", href: `/app/reset?id=${uid}` },
   uid,
 });
 
@@ -62,7 +61,7 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
   const password = String(formData.get("password") ?? "");
 
   if (uid.length !== 9) {
-    return { field: "uid", message: "Your User ID is the nine digits printed on your admit card.", uid };
+    return { field: "uid", message: "Type the 9 digits on your KIDS card.", uid };
   }
   if (!password) {
     return { field: "password", message: "Type your password.", uid };
@@ -86,20 +85,17 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
       case "unclaimed":
         return {
           field: "password",
-          message:
-            `We know ${uid} · ${result.student.name}, but no password has been set on this ` +
-            `account yet. Claim it and choose one — it takes a minute.`,
-          action: { label: "I sat SET 2026 — claim my account", href: `/app/claim?id=${uid}` },
+          message: `${firstName(result.student.name)}, this account has no password yet. Claim it first.`,
+          action: { label: "Claim your account", href: `/app/claim?id=${uid}` },
           uid,
         };
 
       case "locked":
         return {
           field: "password",
-          message:
-            `Too many wrong passwords. This account is locked for ${result.minutes} ` +
-            `${result.minutes === 1 ? "minute" : "minutes"}. Nothing has happened to your record.`,
-          action: { label: "Reset my password", href: `/app/reset?id=${uid}` },
+          // Resting, not locked out: the consequence is the app's, not the child's.
+          message: `Three wrong tries. The app rests for ${result.minutes} ${result.minutes === 1 ? "minute" : "minutes"} — or ask the office.`,
+          action: { label: "Show the office my details", href: `/app/reset?id=${uid}` },
           uid,
         };
 
@@ -110,11 +106,11 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
           // this is the fastest way to see you are typing into your sister's
           // account. The unknown-ID message above never names anyone.
           message:
-            `We know ${uid} · ${result.student.name}, but that password is wrong. ` +
+            `That password is not right for ${firstName(result.student.name)}. ` +
             (result.triesLeft > 0
-              ? `${result.triesLeft} more ${result.triesLeft === 1 ? "try" : "tries"} before the account locks for fifteen minutes.`
-              : `The account is now locked for fifteen minutes.`),
-          action: { label: "Reset my password", href: `/app/reset?id=${uid}` },
+              ? `${result.triesLeft} ${result.triesLeft === 1 ? "try" : "tries"} left before the app rests for 15 minutes.`
+              : `The app now rests for 15 minutes.`),
+          action: { label: "Forgot password", href: `/app/reset?id=${uid}` },
           uid,
         };
 
@@ -135,10 +131,10 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
   const password = String(formData.get("password") ?? "");
 
   if (uid.length !== 9) {
-    return { field: "uid", message: "Your User ID is the nine digits printed on your admit card.", uid };
+    return { field: "uid", message: "Type the 9 digits on your KIDS card.", uid };
   }
   if (!day || !month || !year) {
-    return { field: "dob", message: "Type your date of birth as it is printed on your admit card.", uid };
+    return { field: "dob", message: "Type your date of birth as day, month and year.", uid };
   }
 
   const problem = passwordProblem(password, uid);
@@ -154,8 +150,8 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
       case "already_claimed":
         return {
           field: "uid",
-          message: `${uid} · ${result.student.name} already has a password. Sign in with it.`,
-          action: { label: "Reset my password", href: `/app/reset?id=${uid}` },
+          message: "This account is already open. Sign in with your password.",
+          action: { label: "Sign in", href: `/app/sign-in?id=${uid}` },
           uid,
         };
 
@@ -165,10 +161,8 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
         // had forgotten a password.
         return {
           field: "dob",
-          message:
-            `We do not hold a date of birth for ${uid} · ${firstName(result.student.name)}, ` +
-            `so we cannot check it. Your school or the KIDS office can set your password by hand.`,
-          action: { label: "How to get it set", href: `/app/reset?id=${uid}` },
+          message: "We have no date of birth for you. The KIDS office can open your account.",
+          action: { label: "Call the office", href: `/app/reset?id=${uid}` },
           uid,
         };
 
@@ -177,10 +171,8 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
         // one field standing between a guessed ID and a child's account.
         return {
           field: "dob",
-          message:
-            "That date of birth does not match the one on the register. Type it exactly as it is " +
-            "printed on your admit card.",
-          action: { label: "It is wrong on my card", href: `/app/reset?id=${uid}` },
+          message: "That date of birth does not match. Use the date on your school records.",
+          action: { label: "Ask the office", href: `/app/reset?id=${uid}` },
           uid,
         };
 

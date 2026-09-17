@@ -1,10 +1,11 @@
 import { redirect } from "next/navigation";
-import Crest from "@/components/app/Crest";
+import { LogOut, Smartphone } from "lucide-react";
 import SignInForm from "@/components/app/SignInForm";
+import { DoorHero, Notice } from "@/components/app/door";
 import { sessionUid } from "@/lib/app/session";
 
 /**
- * The front door. Design 4a.
+ * The front door. Redesign board 03, 1B–1D.
  *
  * Never cached: it reads the session cookie to decide whether anyone should be
  * looking at it at all.
@@ -25,36 +26,23 @@ export default async function SignInPage({
 
   return (
     <div className="app-frame">
-      <Crest />
-      {moved && (
-        // Phase 0. This account was signed into on another phone, so this one
-        // fell out. Said plainly and without accusing anybody: on a shared
-        // handset it is usually a sibling, and the child reading it needs to
-        // know it happened, not to be told they did something wrong.
-        <div style={{ padding: "16px 16px 0" }}>
-          <div className="app-card app-card--gold" role="status">
-            <h3>You were signed out — this account was opened on another phone.</h3>
-            <p>
-              Your account works on one phone at a time. If that was you on your new phone, nothing
-              is wrong — sign in here again and this phone becomes the one. If it was not you,
-              sign in and change your password straight away.
-            </p>
-          </div>
+      <DoorHero title="Welcome back" line="A mission of excellence in education" />
+      {moved ? (
+        // This account was signed into on another phone, so this one fell out.
+        // A move, never a breach: on a shared handset it is usually a sibling.
+        <div className="door-notices">
+          <Notice icon={<Smartphone size={20} />} tone="gold" title="Your account is on another phone">
+            Signing in here moves it back. Not you? Change your password after.
+          </Notice>
         </div>
-      )}
-      {left && (
-        // The screen after sign-out is not a marketing page. It says the phone
-        // is clear, and then gets out of the way of the next child.
-        <div style={{ padding: "16px 16px 0" }}>
-          <div className="app-card app-card--gold" role="status">
-            <h3>Signed out. This phone is free.</h3>
-            <p>
-              Nothing of yours is left on it. Sign in whenever you want it back — your streak, your
-              record and your answers carry on from where they were.
-            </p>
-          </div>
+      ) : null}
+      {left ? (
+        <div className="door-notices">
+          <Notice icon={<LogOut size={20} />} tone="teal" title="Signed out. This phone is free.">
+            Nothing of yours is left on it. Another student can sign in now.
+          </Notice>
         </div>
-      )}
+      ) : null}
       <SignInForm initialUid={initialUid} />
     </div>
   );

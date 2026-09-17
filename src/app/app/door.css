@@ -1,0 +1,1056 @@
+/* The front door — redesign board 03.
+ *
+ * Install, sign in, claim, forgot password, register. Nothing here asks a child
+ * for anything KIDS does not already hold, and no refusal is a red banner.
+ */
+
+.door-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 34px 20px 30px;
+  text-align: center;
+  background: var(--gradient-maroon);
+  color: var(--cream);
+}
+
+.door-hero--install {
+  padding: 26px 20px 28px;
+}
+
+.door-hero__ghost {
+  position: absolute;
+  left: -30px;
+  bottom: -34px;
+  width: 150px;
+  height: 150px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.door-hero__mark {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+}
+
+.door-hero--install .door-hero__mark {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
+.door-hero__eyebrow {
+  position: relative;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.door-hero__title {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.door-hero__line {
+  position: relative;
+  margin: 7px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+}
+
+.door-hero__sub {
+  position: relative;
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--cream-muted);
+}
+
+.door-notices {
+  padding: 16px 16px 0;
+}
+
+.door-notice {
+  display: flex;
+  gap: 13px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  box-shadow: 0 8px 24px rgba(43, 26, 28, 0.08);
+}
+
+.door-notice__icon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--maroon-wash);
+  color: var(--maroon);
+}
+
+.door-notice__icon--gold {
+  background: var(--gold-wash);
+  color: #b07a1f;
+}
+
+.door-notice__icon--teal {
+  background: var(--teal-wash);
+  color: var(--teal);
+}
+
+.door-notice__icon--grey {
+  background: #ede8e4;
+  color: var(--ink-muted);
+}
+
+.door-notice__text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ------------------------------------------------------------ the bar --- */
+
+.door-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--cream-muted);
+  padding: 14px 16px;
+}
+
+.door-bar--steps {
+  padding-top: 0;
+  margin-top: -1px;
+}
+
+.door-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.door-bar__back {
+  width: 44px;
+  height: 44px;
+  margin: -10px 0 -10px -10px;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  border-radius: 999px;
+}
+
+.door-bar__title {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.door-bar__count {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.door-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.door-step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  opacity: 0.5;
+}
+
+.door-step--here,
+.door-step--done {
+  opacity: 1;
+}
+
+.door-step__n {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--cream-muted);
+  color: var(--ink-muted);
+}
+
+.door-step--here .door-step__n {
+  background: var(--maroon);
+  color: var(--white);
+}
+
+.door-step--done .door-step__n {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.door-step__label {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.door-steps--3 .door-step__label {
+  font-size: 12px;
+}
+
+.door-steps--3 .door-step:not(.door-step--here) .door-step__label {
+  display: none;
+}
+
+/* ----------------------------------------------------------- the body --- */
+
+.door-body {
+  flex: 1;
+  padding: 22px 18px calc(22px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.door-step-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.door-step-body[hidden] {
+  display: none;
+}
+
+.door-h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.door-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.door-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.door-fieldset legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.door-hint {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.door-center {
+  text-align: center;
+}
+
+.door-bottom {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.door-foot {
+  margin: 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--ink-muted);
+}
+
+.door-foot a {
+  color: var(--maroon);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ----------------------------------------------------------- controls --- */
+
+.door-uid {
+  position: relative;
+}
+
+.door-uid__face {
+  height: 60px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  font-family: var(--font-data);
+  font-size: 23px;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.door-uid:focus-within .door-uid__face {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.door-uid--bad .door-uid__face {
+  border-color: var(--maroon-tint);
+  background: var(--maroon-wash);
+}
+
+.door-uid__ghost {
+  color: var(--ink-faint);
+}
+
+.door-uid__caret {
+  display: none;
+  width: 2px;
+  height: 26px;
+  margin-left: 3px;
+  background: var(--maroon);
+  animation: door-caret 1.1s steps(1) infinite;
+}
+
+.door-uid:focus-within .door-uid__caret {
+  display: inline-block;
+}
+
+.door-uid:focus-within .door-uid__ghost {
+  display: none;
+}
+
+@keyframes door-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.door-uid__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  background: transparent;
+}
+
+.door-pass {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 0 16px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.door-pass:focus-within {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.door-pass--bad {
+  border-color: var(--maroon-tint);
+  background: var(--maroon-wash);
+}
+
+.door-pass__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.door-pass__input:focus {
+  outline: none;
+}
+
+.door-pass__input::placeholder,
+.door-input::placeholder {
+  color: var(--ink-faint);
+}
+
+.door-pass__eye {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.door-input {
+  height: 56px;
+  width: 100%;
+  padding: 0 16px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.door-input:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.door-input--bad {
+  border-color: var(--maroon-tint);
+  background: var(--maroon-wash);
+}
+
+.door-dob {
+  display: flex;
+  gap: 10px;
+}
+
+.door-dob label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+}
+
+.door-dob .door-dob__year {
+  flex: 1.4;
+}
+
+.door-dob span {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.door-box {
+  height: 60px;
+  width: 100%;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  text-align: center;
+  font-family: var(--font-data);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.door-box:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.door-box--bad {
+  border-color: var(--maroon-tint);
+  background: var(--maroon-wash);
+}
+
+.door-seg {
+  display: flex;
+  gap: 8px;
+}
+
+.door-seg__opt {
+  flex: 1;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 140ms ease-out, background-color 140ms ease-out;
+}
+
+.door-seg__opt:active {
+  transform: scale(0.97);
+}
+
+.door-seg__opt input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.door-seg__opt:has(input:focus-visible) {
+  outline: 2px solid var(--maroon);
+  outline-offset: 2px;
+}
+
+.door-seg__opt--on {
+  border-color: var(--maroon);
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+/* -------------------------------------------------------- alert, forgot --- */
+
+.door-alert {
+  display: flex;
+  gap: 11px;
+  padding: 13px 15px;
+  border-radius: 12px;
+  background: var(--maroon-wash);
+  border: 1px solid var(--maroon-tint);
+}
+
+.door-alert--gold {
+  background: var(--gold-wash);
+  border-color: var(--gold-light);
+}
+
+.door-alert__icon {
+  flex: none;
+  margin-top: 1px;
+  color: var(--maroon);
+}
+
+.door-alert__text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--maroon-deep);
+}
+
+.door-alert a,
+.door-alert__link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.door-forgot {
+  align-self: center;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  margin-top: -6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+.door-forgot--weight {
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--maroon-wash);
+}
+
+.door-first {
+  margin-top: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.door-rule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.door-rule::before,
+.door-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--cream-muted);
+}
+
+.door-row--main {
+  border: 1.5px solid var(--maroon-tint);
+}
+
+.door-row__icon,
+.door-row__chev {
+  flex: none;
+  color: var(--maroon);
+}
+
+.door-who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+}
+
+.door-who__uid {
+  flex: 1;
+  font-family: var(--font-data);
+  font-size: 19px;
+  letter-spacing: 0.06em;
+}
+
+.door-who__change {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--maroon-wash);
+  color: var(--maroon);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------ forgot password card --- */
+
+.kcard {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--cream-surface);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(43, 26, 28, 0.1);
+}
+
+.kcard__band {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--maroon);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.kcard__body {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.kcard__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kcard__uid {
+  font-family: var(--font-data);
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: var(--maroon);
+}
+
+.kcard__value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.kcard__rule {
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.kcard__foot {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+.door-email {
+  font-size: 14px;
+  word-break: break-all;
+}
+
+/* ------------------------------------------------------- register faces --- */
+
+.door-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 16px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink-muted);
+}
+
+.door-search:focus-within {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.12);
+}
+
+.door-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.door-search input:focus {
+  outline: none;
+}
+
+.door-chosen {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--teal-wash);
+  color: #137565;
+}
+
+.door-chosen span {
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+}
+
+.door-chosen span span {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.door-schools {
+  display: grid;
+  gap: 12px;
+}
+
+.door-schools__centre {
+  margin: 4px 0 6px;
+}
+
+.door-school {
+  width: 100%;
+  min-height: 52px;
+  margin-bottom: 6px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.door-school--on {
+  border-color: var(--maroon);
+  background: var(--maroon-wash);
+}
+
+.door-summary {
+  margin: 10px 0 0;
+  display: grid;
+  gap: 9px;
+}
+
+.door-summary div {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.door-summary dt {
+  width: 84px;
+  flex: none;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
+.door-summary dd {
+  flex: 1;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* The one screen before sign-in that uses the night-to-dawn sky: waiting is the
+   UDAAN moment. The crest and stars breathe; nothing spins, nothing counts. */
+.door-sky {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.door-sky__top {
+  padding: 36px 20px 30px;
+  text-align: center;
+  background: var(--gradient-sky);
+  color: var(--cream);
+}
+
+.door-sky__crest {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.door-sky__crest img {
+  display: block;
+}
+
+.door-sky__star {
+  position: absolute;
+  color: var(--star-gold);
+  font-size: 15px;
+  animation: k-breathe 2.4s ease-in-out infinite;
+}
+
+.door-sky__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--cream);
+}
+
+.door-sky__line {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #cfe6e2;
+}
+
+.door-approved {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.door-approved__top {
+  padding: 30px 20px 26px;
+  text-align: center;
+  background: var(--gradient-maroon);
+  color: var(--cream);
+}
+
+.door-approved__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 27px;
+  color: var(--cream);
+}
+
+.door-issued {
+  padding: 20px 16px;
+  border-radius: 16px;
+  border: 2px solid var(--gold);
+  background: var(--cream-surface);
+  text-align: center;
+}
+
+.door-issued--plain {
+  border-width: 1.5px;
+  display: grid;
+  gap: 10px;
+}
+
+.door-issued__uid {
+  margin-top: 8px;
+  font-family: var(--font-data);
+  font-size: 34px;
+  letter-spacing: 0.06em;
+  color: var(--maroon);
+}
+
+.door-issued__write {
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--maroon-deep);
+}
+
+.door-quote {
+  margin: 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: var(--white);
+}
+
+.door-quote blockquote {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------- install --- */
+
+.door-steps-title {
+  margin-bottom: 10px;
+}
+
+.inst {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 9px;
+}
+
+.inst__step {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.inst__step--warn {
+  align-items: flex-start;
+  background: var(--gold-wash);
+  border-color: var(--gold-light);
+}
+
+.inst__n {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--maroon);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.inst__phone {
+  margin-top: 8px;
+  padding: 10px 11px;
+  border-radius: 9px;
+  background: var(--white);
+  border: 1px solid #e8decb;
+}
+
+.inst__phone p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+}
+
+.inst__phone div {
+  display: flex;
+  gap: 8px;
+}
+
+.inst__phone span {
+  flex: 1;
+  height: 30px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-size: 11.5px;
+  background: var(--cream-muted);
+  color: var(--ink-muted);
+}
+
+.inst__phone .inst__go {
+  background: var(--maroon);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.inst__ios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+
+.inst__ios > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  background: var(--cream-surface);
+  text-align: center;
+  font-size: 13px;
+}
+
+.inst__ios-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  display: grid;
+  place-items: center;
+  color: #1e4da1;
+}
+
+.door-steps--3 .door-step {
+  flex: none;
+}
+
+.door-steps--3 .door-step--here {
+  flex: 1;
+}

@@ -2,56 +2,76 @@
 
 import Link from "next/link";
 import { useActionState, useState } from "react";
+import { ChevronRight, IdCard, UserPlus } from "lucide-react";
 import UidField from "./UidField";
 import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
 import DeviceField from "./DeviceField";
 import { signInAction, type FormState } from "@/app/app/actions";
 
+/**
+ * Sign in. Redesign board 03, 1B and 1C.
+ *
+ * The two doors below the form are rows, not links, each with one line saying
+ * whose door it is. Claim is emphasised: nearly everyone who opens the app is
+ * already on the register.
+ */
 export default function SignInForm({ initialUid = "" }: { initialUid?: string }) {
   const [state, formAction, pending] = useActionState<FormState, FormData>(signInAction, {});
-  const [uid, setUid] = useState(initialUid);
+  const [uid, setUid] = useState(state.uid ?? initialUid);
+  const tried = Boolean(state.message);
 
   return (
-    <form action={formAction} className="app-body">
+    <form action={formAction} className="door-body">
       <DeviceField />
-      <div className="app-field">
-        <label className="app-label" htmlFor="uid-entry">
-          User ID · 9 digits from your admit card
+
+      <div className="door-field">
+        <label className="k-label" htmlFor="uid-entry">
+          User ID
         </label>
         <UidField value={uid} onChange={setUid} invalid={state.field === "uid"} autoFocus={!initialUid} />
-        <span className="app-hint">
-          District · Centre · School · You. Grouped the way it is printed, so you can check it a piece
-          at a time.
-        </span>
+        <span className="door-hint">The 9-digit number on your KIDS card.</span>
       </div>
 
-      <div className="app-field">
-        <label className="app-label">Password</label>
+      <div className="door-field">
+        <label className="k-label">Password</label>
         <PasswordField invalid={state.field === "password"} />
       </div>
 
       <FormAlert state={state} />
 
-      <button type="submit" className="app-btn" disabled={pending}>
+      <button type="submit" className="k-btn" disabled={pending}>
         {pending ? "Signing in…" : "Sign in"}
       </button>
 
-      <div className="app-or">
-        <span>or</span>
+      <Link
+        href={uid.length === 9 ? `/app/reset?id=${uid}` : "/app/reset"}
+        className={`door-forgot${tried ? " door-forgot--weight" : ""}`}
+      >
+        Forgot password
+      </Link>
+
+      <div className="door-first">
+        <div className="door-rule">
+          <span>First time</span>
+        </div>
+        <Link href={uid.length === 9 ? `/app/claim?id=${uid}` : "/app/claim"} className="k-row door-row--main">
+          <IdCard size={22} className="door-row__icon" aria-hidden="true" />
+          <span className="k-row__text">
+            <span className="k-row__title">Claim your account</span>
+            <span className="k-row__line">You already have a KIDS number.</span>
+          </span>
+          <ChevronRight size={18} className="door-row__chev" aria-hidden="true" />
+        </Link>
+        <Link href="/app/register" className="k-row">
+          <UserPlus size={22} className="k-row__chev" aria-hidden="true" />
+          <span className="k-row__text">
+            <span className="k-row__title">Register</span>
+            <span className="k-row__line">New to KIDS.</span>
+          </span>
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
+        </Link>
       </div>
-
-      <Link href={uid.length === 9 ? `/app/claim?id=${uid}` : "/app/claim"} className="app-btn app-btn--outline">
-        I sat SET 2026 — claim my account
-      </Link>
-
-      <Link href="/app/register" className="app-btn app-btn--quiet">
-        I am new to KIDS — register
-      </Link>
-
-      <p className="app-foot">
-        Forgot your password? <Link href={uid.length === 9 ? `/app/reset?id=${uid}` : "/app/reset"}>Your school can reset it</Link>
-      </p>
     </form>
   );
 }

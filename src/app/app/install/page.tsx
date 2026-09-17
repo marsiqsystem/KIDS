@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import Crest from "@/components/app/Crest";
+import { Download, Share, SquarePlus } from "lucide-react";
 import { apkUrl } from "@/lib/app/app-version";
+import { OFFICE } from "@/components/app/door";
 
 /**
- * Where a student is sent to get the app. Design: none — this is a page nobody
- * asked for, written because 65 children cannot install something that is not
- * anywhere.
+ * Where a family is sent to get the app. Redesign board 03, 1A.
  *
- * Public on purpose. Every other page under /app is behind the door; this one
- * is the door's address, and it is what goes in a WhatsApp message to sixty-five
- * families. It carries no student's name and nothing to sign in with.
+ * Public on purpose — it is the address that goes in a WhatsApp message — and it
+ * carries no student's name and nothing to sign in with. The Android warning is
+ * drawn, not described, with the words Android actually shows, because the
+ * reader has just been told this file may harm their phone.
  *
- * Deliberately plain. The reader is fourteen, on a ₹8,000 handset, on mobile
- * data, and has been told by Android that this file may harm their phone.
- * Anything clever here is weight they pay for.
+ * The board prints a file size and a version under the button. Neither is
+ * known here (the APK lives wherever KIDS_APK_URL points), so neither is drawn.
+ * The download button hides entirely when no link is configured.
  */
 
 export const metadata: Metadata = {
   title: "Install the SET app · KIDS",
-  description: "How to install the KIDS Students Evaluation Test app.",
+  description: "How to install the KIDS app.",
   robots: { index: false, follow: false },
 };
 
@@ -32,73 +33,84 @@ export default function InstallPage() {
 
   return (
     <div className="app-frame">
-      <Crest />
-      <div style={{ padding: "16px" }}>
-        <div className="app-card">
-          <h2>Get the KIDS app</h2>
-          <p>
-            For the Class X coaching programme. Your classes, your daily questions and your SET
-            result all live in it.
-          </p>
-        </div>
+      <header className="door-hero door-hero--install">
+        <Image src="/kids-icon.png" alt="" width={140} height={140} className="door-hero__ghost" aria-hidden="true" />
+        <Image src="/kids-icon.png" alt="KIDS" width={56} height={56} className="door-hero__mark" priority />
+        <div className="door-hero__eyebrow">Project UDAAN</div>
+        <h1 className="door-hero__title">Get the KIDS app</h1>
+        <p className="door-hero__sub">Five questions a day. Free, for KIDS students.</p>
+      </header>
 
-        <div className="app-card app-card--cream" style={{ marginTop: 12 }}>
-          <h3>On an Android phone</h3>
-          {apk ? (
-            <>
-              <p>Tap the button, then open the file when it finishes downloading.</p>
-              <p style={{ marginTop: 12 }}>
-                {/*
-                  A plain link, not a fetch or a script. It is a 6 MB file on a
-                  phone that may be on 4G in a lift, and the browser's own
-                  download manager handles a dropped connection far better than
-                  anything we would write.
-                */}
-                <a className="app-btn" href={apk} download>
-                  Download the app
-                </a>
-              </p>
-            </>
-          ) : (
+      <div className="door-body">
+        {apk ? (
+          // A plain link: the browser's own download manager handles a dropped
+          // connection far better than anything we would write.
+          <a className="k-btn k-btn--gold" href={apk} download>
+            <Download size={20} aria-hidden="true" /> Download for Android
+          </a>
+        ) : (
+          <div className="door-alert door-alert--gold">
             <p>
-              The download is not ready yet. Ask the KIDS office for the file — they will send it
-              to you.
+              The download is not ready yet. Ask the KIDS office for the file:{" "}
+              <a href={`tel:${OFFICE.tel}`}>{OFFICE.phone}</a>
             </p>
-          )}
-          <p style={{ marginTop: 12 }}>
-            <strong>Android will warn you.</strong> It says something like &ldquo;this type of file
-            can harm your device&rdquo; and asks whether to allow installing from this source. That
-            is normal and it is expected — it says that about anything not from the Play Store, and
-            the KIDS app is not on the Play Store. Tap <strong>Allow</strong>, then{" "}
-            <strong>Install</strong>.
-          </p>
+          </div>
+        )}
+
+        <div>
+          <div className="k-label door-steps-title">Android · three steps</div>
+          <ol className="inst">
+            <li className="inst__step">
+              <span className="inst__n">1</span>
+              <span>Tap the file you downloaded.</span>
+            </li>
+            <li className="inst__step inst__step--warn">
+              <span className="inst__n">2</span>
+              <div>
+                <span>
+                  Android may warn you. Tap <strong>Install anyway</strong>.
+                </span>
+                <div className="inst__phone" aria-hidden="true">
+                  <p>&ldquo;This type of file can harm your device.&rdquo;</p>
+                  <div>
+                    <span>Cancel</span>
+                    <span className="inst__go">Install anyway</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li className="inst__step">
+              <span className="inst__n">3</span>
+              <span>Open the app and sign in.</span>
+            </li>
+          </ol>
         </div>
 
-        <div className="app-card app-card--cream" style={{ marginTop: 12 }}>
-          <h3>On an iPhone</h3>
-          <p>
-            There is no app to install — Apple does not allow it outside its own store. Open{" "}
-            <strong>www.kidskolkata.org/app</strong> in Safari, tap the <strong>Share</strong>{" "}
-            button at the bottom, and choose <strong>Add to Home Screen</strong>. It then opens
-            like an app, with its own icon.
-          </p>
+        <div className="k-card">
+          <div className="k-label">On an iPhone</div>
+          <div className="inst__ios">
+            <div>
+              <span className="inst__ios-icon">
+                <Share size={22} aria-hidden="true" />
+              </span>
+              <span>
+                Tap <strong>Share</strong> in Safari
+              </span>
+            </div>
+            <div>
+              <span className="inst__ios-icon">
+                <SquarePlus size={22} aria-hidden="true" />
+              </span>
+              <span>
+                <strong>Add to Home Screen</strong>
+              </span>
+            </div>
+          </div>
+          <p className="door-hint">Open www.kidskolkata.org/app in Safari first.</p>
         </div>
 
-        <div className="app-card app-card--gold" style={{ marginTop: 12 }}>
-          <h3>Then sign in</h3>
-          <p>
-            Open the app and tap <strong>I sat SET 2026 — claim my account</strong>. You need your{" "}
-            <strong>nine-digit User ID</strong> from your admit card, and your{" "}
-            <strong>date of birth</strong>. Then you choose your own password.
-          </p>
-          <p style={{ marginTop: 8 }}>
-            If it will not accept your date of birth, the register does not have it. That is not
-            your mistake — tell KIDS and they will give you a password instead.
-          </p>
-        </div>
-
-        <p style={{ marginTop: 16, fontSize: "0.8rem", opacity: 0.7 }}>
-          Already installed? <Link href="/app">Open the app</Link>.
+        <p className="door-foot">
+          Already installed? <Link href="/app">Open the app</Link>
         </p>
       </div>
     </div>

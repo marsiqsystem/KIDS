@@ -18,18 +18,18 @@ export default function FirstPassword({ staff }: { staff: Staff }) {
   const [state, action] = useActionState(changeOwnPassword, {});
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#141010] px-6 py-12">
+    <main className="flex min-h-screen items-center justify-center bg-[#FDFBF7] px-6 py-12">
       <div className={`w-full max-w-sm rounded-lg p-6 ${SURFACE}`}>
-        <div className="mb-4 flex items-center gap-2 text-[#8a6f66]">
+        <div className="mb-4 flex items-center gap-2 text-[#7B1E2B]">
           <ShieldCheck className="h-4 w-4" aria-hidden />
-          <h1 className="text-sm font-bold tracking-wide text-[#e8e0dc]">
+          <h1 className="text-sm font-bold tracking-wide text-[#2B1A1C]">
             Choose your own password
           </h1>
         </div>
 
-        <p className="mb-5 text-sm text-[#9c8c86]">
+        <p className="mb-5 text-sm text-[#6B5B5D]">
           Welcome, {staff.full_name}. You are signed in as{" "}
-          <span className="font-mono text-[#c9b8b2]">{staff.staff_id}</span>. The password you were
+          <span className="font-mono text-[#4A3A3C]">{staff.staff_id}</span>. The password you were
           given was seen by whoever gave it to you, so please replace it now.
         </p>
 

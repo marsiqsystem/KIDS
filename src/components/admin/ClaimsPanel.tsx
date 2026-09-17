@@ -43,7 +43,7 @@ export default function ClaimsPanel({
         <h2 className="mb-2 text-sm font-bold">By school · lowest first</h2>
         <div className={`overflow-x-auto rounded ${SURFACE}`}>
           <table className="w-full text-left text-xs">
-            <thead className="text-[#6b5c57]">
+            <thead className="text-[#6B5B5D]">
               <tr>
                 <th className="px-4 py-2 font-semibold">School</th>
                 <th className="px-4 py-2 font-semibold">Centre</th>
@@ -54,23 +54,23 @@ export default function ClaimsPanel({
                 <th className="px-4 py-2" />
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#2a2321] tabular-nums">
+            <tbody className="divide-y divide-[#F2E9DA] tabular-nums">
               {schools.map((s) => (
                 <tr key={`${s.centre_code}|${s.school_code}`}>
-                  <td className="px-4 py-2 text-[#e8e0dc]">{s.school_name}</td>
-                  <td className="px-4 py-2 font-mono text-[#6b5c57]">{s.centre_code}</td>
-                  <td className="px-4 py-2 text-right text-[#9c8c86]">{n(s.enrolled)}</td>
-                  <td className="px-4 py-2 text-right text-[#e8e0dc]">
-                    {n(s.claimed)} <span className="text-[#6b5c57]">· {pct(s.claimed, s.enrolled)}</span>
+                  <td className="px-4 py-2 text-[#2B1A1C]">{s.school_name}</td>
+                  <td className="px-4 py-2 font-mono text-[#6B5B5D]">{s.centre_code}</td>
+                  <td className="px-4 py-2 text-right text-[#6B5B5D]">{n(s.enrolled)}</td>
+                  <td className="px-4 py-2 text-right text-[#2B1A1C]">
+                    {n(s.claimed)} <span className="text-[#6B5B5D]">· {pct(s.claimed, s.enrolled)}</span>
                   </td>
-                  <td className="px-4 py-2 text-right text-[#9c8c86]">{s.issued ? n(s.issued) : "—"}</td>
-                  <td className={`px-4 py-2 text-right ${s.locked_out ? "text-[#d9b877]" : "text-[#6b5c57]"}`}>
+                  <td className="px-4 py-2 text-right text-[#6B5B5D]">{s.issued ? n(s.issued) : "—"}</td>
+                  <td className={`px-4 py-2 text-right ${s.locked_out ? "text-[#8A6D1F]" : "text-[#6B5B5D]"}`}>
                     {s.locked_out ? n(s.locked_out) : "—"}
                   </td>
                   <td className="px-4 py-2 text-right">
                     <Link
                       href={`/admin?tab=claims&school=${encodeURIComponent(`${s.centre_code}|${s.school_code}`)}`}
-                      className="text-[#c9b8b2] underline-offset-2 hover:underline"
+                      className="text-[#4A3A3C] underline-offset-2 hover:underline"
                     >
                       Open
                     </Link>
@@ -87,10 +87,10 @@ export default function ClaimsPanel({
 
 function Figure({ label, value, note, warn }: { label: string; value: string; note?: string; warn?: boolean }) {
   return (
-    <div className="bg-[#1a1514] p-4">
-      <p className={`font-mono text-xl tabular-nums ${warn ? "text-[#d9b877]" : "text-[#e8e0dc]"}`}>{value}</p>
-      <p className="mt-1 text-xs text-[#9c8c86]">{label}</p>
-      {note ? <p className="text-xs text-[#6b5c57]">{note}</p> : null}
+    <div className="bg-[#FFFFFF] p-4">
+      <p className={`font-mono text-xl tabular-nums ${warn ? "text-[#8A6D1F]" : "text-[#2B1A1C]"}`}>{value}</p>
+      <p className="mt-1 text-xs text-[#6B5B5D]">{label}</p>
+      {note ? <p className="text-xs text-[#6B5B5D]">{note}</p> : null}
     </div>
   );
 }
@@ -101,14 +101,14 @@ function SchoolDetail({ school, unclaimed }: { school: SchoolClaims; unclaimed: 
 
   return (
     <section className={`rounded ${SURFACE}`}>
-      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#2a2321] px-5 py-3">
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#F2E9DA] px-5 py-3">
         <div>
           <h3 className="text-sm font-bold">{school.school_name}</h3>
-          <p className="text-xs text-[#6b5c57]">
+          <p className="text-xs text-[#6B5B5D]">
             {n(unclaimed.length)} not yet on the app · {n(lockedOut)} locked out
           </p>
         </div>
-        <Link href="/admin?tab=claims" className="ml-auto text-xs text-[#6b5c57] hover:text-[#c9b8b2]">
+        <Link href="/admin?tab=claims" className="ml-auto text-xs text-[#6B5B5D] hover:text-[#4A3A3C]">
           Close
         </Link>
       </header>
@@ -132,11 +132,11 @@ function SchoolDetail({ school, unclaimed }: { school: SchoolClaims; unclaimed: 
               <button
                 type="submit"
                 disabled={pending}
-                className="rounded bg-[#8a6f66] px-4 py-2 text-sm font-semibold text-[#141010] disabled:opacity-50"
+                className="rounded bg-[#7B1E2B] px-4 py-2 text-sm font-semibold text-[#FDFBF7] disabled:opacity-50"
               >
                 {pending ? "Issuing…" : `Open ${Math.min(lockedOut, 60)} locked-out accounts and print a sheet`}
               </button>
-              <p className="mt-2 text-xs text-[#6b5c57]">
+              <p className="mt-2 text-xs text-[#6B5B5D]">
                 These children have no date of birth on the register, so they cannot claim by
                 themselves. The sheet goes to the class teacher; each child must choose their own
                 password the first time they sign in.
@@ -147,13 +147,13 @@ function SchoolDetail({ school, unclaimed }: { school: SchoolClaims; unclaimed: 
           ) : null}
 
           <table className="w-full text-left text-xs">
-            <tbody className="divide-y divide-[#2a2321]">
+            <tbody className="divide-y divide-[#F2E9DA]">
               {unclaimed.map((u) => (
                 <tr key={u.uid}>
-                  <td className="py-1.5 font-mono text-[#c9b8b2]">{u.uid}</td>
-                  <td className="py-1.5 text-[#e8e0dc]">{u.name}</td>
-                  <td className="py-1.5 text-[#9c8c86]">{u.stream ? `${u.class} · ${u.stream}` : u.class}</td>
-                  <td className="py-1.5 text-[#6b5c57]">{u.has_dob ? "Can claim with date of birth" : "Locked out"}</td>
+                  <td className="py-1.5 font-mono text-[#4A3A3C]">{u.uid}</td>
+                  <td className="py-1.5 text-[#2B1A1C]">{u.name}</td>
+                  <td className="py-1.5 text-[#6B5B5D]">{u.stream ? `${u.class} · ${u.stream}` : u.class}</td>
+                  <td className="py-1.5 text-[#6B5B5D]">{u.has_dob ? "Can claim with date of birth" : "Locked out"}</td>
                   <td className="py-1.5 text-right">
                     <RowAction action={resetStudentPassword} fields={{ uid: u.uid }}>
                       One password
@@ -189,11 +189,11 @@ function Sheet({ school, rows, message }: { school: string; rows: IssuedSheetRow
                               background: #fff !important; color: #000 !important; }
         }
       `}</style>
-      <p className="text-sm text-[#d9b877] print:hidden">{message}</p>
+      <p className="text-sm text-[#8A6D1F] print:hidden">{message}</p>
       <button
         type="button"
         onClick={() => window.print()}
-        className="inline-flex items-center gap-2 rounded bg-[#8a6f66] px-4 py-2 text-sm font-semibold text-[#141010] print:hidden"
+        className="inline-flex items-center gap-2 rounded bg-[#7B1E2B] px-4 py-2 text-sm font-semibold text-[#FDFBF7] print:hidden"
       >
         <Printer className="h-4 w-4" aria-hidden />
         Print this sheet
@@ -201,14 +201,14 @@ function Sheet({ school, rows, message }: { school: string; rows: IssuedSheetRow
 
       <div>
         <h3 className="text-sm font-bold print:text-black">KIDS · SET app sign-in · {school}</h3>
-        <p className="text-xs text-[#9c8c86] print:text-black">
+        <p className="text-xs text-[#6B5B5D] print:text-black">
           Open the SET app, choose Sign in, and type the User ID and password below. The app will ask
           each student to choose their own password straight away. Keep this sheet private.
         </p>
       </div>
       <table className="w-full border-collapse text-left text-sm print:text-black">
         <thead>
-          <tr className="border-b border-[#3a2f2c] print:border-black">
+          <tr className="border-b border-[#E3D6C4] print:border-black">
             <th className="py-1.5 pr-4 font-semibold">User ID</th>
             <th className="py-1.5 pr-4 font-semibold">Name</th>
             <th className="py-1.5 pr-4 font-semibold">Class</th>
@@ -217,7 +217,7 @@ function Sheet({ school, rows, message }: { school: string; rows: IssuedSheetRow
         </thead>
         <tbody>
           {rows.map((r) => (
-            <tr key={r.uid} className="border-b border-[#2a2321] print:border-gray-400">
+            <tr key={r.uid} className="border-b border-[#F2E9DA] print:border-gray-400">
               <td className="py-1.5 pr-4 font-mono">{r.uid}</td>
               <td className="py-1.5 pr-4">{r.name}</td>
               <td className="py-1.5 pr-4">{r.class}</td>

@@ -57,7 +57,7 @@ export function ExamsPanel({
       <section>
         <div className="mb-2 flex items-baseline justify-between">
           <h2 className="text-sm font-bold">Phase 2 and mocks</h2>
-          <Link href="/admin/desk" className="text-xs text-[#c9b8b2] underline-offset-2 hover:underline">
+          <Link href="/admin/desk" className="text-xs text-[#4A3A3C] underline-offset-2 hover:underline">
             Open the exam desks →
           </Link>
         </div>
@@ -71,16 +71,16 @@ export function ExamsPanel({
       <NewMock />
 
       <section>
-        <h2 className="mb-2 text-sm font-bold text-[#9c8c86]">Phase 1 · sat 19 July 2026</h2>
+        <h2 className="mb-2 text-sm font-bold text-[#6B5B5D]">Phase 1 · sat 19 July 2026</h2>
         <div className={`overflow-x-auto rounded ${SURFACE}`}>
           <table className="w-full text-left text-xs">
-            <tbody className="divide-y divide-[#2a2321] tabular-nums">
+            <tbody className="divide-y divide-[#F2E9DA] tabular-nums">
               {phase1.map((p) => (
                 <tr key={p.id}>
-                  <td className="px-4 py-2 text-[#e8e0dc]">{p.name}</td>
-                  <td className="px-4 py-2 text-[#9c8c86]">/{p.max_marks}</td>
-                  <td className="px-4 py-2 text-[#9c8c86]">{n(p.results)} marked</td>
-                  <td className="px-4 py-2 text-[#6b5c57]">{p.counts_for_award ? "Counts for the award" : "Not in the award"}</td>
+                  <td className="px-4 py-2 text-[#2B1A1C]">{p.name}</td>
+                  <td className="px-4 py-2 text-[#6B5B5D]">/{p.max_marks}</td>
+                  <td className="px-4 py-2 text-[#6B5B5D]">{n(p.results)} marked</td>
+                  <td className="px-4 py-2 text-[#6B5B5D]">{p.counts_for_award ? "Counts for the award" : "Not in the award"}</td>
                 </tr>
               ))}
             </tbody>
@@ -117,71 +117,71 @@ function PaperCard({
 
   return (
     <article className={`rounded ${SURFACE}`}>
-      <header className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#2a2321] px-5 py-3">
+      <header className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-[#F2E9DA] px-5 py-3">
         <h3 className="text-sm font-bold">{p.name}</h3>
-        <span className="font-mono text-xs text-[#6b5c57]">{p.code}</span>
-        <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${p.kind === "mock" ? "bg-[#23262e] text-[#9fb0d9]" : "bg-[#2a2220] text-[#c9b8b2]"}`}>
+        <span className="font-mono text-xs text-[#6B5B5D]">{p.code}</span>
+        <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${p.kind === "mock" ? "bg-[#E9EEF8] text-[#1E4DA1]" : "bg-[#FBF7EF] text-[#4A3A3C]"}`}>
           {p.kind === "mock" ? "Mock · counts nowhere" : p.counts_for_award ? "Live · counts for the award" : "Live"}
         </span>
-        <span className="ml-auto text-xs text-[#9c8c86]">
+        <span className="ml-auto text-xs text-[#6B5B5D]">
           {scheduled ? `Opens ${ist(p.starts_at)} · ${p.duration_minutes} min` : "Not scheduled"}
         </span>
       </header>
 
       <div className="space-y-4 px-5 py-4">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-[#6b5c57]">Questions loaded:</span>
+          <span className="text-[#6B5B5D]">Questions loaded:</span>
           {CLASSES.map((c) => (
             <span
               key={c}
-              className={`rounded px-1.5 py-0.5 font-mono ${p.loaded.includes(c) ? "bg-[#1c2a24] text-[#8fbfae]" : "bg-[#2a1c1c] text-[#d98b8b]"}`}
+              className={`rounded px-1.5 py-0.5 font-mono ${p.loaded.includes(c) ? "bg-[#E6F5F2] text-[#137565]" : "bg-[#FBE9EA] text-[#B22234]"}`}
             >
               {c}
             </span>
           ))}
           {!allLoaded ? (
-            <span className="text-[#d9b877]">
+            <span className="text-[#8A6D1F]">
               A class without questions sees &ldquo;no paper is open&rdquo;, whatever the date says.
             </span>
           ) : null}
         </div>
         {p.sets.length > 0 ? (
-          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#9c8c86]">
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#6B5B5D]">
             {p.sets.map((x) => (
               <li key={x.code}>
-                <span className="font-mono text-[#c9b8b2]">{x.code}</span> · {x.question_count} questions
+                <span className="font-mono text-[#4A3A3C]">{x.code}</span> · {x.question_count} questions
               </li>
             ))}
           </ul>
         ) : (
-          <p className="text-xs text-[#6b5c57]">
+          <p className="text-xs text-[#6B5B5D]">
             Questions are loaded from a file on the office laptop, never from GitHub:{" "}
             <span className="font-mono">scripts/load-question-set.ts</span>.
           </p>
         )}
 
         {locked ? (
-          <p className="text-xs text-[#9c8c86]">{n(p.attempts)} students have started this paper, so its window can no longer move.</p>
+          <p className="text-xs text-[#6B5B5D]">{n(p.attempts)} students have started this paper, so its window can no longer move.</p>
         ) : (
           <form action={action} className="grid grid-cols-2 gap-3 sm:grid-cols-5">
             <input type="hidden" name="paperId" value={p.id} />
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Date</span>
+              <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Date</span>
               <input type="date" name="date" defaultValue={startIst} className={INPUT} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Paper opens (IST)</span>
+              <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Paper opens (IST)</span>
               <input type="time" name="time" defaultValue={timeIst} className={INPUT} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Minutes</span>
+              <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Minutes</span>
               <input type="number" name="duration" min={5} max={240} defaultValue={p.duration_minutes ?? 60} className={INPUT} />
             </label>
             <label className="block">
-              <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Check-in opens (min before)</span>
+              <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Check-in opens (min before)</span>
               <input type="number" name="lead" min={0} max={180} defaultValue={lead} className={INPUT} />
             </label>
-            <label className="flex items-end gap-2 pb-2 text-xs text-[#c9b8b2]">
+            <label className="flex items-end gap-2 pb-2 text-xs text-[#4A3A3C]">
               <input type="checkbox" name="checkin" defaultChecked={p.requires_checkin} />
               Scan in at a centre first
             </label>
@@ -217,12 +217,12 @@ function Invigilators({
   const unstaffed = centres.filter((c) => !staffed.has(c.centre_code));
 
   return (
-    <div className="border-t border-[#2a2321] pt-4">
-      <h4 className="text-xs font-semibold text-[#9c8c86]">
+    <div className="border-t border-[#F2E9DA] pt-4">
+      <h4 className="text-xs font-semibold text-[#6B5B5D]">
         Desks · {staffed.size} of {centres.length} centres have an invigilator
       </h4>
       {unstaffed.length > 0 && unstaffed.length < centres.length ? (
-        <p className="mt-1 text-xs text-[#d9b877]">
+        <p className="mt-1 text-xs text-[#8A6D1F]">
           No one yet at {unstaffed.map((c) => c.centre_code).join(", ")}. An admin can run any desk meanwhile.
         </p>
       ) : null}
@@ -230,9 +230,9 @@ function Invigilators({
       {p.invigilators.length > 0 ? (
         <ul className="mt-2 flex flex-wrap gap-2">
           {p.invigilators.map((i) => (
-            <li key={`${i.centre_code}|${i.staff_id}`} className="flex items-center gap-1 rounded border border-[#3a2f2c] px-2 py-1 text-xs">
-              <span className="font-mono text-[#6b5c57]">{i.centre_code}</span>
-              <span className="text-[#c9b8b2]">{i.full_name}</span>
+            <li key={`${i.centre_code}|${i.staff_id}`} className="flex items-center gap-1 rounded border border-[#E3D6C4] px-2 py-1 text-xs">
+              <span className="font-mono text-[#6B5B5D]">{i.centre_code}</span>
+              <span className="text-[#4A3A3C]">{i.full_name}</span>
               <RowAction
                 action={unassignInvigilatorAction}
                 fields={{ paperId: p.id, centre: i.centre_code, staffId: i.staff_id }}
@@ -274,14 +274,14 @@ function NewMock() {
   return (
     <section className={`rounded p-5 ${SURFACE}`}>
       <h2 className="text-sm font-bold">New mock test</h2>
-      <p className="mt-1 max-w-3xl text-xs text-[#6b5c57]">
+      <p className="mt-1 max-w-3xl text-xs text-[#6B5B5D]">
         Sat, marked and shown to the student exactly like the real paper, and counted in no award and
         no total. The November full-size rehearsal is one of these.
       </p>
       <form action={action} className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-[2fr_1fr_auto]">
         <Field label="Name students will see" name="name" placeholder="Phase 2 rehearsal" />
         <Field label="Marks" name="maxMarks" type="number" defaultValue="100" />
-        <label className="flex items-end gap-2 pb-2 text-xs text-[#c9b8b2]">
+        <label className="flex items-end gap-2 pb-2 text-xs text-[#4A3A3C]">
           <input type="checkbox" name="checkin" defaultChecked />
           Scan in at a centre
         </label>
@@ -315,7 +315,7 @@ export function ResultsPanel({ papers, award }: { papers: AdminPaper[]; award: A
         {papers.map((p) => (
           <PaperResults key={p.id} p={p} />
         ))}
-        <p className="pt-1 text-xs text-[#6b5c57]">
+        <p className="pt-1 text-xs text-[#6B5B5D]">
           For a ceremony, the hold-to-publish stage screen at <span className="font-mono">/stage</span> still works for Phase 1.
         </p>
       </section>
@@ -335,7 +335,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <div className="min-w-0 flex-1">
           <h3 className="text-sm font-bold">{p.name}</h3>
-          <p className="text-xs text-[#6b5c57]">
+          <p className="text-xs text-[#6B5B5D]">
             {p1
               ? `${n(p.results)} marked in August`
               : p.computed_at
@@ -347,7 +347,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
           </p>
         </div>
 
-        <span className={`text-xs font-semibold ${p.visible ? "text-[#8fbfae]" : "text-[#9c8c86]"}`}>
+        <span className={`text-xs font-semibold ${p.visible ? "text-[#137565]" : "text-[#6B5B5D]"}`}>
           {p.visible ? "Students can see these" : "Not published"}
         </span>
 
@@ -357,7 +357,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
             <button
               type="submit"
               disabled={marking}
-              className="rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a] disabled:opacity-50"
+              className="rounded border border-[#E3D6C4] px-3 py-1.5 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9] disabled:opacity-50"
             >
               {marking ? "Marking…" : p.computed_at ? "Mark again" : "Mark and rank"}
             </button>
@@ -390,7 +390,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
       {!p1 && p.totals ? (
         <div className="mt-3 overflow-x-auto">
           <table className="w-full text-left text-xs tabular-nums">
-            <thead className="text-[#6b5c57]">
+            <thead className="text-[#6B5B5D]">
               <tr>
                 <th className="py-1 pr-4 font-semibold">Class</th>
                 <th className="py-1 pr-4 text-right font-semibold">Sat</th>
@@ -398,7 +398,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
                 <th className="py-1 text-right font-semibold">Highest</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#2a2321] text-[#c9b8b2]">
+            <tbody className="divide-y divide-[#F2E9DA] text-[#4A3A3C]">
               {p.totals.cohorts.map((c) => (
                 <tr key={c.cohort}>
                   <td className="py-1 pr-4">{c.cohort}</td>
@@ -410,7 +410,7 @@ function PaperResults({ p }: { p: AdminPaper }) {
             </tbody>
           </table>
           {p.totals.finalised ? (
-            <p className="mt-2 text-xs text-[#6b5c57]">
+            <p className="mt-2 text-xs text-[#6B5B5D]">
               {n(p.totals.finalised)} papers were submitted automatically when time ran out, from the last answers saved.
             </p>
           ) : null}
@@ -431,23 +431,23 @@ function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
     <section className={`space-y-4 rounded p-5 ${SURFACE}`}>
       <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
         <h2 className="text-sm font-bold">{a.name} award</h2>
-        <span className={`text-xs font-semibold ${a.visible ? "text-[#8fbfae]" : "text-[#9c8c86]"}`}>
+        <span className={`text-xs font-semibold ${a.visible ? "text-[#137565]" : "text-[#6B5B5D]"}`}>
           {a.visible ? "Published" : "Not published"}
         </span>
       </div>
-      <p className="max-w-3xl text-xs leading-relaxed text-[#6b5c57]">
+      <p className="max-w-3xl text-xs leading-relaxed text-[#6B5B5D]">
         The average of each student&rsquo;s Phase 1 written mark and Phase 2 mark, both as marks out of 100.
         {p2?.computed_at ? "" : " Phase 2 must be marked before the award can be computed."}
       </p>
 
-      <div className="rounded border border-[#6b5a3a] bg-[#221c12] p-4">
-        <h3 className="text-xs font-semibold text-[#d9b877]">A student who sat only one phase</h3>
-        <p className="mt-1 max-w-3xl text-xs leading-relaxed text-[#9c8c86]">
+      <div className="rounded border border-[#E5BE7A] bg-[#FAF1DC] p-4">
+        <h3 className="text-xs font-semibold text-[#8A6D1F]">A student who sat only one phase</h3>
+        <p className="mt-1 max-w-3xl text-xs leading-relaxed text-[#6B5B5D]">
           In September the online format scored about 8 points higher than the written paper for the same students on
           the same morning. Ranking a one-phase average beside a two-phase one can therefore put students who sat once
           above students who sat twice. The table below shows how often that happens in the real marks.
         </p>
-        <form action={setRule} className="mt-3 flex flex-wrap items-center gap-4 text-xs text-[#c9b8b2]">
+        <form action={setRule} className="mt-3 flex flex-wrap items-center gap-4 text-xs text-[#4A3A3C]">
           <input type="hidden" name="seriesId" value={a.series_id} />
           <label className="flex items-center gap-2">
             <input type="radio" name="rule" value="alone" defaultChecked={a.incomplete === "alone"} disabled={a.award_published} />
@@ -469,7 +469,7 @@ function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
             <button
               type="submit"
               disabled={computing || !p2?.computed_at}
-              className="rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a] disabled:opacity-40"
+              className="rounded border border-[#E3D6C4] px-3 py-1.5 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9] disabled:opacity-40"
             >
               {computing ? "Computing…" : a.award_computed_at ? "Compute again" : "Compute the award"}
             </button>
@@ -486,7 +486,7 @@ function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
             Publish the award
           </RowAction>
         ) : null}
-        <span className="text-xs text-[#6b5c57]">
+        <span className="text-xs text-[#6B5B5D]">
           {a.award_computed_at
             ? stale
               ? "The rule has changed since it was computed — compute again before publishing."
@@ -499,7 +499,7 @@ function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
       {a.comparison?.length ? (
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs tabular-nums">
-            <thead className="text-[#6b5c57]">
+            <thead className="text-[#6B5B5D]">
               <tr>
                 <th className="py-1 pr-4 font-semibold">Class</th>
                 <th className="py-1 pr-4 text-right font-semibold">Sat both</th>
@@ -508,13 +508,13 @@ function AwardSection({ a, papers }: { a: AwardState; papers: AdminPaper[] }) {
                 <th className="py-1 text-right font-semibold">30th best two-phase mark</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#2a2321] text-[#c9b8b2]">
+            <tbody className="divide-y divide-[#F2E9DA] text-[#4A3A3C]">
               {a.comparison.map((c) => (
                 <tr key={c.cohort}>
                   <td className="py-1 pr-4">{c.cohort}</td>
                   <td className="py-1 pr-4 text-right">{n(c.bothPhases)}</td>
                   <td className="py-1 pr-4 text-right">{n(c.onePhase)}</td>
-                  <td className={`py-1 pr-4 text-right ${c.onePhaseInTop30 > 0 ? "font-semibold text-[#d9b877]" : ""}`}>
+                  <td className={`py-1 pr-4 text-right ${c.onePhaseInTop30 > 0 ? "font-semibold text-[#8A6D1F]" : ""}`}>
                     {c.onePhaseInTop30}
                   </td>
                   <td className="py-1 text-right">{c.top30Cutoff ?? "—"}</td>
@@ -544,7 +544,7 @@ export function CentresPanel({ centres }: { centres: CentreRow[] }) {
     <div className="space-y-4">
       <div className={`overflow-x-auto rounded ${SURFACE}`}>
         <table className="w-full text-left text-xs">
-          <thead className="text-[#6b5c57]">
+          <thead className="text-[#6B5B5D]">
             <tr>
               <th className="px-4 py-2 font-semibold">Centre</th>
               <th className="px-3 py-2 text-right font-semibold">Schools</th>
@@ -558,28 +558,28 @@ export function CentresPanel({ centres }: { centres: CentreRow[] }) {
               <th className="px-4 py-2 text-right font-semibold">Applying</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#2a2321] tabular-nums">
+          <tbody className="divide-y divide-[#F2E9DA] tabular-nums">
             {centres.map((c) => (
               <tr key={c.centre_code}>
                 <td className="px-4 py-2">
-                  <span className="font-mono text-[#6b5c57]">{c.centre_code}</span>{" "}
-                  <span className="text-[#e8e0dc]">{c.centre_name}</span>
+                  <span className="font-mono text-[#6B5B5D]">{c.centre_code}</span>{" "}
+                  <span className="text-[#2B1A1C]">{c.centre_name}</span>
                 </td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{c.schools}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.ix)}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.x)}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.xi)}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.xii)}</td>
-                <td className="px-3 py-2 text-right text-[#e8e0dc]">{n(c.enrolled)}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.sat_phase1)}</td>
-                <td className="px-3 py-2 text-right text-[#9c8c86]">{n(c.claimed)}</td>
-                <td className="px-4 py-2 text-right text-[#9c8c86]">{c.applications ? n(c.applications) : "—"}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{c.schools}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.ix)}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.x)}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.xi)}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.xii)}</td>
+                <td className="px-3 py-2 text-right text-[#2B1A1C]">{n(c.enrolled)}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.sat_phase1)}</td>
+                <td className="px-3 py-2 text-right text-[#6B5B5D]">{n(c.claimed)}</td>
+                <td className="px-4 py-2 text-right text-[#6B5B5D]">{c.applications ? n(c.applications) : "—"}</td>
               </tr>
             ))}
           </tbody>
-          <tfoot className="border-t border-[#3a2f2c] font-semibold tabular-nums">
+          <tfoot className="border-t border-[#E3D6C4] font-semibold tabular-nums">
             <tr>
-              <td className="px-4 py-2 text-[#c9b8b2]">All {centres.length} centres</td>
+              <td className="px-4 py-2 text-[#4A3A3C]">All {centres.length} centres</td>
               <td className="px-3 py-2 text-right">{sum("schools")}</td>
               <td className="px-3 py-2 text-right">{n(sum("ix"))}</td>
               <td className="px-3 py-2 text-right">{n(sum("x"))}</td>
@@ -593,7 +593,7 @@ export function CentresPanel({ centres }: { centres: CentreRow[] }) {
           </tfoot>
         </table>
       </div>
-      <p className="text-xs text-[#6b5c57]">
+      <p className="text-xs text-[#6B5B5D]">
         Invigilators, rooms and the live attendance board arrive with the desk QR check-in.
       </p>
     </div>

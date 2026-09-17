@@ -12,6 +12,7 @@ import { pendingCorrectionCount, pendingCorrections } from "@/lib/admin/correcti
 import { awardState, centresOverview, papersForAdmin } from "@/lib/admin/exams";
 import { contentChapters } from "@/lib/admin/content";
 import { liveConfigured } from "@/lib/live/jitsi";
+import { desksFor } from "@/lib/exam/checkin";
 import Bootstrap from "@/components/admin/Bootstrap";
 import StaffSignIn from "@/components/admin/StaffSignIn";
 import FirstPassword from "@/components/admin/FirstPassword";
@@ -87,6 +88,7 @@ export default async function AdminPage({
         classes={tab === "classes" ? await recentClasses(staff.staff_id) : []}
         posts={tab === "posts" ? await listPosts(staff.staff_id) : []}
         liveReady={liveConfigured()}
+        hasDesk={(await desksFor(staff.staff_id, false)).length > 0}
       />
     );
   }
@@ -130,6 +132,11 @@ export default async function AdminPage({
       centres={tab === "centres" || tab === "exams" ? await centresOverview() : null}
       award={tab === "results" ? await awardState() : null}
       content={tab === "content" ? await loadContent(cls) : null}
+      dashboard={
+        tab === "overview"
+          ? { claims: await claimTotals(), papers: await papersForAdmin(), events: await recentEvents(10) }
+          : null
+      }
     />
   );
 }

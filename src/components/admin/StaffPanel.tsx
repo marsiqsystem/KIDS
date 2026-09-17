@@ -21,7 +21,7 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
     <div className="space-y-6">
       <section className={`rounded p-5 ${SURFACE}`}>
         <div className="mb-4 flex items-center gap-2">
-          <UserPlus className="h-4 w-4 text-[#8a6f66]" aria-hidden />
+          <UserPlus className="h-4 w-4 text-[#7B1E2B]" aria-hidden />
           <h2 className="text-sm font-bold">Create an account</h2>
         </div>
 
@@ -31,7 +31,7 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
           <Field label="Full name" name="fullName" required placeholder="Rahima Khatoon" />
           <Field label="Phone (optional)" name="phone" placeholder="9800000000" />
           <label className="block">
-            <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Role</span>
+            <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Role</span>
             <select name="role" defaultValue="teacher" className={INPUT}>
               <option value="teacher">Teacher — sees only their own batches</option>
               <option value="admin">Admin — can change everything</option>
@@ -47,9 +47,9 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
         </div>
       </section>
 
-      <section className="overflow-x-auto rounded border border-[#2a2321] bg-[#1a1514]">
+      <section className="overflow-x-auto rounded border border-[#F2E9DA] bg-[#FFFFFF]">
         <table className="w-full text-sm">
-          <thead className="border-b border-[#2a2321] text-xs text-[#9c8c86]">
+          <thead className="border-b border-[#F2E9DA] text-xs text-[#6B5B5D]">
             <tr>
               <th className="px-3 py-2 text-left font-semibold">Staff ID</th>
               <th className="px-3 py-2 text-left font-semibold">Name</th>
@@ -59,7 +59,7 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
               <th className="px-3 py-2 text-left font-semibold">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#2a2321]">
+          <tbody className="divide-y divide-[#F2E9DA]">
             {staff.map((s) => {
               const off = Boolean(s.disabled_at);
               return (
@@ -68,18 +68,18 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
                   <td className="px-3 py-2">
                     {s.full_name}
                     {s.staff_id === me.staff_id ? (
-                      <span className="ml-2 text-xs text-[#8fbfae]">you</span>
+                      <span className="ml-2 text-xs text-[#137565]">you</span>
                     ) : null}
                     {s.must_change ? (
-                      <span className="ml-2 text-xs text-[#d9a441]">password not yet changed</span>
+                      <span className="ml-2 text-xs text-[#8A6D1F]">password not yet changed</span>
                     ) : null}
                     {s.phone ? (
-                      <span className="ml-2 font-mono text-xs text-[#6b5c57]">{s.phone}</span>
+                      <span className="ml-2 font-mono text-xs text-[#6B5B5D]">{s.phone}</span>
                     ) : null}
                   </td>
                   <td className="px-3 py-2 text-xs">{s.role === "admin" ? "Admin" : "Teacher"}</td>
                   <td className="px-3 py-2 text-xs">{s.batch_count || "—"}</td>
-                  <td className="whitespace-nowrap px-3 py-2 font-mono text-xs text-[#9c8c86]">
+                  <td className="whitespace-nowrap px-3 py-2 font-mono text-xs text-[#6B5B5D]">
                     {s.last_sign_in_at
                       ? new Date(s.last_sign_in_at).toLocaleDateString("en-IN", {
                           timeZone: "Asia/Kolkata",

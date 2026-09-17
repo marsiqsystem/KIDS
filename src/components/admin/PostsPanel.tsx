@@ -35,7 +35,7 @@ export default function PostsPanel({
       <section>
         <h2 className="mb-2 text-sm font-bold">On the students&rsquo; screens</h2>
         {live.length === 0 ? (
-          <p className={`rounded p-4 text-sm text-[#9c8c86] ${SURFACE}`}>
+          <p className={`rounded p-4 text-sm text-[#6B5B5D] ${SURFACE}`}>
             Nothing posted. Most weeks there is nothing to post, and that is the right number — a
             notice list with something new in it every day is one nobody reads.
           </p>
@@ -50,7 +50,7 @@ export default function PostsPanel({
 
       {down.length > 0 ? (
         <section>
-          <h2 className="mb-2 text-sm font-bold text-[#9c8c86]">Taken down</h2>
+          <h2 className="mb-2 text-sm font-bold text-[#6B5B5D]">Taken down</h2>
           <ul className="space-y-3">
             {down.slice(0, 10).map((p) => (
               <PostCard key={p.id} post={p} />
@@ -59,7 +59,7 @@ export default function PostsPanel({
         </section>
       ) : null}
 
-      <p className="text-xs text-[#6b5c57]">
+      <p className="text-xs text-[#6B5B5D]">
         A post is not sent anywhere — no SMS, no email. It appears under the bell the next time the
         student opens the app, and it stays there for 90 days. Students cannot reply to it.
       </p>
@@ -73,7 +73,7 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
   if (!canPostToAll && batches.length === 0) {
     return (
       <section className={`rounded p-5 ${SURFACE}`}>
-        <p className="text-sm text-[#9c8c86]">
+        <p className="text-sm text-[#6B5B5D]">
           You do not take a batch yet, so there is nobody to post to.
         </p>
       </section>
@@ -89,7 +89,7 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
 
       <form action={action} className="space-y-4">
         <label className="block">
-          <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Who sees it</span>
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Who sees it</span>
           <select name="batchId" className={INPUT} defaultValue={canPostToAll ? "" : batches[0]!.id}>
             {canPostToAll ? (
               <option value="">Everybody with an app account</option>
@@ -100,7 +100,7 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
               </option>
             ))}
           </select>
-          <span className="mt-1 block text-xs text-[#6b5c57]">
+          <span className="mt-1 block text-xs text-[#6B5B5D]">
             A batch post follows the batch, not a list of names: a child added tomorrow sees it,
             and a child taken out stops seeing it.
           </span>
@@ -115,7 +115,7 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
         />
 
         <label className="block">
-          <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">What it says</span>
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">What it says</span>
           <textarea
             name="body"
             required
@@ -124,7 +124,7 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
             placeholder="Thursday 17 September is a holiday. The Physical Science class moves to Friday, same time."
             className={INPUT}
           />
-          <span className="mt-1 block text-xs text-[#6b5c57]">
+          <span className="mt-1 block text-xs text-[#6B5B5D]">
             Plain words. Never a mark, a rank, or another child&rsquo;s name.
           </span>
         </label>
@@ -152,16 +152,16 @@ function PostCard({ post }: { post: Post }) {
     <li className={`rounded p-4 ${SURFACE} ${post.retracted_at ? "opacity-60" : ""}`}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h3 className="text-sm font-bold">{post.title}</h3>
-        <span className="text-xs text-[#6b5c57]">
+        <span className="text-xs text-[#6B5B5D]">
           {post.audience === "all" ? "Everybody" : (post.batch_name ?? "A batch")} · {when} ·{" "}
           {post.posted_by_name ?? post.posted_by}
         </span>
       </div>
 
-      <p className="mt-2 whitespace-pre-wrap text-sm text-[#c9b8b2]">{post.body}</p>
+      <p className="mt-2 whitespace-pre-wrap text-sm text-[#4A3A3C]">{post.body}</p>
 
       {post.retracted_at ? (
-        <p className="mt-3 text-xs text-[#d98b8b]">
+        <p className="mt-3 text-xs text-[#B22234]">
           Taken down. It is off every screen, including the students who had already read it.
         </p>
       ) : (

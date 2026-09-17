@@ -43,13 +43,13 @@ export default function ApplicationsPanel({
               : `${pending.length.toLocaleString("en-IN")} waiting`}
           </h2>
           {pending.length > 0 ? (
-            <span className="text-xs text-[#9c8c86]">
+            <span className="text-xs text-[#6B5B5D]">
               across {groups.size} {groups.size === 1 ? "school" : "schools"}
               {flagged ? ` · ${flagged} flagged as a possible duplicate` : ""}
             </span>
           ) : null}
         </div>
-        <p className="mt-2 max-w-3xl text-xs leading-relaxed text-[#6b5c57]">
+        <p className="mt-2 max-w-3xl text-xs leading-relaxed text-[#6B5B5D]">
           Approving puts the child on the register with a new User ID, and their app opens the
           account by itself — they do not sign in. It cannot be undone from here. A child who already
           sat SET 2026 should never be approved: they have a User ID and should claim it instead.
@@ -57,7 +57,7 @@ export default function ApplicationsPanel({
       </section>
 
       {pending.length === 0 ? (
-        <p className={`flex items-center gap-2 rounded p-4 text-sm text-[#9c8c86] ${SURFACE}`}>
+        <p className={`flex items-center gap-2 rounded p-4 text-sm text-[#6B5B5D] ${SURFACE}`}>
           <Inbox className="h-4 w-4" aria-hidden />
           New registrations from the app arrive here.
         </p>
@@ -76,14 +76,14 @@ function SchoolGroup({ rows }: { rows: PendingRow[] }) {
 
   return (
     <section className={`rounded ${SURFACE}`}>
-      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#2a2321] px-5 py-3">
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#F2E9DA] px-5 py-3">
         <div>
           <h3 className="text-sm font-bold">{first.school_name}</h3>
-          <p className="font-mono text-xs text-[#6b5c57]">
+          <p className="font-mono text-xs text-[#6B5B5D]">
             {first.centre_code} · {first.school_code}
           </p>
         </div>
-        <span className="text-xs text-[#9c8c86]">
+        <span className="text-xs text-[#6B5B5D]">
           {rows.length} {rows.length === 1 ? "application" : "applications"}
         </span>
         {clean > 1 ? (
@@ -106,7 +106,7 @@ function SchoolGroup({ rows }: { rows: PendingRow[] }) {
         ) : null}
       </header>
 
-      <ul className="divide-y divide-[#2a2321]">
+      <ul className="divide-y divide-[#F2E9DA]">
         {rows.map((r) => (
           <Application key={r.id} r={r} />
         ))}
@@ -122,8 +122,8 @@ function Application({ r }: { r: PendingRow }) {
     <li className="px-5 py-4">
       <div className="flex flex-wrap items-start gap-x-6 gap-y-3">
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-[#e8e0dc]">{r.name}</p>
-          <dl className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[#9c8c86]">
+          <p className="text-sm font-semibold text-[#2B1A1C]">{r.name}</p>
+          <dl className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[#6B5B5D]">
             <Pair k="Class" v={r.stream ? `${r.class} · ${r.stream}` : r.class} />
             <Pair k="Born" v={r.dob} mono />
             {r.guardian_phone ? <Pair k="Parent" v={r.guardian_phone} mono /> : null}
@@ -157,20 +157,20 @@ function Application({ r }: { r: PendingRow }) {
       </div>
 
       {dup ? (
-        <div className="mt-3 rounded border border-[#6b5a3a] bg-[#221c12] p-3">
-          <p className="flex items-center gap-2 text-xs font-semibold text-[#d9b877]">
+        <div className="mt-3 rounded border border-[#E5BE7A] bg-[#FAF1DC] p-3">
+          <p className="flex items-center gap-2 text-xs font-semibold text-[#8A6D1F]">
             <AlertTriangle className="h-3.5 w-3.5" aria-hidden />
             Already on the register? Same name and date of birth as:
           </p>
           <ul className="mt-2 space-y-1">
             {r.duplicates.map((d) => (
-              <li key={d.uid} className="text-xs text-[#c9b8b2]">
-                <span className="font-mono text-[#e8e0dc]">{d.uid}</span> · {d.name} · Class {d.class}{" "}
+              <li key={d.uid} className="text-xs text-[#4A3A3C]">
+                <span className="font-mono text-[#2B1A1C]">{d.uid}</span> · {d.name} · Class {d.class}{" "}
                 · {d.school_name}
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-xs text-[#9c8c86]">
+          <p className="mt-2 text-xs text-[#6B5B5D]">
             If this is the same child, turn the application down and tell them to claim{" "}
             {r.duplicates.length === 1 ? (
               <span className="font-mono">{r.duplicates[0].uid}</span>
@@ -202,13 +202,13 @@ function Reject({ r }: { r: PendingRow }) {
 
   return (
     <details className="mt-3 group">
-      <summary className="cursor-pointer select-none text-xs text-[#6b5c57] hover:text-[#c9b8b2]">
+      <summary className="cursor-pointer select-none text-xs text-[#6B5B5D] hover:text-[#4A3A3C]">
         Turn down…
       </summary>
       <form action={action} className="mt-2 space-y-2">
         <input type="hidden" name="registrationId" value={r.id} />
         <label className="block">
-          <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">
             Reason · the family reads this, word for word
           </span>
           <textarea
@@ -222,7 +222,7 @@ function Reject({ r }: { r: PendingRow }) {
         </label>
         <button
           type="submit"
-          className="rounded border border-[#6b3f3f] px-2.5 py-1 text-xs text-[#d98b8b] hover:bg-[#2a1c1c]"
+          className="rounded border border-[#E8C9CC] px-2.5 py-1 text-xs text-[#B22234] hover:bg-[#FBE9EA]"
         >
           Turn this application down
         </button>
@@ -235,10 +235,10 @@ function Reject({ r }: { r: PendingRow }) {
 function Decided({ rows }: { rows: DecidedRow[] }) {
   return (
     <section>
-      <h2 className="mb-2 text-sm font-bold text-[#9c8c86]">Decided recently</h2>
+      <h2 className="mb-2 text-sm font-bold text-[#6B5B5D]">Decided recently</h2>
       <div className={`overflow-x-auto rounded ${SURFACE}`}>
         <table className="w-full text-left text-xs">
-          <thead className="text-[#6b5c57]">
+          <thead className="text-[#6B5B5D]">
             <tr>
               <th className="px-4 py-2 font-semibold">When</th>
               <th className="px-4 py-2 font-semibold">Child</th>
@@ -247,10 +247,10 @@ function Decided({ rows }: { rows: DecidedRow[] }) {
               <th className="px-4 py-2 font-semibold">By</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#2a2321]">
+          <tbody className="divide-y divide-[#F2E9DA]">
             {rows.map((d) => (
               <tr key={d.id}>
-                <td className="whitespace-nowrap px-4 py-2 text-[#9c8c86]">
+                <td className="whitespace-nowrap px-4 py-2 text-[#6B5B5D]">
                   {new Date(d.decided_at).toLocaleString("en-IN", {
                     day: "numeric",
                     month: "short",
@@ -259,22 +259,22 @@ function Decided({ rows }: { rows: DecidedRow[] }) {
                     timeZone: "Asia/Kolkata",
                   })}
                 </td>
-                <td className="px-4 py-2 text-[#e8e0dc]">
-                  {d.name} <span className="text-[#6b5c57]">· {d.class}</span>
+                <td className="px-4 py-2 text-[#2B1A1C]">
+                  {d.name} <span className="text-[#6B5B5D]">· {d.class}</span>
                 </td>
-                <td className="px-4 py-2 text-[#9c8c86]">{d.school_name}</td>
+                <td className="px-4 py-2 text-[#6B5B5D]">{d.school_name}</td>
                 <td className="px-4 py-2">
                   {d.status === "approved" ? (
-                    <span className="text-[#8fbfae]">
+                    <span className="text-[#137565]">
                       Approved · <span className="font-mono">{d.uid}</span>
                     </span>
                   ) : (
-                    <span className="text-[#d98b8b]" title={d.reason ?? undefined}>
+                    <span className="text-[#B22234]" title={d.reason ?? undefined}>
                       Turned down{d.reason ? " · with reason" : ""}
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-2 text-[#9c8c86]">{d.decided_by_name ?? d.decided_by}</td>
+                <td className="px-4 py-2 text-[#6B5B5D]">{d.decided_by_name ?? d.decided_by}</td>
               </tr>
             ))}
           </tbody>
@@ -289,8 +289,8 @@ function Pair({ k, v, mono }: { k: string; v: string; mono?: boolean }) {
     // A <div>, not a <span>: it is the only element permitted to wrap a dt/dd
     // pair inside a <dl>.
     <div className="inline-block">
-      <dt className="inline text-[#6b5c57]">{k} </dt>
-      <dd className={`inline text-[#c9b8b2] ${mono ? "font-mono" : ""}`}>{v}</dd>
+      <dt className="inline text-[#6B5B5D]">{k} </dt>
+      <dd className={`inline text-[#4A3A3C] ${mono ? "font-mono" : ""}`}>{v}</dd>
     </div>
   );
 }

@@ -40,16 +40,16 @@ export default function ContentPanel({
       <section className={`grid gap-4 rounded p-5 sm:grid-cols-2 ${SURFACE}`}>
         <div>
           <h2 className="text-sm font-bold">Notices</h2>
-          <p className="mt-1 text-xs text-[#6b5c57]">
+          <p className="mt-1 text-xs text-[#6B5B5D]">
             Words from the office on every student&rsquo;s phone, or on one batch&rsquo;s.
           </p>
-          <Link href="/admin?tab=posts" className="mt-2 inline-block text-xs text-[#c9b8b2] underline-offset-2 hover:underline">
+          <Link href="/admin?tab=posts" className="mt-2 inline-block text-xs text-[#4A3A3C] underline-offset-2 hover:underline">
             Write a notice in Posts →
           </Link>
         </div>
         <div>
           <h2 className="text-sm font-bold">Videos</h2>
-          <p className="mt-1 text-xs text-[#6b5c57]">
+          <p className="mt-1 text-xs text-[#6B5B5D]">
             Paste a YouTube link to change a chapter&rsquo;s video. Students see the change within
             about a minute. Questions and explanations are reviewed files and are not edited here.
           </p>
@@ -59,25 +59,25 @@ export default function ContentPanel({
       <form className="flex flex-wrap items-end gap-3" action="/admin" method="get">
         <input type="hidden" name="tab" value="content" />
         <label className="block">
-          <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Class</span>
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Class</span>
           <select name="cls" defaultValue={choice} className={INPUT}>
             {OPTIONS.map(([v, l]) => (
               <option key={v} value={v}>{l}</option>
             ))}
           </select>
         </label>
-        <button type="submit" className="rounded border border-[#3a2f2c] px-3 py-2 text-sm text-[#c9b8b2] hover:bg-[#241c1a]">
+        <button type="submit" className="rounded border border-[#E3D6C4] px-3 py-2 text-sm text-[#4A3A3C] hover:bg-[#F6E9E9]">
           Show chapters
         </button>
-        <span className="pb-2 text-xs text-[#6b5c57]">
+        <span className="pb-2 text-xs text-[#6B5B5D]">
           {chapters.length} chapters · {withVideo} with a video{changed ? ` · ${changed} changed by the office` : ""}
         </span>
       </form>
 
       {[...bySection.entries()].map(([section, rows]) => (
         <section key={section} className={`rounded ${SURFACE}`}>
-          <h3 className="border-b border-[#2a2321] px-5 py-3 text-sm font-bold">{section}</h3>
-          <ul className="divide-y divide-[#2a2321]">
+          <h3 className="border-b border-[#F2E9DA] px-5 py-3 text-sm font-bold">{section}</h3>
+          <ul className="divide-y divide-[#F2E9DA]">
             {rows.map((c) => (
               <ChapterRow key={`${c.bucket}|${c.chapter}`} c={c} />
             ))}
@@ -92,23 +92,23 @@ function ChapterRow({ c }: { c: ContentChapter }) {
   const [state, action, pending] = useActionState(setChapterVideo, {});
 
   const badge =
-    c.source === "changed" ? ["Changed by the office", "text-[#9fb0d9]"]
-    : c.source === "removed" ? ["Removed by the office", "text-[#d98b8b]"]
-    : c.source === "file" ? ["Reviewed video", "text-[#6b5c57]"]
-    : ["No video", "text-[#d9b877]"];
+    c.source === "changed" ? ["Changed by the office", "text-[#1E4DA1]"]
+    : c.source === "removed" ? ["Removed by the office", "text-[#B22234]"]
+    : c.source === "file" ? ["Reviewed video", "text-[#6B5B5D]"]
+    : ["No video", "text-[#8A6D1F]"];
 
   return (
     <li className="px-5 py-3">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-        <span className="min-w-0 flex-1 text-sm text-[#e8e0dc]">
-          {c.chapter} <span className="text-xs text-[#6b5c57]">· {c.questions} {c.questions === 1 ? "question" : "questions"}</span>
+        <span className="min-w-0 flex-1 text-sm text-[#2B1A1C]">
+          {c.chapter} <span className="text-xs text-[#6B5B5D]">· {c.questions} {c.questions === 1 ? "question" : "questions"}</span>
         </span>
         {c.videoId ? (
           <a
             href={`https://www.youtube.com/watch?v=${c.videoId}`}
             target="_blank"
             rel="noreferrer"
-            className="font-mono text-xs text-[#c9b8b2] underline-offset-2 hover:underline"
+            className="font-mono text-xs text-[#4A3A3C] underline-offset-2 hover:underline"
           >
             {c.videoId}
           </a>
@@ -117,25 +117,25 @@ function ChapterRow({ c }: { c: ContentChapter }) {
       </div>
 
       <details className="mt-1">
-        <summary className="cursor-pointer select-none text-xs text-[#6b5c57] hover:text-[#c9b8b2]">Change…</summary>
+        <summary className="cursor-pointer select-none text-xs text-[#6B5B5D] hover:text-[#4A3A3C]">Change…</summary>
         <form action={action} className="mt-2 flex flex-wrap items-center gap-2">
           <input type="hidden" name="bucket" value={c.bucket} />
           <input type="hidden" name="chapter" value={c.chapter} />
           <input name="video" placeholder="YouTube link or video id" className={`${INPUT} max-w-sm`} />
           <input name="language" placeholder="Language (optional)" className={`${INPUT} max-w-[10rem]`} />
           <button name="mode" value="set" type="submit" disabled={pending}
-            className="rounded bg-[#8a6f66] px-3 py-1.5 text-xs font-semibold text-[#141010] disabled:opacity-50">
+            className="rounded bg-[#7B1E2B] px-3 py-1.5 text-xs font-semibold text-[#FDFBF7] disabled:opacity-50">
             Use this video
           </button>
           {c.videoId ? (
             <button name="mode" value="remove" type="submit" disabled={pending}
-              className="rounded border border-[#6b3f3f] px-2.5 py-1.5 text-xs text-[#d98b8b] hover:bg-[#2a1c1c]">
+              className="rounded border border-[#E8C9CC] px-2.5 py-1.5 text-xs text-[#B22234] hover:bg-[#FBE9EA]">
               Remove the video
             </button>
           ) : null}
           {c.source === "changed" || c.source === "removed" ? (
             <button name="mode" value="restore" type="submit" disabled={pending}
-              className="rounded border border-[#3a2f2c] px-2.5 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a]">
+              className="rounded border border-[#E3D6C4] px-2.5 py-1.5 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9]">
               Restore the reviewed video
             </button>
           ) : null}

@@ -39,7 +39,7 @@ export default function ClassesPanel({
   return (
     <div className="space-y-6">
       {!configured ? (
-        <p className="rounded border border-[#6b3f3f] bg-[#241c1a] p-4 text-sm text-[#d98b8b]">
+        <p className="rounded border border-[#E8C9CC] bg-[#F6E9E9] p-4 text-sm text-[#B22234]">
           No live-class server is configured on this deployment, so a room cannot be opened yet.
           Classes can still be scheduled. The checklist for standing the server up is in{" "}
           <code>docs/live-class-server.md</code>.
@@ -66,9 +66,9 @@ function Schedule({ batches }: { batches: Batch[] }) {
   if (batches.length === 0) {
     return (
       <section className={`rounded p-5 ${SURFACE}`}>
-        <p className="text-sm text-[#9c8c86]">
+        <p className="text-sm text-[#6B5B5D]">
           There are no batches yet, and a class belongs to a batch. Make one under{" "}
-          <Link href="/admin?tab=batches" className="text-[#8fbfae] underline">
+          <Link href="/admin?tab=batches" className="text-[#137565] underline">
             Batches
           </Link>{" "}
           first.
@@ -80,13 +80,13 @@ function Schedule({ batches }: { batches: Batch[] }) {
   return (
     <section className={`rounded p-5 ${SURFACE}`}>
       <div className="mb-4 flex items-center gap-2">
-        <CalendarPlus className="h-4 w-4 text-[#8a6f66]" aria-hidden />
+        <CalendarPlus className="h-4 w-4 text-[#7B1E2B]" aria-hidden />
         <h2 className="text-sm font-bold">Schedule a class</h2>
       </div>
 
       <form action={action} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
         <label className="block lg:col-span-2">
-          <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">Batch</span>
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Batch</span>
           <select name="batchId" className={INPUT} required>
             {batches.map((b) => (
               <option key={b.id} value={b.id}>
@@ -130,9 +130,9 @@ function List({
 
   return (
     <section>
-      <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-[#6b5c57]">{title}</h2>
+      <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-[#6B5B5D]">{title}</h2>
       {classes.length === 0 ? (
-        <p className="text-sm text-[#6b5c57]">{empty}</p>
+        <p className="text-sm text-[#6B5B5D]">{empty}</p>
       ) : (
         <div className="space-y-3">
           {classes.map((c) => (
@@ -152,19 +152,19 @@ function ClassRow({ c, configured }: { c: LiveClass; configured: boolean }) {
     <div className={`rounded p-4 ${SURFACE}`}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         {open ? (
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e0736c]">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#B22234]">
             <Radio className="h-3 w-3" aria-hidden />
             LIVE
           </span>
         ) : null}
         <strong className="text-sm">{c.title}</strong>
-        <span className="text-xs text-[#6b5c57]">
+        <span className="text-xs text-[#6B5B5D]">
           {c.batch_name}
           {c.subject ? ` · ${c.subject}` : ""} · {when(c.starts_at)} · {c.minutes} min
         </span>
       </div>
 
-      <p className="mt-1 text-xs text-[#6b5c57]">
+      <p className="mt-1 text-xs text-[#6B5B5D]">
         {c.cancelled_at
           ? "Cancelled."
           : done
@@ -190,7 +190,7 @@ function ClassRow({ c, configured }: { c: LiveClass; configured: boolean }) {
             open ? (
               <Link
                 href={`/admin/class/${c.id}`}
-                className="rounded bg-[#8a6f66] px-3 py-1.5 text-xs font-semibold text-[#141010]"
+                className="rounded bg-[#7B1E2B] px-3 py-1.5 text-xs font-semibold text-[#FDFBF7]"
               >
                 Go to the room
               </Link>
@@ -241,7 +241,7 @@ function Recording({ c }: { c: LiveClass }) {
     <form action={action} className="mt-3 flex flex-wrap items-end gap-2">
       <input type="hidden" name="classId" value={c.id} />
       <label className="block grow">
-        <span className="mb-1 block text-xs font-semibold text-[#9c8c86]">
+        <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">
           <Video className="mr-1 inline h-3 w-3" aria-hidden />
           Recording link
         </span>

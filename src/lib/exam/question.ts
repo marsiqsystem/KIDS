@@ -11,4 +11,9 @@ export type Question = {
   /** The passage a question hangs off, when it has one. Rendered above the stem. */
   context?: string;
   options: string[];
+  /**
+   * The section a question sits in ("Life Science"), when the paper names them.
+   * Only drawn — a heading in the app's question list. July's papers have none.
+   */
+  section?: string;
 };

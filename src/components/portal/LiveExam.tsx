@@ -8,6 +8,8 @@ import { useServerCountdown } from "./Countdown";
 import AnswersReceived, { formatIstClock } from "./AnswersReceived";
 import Paper, { ClockFace } from "./Paper";
 import ScreenGuard from "@/components/app/ScreenGuard";
+import AppPaper, { AppClockFace } from "@/components/app/exam/AppPaper";
+import { HandingIn, Receipt, StartFace, WaitingRoom } from "@/components/app/exam/ExamFaces";
 
 /**
  * The real exam.
@@ -54,6 +56,8 @@ export default function LiveExam({
   serverNowIso,
   api = "/api/exam",
   paperKey = "SET2026",
+  variant = "portal",
+  centreName,
 }: {
   uid: string;
   /** The admit-card token for July's portal. Empty in the app, which uses its session. */
@@ -82,6 +86,14 @@ export default function LiveExam({
    * Which sitting, for the cache on this phone. See `cacheKey` below.
    */
   paperKey?: string;
+  /**
+   * How it is drawn. `portal` is July's page, left exactly as it was proven.
+   * `app` is the redesign's Exam tab: one question at a time, a navigator, a
+   * receipt. Only the drawing differs — every line of logic below is shared.
+   */
+  variant?: "portal" | "app";
+  /** The centre's name, for the app's waiting room and receipt. */
+  centreName?: string;
 }) {
   const [stage, setStage] = useState<Stage>("waiting");
   const [error, setError] = useState("");
@@ -297,11 +309,35 @@ export default function LiveExam({
 
   /* -------------------------------------------------------------- render --- */
 
+  const app = variant === "app";
+
   if (beforeStart) {
-    return <WaitingRoom label={label} startsAtIso={startsAtIso} serverNowIso={serverNowIso} />;
+    return app ? (
+      <WaitingRoom
+        name={label}
+        startsAtIso={startsAtIso}
+        serverNowIso={serverNowIso}
+        centre={centreName ?? centreCode}
+      />
+    ) : (
+      <PortalWaitingRoom label={label} startsAtIso={startsAtIso} serverNowIso={serverNowIso} />
+    );
   }
 
   if (stage === "waiting" || stage === "starting" || stage === "error") {
+    if (app) {
+      return (
+        <StartFace
+          name={label}
+          busy={stage === "starting"}
+          resuming={Boolean(readCache()) && stage !== "error"}
+          error={stage === "error" ? error : ""}
+          onStart={start}
+          questionCount={questionCount}
+          closes={formatIstClock(windowClosesIso)}
+        />
+      );
+    }
     return (
       <StartScreen
         stage={stage}
@@ -319,6 +355,20 @@ export default function LiveExam({
   }
 
   if (stage === "submitted") {
+    if (app) {
+      return (
+        <Receipt
+          paper={label}
+          receipt={receipt}
+          // Set in the same step that sets the stage, so never null here; the
+          // deadline is only a type-level fallback.
+          handedInIso={submittedAtMs ? new Date(submittedAtMs).toISOString() : deadlineAt}
+          answered={questions.filter((_, i) => String(i) in answers).length}
+          total={questions.length}
+          centre={centreName}
+        />
+      );
+    }
     return (
       <AnswersReceived
         name={name}
@@ -333,6 +383,37 @@ export default function LiveExam({
   }
 
   const list: (number | null)[] = questions.map((_, i) => answers[String(i)] ?? null);
+
+  if (app) {
+    return (
+      <>
+        <ScreenGuard />
+        <AppPaper
+          questions={questions}
+          answers={list}
+          onChoose={choose}
+          onSubmit={submit}
+          deadlineIso={deadlineAt}
+          serverNowIso={serverNowIso}
+          save={save}
+          resumed={resumed}
+          storageKey={`${cacheKey}:app`}
+          clock={
+            <DeadlineClock
+              face="app"
+              deadlineIso={deadlineAt}
+              serverNowIso={serverNowIso}
+              onExpire={() => {
+                setAutoSubmitted(true);
+                expire.current();
+              }}
+            />
+          }
+        />
+        {stage === "submitting" && <HandingIn />}
+      </>
+    );
+  }
 
   return (
     <>
@@ -385,7 +466,9 @@ function DeadlineClock({
   deadlineIso,
   serverNowIso,
   onExpire,
+  face = "portal",
 }: {
+  face?: "portal" | "app";
   deadlineIso: string;
   serverNowIso: string;
   onExpire: () => void;
@@ -403,6 +486,8 @@ function DeadlineClock({
   }, [left.total, onExpire]);
 
   const seconds = Math.floor(left.total / 1000);
+
+  if (face === "app") return <AppClockFace seconds={seconds} />;
 
   return (
     <ClockFace
@@ -547,7 +632,7 @@ function StartScreen({
   );
 }
 
-function WaitingRoom({
+function PortalWaitingRoom({
   label,
   startsAtIso,
   serverNowIso,

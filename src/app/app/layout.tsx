@@ -3,6 +3,7 @@ import "./app.css";
 import "./loop.css";
 import "./learn.css";
 import "./kit.css";
+import "./exam.css";
 
 /**
  * The student app.

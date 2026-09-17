@@ -53,7 +53,9 @@ export function getPaper(paperId: string): Paper | null {
 
 /** The paper, stripped of its key, safe to send to a phone. */
 export function publicQuestions(paper: Paper): Question[] {
-  return paper.questions.map(({ q, context, options }) => ({ q, context, options }));
+  return paper.questions.map(({ q, context, options, section }) =>
+    section ? { q, context, options, section } : { q, context, options },
+  );
 }
 
 /**

@@ -3,13 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import jsQR from "jsqr";
+import { Camera, Check, DoorClosed, MapPin, TimerOff, WifiOff } from "lucide-react";
+import Sheet from "@/components/app/Sheet";
 
 /**
- * Check in: point the phone at the invigilator's screen.
+ * Check in: point the phone at the invigilator's screen. Redesign board 04,
+ * state 3 — the only dark screen in the app, because it is a camera.
  *
- * The camera is opened only when the student taps, never on arrival -- a
- * permission prompt that appears by itself on exam morning is one a nervous
- * child denies. The six digits under the code do exactly the same job for a
+ * The camera is opened only when the student taps the viewfinder, never on
+ * arrival — a permission prompt that appears by itself on exam morning is one a
+ * nervous child denies. (The board opens it straight away; this rule predates
+ * the board and wins.) The six boxes under it do exactly the same job for a
  * phone whose camera will not focus or was refused, and they are always on
  * screen, not hidden behind a failure.
  *
@@ -17,14 +21,24 @@ import jsQR from "jsqr";
  * so nothing here is cached or retried later: a failed check-in is re-scanned,
  * not replayed.
  */
-export default function CheckIn({ paperName, centreName }: { paperName: string; centreName: string }) {
+
+type Outcome =
+  | { kind: "in"; centre: string; elsewhere: boolean }
+  | { kind: "expired"; text: string }
+  | { kind: "early"; text: string }
+  | { kind: "closed" }
+  | { kind: "offline" };
+
+export default function CheckIn({ centreName }: { centreName: string }) {
   const router = useRouter();
   const video = useRef<HTMLVideoElement | null>(null);
   const stream = useRef<MediaStream | null>(null);
   const busy = useRef(false);
+  const boxes = useRef<HTMLInputElement | null>(null);
   const [scanning, setScanning] = useState(false);
+  const [denied, setDenied] = useState(false);
   const [code, setCode] = useState("");
-  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [sending, setSending] = useState(false);
 
   function stop() {
@@ -39,7 +53,7 @@ export default function CheckIn({ paperName, centreName }: { paperName: string; 
     if (busy.current) return;
     busy.current = true;
     setSending(true);
-    setMessage(null);
+    setOutcome(null);
     try {
       const res = await fetch("/api/app/exam/checkin", {
         method: "POST",
@@ -49,18 +63,19 @@ export default function CheckIn({ paperName, centreName }: { paperName: string; 
       const data = await res.json();
       if (data.ok) {
         stop();
-        setMessage({
-          ok: true,
-          text: data.elsewhere
-            ? `Checked in at ${data.centre}. That is not the centre on your record — tell your invigilator.`
-            : "Checked in. You can start when the paper opens.",
-        });
-        router.refresh();
+        setOutcome({ kind: "in", centre: data.centre ?? "", elsewhere: Boolean(data.elsewhere) });
+        // The server now renders the waiting room; give the tick a moment to land.
+        window.setTimeout(() => router.refresh(), 1400);
+      } else if (data.reason === "over") {
+        setOutcome({ kind: "closed" });
+      } else if (data.reason === "too_early") {
+        setOutcome({ kind: "early", text: data.message });
       } else {
-        setMessage({ ok: false, text: data.message ?? "That did not work. Scan again." });
+        setCode("");
+        setOutcome({ kind: "expired", text: data.message ?? "" });
       }
     } catch {
-      setMessage({ ok: false, text: "No connection. Check-in needs the internet for a moment — try again." });
+      setOutcome({ kind: "offline" });
     } finally {
       busy.current = false;
       setSending(false);
@@ -68,7 +83,7 @@ export default function CheckIn({ paperName, centreName }: { paperName: string; 
   }
 
   async function startCamera() {
-    setMessage(null);
+    setOutcome(null);
     try {
       const s = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: { ideal: "environment" } },
@@ -84,10 +99,10 @@ export default function CheckIn({ paperName, centreName }: { paperName: string; 
         requestAnimationFrame(tick);
       });
     } catch {
-      setMessage({
-        ok: false,
-        text: "The camera could not be opened. Type the six digits under the code instead.",
-      });
+      // Refused, or no camera: straight to typing, and the camera does not
+      // ask again on this visit.
+      setDenied(true);
+      boxes.current?.focus();
     }
   }
 
@@ -113,70 +128,145 @@ export default function CheckIn({ paperName, centreName }: { paperName: string; 
     requestAnimationFrame(tick);
   }
 
+  const digits = code.replace(/\D/g, "").slice(0, 6);
+
   return (
-    <div className="app-body" style={{ padding: 0 }}>
-      <div className="app-card app-card--gold">
-        <h3>Check in to start</h3>
-        <p>
-          {paperName} · {centreName}. Scan the code on your invigilator&rsquo;s screen. The paper will not
-          open until you do.
-        </p>
+    <div className="ci">
+      <div className="ci__bar">
+        <span className="ci__title">Scan the desk code</span>
       </div>
 
-      {scanning ? (
-        <div style={{ position: "relative", borderRadius: 12, overflow: "hidden", background: "#000" }}>
-          <video ref={video} playsInline muted style={{ width: "100%", display: "block", aspectRatio: "1 / 1", objectFit: "cover" }} />
-          <div
-            aria-hidden
-            style={{ position: "absolute", inset: "14%", border: "3px solid rgba(255,255,255,.85)", borderRadius: 12 }}
-          />
+      {!denied ? (
+        <div className="ci__view">
+          {scanning ? (
+            <video ref={video} playsInline muted className="ci__video" />
+          ) : null}
+          <button
+            type="button"
+            className="ci__frame"
+            onClick={scanning ? stop : startCamera}
+            aria-label={scanning ? "Stop the camera" : "Open the camera"}
+          >
+            <span className="ci__corner ci__corner--tl" />
+            <span className="ci__corner ci__corner--tr" />
+            <span className="ci__corner ci__corner--bl" />
+            <span className="ci__corner ci__corner--br" />
+            {scanning ? (
+              <span className="ci__line k-breathe" />
+            ) : (
+              <span className="ci__tap">
+                <Camera size={30} aria-hidden="true" />
+                Tap to scan
+              </span>
+            )}
+          </button>
+          <p className="ci__hint">Point your camera at the QR code on the invigilator&rsquo;s desk.</p>
         </div>
       ) : null}
-
-      {scanning ? (
-        <button type="button" className="app-btn app-btn--outline" onClick={stop}>
-          Stop the camera
-        </button>
-      ) : (
-        <button type="button" className="app-btn" onClick={startCamera} disabled={sending}>
-          Scan the code
-        </button>
-      )}
 
       <form
+        className={`ci__type${denied ? " ci__type--full" : ""}`}
         onSubmit={(e) => {
           e.preventDefault();
-          send(code);
+          if (digits.length === 6) send(digits);
         }}
-        className="app-field"
       >
-        <label className="app-label" htmlFor="checkin-code">
-          Or type the six digits under the code
-        </label>
-        <div style={{ display: "flex", gap: 8 }}>
-          <input
-            id="checkin-code"
-            className="app-input"
-            inputMode="numeric"
-            autoComplete="off"
-            maxLength={7}
-            placeholder="123 456"
-            value={code}
-            onChange={(e) => setCode(e.target.value.replace(/[^\d ]/g, ""))}
-            style={{ fontFamily: "var(--font-data)", letterSpacing: "0.12em", fontSize: 20 }}
-          />
-          <button type="submit" className="app-btn app-btn--small" disabled={sending || code.replace(/\s/g, "").length !== 6}>
-            {sending ? "…" : "Check in"}
-          </button>
+        <div className="ci__or">
+          <span>{denied ? "Type the code" : "Or type it"}</span>
         </div>
-        <span className="app-hint">The number changes every 30 seconds. Type the one showing now.</span>
+        <label className="ci__boxes">
+          <span className="app-sr">The six digits under the code</span>
+          <input
+            ref={boxes}
+            className="ci__input"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            maxLength={6}
+            value={digits}
+            onChange={(e) => {
+              const next = e.target.value.replace(/\D/g, "").slice(0, 6);
+              setCode(next);
+              if (next.length === 6) send(next);
+            }}
+          />
+          {Array.from({ length: 6 }, (_, i) => (
+            <span
+              key={i}
+              aria-hidden="true"
+              className={`ci__box${i === digits.length ? " ci__box--live" : ""}`}
+            >
+              {digits[i] ?? ""}
+            </span>
+          ))}
+        </label>
+        <p className="ci__changes">
+          <span className="ci__spinner" aria-hidden="true" />
+          {sending ? "Checking…" : "The number under the QR changes every 30 seconds."}
+        </p>
+        {denied ? (
+          <p className="k-line ci__center">
+            Checking in at <strong>{centreName}</strong>
+          </p>
+        ) : null}
       </form>
 
-      {message ? (
-        <div className={`app-card${message.ok ? " app-card--cream" : ""}`} role="status">
-          <p style={{ margin: 0 }}>{message.text}</p>
-        </div>
-      ) : null}
+      <Sheet open={outcome !== null} onClose={() => setOutcome(null)}>
+        {outcome?.kind === "in" ? (
+          <div className="ci-out ci-out--in">
+            <span className="ci-out__tick">
+              <Check size={30} aria-hidden="true" />
+            </span>
+            <p className="ci-out__title">Checked in</p>
+            {outcome.elsewhere ? (
+              <p className="k-line">
+                You are at a different centre. That is allowed — the office is told.
+              </p>
+            ) : (
+              <p className="k-line">{centreName}</p>
+            )}
+            <p className="k-line">Wait for the invigilator to start the paper.</p>
+          </div>
+        ) : outcome ? (
+          <div className="ci-out">
+            <span className={`ci-out__icon ci-out__icon--${outcome.kind}`} aria-hidden="true">
+              {outcome.kind === "expired" ? (
+                <TimerOff size={20} />
+              ) : outcome.kind === "closed" ? (
+                <DoorClosed size={20} />
+              ) : outcome.kind === "early" ? (
+                <MapPin size={20} />
+              ) : (
+                <WifiOff size={20} />
+              )}
+            </span>
+            <div>
+              <p className="k-h">
+                {outcome.kind === "expired"
+                  ? "That code did not work"
+                  : outcome.kind === "closed"
+                    ? "This paper has closed"
+                    : outcome.kind === "early"
+                      ? "Check-in has not opened"
+                      : "No connection"}
+              </p>
+              <p className="k-line">
+                {outcome.kind === "expired"
+                  ? "The desk shows a new one every 30 seconds. Scan again."
+                  : outcome.kind === "closed"
+                    ? "Speak to your invigilator."
+                    : outcome.kind === "early"
+                      ? "The code works once your invigilator starts the desk."
+                      : "Check-in needs signal for a moment. Try again."}
+              </p>
+            </div>
+          </div>
+        ) : null}
+        {outcome && outcome.kind !== "in" ? (
+          <button type="button" className="k-btn ci-out__again" onClick={() => setOutcome(null)}>
+            Try again
+          </button>
+        ) : null}
+      </Sheet>
     </div>
   );
 }

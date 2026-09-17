@@ -7,6 +7,16 @@ import { sql } from "@/lib/exam/db";
 import { firstName } from "@/lib/exam/portal-auth";
 import LiveExam from "@/components/portal/LiveExam";
 import CheckIn from "@/components/app/CheckIn";
+import { Empty, Head } from "@/components/app/kit";
+import {
+  CentreCard,
+  ClosedNote,
+  FourRules,
+  OpensIn,
+  PaperHero,
+  PapersSat,
+  Receipt,
+} from "@/components/app/exam/ExamFaces";
 
 export const dynamic = "force-dynamic";
 
@@ -14,22 +24,18 @@ const ist = (d: Date | string, opts: Intl.DateTimeFormatOptions) =>
   new Date(d).toLocaleString("en-IN", { timeZone: "Asia/Kolkata", ...opts });
 
 /**
- * The Exam tab. Permanent, and on most days it says nothing is open.
+ * The Exam tab. Redesign board 04 — permanent, and most days it is calm.
  *
  * On an exam morning it is the whole flow, decided on the server from the
  * paper's own row and never from the phone's clock:
  *
- *   not yet        the paper, when it opens, and the rules -- stated as what
- *                  happens, not as prohibitions (Design 6b)
- *   check-in open  scan the invigilator's code, or type the six digits
- *   checked in     the paper itself: July's runner, proven on 6,780 students,
- *                  through the app's own gate
- *   in             the receipt, which does not go away (Design 6d)
- *
- * The rules shown are the ones ruled on 14 September 2026, not Design's
- * assumptions: one closing time for the whole hall, answers kept on the phone
- * with the server's clock deciding, and another phone only through the
- * invigilator.
+ *   nothing       "No exam right now", and every receipt this student holds
+ *   before        the paper, date, time, length, a countdown, the centre, and
+ *                 the four rules ruled on 14 September 2026
+ *   check-in      scan the desk code, or type the six digits
+ *   checked in    LiveExam, drawn as the app: waiting room, start, the paper
+ *   in            the receipt, which does not go away
+ *   closed        "This paper has closed", with the receipt if there is one
  */
 export default async function ExamPage() {
   const student = await requireStudent();
@@ -39,15 +45,11 @@ export default async function ExamPage() {
   if (!window) {
     return (
       <>
-        <h1 className="app-h1">Exam</h1>
-        <div className="app-soon">
-          <h2>No paper is open</h2>
-          <p>
-            When KIDS schedules your next paper it appears here, with the date and the rules, well
-            before it opens.
-          </p>
+        <Head title="Exam" />
+        <div className="k-card k-card--dashed">
+          <Empty title="No exam right now" line="Your next paper will show here." />
         </div>
-        <Received rows={received} />
+        <PapersSat rows={received} />
       </>
     );
   }
@@ -56,29 +58,32 @@ export default async function ExamPage() {
   const phase = phaseOf(window);
   const attempt = await findAttempt(student.uid, window.examPaperId);
   const checkin = window.requiresCheckin ? await findCheckin(student.uid, window.examPaperId) : null;
-  const closes = ist(window.endsAt, { hour: "numeric", minute: "2-digit" });
+  const serverNow = new Date().toISOString();
+  // Where they were marked present. A check-in at another centre is allowed and
+  // recorded by its code; the name is looked up so the receipt reads as a place.
+  const centre = !checkin
+    ? student.centre_name
+    : checkin.centre_code === student.centre_code
+      ? student.centre_name
+      : await centreName(checkin.centre_code);
 
   if (attempt?.status === "submitted" || phase === "over") {
+    const handedIn = attempt?.status === "submitted";
     return (
       <>
-        <h1 className="app-h1">Exam</h1>
-        <div className="app-card app-card--cream">
-          <h3>{attempt?.status === "submitted" ? "Your answers are in" : `${paper.name} has closed`}</h3>
-          {attempt?.status === "submitted" ? (
-            <>
-              <p>
-                {paper.name}. {Object.keys(attempt.answers ?? {}).length} answered, received{" "}
-                {ist(attempt.submitted_at ?? attempt.deadline_at, { hour: "numeric", minute: "2-digit", second: "2-digit" })}.
-                A paper can only be taken once.
-              </p>
-              {attempt.receipt ? <ReceiptNumber value={attempt.receipt} /> : null}
-            </>
-          ) : (
-            <p>You did not start this paper, so there is nothing on your record for it.</p>
-          )}
-          <p>Results are published for all centres together. The app will tell you.</p>
-        </div>
-        <Received rows={received.filter((r) => r.receipt !== attempt?.receipt)} />
+        <Head title="Exam" />
+        {phase === "over" ? <ClosedNote started={handedIn} /> : null}
+        {handedIn ? (
+          <Receipt
+            paper={paper.name}
+            receipt={attempt.receipt ?? null}
+            handedInIso={new Date(attempt.submitted_at ?? attempt.deadline_at).toISOString()}
+            answered={Object.keys(attempt.answers ?? {}).length}
+            total={paper.question_count ?? 0}
+            centre={centre}
+          />
+        ) : null}
+        <PapersSat rows={received.filter((r) => r.receipt !== attempt?.receipt)} />
       </>
     );
   }
@@ -86,87 +91,52 @@ export default async function ExamPage() {
   if (phase === "before") {
     return (
       <>
-        <h1 className="app-h1">Exam</h1>
-        <div className="app-card app-card--gold">
-          <h3>{paper.name} · Class {student.class}</h3>
-          <p>
-            Opens {ist(window.startsAt, { weekday: "long", day: "numeric", month: "long", hour: "numeric", minute: "2-digit" })}
-            {window.requiresCheckin
-              ? `. Check-in at your centre opens ${ist(window.opensAt, { hour: "numeric", minute: "2-digit" })}.`
-              : "."}
-          </p>
-        </div>
-        <Rules closes={closes} checkin={window.requiresCheckin} />
-        <Received rows={received} />
+        <PaperHero name={paper.name} startsAt={window.startsAt.toISOString()} minutes={window.durationMinutes} />
+        <OpensIn at={window.startsAt.toISOString()} serverNowIso={serverNow} />
+        <CentreCard name={student.centre_name} />
+        <FourRules />
+        {window.requiresCheckin ? (
+          <button type="button" className="k-btn" disabled>
+            Check-in opens {ist(window.opensAt, { hour: "numeric", minute: "2-digit" })}
+          </button>
+        ) : null}
+        <PapersSat rows={received} />
       </>
     );
   }
 
   if (window.requiresCheckin && !checkin) {
-    return (
-      <>
-        <h1 className="app-h1">Exam</h1>
-        <CheckIn paperName={paper.name} centreName={`${student.centre_code} · ${student.centre_name}`} />
-        <Rules closes={closes} checkin />
-      </>
-    );
+    return <CheckIn centreName={student.centre_name} />;
   }
 
   // Checked in (or no check-in needed). The runner takes over: its own waiting
   // room until the paper opens, then the paper.
   return (
     <LiveExam
+      variant="app"
       uid={student.uid}
       token=""
       api="/api/app/exam"
       paperKey={window.examPaperCode}
-      label={`${paper.name} · Class ${student.class}`}
+      label={paper.name}
       name={firstName(student.name)}
       classLabel={student.class}
       centreCode={checkin?.centre_code ?? student.centre_code}
+      centreName={centre}
       questionCount={paper.question_count ?? 0}
       durationMinutes={window.durationMinutes}
       windowClosesIso={window.endsAt.toISOString()}
       startsAtIso={window.startsAt.toISOString()}
-      serverNowIso={new Date().toISOString()}
+      serverNowIso={serverNow}
     />
   );
 }
 
-function Rules({ closes, checkin }: { closes: string; checkin: boolean }) {
-  return (
-    <div className="app-card">
-      <h3>Read this before you begin</h3>
-      <ul style={{ margin: 0, paddingLeft: 18, display: "grid", gap: 8, fontSize: 14.5, lineHeight: 1.55 }}>
-        {checkin ? (
-          <li>You sit this paper in the hall. It opens only after you scan your invigilator&rsquo;s code.</li>
-        ) : null}
-        <li>The clock is the KIDS server&rsquo;s clock. Changing the time on your phone does nothing.</li>
-        <li>
-          The paper closes at <strong>{closes}</strong> for everyone in the hall. Starting late means less time.
-        </li>
-        <li>Every answer is kept on your phone as you tap it. If your data drops, keep answering.</li>
-        <li>
-          If the app closes, open it again on the same phone: you return to your answers with the same time.
-        </li>
-        <li>
-          If your phone stops working, tell your invigilator. Only they can move your paper to another phone.
-        </li>
-        <li>At closing time the paper submits itself with whatever you have answered.</li>
-        <li>Nothing is marked right or wrong until results are published.</li>
-      </ul>
-    </div>
-  );
-}
-
-function ReceiptNumber({ value }: { value: string }) {
-  return (
-    <div style={{ display: "grid", gap: 2, marginBlock: 6 }}>
-      <span className="app-label">Receipt number</span>
-      <span style={{ fontFamily: "var(--font-data)", fontSize: 24, fontWeight: 600, letterSpacing: "0.1em" }}>{value}</span>
-      <span className="app-hint">Quote this if you ever need to ask about this paper.</span>
-    </div>
-  );
+async function centreName(code: string): Promise<string> {
+  const rows = (await sql`
+    select centre_name from students where centre_code = ${code} and centre_name is not null limit 1
+  `) as { centre_name: string }[];
+  return rows[0]?.centre_name ?? code;
 }
 
 type ReceivedRow = { name: string; receipt: string; submitted_at: string };
@@ -179,23 +149,4 @@ async function receiptsFor(uid: string): Promise<ReceivedRow[]> {
      where a.uid = ${uid} and a.status = 'submitted' and a.receipt is not null
      order by a.submitted_at desc
   `) as ReceivedRow[];
-}
-
-function Received({ rows }: { rows: ReceivedRow[] }) {
-  if (!rows.length) return null;
-  return (
-    <div className="app-card">
-      <h3>Answers received</h3>
-      <dl className="app-kv">
-        {rows.map((r) => (
-          <div key={r.receipt} style={{ display: "contents" }}>
-            <dt>{ist(r.submitted_at, { day: "numeric", month: "short" })}</dt>
-            <dd>
-              {r.name} · <span style={{ fontFamily: "var(--font-data)" }}>{r.receipt}</span>
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  );
 }

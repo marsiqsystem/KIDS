@@ -1,6 +1,7 @@
 import { sql } from "@/lib/exam/db";
 import type { Student } from "@/lib/exam/db";
 import { istToday } from "@/lib/app/loop";
+import { closeOverrunClasses } from "@/lib/admin/classes";
 
 /**
  * The Day — Design turn 8, part one.
@@ -200,6 +201,9 @@ export async function dayFor(student: Student, now: Date = new Date()): Promise<
    */
   const week = Math.max(1, Math.floor(elapsed / 7) + 1);
   const daysLeft = Math.max(0, programme.weeks * 7 - elapsed);
+
+  // So a class the teacher never ended reads "Finished", not "Go in".
+  await closeOverrunClasses();
 
   const [blockRows, markRows, classRows] = (await Promise.all([
     sql`

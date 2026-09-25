@@ -42,8 +42,44 @@ export interface LiveClass {
   bucket?: "open" | "ahead" | "past";
 }
 
+/**
+ * Close every class whose time has run out.
+ *
+ * Ending a class is a button a teacher forgets — class 19 sat on HAPPENING NOW
+ * for a fortnight — so a class that was opened is closed for them once its own
+ * length plus half an hour for overrunning has passed. The half hour is the same
+ * bound `nextClassFor` already uses for "could still be running"; closing any
+ * sooner would lock a child out of rejoining a lesson that ran five minutes over.
+ *
+ * `ended_at` is written as the moment it ran out, not the moment this noticed,
+ * because nothing may have read the table for days. Each closure is audited as
+ * the system's, so the log can tell a teacher's End from this.
+ *
+ * Written, not computed at read time, so that every reader of `ended_at` — the
+ * console, the student's Home, the token signer — agrees without each one
+ * having to know the rule. Run before each of them reads; the table is small
+ * and the update touches nothing when nothing is overdue.
+ */
+export async function closeOverrunClasses(): Promise<void> {
+  await sql`
+    with closed as (
+      update admin_classes
+         set ended_at = started_at + make_interval(mins => minutes + 30)
+       where started_at is not null
+         and ended_at is null
+         and cancelled_at is null
+         and started_at + make_interval(mins => minutes + 30) <= now()
+      returning id::text as id
+    )
+    insert into admin_events (actor, action, target_kind, target_id, detail)
+    select 'system', 'class_ended', 'batch', id, jsonb_build_object('class_id', id, 'auto', true)
+      from closed
+  `;
+}
+
 /** Every class for one batch, newest first. */
 export async function classesForBatch(batchId: string): Promise<LiveClass[]> {
+  await closeOverrunClasses();
   return (await sql`
     select c.id::text, c.batch_id::text, b.name as batch_name, c.title, c.subject,
            c.starts_at, c.minutes, c.room, c.started_at, c.ended_at, c.cancelled_at,
@@ -65,6 +101,7 @@ export async function classesForBatch(batchId: string): Promise<LiveClass[]> {
  * nobody reads.
  */
 export async function recentClasses(staffId?: string, limit = 40): Promise<LiveClass[]> {
+  await closeOverrunClasses();
   if (staffId) {
     return (await sql`
       select c.id::text, c.batch_id::text, b.name as batch_name, c.title, c.subject,
@@ -109,6 +146,7 @@ export async function recentClasses(staffId?: string, limit = 40): Promise<LiveC
 }
 
 export async function findClass(id: string): Promise<LiveClass | null> {
+  await closeOverrunClasses();
   const rows = (await sql`
     select c.id::text, c.batch_id::text, b.name as batch_name, c.title, c.subject,
            c.starts_at, c.minutes, c.room, c.started_at, c.ended_at, c.cancelled_at,

@@ -7,7 +7,8 @@ import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
 import DeviceField from "./DeviceField";
 import { Stepper } from "./door";
-import { claimAction, type FormState } from "@/app/app/actions";
+import AskOfficeScreen from "./AskOfficeScreen";
+import { claimAction, claimCheckAction, type FormState } from "@/app/app/actions";
 
 /**
  * Claim your account, in two steps. Redesign board 03, 2A–2B.
@@ -23,6 +24,12 @@ import { claimAction, type FormState } from "@/app/app/actions";
  *
  * The date of birth is typed in three boxes rather than picked from a calendar,
  * and focus jumps DD → MM → YYYY as each fills.
+ *
+ * "Find me" asks the server one thing first: is there a date of birth to check
+ * against? For the children with none on the register, the screen turns into
+ * the details step -- name, father or guardian, family phone -- which goes to
+ * the office as a request, is shown there as matched or not matched against the
+ * master, and opens this app by itself when approved (Umar, 25 Sep 2026).
  */
 export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) {
   const [state, formAction, pending] = useActionState<FormState, FormData>(claimAction, {});
@@ -31,6 +38,9 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
   const [step, setStep] = useState(0);
   const [handled, setHandled] = useState<FormState | null>(null);
   const [mismatch, setMismatch] = useState(false);
+  const [checking, setChecking] = useState(false);
+  const [checked, setChecked] = useState<FormState | null>(null);
+  const [noDob, setNoDob] = useState(false);
   const month = useRef<HTMLInputElement>(null);
   const year = useRef<HTMLInputElement>(null);
 
@@ -38,6 +48,43 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
   const aboutWho = (state.field === "uid" || state.field === "dob") && handled !== state;
   const at = aboutWho ? 0 : step;
   const ready = uid.length === 9 && dob.d.length > 0 && dob.m.length > 0 && dob.y.length === 4;
+
+  if (noDob) {
+    return (
+      <AskOfficeScreen
+        initialUid={uid}
+        dob={`${dob.d.padStart(2, "0")}-${dob.m.padStart(2, "0")}-${dob.y}`}
+        noDob
+      />
+    );
+  }
+
+  const findMe = async () => {
+    setChecking(true);
+    setChecked(null);
+    try {
+      const found = await claimCheckAction(uid);
+      if (found === "no_dob") return setNoDob(true);
+      if (found === "unknown") {
+        return setChecked({ field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card." });
+      }
+      if (found === "claimed") {
+        return setChecked({
+          field: "uid",
+          message: "This account is already open. Sign in with your password.",
+          action: { label: "Sign in", href: `/app/sign-in?id=${uid}` },
+        });
+      }
+      setHandled(state);
+      setStep(1);
+    } catch {
+      // Offline: carry on as before; the submit checks everything again.
+      setHandled(state);
+      setStep(1);
+    } finally {
+      setChecking(false);
+    }
+  };
 
   return (
     <>
@@ -122,22 +169,23 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
             </div>
           </div>
 
-          {at === 0 ? <FormAlert state={state} /> : null}
+          {at === 0 ? <FormAlert state={checked ?? state} /> : null}
 
           <div className="door-bottom">
             <button
               type="button"
               className="k-btn"
-              disabled={!ready}
-              onClick={() => {
-                setHandled(state);
-                setStep(1);
-              }}
+              disabled={!ready || checking}
+              onClick={findMe}
             >
-              Find me
+              {checking ? "Checking…" : "Find me"}
             </button>
             <p className="door-foot">
               Already claimed? <Link href={uid.length === 9 ? `/app/sign-in?id=${uid}` : "/app/sign-in"}>Sign in</Link>
+            </p>
+            <p className="door-foot">
+              No date of birth on your card?{" "}
+              <Link href={uid.length === 9 ? `/app/claim/ask?id=${uid}` : "/app/claim/ask"}>Ask KIDS to open it</Link>
             </p>
           </div>
         </div>

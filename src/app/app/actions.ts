@@ -2,13 +2,16 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { signIn, claimAccount, logAppEvent, openApprovedAccount } from "@/lib/app/accounts";
+import { signIn, claimAccount, logAppEvent, findAccount } from "@/lib/app/accounts";
 import { applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
 import { requestCorrection, FIELD_LABEL, type CorrectionField } from "@/lib/app/corrections";
 import { requireStudent } from "@/lib/app/gate";
 import { passwordProblem } from "@/lib/app/passwords";
 import { createSession, destroySession, sessionUid } from "@/lib/app/session";
 import { bindDevice, readDeviceId } from "@/lib/app/devices";
+import { askToOpen, doorStatus, takeHandoff, type DoorStatus } from "@/lib/app/handoff";
+import { tenDigits } from "@/lib/admin/claim-match";
+import { findStudent } from "@/lib/exam/db";
 import { firstName } from "@/lib/exam/portal-auth";
 
 /**
@@ -161,8 +164,8 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
         // had forgotten a password.
         return {
           field: "dob",
-          message: "We have no date of birth for you. The KIDS office can open your account.",
-          action: { label: "Call the office", href: `/app/reset?id=${uid}` },
+          message: "We have no date of birth for you. Ask the KIDS office — this app opens by itself when they approve.",
+          action: { label: "Ask KIDS to open my account", href: `/app/claim/ask?id=${uid}` },
           uid,
         };
 
@@ -172,7 +175,7 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
         return {
           field: "dob",
           message: "That date of birth does not match. Use the date on your school records.",
-          action: { label: "Ask the office", href: `/app/reset?id=${uid}` },
+          action: { label: "Ask KIDS to open my account", href: `/app/claim/ask?id=${uid}` },
           uid,
         };
 
@@ -204,7 +207,7 @@ export async function signOutAction(): Promise<void> {
  * product decision with a reason: a family who registers on a website has
  * credentials to keep and a second sign-in to get through when the app finally
  * arrives. Here they install once, apply, and the same installation is handed
- * its account the moment the office approves it.
+ * its account the moment the office approves it (openApprovedAction, below).
  *
  * Nothing here creates a student. It creates an APPLICATION -- no UID, invisible
  * to the exam and to every published total -- and a named office account turns
@@ -289,49 +292,96 @@ export async function registrationStatusAction(
 }
 
 /**
- * Approved — open the account, on this phone, without a sign-in.
+ * Step one of the claim screen: is this a child we can check by date of birth?
  *
- * The office has already checked who this child is; that is what approval
- * means, and it is a stronger check than the date of birth the claim screen
- * asks for. So nothing is verified again here. The student chooses a password
- * and is in.
+ * Tells the screen only what sign-in already tells anybody who types a UID --
+ * unknown, already open, or open to claim -- plus whether a date of birth is on
+ * file. It never says whether a typed date is right: that is checked with the
+ * password, in claimAction, so this cannot be used to guess a birthday.
  *
- * They are asked for one at all -- rather than simply being let through --
- * because an account with no password can never be recovered onto another
- * handset, and a lost phone would otherwise cost a child their registration.
+ * `no_dob` sends the child to the details step (father, phone), which goes to
+ * the office as an "open my account" request instead of failing at the end.
  */
-export async function finishRegistrationAction(
-  _prev: FormState,
-  formData: FormData,
-): Promise<FormState> {
-  const deviceId = readDeviceId(formData.get("deviceId"));
-  const password = String(formData.get("password") ?? "");
+export async function claimCheckAction(rawUid: string): Promise<"unknown" | "claimed" | "no_dob" | "ok"> {
+  const uid = String(rawUid ?? "").replace(/\D/g, "");
+  if (uid.length !== 9) return "unknown";
+  const student = await findStudent(uid);
+  if (!student) return "unknown";
+  if (await findAccount(uid)) return "claimed";
+  return student.dob ? "ok" : "no_dob";
+}
 
-  const application = deviceId ? await applicationForDevice(deviceId) : null;
-  if (!application || application.status !== "approved" || !application.uid) {
-    return {
-      field: "password",
-      message: "This application is not approved yet. Nothing to open.",
-    };
+/* ---------------------------------------------------- office handoff --- */
+
+/**
+ * What this phone is waiting on. See src/lib/app/handoff.ts.
+ *
+ * Takes the device id as an argument, like registrationStatusAction, because it
+ * lives in localStorage and only the client can read it.
+ */
+export async function doorStatusAction(deviceId: string): Promise<DoorStatus> {
+  const id = readDeviceId(deviceId);
+  if (!id) return { state: "none" };
+  return doorStatus(id);
+}
+
+/**
+ * Approved -- sign this phone in, with nothing typed.
+ *
+ * Returns only when there was nothing to open; on success it redirects, and the
+ * first screen asks the child to choose their own password (the account was
+ * opened with one nobody knows).
+ */
+export async function openApprovedAction(deviceId: string): Promise<{ opened: false }> {
+  const id = readDeviceId(deviceId);
+  const handed = id ? await takeHandoff(id) : null;
+  if (!handed) return { opened: false };
+
+  const userAgent = (await headers()).get("user-agent");
+  await bindDevice(handed.uid, id, userAgent);
+  await createSession(handed.uid, id);
+  redirect("/app/profile/password?must=1&opened=1");
+}
+
+export type AskState = { field?: "uid" | "name" | "father" | "phone"; message?: string; ok?: boolean };
+
+/** "Ask KIDS to open my account." Filed from the phone that will use it. */
+export async function askOfficeAction(_prev: AskState, formData: FormData): Promise<AskState> {
+  const uid = String(formData.get("uid") ?? "").replace(/\D/g, "");
+  const name = String(formData.get("name") ?? "");
+  const father = String(formData.get("father") ?? "");
+  const phone = tenDigits(String(formData.get("guardianPhone") ?? ""));
+  // Only from the claim screen's hidden field, and only in the register's shape.
+  const dob = String(formData.get("dob") ?? "").trim();
+
+  if (uid.length !== 9) return { field: "uid", message: "Type the 9 digits on your KIDS card." };
+  if (!phone) return { field: "phone", message: "Type your family's 10-digit mobile number." };
+
+  const result = await askToOpen({
+    uid,
+    typedName: name,
+    fatherName: father,
+    guardianPhone: phone,
+    typedDob: /^\d{2}-\d{2}-\d{4}$/.test(dob) ? dob : null,
+    deviceId: readDeviceId(formData.get("deviceId")),
+  });
+
+  if (!result.ok) {
+    switch (result.reason) {
+      case "unknown_id":
+        return { field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card." };
+      case "name":
+        return { field: "name", message: "Type your full name, as it is written at school." };
+      case "father":
+        return { field: "father", message: "Type your father's or guardian's full name." };
+      case "no_device":
+        return {
+          field: "uid",
+          message: "This phone could not be recognised, so the office has nowhere to send the approval. Call the office instead.",
+        };
+    }
   }
-
-  const uid = application.uid;
-  const problem = passwordProblem(password, uid);
-  if (problem) return { field: "password", message: problem, uid };
-
-  const opened = await openApprovedAccount(uid, password);
-  if (!opened) {
-    return {
-      field: "password",
-      message:
-        `${uid} already has a password. Sign in with it, or reset it if you do not remember.`,
-      action: { label: "Sign in", href: `/app/sign-in?id=${uid}` },
-      uid,
-    };
-  }
-
-  await startSession(uid, formData);
-  redirect("/app");
+  return { ok: true };
 }
 
 /* -------------------------------------------------------- corrections --- */

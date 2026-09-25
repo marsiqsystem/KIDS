@@ -51,6 +51,8 @@ const TABLES = [
   "admin_classes",
   "admin_class_attendance",
   "admin_posts",
+  "app_account_requests",
+  "register_guardians",
 ];
 
 /**

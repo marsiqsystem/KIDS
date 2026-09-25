@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { LogOut, Smartphone } from "lucide-react";
 import SignInForm from "@/components/app/SignInForm";
+import DoorWatch from "@/components/app/DoorWatch";
 import { DoorHero, Notice } from "@/components/app/door";
 import { sessionUid } from "@/lib/app/session";
 
@@ -43,6 +44,9 @@ export default async function SignInPage({
           </Notice>
         </div>
       ) : null}
+      {/* The app lands here with no session. If the office has approved this
+          phone since it last looked, this signs it in before anyone types. */}
+      <DoorWatch />
       <SignInForm initialUid={initialUid} />
     </div>
   );

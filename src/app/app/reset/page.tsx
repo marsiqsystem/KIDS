@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { findStudent } from "@/lib/exam/db";
 import { DoorBar, OFFICE } from "@/components/app/door";
@@ -7,11 +8,13 @@ import { groupUid } from "@/lib/app/uid";
 /**
  * Forgot password — deliberately no self-service. Redesign board 03, 1E.
  *
- * This screen does nothing on purpose. There is no reset link, no code, no SMS
- * button: a password here is cleared by a named person in the KIDS control
- * centre (Students tab). The screen's whole job is to hand the child a card to
- * show that person — in the collateral's own language, maroon band and gold
- * rule — and the office's phone and email.
+ * There is no reset link, no code, no SMS button: a password here is cleared
+ * by a named person in the KIDS control centre. Two ways to reach them. The
+ * first is "Ask KIDS to let me in" -- a request from this phone that the office
+ * approves in the Claims tab, after which this phone signs itself in and the
+ * child chooses a new password (src/lib/app/handoff.ts); nobody reads a
+ * password to anybody. The second is the card below, to show at the counter,
+ * with the office's phone and email.
  *
  * Name and school appear only once a valid nine-digit UID arrived, so this page
  * can never be used to walk the register.
@@ -28,7 +31,7 @@ export default async function ResetPage({ searchParams }: { searchParams: Promis
       <DoorBar title="Forgot password" back={uid.length === 9 ? `/app/sign-in?id=${uid}` : "/app/sign-in"} />
 
       <div className="door-body">
-        <p className="k-line">The KIDS office clears passwords — no message is sent from here. Show them this card.</p>
+        <p className="k-line">The KIDS office clears passwords. Ask them from this phone, or show them this card.</p>
 
         <div className="kcard">
           <div className="kcard__band">
@@ -64,6 +67,11 @@ export default async function ResetPage({ searchParams }: { searchParams: Promis
             <p className="kcard__foot">Password cleared by the KIDS office only. {OFFICE.reg}.</p>
           </div>
         </div>
+
+        <Link className="k-btn" href={uid.length === 9 ? `/app/claim/ask?id=${uid}` : "/app/claim/ask"}>
+          Ask KIDS to let me in on this phone
+        </Link>
+        <p className="k-line door-center">When the office approves, this app opens by itself.</p>
 
         <a className="k-row" href={`tel:${OFFICE.tel}`}>
           <span className="k-row__icon" aria-hidden="true">

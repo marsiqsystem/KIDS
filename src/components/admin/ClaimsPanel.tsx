@@ -138,8 +138,9 @@ function SchoolDetail({ school, unclaimed }: { school: SchoolClaims; unclaimed: 
               </button>
               <p className="mt-2 text-xs text-[#6B5B5D]">
                 These children have no date of birth on the register, so they cannot claim by
-                themselves. The sheet goes to the class teacher; each child must choose their own
-                password the first time they sign in.
+                themselves. They can ask from the app instead — their requests arrive at the top of
+                this tab and need no sheet. Otherwise the sheet goes to the class teacher; each child
+                must choose their own password the first time they sign in.
                 {lockedOut > 60 ? " Sixty at a time — press again for the next sixty." : ""}
               </p>
               <Alert state={state} />

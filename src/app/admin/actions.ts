@@ -38,6 +38,11 @@ import {
   rejectRegistration,
 } from "@/lib/admin/registrations";
 import { openLockedOutAtSchool, type IssuedSheetRow } from "@/lib/admin/claims";
+import {
+  approveAccountRequest,
+  approveMatchingRequests,
+  rejectAccountRequest,
+} from "@/lib/admin/account-requests";
 import { approveCorrection, rejectCorrection } from "@/lib/admin/corrections";
 import {
   assignInvigilator,
@@ -709,6 +714,45 @@ export async function openSchoolAccounts(_prev: State, formData: FormData): Prom
     message: `Opened ${sheet.length} accounts. Print this sheet now — the passwords are not stored and will not be shown again.`,
     sheet,
   };
+}
+
+/**
+ * "Ask KIDS to open my account" -- approve one. The phone that asked signs
+ * itself in; nobody is given a password. See src/lib/app/handoff.ts.
+ */
+export async function approveAccountRequestAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("requestId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No request was named." };
+
+  const changed = await approveAccountRequest(id, staff.staff_id);
+  if (!changed) return { message: "Somebody has already decided this one. Reload to see what they did." };
+
+  refresh();
+  return done("Approved. Their app opens the account by itself — nothing to send them.");
+}
+
+export async function rejectAccountRequestAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("requestId") ?? "");
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (!/^\d+$/.test(id)) return { message: "No request was named." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters.", field: "reason" };
+
+  const changed = await rejectAccountRequest(id, staff.staff_id, reason);
+  if (!changed) return { message: "Somebody has already decided this one. Reload to see what they did." };
+
+  refresh();
+  return done("Turned down. The child sees your reason on their phone.");
+}
+
+/** Every matched first claim, sixty at a time. Matching rules: src/lib/admin/claim-match.ts. */
+export async function approveMatchingRequestsAction(): Promise<State> {
+  const staff = await requireStaff("admin");
+  const { approved, more } = await approveMatchingRequests(staff.staff_id);
+  refresh();
+  if (approved === 0) return { message: "Nothing matched is left to approve in bulk — the rest need a look." };
+  return done(`Approved ${approved} matched. Their apps open by themselves.${more ? ` ${more} more matched; press it again.` : ""}`);
 }
 
 /* ----------------------------------------------------------- corrections --- */

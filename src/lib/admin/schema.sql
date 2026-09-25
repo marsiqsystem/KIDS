@@ -509,3 +509,76 @@ create table if not exists exam_checkins (
 );
 
 create index if not exists exam_checkins_centre_idx on exam_checkins (exam_paper_id, centre_code);
+
+-- "Open my account" -- a child already on the register asks the office to let
+-- them in, from the phone they will use.
+--
+-- Two kinds of child need it, and before this table both could only be let in
+-- with a password the office read out or printed on a sheet:
+--
+--   claim  no account yet, and the claim screen cannot check them -- no date of
+--          birth on the register (994 on 14 Sep 2026), or one that does not
+--          match what they remember.
+--   reset  an account exists and they have forgotten the password.
+--
+-- The request carries the device that asked, exactly as app_registrations does,
+-- so approval is the whole of it: the waiting phone notices and signs itself in
+-- (src/lib/app/handoff.ts). Nobody has to pass a password to anybody. Printed
+-- sheets do not scale to ten thousand children; a queue does.
+--
+-- What the office checks is what the child typed against what the register
+-- says: the name, and a family phone number to ring when the two disagree.
+create table if not exists app_account_requests (
+  id             bigserial   primary key,
+  uid            char(9)     not null references students (uid),
+  kind           text        not null check (kind in ('claim', 'reset')),
+  -- As typed on the phone. Never copied from the register: the difference
+  -- between the two is the office's evidence.
+  typed_name     text        not null,
+  guardian_phone text,
+  device_id      char(32)    not null,
+  status         text        not null default 'pending'
+                   check (status in ('pending', 'approved', 'rejected', 'withdrawn')),
+  requested_at   timestamptz not null default now(),
+  decided_at     timestamptz,
+  decided_by     text        references admin_staff (staff_id),
+  -- Shown to the child word for word when the request is turned down.
+  reason         text,
+  -- When the approved phone actually signed itself in. Set once, by the
+  -- handoff; an approval that has been used cannot be used again.
+  opened_at      timestamptz
+);
+
+create index if not exists app_account_requests_pending_idx
+  on app_account_requests (requested_at) where status = 'pending';
+create index if not exists app_account_requests_device_idx
+  on app_account_requests (device_id, requested_at desc);
+create unique index if not exists app_account_requests_one_per_device
+  on app_account_requests (device_id) where status = 'pending';
+
+-- The same one-time handoff for a registration. Before this, an approved
+-- registration waited for the child to choose a password on the approved
+-- screen; now the phone signs itself in and asks for the password afterwards.
+alter table app_registrations add column if not exists opened_at timestamptz;
+
+-- What the child typed beyond name and phone, so a claim can be checked against
+-- the master workbook rather than taken on trust. Asked on the claim screen when
+-- the register has no date of birth for them (Umar, 25 Sep 2026).
+alter table app_account_requests add column if not exists father_name text;
+-- DD-MM-YYYY as typed. For a child with no date of birth on the register this is
+-- the only one anybody has; it is shown to the office, never written anywhere.
+alter table app_account_requests add column if not exists typed_dob   text;
+
+-- The master workbook's Father / Guardian and Contact Number, per student.
+--
+-- The register (students) never carried them; they lived only in the workbook.
+-- They are here for one job: to say whether an "open my account" request names
+-- the same father and phone the school gave KIDS. Loaded by
+-- scripts/load-guardians.ts from the master, which stays the source -- re-run it
+-- after the master changes. Personal data; admin-only screens read it.
+create table if not exists register_guardians (
+  uid           char(9)     primary key references students (uid),
+  guardian_name text,
+  phone         text,
+  loaded_at     timestamptz not null default now()
+);

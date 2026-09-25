@@ -4,17 +4,15 @@ import { useActionState, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Check, Phone, Search } from "lucide-react";
-import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
 import DeviceField, { readOrCreateDeviceId } from "./DeviceField";
+import { useDoorStatus } from "./DoorWatch";
 import { OFFICE, Stepper } from "./door";
 import { groupUid } from "./UidField";
 import {
   registerAction,
   registrationStatusAction,
-  finishRegistrationAction,
   type RegisterState,
-  type FormState,
 } from "@/app/app/actions";
 import type { School, PendingApplication } from "@/lib/app/registrations";
 
@@ -26,17 +24,22 @@ import type { School, PendingApplication } from "@/lib/app/registrations";
  *
  *   form        a stepper: who you are → your school → send
  *   pending     sent to the office; a gentle breathing state, not a dead page
- *   approved    "You are on the register", the new User ID large — and then
- *               choose a password, because an account with no password cannot
- *               be recovered onto another phone (our rule; the board skips it)
+ *   approved    "You are on the register", the new User ID large, and the app
+ *               signs itself in (src/lib/app/handoff.ts). The first screen
+ *               inside asks the child to choose a password, because an account
+ *               with no known password cannot be opened on another phone.
  *   rejected    the office's reason word for word, and the way on
  *
  * The state is keyed on the installation id, not on a login: the phone that
  * applied is the phone that gets let in, with nothing to remember in between.
  *
  * The board's third step is "choose a password". Registration here chooses it
- * on approval instead, as built — a password typed before anyone has checked
- * the application would be a secret stored for a child who may not exist.
+ * after approval instead — a password typed before anyone has checked the
+ * application would be a secret stored for a child who may not exist.
+ *
+ * The waiting face watches (on opening, on returning to the foreground, and
+ * every thirty seconds while pending) so the approval reaches a phone that is
+ * sitting on this screen as well as one that is opened tomorrow.
  */
 export default function RegisterScreen({ schools }: { schools: School[] }) {
   const [application, setApplication] = useState<PendingApplication | null>(null);
@@ -58,7 +61,7 @@ export default function RegisterScreen({ schools }: { schools: School[] }) {
   }, [state.ok]);
 
   if (application?.status === "approved" && application.uid) return <Approved application={application} />;
-  if (application?.status === "pending") return <Waiting application={application} />;
+  if (application?.status === "pending") return <Waiting application={application} onChange={setApplication} />;
   if (application?.status === "rejected") {
     return <Rejected application={application} onAgain={() => setApplication(null)} />;
   }
@@ -377,7 +380,35 @@ function Form({
 
 /* ------------------------------------------------------------- waiting --- */
 
-function Waiting({ application }: { application: PendingApplication }) {
+function Waiting({
+  application,
+  onChange,
+}: {
+  application: PendingApplication;
+  onChange: (next: PendingApplication | null) => void;
+}) {
+  // Ask again while this face is up; the office's decision replaces it.
+  useEffect(() => {
+    const deviceId = readOrCreateDeviceId();
+    if (!deviceId) return;
+    let stopped = false;
+    const ask = () => {
+      if (document.visibilityState === "hidden") return;
+      registrationStatusAction(deviceId)
+        .then((next) => {
+          if (!stopped && next && next.status !== "pending") onChange(next);
+        })
+        .catch(() => {});
+    };
+    const timer = setInterval(ask, 30_000);
+    document.addEventListener("visibilitychange", ask);
+    return () => {
+      stopped = true;
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", ask);
+    };
+  }, [onChange]);
+
   return (
     <div className="door-sky">
       <div className="door-sky__top">
@@ -441,11 +472,13 @@ function Waiting({ application }: { application: PendingApplication }) {
 /* ------------------------------------------------------------ approved --- */
 
 function Approved({ application }: { application: PendingApplication }) {
-  const [state, formAction, pending] = useActionState<FormState, FormData>(finishRegistrationAction, {});
+  // The approval is used the moment this face appears: the hook finds it and
+  // signs this phone in, landing on "choose your password".
+  const { status, opening } = useDoorStatus();
+  const used = status !== null && status.state !== "ready" && !opening;
 
   return (
-    <form action={formAction} className="door-approved">
-      <DeviceField />
+    <div className="door-approved">
       <div className="door-approved__top">
         <div className="k-celebrate">
           <Image src="/kids-icon.png" alt="" width={72} height={72} />
@@ -461,29 +494,19 @@ function Approved({ application }: { application: PendingApplication }) {
           <div className="door-issued__uid">{groupUid(application.uid ?? "")}</div>
           <p className="door-issued__write">Write it down somewhere safe</p>
         </div>
-        <p className="k-line door-center">You need it and your password on any other phone.</p>
 
-        <div className="door-field">
-          <label className="k-label" htmlFor="reg-password">
-            Choose a password
-          </label>
-          <PasswordField
-            id="reg-password"
-            autoComplete="new-password"
-            invalid={state.field === "password"}
-            placeholder="At least 6 characters"
-          />
-        </div>
-
-        <FormAlert state={state} />
-
-        <div className="door-bottom">
-          <button type="submit" className="k-btn k-btn--gold" disabled={pending}>
-            {pending ? "Opening…" : "Open my app"}
-          </button>
-        </div>
+        {used ? (
+          // Already opened -- on this phone earlier, or the account has a password.
+          <div className="door-bottom">
+            <Link href={`/app/sign-in?id=${application.uid}`} className="k-btn">
+              Sign in
+            </Link>
+          </div>
+        ) : (
+          <p className="k-line door-center">Opening your account…</p>
+        )}
       </div>
-    </form>
+    </div>
   );
 }
 

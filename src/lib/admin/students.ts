@@ -120,6 +120,58 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
   `) as StudentRow[];
 }
 
+/**
+ * The register itself, a page at a time.
+ *
+ * The screen used to show nothing at all until somebody typed a search, which
+ * reads as a broken page: the office opens Students to see the register, not
+ * only to look one child up. So the tab now opens on the register, ordered by
+ * name, 100 to a page, with the same rows the search returns.
+ *
+ * Still never the whole register in one response — 9,652 names is a download,
+ * not a page — and still demo-free, for the reason this file's header gives.
+ * A class filter is offered because "show me Class X" is the question the
+ * office actually asks, and it narrows 9,652 to something a person can page
+ * through.
+ */
+export async function listStudents(
+  opts: { cls?: string; page?: number; limit?: number } = {},
+): Promise<{ rows: StudentRow[]; total: number; page: number; pages: number; cls: string }> {
+  const limit = opts.limit ?? 100;
+  const cls = CLASSES.has(opts.cls ?? "") ? (opts.cls as string) : "";
+  const page = Math.max(1, Math.floor(opts.page ?? 1));
+
+  const [count] = (await sql`
+    select count(*)::int as n from students s
+     where not s.is_demo and (${cls} = '' or s.class = ${cls})
+  `) as { n: number }[];
+  const total = count?.n ?? 0;
+  const pages = Math.max(1, Math.ceil(total / limit));
+  const at = Math.min(page, pages);
+
+  const rows = (await sql`
+    select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
+           (a.uid is not null) as claimed,
+           coalesce(a.must_change, false) as must_change,
+           coalesce(a.locked_until > now(), false) as locked_out,
+           (select string_agg(b.name, ', ' order by b.name)
+              from admin_batch_members m
+              join admin_batches b on b.id = m.batch_id
+             where m.uid = s.uid and m.removed_at is null
+               and b.archived_at is null) as batches
+      from students s
+      left join app_accounts a on a.uid = s.uid
+     where not s.is_demo and (${cls} = '' or s.class = ${cls})
+     order by s.name, s.uid
+     limit ${limit} offset ${(at - 1) * limit}
+  `) as StudentRow[];
+
+  return { rows, total, page: at, pages, cls };
+}
+
+/** The four classes that sat SET 2026. Anything else is ignored, not queried. */
+const CLASSES = new Set(["IX", "X", "XI", "XII"]);
+
 /** Which live batches one child is in. Used to keep the roster screens honest. */
 export async function batchesForStudent(uid: string): Promise<{ id: string; name: string }[]> {
   return (await sql`

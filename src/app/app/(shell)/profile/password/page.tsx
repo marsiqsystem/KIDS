@@ -1,4 +1,5 @@
 import { requireStudent } from "@/lib/app/gate";
+import { findAccount } from "@/lib/app/accounts";
 import PasswordChangeForm from "@/components/app/PasswordChangeForm";
 import { Head } from "@/components/app/kit";
 import { groupUid } from "@/lib/app/uid";
@@ -20,9 +21,12 @@ export const dynamic = "force-dynamic";
 export default async function ChangePasswordPage({
   searchParams,
 }: {
-  searchParams: Promise<{ must?: string }>;
+  searchParams: Promise<{ must?: string; opened?: string }>;
 }) {
-  const [student, { must }] = await Promise.all([requireStudent(), searchParams]);
+  const [student, { must, opened }] = await Promise.all([requireStudent(), searchParams]);
+  // Read from the account, not the address bar: whether the current password is
+  // asked for is a fact about the account.
+  const issued = (await findAccount(student.uid))?.must_change ?? false;
 
   return (
     <>
@@ -31,7 +35,18 @@ export default async function ChangePasswordPage({
 
       {/* Arrived straight from sign-in because the office set this password by
           hand. Said plainly: a child bounced to a form assumes something broke. */}
-      {must ? (
+      {opened && issued ? (
+        // Arrived by itself, from an approval in the control centre.
+        <div className="door-alert door-alert--gold" role="status">
+          <div className="door-alert__text">
+            <p>
+              <strong>KIDS opened your account on this phone.</strong> Your User ID is{" "}
+              <span className="k-mono">{groupUid(student.uid)}</span> — write it down. Choose a password now so you
+              can sign in again if you change phones.
+            </p>
+          </div>
+        </div>
+      ) : must && issued ? (
         <div className="door-alert door-alert--gold" role="status">
           <div className="door-alert__text">
             <p>
@@ -41,7 +56,7 @@ export default async function ChangePasswordPage({
         </div>
       ) : null}
 
-      <PasswordChangeForm />
+      <PasswordChangeForm needsCurrent={!issued} />
     </>
   );
 }

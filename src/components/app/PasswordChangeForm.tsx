@@ -13,7 +13,7 @@ import { changePasswordAction, type PasswordFormState } from "@/app/app/profile-
  * wrong on a borrowed handset is a child locked out of their own record until a
  * teacher can be found.
  */
-export default function PasswordChangeForm() {
+export default function PasswordChangeForm({ needsCurrent = true }: { needsCurrent?: boolean }) {
   const [state, formAction, pending] = useActionState<PasswordFormState, FormData>(
     changePasswordAction,
     {},
@@ -21,10 +21,14 @@ export default function PasswordChangeForm() {
 
   return (
     <form action={formAction} className="door-step-body">
-      <div className="door-field">
-        <label className="k-label">Password you use now</label>
-        <PasswordField name="current" autoComplete="current-password" invalid={state.field === "current"} />
-      </div>
+      {/* Not asked when the account was opened or reset by the office: there is
+          no password the child could know. See changePassword(). */}
+      {needsCurrent ? (
+        <div className="door-field">
+          <label className="k-label">Password you use now</label>
+          <PasswordField name="current" autoComplete="current-password" invalid={state.field === "current"} />
+        </div>
+      ) : null}
 
       <div className="door-field">
         <label className="k-label">New password</label>
@@ -41,7 +45,7 @@ export default function PasswordChangeForm() {
 
       <div className="door-bottom">
         <button type="submit" className="k-btn" disabled={pending}>
-          {pending ? "Changing…" : "Change password"}
+          {pending ? "Saving…" : needsCurrent ? "Change password" : "Save my password"}
         </button>
         <p className="door-foot">Use the new one next time you sign in.</p>
       </div>

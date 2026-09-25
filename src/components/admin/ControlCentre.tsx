@@ -27,10 +27,14 @@ import { resetStudentPassword, signOut } from "@/app/admin/actions";
 import type { Staff, StaffListRow, AuditRow } from "@/lib/admin/staff";
 import type { Batch, MemberRow, BatchTeacher } from "@/lib/admin/batches";
 import type { Overview, StudentRow } from "@/lib/admin/students";
+
+/** The register as the page loads it: one slice, and where that slice sits. */
+type Register = { rows: StudentRow[]; total: number; page: number; pages: number; cls: string };
 import type { LiveClass } from "@/lib/admin/classes";
 import type { Post } from "@/lib/admin/posts";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
 import type { ClaimTotals, SchoolClaims, UnclaimedRow } from "@/lib/admin/claims";
+import type { AccountRequestRow } from "@/lib/admin/account-requests";
 import type { PendingCorrection } from "@/lib/admin/corrections";
 import type { AdminPaper, AwardState, CentreRow } from "@/lib/admin/exams";
 import type { ContentChapter } from "@/lib/admin/content";
@@ -41,6 +45,7 @@ import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
 import ApplicationsPanel from "./ApplicationsPanel";
 import ClaimsPanel from "./ClaimsPanel";
+import AccountRequestsPanel from "./AccountRequestsPanel";
 import CorrectionsPanel from "./CorrectionsPanel";
 import ContentPanel from "./ContentPanel";
 import { CentresPanel, ExamsPanel, ResultsPanel } from "./ExamsPanel";
@@ -88,6 +93,7 @@ export default async function ControlCentre({
   batches,
   openBatch,
   students,
+  register = null,
   events,
   classes,
   posts,
@@ -97,6 +103,7 @@ export default async function ControlCentre({
   claims = null,
   corrections = null,
   correctionsWaiting = 0,
+  requestsWaiting = 0,
   papers = null,
   centres = null,
   content = null,
@@ -112,6 +119,8 @@ export default async function ControlCentre({
   batches: Batch[];
   openBatch: OpenBatch | null;
   students: StudentRow[];
+  /** The register itself, when nobody is searching. */
+  register?: Register | null;
   events: AuditRow[];
   classes: LiveClass[];
   posts: Post[];
@@ -119,7 +128,14 @@ export default async function ControlCentre({
   applications?: { pending: PendingRow[]; decided: DecidedRow[] } | null;
   /** Pending count for the sidebar. An inbox nobody knows is full is never opened. */
   waiting?: number;
-  claims?: { totals: ClaimTotals; schools: SchoolClaims[]; open: { school: SchoolClaims; unclaimed: UnclaimedRow[] } | null } | null;
+  claims?: {
+    totals: ClaimTotals;
+    schools: SchoolClaims[];
+    open: { school: SchoolClaims; unclaimed: UnclaimedRow[] } | null;
+    /** Phones asking to be let in. Approving one opens the account on it. */
+    requests: AccountRequestRow[];
+  } | null;
+  requestsWaiting?: number;
   corrections?: PendingCorrection[] | null;
   correctionsWaiting?: number;
   papers?: AdminPaper[] | null;
@@ -141,7 +157,7 @@ export default async function ControlCentre({
           items: [
             { key: "applications", label: "Applications", icon: <UserPlus size={18} />, count: waiting },
             { key: "corrections", label: "Corrections", icon: <FilePenLine size={18} />, count: correctionsWaiting },
-            { key: "claims", label: "Claims", icon: <KeyRound size={18} /> },
+            { key: "claims", label: "Claims", icon: <KeyRound size={18} />, count: requestsWaiting },
           ],
         },
         {
@@ -308,7 +324,7 @@ export default async function ControlCentre({
 
         <div className="mx-auto w-full max-w-[1180px] flex-1 px-6 py-6">
           {tab === "overview" && overview ? (
-            <OverviewPanel o={overview} batches={batches} dash={dashboard} waiting={waiting} corrections={correctionsWaiting} />
+            <OverviewPanel o={overview} batches={batches} dash={dashboard} waiting={waiting} corrections={correctionsWaiting} requests={requestsWaiting} />
           ) : null}
           {tab === "applications" && applications ? (
             <Page title="Applications" line={`${n(waiting)} waiting`}>
@@ -316,8 +332,11 @@ export default async function ControlCentre({
             </Page>
           ) : null}
           {tab === "claims" && claims ? (
-            <Page title="Claims" line="Children who cannot reach their own account">
-              <ClaimsPanel totals={claims.totals} schools={claims.schools} open={claims.open} />
+            <Page title="Claims" line={`${n(requestsWaiting)} asking to be let in`}>
+              <div className="space-y-6">
+                <AccountRequestsPanel rows={claims.requests} />
+                <ClaimsPanel totals={claims.totals} schools={claims.schools} open={claims.open} />
+              </div>
             </Page>
           ) : null}
           {tab === "corrections" && corrections ? (
@@ -375,8 +394,8 @@ export default async function ControlCentre({
             </Page>
           ) : null}
           {tab === "students" ? (
-            <Page title="Students" line="Searched, never listed">
-              <StudentsPanel students={students} query={query} canReset={isAdmin} />
+            <Page title="Students" line="The register · search to narrow it">
+              <StudentsPanel students={students} register={register} query={query} canReset={isAdmin} />
             </Page>
           ) : null}
           {tab === "audit" ? (
@@ -424,12 +443,14 @@ function OverviewPanel({
   dash,
   waiting,
   corrections,
+  requests,
 }: {
   o: Overview;
   batches: Batch[];
   dash: Dashboard | null;
   waiting: number;
   corrections: number;
+  requests: number;
 }) {
   const live = batches.filter((b) => !b.archived_at);
   const now = new Date();
@@ -507,7 +528,7 @@ function OverviewPanel({
           <div className="grid gap-2.5">
             <Inbox href="/admin?tab=applications" icon={<UserPlus size={20} />} title="Applications" n={waiting} hot={waiting > 0 && waiting >= corrections} />
             <Inbox href="/admin?tab=corrections" icon={<FilePenLine size={20} />} title="Corrections" n={corrections} hot={corrections > waiting} />
-            <Inbox href="/admin?tab=claims" icon={<KeyRound size={20} />} title="Claims to open" n={dash?.claims.lockedOut ?? 0} />
+            <Inbox href="/admin?tab=claims" icon={<KeyRound size={20} />} title="Asking to be let in" n={requests} />
           </div>
         </section>
 
@@ -652,18 +673,25 @@ function Inbox({ href, icon, title, n: count, hot }: { href: string; icon: React
 /* -------------------------------------------------------------- students --- */
 
 /**
- * The register, searched rather than listed. A plain GET form; the query lives
- * in the URL. 9,652 names is not a page.
+ * The register: listed a page at a time, and searched when the office is after
+ * one child. The query and the page both live in the URL, so a row somebody is
+ * looking at can be sent to a colleague as a link.
+ *
+ * It listed nothing at all before a search was typed, which reads as a page
+ * that does not work. 9,652 names is still not one page — hence 100 at a time,
+ * a class filter, and prev/next.
  */
-function StudentsPanel({ students, query, canReset }: { students: StudentRow[]; query: string; canReset: boolean }) {
+function StudentsPanel({
+  students, register = null, query, canReset,
+}: { students: StudentRow[]; register?: Register | null; query: string; canReset: boolean }) {
+  const rows = query ? students : (register?.rows ?? []);
   return (
     <div className="space-y-5">
-      {!query ? (
-        <p className={`${CARD} p-5 text-sm text-[#6B5B5D]`}>
-          Search by User ID, name or school in the bar above. A forgotten app password is cleared here.
-        </p>
-      ) : students.length === 0 ? (
+      {!query && register ? <RegisterBar register={register} /> : null}
+      {query && students.length === 0 ? (
         <p className="text-sm text-[#B22234]">Nobody on the register matches “{query}”.</p>
+      ) : rows.length === 0 ? (
+        <p className={`${CARD} p-5 text-sm text-[#6B5B5D]`}>Nobody on the register yet.</p>
       ) : (
         <div className={`${CARD} overflow-x-auto`}>
           <table className="w-full text-sm">
@@ -679,7 +707,7 @@ function StudentsPanel({ students, query, canReset }: { students: StudentRow[]; 
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F2E9DA]">
-              {students.map((s) => (
+              {rows.map((s) => (
                 <tr key={s.uid}>
                   <Td mono>{s.uid.replace(/(\d{3})(?=\d)/g, "$1 ")}</Td>
                   <Td>{s.name}</Td>
@@ -711,12 +739,83 @@ function StudentsPanel({ students, query, canReset }: { students: StudentRow[]; 
               ))}
             </tbody>
           </table>
-          {students.length === 100 ? (
+          {query && students.length === 100 ? (
             <p className="border-t border-[#F2E9DA] px-3 py-2 text-xs text-[#6B5B5D]">
               Showing the first 100. Narrow the search to see the rest.
             </p>
           ) : null}
+          {!query && register && register.pages > 1 ? <Pager register={register} /> : null}
         </div>
+      )}
+    </div>
+  );
+}
+
+/** Where this slice sits in the register, and the class filter over it. */
+function RegisterBar({ register }: { register: Register }) {
+  const from = (register.page - 1) * 100 + 1;
+  const to = Math.min(register.page * 100, register.total);
+  return (
+    <div className="flex flex-wrap items-center gap-3">
+      <p className="text-sm text-[#6B5B5D]">
+        {register.total ? (
+          <>
+            Showing <b>{n(from)}–{n(to)}</b> of {n(register.total)} on the register.
+          </>
+        ) : (
+          "Nobody on the register."
+        )}{" "}
+        Search above for one child; a forgotten app password is cleared here.
+      </p>
+      <div className="flex-1" />
+      <nav className="flex items-center gap-1.5" aria-label="Filter by class">
+        {[
+          { key: "", label: "All" },
+          { key: "IX", label: "IX" },
+          { key: "X", label: "X" },
+          { key: "XI", label: "XI" },
+          { key: "XII", label: "XII" },
+        ].map((c) => (
+          <Link
+            key={c.key || "all"}
+            href={`/admin?tab=students${c.key ? `&sclass=${c.key}` : ""}`}
+            className={`rounded-[8px] border px-2.5 py-1 text-[12.5px] font-semibold ${
+              (register.cls ?? "") === c.key
+                ? "border-[#7B1E2B] bg-[#7B1E2B] text-white"
+                : "border-[#F2E9DA] bg-white text-[#6B5B5D] hover:border-[#7B1E2B]"
+            }`}
+          >
+            {c.label}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
+/** Prev / next over the register. Pages are links, so Back works. */
+function Pager({ register }: { register: Register }) {
+  const href = (p: number) =>
+    `/admin?tab=students${register.cls ? `&sclass=${register.cls}` : ""}&page=${p}`;
+  const btn = "rounded-[8px] border border-[#F2E9DA] px-3 py-1.5 text-[12.5px] font-semibold";
+  return (
+    <div className="flex items-center gap-3 border-t border-[#F2E9DA] px-3 py-2.5">
+      {register.page > 1 ? (
+        <Link href={href(register.page - 1)} className={`${btn} bg-white hover:border-[#7B1E2B]`}>
+          Previous
+        </Link>
+      ) : (
+        <span className={`${btn} bg-[#FBF7EF] text-[#A79B9C]`}>Previous</span>
+      )}
+      <span className="text-[12.5px] text-[#6B5B5D]">
+        Page {n(register.page)} of {n(register.pages)}
+      </span>
+      {register.page < register.pages ? (
+        <Link href={href(register.page + 1)} className={`${btn} bg-white hover:border-[#7B1E2B]`}>
+          Next
+        </Link>
+      ) : (
+        <span className={`${btn} bg-[#FBF7EF] text-[#A79B9C]`}>Next</span>
       )}
     </div>
   );

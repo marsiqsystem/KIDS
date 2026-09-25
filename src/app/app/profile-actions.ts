@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { requireStudent } from "@/lib/app/gate";
-import { changePassword } from "@/lib/app/accounts";
+import { changePassword, findAccount } from "@/lib/app/accounts";
 
 /**
  * Profile's server actions. Design 7a.
@@ -28,7 +28,10 @@ export async function changePasswordAction(
   const next = String(formData.get("next") ?? "");
   const again = String(formData.get("again") ?? "");
 
-  if (!current) return { field: "current", message: "Type the password you use now." };
+  // Not asked of a must_change account -- see changePassword().
+  if (!current && !(await findAccount(student.uid))?.must_change) {
+    return { field: "current", message: "Type the password you use now." };
+  }
   if (!next) return { field: "next", message: "Type the new password you want." };
 
   // Checked before the current password, so a child who mistyped the new one

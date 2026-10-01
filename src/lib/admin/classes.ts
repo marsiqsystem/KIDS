@@ -40,6 +40,8 @@ export interface LiveClass {
    * render. Only recentClasses() fills it in.
    */
   bucket?: "open" | "ahead" | "past";
+  /** Filled by recentClasses() only: what the recorder has handed over. */
+  recordings?: { id: string; drive_id: string; bytes: number; hidden: boolean }[];
 }
 
 /**
@@ -109,6 +111,10 @@ export async function recentClasses(staffId?: string, limit = 40): Promise<LiveC
              c.recording_url, c.created_by,
              (select count(*)::int from admin_class_attendance a
                where a.class_id = c.id and a.uid is not null) as attended,
+             coalesce((select json_agg(json_build_object(
+                         'id', r.id::text, 'drive_id', r.drive_id, 'bytes', r.bytes,
+                         'hidden', r.hidden_at is not null) order by r.added_at, r.id)
+                         from admin_class_recordings r where r.class_id = c.id), '[]') as recordings,
              case
                when c.cancelled_at is not null or c.ended_at is not null then 'past'
                when c.started_at is not null then 'open'
@@ -131,6 +137,10 @@ export async function recentClasses(staffId?: string, limit = 40): Promise<LiveC
            c.recording_url, c.created_by,
            (select count(*)::int from admin_class_attendance a
              where a.class_id = c.id and a.uid is not null) as attended,
+           coalesce((select json_agg(json_build_object(
+                       'id', r.id::text, 'drive_id', r.drive_id, 'bytes', r.bytes,
+                       'hidden', r.hidden_at is not null) order by r.added_at, r.id)
+                       from admin_class_recordings r where r.class_id = c.id), '[]') as recordings,
            case
              when c.cancelled_at is not null or c.ended_at is not null then 'past'
              when c.started_at is not null then 'open'

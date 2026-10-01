@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import Link from "next/link";
 import { CalendarPlus, Radio, Video } from "lucide-react";
-import { callOffClass, closeClass, newClass, openClass, saveRecording } from "@/app/admin/actions";
+import { callOffClass, closeClass, hideClassRecording, newClass, openClass } from "@/app/admin/actions";
 import type { Batch } from "@/lib/admin/batches";
 import type { LiveClass } from "@/lib/admin/classes";
 import { Alert, Field, RowAction, Submit, INPUT, SURFACE } from "./ui";
@@ -227,36 +227,55 @@ function ClassRow({ c, configured }: { c: LiveClass; configured: boolean }) {
 }
 
 /**
- * The recording is a link the teacher pastes, not a file we made.
+ * The class's recording, as the class server handed it over.
  *
- * Jibri, Jitsi's own recorder, needs roughly its own machine and would multiply
- * the cost of a three-month programme. The teacher records locally and posts it
- * unlisted to YouTube — free, unlimited, and the app already knows how to play
- * a YouTube link because the Learn tab does it.
+ * Nothing to press: the teacher's room starts the recorder, and when the class
+ * ends the server uploads the video to the KIDS Drive ("KIDS class recordings")
+ * and it appears here and on the batch's phones. A long class can take a while
+ * to arrive. The only control is to hide a part — for a lesson that went wrong,
+ * or a child who should not have been on camera.
  */
 function Recording({ c }: { c: LiveClass }) {
-  const [state, action] = useActionState(saveRecording, {});
+  const parts = c.recordings ?? [];
+
+  if (parts.length === 0) {
+    return (
+      <p className="mt-3 flex items-center gap-1.5 text-xs text-[#6B5B5D]">
+        <Video className="h-3 w-3" aria-hidden />
+        No recording has arrived for this class.
+      </p>
+    );
+  }
 
   return (
-    <form action={action} className="mt-3 flex flex-wrap items-end gap-2">
-      <input type="hidden" name="classId" value={c.id} />
-      <label className="block grow">
-        <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">
-          <Video className="mr-1 inline h-3 w-3" aria-hidden />
-          Recording link
-        </span>
-        <input
-          className={INPUT}
-          name="url"
-          defaultValue={c.recording_url ?? ""}
-          placeholder="https://youtu.be/… (unlisted)"
-        />
-      </label>
-      <Submit>Save</Submit>
-      <div className="w-full">
-        <Alert state={state} />
-      </div>
-    </form>
+    <ul className="mt-3 space-y-1.5">
+      {parts.map((r, i) => (
+        <li key={r.id} className={`flex flex-wrap items-center gap-3 text-xs ${r.hidden ? "opacity-60" : ""}`}>
+          <a
+            href={`https://drive.google.com/file/d/${r.drive_id}/view`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-semibold text-[#7B1E2B]"
+          >
+            <Video className="h-3.5 w-3.5" aria-hidden />
+            Recording{parts.length > 1 ? `, part ${i + 1}` : ""}
+          </a>
+          <span className="text-[#6B5B5D]">{(r.bytes / 1024 / 1024 / 1024).toFixed(2)} GB</span>
+          {r.hidden ? (
+            <span className="text-[#B22234]">Hidden from students</span>
+          ) : (
+            <RowAction
+              action={hideClassRecording}
+              fields={{ classId: c.id, recordingId: r.id }}
+              danger
+              confirm="Hide this recording from the students? Its link stops working too."
+            >
+              Hide from students
+            </RowAction>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 

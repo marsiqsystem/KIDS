@@ -527,6 +527,198 @@ Destroy the proof machine as soon as they do.
 
 ---
 
+## 9. Record every class into Google Drive (Jibri)
+
+Umar's ask, 2 October 2026: **every class recorded, saved to the KIDS Drive,
+and watchable in the app by that batch.** The app side is built and was
+rehearsed end to end on 2 Oct with a generated video: the signed hand-over, the
+upload into "KIDS class recordings", sharing for Google's player, the batch-only
+list, and hiding. **What has never run is Jibri itself** — this section is
+written from Jitsi's documentation, not from a box. Read every config back.
+
+How it fits together:
+
+1. The teacher opens the room. Their screen starts the recorder by itself after
+   four seconds (`JitsiRoom`, `record`) and says **● Recording** in the strip
+   above the room. **⚠ Not recording** there means Jibri did not answer.
+2. Jibri — a hidden participant running Chrome and ffmpeg on this machine —
+   writes `/srv/recordings/<session>/<file>.mp4` until the class ends.
+3. Jibri runs `/opt/kids/kids-finalize.sh <that directory>`. It asks the app
+   for a one-off Drive upload address, sends the video straight to Google, then
+   tells the app it is there. The app shares it for Google's player, lists it
+   for the batch, and pushes "Class recording ready". The local copy is deleted
+   only after the app has said yes. **This machine never holds the Google
+   token** — only `KIDS_JITSI_SECRET`, which it already has.
+4. Anything that failed is retried by cron every 20 minutes.
+
+**Size the machine for it.** Jibri is a whole Chrome plus a video encoder, about
+2 vCPU and 2–3 GB of RAM *while a class is recording*, on top of the
+videobridge. The 4 vCPU / 8 GB plan is tight for both; take **one size up** for
+the term and run step 8's load test **with recording on**. One Jibri records one
+class at a time — two batches live at the same moment need a second.
+
+Storage: at 720p a 90-minute class is roughly **1–1.5 GB**. The box keeps a
+recording only until it is in Drive; Drive keeps them all (≈50 GB a term).
+
+### 9a. The sound card Chrome needs
+
+Jibri captures audio through a fake ALSA loopback device. Cloud kernels often
+leave the module out:
+
+    apt-get install -y linux-image-generic linux-modules-extra-$(uname -r) || apt-get install -y linux-image-generic
+    echo snd-aloop >> /etc/modules
+    modprobe snd-aloop
+    lsmod | grep snd_aloop        # MUST print a line
+
+If `modprobe` says the module is not found, reboot into the generic kernel
+(`reboot`, then repeat the last two lines). **No line from `lsmod` = no audio in
+any recording**, and nothing else will complain.
+
+### 9b. Install Jibri
+
+The Jitsi apt repository is already configured by step 4.
+
+    apt-get install -y openjdk-17-jre-headless jq curl
+    curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+    apt-get update && apt-get install -y google-chrome-stable jibri
+    usermod -aG adm,audio,video,plugdev jibri
+    mkdir -p /srv/recordings && chown jibri:jibri /srv/recordings
+
+Chrome and its driver must match. If `apt` did not bring `chromedriver`, fetch
+the one for `google-chrome --version` from Chrome for Testing and put it in
+`/usr/local/bin`.
+
+### 9c. Two accounts and a hidden domain in Prosody
+
+Replace `live.kidskolkata.org` throughout if the hostname ever changes. Make
+two strong passwords and keep them for 9e.
+
+Add to `/etc/prosody/conf.avail/live.kidskolkata.org.cfg.lua`, at the end:
+
+    VirtualHost "recorder.live.kidskolkata.org"
+        modules_enabled = { "ping"; }
+        authentication = "internal_hashed"
+
+Then:
+
+    prosodyctl register jibri auth.live.kidskolkata.org '<JIBRI_PASSWORD>'
+    prosodyctl register recorder recorder.live.kidskolkata.org '<RECORDER_PASSWORD>'
+
+⚠️ **Our rooms demand a token (step 5), and the recorder has none.** In the
+`Component "conference.live.kidskolkata.org" "muc"` block, find `admins = { … }`
+(add it if absent) and make sure it lists `"focus@auth.live.kidskolkata.org"`,
+`"jibri@auth.live.kidskolkata.org"` and `"recorder@recorder.live.kidskolkata.org"`.
+If the Jibri log later shows `not-allowed` or `not-authorized` when joining a
+room, this is why.
+
+### 9d. Tell Jicofo and the web client there is a recorder
+
+In `/etc/jitsi/jicofo/jicofo.conf`, inside `jicofo { … }`:
+
+    jibri: {
+      brewery-jid: "JibriBrewery@internal.auth.live.kidskolkata.org"
+      pending-timeout: 90 seconds
+    }
+
+In `/etc/jitsi/meet/live.kidskolkata.org-config.js`, inside `var config = { … }`:
+
+    hiddenDomain: 'recorder.live.kidskolkata.org',
+    recordingService: { enabled: true, sharingEnabled: false },
+    fileRecordingsEnabled: true,
+
+### 9e. Jibri's own config
+
+`/etc/jitsi/jibri/jibri.conf` — the whole file:
+
+    jibri {
+      id = "kids-jibri"
+      single-use-mode = false
+      recording {
+        recordings-directory = "/srv/recordings"
+        finalize-script = "/opt/kids/kids-finalize.sh"
+      }
+      ffmpeg {
+        // 720p: half the CPU and half the Drive space of 1080p, and plenty for
+        // a teacher and a board on a phone screen.
+        resolution = "1280x720"
+      }
+      api {
+        xmpp {
+          environments = [{
+            name = "kids"
+            xmpp-server-hosts = ["127.0.0.1"]
+            xmpp-domain = "live.kidskolkata.org"
+            control-muc {
+              domain = "internal.auth.live.kidskolkata.org"
+              room-name = "JibriBrewery"
+              nickname = "kids-jibri"
+            }
+            control-login {
+              domain = "auth.live.kidskolkata.org"
+              username = "jibri"
+              password = "<JIBRI_PASSWORD>"
+            }
+            call-login {
+              domain = "recorder.live.kidskolkata.org"
+              username = "recorder"
+              password = "<RECORDER_PASSWORD>"
+            }
+            strip-from-room-domain = "conference."
+            usage-timeout = 0
+            trust-all-xmpp-certs = true
+          }]
+        }
+      }
+    }
+
+### 9f. The hand-over script
+
+From the repo, copy `scripts/live/kids-finalize.sh` to the box, then:
+
+    mkdir -p /opt/kids /etc/kids
+    install -m 755 kids-finalize.sh /opt/kids/kids-finalize.sh
+    cat > /etc/kids/recording.env <<'EOF'
+    KIDS_APP_URL=https://www.kidskolkata.org
+    KIDS_JITSI_SECRET=<the same value as KIDS_JITSI_SECRET in Vercel>
+    EOF
+    chown root:jibri /etc/kids/recording.env && chmod 640 /etc/kids/recording.env
+    echo '*/20 * * * * jibri /opt/kids/kids-finalize.sh --pending' > /etc/cron.d/kids-recordings
+
+Then restart everything and **ask, do not assume**:
+
+    systemctl restart prosody jicofo jitsi-videobridge2 jibri
+    sleep 20
+    grep -iE 'idle|error' /var/log/jitsi/jibri/log.0.txt | tail -5    # want "IDLE", no errors
+    prosodyctl shell muc occupants JibriBrewery@internal.auth.live.kidskolkata.org 2>/dev/null \
+      || grep -i jibri /var/log/jitsi/jicofo.log | tail -3            # Jicofo must have SEEN it
+
+### 9g. Switch it on in the app
+
+In Vercel add `KIDS_JITSI_RECORDING=on` (and keep `GOOGLE_DRIVE_RECORDINGS_FOLDER_ID`,
+made by `scripts/connect-google-drive.ts`). Redeploy. Until this is set, the
+teacher's room never asks for a recording — so a server without Jibri does not
+greet every lesson with "recording failed".
+
+### 9h. The test
+
+1. Open a class as the teacher. Within ~10 seconds the strip says
+   **● Recording**. "⚠ Not recording" → `/var/log/jitsi/jibri/log.0.txt`.
+2. Talk for two minutes with a student account in the room, then press **End
+   the class**.
+3. Within a few minutes: `/var/log/jitsi/jibri/kids-finalize.log` says `OK … ->
+   drive …`, the video is in **"KIDS class recordings"** in Drive, and the
+   console's class row shows **Recording · x GB**.
+4. On a student phone in that batch: **Learn → Class recordings → the class**
+   plays. A new video can say "still processing" for a while; that is Google,
+   not us.
+5. **Listen to it.** Silent video = 9a. Black video with sound = Chrome/driver
+   mismatch in 9b.
+6. Press **Hide from students** in the console: the class disappears from the
+   phone and the Drive link stops playing.
+
+---
+
 ## When it breaks on the day
 
 Do not engineer the outage away — plan for it. Keep an **unadvertised Google

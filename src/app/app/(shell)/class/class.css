@@ -110,3 +110,102 @@
 .cls-wait .k-btn {
   margin-top: 12px;
 }
+
+/* A finished class, played back. Google's player inside a 16:9 box — the
+   iframe has no size of its own worth trusting, so the box gives it one. */
+.cls-rec {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cls-rec__when {
+  margin: -4px 0 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.cls-rec__part {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cls-rec__player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+}
+
+.cls-rec__player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cls-rec__none p,
+.cls-rec__note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* The list of recorded classes. */
+.rec-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rec-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--cream-muted);
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.rec-item__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--teal-wash);
+  color: var(--teal);
+}
+
+.rec-item__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.rec-item__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rec-item__meta {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}

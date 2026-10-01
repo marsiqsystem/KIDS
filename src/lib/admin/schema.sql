@@ -249,6 +249,36 @@ create unique index if not exists admin_class_attendance_staff_idx
   on admin_class_attendance (class_id, staff_id) where staff_id is not null;
 
 
+-- ------------------------------------------------- admin_class_recordings --
+--
+-- A recorded class, as a video in the KIDS Google Drive.
+--
+-- Written by the class server, not by a person: Jibri records the room, its
+-- finalize script uploads the file straight to Drive and then tells
+-- /api/live/recording which Drive file it made (src/lib/admin/recordings.ts).
+-- More than one row per class is normal -- a recorder that restarts mid-class
+-- leaves two files, and both are the lesson.
+--
+-- Who may watch is computed when they look, like posts: the class's batch as
+-- it is NOW. The video itself is shared "anyone with the link" so Google's
+-- player can stream it (Umar's ruling, 2 Oct 2026 -- see shareForViewing).
+create table if not exists admin_class_recordings (
+  id        bigserial   primary key,
+  class_id  bigint      not null references admin_classes (id),
+  drive_id  text        not null unique,
+  name      text        not null,
+  bytes     bigint      not null,
+  added_at  timestamptz not null default now(),
+  -- Taken off students' screens, never deleted here. The Drive file is
+  -- unshared at the same moment.
+  hidden_at timestamptz,
+  hidden_by text        references admin_staff (staff_id)
+);
+
+create index if not exists admin_class_recordings_class_idx
+  on admin_class_recordings (class_id, added_at);
+
+
 -- ----------------------------------------------------------------- posts ---
 --
 -- Something the office wants to say, that is not derivable from a child's own

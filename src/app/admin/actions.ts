@@ -31,6 +31,7 @@ import {
   teachesBatch,
 } from "@/lib/admin/classes";
 import { createPost, findPost, retractPost } from "@/lib/admin/posts";
+import { hideRecording, recordingsForClass } from "@/lib/admin/recordings";
 import { resetAppPassword } from "@/lib/admin/app-passwords";
 import {
   approveRegistration,
@@ -502,6 +503,26 @@ export async function callOffClass(_prev: State, formData: FormData): Promise<St
 }
 
 /** The unlisted YouTube link, pasted in after the class. */
+/**
+ * Take one class recording off the students' screens. It also stops the Drive
+ * link working, so a copy forwarded out of the app stops playing too. The file
+ * itself stays in the Drive folder.
+ */
+export async function hideClassRecording(_prev: State, formData: FormData): Promise<State> {
+  const classId = String(formData.get("classId") ?? "");
+  const recordingId = String(formData.get("recordingId") ?? "");
+  const live = await findClass(classId);
+  if (!live) return { message: "No such class." };
+
+  const by = await requireBatchRights(live.batch_id);
+  const parts = await recordingsForClass(classId, true);
+  if (!parts.some((r) => r.id === recordingId)) return { message: "No such recording." };
+
+  await hideRecording(recordingId, by.staff_id);
+  refresh();
+  return done("Hidden. Students cannot see it and its link no longer plays.");
+}
+
 export async function saveRecording(_prev: State, formData: FormData): Promise<State> {
   const classId = String(formData.get("classId") ?? "");
   const live = await findClass(classId);

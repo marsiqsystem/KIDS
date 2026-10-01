@@ -5,6 +5,10 @@ import { chosenSections, answersFor } from "@/lib/app/loop";
 import ChapterBrowse, { type BrowseChapter } from "@/components/app/ChapterBrowse";
 import NoStream from "@/components/app/NoStream";
 import { Head } from "@/components/app/kit";
+import Link from "next/link";
+import { PlayCircle } from "lucide-react";
+import { recordingsForStudent } from "@/lib/admin/recordings";
+import "../class/class.css";
 
 /**
  * Learn. Design 4c.
@@ -22,10 +26,13 @@ export default async function LearnPage() {
     return <NoStream cls={student.class} />;
   }
 
-  const [mine, answers] = await Promise.all([
+  const [mine, answers, recordings] = await Promise.all([
     chosenSections(student.uid),
     answersFor(student.uid),
+    // Never the thing that breaks Learn: no recordings is the usual answer.
+    recordingsForStudent(student.uid).catch(() => []),
   ]);
+  const recordedClasses = new Set(recordings.map((r) => r.class_id)).size;
 
   const chosen = new Set(mine);
   await loadVideoOverrides();
@@ -52,6 +59,21 @@ export default async function LearnPage() {
   return (
     <>
       <Head title="Learn" aside={`${withVideo} videos`} />
+      {/* Only for a child whose batch has had a recorded class. Everybody else
+          would be shown an empty promise. */}
+      {recordedClasses > 0 ? (
+        <Link href="/app/recordings" className="rec-item" style={{ marginBottom: 14 }}>
+          <span className="rec-item__icon" aria-hidden="true">
+            <PlayCircle size={22} />
+          </span>
+          <span className="rec-item__body">
+            <p className="rec-item__title">Class recordings</p>
+            <p className="rec-item__meta">
+              {recordedClasses} class{recordedClasses === 1 ? "" : "es"} to watch again
+            </p>
+          </span>
+        </Link>
+      ) : null}
       <ChapterBrowse chapters={chapters} />
     </>
   );

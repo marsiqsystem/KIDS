@@ -134,8 +134,14 @@ export async function openUpload(input: {
   name: string;
   mime: string;
   bytes: number;
+  /** Who uploaded it — a staff id, or "jibri" for a class recording. */
   staffId: string;
-  origin: string;
+  /** The page's origin, for a browser upload. Omitted when a server does the PUT. */
+  origin?: string;
+  /** Defaults to the uploads folder; recordings go to their own. */
+  folder?: string;
+  /** Extra appProperties, e.g. which class a recording belongs to. */
+  props?: Record<string, string>;
 }): Promise<string> {
   const token = await accessToken();
   const res = await fetch(`${UPLOAD}/files?uploadType=resumable&fields=id`, {
@@ -145,13 +151,13 @@ export async function openUpload(input: {
       "content-type": "application/json; charset=UTF-8",
       "x-upload-content-type": input.mime,
       "x-upload-content-length": String(input.bytes),
-      origin: input.origin,
+      ...(input.origin ? { origin: input.origin } : {}),
     },
     body: JSON.stringify({
       name: input.name,
       mimeType: input.mime,
-      parents: [folderId()],
-      appProperties: { kids: "post", by: input.staffId },
+      parents: [input.folder ?? folderId()],
+      appProperties: { kids: "post", ...input.props, by: input.staffId },
     }),
     cache: "no-store",
   });
@@ -170,6 +176,7 @@ export interface DriveFile {
   size: number;
   parents: string[];
   by: string | null;
+  props: Record<string, string>;
 }
 
 /** What Drive says about one file, or null if this app cannot see it. */
@@ -202,7 +209,77 @@ export async function fileInfo(id: string): Promise<DriveFile | null> {
     size: Number(f.size ?? 0),
     parents: f.parents ?? [],
     by: f.appProperties?.by ?? null,
+    props: f.appProperties ?? {},
   };
+}
+
+/**
+ * The folder class recordings go into. Its own, so 40 hours of video do not
+ * bury the teachers' notes. Falls back to the uploads folder if it was never
+ * made (scripts/connect-google-drive.ts makes it).
+ */
+export function recordingsFolderId(): string {
+  return process.env.GOOGLE_DRIVE_RECORDINGS_FOLDER_ID || folderId();
+}
+
+/**
+ * Make one file playable by anybody holding its link, and nothing more.
+ *
+ * Umar's ruling, 2 Oct 2026, for class recordings ONLY: a 90-minute video is
+ * 1-1.5 GB, and 65 students watching it through Vercel would be ~80 GB a class,
+ * so the video is played by Google's own player from Drive instead. That
+ * player needs the file readable without a Google sign-in. The cost, accepted:
+ * a link dug out of the app and forwarded plays for whoever has it, until the
+ * file is unshared. Download, print and copy are switched off for viewers.
+ *
+ * Never used for post attachments, which stay private behind /app/files.
+ */
+export async function shareForViewing(id: string): Promise<void> {
+  const token = await accessToken();
+  const headers = { authorization: `Bearer ${token}`, "content-type": "application/json" };
+
+  const perm = await fetch(`${API}/files/${encodeURIComponent(id)}/permissions?fields=id`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ role: "reader", type: "anyone", allowFileDiscovery: false }),
+    cache: "no-store",
+  });
+  if (!perm.ok) throw new Error(`Drive would not share ${id}: ${perm.status} ${await perm.text()}`);
+
+  const lock = await fetch(`${API}/files/${encodeURIComponent(id)}?fields=id`, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({ copyRequiresWriterPermission: true }),
+    cache: "no-store",
+  });
+  if (!lock.ok) throw new Error(`Drive would not lock ${id}: ${lock.status} ${await lock.text()}`);
+}
+
+/** Undo shareForViewing: the link stops working for everybody, at once. */
+export async function unshare(id: string): Promise<void> {
+  const token = await accessToken();
+  const res = await fetch(
+    `${API}/files/${encodeURIComponent(id)}/permissions?fields=permissions(id,type)`,
+    { headers: { authorization: `Bearer ${token}` }, cache: "no-store" },
+  );
+  if (!res.ok) throw new Error(`Drive: ${res.status} ${await res.text()}`);
+  const { permissions = [] } = (await res.json()) as { permissions?: { id: string; type: string }[] };
+
+  for (const p of permissions.filter((p) => p.type === "anyone")) {
+    const del = await fetch(`${API}/files/${encodeURIComponent(id)}/permissions/${p.id}`, {
+      method: "DELETE",
+      headers: { authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+    if (!del.ok && del.status !== 404) {
+      throw new Error(`Drive would not unshare ${id}: ${del.status} ${await del.text()}`);
+    }
+  }
+}
+
+/** Google's own player for a shared file, for an iframe. */
+export function drivePlayerUrl(id: string): string {
+  return `https://drive.google.com/file/d/${encodeURIComponent(id)}/preview`;
 }
 
 /** True when the file sits in the KIDS uploads folder. */

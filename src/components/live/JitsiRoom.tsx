@@ -36,6 +36,7 @@ export default function JitsiRoom({
   moderator,
   onLeave,
   onEndClass,
+  record = false,
 }: {
   domain: string;
   room: string;
@@ -54,6 +55,13 @@ export default function JitsiRoom({
    * second button on a list to finish what they had already finished.
    */
   onEndClass?: () => Promise<void>;
+  /**
+   * Teachers only: start the class server's recorder as soon as the teacher is
+   * in, so every class is recorded without anybody remembering to. Set only
+   * when the server actually has Jibri (KIDS_JITSI_RECORDING), or Jitsi would
+   * tell the teacher "recording failed" at the start of every lesson.
+   */
+  record?: boolean;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const apiRef = useRef<JitsiApi | null>(null);
@@ -75,6 +83,8 @@ export default function JitsiRoom({
    * moderator may ask.
    */
   const [moderated, setModerated] = useState<boolean | null>(null);
+  // null: not asked for. "starting" until Jibri answers, then on/off.
+  const [recording, setRecording] = useState<null | "starting" | "on" | "off">(null);
 
   useEffect(() => {
     let api: JitsiApi | null = null;
@@ -212,6 +222,28 @@ export default function JitsiRoom({
             .catch(() => setModerated(false));
         });
 
+        if (record) {
+          /**
+           * Jitsi tells a joining client about a recording already running, so
+           * the start waits a few seconds for that first. Without the wait, a
+           * teacher whose connection dropped and came back would ask for a
+           * second recording on top of the first and be shown an error.
+           */
+          let seenOn = false;
+          setRecording("starting");
+          api.addListener("recordingStatusChanged", (...args) => {
+            const e = args[0] as { on?: boolean; mode?: string } | undefined;
+            if (e?.mode && e.mode !== "file") return;
+            if (e?.on) seenOn = true;
+            setRecording(e?.on ? "on" : "off");
+          });
+          api.addListener("videoConferenceJoined", () => {
+            setTimeout(() => {
+              if (!seenOn && !cancelled) api?.executeCommand("startRecording", { mode: "file" });
+            }, 4000);
+          });
+        }
+
         api.addListener("moderationStatusChanged", (...args) => {
           const e = args[0] as { mediaType?: string; enabled?: boolean } | undefined;
           if (e?.mediaType === "audio") setModerated(Boolean(e.enabled));
@@ -235,7 +267,7 @@ export default function JitsiRoom({
       // player learned the same lesson about tearing down on the way out.
       api?.dispose();
     };
-  }, [domain, room, jwt, displayName, moderator, onLeave]);
+  }, [domain, room, jwt, displayName, moderator, onLeave, record]);
 
   if (failed) {
     return (
@@ -284,7 +316,7 @@ export default function JitsiRoom({
           thing finishing a lesson means. Ours, not Jitsi's, because Jitsi's
           hangup cannot tell "I am leaving" from "we are finished" and must not
           be made to guess on a teacher's behalf. */}
-      {moderator && (moderated !== null || onEndClass) ? (
+      {moderator && (moderated !== null || onEndClass || recording !== null) ? (
         <div
           className={`absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-3 py-1 text-[11px] ${
             moderated === false ? "bg-[#6b3f3f] text-white" : "bg-black/50 text-white/70"
@@ -297,6 +329,17 @@ export default function JitsiRoom({
                 ? "Students are held muted until you allow them."
                 : "⚠ Students can unmute themselves — the server is not holding them."}
           </span>
+          {recording !== null ? (
+            <span
+              className={`shrink-0 ${recording === "off" ? "rounded bg-[#6b3f3f] px-1.5 font-semibold text-white" : ""}`}
+            >
+              {recording === "on"
+                ? "● Recording — it goes to Drive when the class ends"
+                : recording === "starting"
+                  ? "Starting the recording…"
+                  : "⚠ Not recording"}
+            </span>
+          ) : null}
           {onEndClass ? (
             <button
               type="button"
@@ -313,6 +356,9 @@ export default function JitsiRoom({
                  * them.
                  */
                 try {
+                  // Stopped explicitly, so the recording ends where the lesson
+                  // did rather than whenever the recorder notices it is alone.
+                  if (record) apiRef.current?.executeCommand("stopRecording", "file");
                   apiRef.current?.executeCommand("endConference");
                 } catch {
                   // Not supported, or the conference is already gone. The

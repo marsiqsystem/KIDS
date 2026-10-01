@@ -37,6 +37,20 @@ export function liveConfigured(): boolean {
   return Boolean(DOMAIN && SECRET);
 }
 
+/**
+ * Whether the class server has a recorder (Jibri) and Drive is connected to
+ * receive what it records. Set KIDS_JITSI_RECORDING=on only after the Jibri
+ * steps in docs/live-class-server.md pass — it is what makes the teacher's room
+ * start recording by itself.
+ */
+export function recordingConfigured(): boolean {
+  return (
+    liveConfigured() &&
+    process.env.KIDS_JITSI_RECORDING === "on" &&
+    Boolean(process.env.GOOGLE_DRIVE_REFRESH_TOKEN)
+  );
+}
+
 export function liveDomain(): string {
   return DOMAIN;
 }
@@ -122,9 +136,8 @@ export function mintToken(room: string, who: TokenSubject, minutes = 180): strin
         // "moderator" claim, which is silently ignored.
         moderator: who.moderator,
       },
-      // Recording and streaming stay with the teacher. Jibri is not installed
-      // — the teacher records locally — but a student should not be offered a
-      // button that implies otherwise.
+      // Recording and streaming stay with the teacher, whose room starts the
+      // recorder by itself (JitsiRoom `record`). A student is never offered it.
       features: {
         recording: who.moderator,
         livestreaming: who.moderator,

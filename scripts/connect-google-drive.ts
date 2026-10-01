@@ -29,7 +29,11 @@
  *   - writes GOOGLE_DRIVE_REFRESH_TOKEN into .env.local,
  *   - creates a folder "KIDS app uploads" in that My Drive (unless
  *     GOOGLE_DRIVE_FOLDER_ID is already set) and writes its id too,
- *   - prints the four lines to add to Vercel.
+ *   - creates "KIDS class recordings" beside it for the live-class recorder
+ *     and writes GOOGLE_DRIVE_RECORDINGS_FOLDER_ID,
+ *   - prints the names to add to Vercel.
+ *
+ * `--check` also makes the recordings folder if an earlier run predates it.
  *
  * Google shows "Google hasn't verified this app" for a new client. That is
  * the office's own client asking for its own Drive: Advanced → Go to … (unsafe)
@@ -67,6 +71,29 @@ async function token(body: Record<string, string>) {
   return (await res.json()) as { access_token: string; refresh_token?: string; scope: string };
 }
 
+/** A folder in the connected My Drive, made by this app (drive.file can see it). */
+async function makeFolder(accessToken: string, name: string): Promise<string> {
+  const res = await fetch("https://www.googleapis.com/drive/v3/files?fields=id", {
+    method: "POST",
+    headers: { authorization: `Bearer ${accessToken}`, "content-type": "application/json" },
+    body: JSON.stringify({ name, mimeType: "application/vnd.google-apps.folder" }),
+  });
+  if (!res.ok) throw new Error(`Could not make "${name}": ${res.status} ${await res.text()}`);
+  const id = ((await res.json()) as { id: string }).id;
+  console.log(`  Made the folder "${name}" in that account's My Drive.`);
+  return id;
+}
+
+/** The live-class recorder's own folder, so hours of video do not bury the notes. */
+async function ensureRecordingsFolder(accessToken: string) {
+  if (process.env.GOOGLE_DRIVE_RECORDINGS_FOLDER_ID) return;
+  writeEnv(
+    "GOOGLE_DRIVE_RECORDINGS_FOLDER_ID",
+    await makeFolder(accessToken, "KIDS class recordings"),
+  );
+  console.log("  Add GOOGLE_DRIVE_RECORDINGS_FOLDER_ID to Vercel too.");
+}
+
 async function check() {
   const refresh = process.env.GOOGLE_DRIVE_REFRESH_TOKEN;
   const folder = process.env.GOOGLE_DRIVE_FOLDER_ID;
@@ -86,6 +113,21 @@ async function check() {
   }
   const f = (await res.json()) as { name: string; trashed?: boolean };
   console.log(`Connected. Uploads go to "${f.name}"${f.trashed ? " — ⚠️ WHICH IS IN THE BIN" : ""}.`);
+
+  const rec = process.env.GOOGLE_DRIVE_RECORDINGS_FOLDER_ID;
+  if (!rec) {
+    await ensureRecordingsFolder(access_token);
+    return;
+  }
+  const r = await fetch(`https://www.googleapis.com/drive/v3/files/${rec}?fields=name,trashed`, {
+    headers: { authorization: `Bearer ${access_token}` },
+  });
+  const rf = r.ok ? ((await r.json()) as { name: string; trashed?: boolean }) : null;
+  console.log(
+    rf
+      ? `Recordings go to "${rf.name}"${rf.trashed ? " — ⚠️ WHICH IS IN THE BIN" : ""}.`
+      : `⚠️ The recordings folder answered ${r.status}.`,
+  );
 }
 
 function envHas(name: string): boolean {
@@ -161,29 +203,15 @@ async function connect() {
   console.log("\nConnected.");
   writeEnv("GOOGLE_DRIVE_REFRESH_TOKEN", tokens.refresh_token);
 
-  let folder = process.env.GOOGLE_DRIVE_FOLDER_ID;
-  if (!folder) {
-    const res = await fetch("https://www.googleapis.com/drive/v3/files?fields=id", {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${tokens.access_token}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name: "KIDS app uploads",
-        mimeType: "application/vnd.google-apps.folder",
-      }),
-    });
-    if (!res.ok) throw new Error(`Could not make the folder: ${res.status} ${await res.text()}`);
-    folder = ((await res.json()) as { id: string }).id;
-    console.log('  Made the folder "KIDS app uploads" in that account\'s My Drive.');
-    writeEnv("GOOGLE_DRIVE_FOLDER_ID", folder);
+  if (!process.env.GOOGLE_DRIVE_FOLDER_ID) {
+    writeEnv("GOOGLE_DRIVE_FOLDER_ID", await makeFolder(tokens.access_token, "KIDS app uploads"));
   }
+  await ensureRecordingsFolder(tokens.access_token);
 
   console.log(
-    "\nNow add the same four to Vercel (Production), then redeploy:\n" +
-      "  GOOGLE_DRIVE_CLIENT_ID, GOOGLE_DRIVE_CLIENT_SECRET,\n" +
-      "  GOOGLE_DRIVE_REFRESH_TOKEN, GOOGLE_DRIVE_FOLDER_ID\n" +
+    "\nNow add the same to Vercel (Production), then redeploy:\n" +
+      "  GOOGLE_DRIVE_CLIENT_ID, GOOGLE_DRIVE_CLIENT_SECRET, GOOGLE_DRIVE_REFRESH_TOKEN,\n" +
+      "  GOOGLE_DRIVE_FOLDER_ID, GOOGLE_DRIVE_RECORDINGS_FOLDER_ID\n" +
       "Copy the values from .env.local. Never commit them.",
   );
 }

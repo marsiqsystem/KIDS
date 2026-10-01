@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { CalendarX, CircleCheck, Hourglass, Unlink, Users, Wrench } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
-import { canStudentJoin, noteTokenIssued, type JoinRefusal } from "@/lib/admin/classes";
+import { canStudentJoin, findClass, noteTokenIssued, type JoinRefusal } from "@/lib/admin/classes";
+import { recordingsForClass } from "@/lib/admin/recordings";
+import { drivePlayerUrl } from "@/lib/drive";
 import { liveConfigured, liveDomain, mintToken } from "@/lib/live/jitsi";
 import JitsiRoom from "@/components/live/JitsiRoom";
+import { Head } from "@/components/app/kit";
 import "../class.css";
 
 export const dynamic = "force-dynamic";
@@ -26,6 +29,9 @@ export default async function StudentClassPage({ params }: { params: Promise<{ i
 
   const verdict = await canStudentJoin(id, student.uid);
 
+  // A finished class is where its recording lives. canStudentJoin has already
+  // checked this child is in the batch: "ended" is only ever said to a member.
+  if (!verdict.ok && verdict.why === "ended") return <Recorded classId={id} />;
   if (!verdict.ok) return <Refused why={verdict.why} />;
   const live = verdict.live;
 
@@ -66,6 +72,69 @@ export default async function StudentClassPage({ params }: { params: Promise<{ i
       <p className="cls-live__note">
         You join muted. Raise your hand; when your teacher allows it, tap your own mic.
       </p>
+    </div>
+  );
+}
+
+/**
+ * A class that has finished: its recording, played by Google's own player
+ * straight from the KIDS Drive (Umar's ruling, 2 Oct 2026 — a 90-minute video
+ * through our own server would cost ~80 GB a class).
+ *
+ * A recorder that restarted mid-lesson leaves two parts; both are shown, in
+ * order. Nothing yet usually means the upload is still running — a long class
+ * takes a while to reach Drive, and Google then needs time before it will play.
+ */
+async function Recorded({ classId }: { classId: string }) {
+  const [live, parts] = await Promise.all([findClass(classId), recordingsForClass(classId)]);
+  if (!live) return <Refused why="not-found" />;
+
+  const when = new Date(live.starts_at).toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  return (
+    <div className="cls-rec">
+      <Head title={live.title} back="/app/recordings" />
+      <p className="cls-rec__when">
+        {live.subject ? `${live.subject} · ` : ""}
+        {when}
+      </p>
+
+      {parts.length === 0 ? (
+        <div className="k-card k-card--dashed cls-rec__none">
+          <p>
+            No recording yet. A class reaches here within an hour or so of finishing — come back
+            later.
+          </p>
+        </div>
+      ) : (
+        parts.map((r, i) => (
+          <section key={r.id} className="cls-rec__part">
+            {parts.length > 1 ? <div className="k-label">Part {i + 1}</div> : null}
+            <div className="cls-rec__player">
+              <iframe
+                src={drivePlayerUrl(r.drive_id)}
+                title={parts.length > 1 ? `${live.title}, part ${i + 1}` : live.title}
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+            </div>
+          </section>
+        ))
+      )}
+
+      {parts.length > 0 ? (
+        <p className="cls-rec__note">
+          If it says the video is still being processed, Google is preparing it. Try again in a
+          little while.
+        </p>
+      ) : null}
     </div>
   );
 }

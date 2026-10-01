@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { currentStaff } from "@/lib/admin/session";
 import { findClass, noteTokenIssued, teachesBatch } from "@/lib/admin/classes";
-import { liveConfigured, liveDomain, mintToken } from "@/lib/live/jitsi";
+import { liveConfigured, liveDomain, mintToken, recordingConfigured } from "@/lib/live/jitsi";
 import JitsiRoom from "@/components/live/JitsiRoom";
 import { endClassFromRoom } from "@/app/admin/actions";
 
@@ -101,6 +101,7 @@ export default async function TeacherRoom({ params }: { params: Promise<{ id: st
           jwt={token}
           displayName={staff.full_name}
           moderator
+          record={recordingConfigured()}
           onLeave="/admin?tab=classes"
           /* Finishing the lesson happens where the lesson is. Before this, a
              teacher pressed Jitsi's "end meeting", the room emptied, and the

@@ -4,6 +4,7 @@ import { logAdminEvent } from "@/lib/admin/staff";
 import { deskCode, deskCounts, deskSearch, mayRunDesk, releasePaper } from "@/lib/exam/checkin";
 import { sql } from "@/lib/exam/db";
 import { qrSvg } from "@/lib/qr-svg";
+import { deskAwayList } from "@/lib/exam/away";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -67,6 +68,9 @@ export async function GET(request: NextRequest) {
       // No code outside the window: nothing to photograph the evening before.
       code: open ? withSvg(deskCode(paper, centre, now)) : null,
       counts: await deskCounts(paper, centre),
+      // Who has left the paper for another app, refreshed with the code every
+      // 30 s while it runs. See src/lib/exam/away.ts.
+      away: await deskAwayList(paper, centre),
       serverNow: now,
     },
     { headers: { "Cache-Control": "no-store" } },

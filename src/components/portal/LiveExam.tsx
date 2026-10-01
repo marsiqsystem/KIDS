@@ -8,6 +8,7 @@ import { useServerCountdown } from "./Countdown";
 import AnswersReceived, { formatIstClock } from "./AnswersReceived";
 import Paper, { ClockFace } from "./Paper";
 import ScreenGuard from "@/components/app/ScreenGuard";
+import { useAwayWatch } from "@/components/app/exam/useAwayWatch";
 import AppPaper, { AppClockFace } from "@/components/app/exam/AppPaper";
 import { HandingIn, Receipt, StartFace, WaitingRoom } from "@/components/app/exam/ExamFaces";
 
@@ -114,6 +115,14 @@ export default function LiveExam({
   // would have been poured into a December paper, question 7 onto question 7.
   const cacheKey = `kids:exam:${uid}:${paperKey}`;
   const credentials = token ? { id: uid, t: token } : {};
+
+  // Every time the paper leaves the screen, the invigilator's desk hears of it
+  // (src/lib/exam/away.ts). The app only: July's portal had no desk to tell.
+  useAwayWatch({
+    enabled: stage === "live" && api === "/api/app/exam",
+    api,
+    storageKey: `${cacheKey}:away`,
+  });
 
   // The countdown to the start. When it reaches zero the waiting room becomes the
   // Start button on its own — no reload, because a student staring at the screen

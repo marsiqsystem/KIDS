@@ -10,9 +10,21 @@ type DeskState = {
   paper?: { name: string; scanOpensAt: string | null; startsAt: string | null; endsAt: string | null };
   code?: { payload: string; code: string; refreshAt: number; svg: string } | null;
   counts?: Counts;
+  away?: Away[];
   serverNow?: number;
   /** Worked out when the response lands, so the render never reads a clock. */
   beforeOpen?: boolean;
+};
+type Away = {
+  uid: string;
+  name: string;
+  class: string;
+  left: number;
+  unfocused: number;
+  seconds: number;
+  away_now: boolean;
+  last_at: string;
+  status: "in_progress" | "submitted" | null;
 };
 type Student = {
   uid: string;
@@ -179,9 +191,71 @@ export default function DeskScreen({
           ) : null}
         </section>
 
+        {state?.away ? <LeftThePaper rows={state.away} /> : null}
+
         <FindStudent paperId={paperId} centre={centre} />
       </aside>
     </div>
+  );
+}
+
+/**
+ * Who has left the paper on their phone — another app, the home screen, a
+ * call — most often first, anyone away RIGHT NOW at the top.
+ *
+ * A fact for the person in the room, not a verdict: a call from home looks
+ * exactly like a search. It says what the phone saw and leaves the judging to
+ * the invigilator, who can walk over and look. The student was told before the
+ * paper that this is recorded.
+ */
+function LeftThePaper({ rows }: { rows: Away[] }) {
+  const mmss = (s: number) => (s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`);
+  return (
+    <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4">
+      <h3 className="text-sm font-bold">Left the paper</h3>
+      {rows.length === 0 ? (
+        <p className="mt-2 text-xs text-[#9c8c86]">
+          Nobody has left the paper on their phone. Anyone who switches to another app appears here.
+        </p>
+      ) : (
+        <ul className="mt-3 space-y-2">
+          {rows.map((r) => {
+            const many = r.left >= 3 || r.seconds >= 120;
+            return (
+              <li
+                key={r.uid}
+                className={`rounded border px-3 py-2 text-xs ${
+                  r.away_now
+                    ? "border-[#b23a3a] bg-[#3a1a1a]"
+                    : many
+                      ? "border-[#8a6a2a] bg-[#2a2216]"
+                      : "border-[#2a2321]"
+                }`}
+              >
+                <div className="flex items-baseline justify-between gap-2">
+                  <span className="truncate font-semibold text-[#e8e0dc]">{r.name}</span>
+                  <span className="shrink-0 font-mono text-[#9c8c86]">{r.uid}</span>
+                </div>
+                <div className="mt-1 flex flex-wrap gap-x-3 text-[#c9bcb6] tabular-nums">
+                  {r.away_now ? <span className="font-bold text-[#ff8a8a]">AWAY NOW</span> : null}
+                  <span>
+                    Left {r.left} time{r.left === 1 ? "" : "s"}
+                  </span>
+                  {r.unfocused > 0 ? <span>covered {r.unfocused}×</span> : null}
+                  <span>{mmss(r.seconds)} away</span>
+                  {r.status === "submitted" ? <span className="text-[#9c8c86]">handed in</span> : null}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      <p className="mt-3 text-[11px] leading-relaxed text-[#9c8c86]">
+        Counts every time the paper left the phone&rsquo;s screen. It cannot see a second phone —
+        that is for your eyes. A call from home looks the same as a search, so go and look before you
+        decide anything.
+      </p>
+    </section>
   );
 }
 

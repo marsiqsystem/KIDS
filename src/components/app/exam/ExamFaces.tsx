@@ -7,6 +7,7 @@ import {
   Check,
   Clock,
   DoorClosed,
+  EyeOff,
   Loader2,
   MapPin,
   PencilLine,
@@ -32,7 +33,7 @@ const ist = (d: Date | string, o: Intl.DateTimeFormatOptions) =>
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-/* ---------------------------------------------------------- the four rules */
+/* ---------------------------------------------------------- the rules */
 
 /**
  * The rules ruled on 14 September 2026, one icon and one line each. The brief's
@@ -44,10 +45,14 @@ export function FourRules() {
     [<BatteryLow key="b" size={22} />, "If your phone dies, the invigilator moves your paper to another phone."],
     [<WifiOff key="w" size={22} />, "No signal? Keep answering. Answers are kept on the phone and sent later."],
     [<PencilLine key="p" size={22} />, "Change any answer until you hand in. Nothing is shown until results."],
+    // Said BEFORE the paper, on purpose (2 Oct 2026): the record of leaving the
+    // paper does most of its work by being known about. A child told up front
+    // has been treated fairly; one caught by a rule they never heard of has not.
+    [<EyeOff key="e" size={22} />, "Stay on the paper. Each time you leave it for another app, your invigilator sees it."],
   ];
   return (
     <div className="k-card">
-      <div className="k-label ex-rules__title">Four things to know</div>
+      <div className="k-label ex-rules__title">Five things to know</div>
       <div className="ex-rules">
         {rows.map(([icon, line]) => (
           <div key={line} className="ex-rule">

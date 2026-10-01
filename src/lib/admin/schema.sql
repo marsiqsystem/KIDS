@@ -564,6 +564,35 @@ create table if not exists exam_checkins (
 
 create index if not exists exam_checkins_centre_idx on exam_checkins (exam_paper_id, centre_code);
 
+-- Every time a paper went out of view on the child's phone: another app opened,
+-- the home screen, the camera, a call. Umar's ask, 2 Oct 2026 -- "a student who
+-- keeps changing screens is looking something up". The invigilator's desk shows
+-- the count and the time away while the paper runs; this table is the record
+-- afterwards.
+--
+-- A FACT, not a verdict. A phone call from home leaves a row exactly like a
+-- search does; what the rows mean is for the invigilator who was in the room.
+--
+-- The phone sends a row the moment the paper is hidden (back_at null -- "away
+-- now" on the desk) and the same row again on return with back_at filled in. A
+-- row that never gets its back_at is a child who left and did not come back
+-- before the paper closed. Keyed on when it started, so a resend is harmless.
+-- The phone's clock says when; the server's says when it heard (`heard_at`).
+create table if not exists exam_away (
+  uid           char(9)     not null references students (uid),
+  exam_paper_id bigint      not null references exam_papers (id),
+  left_at       timestamptz not null,
+  back_at       timestamptz,
+  -- 'hidden' (screen left / app in the background) or 'unfocused' (still on
+  -- screen but something else had the keyboard: a split screen, a pop-up, the
+  -- notification shade).
+  how           text        not null check (how in ('hidden', 'unfocused')),
+  heard_at      timestamptz not null default now(),
+  primary key (uid, exam_paper_id, left_at)
+);
+
+create index if not exists exam_away_paper_idx on exam_away (exam_paper_id, uid);
+
 -- "Open my account" -- a child already on the register asks the office to let
 -- them in, from the phone they will use.
 --

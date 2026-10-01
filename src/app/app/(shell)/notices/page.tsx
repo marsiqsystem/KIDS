@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Award, BellOff, CalendarClock, FilePenLine, Megaphone, Sparkle } from "lucide-react";
+import { Award, BellOff, CalendarClock, FilePenLine, FileText, Megaphone, Sparkle } from "lucide-react";
 import type { ReactNode } from "react";
 import { requireStudent } from "@/lib/app/gate";
+import { fileHref } from "@/lib/app/file-links";
+import { showsInline } from "@/lib/drive";
 import { noticesFor, type NoticeKind } from "@/lib/app/notices";
 import { markReadAction } from "@/app/app/notice-actions";
 import { Empty, Head } from "@/components/app/kit";
@@ -31,6 +33,12 @@ const KIND: Record<NoticeKind, { icon: ReactNode; tone: string; from: string }> 
   daily: { icon: <Sparkle size={20} />, tone: "blue", from: "Your daily set" },
   post: { icon: <Megaphone size={20} />, tone: "teal", from: "From KIDS" },
 };
+
+function fileSize(bytes: number): string {
+  return bytes >= 1024 * 1024
+    ? `${(bytes / 1024 / 1024).toFixed(1)} MB`
+    : `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
 
 export default async function NoticesPage() {
   const student = await requireStudent();
@@ -75,6 +83,26 @@ export default async function NoticesPage() {
                     {n.title}
                   </h2>
                   <p className="nt__text">{n.body}</p>
+                  {n.files && n.files.length > 0 ? (
+                    <ul className="nt__files">
+                      {n.files.map((f) => (
+                        <li key={f.id}>
+                          {showsInline(f.mime) ? (
+                            <a href={fileHref(f.id, student.uid)} className="nt__photo">
+                              {/* eslint-disable-next-line @next/next/no-img-element -- streamed from Drive behind the student's own session; next/image would fetch it without that cookie */}
+                              <img src={fileHref(f.id, student.uid)} alt={f.name} loading="lazy" />
+                            </a>
+                          ) : (
+                            <a href={fileHref(f.id, student.uid)} className="nt__file">
+                              <FileText size={18} aria-hidden />
+                              <span>{f.name}</span>
+                              <small>{fileSize(f.bytes)}</small>
+                            </a>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                   <p className="nt__from">
                     {kind.from} · {n.when}
                   </p>

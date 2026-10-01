@@ -295,6 +295,30 @@ create index if not exists admin_posts_live_idx
   on admin_posts (posted_at desc) where retracted_at is null;
 
 
+-- ------------------------------------------------------- admin_post_files --
+--
+-- Notes, photos and papers attached to a post. The bytes live in the KIDS
+-- Google Drive (src/lib/drive.ts), never in this database and never on a public
+-- link: a student reaches a file only through /app/files/<id>, which asks the
+-- same question postsFor asks -- may this child see this post, now?
+--
+-- No retraction column of its own. A file is visible exactly while its post is,
+-- so taking the post down takes its files with it.
+create table if not exists admin_post_files (
+  id          bigserial   primary key,
+  post_id     bigint      not null references admin_posts (id),
+  drive_id    text        not null unique,
+  name        text        not null,
+  mime        text        not null,
+  bytes       bigint      not null,
+  position    int         not null default 0,
+  uploaded_by text        not null references admin_staff (staff_id),
+  added_at    timestamptz not null default now()
+);
+
+create index if not exists admin_post_files_post_idx on admin_post_files (post_id, position);
+
+
 -- ----------------------------------------------------------- registrations --
 --
 -- A child who is not on the SET 2026 register asking to be.

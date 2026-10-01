@@ -1,5 +1,8 @@
 package org.kidskolkata.set;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
 
@@ -38,6 +41,37 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
 
         registerBackHandler();
+        registerDownloadHandler();
+    }
+
+    /**
+     * A teacher's PDF or Word notes, tapped in Notices.
+     *
+     * A WebView cannot show a document. Left alone it reports the file as a
+     * "download" to a listener nobody set, and the tap does nothing at all. So
+     * the link is handed to the phone instead, which opens it in Chrome or its
+     * own PDF viewer. That app has no session cookie, which is why the server
+     * signs these links (src/lib/app/file-links.ts) - the link carries its own
+     * two-hour proof of who it was issued to.
+     *
+     * Only links to this app's own /app/files/ route are handed over; anything
+     * else that looks like a download is dropped rather than sent to the phone.
+     */
+    private void registerDownloadHandler() {
+        WebView webView = getBridge() == null ? null : getBridge().getWebView();
+        if (webView == null) return;
+
+        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, length) -> {
+            Uri uri = Uri.parse(url);
+            String path = uri.getPath();
+            if (path == null || !path.startsWith("/app/files/")) return;
+
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            } catch (ActivityNotFoundException ignored) {
+                // No browser on the phone at all. Nothing sensible to do.
+            }
+        });
     }
 
     /**

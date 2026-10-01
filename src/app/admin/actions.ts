@@ -64,6 +64,16 @@ import {
 } from "@/lib/admin/session";
 import { hashPassword } from "@/lib/app/passwords";
 import { sql } from "@/lib/exam/db";
+import { headers } from "next/headers";
+import {
+  ALLOWED_MIME,
+  MAX_FILE_BYTES,
+  MAX_FILES_PER_POST,
+  driveConfigured,
+  fileInfo,
+  inUploadsFolder,
+  openUpload,
+} from "@/lib/drive";
 
 /**
  * Every write the control centre can make.
@@ -536,7 +546,30 @@ export async function writePost(_prev: State, formData: FormData): Promise<State
   if (!body) return { message: "There is nothing to say in it yet.", field: "body" };
   if (body.length > 1200) return { message: "Keep a post under 1,200 characters.", field: "body" };
 
-  await createPost({ title, body, batchId: batchId || null, by: by.staff_id });
+  /**
+   * The attachments, by Drive id. The browser has already sent the bytes to
+   * Drive (startPostUpload); what arrives here is only the id it was given.
+   *
+   * Nothing the browser says about a file is believed. Its name, type and size
+   * are read back from Drive, and it must be in the KIDS uploads folder and
+   * stamped with THIS person's staff id — so a post cannot claim a file somebody
+   * else uploaded, or one that was never uploaded through this form.
+   */
+  const driveIds = [...new Set(formData.getAll("file").map(String).filter(Boolean))];
+  if (driveIds.length > MAX_FILES_PER_POST) {
+    return { message: `At most ${MAX_FILES_PER_POST} files on one post.` };
+  }
+
+  const files = [];
+  for (const driveId of driveIds) {
+    const f = await fileInfo(driveId).catch(() => null);
+    if (!f || !inUploadsFolder(f) || f.by !== by.staff_id || !ALLOWED_MIME[f.mimeType]) {
+      return { message: "One of the files did not finish uploading. Remove it and add it again." };
+    }
+    files.push({ driveId: f.id, name: f.name, mime: f.mimeType, bytes: f.size });
+  }
+
+  await createPost({ title, body, batchId: batchId || null, by: by.staff_id, files });
 
   refresh();
   return done(
@@ -544,6 +577,56 @@ export async function writePost(_prev: State, formData: FormData): Promise<State
       ? "Posted. Everybody in that batch will see it in Notices."
       : "Posted to everybody with an app account.",
   );
+}
+
+/**
+ * Open an upload for one file on a post that is being written.
+ *
+ * Returns a one-off Google Drive address; the browser sends the file straight
+ * there (see openUpload for why it does not come through this server). Any
+ * signed-in staff member may upload — a teacher with no batch can still not
+ * POST one, because writePost checks the batch.
+ *
+ * A file uploaded and then never posted stays in the Drive folder, unattached
+ * and unseen by any student. That is the cost of not routing the bytes through
+ * Vercel, and it is a small one.
+ */
+export async function startPostUpload(input: {
+  name: string;
+  mime: string;
+  bytes: number;
+}): Promise<{ url: string } | { error: string }> {
+  const by = await requireStaff();
+  if (!driveConfigured()) {
+    return { error: "Google Drive is not connected yet, so files cannot be attached." };
+  }
+
+  const name = String(input.name ?? "").trim().slice(0, 180) || "file";
+  const mime = String(input.mime ?? "");
+  const bytes = Number(input.bytes);
+
+  if (!ALLOWED_MIME[mime]) {
+    return { error: `${name}: only photos, PDFs, Word, PowerPoint, Excel and text files.` };
+  }
+  if (!Number.isFinite(bytes) || bytes <= 0) return { error: `${name} is empty.` };
+  if (bytes > MAX_FILE_BYTES) {
+    return { error: `${name} is over ${MAX_FILE_BYTES / 1024 / 1024} MB.` };
+  }
+
+  // The page's own origin, which Google needs in order to let the browser
+  // finish the upload. Taken from the request, never from the client's word.
+  const h = await headers();
+  const origin =
+    h.get("origin") ??
+    `${h.get("x-forwarded-proto") ?? "https"}://${h.get("x-forwarded-host") ?? h.get("host")}`;
+
+  try {
+    const url = await openUpload({ name, mime, bytes, staffId: by.staff_id, origin });
+    return { url };
+  } catch (err) {
+    console.error("Drive: could not open an upload.", err);
+    return { error: "Google Drive did not accept the file. Try again in a minute." };
+  }
 }
 
 /**

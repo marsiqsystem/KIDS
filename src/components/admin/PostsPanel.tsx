@@ -1,10 +1,10 @@
 "use client";
 
-import { useActionState, useState } from "react";
-import { Megaphone } from "lucide-react";
-import { takePostDown, writePost } from "@/app/admin/actions";
+import { useActionState, useRef, useState } from "react";
+import { FileText, Image as ImageIcon, Loader2, Megaphone, Paperclip, X } from "lucide-react";
+import { startPostUpload, takePostDown, writePost, type State } from "@/app/admin/actions";
 import type { Batch } from "@/lib/admin/batches";
-import type { Post } from "@/lib/admin/posts";
+import type { Post, PostFile } from "@/lib/admin/posts";
 import { Alert, RowAction, Submit, INPUT, SURFACE } from "./ui";
 
 /**
@@ -82,7 +82,17 @@ export default function PostsPanel({
  * the line under the bell, and it is easy to write one that makes sense only to
  * the person who already knows what it is about.
  */
-function Preview({ title, body, who }: { title: string; body: string; who: string }) {
+function Preview({
+  title,
+  body,
+  who,
+  files,
+}: {
+  title: string;
+  body: string;
+  who: string;
+  files: { name: string }[];
+}) {
   return (
     <div className="rounded-[14px] border border-[#F2E9DA] bg-[#FBF7EF] p-4">
       <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B5B5D]">
@@ -102,6 +112,19 @@ function Preview({ title, body, who }: { title: string; body: string; who: strin
             <p className="mt-1 whitespace-pre-wrap text-[13.5px] leading-relaxed text-[#4A3A3C]">
               {body || <span className="text-[#A79B9C]">The words you type appear here.</span>}
             </p>
+            {files.length > 0 ? (
+              <ul className="mt-2 space-y-1">
+                {files.map((f, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-1.5 text-[12.5px] font-semibold text-[#137565]"
+                  >
+                    <Paperclip size={13} aria-hidden className="shrink-0" />
+                    <span className="truncate">{f.name}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
             <p className="mt-2 text-[12px] text-[#6B5B5D]">From KIDS · just now</p>
           </div>
         </div>
@@ -111,9 +134,17 @@ function Preview({ title, body, who }: { title: string; body: string; who: strin
 }
 
 function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: boolean }) {
-  const [state, action] = useActionState(writePost, {});
+  const [files, setFiles] = useState<Attached[]>([]);
+  // Clears the attachments once a post has gone out, so the next post does not
+  // try to claim the same Drive files a second time.
+  const [state, action] = useActionState(async (prev: State, formData: FormData) => {
+    const result = await writePost(prev, formData);
+    if (result.ok) setFiles([]);
+    return result;
+  }, {});
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const uploading = files.some((f) => f.status === "uploading");
   const [batchId, setBatchId] = useState(canPostToAll ? "" : (batches[0]?.id ?? ""));
 
   const chosen = batches.find((b) => b.id === batchId);
@@ -195,13 +226,31 @@ function Write({ batches, canPostToAll }: { batches: Batch[]; canPostToAll: bool
           </span>
         </label>
 
+        <Attachments files={files} setFiles={setFiles} />
+
         <div className="flex flex-wrap items-center gap-4">
-          <Submit>Post it</Submit>
+          {uploading ? (
+            <button
+              type="button"
+              disabled
+              className="inline-flex items-center gap-2 rounded bg-[#7B1E2B] px-4 py-2 text-sm font-semibold text-[#FDFBF7] opacity-50"
+            >
+              <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />
+              Waiting for the upload
+            </button>
+          ) : (
+            <Submit>Post it</Submit>
+          )}
           <Alert state={state} />
         </div>
         </div>
 
-        <Preview title={title} body={body} who={who} />
+        <Preview
+          title={title}
+          body={body}
+          who={who}
+          files={files.filter((f) => f.status === "done")}
+        />
       </form>
     </section>
   );
@@ -229,6 +278,16 @@ function PostCard({ post }: { post: Post }) {
 
       <p className="mt-2 whitespace-pre-wrap text-sm text-[#4A3A3C]">{post.body}</p>
 
+      {post.files.length > 0 ? (
+        <ul className="mt-2 flex flex-wrap gap-2">
+          {post.files.map((f) => (
+            <li key={f.id}>
+              <FileLink file={f} />
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
       {post.retracted_at ? (
         <p className="mt-3 text-xs text-[#B22234]">
           Taken down. It is off every screen, including the students who had already read it.
@@ -246,5 +305,229 @@ function PostCard({ post }: { post: Post }) {
         </div>
       )}
     </li>
+  );
+}
+
+/* ------------------------------------------------------------ attachments --- */
+
+const ACCEPT =
+  "image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt";
+const MAX_FILES = 6;
+const MAX_MB = 25;
+
+/**
+ * What a file is, by its extension first. Windows often reports no type at all
+ * for a .docx and phones none for a .heic. The server checks the type again
+ * against what Drive itself recorded, so nothing here is trusted.
+ */
+const BY_EXTENSION: Record<string, string> = {
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  png: "image/png",
+  webp: "image/webp",
+  heic: "image/heic",
+  heif: "image/heif",
+  pdf: "application/pdf",
+  doc: "application/msword",
+  docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ppt: "application/vnd.ms-powerpoint",
+  pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  xls: "application/vnd.ms-excel",
+  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  txt: "text/plain",
+};
+
+function mimeOf(file: File): string {
+  const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
+  return BY_EXTENSION[ext] ?? file.type;
+}
+
+type Attached = {
+  key: string;
+  name: string;
+  bytes: number;
+  status: "uploading" | "done" | "failed";
+  progress: number;
+  driveId?: string;
+  error?: string;
+};
+
+function size(bytes: number): string {
+  return bytes >= 1024 * 1024
+    ? `${(bytes / 1024 / 1024).toFixed(1)} MB`
+    : `${Math.max(1, Math.round(bytes / 1024))} KB`;
+}
+
+/**
+ * Send one file to Google Drive, straight from this browser.
+ *
+ * The server opens the upload and hands back a one-off address; the bytes go
+ * there directly, never through Vercel (which refuses anything over 4.5 MB).
+ * XMLHttpRequest rather than fetch, because fetch still cannot report upload
+ * progress, and a teacher watching a 15 MB scan needs to see it moving.
+ */
+function sendToDrive(
+  url: string,
+  file: File,
+  mime: string,
+  onProgress: (fraction: number) => void,
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", url);
+    xhr.setRequestHeader("content-type", mime);
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) onProgress(e.loaded / e.total);
+    };
+    xhr.onload = () => {
+      if (xhr.status === 200 || xhr.status === 201) {
+        try {
+          const id = JSON.parse(xhr.responseText)?.id;
+          if (id) return resolve(String(id));
+        } catch {
+          // falls through to the rejection below
+        }
+      }
+      reject(new Error(`Drive answered ${xhr.status}.`));
+    };
+    xhr.onerror = () => reject(new Error("The connection dropped."));
+    xhr.send(file);
+  });
+}
+
+function Attachments({
+  files,
+  setFiles,
+}: {
+  files: Attached[];
+  setFiles: React.Dispatch<React.SetStateAction<Attached[]>>;
+}) {
+  const picker = useRef<HTMLInputElement>(null);
+  const [notice, setNotice] = useState("");
+
+  const patch = (key: string, change: Partial<Attached>) =>
+    setFiles((all) => all.map((f) => (f.key === key ? { ...f, ...change } : f)));
+
+  async function add(list: FileList | null) {
+    setNotice("");
+    const chosen = Array.from(list ?? []);
+    if (picker.current) picker.current.value = "";
+
+    const room = MAX_FILES - files.filter((f) => f.status !== "failed").length;
+    if (chosen.length > room) setNotice(`At most ${MAX_FILES} files on one post.`);
+
+    for (const file of chosen.slice(0, Math.max(0, room))) {
+      const key = `${file.name}-${file.size}-${Math.random().toString(36).slice(2)}`;
+      const mime = mimeOf(file);
+      setFiles((all) => [
+        ...all,
+        { key, name: file.name, bytes: file.size, status: "uploading", progress: 0 },
+      ]);
+
+      if (file.size > MAX_MB * 1024 * 1024) {
+        patch(key, { status: "failed", error: `Over ${MAX_MB} MB.` });
+        continue;
+      }
+
+      try {
+        const opened = await startPostUpload({ name: file.name, mime, bytes: file.size });
+        if ("error" in opened) {
+          patch(key, { status: "failed", error: opened.error });
+          continue;
+        }
+        const driveId = await sendToDrive(opened.url, file, mime, (p) => patch(key, { progress: p }));
+        patch(key, { status: "done", progress: 1, driveId });
+      } catch (err) {
+        patch(key, {
+          status: "failed",
+          error: err instanceof Error ? err.message : "The upload did not finish.",
+        });
+      }
+    }
+  }
+
+  return (
+    <div className="block">
+      <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Notes, photos, papers</span>
+
+      {files.length > 0 ? (
+        <ul className="mb-2 space-y-1.5">
+          {files.map((f) => (
+            <li
+              key={f.key}
+              className="flex items-center gap-2 rounded border border-[#F2E9DA] bg-[#FDFBF7] px-3 py-2 text-sm"
+            >
+              <Paperclip className="h-3.5 w-3.5 shrink-0 text-[#6B5B5D]" aria-hidden />
+              <span className="min-w-0 flex-1 truncate">{f.name}</span>
+              <span
+                className={`shrink-0 text-xs ${f.status === "failed" ? "text-[#B22234]" : "text-[#6B5B5D]"}`}
+              >
+                {f.status === "uploading"
+                  ? `${Math.round(f.progress * 100)}%`
+                  : f.status === "failed"
+                    ? f.error
+                    : size(f.bytes)}
+              </span>
+              {f.status !== "uploading" ? (
+                <button
+                  type="button"
+                  aria-label={`Remove ${f.name}`}
+                  onClick={() => setFiles((all) => all.filter((x) => x.key !== f.key))}
+                  className="shrink-0 rounded p-0.5 text-[#6B5B5D] hover:text-[#B22234]"
+                >
+                  <X className="h-3.5 w-3.5" aria-hidden />
+                </button>
+              ) : null}
+              {f.status === "done" && f.driveId ? (
+                <input type="hidden" name="file" value={f.driveId} />
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
+      <input
+        ref={picker}
+        type="file"
+        multiple
+        accept={ACCEPT}
+        className="hidden"
+        onChange={(e) => add(e.target.files)}
+      />
+      <button
+        type="button"
+        onClick={() => picker.current?.click()}
+        className="inline-flex items-center gap-2 rounded border border-[#E3D6C4] bg-white px-3 py-1.5 text-sm font-semibold text-[#2B1A1C] hover:border-[#7B1E2B]"
+      >
+        <Paperclip className="h-3.5 w-3.5" aria-hidden />
+        Attach a file
+      </button>
+      {notice ? <span className="ml-3 text-xs text-[#B22234]">{notice}</span> : null}
+      <span className="mt-1 block text-xs text-[#6B5B5D]">
+        Photos, PDFs, Word, PowerPoint or Excel, up to {MAX_MB} MB each. They are kept in the KIDS
+        Google Drive, shared with nobody, and only the students who can see this post can open them.
+      </span>
+    </div>
+  );
+}
+
+/** A file on a post in the console. Opens through the same gate the students use. */
+function FileLink({ file }: { file: PostFile }) {
+  const photo = file.mime.startsWith("image/");
+  return (
+    <a
+      href={`/app/files/${file.id}`}
+      target="_blank"
+      rel="noopener"
+      className="inline-flex max-w-[260px] items-center gap-1.5 rounded border border-[#E3D6C4] bg-[#FDFBF7] px-2.5 py-1 text-xs font-semibold text-[#2B1A1C] hover:border-[#7B1E2B]"
+    >
+      {photo ? (
+        <ImageIcon className="h-3.5 w-3.5 shrink-0" aria-hidden />
+      ) : (
+        <FileText className="h-3.5 w-3.5 shrink-0" aria-hidden />
+      )}
+      <span className="truncate">{file.name}</span>
+      <span className="shrink-0 font-normal text-[#6B5B5D]">{size(file.bytes)}</span>
+    </a>
   );
 }

@@ -41,6 +41,8 @@ export interface Notice {
   /** "today", "2 days ago", "17 August 2026" — whatever is honest for this one. */
   when: string;
   action?: { label: string; href: string };
+  /** Notes and photos on a post. Each opens through /app/files/<id>. */
+  files?: { id: string; name: string; mime: string; bytes: number }[];
   read: boolean;
 }
 
@@ -232,6 +234,7 @@ export async function noticesFor(student: Student, now: Date = new Date()): Prom
       body: p.body,
       at: p.posted_at,
       when: agoInDays(p.posted_at, now),
+      files: p.files.map(({ id, name, mime, bytes }) => ({ id, name, mime, bytes })),
       read: false,
     });
   }

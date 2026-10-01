@@ -34,6 +34,28 @@ export interface Post {
   posted_by: string;
   posted_by_name: string | null;
   retracted_at: Date | null;
+  files: PostFile[];
+}
+
+/** A note, photo or paper attached to a post. The bytes are in Google Drive. */
+export interface PostFile {
+  id: string;
+  post_id: string;
+  name: string;
+  mime: string;
+  bytes: number;
+}
+
+/** One query for the files of many posts, rather than one per post. */
+async function withFiles<T extends { id: string }>(posts: T[]): Promise<(T & { files: PostFile[] })[]> {
+  if (posts.length === 0) return [];
+  const rows = (await sql`
+    select id::text, post_id::text, name, mime, bytes::int as bytes
+      from admin_post_files
+     where post_id = any(${posts.map((p) => p.id)}::bigint[])
+     order by post_id, position, id
+  `) as PostFile[];
+  return posts.map((p) => ({ ...p, files: rows.filter((f) => f.post_id === p.id) }));
 }
 
 /**
@@ -45,7 +67,7 @@ export interface Post {
  */
 export async function listPosts(staffId?: string, limit = 60): Promise<Post[]> {
   if (staffId) {
-    return (await sql`
+    const rows = (await sql`
       select p.id::text, p.title, p.body, p.audience, p.batch_id::text, b.name as batch_name,
              p.posted_at, p.posted_by, s.full_name as posted_by_name, p.retracted_at
         from admin_posts p
@@ -60,9 +82,10 @@ export async function listPosts(staffId?: string, limit = 60): Promise<Post[]> {
        order by p.posted_at desc
        limit ${limit}
     `) as Post[];
+    return withFiles(rows);
   }
 
-  return (await sql`
+  const rows = (await sql`
     select p.id::text, p.title, p.body, p.audience, p.batch_id::text, b.name as batch_name,
            p.posted_at, p.posted_by, s.full_name as posted_by_name, p.retracted_at
       from admin_posts p
@@ -71,6 +94,7 @@ export async function listPosts(staffId?: string, limit = 60): Promise<Post[]> {
      order by p.posted_at desc
      limit ${limit}
   `) as Post[];
+  return withFiles(rows);
 }
 
 export async function findPost(id: string): Promise<Post | null> {
@@ -82,7 +106,7 @@ export async function findPost(id: string): Promise<Post | null> {
       left join admin_staff s on s.staff_id = p.posted_by
      where p.id = ${id}
   `) as Post[];
-  return rows[0] ?? null;
+  return (await withFiles(rows))[0] ?? null;
 }
 
 export async function createPost(input: {
@@ -90,6 +114,8 @@ export async function createPost(input: {
   body: string;
   batchId: string | null;
   by: string;
+  /** Already in Drive and already checked by the caller (src/app/admin/actions.ts). */
+  files?: { driveId: string; name: string; mime: string; bytes: number }[];
 }): Promise<string> {
   const title = input.title.trim();
   const body = input.body.trim();
@@ -106,12 +132,22 @@ export async function createPost(input: {
   `) as { id: string }[];
 
   const id = rows[0]!.id;
+
+  const files = input.files ?? [];
+  for (const [position, f] of files.entries()) {
+    await sql`
+      insert into admin_post_files (post_id, drive_id, name, mime, bytes, position, uploaded_by)
+      values (${id}::bigint, ${f.driveId}, ${f.name}, ${f.mime}, ${f.bytes}, ${position}, ${input.by})
+    `;
+  }
+
   // The heading, not the body: an audit trail is a record of what was done, and
   // the words themselves are one join away in admin_posts.
   await logAdminEvent(input.by, "post_written", { kind: "post", id }, {
     title,
     audience,
     batchId: input.batchId,
+    files: files.length,
   });
 
   /**
@@ -170,6 +206,7 @@ export interface StudentPost {
   title: string;
   body: string;
   posted_at: Date;
+  files: PostFile[];
 }
 
 /**
@@ -185,7 +222,7 @@ export interface StudentPost {
  * list is not an archive.
  */
 export async function postsFor(uid: string, limit = 20): Promise<StudentPost[]> {
-  return (await sql`
+  const rows = (await sql`
     select p.id::text, p.title, p.body, p.posted_at
       from admin_posts p
      where p.retracted_at is null
@@ -199,5 +236,69 @@ export async function postsFor(uid: string, limit = 20): Promise<StudentPost[]> 
        )
      order by p.posted_at desc
      limit ${limit}
-  `) as StudentPost[];
+  `) as Omit<StudentPost, "files">[];
+  return withFiles(rows);
+}
+
+/**
+ * One attached file, if this student may open it right now.
+ *
+ * The same three conditions as postsFor, asked of one file: its post is not
+ * taken down, it is inside the 90-day window, and it went to everybody or to a
+ * batch this child is in at this moment. A link copied out of the app is worth
+ * nothing to anybody who could not already see the post.
+ */
+export async function fileForStudent(
+  fileId: string,
+  uid: string,
+): Promise<(PostFile & { drive_id: string }) | null> {
+  if (!/^\d{1,18}$/.test(fileId)) return null;
+  const rows = (await sql`
+    select f.id::text, f.post_id::text, f.name, f.mime, f.bytes::int as bytes, f.drive_id
+      from admin_post_files f
+      join admin_posts p on p.id = f.post_id
+     where f.id = ${fileId}::bigint
+       and p.retracted_at is null
+       and p.posted_at > now() - (${STUDENT_WINDOW_DAYS} || ' days')::interval
+       and (
+             p.audience = 'all'
+          or exists (
+               select 1 from admin_batch_members m
+                where m.batch_id = p.batch_id and m.uid = ${uid} and m.removed_at is null
+             )
+       )
+  `) as (PostFile & { drive_id: string })[];
+  return rows[0] ?? null;
+}
+
+/**
+ * One attached file for somebody in the console.
+ *
+ * An admin may open any. A teacher may open what their own students can see,
+ * the same rule as listPosts: posts to everybody, and posts to a batch they
+ * take. Taken-down posts stay openable here — the office asking "what did we
+ * send them?" needs the file as much as the words.
+ */
+export async function fileForStaff(
+  fileId: string,
+  staffId: string,
+  isAdmin: boolean,
+): Promise<(PostFile & { drive_id: string }) | null> {
+  if (!/^\d{1,18}$/.test(fileId)) return null;
+  const rows = (await sql`
+    select f.id::text, f.post_id::text, f.name, f.mime, f.bytes::int as bytes, f.drive_id
+      from admin_post_files f
+      join admin_posts p on p.id = f.post_id
+     where f.id = ${fileId}::bigint
+       and (
+             ${isAdmin}
+          or p.audience = 'all'
+          or exists (
+               select 1 from admin_batch_teachers t
+                where t.batch_id = p.batch_id and t.staff_id = ${staffId}
+                  and t.removed_at is null
+             )
+       )
+  `) as (PostFile & { drive_id: string })[];
+  return rows[0] ?? null;
 }

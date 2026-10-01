@@ -12,7 +12,7 @@
  * Do NOT bump it for a change to the screens: those are served fresh from the
  * server on every load, so every phone already has them.
  */
-export const APP_BUILD = 5;
+export const APP_BUILD = 6;
 
 /**
  * What changed, shown to the student so "update" is a request with a reason
@@ -24,4 +24,5 @@ export const BUILD_NOTES: Record<number, string> = {
   3: "Lets you speak in a live class. Build 2 could only listen — your microphone and camera were never asked for, so raising your hand and being unmuted did nothing.",
   4: "Fixes the app closing the moment it was opened. Build 3 carried notification code with nothing behind it yet, and it stopped the app from starting at all.",
   5: "A proper icon on your home screen — the old one was cut in half by the circle Android draws around it.",
+  6: "Opens the notes and papers your teachers attach to a post. Build 5 could show their photos but did nothing when you tapped a PDF.",
 };

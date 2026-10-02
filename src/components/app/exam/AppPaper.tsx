@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowLeft, ChevronLeft, Flag, LayoutGrid, RotateCcw, WifiOff, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, Flag, LayoutGrid, Maximize2, RotateCcw, WifiOff, X } from "lucide-react";
 import { examImageUrl, type Question } from "@/lib/exam/question";
 import { useServerCountdown } from "@/components/portal/Countdown";
 
@@ -270,11 +270,19 @@ export default function AppPaper({
           <button type="button" className="qp__figure" onClick={() => setZoom(q.image!)} aria-label="Open the diagram full screen">
             {/* eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper */}
             <img src={examImageUrl(q.image)} alt={`Diagram for question ${at + 1}`} />
-            <span className="qp__figure-hint">Tap to enlarge</span>
+            <span className="qp__figure-hint">
+              <Maximize2 size={13} aria-hidden="true" /> Tap to enlarge
+            </span>
           </button>
         ) : null}
 
-        <div className="qp__options" role="group" aria-label={`Question ${at + 1} options`}>
+        {/* Every option a picture ("Which figure is a square?"): a 2 × 2 grid of
+            figures, board 17 A6, rather than four tall rows to scroll past. */}
+        <div
+          className={`qp__options${q.options.length > 1 && q.options.every((_, i) => q.optionImages?.[i]) ? " qp__options--pictures" : ""}`}
+          role="group"
+          aria-label={`Question ${at + 1} options`}
+        >
           {q.options.map((option, i) => {
             const picked = answers[at] === i;
             return (

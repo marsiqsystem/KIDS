@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { UserPlus } from "lucide-react";
 import { createTeacher, resetPassword, toggleStaffDisabled } from "@/app/admin/actions";
 import type { Staff, StaffListRow } from "@/lib/admin/staff";
-import { Alert, Field, RowAction, SecretBox, Submit, INPUT, SURFACE } from "./ui";
+import { Alert, Field, RowAction, SecretBox, Submit, SURFACE } from "./ui";
 
 /**
  * Teachers and admins.
@@ -30,14 +30,29 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
         <form action={action} className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Field label="Full name" name="fullName" required placeholder="Rahima Khatoon" />
           <Field label="Phone (optional)" name="phone" placeholder="9800000000" />
-          <label className="block">
-            <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Role</span>
-            <select name="role" defaultValue="teacher" className={INPUT}>
-              <option value="teacher">Teacher — their own batches, and any exam desk they are put on</option>
-              <option value="admin">Admin — can change everything</option>
-            </select>
-          </label>
-          <div className="flex items-end">
+          {/* Two roles and no third (board 17 A1): an invigilator is a teacher
+              put on a centre's desk for one paper, in the Exams tab. */}
+          <fieldset className="sm:col-span-2">
+            <legend className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Role</legend>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {[
+                { value: "admin", title: "Admin", line: "The office — everything" },
+                { value: "teacher", title: "Teacher", line: "Their own batches, and any exam desk they are put on" },
+              ].map((r) => (
+                <label
+                  key={r.value}
+                  className="flex cursor-pointer gap-2.5 rounded-[10px] border border-[#F2E9DA] px-3 py-2.5 has-[:checked]:border-[1.5px] has-[:checked]:border-[#7B1E2B] has-[:checked]:bg-[#F6E9E9]"
+                >
+                  <input type="radio" name="role" value={r.value} defaultChecked={r.value === "teacher"} className="mt-0.5 accent-[#7B1E2B]" />
+                  <span>
+                    <span className="block text-[13.5px] font-semibold">{r.title}</span>
+                    <span className="block text-xs text-[#6B5B5D]">{r.line}</span>
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <div className="flex items-end sm:col-span-2 lg:col-span-4">
             <Submit>Create</Submit>
           </div>
         </form>

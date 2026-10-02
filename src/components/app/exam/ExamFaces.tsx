@@ -386,21 +386,27 @@ export function ClosedNote({ started }: { started: boolean }) {
  * running, which the screen says plainly rather than hiding.
  */
 export function ChooseSubjects({
-  name,
+  paperLine,
   choose,
   optional,
   compulsory,
   error,
   onConfirm,
   closes,
+  deadlineIso,
+  serverNowIso,
 }: {
-  name: string;
+  /** "Phase 2 — December paper · Class XII", for the band. */
+  paperLine: string;
   choose: number;
   optional: { name: string; count: number }[];
   compulsory: { name: string; count: number }[];
   error: string;
   onConfirm: (subjects: string[]) => Promise<void>;
   closes: string;
+  deadlineIso: string;
+  /** The server's clock as of the response that offered the choice. */
+  serverNowIso: string;
 }) {
   const [picked, setPicked] = useState<string[]>([]);
   const [confirming, setConfirming] = useState(false);
@@ -413,34 +419,69 @@ export function ChooseSubjects({
   const total =
     compulsory.reduce((a, c) => a + c.count, 0) +
     optional.filter((o) => picked.includes(o.name)).reduce((a, o) => a + o.count, 0);
+  const named = compulsory.filter((c) => c.name).map((c) => c.name);
+
+  const send = async () => {
+    setBusy(true);
+    await onConfirm(ordered);
+    setBusy(false);
+  };
+
+  // No signal when the choice was sent: one plain face, one button.
+  if (error && confirming) {
+    return (
+      <div className="ex-page">
+        <ChooseBand line={paperLine} title={`Your ${choose} subjects`} deadlineIso={deadlineIso} serverNowIso={serverNowIso} />
+        <div className="app-body ex-choose__error">
+          <WifiOff size={34} aria-hidden="true" className="ex-choose__error-icon" />
+          <p className="ex-choose__error-line">That did not go through — check your signal</p>
+          <p className="k-line ex-center">{error}</p>
+          <button type="button" className="k-btn ex-choose__btn" onClick={send} disabled={busy}>
+            {busy ? <Loader2 size={18} className="ex-spin" aria-hidden="true" /> : null}
+            {busy ? "Trying" : "Try again"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (confirming) {
+    return (
+      <div className="ex-page">
+        <ChooseBand line={paperLine} title={`Your ${choose} subjects`} deadlineIso={deadlineIso} serverNowIso={serverNowIso} />
+        <div className="app-body ex-choose__body">
+          <ul className="ex-choose__list">
+            {ordered.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+          <p className="ex-choose__note">
+            These cannot be changed once you start. You will answer <strong>{total} questions</strong>.
+          </p>
+        </div>
+        <div className="ex-choose__foot">
+          <button type="button" className="ex-choose__ghost" disabled={busy} onClick={() => setConfirming(false)}>
+            Change
+          </button>
+          <button type="button" className="k-btn ex-choose__go" disabled={busy} onClick={send}>
+            {busy ? <Loader2 size={18} className="ex-spin" aria-hidden="true" /> : null}
+            {busy ? "Opening" : "Start with these"}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="ex-page">
-      <PaperHero eyebrow="The paper is open" name={name} />
-      <div className="app-body">
-        <div className="k-card">
-          <p className="k-h">Choose {choose} subject{choose === 1 ? "" : "s"}</p>
-          <p className="k-line">
-            {compulsory.filter((c) => c.name).length
-              ? `Everyone answers ${compulsory.filter((c) => c.name).map((c) => c.name).join(" and ")}. `
-              : ""}
-            Then you answer the {choose} subject{choose === 1 ? "" : "s"} you choose here. Your time is already
-            running; everyone ends at {closes}.
-          </p>
-        </div>
-
-        {error ? (
-          <div className="ex-note">
-            <span className="ex-note__icon" aria-hidden="true">
-              <WifiOff size={20} />
-            </span>
-            <div>
-              <p className="k-h">That did not go through</p>
-              <p className="k-line">{error}</p>
-            </div>
-          </div>
-        ) : null}
-
+      <ChooseBand
+        line={paperLine}
+        title={`Choose ${choose} subject${choose === 1 ? "" : "s"}`}
+        sub={`${named.length ? `Everyone answers ${named.join(" and ")}. ` : ""}Your time is running; everyone ends at ${closes}.`}
+        deadlineIso={deadlineIso}
+        serverNowIso={serverNowIso}
+      />
+      <div className="app-body ex-choose__body">
         <div className="ex-subjects" role="group" aria-label={`Choose ${choose} subjects`}>
           {optional.map((o) => {
             const on = picked.includes(o.name);
@@ -450,56 +491,57 @@ export function ChooseSubjects({
                 type="button"
                 className={`ex-subject${on ? " ex-subject--on" : ""}`}
                 aria-pressed={on}
-                disabled={confirming || (!on && full)}
+                disabled={!on && full}
                 onClick={() => toggle(o.name)}
               >
-                <span className="ex-subject__tick" aria-hidden="true">
-                  {on ? <Check size={16} /> : null}
+                <span className="ex-subject__text">
+                  <span className="ex-subject__name">{o.name}</span>
+                  <span className="ex-subject__count">{o.count} questions</span>
                 </span>
-                <span className="ex-subject__name">{o.name}</span>
-                <span className="ex-subject__count">{o.count} questions</span>
+                {on ? (
+                  <span className="ex-subject__tick" aria-hidden="true">
+                    <Check size={16} />
+                  </span>
+                ) : null}
               </button>
             );
           })}
         </div>
-
-        {confirming ? (
-          <div className="ex-note">
-            <span className="ex-note__icon ex-note__icon--gold" aria-hidden="true">
-              <PencilLine size={20} />
-            </span>
-            <div>
-              <p className="k-h">{ordered.join(", ")}</p>
-              <p className="k-line">
-                These cannot be changed once you start. You will answer {total} questions.
-              </p>
-              <div className="ex-confirm">
-                <button type="button" className="k-btn k-btn--outline" disabled={busy} onClick={() => setConfirming(false)}>
-                  Change
-                </button>
-                <button
-                  type="button"
-                  className="k-btn"
-                  disabled={busy}
-                  onClick={async () => {
-                    setBusy(true);
-                    await onConfirm(ordered);
-                    setBusy(false);
-                    setConfirming(false);
-                  }}
-                >
-                  {busy ? <Loader2 size={18} className="ex-spin" aria-hidden="true" /> : null}
-                  {busy ? "Opening" : "Start with these"}
-                </button>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <button type="button" className="k-btn ex-start" disabled={!full} onClick={() => setConfirming(true)}>
-            {full ? "Continue" : `Choose ${choose - picked.length} more`}
-          </button>
-        )}
+      </div>
+      <div className="ex-choose__foot">
+        <button type="button" className={`k-btn ex-choose__btn${full ? "" : " ex-choose__btn--wait"}`} disabled={!full} onClick={() => setConfirming(true)}>
+          {full ? "Continue" : `Choose ${choose - picked.length} more`}
+        </button>
       </div>
     </div>
+  );
+}
+
+/** The maroon band over the choice: the paper, the clock, the one instruction. */
+function ChooseBand({
+  line,
+  title,
+  sub,
+  deadlineIso,
+  serverNowIso,
+}: {
+  line: string;
+  title: string;
+  sub?: string;
+  deadlineIso: string;
+  serverNowIso: string;
+}) {
+  const left = useServerCountdown(deadlineIso, serverNowIso);
+  const s = Math.max(0, Math.floor(left.total / 1000));
+  const clock = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  return (
+    <header className="ex-choose__band">
+      <div className="ex-choose__meta">
+        <span>{line}</span>
+        <span className="ex-choose__clock" role="timer" aria-label="Time left">{clock}</span>
+      </div>
+      <h1 className="ex-choose__title">{title}</h1>
+      {sub ? <p className="ex-choose__sub">{sub}</p> : null}
+    </header>
   );
 }

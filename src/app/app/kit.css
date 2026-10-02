@@ -1262,10 +1262,11 @@
 /* A question's diagram. Always on white, whatever the theme: a diagram is black
    lines drawn for paper, and on a dark surface half of them disappear. */
 .qp__figure {
+  position: relative;
   display: block;
   width: 100%;
   margin: -8px 0 22px;
-  padding: 8px;
+  padding: 10px 10px 30px;
   border: 1px solid var(--cream-muted);
   border-radius: 12px;
   background: #ffffff;
@@ -1282,11 +1283,39 @@
 }
 
 .qp__figure-hint {
-  display: block;
-  margin-top: 6px;
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   color: #6b5b5d;
-  text-align: center;
+}
+
+/* All options pictures: two columns of figure cards. */
+.qp__options--pictures {
+  grid-template-columns: 1fr 1fr;
+}
+
+.qp__options--pictures .qp-opt {
+  align-items: flex-start;
+  padding: 10px;
+  gap: 8px;
+}
+
+.qp__options--pictures .qp-opt__mark {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+}
+
+.qp__options--pictures .qp-opt__img {
+  width: 100%;
+  height: 110px;
+  max-height: none;
+  border: 1px solid var(--cream-muted);
+  border-radius: 7px;
 }
 
 .qp-opt__img {
@@ -1303,7 +1332,7 @@
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: rgba(20, 16, 16, 0.94);
+  background: #140a0c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1327,17 +1356,17 @@
 
 .qp-zoom__close {
   position: absolute;
-  top: max(12px, env(safe-area-inset-top));
-  right: 12px;
+  top: max(28px, env(safe-area-inset-top));
+  right: 18px;
   z-index: 1;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #2b1a1c;
+  background: var(--cream);
+  color: var(--ink);
 }
 
 .qp__stem[lang="bn"],

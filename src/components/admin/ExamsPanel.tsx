@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
-import { AlertCircle, Check } from "lucide-react";
+import { AlertCircle, ArrowRight, Check, Eye } from "lucide-react";
 import {
   assignInvigilatorAction,
   computeAwardAction,
@@ -151,9 +151,21 @@ function PaperCard({
           )}
           <Link
             href={`/admin/questions?paper=${p.id}`}
-            className="rounded border border-[#E3D6C4] px-3 py-1.5 text-xs font-semibold text-[#4A3A3C] hover:bg-[#F6E9E9]"
+            className={`ml-auto inline-flex h-[38px] items-center gap-2 rounded-[10px] px-4 text-[13.5px] font-semibold ${
+              p.attempts > 0
+                ? "border-[1.5px] border-[#F2E9DA] text-[#6B5B5D] hover:bg-[#FBF7EF]"
+                : "bg-[#7B1E2B] text-[#FDFBF7]"
+            }`}
           >
-            {p.attempts > 0 ? "Questions" : "Write or upload questions →"}
+            {p.attempts > 0 ? (
+              <>
+                <Eye size={15} aria-hidden /> Questions
+              </>
+            ) : (
+              <>
+                Write or upload questions <ArrowRight size={16} aria-hidden />
+              </>
+            )}
           </Link>
         </div>
 

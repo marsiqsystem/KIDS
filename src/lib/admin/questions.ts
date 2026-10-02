@@ -469,7 +469,7 @@ export async function readQuestionSheet(
  * office may type any subject it likes.
  */
 let julyCache: { id: string; section: string }[] | null = null;
-export function julySubjects(cls: string, stream: string | null): string[] {
+export function julySubjects(cls: string, stream: string | null): { name: string; note?: string }[] {
   if (!julyCache) {
     try {
       julyCache = JSON.parse(
@@ -480,11 +480,18 @@ export function julySubjects(cls: string, stream: string | null): string[] {
     }
   }
   const title = stream ? stream[0] + stream.slice(1).toLowerCase() : null;
-  const names = new Set<string>();
+  // This set's own stream (and the class-wide part) first, then the other
+  // streams' subjects, named as such.
+  const mine = new Map<string, string | undefined>();
+  const others = new Map<string, string>();
   for (const r of julyCache) {
     const [c, s] = r.id.split("|");
     if (c !== cls) continue;
-    if (s === "All" || !title || s === title) names.add(r.section);
+    if (s === "All" || !title || s === title) mine.set(r.section, undefined);
+    else if (!others.has(r.section)) others.set(r.section, s);
   }
-  return [...names];
+  return [
+    ...[...mine.keys()].map((name) => ({ name })),
+    ...[...others].filter(([name]) => !mine.has(name)).map(([name, note]) => ({ name, note })),
+  ];
 }

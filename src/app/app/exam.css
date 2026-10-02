@@ -1047,6 +1047,46 @@
 }
 
 /* ------------------------------------------------------ choosing subjects */
+/* Board 17 A5: a maroon band with the clock, big subject cards, one button. */
+
+.ex-choose__band {
+  margin: -16px -16px 0;
+  padding: 28px 20px 18px;
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+.ex-choose__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--gold-light);
+}
+
+.ex-choose__clock {
+  font-family: ui-monospace, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.ex-choose__title {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.ex-choose__sub {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(253, 251, 247, 0.85);
+}
+
+.ex-choose__body {
+  gap: 12px;
+}
 
 .ex-subjects {
   display: grid;
@@ -1054,18 +1094,19 @@
 }
 
 .ex-subject {
-  min-height: 58px;
+  min-height: 72px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px 16px;
-  border: 1.5px solid var(--cream-muted);
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--cream-muted);
   border-radius: 14px;
   background: var(--white);
   color: var(--ink);
   font: inherit;
   text-align: left;
   cursor: pointer;
+  transition: border-color 120ms ease-out, background-color 120ms ease-out;
 }
 
 .ex-subject:disabled {
@@ -1074,47 +1115,114 @@
 }
 
 .ex-subject--on {
-  border-color: var(--maroon);
-  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.14);
+  border-color: var(--teal);
+  background: var(--teal-wash);
 }
 
-.ex-subject--on:disabled {
-  opacity: 1;
-}
-
-.ex-subject__tick {
-  width: 26px;
-  height: 26px;
-  flex: none;
+.ex-subject__text {
+  flex: 1;
   display: grid;
-  place-items: center;
-  border-radius: 8px;
-  border: 1.5px solid var(--cream-muted);
-  color: var(--white);
-}
-
-.ex-subject--on .ex-subject__tick {
-  background: var(--maroon);
-  border-color: var(--maroon);
+  gap: 2px;
 }
 
 .ex-subject__name {
-  flex: 1;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .ex-subject__count {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--ink-muted);
 }
 
-.ex-confirm {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
+.ex-subject__tick {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--teal);
+  color: var(--white);
 }
 
-.ex-confirm .k-btn {
+.ex-choose__foot {
+  display: flex;
+  gap: 10px;
+  padding: 16px 0 0;
+  margin-top: auto;
+}
+
+.ex-choose__btn,
+.ex-choose__go {
+  min-height: 52px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ex-choose__btn--wait:disabled {
+  background: var(--cream-muted);
+  color: var(--ink-muted);
+  opacity: 1;
+}
+
+.ex-choose__go {
+  flex: 1.7;
+}
+
+.ex-choose__ghost {
   flex: 1;
+  min-height: 52px;
+  border: 1.5px solid var(--maroon);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--maroon);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ex-choose__list {
+  margin: 0;
+  padding: 6px 16px;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--cream-muted);
+  border-radius: 14px;
+}
+
+.ex-choose__list li {
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ex-choose__list li + li {
+  border-top: 1px solid #f7f1e6;
+}
+
+.ex-choose__note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ex-choose__error {
+  justify-content: center;
+  align-items: stretch;
+  text-align: center;
+  gap: 14px;
+}
+
+.ex-choose__error-icon {
+  margin: 0 auto;
+  color: var(--maroon);
+}
+
+.ex-choose__error-line {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
 }

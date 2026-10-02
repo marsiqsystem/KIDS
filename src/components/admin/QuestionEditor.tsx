@@ -1,18 +1,27 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import {
   AlertCircle,
   ArrowDown,
   ArrowUp,
   Check,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  ChevronUp,
   Download,
   FileSpreadsheet,
+  Image as ImageIcon,
+  ImageOff,
   ImagePlus,
   Loader2,
+  Lock,
+  PencilLine,
   Plus,
   Trash2,
   X,
+  XCircle,
 } from "lucide-react";
 import {
   discardQuestionDraftAction,
@@ -33,6 +42,7 @@ import {
   type DraftQuestion,
   type SetChoice,
 } from "@/lib/exam/question-check";
+import ConfirmDialog from "./ConfirmDialog";
 
 /**
  * The question editor. Admin only -- the page that renders it checks.
@@ -110,9 +120,15 @@ function pastedPicture(e: React.ClipboardEvent): File | null {
   return null;
 }
 
-const TEXT =
-  "w-full rounded border border-[#E3D6C4] bg-[#FDFBF7] px-3 py-2 text-sm text-[#2B1A1C] outline-none " +
-  "placeholder:text-[#9A8B8D] focus:border-[#7B1E2B] disabled:bg-[#F6F1EA] [field-sizing:content]";
+/** A subject to offer while typing; `note` names the stream when it is another one's. */
+export type Suggestion = { name: string; note?: string };
+
+const FIELD =
+  "w-full rounded-[9px] border-[1.5px] border-[#F2E9DA] bg-white px-3 text-[13.5px] text-[#2B1A1C] outline-none " +
+  "placeholder:text-[#A79B9C] focus:border-[#7B1E2B] focus:shadow-[0_0_0_3px_rgba(123,30,43,0.12)] disabled:bg-[#FBF7EF]";
+const AREA = `${FIELD} min-h-[58px] py-2.5 [field-sizing:content]`;
+const LABEL = "text-[11px] font-bold uppercase tracking-[0.14em] text-[#6B5B5D]";
+const CARD = "rounded-xl border border-[#F2E9DA] bg-white";
 
 export default function QuestionEditor({
   paperId,
@@ -120,7 +136,7 @@ export default function QuestionEditor({
   initial,
   source: initialSource,
   version: initialVersion,
-  loadedCount,
+  loadedCount: initialLoaded,
   locked,
   expectedCount,
   initialChoice,
@@ -136,18 +152,34 @@ export default function QuestionEditor({
   locked: number;
   expectedCount: number | null;
   initialChoice: SetChoice | null;
-  /** Subject names to offer while typing: July's, for this class and stream. */
-  suggestions: string[];
+  /** Subject names to offer while typing: July's, for this class. */
+  suggestions: Suggestion[];
 }) {
   const [rows, setRows] = useState<Row[]>(() => (initial.length ? initial.map(withId) : locked ? [] : [blank()]));
   const [source, setSource] = useState(initialSource);
   const [version, setVersion] = useState(initialVersion);
+  // What is in the paper now. Moves on every successful load, so a second load
+  // says how many it replaces truthfully.
+  const [loadedCount, setLoadedCount] = useState(initialLoaded);
   const [dirty, setDirty] = useState(false);
   const [result, setResult] = useState<QuestionResult | null>(null);
+  /** A refused load's own list, shown in the summary card where the eye already is. */
+  const [refused, setRefused] = useState<string[] | null>(null);
+  const [showProblems, setShowProblems] = useState(false);
+  const [asking, setAsking] = useState<"load" | "discard" | null>(null);
   const [pending, start] = useTransition();
   /** Pictures on their way up, keyed "<row id>:q" or "<row id>:<option>". */
   const [uploading, setUploading] = useState<Set<string>>(new Set());
   const readOnly = locked > 0;
+  /** Questions whose passage box the office has opened, though it is still empty. */
+  const [openPassages, setOpenPassages] = useState<Set<number>>(new Set());
+  const togglePassage = (id: number) =>
+    setOpenPassages((s) => {
+      const next = new Set(s);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   const [choiceRaw, setChoice] = useState<SetChoice | null>(initialChoice);
   const subjects = useMemo(() => subjectsOf(rows), [rows]);
@@ -160,6 +192,7 @@ export default function QuestionEditor({
   }, [choiceRaw, subjects]);
   const check = useMemo(() => checkQuestions(strip(rows), expectedCount, choice), [rows, expectedCount, choice]);
   const answered = check.spread.reduce((a, b) => a + b, 0);
+  const problems = refused ?? check.problems;
 
   // Leaving with unsaved questions asks first. The browser words the dialog.
   useEffect(() => {
@@ -172,6 +205,7 @@ export default function QuestionEditor({
   const change = (next: Row[]) => {
     setRows(next);
     setDirty(true);
+    setRefused(null);
   };
   const edit = (i: number, patch: Partial<DraftQuestion>) =>
     change(rows.map((r, j) => (j === i ? { ...r, ...patch } : r)));
@@ -232,343 +266,425 @@ export default function QuestionEditor({
       }
     });
 
-  const load = () => {
+  const askToLoad = () => {
     if (check.problems.length) {
-      setResult({ ok: false, message: "Nothing was loaded. Fix these first:", problems: check.problems });
+      setShowProblems(true);
+      setResult({ ok: false, message: "Nothing was loaded. The summary at the top lists what to fix." });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
-    const replacing = loadedCount !== null ? ` This replaces the ${loadedCount} questions loaded now.` : "";
-    if (!window.confirm(`Load these ${rows.length} questions into the paper?${replacing} Students of this set are handed exactly these when it opens.`)) return;
+    setAsking("load");
+  };
+
+  const load = () =>
     start(async () => {
       const r = await loadQuestionSetAction(paperId, code, strip(rows), choice, version);
+      setAsking(null);
       setResult(r);
       if (r.ok) {
         setSource("loaded");
         setVersion(null);
         setDirty(false);
-      } else if (r.version) {
-        // Saved, but the load was refused: the draft on the server is now this one.
-        setVersion(r.version);
-        setSource("draft");
-        setDirty(false);
+        setLoadedCount(rows.length);
+      } else {
+        if (r.version) {
+          // Saved, but the load was refused: the draft on the server is now this one.
+          setVersion(r.version);
+          setSource("draft");
+          setDirty(false);
+        }
+        if (r.problems?.length) {
+          setRefused(r.problems);
+          setShowProblems(true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }
     });
-  };
 
-  const discard = () => {
-    if (!window.confirm(loadedCount !== null ? "Throw this draft away and go back to the loaded set?" : "Throw this draft away? Every question in it is lost.")) return;
+  const discard = () =>
     start(async () => {
       const r = await discardQuestionDraftAction(paperId, code);
+      setAsking(null);
       if (!r.ok) setResult(r);
       else {
         setDirty(false);
         window.location.reload();
       }
     });
-  };
 
   return (
-    <div className="space-y-5 pb-24">
-      {readOnly ? (
-        <Banner tone="info">
-          {locked} students have sat this set, so it cannot change: their marks depend on it. This is a view.
-        </Banner>
-      ) : source === "loaded" ? (
-        <Banner tone="good">
-          These are the questions loaded into the paper now. Edit them here; nothing reaches students until you load
-          again.
-        </Banner>
-      ) : source === "draft" ? (
-        <Banner tone="warn">
-          This is a draft. Students see {loadedCount !== null ? `the ${loadedCount} questions loaded earlier` : "no paper for this set"} until
-          you press <strong>Check and load</strong>.
-        </Banner>
-      ) : (
-        <Banner tone="warn">A new set. Nothing is saved until you press Save draft.</Banner>
-      )}
+    <div className="space-y-4">
+      <Banner source={source} locked={locked} loadedCount={loadedCount} />
 
       {/* --------------------------------------------------- summary --- */}
-      <section className="rounded-[14px] border border-[#F2E9DA] bg-white p-4 text-sm">
-        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
-          <span>
-            <strong>{rows.length}</strong> question{rows.length === 1 ? "" : "s"}
-            {expectedCount ? <span className="text-[#6B5B5D]"> of {expectedCount}</span> : null}
-          </span>
-          <span className="text-[#6B5B5D]">{answered} with an answer ticked</span>
-          <span className="font-mono text-xs text-[#4A3A3C]">
+      <section className={`${CARD} px-5 py-4`}>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="text-[15px]">
+            <strong className="tabular-nums">{rows.length}</strong> question{rows.length === 1 ? "" : "s"}
+          </div>
+          <div className="text-[15px]">
+            <strong className="tabular-nums">{answered}</strong> with an answer ticked
+          </div>
+          <div className="font-mono text-sm text-[#6B5B5D]">
             {check.spread
-              .map((n, i) => [LETTERS[i], n] as const)
-              .filter(([, n], i) => n > 0 || i < 4)
-              .map(([l, n]) => `${l} ${n}`)
+              .map((count, i) => [LETTERS[i], count] as const)
+              .filter(([, count], i) => count > 0 || i < 4)
+              .map(([l, count]) => `${l} ${count}`)
               .join(" · ")}
-          </span>
+          </div>
+          <div className="flex-1" />
+          {problems.length ? (
+            <button
+              type="button"
+              onClick={() => setShowProblems((v) => !v)}
+              aria-expanded={showProblems}
+              className="flex items-center gap-1.5 text-[13.5px] font-bold text-[#7B1E2B]"
+            >
+              <AlertCircle size={17} aria-hidden />
+              {problems.length} thing{problems.length === 1 ? "" : "s"} to fix before it can be loaded
+              {showProblems ? <ChevronUp size={16} aria-hidden /> : <ChevronDown size={16} aria-hidden />}
+            </button>
+          ) : rows.length ? (
+            <span className="flex items-center gap-2 rounded-lg bg-[#E6F4F1] px-3 py-1.5 text-[13.5px] font-bold text-[#167A6C]">
+              <Check size={17} aria-hidden /> Passes every check. Ready to load.
+            </span>
+          ) : null}
         </div>
         {check.lopsided ? (
-          <p className="mt-2 flex items-start gap-2 text-xs text-[#8A6D1F]">
-            <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
+          <p className="mt-2 flex items-start gap-2 text-xs text-[#8A6A24]">
+            <AlertCircle className="mt-0.5 shrink-0" size={14} aria-hidden />
             More than half the answers are the same letter. Check the key was not typed wrong.
           </p>
         ) : null}
-        {check.problems.length ? (
-          <details className="mt-2 text-xs text-[#8A6D1F]">
-            <summary className="cursor-pointer">
-              {check.problems.length} thing{check.problems.length === 1 ? "" : "s"} to fix before it can be loaded
-            </summary>
-            <ul className="mt-1 list-disc pl-5">
-              {check.problems.slice(0, 40).map((p) => (
-                <li key={p}>{p}</li>
-              ))}
-              {check.problems.length > 40 ? <li>…and {check.problems.length - 40} more</li> : null}
-            </ul>
-          </details>
-        ) : rows.length ? (
-          <p className="mt-2 flex items-center gap-2 text-xs text-[#137565]">
-            <Check className="h-3.5 w-3.5" aria-hidden /> Passes every check. Ready to load.
-          </p>
+        {problems.length && showProblems ? (
+          <ul className="mt-3 grid gap-1.5 border-t border-[#F7F1E6] pt-3 text-[13px]">
+            {problems.slice(0, 40).map((p) => (
+              <li key={p}>{p.replace(/\.$/, "")}</li>
+            ))}
+            {problems.length > 40 ? <li className="text-[#6B5B5D]">…and {problems.length - 40} more</li> : null}
+          </ul>
         ) : null}
       </section>
 
-      <SubjectsPanel
-        subjects={subjects}
-        choice={choice}
-        readOnly={readOnly}
-        perStudent={questionsPerStudent(rows, choice)}
-        onChange={(next) => {
-          setChoice(next);
-          setDirty(true);
-        }}
-      />
-
-      {!readOnly ? <SheetUpload rows={rows} onRead={(next) => change(next)} /> : null}
-
-      <datalist id="subject-names">
-        {[...new Set([...subjects.map((x) => x.name).filter(Boolean), ...suggestions])].map((n) => (
-          <option key={n} value={n} />
-        ))}
-      </datalist>
+      <div className="grid gap-4 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+        <SubjectsPanel
+          subjects={subjects}
+          choice={choice}
+          readOnly={readOnly}
+          perStudent={questionsPerStudent(rows, choice)}
+          onChange={(next) => {
+            setChoice(next);
+            setDirty(true);
+            setRefused(null);
+          }}
+        />
+        {!readOnly ? <SheetUpload rows={rows} onRead={(next) => change(next)} /> : null}
+      </div>
 
       {/* -------------------------------------------------- questions --- */}
       <ol className="space-y-4">
-        {rows.map((r, i) => (
-          <li key={r.id} className="rounded-[14px] border border-[#F2E9DA] bg-white p-4">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="text-sm font-bold">Q{i + 1}</span>
-              {r.answer === null ? <span className="text-xs text-[#B22234]">no answer ticked</span> : null}
-              {!readOnly ? (
-                <div className="ml-auto flex items-center gap-1">
-                  <IconButton label="Move up" onClick={() => move(i, -1)} disabled={i === 0}>
-                    <ArrowUp className="h-3.5 w-3.5" />
-                  </IconButton>
-                  <IconButton label="Move down" onClick={() => move(i, 1)} disabled={i === rows.length - 1}>
-                    <ArrowDown className="h-3.5 w-3.5" />
-                  </IconButton>
-                  <IconButton
-                    label="Delete question"
-                    danger
-                    onClick={() => {
-                      if (r.q.trim() && !window.confirm(`Delete question ${i + 1}?`)) return;
-                      change(rows.filter((_, j) => j !== i));
-                    }}
-                  >
-                    <Trash2 className="h-3.5 w-3.5" />
-                  </IconButton>
-                </div>
-              ) : null}
-            </div>
+        {rows.map((r, i) => {
+          const flagged = !readOnly && r.answer === null;
+          return (
+            <li
+              key={r.id}
+              className={`grid gap-3 rounded-xl bg-white px-5 py-4 ${flagged ? "border-[1.5px] border-[#7B1E2B]" : "border border-[#F2E9DA]"}`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-[15px] font-bold text-[#7B1E2B]">Q{i + 1}</span>
+                {flagged ? (
+                  <span className="rounded-md bg-[#B22234] px-2 py-0.5 text-[11.5px] font-bold text-white">No answer ticked</span>
+                ) : null}
+                <div className="flex-1" />
+                {!readOnly ? (
+                  <>
+                    <IconButton label="Move up" onClick={() => move(i, -1)} disabled={i === 0}>
+                      <ArrowUp size={17} />
+                    </IconButton>
+                    <IconButton label="Move down" onClick={() => move(i, 1)} disabled={i === rows.length - 1}>
+                      <ArrowDown size={17} />
+                    </IconButton>
+                    <IconButton
+                      label="Delete question"
+                      danger
+                      onClick={() => {
+                        if (r.q.trim() && !window.confirm(`Delete question ${i + 1}?`)) return;
+                        change(rows.filter((_, j) => j !== i));
+                      }}
+                    >
+                      <Trash2 size={17} />
+                    </IconButton>
+                  </>
+                ) : null}
+              </div>
 
-            <label className="mb-3 flex items-center gap-2">
-              <span className="w-16 shrink-0 text-xs font-semibold text-[#6B5B5D]">Subject</span>
-              <input
-                className={TEXT}
-                list="subject-names"
-                placeholder="e.g. English & General Knowledge, Physics, History"
+              <SubjectField
                 value={r.section ?? ""}
-                disabled={readOnly}
-                onChange={(e) => edit(i, { section: e.target.value })}
+                readOnly={readOnly}
+                optional={Boolean(choice?.optional.includes((r.section ?? "").trim()))}
+                suggestions={[
+                  ...subjects.filter((s) => s.name).map((s) => ({ name: s.name })),
+                  ...suggestions,
+                ]}
+                passageOpen={Boolean(r.context) || openPassages.has(r.id)}
+                onPassage={() => togglePassage(r.id)}
+                onChange={(v) => edit(i, { section: v })}
               />
-              {choice?.optional.includes(r.section ?? "") ? (
-                <span className="shrink-0 rounded bg-[#E9EEF8] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1E4DA1]">
-                  Optional
-                </span>
-              ) : null}
-            </label>
 
-            <details open={Boolean(r.context)} className="mb-3">
-              <summary className="cursor-pointer text-xs text-[#6B5B5D]">Passage (optional)</summary>
-              <div className="mt-2 space-y-2">
+              {r.context || openPassages.has(r.id) ? (
                 <textarea
-                  className={`${TEXT} min-h-[3rem]`}
+                  className={AREA}
                   placeholder="A passage shown above the question"
+                  aria-label="Passage"
                   value={r.context ?? ""}
                   disabled={readOnly}
                   onChange={(e) => edit(i, { context: e.target.value })}
                 />
-              </div>
-            </details>
-
-            <textarea
-              className={`${TEXT} min-h-[3rem]`}
-              placeholder="The question — paste a screenshot here to add it as the diagram"
-              value={r.q}
-              disabled={readOnly}
-              onChange={(e) => edit(i, { q: e.target.value })}
-              onPaste={(e) => {
-                const file = pastedPicture(e);
-                if (!file) return;
-                e.preventDefault();
-                void attach(r.id, null, file);
-              }}
-            />
-
-            <Picture
-              id={r.image}
-              busy={uploading.has(`${r.id}:q`)}
-              readOnly={readOnly}
-              label="Add a diagram"
-              onFile={(f) => attach(r.id, null, f)}
-              onRemove={() => detach(i, null)}
-            />
-
-            <fieldset className="mt-3 space-y-2">
-              <legend className="mb-1 text-xs text-[#6B5B5D]">Options — tick the correct one</legend>
-              {r.options.map((o, k) => (
-                <div key={k} className="flex items-center gap-2">
-                  <label className="flex cursor-pointer items-center gap-1.5">
-                    <input
-                      type="radio"
-                      name={`answer-${r.id}`}
-                      checked={r.answer === k}
-                      disabled={readOnly}
-                      onChange={() => edit(i, { answer: k })}
-                      className="accent-[#137565]"
-                    />
-                    <span className={`w-4 text-sm font-semibold ${r.answer === k ? "text-[#137565]" : "text-[#6B5B5D]"}`}>
-                      {LETTERS[k]}
-                    </span>
-                  </label>
-                  <input
-                    className={`${TEXT} ${r.answer === k ? "border-[#137565]" : ""}`}
-                    placeholder={`Option ${LETTERS[k]}`}
-                    value={o}
-                    disabled={readOnly}
-                    onChange={(e) => edit(i, { options: r.options.map((x, m) => (m === k ? e.target.value : x)) })}
-                  />
-                  <Picture
-                    small
-                    id={r.optionImages?.[k] ?? undefined}
-                    busy={uploading.has(`${r.id}:${k}`)}
-                    readOnly={readOnly}
-                    label={`Picture for option ${LETTERS[k]}`}
-                    onFile={(f) => attach(r.id, k, f)}
-                    onRemove={() => detach(i, k)}
-                  />
-                  {!readOnly && r.options.length > MIN_OPTIONS ? (
-                    <IconButton
-                      label={`Remove option ${LETTERS[k]}`}
-                      onClick={() => {
-                        const pics = r.optionImages?.filter((_, m) => m !== k);
-                        edit(i, {
-                          options: r.options.filter((_, m) => m !== k),
-                          optionImages: pics?.some(Boolean) ? pics : undefined,
-                          // The tick follows its option, or goes if its option went.
-                          answer: r.answer === null || r.answer === k ? null : r.answer > k ? r.answer - 1 : r.answer,
-                        });
-                      }}
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </IconButton>
-                  ) : null}
-                </div>
-              ))}
-              {!readOnly && r.options.length < MAX_OPTIONS ? (
-                <button
-                  type="button"
-                  onClick={() =>
-                    edit(i, {
-                      options: [...r.options, ""],
-                      ...(r.optionImages ? { optionImages: [...r.optionImages, null] } : {}),
-                    })
-                  }
-                  className="text-xs text-[#4A3A3C] underline-offset-2 hover:underline"
-                >
-                  + Add option {LETTERS[r.options.length]}
-                </button>
               ) : null}
-            </fieldset>
-          </li>
-        ))}
+
+              <textarea
+                className={`${AREA} ${r.q ? "" : "border-dashed border-[#D9CDBB]"}`}
+                placeholder="The question — paste a screenshot here to add it as the diagram"
+                value={r.q}
+                disabled={readOnly}
+                onChange={(e) => edit(i, { q: e.target.value })}
+                onPaste={(e) => {
+                  const file = pastedPicture(e);
+                  if (!file) return;
+                  e.preventDefault();
+                  void attach(r.id, null, file);
+                }}
+              />
+
+              <Diagram
+                id={r.image}
+                busy={uploading.has(`${r.id}:q`)}
+                readOnly={readOnly}
+                onFile={(f) => attach(r.id, null, f)}
+                onRemove={() => detach(i, null)}
+              />
+
+              <fieldset className="grid gap-[7px]">
+                <legend className="sr-only">Options — tick the correct one</legend>
+                {r.options.map((o, k) => {
+                  const on = r.answer === k;
+                  const pic = r.optionImages?.[k] ?? null;
+                  const busy = uploading.has(`${r.id}:${k}`);
+                  return (
+                    <div
+                      key={k}
+                      className={`flex items-center gap-2.5 rounded-[9px] border-[1.5px] px-2.5 py-[7px] text-[13.5px] ${
+                        on ? "border-[#1E9E8C] bg-[#E6F4F1]" : "border-[#F2E9DA] bg-white"
+                      }`}
+                    >
+                      <label className="flex cursor-pointer items-center gap-2.5">
+                        <input
+                          type="radio"
+                          name={`answer-${r.id}`}
+                          checked={on}
+                          disabled={readOnly}
+                          onChange={() => edit(i, { answer: k })}
+                          className="h-4 w-4 accent-[#1E9E8C]"
+                          aria-label={`Option ${LETTERS[k]} is correct`}
+                        />
+                        <strong className="w-4">{LETTERS[k]}</strong>
+                      </label>
+                      {busy ? (
+                        <Loader2 size={16} className="animate-spin text-[#6B5B5D]" aria-label="Uploading" />
+                      ) : pic ? (
+                        <span className="relative shrink-0">
+                          {/* eslint-disable-next-line @next/next/no-img-element -- a private, uncached admin preview */}
+                          <img src={examImageUrl(pic)} alt={`Option ${LETTERS[k]}`} className="h-[38px] w-14 rounded-[5px] border border-[#F2E9DA] bg-white object-contain" />
+                        </span>
+                      ) : null}
+                      <input
+                        className="min-w-0 flex-1 bg-transparent py-1 outline-none placeholder:text-[#A79B9C]"
+                        placeholder={pic ? "picture only — or add words" : `Option ${LETTERS[k]}`}
+                        value={o}
+                        disabled={readOnly}
+                        onChange={(e) => edit(i, { options: r.options.map((x, m) => (m === k ? e.target.value : x)) })}
+                      />
+                      {!readOnly ? (
+                        pic ? (
+                          <IconButton label={`Remove the picture from option ${LETTERS[k]}`} onClick={() => detach(i, k)}>
+                            <ImageOff size={16} />
+                          </IconButton>
+                        ) : (
+                          <PickPicture label={`Picture for option ${LETTERS[k]}`} onFile={(f) => attach(r.id, k, f)} />
+                        )
+                      ) : null}
+                      {!readOnly && r.options.length > MIN_OPTIONS ? (
+                        <IconButton
+                          label={`Remove option ${LETTERS[k]}`}
+                          onClick={() => {
+                            const pics = r.optionImages?.filter((_, m) => m !== k);
+                            edit(i, {
+                              options: r.options.filter((_, m) => m !== k),
+                              optionImages: pics?.some(Boolean) ? pics : undefined,
+                              // The tick follows its option, or goes if its option went.
+                              answer: r.answer === null || r.answer === k ? null : r.answer > k ? r.answer - 1 : r.answer,
+                            });
+                          }}
+                        >
+                          <X size={16} />
+                        </IconButton>
+                      ) : null}
+                    </div>
+                  );
+                })}
+                {!readOnly && r.options.length < MAX_OPTIONS ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      edit(i, {
+                        options: [...r.options, ""],
+                        ...(r.optionImages ? { optionImages: [...r.optionImages, null] } : {}),
+                      })
+                    }
+                    className="justify-self-start pl-1 text-[12.5px] font-semibold text-[#7B1E2B] hover:underline"
+                  >
+                    + Add option {LETTERS[r.options.length]}
+                  </button>
+                ) : null}
+              </fieldset>
+            </li>
+          );
+        })}
       </ol>
 
       {!readOnly ? (
         <button
           type="button"
           onClick={() => change([...rows, blank(rows[rows.length - 1]?.section)])}
-          className="inline-flex items-center gap-2 rounded border border-dashed border-[#C9B8A6] px-4 py-2 text-sm text-[#4A3A3C] hover:bg-white"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl border-[1.5px] border-dashed border-[#D9CDBB] text-sm font-semibold text-[#7B1E2B] hover:bg-white"
         >
-          <Plus className="h-4 w-4" aria-hidden /> Add a question
+          <Plus size={17} aria-hidden /> Add a question
         </button>
       ) : null}
 
       {/* ------------------------------------------------- the bar --- */}
       {!readOnly ? (
-        <div className="fixed inset-x-0 bottom-0 z-10 border-t border-[#E3D6C4] bg-[#FBF7EF]/95 px-5 py-3 backdrop-blur">
-          <div className="mx-auto flex max-w-4xl flex-wrap items-center gap-3">
+        <div className="fixed inset-x-0 bottom-0 z-10 border-t border-[#F2E9DA] bg-white py-3.5 shadow-[0_-4px_12px_rgba(43,26,28,0.06)]">
+          <div className="mx-auto flex max-w-[1000px] flex-wrap items-center gap-3 px-8">
             <button
               type="button"
               disabled={pending || uploading.size > 0}
               onClick={save}
-              className="rounded border border-[#7B1E2B] px-4 py-2 text-sm font-semibold text-[#7B1E2B] disabled:opacity-50"
+              className="h-[42px] rounded-[10px] border-[1.5px] border-[#7B1E2B] px-[18px] text-sm font-semibold text-[#7B1E2B] disabled:opacity-50"
             >
               Save draft
             </button>
             <button
               type="button"
               disabled={pending || uploading.size > 0}
-              onClick={load}
-              className="rounded bg-[#7B1E2B] px-4 py-2 text-sm font-semibold text-[#FDFBF7] disabled:opacity-50"
+              onClick={askToLoad}
+              className="h-[42px] rounded-[10px] bg-[#7B1E2B] px-[18px] text-sm font-semibold text-[#FDFBF7] disabled:opacity-50"
             >
               Check and load into the paper
             </button>
             {source === "draft" && !pending ? (
-              <button type="button" onClick={discard} className="text-xs text-[#B22234] underline-offset-2 hover:underline">
+              <button type="button" onClick={() => setAsking("discard")} className="ml-1.5 text-[13px] font-semibold text-[#B22234] hover:underline">
                 Throw draft away
               </button>
             ) : null}
-            {pending ? <Loader2 className="h-4 w-4 animate-spin text-[#6B5B5D]" aria-label="Working" /> : null}
-            <span className="ml-auto text-xs text-[#6B5B5D]">
-              {uploading.size ? "Uploading a picture…" : dirty ? "Unsaved changes" : "Everything saved"}
+            <div className="flex-1" />
+            <span className="flex items-center gap-1.5 text-[13px] text-[#6B5B5D]">
+              {uploading.size || pending ? <Loader2 size={15} className="animate-spin" aria-hidden /> : null}
+              {uploading.size ? "Uploading a picture…" : pending ? "Working…" : dirty ? "Unsaved changes" : "Everything saved"}
             </span>
           </div>
           {result ? (
-            <div className="mx-auto mt-2 max-w-4xl">
-              <p className={`flex items-start gap-2 text-sm ${result.ok ? "text-[#137565]" : "text-[#B22234]"}`}>
-                {result.ok ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" /> : <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />}
-                {result.message}
-              </p>
-              {result.problems?.length ? (
-                <ul className="mt-1 max-h-32 list-disc overflow-y-auto pl-9 text-xs text-[#B22234]">
-                  {result.problems.slice(0, 40).map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
+            <p
+              role="status"
+              className={`mx-auto mt-2 flex max-w-[1000px] items-start gap-2 px-8 text-[13px] ${result.ok ? "text-[#167A6C]" : "text-[#B22234]"}`}
+            >
+              {result.ok ? <Check size={14} className="mt-0.5 shrink-0" /> : <AlertCircle size={14} className="mt-0.5 shrink-0" />}
+              {result.message}
+            </p>
           ) : null}
         </div>
       ) : null}
+
+      <ConfirmDialog
+        open={asking === "load"}
+        title={`Load these ${rows.length} questions into the paper?`}
+        cancel="Not yet"
+        confirm="Load them"
+        busy={pending}
+        onCancel={() => setAsking(null)}
+        onConfirm={load}
+      >
+        {loadedCount !== null ? `This replaces the ${loadedCount} loaded now.` : "Students of this set are handed exactly these when the paper opens."}
+      </ConfirmDialog>
+      <ConfirmDialog
+        open={asking === "discard"}
+        title="Throw this draft away?"
+        cancel="Keep it"
+        confirm="Throw it away"
+        danger
+        busy={pending}
+        onCancel={() => setAsking(null)}
+        onConfirm={discard}
+      >
+        {loadedCount !== null
+          ? `The ${loadedCount} questions in the paper stay as they are.`
+          : "Every question in it is lost. Nothing is in the paper yet."}
+      </ConfirmDialog>
     </div>
   );
 }
 
-/* ------------------------------------------------------------- subjects --- */
+/* ---------------------------------------------------------------- banner --- */
+
+/** The four states of a set, board 17 A3. */
+function Banner({ source, locked, loadedCount }: { source: "draft" | "loaded" | "new"; locked: number; loadedCount: number | null }) {
+  if (locked) {
+    return (
+      <p className="flex items-center gap-3 rounded-xl bg-[#EEEAE4] px-4 py-3 text-[13.5px] text-[#2B1A1C]">
+        <Lock size={18} className="shrink-0" aria-hidden />
+        <span>
+          <strong>Locked view.</strong> {locked.toLocaleString("en-IN")} students have sat this set. It cannot change.
+        </span>
+      </p>
+    );
+  }
+  if (source === "draft") {
+    return (
+      <p className="flex items-center gap-3 rounded-xl border border-[#E5BE7A] bg-[#FAF1DC] px-4 py-3 text-[13.5px] text-[#3D0A10]">
+        <PencilLine size={18} className="shrink-0" aria-hidden />
+        <span>
+          <strong>Draft.</strong> Students see {loadedCount !== null ? `the ${loadedCount} questions loaded earlier` : "no paper for this set"} until
+          you press <strong>Check and load</strong>.
+        </span>
+      </p>
+    );
+  }
+  if (source === "loaded") {
+    return (
+      <p className="flex items-center gap-3 rounded-xl bg-[#E6F4F1] px-4 py-3 text-[13.5px] text-[#0F5C50]">
+        <CheckCircle2 size={18} className="shrink-0" aria-hidden />
+        <span>
+          <strong>Loaded.</strong> These are the questions in the paper now. Edits reach students only when you load again.
+        </span>
+      </p>
+    );
+  }
+  return (
+    <p className="flex items-center gap-3 rounded-xl border border-[#F2E9DA] bg-white px-4 py-3 text-[13.5px] text-[#2B1A1C]">
+      <Plus size={18} className="shrink-0" aria-hidden />
+      <span>
+        <strong>New set.</strong> Nothing saved yet.
+      </span>
+    </p>
+  );
+}
+
+/* -------------------------------------------------------------- subjects --- */
 
 /**
- * The paper's subjects, and which of them a student chooses among.
- *
- * July's written paper for XI and XII: English & General Knowledge for every
- * student, then three subjects of their own choosing from their stream. Ticking
- * a subject "optional" here is all it takes; the app asks each student for
- * their choice when the paper opens, and marks them on those subjects only.
+ * The paper's subjects, and which of them a student chooses among -- July's
+ * written paper for XI and XII. Ticking a subject optional is all it takes; the
+ * app asks each student for their choice as the paper opens.
  */
 function SubjectsPanel({
   subjects,
@@ -593,150 +709,350 @@ function SubjectsPanel({
     onChange({ optional: ordered, choose });
   };
 
+  // The size most optional subjects share; any other size is the odd one out.
+  const sizes = subjects.filter((s) => optional.includes(s.name)).map((s) => s.count);
+  const usual = sizes.length
+    ? [...new Set(sizes)].sort((a, b) => sizes.filter((x) => x === b).length - sizes.filter((x) => x === a).length)[0]
+    : null;
+  const even = new Set(sizes).size <= 1;
+
   return (
-    <section className="rounded-[14px] border border-[#F2E9DA] bg-white p-4">
-      <h2 className="text-sm font-bold">Subjects</h2>
+    <section className={`${CARD} px-5 py-4`}>
+      <div className={`${LABEL} mb-3`}>Subjects</div>
       {subjects.length === 1 && !subjects[0].name ? (
-        <p className="mt-1 text-xs text-[#6B5B5D]">
-          No question has a subject yet. Give each question a subject below — for Class XI and XII, the compulsory
-          part (e.g. English &amp; General Knowledge) and each optional subject — then tick the optional ones here.
+        <p className="text-[13px] leading-relaxed text-[#6B5B5D]">
+          No question has a subject yet. Give each one a subject — for Class XI and XII the compulsory part (English &amp;
+          General Knowledge) and each optional subject — then tick the optional ones here.
         </p>
       ) : (
         <>
-          <table className="mt-2 w-full max-w-xl text-left text-sm">
-            <thead className="text-xs text-[#6B5B5D]">
-              <tr>
-                <th className="py-1 font-semibold">Subject</th>
-                <th className="py-1 text-right font-semibold">Questions</th>
-                <th className="py-1 pl-6 font-semibold">Students choose it</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#F2E9DA]">
-              {subjects.map((s) => (
-                <tr key={s.name || "(none)"}>
-                  <td className="py-1.5">{s.name || <span className="text-[#8A6D1F]">(no subject)</span>}</td>
-                  <td className="py-1.5 text-right tabular-nums">{s.count}</td>
-                  <td className="py-1.5 pl-6">
-                    {s.name ? (
-                      <label className="inline-flex items-center gap-2 text-xs text-[#4A3A3C]">
-                        <input
-                          type="checkbox"
-                          checked={optional.includes(s.name)}
-                          disabled={readOnly}
-                          onChange={(e) => toggle(s.name, e.target.checked)}
-                        />
-                        {optional.includes(s.name) ? "Optional" : "Everyone answers it"}
-                      </label>
-                    ) : (
-                      <span className="text-xs text-[#6B5B5D]">Everyone answers it</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="grid grid-cols-[minmax(0,1fr)_56px_150px] items-center gap-x-3 gap-y-2 text-[13px]">
+            <div className="text-[10.5px] font-bold uppercase tracking-[0.1em] text-[#6B5B5D]">Subject</div>
+            <div className="text-[10.5px] font-bold uppercase tracking-[0.1em] text-[#6B5B5D]">Qs</div>
+            <div className="text-[10.5px] font-bold uppercase tracking-[0.1em] text-[#6B5B5D]">Students choose it</div>
+            {subjects.map((s) => {
+              const on = optional.includes(s.name);
+              const odd = on && usual !== null && s.count !== usual;
+              return (
+                <Fragment key={s.name || "(none)"}>
+                  <div className="truncate">{s.name || <span className="text-[#8A6A24]">(no subject)</span>}</div>
+                  <div className={`tabular-nums ${odd ? "font-bold text-[#7B1E2B]" : ""}`}>{s.count}</div>
+                  {s.name ? (
+                    <label className="flex cursor-pointer items-center gap-[7px] text-[#2B1A1C]">
+                      <input
+                        type="checkbox"
+                        checked={on}
+                        disabled={readOnly}
+                        onChange={(e) => toggle(s.name, e.target.checked)}
+                        className="h-4 w-4 accent-[#7B1E2B]"
+                      />
+                      {on ? "Optional" : <span className="text-[#6B5B5D]">Everyone answers it</span>}
+                    </label>
+                  ) : (
+                    <span className="text-[#6B5B5D]">Everyone answers it</span>
+                  )}
+                </Fragment>
+              );
+            })}
+          </div>
 
           {choice ? (
-            <label className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+            <div className="mt-3.5 flex flex-wrap items-center gap-1.5 border-t border-[#F7F1E6] pt-3 text-[13px]">
               Each student chooses
               <select
                 value={choice.choose}
                 disabled={readOnly}
                 onChange={(e) => onChange({ ...choice, choose: Number(e.target.value) })}
-                className="rounded border border-[#E3D6C4] bg-[#FDFBF7] px-2 py-1 text-sm"
+                className="rounded-[7px] border-[1.5px] border-[#F2E9DA] bg-white px-1.5 py-0.5 font-bold"
               >
-                {Array.from({ length: Math.max(1, choice.optional.length - 1) }, (_, k) => k + 1).map((n) => (
-                  <option key={n} value={n}>{n}</option>
+                {Array.from({ length: Math.max(1, choice.optional.length - 1) }, (_, k) => k + 1).map((v) => (
+                  <option key={v} value={v}>{v}</option>
                 ))}
               </select>
               of the {choice.optional.length} optional subjects, when the paper opens.
-            </label>
+            </div>
           ) : null}
-          <p className="mt-2 text-xs text-[#6B5B5D]">
-            Each student answers <strong className="text-[#2B1A1C]">{perStudent}</strong> questions
-            {choice ? " — the compulsory ones and their chosen subjects. A choice cannot be changed once made." : "."}
-          </p>
+          <div className="mt-2.5 font-[family-name:var(--font-newsreader)] text-xl text-[#7B1E2B]">
+            Each student answers {perStudent} questions
+          </div>
+          {choice ? (
+            <div className={`mt-2.5 flex items-center gap-2 text-[12.5px] font-semibold ${even ? "text-[#167A6C]" : "text-[#7B1E2B]"}`}>
+              {even ? <CheckCircle2 size={16} aria-hidden /> : <XCircle size={16} aria-hidden />}
+              Optional subjects have equal questions
+            </div>
+          ) : null}
         </>
       )}
     </section>
   );
 }
 
-/* ---------------------------------------------------------------- Excel --- */
+/**
+ * The Subject box: always shown, suggesting as you type -- the set's own
+ * subjects first, then July's for the class, with another stream's subjects
+ * named as such ("Philosophy · Arts").
+ */
+function SubjectField({
+  value,
+  readOnly,
+  optional,
+  suggestions,
+  passageOpen,
+  onPassage,
+  onChange,
+}: {
+  value: string;
+  readOnly: boolean;
+  optional: boolean;
+  suggestions: Suggestion[];
+  passageOpen: boolean;
+  onPassage: () => void;
+  onChange: (v: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const typed = value.trim().toLowerCase();
+  const seen = new Set<string>();
+  const list = suggestions
+    .filter((s) => {
+      if (seen.has(s.name)) return false;
+      seen.add(s.name);
+      return s.name.toLowerCase() !== typed && (!typed || s.name.toLowerCase().startsWith(typed));
+    })
+    .slice(0, 8);
+
+  return (
+    <div className="flex flex-wrap items-center gap-2.5">
+      <div className="relative w-full max-w-[320px]">
+        <input
+          className={`${FIELD} h-[38px]`}
+          placeholder="Subject, e.g. Physics"
+          aria-label="Subject"
+          value={value}
+          disabled={readOnly}
+          onFocus={() => setOpen(true)}
+          onBlur={() => setTimeout(() => setOpen(false), 120)}
+          onChange={(e) => {
+            onChange(e.target.value);
+            setOpen(true);
+          }}
+        />
+        {open && !readOnly && list.length ? (
+          <ul className="absolute left-0 right-0 top-full z-20 mt-1 overflow-hidden rounded-[9px] border border-[#F2E9DA] bg-white text-[13px] shadow-[0_4px_12px_rgba(43,26,28,0.1)]">
+            {list.map((s, k) => (
+              <li key={s.name}>
+                <button
+                  type="button"
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    onChange(s.name);
+                    setOpen(false);
+                  }}
+                  className={`block w-full px-3 py-2 text-left hover:bg-[#FBF7EF] ${k === 0 ? "bg-[#FBF7EF]" : ""} ${s.note ? "text-[#6B5B5D]" : ""}`}
+                >
+                  {s.name}
+                  {s.note ? ` · ${s.note}` : ""}
+                </button>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+      {optional ? (
+        <span className="rounded-md bg-[#FAF1DC] px-2 py-0.5 text-[11.5px] font-bold text-[#7B1E2B]">Optional</span>
+      ) : null}
+      {!readOnly ? (
+        <button
+          type="button"
+          onClick={onPassage}
+          aria-expanded={passageOpen}
+          className="ml-2 flex items-center gap-1 text-[12.5px] text-[#6B5B5D] hover:text-[#7B1E2B]"
+        >
+          {passageOpen ? <ChevronDown size={14} aria-hidden /> : <ChevronRight size={14} aria-hidden />}
+          Passage
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------- pictures --- */
+
+/** The question's diagram: shown on white with a remove button, or a way to add one. */
+function Diagram({
+  id,
+  busy,
+  readOnly,
+  onFile,
+  onRemove,
+}: {
+  id?: string;
+  busy: boolean;
+  readOnly: boolean;
+  onFile: (f: File) => void;
+  onRemove: () => void;
+}) {
+  if (busy) {
+    return (
+      <div className="flex items-center gap-2.5 text-[13px] text-[#6B5B5D]">
+        <Loader2 size={16} className="animate-spin" aria-hidden /> Uploading the diagram…
+      </div>
+    );
+  }
+  if (id) {
+    return (
+      <div className="relative w-fit max-w-full rounded-[9px] border border-[#F2E9DA] bg-white p-2">
+        {/* eslint-disable-next-line @next/next/no-img-element -- a private, uncached admin preview */}
+        <img src={examImageUrl(id)} alt="The question's diagram" className="block max-h-72 max-w-full object-contain" />
+        {!readOnly ? (
+          <button
+            type="button"
+            title="Remove the diagram"
+            aria-label="Remove the diagram"
+            onClick={onRemove}
+            className="absolute right-1.5 top-1.5 grid h-6 w-6 place-items-center rounded-full border border-[#F2E9DA] bg-white text-[#B22234] hover:bg-[#FBE9EA]"
+          >
+            <X size={14} />
+          </button>
+        ) : null}
+      </div>
+    );
+  }
+  if (readOnly) return null;
+  return <PickPicture label="Add a diagram" wide onFile={onFile} />;
+}
+
+/** A file picker for one picture, as an icon button or a labelled link. */
+function PickPicture({ label, wide, onFile }: { label: string; wide?: boolean; onFile: (f: File) => void }) {
+  const input = useRef<HTMLInputElement>(null);
+  return (
+    <>
+      <input
+        ref={input}
+        type="file"
+        accept="image/png,image/jpeg,image/webp,image/gif"
+        className="hidden"
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          if (f) onFile(f);
+          e.target.value = "";
+        }}
+      />
+      {wide ? (
+        <button
+          type="button"
+          onClick={() => input.current?.click()}
+          className="flex w-fit items-center gap-1.5 text-[12.5px] text-[#6B5B5D] hover:text-[#7B1E2B]"
+        >
+          <ImagePlus size={16} aria-hidden /> {label}
+        </button>
+      ) : (
+        <IconButton label={label} onClick={() => input.current?.click()}>
+          <ImageIcon size={16} />
+        </IconButton>
+      )}
+    </>
+  );
+}
+
+/* ----------------------------------------------------------------- Excel --- */
 
 function SheetUpload({ rows, onRead }: { rows: Row[]; onRead: (rows: Row[]) => void }) {
   const [pending, start] = useTransition();
   const [result, setResult] = useState<QuestionResult | null>(null);
-  const form = useRef<HTMLFormElement>(null);
+  const [fileName, setFileName] = useState<string | null>(null);
   const hasQuestions = rows.some((r) => r.q.trim());
+  const [mode, setMode] = useState<"replace" | "append">(hasQuestions ? "append" : "replace");
+  const [confirmReplace, setConfirmReplace] = useState<FormData | null>(null);
+  const form = useRef<HTMLFormElement>(null);
+  const picker = useRef<HTMLInputElement>(null);
+
+  const read = (data: FormData) =>
+    start(async () => {
+      const r = await readQuestionSheetAction(data);
+      setResult(r);
+      setConfirmReplace(null);
+      if (r.ok && r.items) {
+        const got = r.items.map(withId);
+        const kept = rows.filter((x) => x.q.trim() || x.options.some((o) => o.trim()));
+        onRead(mode === "append" ? [...kept, ...got] : got);
+        form.current?.reset();
+        setFileName(null);
+      }
+    });
 
   return (
-    <section className="rounded-[14px] border border-[#F2E9DA] bg-white p-4">
-      <div className="flex flex-wrap items-center gap-3">
-        <h2 className="flex items-center gap-2 text-sm font-bold">
-          <FileSpreadsheet className="h-4 w-4 text-[#137565]" aria-hidden /> From an Excel sheet
-        </h2>
-        {/* A plain link with `download`: the route answers with the file itself. */}
-        <a
-          href="/admin/questions/template"
-          download
-          className="ml-auto inline-flex items-center gap-1.5 rounded bg-[#137565] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#0F5C50]"
-        >
-          <Download className="h-3.5 w-3.5" aria-hidden /> Download the Excel template
-        </a>
-      </div>
-      <ol className="mt-2 list-decimal space-y-0.5 pl-5 text-xs text-[#6B5B5D]">
-        <li>Download the template and fill one question per row: Subject, Question, options A–D, Answer as a letter.</li>
-        <li>
-          For a diagram, put the picture over the row&rsquo;s Image cell (Insert → Pictures → Place over Cells); over
-          an option&rsquo;s cell it becomes that option&rsquo;s picture. The template&rsquo;s second sheet explains each column.
-        </li>
-        <li>Choose the filled file below and press Read the sheet. Nothing is saved until you check the questions and save.</li>
+    <section className={`${CARD} flex flex-col gap-3 px-5 py-4`}>
+      <div className={LABEL}>From an Excel sheet</div>
+      {/* A plain link with `download`: the route answers with the file itself. */}
+      <a
+        href="/admin/questions/template"
+        download
+        className="flex h-12 items-center justify-center gap-2.5 rounded-[11px] bg-[#1D6B3F] text-[15px] font-bold text-white hover:bg-[#175733]"
+      >
+        <Download size={19} aria-hidden /> Download the Excel template
+      </a>
+      <ol className="grid gap-[7px] text-[12.5px] leading-snug">
+        {[
+          "Download and fill one question per row",
+          "For a diagram, place the picture over the row’s Image cell",
+          "Choose the file and press Read the sheet — nothing is saved until you check and save",
+        ].map((t, k) => (
+          <li key={k} className="flex gap-2.5">
+            <span className="font-bold text-[#7B1E2B]">{k + 1}</span>
+            {t}
+          </li>
+        ))}
       </ol>
       <form
         ref={form}
-        className="mt-3 flex flex-wrap items-center gap-3"
+        className="grid gap-2.5"
         onSubmit={(e) => {
           e.preventDefault();
           const data = new FormData(e.currentTarget);
-          const mode = String(data.get("mode"));
-          if (mode === "replace" && hasQuestions && !window.confirm("Replace every question below with the sheet's?")) return;
-          start(async () => {
-            const r = await readQuestionSheetAction(data);
-            setResult(r);
-            if (r.ok && r.items) {
-              const read = r.items.map(withId);
-              const kept = rows.filter((x) => x.q.trim() || x.options.some((o) => o.trim()));
-              onRead(mode === "append" ? [...kept, ...read] : read);
-              form.current?.reset();
-            }
-          });
+          if (mode === "replace" && hasQuestions) setConfirmReplace(data);
+          else read(data);
         }}
       >
-        <input
-          type="file"
-          name="sheet"
-          required
-          accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-          className="text-xs file:mr-3 file:rounded file:border file:border-[#E3D6C4] file:bg-[#FDFBF7] file:px-3 file:py-1.5 file:text-xs"
-        />
-        <select name="mode" defaultValue={hasQuestions ? "append" : "replace"} className="rounded border border-[#E3D6C4] bg-[#FDFBF7] px-2 py-1.5 text-xs">
-          <option value="replace">Replace the questions below</option>
-          <option value="append">Add to the end</option>
-        </select>
-        <button
-          type="submit"
-          disabled={pending}
-          className="rounded border border-[#E3D6C4] px-3 py-1.5 text-xs font-semibold text-[#4A3A3C] hover:bg-[#F6E9E9] disabled:opacity-50"
-        >
-          {pending ? "Reading…" : "Read the sheet"}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => picker.current?.click()}
+            className="flex h-9 min-w-0 flex-1 items-center gap-2 rounded-[9px] border-[1.5px] border-dashed border-[#D9CDBB] px-2.5 text-left text-[12.5px] hover:border-[#7B1E2B]"
+          >
+            <FileSpreadsheet size={16} className="shrink-0 text-[#1D6B3F]" aria-hidden />
+            <span className={`truncate ${fileName ? "" : "text-[#6B5B5D]"}`}>{fileName ?? "Choose the filled sheet (.xlsx)"}</span>
+          </button>
+          <input
+            ref={picker}
+            type="file"
+            name="sheet"
+            required
+            accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            className="sr-only"
+            onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+          />
+          <button
+            type="submit"
+            disabled={pending || !fileName}
+            className="h-9 shrink-0 rounded-[9px] border-[1.5px] border-[#7B1E2B] px-3 text-[12.5px] font-semibold text-[#7B1E2B] disabled:opacity-40"
+          >
+            {pending ? "Reading…" : "Read the sheet"}
+          </button>
+        </div>
+        <div className="flex flex-wrap gap-3.5 text-[12.5px]">
+          {(["replace", "append"] as const).map((m) => (
+            <label key={m} className={`flex cursor-pointer items-center gap-1.5 ${mode === m ? "" : "text-[#6B5B5D]"}`}>
+              <input type="radio" name="mode" value={m} checked={mode === m} onChange={() => setMode(m)} className="accent-[#7B1E2B]" />
+              {m === "replace" ? "Replace the questions below" : "Add to the end"}
+            </label>
+          ))}
+        </div>
       </form>
       {result ? (
-        <div className="mt-2 text-xs">
-          <p className={result.ok ? "text-[#137565]" : "text-[#B22234]"}>{result.message}</p>
+        <div className="rounded-[9px] bg-[#FBF7EF] px-3 py-2.5 text-[12.5px] leading-normal">
+          <strong className={result.ok ? "" : "text-[#B22234]"}>{result.message}</strong>
           {result.problems?.length ? (
-            <ul className="mt-1 list-disc pl-5 text-[#8A6D1F]">
+            <ul className="mt-1 text-[#7B1E2B]">
               {result.problems.slice(0, 30).map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -745,114 +1061,23 @@ function SheetUpload({ rows, onRead }: { rows: Row[]; onRead: (rows: Row[]) => v
           ) : null}
         </div>
       ) : null}
+      <ConfirmDialog
+        open={confirmReplace !== null}
+        title="Replace every question below with the sheet’s?"
+        cancel="Keep mine"
+        confirm="Replace them"
+        danger
+        busy={pending}
+        onCancel={() => setConfirmReplace(null)}
+        onConfirm={() => confirmReplace && read(confirmReplace)}
+      >
+        The questions on this page are swapped for the sheet&rsquo;s. Nothing is saved until you press Save draft.
+      </ConfirmDialog>
     </section>
   );
 }
 
-/* -------------------------------------------------------------- pictures --- */
-
-/**
- * A question's diagram or an option's picture: shown when there is one, a
- * button to add one when there is not. The preview comes from the same route a
- * phone uses; for an admin it is served at any time and never cached.
- */
-function Picture({
-  id,
-  busy,
-  readOnly,
-  label,
-  small,
-  onFile,
-  onRemove,
-}: {
-  id?: string;
-  busy: boolean;
-  readOnly: boolean;
-  label: string;
-  small?: boolean;
-  onFile: (f: File) => void;
-  onRemove: () => void;
-}) {
-  const input = useRef<HTMLInputElement>(null);
-  const pick = (
-    <input
-      ref={input}
-      type="file"
-      accept="image/png,image/jpeg,image/webp,image/gif"
-      className="hidden"
-      onChange={(e) => {
-        const f = e.target.files?.[0];
-        if (f) onFile(f);
-        e.target.value = "";
-      }}
-    />
-  );
-
-  if (busy) {
-    return (
-      <span className={`inline-flex items-center gap-2 text-xs text-[#6B5B5D] ${small ? "" : "mt-3"}`}>
-        <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden /> {small ? "" : "Uploading…"}
-      </span>
-    );
-  }
-
-  if (id) {
-    return (
-      <div className={`relative shrink-0 ${small ? "" : "mt-3 inline-block"}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element -- a private, uncached admin preview */}
-        <img
-          src={examImageUrl(id)}
-          alt={small ? label : "The question's diagram"}
-          className={`rounded border border-[#E3D6C4] bg-white object-contain ${small ? "h-10 w-14" : "max-h-72 max-w-full"}`}
-        />
-        {!readOnly ? (
-          <button
-            type="button"
-            title="Remove the picture"
-            aria-label="Remove the picture"
-            onClick={onRemove}
-            className="absolute -right-2 -top-2 rounded-full border border-[#E8C9CC] bg-white p-0.5 text-[#B22234]"
-          >
-            <X className="h-3 w-3" />
-          </button>
-        ) : null}
-      </div>
-    );
-  }
-
-  if (readOnly) return null;
-  return small ? (
-    <>
-      {pick}
-      <IconButton label={label} onClick={() => input.current?.click()}>
-        <ImagePlus className="h-3.5 w-3.5" />
-      </IconButton>
-    </>
-  ) : (
-    <div className="mt-2">
-      {pick}
-      <button
-        type="button"
-        onClick={() => input.current?.click()}
-        className="inline-flex items-center gap-1.5 text-xs text-[#4A3A3C] underline-offset-2 hover:underline"
-      >
-        <ImagePlus className="h-3.5 w-3.5" aria-hidden /> {label}
-      </button>
-    </div>
-  );
-}
-
 /* ------------------------------------------------------------------ bits --- */
-
-function Banner({ tone, children }: { tone: "good" | "warn" | "info"; children: React.ReactNode }) {
-  const style =
-    tone === "good"
-      ? "border-[#BFDCD5] bg-[#EAF5F2] text-[#0F5C50]"
-      : tone === "warn"
-        ? "border-[#EAD9A8] bg-[#FBF4E2] text-[#6E5512]"
-        : "border-[#E3D6C4] bg-white text-[#4A3A3C]";
-  return <p className={`rounded-[10px] border px-4 py-3 text-sm ${style}`}>{children}</p>;
-}
 
 function IconButton({
   label,
@@ -874,8 +1099,8 @@ function IconButton({
       aria-label={label}
       disabled={disabled}
       onClick={onClick}
-      className={`rounded border p-1.5 disabled:opacity-30 ${
-        danger ? "border-[#E8C9CC] text-[#B22234] hover:bg-[#FBE9EA]" : "border-[#E3D6C4] text-[#4A3A3C] hover:bg-[#F6E9E9]"
+      className={`grid h-7 w-7 shrink-0 place-items-center rounded-md disabled:opacity-30 ${
+        danger ? "text-[#6B5B5D] hover:bg-[#FBE9EA] hover:text-[#B22234]" : "text-[#6B5B5D] hover:bg-[#FBF7EF] hover:text-[#2B1A1C]"
       }`}
     >
       {children}

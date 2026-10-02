@@ -42,6 +42,8 @@ type Stage = "waiting" | "starting" | "choosing" | "live" | "submitting" | "subm
 /** What the server offers when a set has optional subjects. See /api/app/exam/start. */
 type Offer = {
   choose: number;
+  /** The server's clock when it offered the choice, for the band's countdown. */
+  serverNow: string;
   optional: { name: string; count: number }[];
   compulsory: { name: string; count: number }[];
 };
@@ -190,7 +192,7 @@ export default function LiveExam({
       // The set offers optional subjects and this student has not chosen yet.
       // No questions have been sent; the choice comes first.
       if (data.state === "choose") {
-        setOffer({ choose: data.choose, optional: data.optional, compulsory: data.compulsory });
+        setOffer({ choose: data.choose, optional: data.optional, compulsory: data.compulsory, serverNow: data.serverNow });
         setDeadlineAt(data.deadlineAt);
         setStage("choosing");
         return;
@@ -391,13 +393,15 @@ export default function LiveExam({
   if (stage === "choosing" && offer) {
     return (
       <ChooseSubjects
-        name={label}
+        paperLine={classLabel ? `${label} · Class ${classLabel}` : label}
         choose={offer.choose}
         optional={offer.optional}
         compulsory={offer.compulsory}
         error={error}
         onConfirm={chooseSubjects}
         closes={formatIstClock(windowClosesIso)}
+        deadlineIso={deadlineAt || windowClosesIso}
+        serverNowIso={offer.serverNow}
       />
     );
   }

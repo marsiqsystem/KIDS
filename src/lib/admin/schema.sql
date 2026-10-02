@@ -665,3 +665,45 @@ create table if not exists register_guardians (
   phone         text,
   loaded_at     timestamptz not null default now()
 );
+
+-- A question set being written in the control centre, before it is loaded.
+--
+-- Separate from exam_question_sets on purpose: a row THERE is a loaded set, and
+-- a loaded set is what a child is handed the moment the paper opens. A set
+-- typed one question at a time is half a paper for most of its life, so it
+-- lives here until the office presses "Check and load", which runs the same
+-- checks as scripts/load-question-set.ts and copies it across. Loading clears
+-- the draft; editing a loaded set starts a new draft from it.
+--
+-- `items` holds the key beside each question ([{ q, options, answer, ... }]).
+-- Admin-only screens read it; nothing a student or teacher calls touches it.
+-- No foreign key to exam_papers: that table is created by
+-- scripts/migrate-exam-phases.ts, which this file must not depend on.
+create table if not exists exam_question_drafts (
+  code           text        primary key,
+  exam_paper_id  bigint      not null,
+  items          jsonb       not null default '[]'::jsonb,
+  updated_at     timestamptz not null default now(),
+  updated_by     text        not null references admin_staff (staff_id)
+);
+
+-- The diagrams in a question set, as bytes.
+--
+-- In the database and not in the repository for the reason the questions are:
+-- the repository is public. Served by /api/exam-image/<id> only once a paper
+-- that uses the image has STARTED -- not at check-in -- (or to an admin, for the
+-- editor), after which the CDN keeps a copy so nine thousand phones do not each
+-- read it from here. The id is random, never derived from the picture, so it
+-- cannot be guessed by somebody who has a copy of the diagram.
+--
+-- An image is never changed after upload -- a corrected diagram is a new image
+-- with a new id -- which is what lets a phone and the CDN keep it for a year.
+-- Images left behind by a deleted question are harmless and small.
+create table if not exists exam_question_images (
+  id           text        primary key check (id ~ '^[0-9a-f]{32}$'),
+  mime         text        not null check (mime in ('image/png', 'image/jpeg', 'image/webp', 'image/gif')),
+  bytes        bytea       not null,
+  size         integer     not null,
+  uploaded_by  text        not null references admin_staff (staff_id),
+  uploaded_at  timestamptz not null default now()
+);

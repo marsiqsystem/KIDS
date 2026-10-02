@@ -1259,6 +1259,87 @@
   white-space: pre-wrap;
 }
 
+/* A question's diagram. Always on white, whatever the theme: a diagram is black
+   lines drawn for paper, and on a dark surface half of them disappear. */
+.qp__figure {
+  display: block;
+  width: 100%;
+  margin: -8px 0 22px;
+  padding: 8px;
+  border: 1px solid var(--cream-muted);
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: zoom-in;
+  font: inherit;
+}
+
+.qp__figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 46vh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.qp__figure-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b5b5d;
+  text-align: center;
+}
+
+.qp-opt__img {
+  display: block;
+  max-width: 100%;
+  max-height: 140px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.qp-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(20, 16, 16, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qp-zoom__scroll {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #ffffff;
+}
+
+.qp-zoom__scroll img {
+  display: block;
+  /* Its own size, so a detailed figure can be read by moving around it --
+     and never narrower than the screen, so a small one is still enlarged. */
+  max-width: none;
+  min-width: 100vw;
+}
+
+.qp-zoom__close {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  right: 12px;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2b1a1c;
+}
+
 .qp__stem[lang="bn"],
 .qp-opt__text:lang(bn) {
   line-height: 1.6;

@@ -33,7 +33,7 @@ export default function StaffPanel({ staff, me }: { staff: StaffListRow[]; me: S
           <label className="block">
             <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Role</span>
             <select name="role" defaultValue="teacher" className={INPUT}>
-              <option value="teacher">Teacher — sees only their own batches</option>
+              <option value="teacher">Teacher — their own batches, and any exam desk they are put on</option>
               <option value="admin">Admin — can change everything</option>
             </select>
           </label>

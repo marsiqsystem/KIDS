@@ -137,20 +137,25 @@ function PaperCard({
             A class without questions sees &ldquo;no paper is open&rdquo;, whatever the date says.
           </p>
         ) : null}
-        {p.sets.length > 0 ? (
-          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#6B5B5D]">
-            {p.sets.map((x) => (
-              <li key={x.code}>
-                <span className="font-mono text-[#4A3A3C]">{x.code}</span> · {x.question_count} questions
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-xs text-[#6B5B5D]">
-            Questions are loaded from a file on the office laptop, never from GitHub:{" "}
-            <span className="font-mono">scripts/load-question-set.ts</span>.
-          </p>
-        )}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {p.sets.length > 0 ? (
+            <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#6B5B5D]">
+              {p.sets.map((x) => (
+                <li key={x.code}>
+                  <span className="font-mono text-[#4A3A3C]">{x.code}</span> · {x.question_count} questions
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-xs text-[#6B5B5D]">No questions loaded yet.</p>
+          )}
+          <Link
+            href={`/admin/questions?paper=${p.id}`}
+            className="rounded border border-[#E3D6C4] px-3 py-1.5 text-xs font-semibold text-[#4A3A3C] hover:bg-[#F6E9E9]"
+          >
+            {p.attempts > 0 ? "Questions" : "Write or upload questions →"}
+          </Link>
+        </div>
 
         {locked ? (
           <p className="text-xs text-[#6B5B5D]">{n(p.attempts)} students have started this paper, so its window can no longer move.</p>
@@ -657,7 +662,7 @@ export function CentresPanel({ centres }: { centres: CentreRow[] }) {
         </table>
       </div>
       <p className="text-xs text-[#6B5B5D]">
-        Invigilators, rooms and the live attendance board arrive with the desk QR check-in.
+        Invigilators are named per paper in the Exams tab: any teacher account can be put on a centre&rsquo;s desk.
       </p>
     </div>
   );

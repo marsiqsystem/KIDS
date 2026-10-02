@@ -40,7 +40,7 @@ export interface Staff {
 export async function logAdminEvent(
   actor: string,
   action: string,
-  target?: { kind: "staff" | "batch" | "student" | "post" | "registration" | "recording"; id: string },
+  target?: { kind: "staff" | "batch" | "student" | "post" | "registration" | "recording" | "question_set"; id: string },
   detail?: Record<string, unknown>,
 ): Promise<void> {
   await sql`

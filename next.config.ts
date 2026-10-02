@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
    * dev`. Production is unaffected: this option applies only in development.
    */
   allowedDevOrigins: ["192.168.117.175", "192.168.0.135"],
+
+  experimental: {
+    serverActions: {
+      // The default is 1 MB. A question sheet uploaded to the Exams tab is
+      // usually a few tens of KB, but one with long Bengali passages can pass
+      // a megabyte; the action itself refuses anything over 3 MB, and Vercel's
+      // own ceiling is 4.5 MB.
+      bodySizeLimit: "4mb",
+    },
+  },
 };
 
 export default nextConfig;

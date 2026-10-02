@@ -56,6 +56,15 @@ import {
   setResultsVisible,
   unschedulePaper,
 } from "@/lib/admin/exams";
+import {
+  discardDraft,
+  loadDraft,
+  readQuestionSheet,
+  removeLoadedSet,
+  saveDraft,
+} from "@/lib/admin/questions";
+import { storeImage } from "@/lib/admin/question-images";
+import type { DraftQuestion } from "@/lib/exam/question-check";
 import { youtubeId } from "@/lib/content/video-overrides";
 import { computeAward, computePaperResults } from "@/lib/exam/marking";
 import {
@@ -1077,3 +1086,98 @@ export async function setAwardVisibleAction(_prev: State, formData: FormData): P
   return done(visible ? "The award is published. Students see it on My Record." : "The award is withdrawn.");
 }
 
+
+/* -------------------------------------------------------------- questions --- */
+
+/**
+ * Writing a paper in the control centre. Admin only, every one: these carry the
+ * answer key, and a teacher who invigilates must not read a paper before it
+ * opens. See src/lib/admin/questions.ts.
+ *
+ * Called directly from the editor rather than through a <form>, because what is
+ * sent is fifty questions of state, not a handful of fields.
+ */
+export type QuestionResult = {
+  ok: boolean;
+  message: string;
+  version?: string | null;
+  problems?: string[];
+  items?: DraftQuestion[];
+};
+
+export async function saveQuestionDraftAction(
+  paperId: string,
+  code: string,
+  items: unknown,
+  version: string | null,
+): Promise<QuestionResult> {
+  const staff = await requireStaff("admin");
+  const r = await saveDraft(paperId, code, items, version, staff.staff_id);
+  if (!r.ok) return { ok: false, message: r.message };
+  return { ok: true, message: "Draft saved. Students see nothing until you load it into the paper.", version: r.version };
+}
+
+/** Save, then load. One button for the office; two steps on the server. */
+export async function loadQuestionSetAction(
+  paperId: string,
+  code: string,
+  items: unknown,
+  version: string | null,
+): Promise<QuestionResult> {
+  const staff = await requireStaff("admin");
+  const saved = await saveDraft(paperId, code, items, version, staff.staff_id);
+  if (!saved.ok) return { ok: false, message: saved.message };
+  const r = await loadDraft(paperId, code, staff.staff_id);
+  if (!r.ok) return { ok: false, message: r.message, problems: r.problems, version: saved.version };
+  refresh();
+  return {
+    ok: true,
+    message: `Loaded ${r.count} questions. Students of this set are handed exactly these when the paper opens.`,
+    version: null,
+  };
+}
+
+export async function discardQuestionDraftAction(paperId: string, code: string): Promise<QuestionResult> {
+  const staff = await requireStaff("admin");
+  const r = await discardDraft(paperId, code, staff.staff_id);
+  if (!r.ok) return { ok: false, message: r.message };
+  refresh();
+  return { ok: true, message: "Draft thrown away." };
+}
+
+export async function removeQuestionSetAction(paperId: string, code: string): Promise<QuestionResult> {
+  const staff = await requireStaff("admin");
+  const r = await removeLoadedSet(paperId, code, staff.staff_id);
+  if (!r.ok) return { ok: false, message: r.message };
+  refresh();
+  return { ok: true, message: "Taken off the paper. Students of this set now see no paper open." };
+}
+
+/** Read an Excel sheet into the editor. Saves nothing; the office reviews it first. */
+export async function readQuestionSheetAction(formData: FormData): Promise<QuestionResult> {
+  const staff = await requireStaff("admin");
+  const file = formData.get("sheet");
+  if (!(file instanceof File) || file.size === 0) return { ok: false, message: "Choose an Excel file first." };
+  if (file.size > 3_000_000) return { ok: false, message: "That file is over 3 MB. A question sheet is far smaller — is it the right file?" };
+  const { items, problems } = await readQuestionSheet(await file.arrayBuffer(), staff.staff_id);
+  if (!items.length) return { ok: false, message: "No questions could be read.", problems };
+  return {
+    ok: true,
+    message: `Read ${items.length} questions from ${file.name}. Check them, then save.`,
+    items,
+    problems,
+  };
+}
+
+/**
+ * Store one diagram for the editor. The editor has already shrunk anything
+ * large; this checks what the bytes really are and refuses anything else.
+ */
+export async function uploadQuestionImageAction(
+  formData: FormData,
+): Promise<{ ok: true; id: string } | { ok: false; message: string }> {
+  const staff = await requireStaff("admin");
+  const file = formData.get("image");
+  if (!(file instanceof File) || file.size === 0) return { ok: false, message: "Choose a picture first." };
+  return storeImage(new Uint8Array(await file.arrayBuffer()), staff.staff_id);
+}

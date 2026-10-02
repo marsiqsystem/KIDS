@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, Clock, CloudOff, Loader2, ArrowRight } from "lucide-react";
-import type { Question } from "@/lib/exam/question";
+import { examImageUrl, type Question } from "@/lib/exam/question";
 import { EXAM } from "@/lib/exam/config";
 import { useServerCountdown } from "./Countdown";
 import AnswersReceived, { formatIstClock } from "./AnswersReceived";
@@ -214,6 +214,20 @@ export default function LiveExam({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid, token, api, readCache, cache]);
+
+  /*
+   * Fetch every diagram the moment the paper arrives, not when its question is
+   * reached. A hall's Wi-Fi is at its best in the first minute and a phone may
+   * lose it later; the images are served "immutable", so once fetched they come
+   * from the phone's own cache for the rest of the paper.
+   */
+  useEffect(() => {
+    for (const q of questions) {
+      for (const id of [q.image, ...(q.optionImages ?? [])]) {
+        if (id) new Image().src = examImageUrl(id);
+      }
+    }
+  }, [questions]);
 
   /* ---------------------------------------------------------------- sync --- */
 

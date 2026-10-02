@@ -2,7 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import { Check, CircleCheckBig, Info } from "lucide-react";
-import type { Question } from "@/lib/exam/question";
+import { examImageUrl, type Question } from "@/lib/exam/question";
 
 /**
  * The paper. One scrollable page, every question on it.
@@ -216,6 +216,15 @@ function QuestionCard({
         {question.q}
       </h2>
 
+      {question.image ? (
+        // eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper
+        <img
+          src={examImageUrl(question.image)}
+          alt="Diagram for this question"
+          className="mt-3 max-h-[60vh] max-w-full rounded-lg border border-[var(--cream-muted)] bg-white object-contain"
+        />
+      ) : null}
+
       <div className="mt-4 grid gap-2.5 sm:mt-4.5 sm:grid-cols-2 sm:gap-3">
         {question.options.map((option, i) => {
           const selected = chosen === i;
@@ -237,9 +246,17 @@ function QuestionCard({
                     : "border-[1.5px] border-[var(--cream-muted)] text-[var(--ink-muted)]"
                 }`}
               >
-                {"ABCD"[i]}
+                {"ABCDEF"[i]}
               </span>
               <span className={`flex-1 sm:text-[1.05rem] ${selected ? "font-semibold" : "font-medium"}`}>
+                {question.optionImages?.[i] ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper
+                  <img
+                    src={examImageUrl(question.optionImages[i]!)}
+                    alt={`Option ${"ABCDEF"[i]}`}
+                    className="mb-1 block max-h-40 max-w-full rounded bg-white object-contain"
+                  />
+                ) : null}
                 {option}
               </span>
               {selected && (

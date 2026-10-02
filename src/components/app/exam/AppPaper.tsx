@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { ArrowLeft, ChevronLeft, Flag, LayoutGrid, RotateCcw, WifiOff, X } from "lucide-react";
-import type { Question } from "@/lib/exam/question";
+import { examImageUrl, type Question } from "@/lib/exam/question";
 import { useServerCountdown } from "@/components/portal/Countdown";
 
 /**
@@ -20,7 +20,7 @@ import { useServerCountdown } from "@/components/portal/Countdown";
  * reopened app returns to "You were on question 34".
  */
 
-const LETTERS = ["A", "B", "C", "D", "E"];
+const LETTERS = ["A", "B", "C", "D", "E", "F"];
 
 type Save = "saved" | "saving" | "offline";
 
@@ -64,6 +64,8 @@ export default function AppPaper({
     }
   });
   const [view, setView] = useState<"question" | "grid" | "review">("question");
+  /** A diagram opened full screen, by image id. */
+  const [zoom, setZoom] = useState<string | null>(null);
   const [welcome, setWelcome] = useState(resumed);
   const [resumedAt] = useState(at);
 
@@ -264,6 +266,13 @@ export default function AppPaper({
         <p className="qp__stem" lang={/[ঀ-৿]/.test(q.q) ? "bn" : undefined}>
           {q.q}
         </p>
+        {q.image ? (
+          <button type="button" className="qp__figure" onClick={() => setZoom(q.image!)} aria-label="Open the diagram full screen">
+            {/* eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper */}
+            <img src={examImageUrl(q.image)} alt={`Diagram for question ${at + 1}`} />
+            <span className="qp__figure-hint">Tap to enlarge</span>
+          </button>
+        ) : null}
 
         <div className="qp__options" role="group" aria-label={`Question ${at + 1} options`}>
           {q.options.map((option, i) => {
@@ -277,7 +286,13 @@ export default function AppPaper({
                 aria-pressed={picked}
               >
                 <span className="qp-opt__mark">{LETTERS[i]}</span>
-                <span className="qp-opt__text">{option}</span>
+                <span className="qp-opt__text">
+                  {q.optionImages?.[i] ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper
+                    <img className="qp-opt__img" src={examImageUrl(q.optionImages[i]!)} alt={`Option ${LETTERS[i]}`} />
+                  ) : null}
+                  {option}
+                </span>
               </button>
             );
           })}
@@ -313,6 +328,18 @@ export default function AppPaper({
           )}
         </div>
       </div>
+      {zoom ? (
+        <div className="qp-zoom" role="dialog" aria-label="Diagram" onClick={() => setZoom(null)}>
+          <button type="button" className="qp-zoom__close" onClick={() => setZoom(null)} aria-label="Close the diagram">
+            <X size={22} aria-hidden="true" />
+          </button>
+          {/* A scroller, not a pinch: the picture at its full size, moved with a finger. */}
+          <div className="qp-zoom__scroll" onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- served by our own route, cached for the paper */}
+            <img src={examImageUrl(zoom)} alt="Diagram, full size" />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

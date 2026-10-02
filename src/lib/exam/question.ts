@@ -16,4 +16,20 @@ export type Question = {
    * Only drawn — a heading in the app's question list. July's papers have none.
    */
   section?: string;
+  /**
+   * A diagram for the question, by image id -- drawn under the stem. Only
+   * papers written in the control centre have them; July's have none. The
+   * bytes are served by /api/exam-image/<id>, and only once the paper opens.
+   */
+  image?: string;
+  /** A picture per option, by image id, where an option is (or has) a figure. */
+  optionImages?: (string | null)[];
 };
+
+/** Where a question image is fetched from. */
+export function examImageUrl(id: string): string {
+  return `/api/exam-image/${id}`;
+}
+
+/** An image id: 32 lowercase hex characters, minted at upload. */
+export const IMAGE_ID = /^[0-9a-f]{32}$/;

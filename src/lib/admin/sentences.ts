@@ -70,6 +70,14 @@ export function sentence(e: AuditRow): string {
       return `Took a paper off the schedule${str(d.paper) ? ` · ${str(d.paper)}` : ""}`;
     case "mock_created":
       return `Created a mock test${name ? ` · ${name}` : ""}`;
+    case "question_draft_saved":
+      return `Saved a question draft · ${target ?? ""}${str(d.count) ? ` · ${str(d.count)} questions` : ""}`;
+    case "question_draft_discarded":
+      return `Threw away a question draft · ${target ?? ""}`;
+    case "question_set_loaded":
+      return `Loaded questions into a paper · ${target ?? ""}${str(d.count) ? ` · ${str(d.count)} questions` : ""}`;
+    case "question_set_removed":
+      return `Removed a question set from a paper · ${target ?? ""}`;
     case "paper_marked":
       return `Marked and ranked a paper${str(d.paper) ? ` · ${str(d.paper)}` : ""}`;
     case "invigilator_assigned":

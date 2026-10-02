@@ -31,10 +31,15 @@ export async function loadQuestionSets(force = false): Promise<void> {
   inflight = (async () => {
     try {
       const rows = (await sql`
-        select code, questions, answer_key from exam_question_sets
-      `) as { code: string; questions: Paper["questions"]; answer_key: number[] }[];
+        select code, questions, answer_key, choice from exam_question_sets
+      `) as { code: string; questions: Paper["questions"]; answer_key: number[]; choice: Paper["choice"] | null }[];
       registerLoadedPapers(
-        new Map(rows.map((r) => [r.code, { id: r.code, questions: r.questions, key: r.answer_key }])),
+        new Map(
+          rows.map((r) => [
+            r.code,
+            { id: r.code, questions: r.questions, key: r.answer_key, ...(r.choice ? { choice: r.choice } : {}) },
+          ]),
+        ),
       );
       loadedAt = Date.now();
     } catch {

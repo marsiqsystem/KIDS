@@ -20,7 +20,7 @@ export async function POST() {
   const gated = await appGate({ requireCheckin: true });
   if (!gated.ok) return NextResponse.json(gated.body, { status: gated.status });
 
-  const { student, window, paper, phase, deviceId } = gated.ctx;
+  const { student, window, paper, set, mustChoose, phase, deviceId } = gated.ctx;
 
   if (phase === "before" || phase === "scanning") {
     return NextResponse.json({
@@ -52,6 +52,26 @@ export async function POST() {
     await finalise(student.uid, (answers) => scoreAnswers(paper, answers), window.examPaperId);
     const done = await findAttempt(student.uid, window.examPaperId);
     return NextResponse.json({ ok: true, state: "over", receipt: done?.receipt ?? null });
+  }
+
+  // A set with optional subjects: the student picks theirs before a single
+  // question is sent. The clock is already running -- it is everyone's clock --
+  // so the choice is one screen and one tap, not a page to linger on.
+  if (mustChoose && set.choice) {
+    const size = (name: string) => set.questions.filter((q) => (q.section ?? "") === name).length;
+    const names = [...new Set(set.questions.map((q) => q.section ?? ""))];
+    return NextResponse.json(
+      {
+        ok: true,
+        state: "choose",
+        choose: set.choice.choose,
+        optional: set.choice.optional.map((name) => ({ name, count: size(name) })),
+        compulsory: names.filter((n) => !set.choice!.optional.includes(n)).map((name) => ({ name, count: size(name) })),
+        deadlineAt: attempt.deadline_at,
+        serverNow: new Date().toISOString(),
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   }
 
   const resumed = Object.keys(attempt.answers ?? {}).length > 0;

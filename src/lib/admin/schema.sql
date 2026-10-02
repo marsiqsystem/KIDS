@@ -707,3 +707,16 @@ create table if not exists exam_question_images (
   uploaded_by  text        not null references admin_staff (staff_id),
   uploaded_at  timestamptz not null default now()
 );
+
+-- Optional subjects, as July's written paper had them for XI and XII: English
+-- & General Knowledge for everybody, then N subjects of the student's choosing.
+-- `choice` is { optional: [subject names], choose: N }; a subject is the
+-- `section` of its questions; null means everybody answers everything.
+-- (exam_question_sets and attempts are created by the exam schema; these lines
+-- only add a column to each, and do nothing on a second run.)
+alter table exam_question_sets   add column if not exists choice jsonb;
+alter table exam_question_drafts add column if not exists choice jsonb;
+-- The subjects one student chose, fixed the moment they chose them. Their paper
+-- -- what they are sent, what their answers are numbered against, what they are
+-- marked on -- is the set cut down to these (src/lib/exam/papers.ts paperFor).
+alter table attempts add column if not exists subjects jsonb;

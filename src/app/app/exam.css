@@ -1045,3 +1045,76 @@
   font-size: 15px;
   padding: 0 12px;
 }
+
+/* ------------------------------------------------------ choosing subjects */
+
+.ex-subjects {
+  display: grid;
+  gap: 10px;
+}
+
+.ex-subject {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--cream-muted);
+  border-radius: 14px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ex-subject:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ex-subject--on {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 30, 43, 0.14);
+}
+
+.ex-subject--on:disabled {
+  opacity: 1;
+}
+
+.ex-subject__tick {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1.5px solid var(--cream-muted);
+  color: var(--white);
+}
+
+.ex-subject--on .ex-subject__tick {
+  background: var(--maroon);
+  border-color: var(--maroon);
+}
+
+.ex-subject__name {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ex-subject__count {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.ex-confirm {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ex-confirm .k-btn {
+  flex: 1;
+}

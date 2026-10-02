@@ -6,6 +6,7 @@ import {
   ArrowDown,
   ArrowUp,
   Check,
+  Download,
   FileSpreadsheet,
   ImagePlus,
   Loader2,
@@ -27,7 +28,10 @@ import {
   MAX_OPTIONS,
   MIN_OPTIONS,
   checkQuestions,
+  questionsPerStudent,
+  subjectsOf,
   type DraftQuestion,
+  type SetChoice,
 } from "@/lib/exam/question-check";
 
 /**
@@ -44,7 +48,9 @@ type Row = DraftQuestion & { id: number };
 
 let nextId = 1;
 const withId = (q: DraftQuestion): Row => ({ ...q, id: nextId++ });
-const blank = (): Row => withId({ q: "", options: ["", "", "", ""], answer: null });
+/** A new question, in the same subject as the one before it -- questions are written a subject at a time. */
+const blank = (section?: string): Row =>
+  withId({ ...(section ? { section } : {}), q: "", options: ["", "", "", ""], answer: null });
 const strip = (rows: Row[]): DraftQuestion[] =>
   rows.map(({ section, context, q, options, answer, image, optionImages }) => ({
     section,
@@ -117,6 +123,8 @@ export default function QuestionEditor({
   loadedCount,
   locked,
   expectedCount,
+  initialChoice,
+  suggestions,
 }: {
   paperId: string;
   code: string;
@@ -127,6 +135,9 @@ export default function QuestionEditor({
   /** Students who have sat this set. Above zero, the editor is read-only. */
   locked: number;
   expectedCount: number | null;
+  initialChoice: SetChoice | null;
+  /** Subject names to offer while typing: July's, for this class and stream. */
+  suggestions: string[];
 }) {
   const [rows, setRows] = useState<Row[]>(() => (initial.length ? initial.map(withId) : locked ? [] : [blank()]));
   const [source, setSource] = useState(initialSource);
@@ -138,7 +149,16 @@ export default function QuestionEditor({
   const [uploading, setUploading] = useState<Set<string>>(new Set());
   const readOnly = locked > 0;
 
-  const check = useMemo(() => checkQuestions(strip(rows), expectedCount), [rows, expectedCount]);
+  const [choiceRaw, setChoice] = useState<SetChoice | null>(initialChoice);
+  const subjects = useMemo(() => subjectsOf(rows), [rows]);
+  // A subject renamed on every question stops existing; it stops being optional
+  // with it, rather than lingering as a name nobody can see to untick.
+  const choice = useMemo<SetChoice | null>(() => {
+    if (!choiceRaw) return null;
+    const optional = choiceRaw.optional.filter((o) => subjects.some((s) => s.name === o && o));
+    return optional.length ? { optional, choose: choiceRaw.choose } : null;
+  }, [choiceRaw, subjects]);
+  const check = useMemo(() => checkQuestions(strip(rows), expectedCount, choice), [rows, expectedCount, choice]);
   const answered = check.spread.reduce((a, b) => a + b, 0);
 
   // Leaving with unsaved questions asks first. The browser words the dialog.
@@ -203,7 +223,7 @@ export default function QuestionEditor({
 
   const save = () =>
     start(async () => {
-      const r = await saveQuestionDraftAction(paperId, code, strip(rows), version);
+      const r = await saveQuestionDraftAction(paperId, code, strip(rows), choice, version);
       setResult(r);
       if (r.ok) {
         setVersion(r.version ?? null);
@@ -220,7 +240,7 @@ export default function QuestionEditor({
     const replacing = loadedCount !== null ? ` This replaces the ${loadedCount} questions loaded now.` : "";
     if (!window.confirm(`Load these ${rows.length} questions into the paper?${replacing} Students of this set are handed exactly these when it opens.`)) return;
     start(async () => {
-      const r = await loadQuestionSetAction(paperId, code, strip(rows), version);
+      const r = await loadQuestionSetAction(paperId, code, strip(rows), choice, version);
       setResult(r);
       if (r.ok) {
         setSource("loaded");
@@ -308,7 +328,24 @@ export default function QuestionEditor({
         ) : null}
       </section>
 
+      <SubjectsPanel
+        subjects={subjects}
+        choice={choice}
+        readOnly={readOnly}
+        perStudent={questionsPerStudent(rows, choice)}
+        onChange={(next) => {
+          setChoice(next);
+          setDirty(true);
+        }}
+      />
+
       {!readOnly ? <SheetUpload rows={rows} onRead={(next) => change(next)} /> : null}
+
+      <datalist id="subject-names">
+        {[...new Set([...subjects.map((x) => x.name).filter(Boolean), ...suggestions])].map((n) => (
+          <option key={n} value={n} />
+        ))}
+      </datalist>
 
       {/* -------------------------------------------------- questions --- */}
       <ol className="space-y-4">
@@ -339,16 +376,26 @@ export default function QuestionEditor({
               ) : null}
             </div>
 
-            <details open={Boolean(r.section || r.context)} className="mb-3">
-              <summary className="cursor-pointer text-xs text-[#6B5B5D]">Section and passage (optional)</summary>
+            <label className="mb-3 flex items-center gap-2">
+              <span className="w-16 shrink-0 text-xs font-semibold text-[#6B5B5D]">Subject</span>
+              <input
+                className={TEXT}
+                list="subject-names"
+                placeholder="e.g. English & General Knowledge, Physics, History"
+                value={r.section ?? ""}
+                disabled={readOnly}
+                onChange={(e) => edit(i, { section: e.target.value })}
+              />
+              {choice?.optional.includes(r.section ?? "") ? (
+                <span className="shrink-0 rounded bg-[#E9EEF8] px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#1E4DA1]">
+                  Optional
+                </span>
+              ) : null}
+            </label>
+
+            <details open={Boolean(r.context)} className="mb-3">
+              <summary className="cursor-pointer text-xs text-[#6B5B5D]">Passage (optional)</summary>
               <div className="mt-2 space-y-2">
-                <input
-                  className={TEXT}
-                  placeholder="Section heading, e.g. Life Science"
-                  value={r.section ?? ""}
-                  disabled={readOnly}
-                  onChange={(e) => edit(i, { section: e.target.value })}
-                />
                 <textarea
                   className={`${TEXT} min-h-[3rem]`}
                   placeholder="A passage shown above the question"
@@ -455,7 +502,7 @@ export default function QuestionEditor({
       {!readOnly ? (
         <button
           type="button"
-          onClick={() => change([...rows, blank()])}
+          onClick={() => change([...rows, blank(rows[rows.length - 1]?.section)])}
           className="inline-flex items-center gap-2 rounded border border-dashed border-[#C9B8A6] px-4 py-2 text-sm text-[#4A3A3C] hover:bg-white"
         >
           <Plus className="h-4 w-4" aria-hidden /> Add a question
@@ -513,6 +560,108 @@ export default function QuestionEditor({
   );
 }
 
+/* ------------------------------------------------------------- subjects --- */
+
+/**
+ * The paper's subjects, and which of them a student chooses among.
+ *
+ * July's written paper for XI and XII: English & General Knowledge for every
+ * student, then three subjects of their own choosing from their stream. Ticking
+ * a subject "optional" here is all it takes; the app asks each student for
+ * their choice when the paper opens, and marks them on those subjects only.
+ */
+function SubjectsPanel({
+  subjects,
+  choice,
+  readOnly,
+  perStudent,
+  onChange,
+}: {
+  subjects: { name: string; count: number }[];
+  choice: SetChoice | null;
+  readOnly: boolean;
+  perStudent: number;
+  onChange: (next: SetChoice | null) => void;
+}) {
+  const optional = choice?.optional ?? [];
+  const toggle = (name: string, on: boolean) => {
+    const next = on ? [...optional, name] : optional.filter((o) => o !== name);
+    if (!next.length) return onChange(null);
+    // Keep the set's own order, so students see subjects as the paper lists them.
+    const ordered = subjects.map((s) => s.name).filter((n) => next.includes(n));
+    const choose = Math.min(choice?.choose ?? 3, Math.max(1, ordered.length - 1));
+    onChange({ optional: ordered, choose });
+  };
+
+  return (
+    <section className="rounded-[14px] border border-[#F2E9DA] bg-white p-4">
+      <h2 className="text-sm font-bold">Subjects</h2>
+      {subjects.length === 1 && !subjects[0].name ? (
+        <p className="mt-1 text-xs text-[#6B5B5D]">
+          No question has a subject yet. Give each question a subject below — for Class XI and XII, the compulsory
+          part (e.g. English &amp; General Knowledge) and each optional subject — then tick the optional ones here.
+        </p>
+      ) : (
+        <>
+          <table className="mt-2 w-full max-w-xl text-left text-sm">
+            <thead className="text-xs text-[#6B5B5D]">
+              <tr>
+                <th className="py-1 font-semibold">Subject</th>
+                <th className="py-1 text-right font-semibold">Questions</th>
+                <th className="py-1 pl-6 font-semibold">Students choose it</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#F2E9DA]">
+              {subjects.map((s) => (
+                <tr key={s.name || "(none)"}>
+                  <td className="py-1.5">{s.name || <span className="text-[#8A6D1F]">(no subject)</span>}</td>
+                  <td className="py-1.5 text-right tabular-nums">{s.count}</td>
+                  <td className="py-1.5 pl-6">
+                    {s.name ? (
+                      <label className="inline-flex items-center gap-2 text-xs text-[#4A3A3C]">
+                        <input
+                          type="checkbox"
+                          checked={optional.includes(s.name)}
+                          disabled={readOnly}
+                          onChange={(e) => toggle(s.name, e.target.checked)}
+                        />
+                        {optional.includes(s.name) ? "Optional" : "Everyone answers it"}
+                      </label>
+                    ) : (
+                      <span className="text-xs text-[#6B5B5D]">Everyone answers it</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {choice ? (
+            <label className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+              Each student chooses
+              <select
+                value={choice.choose}
+                disabled={readOnly}
+                onChange={(e) => onChange({ ...choice, choose: Number(e.target.value) })}
+                className="rounded border border-[#E3D6C4] bg-[#FDFBF7] px-2 py-1 text-sm"
+              >
+                {Array.from({ length: Math.max(1, choice.optional.length - 1) }, (_, k) => k + 1).map((n) => (
+                  <option key={n} value={n}>{n}</option>
+                ))}
+              </select>
+              of the {choice.optional.length} optional subjects, when the paper opens.
+            </label>
+          ) : null}
+          <p className="mt-2 text-xs text-[#6B5B5D]">
+            Each student answers <strong className="text-[#2B1A1C]">{perStudent}</strong> questions
+            {choice ? " — the compulsory ones and their chosen subjects. A choice cannot be changed once made." : "."}
+          </p>
+        </>
+      )}
+    </section>
+  );
+}
+
 /* ---------------------------------------------------------------- Excel --- */
 
 function SheetUpload({ rows, onRead }: { rows: Row[]; onRead: (rows: Row[]) => void }) {
@@ -523,18 +672,27 @@ function SheetUpload({ rows, onRead }: { rows: Row[]; onRead: (rows: Row[]) => v
 
   return (
     <section className="rounded-[14px] border border-[#F2E9DA] bg-white p-4">
-      <h2 className="flex items-center gap-2 text-sm font-bold">
-        <FileSpreadsheet className="h-4 w-4 text-[#137565]" aria-hidden /> From an Excel sheet
-      </h2>
-      <p className="mt-1 text-xs text-[#6B5B5D]">
-        One question per row: Section, Passage, Question, Image, A, B, C, D (E and F if needed), and Answer as a
-        letter. For a diagram, put the picture over that row&rsquo;s Image cell (Insert → Pictures → Place over
-        Cells); over an option&rsquo;s cell, it becomes that option&rsquo;s picture.{" "}
-        <a href="/admin/questions/template" className="text-[#7B1E2B] underline-offset-2 hover:underline">
-          Download the template
+      <div className="flex flex-wrap items-center gap-3">
+        <h2 className="flex items-center gap-2 text-sm font-bold">
+          <FileSpreadsheet className="h-4 w-4 text-[#137565]" aria-hidden /> From an Excel sheet
+        </h2>
+        {/* A plain link with `download`: the route answers with the file itself. */}
+        <a
+          href="/admin/questions/template"
+          download
+          className="ml-auto inline-flex items-center gap-1.5 rounded bg-[#137565] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#0F5C50]"
+        >
+          <Download className="h-3.5 w-3.5" aria-hidden /> Download the Excel template
         </a>
-        . Reading a sheet saves nothing — the questions appear below for you to check, then you save.
-      </p>
+      </div>
+      <ol className="mt-2 list-decimal space-y-0.5 pl-5 text-xs text-[#6B5B5D]">
+        <li>Download the template and fill one question per row: Subject, Question, options A–D, Answer as a letter.</li>
+        <li>
+          For a diagram, put the picture over the row&rsquo;s Image cell (Insert → Pictures → Place over Cells); over
+          an option&rsquo;s cell it becomes that option&rsquo;s picture. The template&rsquo;s second sheet explains each column.
+        </li>
+        <li>Choose the filled file below and press Read the sheet. Nothing is saved until you check the questions and save.</li>
+      </ol>
       <form
         ref={form}
         className="mt-3 flex flex-wrap items-center gap-3"

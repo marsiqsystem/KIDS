@@ -18,7 +18,53 @@ export type Paper = {
   /** Index of the correct option, per question. Never leaves the server. */
   key: number[];
   questions: Question[];
+  /**
+   * For a set that offers a choice of subjects (XI and XII): which subjects are
+   * optional, by their questions' `section`, and how many a student takes.
+   * Absent on every paper where everybody answers everything.
+   */
+  choice?: { optional: string[]; choose: number };
 };
+
+/**
+ * The paper one student actually sits: the compulsory questions plus the
+ * subjects they chose, in the set's own order, with the key cut to match.
+ *
+ * Everything downstream -- the questions sent to the phone, the answers saved
+ * by question number, the mark -- works on THIS paper, so question 26 of a
+ * Physics student and question 26 of a History student are different questions
+ * and nothing gets confused, because each is only ever compared with its own
+ * student's paper.
+ *
+ * A set with no choice comes back unchanged. One with a choice but no subjects
+ * yet (the student has not chosen) comes back as its compulsory part only; no
+ * phone is sent questions before the choice is made, so that only matters to a
+ * paper that timed out unchosen, which is marked on what was answered: nothing.
+ */
+export function paperFor(paper: Paper, subjects: string[] | null | undefined): Paper {
+  if (!paper.choice) return paper;
+  const optional = new Set(paper.choice.optional);
+  const chosen = new Set(subjects ?? []);
+  const keep = paper.questions
+    .map((_, i) => i)
+    .filter((i) => {
+      const subject = paper.questions[i].section ?? "";
+      return !optional.has(subject) || chosen.has(subject);
+    });
+  return {
+    id: paper.id,
+    questions: keep.map((i) => paper.questions[i]),
+    key: keep.map((i) => paper.key[i]),
+  };
+}
+
+/** Is this a valid choice of subjects for this paper? */
+export function validChoice(paper: Paper, subjects: unknown): subjects is string[] {
+  if (!paper.choice) return false;
+  if (!Array.isArray(subjects) || subjects.length !== paper.choice.choose) return false;
+  if (new Set(subjects).size !== subjects.length) return false;
+  return subjects.every((s) => typeof s === "string" && paper.choice!.optional.includes(s));
+}
 
 /**
  * The paper for a class id: SET2026-IX, -X, -XI or -XII.

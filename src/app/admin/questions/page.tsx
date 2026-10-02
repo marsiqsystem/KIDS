@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { currentStaff } from "@/lib/admin/session";
-import { editablePaper, openEditor, setsForPaper } from "@/lib/admin/questions";
+import { editablePaper, julySubjects, openEditor, setsForPaper } from "@/lib/admin/questions";
 import { CLASSES, STREAMS, describeSet, parseSetCode, setCodeFor } from "@/lib/exam/question-check";
 import QuestionEditor from "@/components/admin/QuestionEditor";
 import { SetRowActions } from "@/components/admin/QuestionSetActions";
@@ -65,6 +65,8 @@ export default async function QuestionsPage({
           loadedCount={editor.loaded_count}
           locked={editor.attempts > 0 ? editor.attempts : 0}
           expectedCount={paper.question_count}
+          initialChoice={editor.choice}
+          suggestions={julySubjects(parsed.cls, parsed.stream)}
         />
       </Shell>
     );

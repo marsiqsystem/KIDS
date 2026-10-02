@@ -1,4 +1,6 @@
 import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import ExcelJS from "exceljs";
 import { sql } from "@/lib/exam/db";
 import { loadQuestionSets } from "@/lib/exam/question-sets";
@@ -10,6 +12,7 @@ import {
   parseSetCode,
   tidy,
   type DraftQuestion,
+  type SetChoice,
 } from "@/lib/exam/question-check";
 import { IMAGE_ID } from "@/lib/exam/question";
 import { missingImages, storeImage } from "./question-images";
@@ -90,18 +93,25 @@ export interface Editor {
   source: "draft" | "loaded" | "new";
   /** The draft's updated_at, so two people saving over each other is caught. */
   version: Version | null;
+  /** Optional subjects and how many a student takes; null when everybody answers everything. */
+  choice: SetChoice | null;
   loaded_count: number | null;
   attempts: number;
 }
 
 export async function openEditor(paperId: string, code: string): Promise<Editor> {
   const [draft] = (await sql`
-    select items, updated_at from exam_question_drafts where code = ${code}
-  `) as { items: DraftQuestion[]; updated_at: Date }[];
+    select items, choice, updated_at from exam_question_drafts where code = ${code}
+  `) as { items: DraftQuestion[]; choice: SetChoice | null; updated_at: Date }[];
   const [loaded] = (await sql`
-    select questions, answer_key, question_count from exam_question_sets
+    select questions, answer_key, question_count, choice from exam_question_sets
      where code = ${code} and exam_paper_id = ${paperId}::bigint
-  `) as { questions: { q: string; context?: string; section?: string; options: string[] }[]; answer_key: number[]; question_count: number }[];
+  `) as {
+    questions: { q: string; context?: string; section?: string; options: string[] }[];
+    answer_key: number[];
+    question_count: number;
+    choice: SetChoice | null;
+  }[];
   const [{ attempts }] = (await sql`
     select count(*)::int as attempts from attempts where paper_id = ${code}
   `) as { attempts: number }[];
@@ -111,6 +121,7 @@ export async function openEditor(paperId: string, code: string): Promise<Editor>
       items: draft.items,
       source: "draft",
       version: new Date(draft.updated_at).toISOString(),
+      choice: draft.choice ?? null,
       loaded_count: loaded?.question_count ?? null,
       attempts,
     };
@@ -120,11 +131,12 @@ export async function openEditor(paperId: string, code: string): Promise<Editor>
       items: loaded.questions.map((q, i) => ({ ...q, answer: loaded.answer_key[i] ?? null })),
       source: "loaded",
       version: null,
+      choice: loaded.choice ?? null,
       loaded_count: loaded.question_count,
       attempts,
     };
   }
-  return { items: [], source: "new", version: null, loaded_count: null, attempts };
+  return { items: [], source: "new", version: null, choice: null, loaded_count: null, attempts };
 }
 
 type Result = { ok: true; version: Version } | { ok: false; message: string };
@@ -150,6 +162,17 @@ function sanitise(raw: unknown): DraftQuestion[] | null {
   return out;
 }
 
+/** Shape-check a choice of subjects; null (no choice) is a valid answer. */
+function sanitiseChoice(raw: unknown): SetChoice | null | false {
+  if (raw === null || raw === undefined) return null;
+  const c = raw as Partial<SetChoice>;
+  if (!Array.isArray(c.optional) || c.optional.length > 20) return false;
+  if (c.optional.some((o) => typeof o !== "string" || o.length > 120)) return false;
+  if (!Number.isInteger(c.choose)) return false;
+  const optional = [...new Set(c.optional.map((o) => o.trim()))];
+  return optional.length ? { optional, choose: c.choose as number } : null;
+}
+
 async function guard(paperId: string, code: string): Promise<string | null> {
   const paper = await editablePaper(paperId);
   if (!paper) return "That paper cannot take questions here. Phase 1 and offline papers are closed to edits.";
@@ -164,21 +187,27 @@ export async function saveDraft(
   paperId: string,
   code: string,
   raw: unknown,
+  rawChoice: unknown,
   version: Version | null,
   staffId: string,
 ): Promise<Result> {
   const refused = await guard(paperId, code);
   if (refused) return { ok: false, message: refused };
   const items = sanitise(raw);
-  if (!items) return { ok: false, message: "The questions did not arrive in a shape that can be saved. Reload the page." };
+  const choice = sanitiseChoice(rawChoice);
+  if (!items || choice === false) {
+    return { ok: false, message: "The questions did not arrive in a shape that can be saved. Reload the page." };
+  }
 
   // One statement, so "has somebody else saved since I opened this" and the
   // write cannot be separated by another save landing in between.
   const rows = (await sql`
-    insert into exam_question_drafts (code, exam_paper_id, items, updated_by)
-    values (${code}, ${paperId}::bigint, ${JSON.stringify(items)}::jsonb, ${staffId})
+    insert into exam_question_drafts (code, exam_paper_id, items, choice, updated_by)
+    values (${code}, ${paperId}::bigint, ${JSON.stringify(items)}::jsonb,
+            ${choice ? JSON.stringify(choice) : null}::jsonb, ${staffId})
     on conflict (code) do update
-       set items = excluded.items, updated_by = excluded.updated_by, updated_at = now()
+       set items = excluded.items, choice = excluded.choice,
+           updated_by = excluded.updated_by, updated_at = now()
      where ${version}::timestamptz is not null
        and date_trunc('milliseconds', exam_question_drafts.updated_at) = ${version}::timestamptz
     returning updated_at
@@ -215,12 +244,13 @@ export async function loadDraft(
   const parsed = parseSetCode(code)!;
 
   const [draft] = (await sql`
-    select items from exam_question_drafts where code = ${code}
-  `) as { items: DraftQuestion[] }[];
+    select items, choice from exam_question_drafts where code = ${code}
+  `) as { items: DraftQuestion[]; choice: SetChoice | null }[];
   if (!draft) return { ok: false, message: "There is no saved draft to load. Save first." };
 
   const items = draft.items.map(tidy);
-  const { problems } = checkQuestions(items, paper.question_count);
+  const choice = draft.choice ?? null;
+  const { problems } = checkQuestions(items, paper.question_count, choice);
   const gone = await missingImages(imagesUsed(items));
   if (gone.length) problems.push(`${gone.length} picture${gone.length === 1 ? " is" : "s are"} missing from the store. Upload ${gone.length === 1 ? "it" : "them"} again.`);
   if (problems.length) return { ok: false, message: "Nothing was loaded. Fix these first:", problems };
@@ -234,18 +264,19 @@ export async function loadDraft(
     ...(optionImages ? { optionImages } : {}),
   }));
   const key = items.map((it) => it.answer as number);
-  const checksum = createHash("sha256").update(JSON.stringify({ questions, key })).digest("hex");
+  const checksum = createHash("sha256").update(JSON.stringify({ questions, key, choice })).digest("hex");
 
   await sql.transaction([
     sql`
       insert into exam_question_sets
-        (code, exam_paper_id, class, stream, medium, questions, answer_key, question_count, checksum, loaded_by)
+        (code, exam_paper_id, class, stream, medium, questions, answer_key, choice, question_count, checksum, loaded_by)
       values
         (${code}, ${paperId}::bigint, ${parsed.cls}, ${parsed.stream}, ${parsed.medium},
-         ${JSON.stringify(questions)}::jsonb, ${JSON.stringify(key)}::jsonb, ${questions.length},
+         ${JSON.stringify(questions)}::jsonb, ${JSON.stringify(key)}::jsonb,
+         ${choice ? JSON.stringify(choice) : null}::jsonb, ${questions.length},
          ${checksum}, ${staffId})
       on conflict (code) do update set
-        questions = excluded.questions, answer_key = excluded.answer_key,
+        questions = excluded.questions, answer_key = excluded.answer_key, choice = excluded.choice,
         question_count = excluded.question_count, checksum = excluded.checksum,
         loaded_at = now(), loaded_by = excluded.loaded_by, exam_paper_id = excluded.exam_paper_id
     `,
@@ -255,6 +286,7 @@ export async function loadDraft(
   await logAdminEvent(staffId, "question_set_loaded", { kind: "question_set", id: code }, {
     count: questions.length,
     pictures: imagesUsed(items).length,
+    ...(choice ? { optional: choice.optional, choose: choice.choose } : {}),
     sha: checksum.slice(0, 16),
   });
   // This server at once; every other one within loadQuestionSets' minute.
@@ -291,7 +323,7 @@ export async function removeLoadedSet(paperId: string, code: string, staffId: st
  * The template's columns. Matched by heading, not position, so a sheet with a
  * column moved or an extra notes column still reads.
  */
-export const SHEET_COLUMNS = ["Section", "Passage", "Question", "Image", "A", "B", "C", "D", "E", "F", "Answer"] as const;
+export const SHEET_COLUMNS = ["Subject", "Passage", "Question", "Image", "A", "B", "C", "D", "E", "F", "Answer"] as const;
 
 function cellText(cell: ExcelJS.Cell): string {
   const v = cell.value;
@@ -404,7 +436,8 @@ export async function readQuestionSheet(
 
       items.push(
         tidy({
-          section: get(row, "SECTION"),
+          // "Subject"; "Section" is read too, for a sheet made before the rename.
+          section: get(row, "SUBJECT") || get(row, "SECTION"),
           context: get(row, "PASSAGE"),
           q,
           options: used,
@@ -424,4 +457,34 @@ export async function readQuestionSheet(
       `No sheet has a "Question" heading. Download the template and use its columns: ${SHEET_COLUMNS.join(", ")}.`,
     ],
   };
+}
+
+/* --------------------------------------------------------------- subjects --- */
+
+/**
+ * The subject names July's papers used for this class and stream, to offer
+ * while typing -- so "Life Science" is spelt one way across a set, and the
+ * same way as in July's marksheets. Read from the question bank's chapter file,
+ * which records the subject of every July question. Suggestions only: the
+ * office may type any subject it likes.
+ */
+let julyCache: { id: string; section: string }[] | null = null;
+export function julySubjects(cls: string, stream: string | null): string[] {
+  if (!julyCache) {
+    try {
+      julyCache = JSON.parse(
+        readFileSync(path.join(process.cwd(), "src", "data", "questions", "question-chapters.json"), "utf8"),
+      ) as { id: string; section: string }[];
+    } catch {
+      julyCache = [];
+    }
+  }
+  const title = stream ? stream[0] + stream.slice(1).toLowerCase() : null;
+  const names = new Set<string>();
+  for (const r of julyCache) {
+    const [c, s] = r.id.split("|");
+    if (c !== cls) continue;
+    if (s === "All" || !title || s === title) names.add(r.section);
+  }
+  return [...names];
 }

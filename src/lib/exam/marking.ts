@@ -1,5 +1,5 @@
 import { sql } from "./db";
-import { getPaper, scoreAnswers } from "./papers";
+import { getPaper, paperFor, scoreAnswers } from "./papers";
 import { loadQuestionSets } from "./question-sets";
 import { finalise } from "./attempts";
 import { percentileOf, rank, rankAll, type Ranks } from "./ranking";
@@ -66,9 +66,9 @@ export async function computePaperResults(examPaperId: string): Promise<Computed
   // 1. Close every paper still open past its deadline -- the auto-submit that
   //    happens when nobody opened the paper again after closing time.
   const expired = (await sql`
-    select uid, paper_id from attempts
+    select uid, paper_id, subjects from attempts
      where exam_paper_id = ${examPaperId}::bigint and status = 'in_progress' and now() >= deadline_at
-  `) as { uid: string; paper_id: string }[];
+  `) as { uid: string; paper_id: string; subjects: string[] | null }[];
   // Closing these is right even if the run below is refused: it is exactly what
   // would happen the next time anybody looked at the paper. So the figure the
   // office is shown is not "how many this run closed" -- that would read 0 on
@@ -76,17 +76,18 @@ export async function computePaperResults(examPaperId: string): Promise<Computed
   for (const e of expired) {
     const set = getPaper(e.paper_id);
     if (!set) return { ok: false, message: `The question set ${e.paper_id} is not loaded, so ${e.uid}'s paper cannot be marked.` };
-    await finalise(e.uid, (a) => scoreAnswers(set, a), examPaperId);
+    const theirs = paperFor(set, e.subjects);
+    await finalise(e.uid, (a) => scoreAnswers(theirs, a), examPaperId);
   }
 
   // 2. Everyone who handed a paper in.
   const rows = (await sql`
-    select a.uid, a.paper_id, a.answers, a.score, a.receipt, a.submitted_at, a.deadline_at,
+    select a.uid, a.paper_id, a.answers, a.subjects, a.score, a.receipt, a.submitted_at, a.deadline_at,
            s.class, s.stream, s.centre_code, s.school_code, s.is_demo
       from attempts a join students s on s.uid = a.uid
      where a.exam_paper_id = ${examPaperId}::bigint and a.status = 'submitted'
   `) as {
-    uid: string; paper_id: string; answers: Record<string, number>; score: number | null;
+    uid: string; paper_id: string; answers: Record<string, number>; subjects: string[] | null; score: number | null;
     receipt: string | null; submitted_at: Date | null; deadline_at: Date;
     class: string; stream: string | null; centre_code: string; school_code: string; is_demo: boolean;
   }[];
@@ -102,8 +103,10 @@ export async function computePaperResults(examPaperId: string): Promise<Computed
   const mismatches: string[] = [];
   const marked: Row[] = [];
   for (const r of rows) {
-    const set = getPaper(r.paper_id);
-    if (!set) return { ok: false, message: `The question set ${r.paper_id} is not loaded. Nothing was marked.` };
+    const whole = getPaper(r.paper_id);
+    if (!whole) return { ok: false, message: `The question set ${r.paper_id} is not loaded. Nothing was marked.` };
+    // Marked against the paper this student sat: their chosen subjects only.
+    const set = paperFor(whole, r.subjects);
     const correct = scoreAnswers(set, r.answers ?? {});
     if (r.score !== null && r.score !== correct) mismatches.push(`${r.uid}: stored ${r.score}, re-marked ${correct}`);
     const cohort = cohortOf(r.paper_id, paper.code);

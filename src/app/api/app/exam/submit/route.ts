@@ -21,6 +21,15 @@ export async function POST(request: NextRequest) {
 
   const { student, paper, window, deviceId } = gated.ctx;
 
+  // Nothing is saved or handed in before the subjects are chosen: there are no
+  // questions on the phone yet, so anything arriving now is not an answer.
+  if (gated.ctx.mustChoose) {
+    return NextResponse.json(
+      { ok: false, reason: "choose_first", message: "Choose your subjects first." },
+      { status: 409 },
+    );
+  }
+
   if (!(await bindPaperToPhone(student.uid, window.examPaperId, deviceId))) {
     return NextResponse.json(OTHER_PHONE, { status: 409 });
   }

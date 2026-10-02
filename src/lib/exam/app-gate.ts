@@ -2,7 +2,7 @@ import { sessionClaims } from "@/lib/app/session";
 import { findStudentForSession } from "@/lib/app/devices";
 import { sql } from "./db";
 import { windowFor, phaseOf, type ExamWindow, type Phase } from "./schedule";
-import { getPaper, type Paper } from "./papers";
+import { getPaper, paperFor, type Paper } from "./papers";
 import { findCheckin, type Checkin } from "./checkin";
 import type { Student } from "./db";
 
@@ -28,7 +28,16 @@ export type AppExamContext = {
   student: Student;
   deviceId: string;
   window: ExamWindow;
+  /**
+   * The paper THIS student sits -- for a set with a choice of subjects, only
+   * the compulsory questions and the subjects they chose. Every endpoint saves,
+   * submits and marks against this, never against the whole set.
+   */
   paper: Paper;
+  /** The whole set, for the subject choice itself. */
+  set: Paper;
+  /** The set offers a choice and this student has not made it yet. */
+  mustChoose: boolean;
   phase: Phase;
   checkin: Checkin | null;
 };
@@ -64,8 +73,18 @@ export async function appGate(opts: { requireCheckin: boolean }): Promise<AppGat
   const window = await windowFor(student);
   if (!window) return fail(409, "no_window", "No paper is open for you.");
 
-  const paper = getPaper(window.paperId);
-  if (!paper) return fail(503, "paper_missing", "This paper has not been loaded. Tell your invigilator.");
+  const set = getPaper(window.paperId);
+  if (!set) return fail(503, "paper_missing", "This paper has not been loaded. Tell your invigilator.");
+
+  let subjects: string[] | null = null;
+  if (set.choice) {
+    const [row] = (await sql`
+      select subjects from attempts where uid = ${student.uid} and exam_paper_id = ${window.examPaperId}::bigint
+    `) as { subjects: string[] | null }[];
+    subjects = row?.subjects ?? null;
+  }
+  const paper = paperFor(set, subjects);
+  const mustChoose = Boolean(set.choice) && !subjects;
 
   const checkin = window.requiresCheckin ? await findCheckin(student.uid, window.examPaperId) : null;
   if (opts.requireCheckin && window.requiresCheckin && !checkin) {
@@ -74,7 +93,7 @@ export async function appGate(opts: { requireCheckin: boolean }): Promise<AppGat
 
   return {
     ok: true,
-    ctx: { student, deviceId: claims.deviceId, window, paper, phase: phaseOf(window), checkin },
+    ctx: { student, deviceId: claims.deviceId, window, paper, set, mustChoose, phase: phaseOf(window), checkin },
   };
 }
 

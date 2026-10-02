@@ -15,7 +15,7 @@
  */
 import { readFileSync } from "node:fs";
 import { neon } from "@neondatabase/serverless";
-import { getPaper, registerLoadedPapers, scoreAnswers } from "../src/lib/exam/papers.ts";
+import { getPaper, paperFor, registerLoadedPapers, scoreAnswers } from "../src/lib/exam/papers.ts";
 
 // The Next runtime loads .env.local for us; a bare node script does not.
 try {
@@ -30,20 +30,25 @@ try {
 const commit = process.argv.includes("--commit");
 const sql = neon(process.env.DATABASE_URL ?? process.env.POSTGRES_URL ?? "");
 
-type Row = { uid: string; paper_id: string; exam_paper_id: string; answers: Record<string, number> };
+type Row = {
+  uid: string; paper_id: string; exam_paper_id: string; answers: Record<string, number>; subjects: string[] | null;
+};
 
 // Papers after July live in the database, not in set2026-papers.ts. Without
 // this, every Phase 2 attempt would be reported NOT FOUND and left unmarked.
 registerLoadedPapers(
   new Map(
-    ((await sql`select code, questions, answer_key from exam_question_sets`) as {
-      code: string; questions: never[]; answer_key: number[];
-    }[]).map((r) => [r.code, { id: r.code, questions: r.questions, key: r.answer_key }]),
+    ((await sql`select code, questions, answer_key, choice from exam_question_sets`) as {
+      code: string; questions: never[]; answer_key: number[]; choice: { optional: string[]; choose: number } | null;
+    }[]).map((r) => [
+      r.code,
+      { id: r.code, questions: r.questions, key: r.answer_key, ...(r.choice ? { choice: r.choice } : {}) },
+    ]),
   ),
 );
 
 const expired = (await sql`
-  select uid, paper_id, exam_paper_id::text, answers
+  select uid, paper_id, exam_paper_id::text, answers, subjects
     from attempts
    where status = 'in_progress'
      and now() >= deadline_at
@@ -61,7 +66,9 @@ let marked = 0;
 let orphaned = 0;
 
 for (const row of expired) {
-  const paper = getPaper(row.paper_id);
+  // The paper THIS student sat: with a choice of subjects, only theirs.
+  const set = getPaper(row.paper_id);
+  const paper = set ? paperFor(set, row.subjects) : null;
   if (!paper) {
     // Cannot mark a paper we do not hold. Never guess a score.
     console.log(`  ${row.uid}  paper ${row.paper_id} NOT FOUND — left alone, needs a human`);

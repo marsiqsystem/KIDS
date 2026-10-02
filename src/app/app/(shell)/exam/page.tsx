@@ -3,6 +3,8 @@ import { windowFor, phaseOf } from "@/lib/exam/schedule";
 import { paperByCode } from "@/lib/exam/phases";
 import { findCheckin } from "@/lib/exam/checkin";
 import { findAttempt } from "@/lib/exam/attempts";
+import { getPaper } from "@/lib/exam/papers";
+import { questionsPerStudent } from "@/lib/exam/question-check";
 import { sql } from "@/lib/exam/db";
 import { firstName } from "@/lib/exam/portal-auth";
 import LiveExam from "@/components/portal/LiveExam";
@@ -109,6 +111,12 @@ export default async function ExamPage() {
     return <CheckIn centreName={student.centre_name} />;
   }
 
+  // How many questions THIS student will answer: the set's size, or with a
+  // choice of subjects, the compulsory part and their chosen ones. The paper's
+  // own question_count is empty for December, which drew "0 questions".
+  const set = getPaper(window.paperId);
+  const questionCount = set ? questionsPerStudent(set.questions, set.choice ?? null) : (paper.question_count ?? 0);
+
   // Checked in (or no check-in needed). The runner takes over: its own waiting
   // room until the paper opens, then the paper.
   return (
@@ -123,7 +131,7 @@ export default async function ExamPage() {
       classLabel={student.class}
       centreCode={checkin?.centre_code ?? student.centre_code}
       centreName={centre}
-      questionCount={paper.question_count ?? 0}
+      questionCount={questionCount}
       durationMinutes={window.durationMinutes}
       windowClosesIso={window.endsAt.toISOString()}
       startsAtIso={window.startsAt.toISOString()}

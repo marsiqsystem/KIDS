@@ -1109,10 +1109,11 @@ export async function saveQuestionDraftAction(
   paperId: string,
   code: string,
   items: unknown,
+  choice: unknown,
   version: string | null,
 ): Promise<QuestionResult> {
   const staff = await requireStaff("admin");
-  const r = await saveDraft(paperId, code, items, version, staff.staff_id);
+  const r = await saveDraft(paperId, code, items, choice, version, staff.staff_id);
   if (!r.ok) return { ok: false, message: r.message };
   return { ok: true, message: "Draft saved. Students see nothing until you load it into the paper.", version: r.version };
 }
@@ -1122,10 +1123,11 @@ export async function loadQuestionSetAction(
   paperId: string,
   code: string,
   items: unknown,
+  choice: unknown,
   version: string | null,
 ): Promise<QuestionResult> {
   const staff = await requireStaff("admin");
-  const saved = await saveDraft(paperId, code, items, version, staff.staff_id);
+  const saved = await saveDraft(paperId, code, items, choice, version, staff.staff_id);
   if (!saved.ok) return { ok: false, message: saved.message };
   const r = await loadDraft(paperId, code, staff.staff_id);
   if (!r.ok) return { ok: false, message: r.message, problems: r.problems, version: saved.version };

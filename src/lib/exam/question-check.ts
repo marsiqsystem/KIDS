@@ -61,6 +61,65 @@ export function describeSet(code: string): string {
     .join(" · ");
 }
 
+/**
+ * Which subjects a student picks, for a set that offers a choice -- July's
+ * written paper for XI and XII: English & General Knowledge for everybody,
+ * then three subjects of the student's own choosing from their stream.
+ *
+ * A subject is the `section` of its questions. Questions in a subject not listed
+ * here are compulsory -- including any with no subject at all.
+ */
+export type SetChoice = {
+  /** The subjects a student chooses among, by name, in the order offered. */
+  optional: string[];
+  /** How many of them each student takes. */
+  choose: number;
+};
+
+/** The subjects of a set, in the order they first appear, with their sizes. */
+export function subjectsOf(items: { section?: string }[]): { name: string; count: number }[] {
+  const out = new Map<string, number>();
+  for (const it of items) {
+    const name = it.section?.trim() ?? "";
+    out.set(name, (out.get(name) ?? 0) + 1);
+  }
+  return [...out].map(([name, count]) => ({ name, count }));
+}
+
+/** How many questions each student of this set answers. */
+export function questionsPerStudent(items: { section?: string }[], choice: SetChoice | null): number {
+  if (!choice) return items.length;
+  const subjects = subjectsOf(items);
+  const compulsory = subjects.filter((s) => !choice.optional.includes(s.name)).reduce((a, s) => a + s.count, 0);
+  const each = subjects.find((s) => choice.optional.includes(s.name))?.count ?? 0;
+  return compulsory + each * choice.choose;
+}
+
+function choiceProblems(items: DraftQuestion[], choice: SetChoice): string[] {
+  const problems: string[] = [];
+  const subjects = subjectsOf(items);
+  const named = new Map(subjects.map((s) => [s.name, s.count]));
+  if (choice.optional.some((o) => !o.trim())) problems.push("A question with no subject cannot be optional.");
+  for (const o of choice.optional) {
+    if (o.trim() && !named.has(o)) problems.push(`"${o}" is marked optional but no question has that subject.`);
+  }
+  const offered = choice.optional.filter((o) => named.has(o));
+  if (offered.length < 2) problems.push("Mark at least two subjects optional, or none — a choice of one is no choice.");
+  if (!Number.isInteger(choice.choose) || choice.choose < 1 || choice.choose >= offered.length) {
+    problems.push(`Students must choose between 1 and ${Math.max(1, offered.length - 1)} of the ${offered.length} optional subjects.`);
+  }
+  // Every child must answer the same number of questions, or two marks out of
+  // different totals would be ranked against each other.
+  const sizes = new Set(offered.map((o) => named.get(o)));
+  if (sizes.size > 1) {
+    problems.push(
+      "Every optional subject needs the same number of questions: " +
+        offered.map((o) => `${o} ${named.get(o)}`).join(", ") + ".",
+    );
+  }
+  return problems;
+}
+
 export type SetCheck = {
   problems: string[];
   /** How many correct answers fall on A, B, C… -- a key that is all B was typed wrong. */
@@ -69,7 +128,11 @@ export type SetCheck = {
   lopsided: boolean;
 };
 
-export function checkQuestions(items: DraftQuestion[], expectedCount: number | null = null): SetCheck {
+export function checkQuestions(
+  items: DraftQuestion[],
+  expectedCount: number | null = null,
+  choice: SetChoice | null = null,
+): SetCheck {
   const problems: string[] = [];
   const spread = new Array(MAX_OPTIONS).fill(0) as number[];
 
@@ -99,14 +162,21 @@ export function checkQuestions(items: DraftQuestion[], expectedCount: number | n
       const s = q.toLowerCase();
       // A passage-based question may repeat a short stem ("What does the word
       // mean?") under a different passage, so the passage is part of the stem.
-      const key = `${(it.context ?? "").trim().toLowerCase()}\u0000${s}\u0000${it.image ?? ""}`;
+      const key = `${it.section ?? ""}\u0000${(it.context ?? "").trim().toLowerCase()}\u0000${s}\u0000${it.image ?? ""}`;
       if (stems.has(key)) problems.push(`Questions ${stems.get(key)! + 1} and ${n} are the same question.`);
       else stems.set(key, i);
     }
   });
 
-  if (expectedCount && items.length !== expectedCount) {
-    problems.push(`This paper is set for ${expectedCount} questions; there are ${items.length}.`);
+  if (choice) problems.push(...choiceProblems(items, choice));
+
+  const each = questionsPerStudent(items, choice);
+  if (expectedCount && each !== expectedCount) {
+    problems.push(
+      choice
+        ? `This paper is set for ${expectedCount} questions; each student of this set would answer ${each}.`
+        : `This paper is set for ${expectedCount} questions; there are ${items.length}.`,
+    );
   }
 
   const answered = spread.reduce((a, b) => a + b, 0);

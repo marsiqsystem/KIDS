@@ -10,7 +10,7 @@ import Paper, { ClockFace } from "./Paper";
 import ScreenGuard from "@/components/app/ScreenGuard";
 import { useAwayWatch } from "@/components/app/exam/useAwayWatch";
 import AppPaper, { AppClockFace } from "@/components/app/exam/AppPaper";
-import { HandingIn, Receipt, StartFace, WaitingRoom } from "@/components/app/exam/ExamFaces";
+import { ChooseSubjects, HandingIn, Receipt, StartFace, WaitingRoom } from "@/components/app/exam/ExamFaces";
 
 /**
  * The real exam.
@@ -37,7 +37,14 @@ import { HandingIn, Receipt, StartFace, WaitingRoom } from "@/components/app/exa
  * If you change this file, change the FAQ, or stop making the promise.
  */
 
-type Stage = "waiting" | "starting" | "live" | "submitting" | "submitted" | "over" | "error";
+type Stage = "waiting" | "starting" | "choosing" | "live" | "submitting" | "submitted" | "over" | "error";
+
+/** What the server offers when a set has optional subjects. See /api/app/exam/start. */
+type Offer = {
+  choose: number;
+  optional: { name: string; count: number }[];
+  compulsory: { name: string; count: number }[];
+};
 
 type Cached = { questions: Question[]; answers: Record<string, number>; deadlineAt: string };
 
@@ -108,6 +115,7 @@ export default function LiveExam({
   const [submittedAtMs, setSubmittedAtMs] = useState<number | null>(null);
   const [autoSubmitted, setAutoSubmitted] = useState(false);
   const [receipt, setReceipt] = useState<string | null>(null);
+  const [offer, setOffer] = useState<Offer | null>(null);
 
   // Per student AND per sitting. It used to be per student only, which was safe
   // while there was one exam. Answers are stored by question NUMBER and merged
@@ -179,6 +187,14 @@ export default function LiveExam({
       }
 
       if (data.state === "waiting") return setStage("waiting");
+      // The set offers optional subjects and this student has not chosen yet.
+      // No questions have been sent; the choice comes first.
+      if (data.state === "choose") {
+        setOffer({ choose: data.choose, optional: data.optional, compulsory: data.compulsory });
+        setDeadlineAt(data.deadlineAt);
+        setStage("choosing");
+        return;
+      }
       // Already submitted (or the window shut) before this phone opened the paper:
       // reload, and the portal itself renders the right closed/submitted screen
       // server-side, with the sheet it holds. Nothing to draw from here.
@@ -330,6 +346,31 @@ export default function LiveExam({
     });
   };
 
+  /**
+   * Send the choice, then open the paper. The server fixes the choice in the
+   * same write that records it, so a double tap or a retry cannot change it --
+   * and if it was already made (on this phone or another), the paper simply
+   * opens with the subjects already chosen.
+   */
+  const chooseSubjects = async (subjects: string[]) => {
+    setError("");
+    try {
+      const res = await fetch(`${api}/subjects`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ subjects }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data?.message ?? "That did not go through. Try again.");
+        return;
+      }
+      await start();
+    } catch {
+      setError("We could not reach the exam. Check your signal and try again.");
+    }
+  };
+
   /* -------------------------------------------------------------- render --- */
 
   const app = variant === "app";
@@ -344,6 +385,20 @@ export default function LiveExam({
       />
     ) : (
       <PortalWaitingRoom label={label} startsAtIso={startsAtIso} serverNowIso={serverNowIso} />
+    );
+  }
+
+  if (stage === "choosing" && offer) {
+    return (
+      <ChooseSubjects
+        name={label}
+        choose={offer.choose}
+        optional={offer.optional}
+        compulsory={offer.compulsory}
+        error={error}
+        onConfirm={chooseSubjects}
+        closes={formatIstClock(windowClosesIso)}
+      />
     );
   }
 

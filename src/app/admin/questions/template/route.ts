@@ -23,7 +23,7 @@ export async function GET() {
   sheet.columns = SHEET_COLUMNS.map((h) => ({
     header: h,
     key: h,
-    width: h === "Question" || h === "Passage" ? 50 : h === "Section" ? 18 : h === "Answer" ? 9 : h === "Image" ? 30 : 22,
+    width: h === "Question" || h === "Passage" ? 50 : h === "Subject" ? 26 : h === "Answer" ? 9 : h === "Image" ? 30 : 22,
   }));
   sheet.getRow(1).font = { bold: true };
   sheet.views = [{ state: "frozen", ySplit: 1 }];
@@ -38,7 +38,11 @@ export async function GET() {
     "Question — required. Exactly what the student reads.",
     "A, B, C, D — the options, in order. Use E and F only if a question has more than four. Leave no gaps.",
     "Answer — the letter of the correct option: A, B, C… (1, 2, 3… also works).",
-    "Section — optional. A heading the app shows above a group of questions, e.g. Life Science.",
+    "Subject — the subject the question belongs to, e.g. English & General Knowledge, Physics, History.",
+    "    Write each subject's name the same way on every row; the app groups the paper by it.",
+    "    Class XI and XII: the compulsory part and every optional subject go in ONE sheet. Which subjects are",
+    "    optional, and how many a student chooses (July: 3), is set in the control centre after reading it.",
+    "    Every optional subject must have the same number of questions (July: 25 each).",
     "Passage — optional. Text shown above the question, for comprehension or data questions.",
     "Image — optional. For a diagram: Insert → Pictures → Place over Cells, and drag the picture so its",
     "    top-left corner sits in that row's Image cell. A picture whose corner sits in an option's cell (A–F)",
@@ -62,9 +66,9 @@ export async function GET() {
   const ex = book.addWorksheet("Examples");
   ex.columns = sheet.columns.map((c) => ({ header: String(c.header), key: String(c.key), width: c.width }));
   ex.getRow(1).font = { bold: true };
-  ex.addRow({ Section: "Mathematics", Question: "What is 7 × 8?", A: "54", B: "56", C: "58", D: "64", Answer: "B" });
+  ex.addRow({ Subject: "Mathematics", Question: "What is 7 × 8?", A: "54", B: "56", C: "58", D: "64", Answer: "B" });
   ex.addRow({
-    Section: "Geography",
+    Subject: "Geography",
     Question: "Which of these rivers flows through Kolkata?",
     A: "Hooghly",
     B: "Teesta",

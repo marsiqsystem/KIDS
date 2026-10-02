@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   BatteryLow,
   Check,
@@ -369,6 +369,136 @@ export function ClosedNote({ started }: { started: boolean }) {
       <div>
         <p className="k-h">This paper has closed</p>
         <p className="k-line">{started ? "Your receipt is below." : "You did not start it. Nothing is on your record for it."}</p>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------- choosing subjects */
+
+/**
+ * Choose your subjects -- for a set with optional subjects (XI and XII, as on
+ * July's written paper). Shown once, as the paper opens, before any question.
+ *
+ * Two taps on purpose: pick, then confirm. The choice is fixed on the server the
+ * moment it is sent, like panel codes written in ink, so the confirm step names
+ * exactly what is being fixed. The clock is everyone's clock and is already
+ * running, which the screen says plainly rather than hiding.
+ */
+export function ChooseSubjects({
+  name,
+  choose,
+  optional,
+  compulsory,
+  error,
+  onConfirm,
+  closes,
+}: {
+  name: string;
+  choose: number;
+  optional: { name: string; count: number }[];
+  compulsory: { name: string; count: number }[];
+  error: string;
+  onConfirm: (subjects: string[]) => Promise<void>;
+  closes: string;
+}) {
+  const [picked, setPicked] = useState<string[]>([]);
+  const [confirming, setConfirming] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const full = picked.length === choose;
+  const toggle = (s: string) =>
+    setPicked((p) => (p.includes(s) ? p.filter((x) => x !== s) : p.length < choose ? [...p, s] : p));
+  // In the set's order, not the order they were tapped.
+  const ordered = optional.map((o) => o.name).filter((n) => picked.includes(n));
+  const total =
+    compulsory.reduce((a, c) => a + c.count, 0) +
+    optional.filter((o) => picked.includes(o.name)).reduce((a, o) => a + o.count, 0);
+
+  return (
+    <div className="ex-page">
+      <PaperHero eyebrow="The paper is open" name={name} />
+      <div className="app-body">
+        <div className="k-card">
+          <p className="k-h">Choose {choose} subject{choose === 1 ? "" : "s"}</p>
+          <p className="k-line">
+            {compulsory.filter((c) => c.name).length
+              ? `Everyone answers ${compulsory.filter((c) => c.name).map((c) => c.name).join(" and ")}. `
+              : ""}
+            Then you answer the {choose} subject{choose === 1 ? "" : "s"} you choose here. Your time is already
+            running; everyone ends at {closes}.
+          </p>
+        </div>
+
+        {error ? (
+          <div className="ex-note">
+            <span className="ex-note__icon" aria-hidden="true">
+              <WifiOff size={20} />
+            </span>
+            <div>
+              <p className="k-h">That did not go through</p>
+              <p className="k-line">{error}</p>
+            </div>
+          </div>
+        ) : null}
+
+        <div className="ex-subjects" role="group" aria-label={`Choose ${choose} subjects`}>
+          {optional.map((o) => {
+            const on = picked.includes(o.name);
+            return (
+              <button
+                key={o.name}
+                type="button"
+                className={`ex-subject${on ? " ex-subject--on" : ""}`}
+                aria-pressed={on}
+                disabled={confirming || (!on && full)}
+                onClick={() => toggle(o.name)}
+              >
+                <span className="ex-subject__tick" aria-hidden="true">
+                  {on ? <Check size={16} /> : null}
+                </span>
+                <span className="ex-subject__name">{o.name}</span>
+                <span className="ex-subject__count">{o.count} questions</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {confirming ? (
+          <div className="ex-note">
+            <span className="ex-note__icon ex-note__icon--gold" aria-hidden="true">
+              <PencilLine size={20} />
+            </span>
+            <div>
+              <p className="k-h">{ordered.join(", ")}</p>
+              <p className="k-line">
+                These cannot be changed once you start. You will answer {total} questions.
+              </p>
+              <div className="ex-confirm">
+                <button type="button" className="k-btn k-btn--outline" disabled={busy} onClick={() => setConfirming(false)}>
+                  Change
+                </button>
+                <button
+                  type="button"
+                  className="k-btn"
+                  disabled={busy}
+                  onClick={async () => {
+                    setBusy(true);
+                    await onConfirm(ordered);
+                    setBusy(false);
+                    setConfirming(false);
+                  }}
+                >
+                  {busy ? <Loader2 size={18} className="ex-spin" aria-hidden="true" /> : null}
+                  {busy ? "Opening" : "Start with these"}
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <button type="button" className="k-btn ex-start" disabled={!full} onClick={() => setConfirming(true)}>
+            {full ? "Continue" : `Choose ${choose - picked.length} more`}
+          </button>
+        )}
       </div>
     </div>
   );

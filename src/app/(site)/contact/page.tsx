@@ -95,14 +95,6 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="flex gap-4 items-start mb-6">
-              <span className="text-2xl text-primary">📞</span>
-              <div>
-                <a href="tel:+919836414786" className="text-lg font-semibold text-primary hover:underline">
-                  +91 9836414786
-                </a>
-              </div>
-            </div>
-            <div className="flex gap-4 items-start mb-6">
               <span className="text-2xl text-primary">✉️</span>
               <div>
                 <a href="mailto:kids.kol.org2003@gmail.com" className="text-lg font-semibold text-primary hover:underline">

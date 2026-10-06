@@ -52,7 +52,7 @@ export default function InstallPage() {
           <div className="door-alert door-alert--gold">
             <p>
               The download is not ready yet. Ask the KIDS office for the file:{" "}
-              <a href={`tel:${OFFICE.tel}`}>{OFFICE.phone}</a>
+              <a href={`mailto:${OFFICE.email}`}>{OFFICE.email}</a>
             </p>
           </div>
         )}

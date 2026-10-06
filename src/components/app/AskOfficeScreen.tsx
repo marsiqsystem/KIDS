@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useActionState, useEffect, useState } from "react";
-import { Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import UidField, { groupUid } from "./UidField";
 import FormAlert from "./FormAlert";
 import DeviceField from "./DeviceField";
@@ -93,13 +93,13 @@ export default function AskOfficeScreen({
             When it is approved, this app opens your account <strong>by itself</strong>. You can close it and come back.
           </p>
 
-          <a className="k-row" href={`tel:${OFFICE.tel}`}>
+          <a className="k-row" href={`mailto:${OFFICE.email}`}>
             <span className="k-row__icon" aria-hidden="true">
-              <Phone size={20} />
+              <Mail size={20} />
             </span>
             <span className="k-row__text">
               <span className="k-row__title">Something wrong above?</span>
-              <span className="k-row__line">Send it again below, or call the office</span>
+              <span className="k-row__line">Send it again below, or email the office</span>
             </span>
           </a>
 
@@ -126,7 +126,7 @@ export default function AskOfficeScreen({
             </figure>
           ) : (
             <p className="k-line">
-              Call <a href={`tel:${OFFICE.tel}`}>{OFFICE.phone}</a> and they will tell you why.
+              Email <a href={`mailto:${OFFICE.email}`}>{OFFICE.email}</a> and they will tell you why.
             </p>
           )}
           <button type="button" className="k-btn k-btn--outline" onClick={() => setRetry(true)}>

@@ -49,9 +49,6 @@ export default function Footer() {
           <address className="not-italic space-y-3 text-sm text-stone-500">
             <p>82A/H/5, Dr. Sudhir Basu Road<br />Kolkata - 700023</p>
             <p>
-              <a href="tel:+919836414786" className="hover:text-primary transition-colors">+91 9836414786</a>
-            </p>
-            <p>
               <a href="mailto:kids.kol.org2003@gmail.com" className="hover:text-primary transition-colors">kids.kol.org2003@gmail.com</a>
             </p>
           </address>

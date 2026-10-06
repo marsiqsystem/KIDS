@@ -8,7 +8,6 @@ import {
   LogOut,
   Mail,
   PencilLine,
-  Phone,
   ShieldCheck,
   Smartphone,
 } from "lucide-react";
@@ -209,12 +208,6 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
 
       <div className="pf-help">
         <span className="k-label">Contact KIDS</span>
-        <a className="k-row" href={`tel:${OFFICE.tel}`}>
-          <span className="k-row__icon" aria-hidden="true">
-            <Phone size={20} />
-          </span>
-          <span className="k-row__title k-mono">{OFFICE.phone}</span>
-        </a>
         <a className="k-row" href={`mailto:${OFFICE.email}`}>
           <span className="k-row__icon" aria-hidden="true">
             <Mail size={20} />

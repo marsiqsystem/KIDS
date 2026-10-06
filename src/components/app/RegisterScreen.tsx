@@ -3,7 +3,7 @@
 import { useActionState, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Check, Phone, Search } from "lucide-react";
+import { Check, Mail, Search } from "lucide-react";
 import FormAlert from "./FormAlert";
 import DeviceField, { readOrCreateDeviceId } from "./DeviceField";
 import { useDoorStatus } from "./DoorWatch";
@@ -310,7 +310,7 @@ function Form({
           </div>
 
           <p className="door-foot">
-            My school is not here? <a href={`tel:${OFFICE.tel}`}>Call the office</a>
+            My school is not here? <a href={`mailto:${OFFICE.email}`}>Email the office</a>
           </p>
 
           {at === 1 && state.field === "school" ? <FormAlert state={{ message: state.message }} /> : null}
@@ -455,13 +455,13 @@ function Waiting({
           When it is approved, this app opens your account <strong>by itself</strong>.
         </p>
 
-        <a className="k-row" href={`tel:${OFFICE.tel}`}>
+        <a className="k-row" href={`mailto:${OFFICE.email}`}>
           <span className="k-row__icon" aria-hidden="true">
-            <Phone size={20} />
+            <Mail size={20} />
           </span>
           <span className="k-row__text">
             <span className="k-row__title">Something wrong above?</span>
-            <span className="k-row__line">Call the office</span>
+            <span className="k-row__line">Email the office</span>
           </span>
         </a>
       </div>
@@ -544,7 +544,7 @@ function Rejected({ application, onAgain }: { application: PendingApplication; o
       )}
 
       <p className="door-foot">
-        If this is a mistake, call <a href={`tel:${OFFICE.tel}`}>{OFFICE.phone}</a>.
+        If this is a mistake, email <a href={`mailto:${OFFICE.email}`}>{OFFICE.email}</a>.
       </p>
     </div>
   );

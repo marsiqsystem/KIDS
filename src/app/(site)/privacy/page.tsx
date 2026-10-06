@@ -100,7 +100,6 @@ export default function PrivacyPolicyPage() {
               <p className="font-semibold text-on-surface">Kabitirtha Institute of Development &amp; Studies</p>
               <p>82A/H/5, Dr. Sudhir Basu Road, Kolkata - 700023</p>
               <p>Email: <a href="mailto:kids.kol.org2003@gmail.com" className="text-primary hover:underline">kids.kol.org2003@gmail.com</a></p>
-              <p>Phone: <a href="tel:+919836414786" className="text-primary hover:underline">+91 9836414786</a></p>
             </div>
           </div>
 

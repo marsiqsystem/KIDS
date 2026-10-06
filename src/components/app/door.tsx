@@ -95,8 +95,6 @@ export function Notice({
 
 /** The office's real contact, from the site's contact page. */
 export const OFFICE = {
-  phone: "+91 98364 14786",
-  tel: "+919836414786",
   email: "kids.kol.org2003@gmail.com",
   reg: "Reg. S/1L/19796",
 };

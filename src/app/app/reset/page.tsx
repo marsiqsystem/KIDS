@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { findStudent } from "@/lib/exam/db";
 import { DoorBar, OFFICE } from "@/components/app/door";
 import { groupUid } from "@/lib/app/uid";
@@ -73,15 +73,6 @@ export default async function ResetPage({ searchParams }: { searchParams: Promis
         </Link>
         <p className="k-line door-center">When the office approves, this app opens by itself.</p>
 
-        <a className="k-row" href={`tel:${OFFICE.tel}`}>
-          <span className="k-row__icon" aria-hidden="true">
-            <Phone size={20} />
-          </span>
-          <span className="k-row__text">
-            <span className="k-label">Call the office</span>
-            <span className="k-row__title k-mono">{OFFICE.phone}</span>
-          </span>
-        </a>
         <a className="k-row" href={`mailto:${OFFICE.email}`}>
           <span className="k-row__icon" aria-hidden="true">
             <Mail size={20} />

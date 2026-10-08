@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "SET · KIDS",
+    "slug": "kids-set",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/kids-icon.png",
+    "scheme": "kidsset",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#FDFBF7",
+    "ios": {
+      "bundleIdentifier": "org.kidskolkata.set",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "org.kidskolkata.set",
+      "adaptiveIcon": {
+        "backgroundColor": "#FDFBF7",
+        "foregroundImage": "./assets/images/kids-icon.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#7B1E2B",
+          "image": "./assets/images/kids-icon.png",
+          "imageWidth": 120
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "https://www.kidskolkata.org"
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

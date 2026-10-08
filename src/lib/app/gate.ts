@@ -22,12 +22,20 @@ import type { Student } from "@/lib/exam/db";
  * it. The lookup it needs was folded into the query that was happening anyway
  * (see findStudentForSession), so the rule costs one column, not one query.
  */
-export async function requireStudent(): Promise<Student> {
+export type StudentCheck =
+  | { ok: true; student: Student }
+  | { ok: false; reason: "signed_out" | "moved" };
+
+/**
+ * The same check without the redirect, for the native app's API, which
+ * answers 401 with a reason instead of sending a browser to a page.
+ */
+export async function checkStudent(): Promise<StudentCheck> {
   const claims = await sessionClaims();
-  if (!claims) redirect("/app/sign-in");
+  if (!claims) return { ok: false, reason: "signed_out" };
 
   const found = await findStudentForSession(claims.uid);
-  if (!found) redirect("/app/sign-in");
+  if (!found) return { ok: false, reason: "signed_out" };
 
   const { student, boundTo } = found;
 
@@ -48,8 +56,14 @@ export async function requireStudent(): Promise<Student> {
    */
   if (boundTo && claims.deviceId && boundTo !== claims.deviceId) {
     await logAppEvent(claims.uid, "device_evicted", { session: claims.deviceId, bound: boundTo });
-    redirect("/app/sign-in?moved=1");
+    return { ok: false, reason: "moved" };
   }
 
-  return student;
+  return { ok: true, student };
+}
+
+export async function requireStudent(): Promise<Student> {
+  const check = await checkStudent();
+  if (!check.ok) redirect(check.reason === "moved" ? "/app/sign-in?moved=1" : "/app/sign-in");
+  return check.student;
 }

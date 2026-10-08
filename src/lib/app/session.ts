@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 /**
  * The student app's session.
@@ -69,15 +69,26 @@ function verify(payload: string, signature: string): boolean {
   return timingSafeEqual(expected, given);
 }
 
-export async function createSession(uid: string, deviceId: string | null = null): Promise<void> {
+/**
+ * A signed session token. The website keeps it in a cookie; the native app
+ * (mobile/, from 8 Oct 2026) keeps it in the phone's secure storage and sends
+ * it back as `Authorization: Bearer <token>`. Same format, same signature, same
+ * expiry, so every check below applies to both.
+ */
+export function issueToken(uid: string, deviceId: string | null = null): { token: string; expiresAt: number } {
   const expiresAt = Date.now() + MAX_AGE_MS;
   // "-" rather than an empty segment: an empty one would make `uid..1234`,
   // which splits into the same three parts as a real payload and would let a
   // missing device read back as a present one.
   const payload = `${uid}.${deviceId ?? "-"}.${expiresAt}`;
+  return { token: `${payload}.${sign(payload)}`, expiresAt };
+}
+
+export async function createSession(uid: string, deviceId: string | null = null): Promise<void> {
+  const { token, expiresAt } = issueToken(uid, deviceId);
   const store = await cookies();
 
-  store.set(COOKIE, `${payload}.${sign(payload)}`, {
+  store.set(COOKIE, token, {
     httpOnly: true,
     // Off on localhost, where there is no https and the cookie would be dropped.
     secure: process.env.NODE_ENV === "production",
@@ -98,11 +109,10 @@ export interface SessionClaims {
 }
 
 /**
- * Everything the cookie asserts, once the signature and the expiry have been
- * checked. The single place the cookie's format is known.
+ * Everything a token asserts, once the signature and the expiry have been
+ * checked. The single place the token's format is known.
  */
-export async function sessionClaims(): Promise<SessionClaims | null> {
-  const raw = (await cookies()).get(COOKIE)?.value;
+export function claimsFromToken(raw: string | null | undefined): SessionClaims | null {
   if (!raw) return null;
 
   const cut = raw.lastIndexOf(".");
@@ -125,6 +135,17 @@ export async function sessionClaims(): Promise<SessionClaims | null> {
 
   const deviceId = /^[0-9a-f]{32}$/.test(deviceSegment ?? "") ? deviceSegment! : null;
   return { uid: uid!, deviceId };
+}
+
+/**
+ * The session of this request: the native app's bearer token if it sent one,
+ * otherwise the website's cookie. A request carrying a bearer token is never
+ * read from its cookie, so a stale cookie cannot stand in for a rejected token.
+ */
+export async function sessionClaims(): Promise<SessionClaims | null> {
+  const auth = (await headers()).get("authorization");
+  if (auth?.startsWith("Bearer ")) return claimsFromToken(auth.slice(7).trim());
+  return claimsFromToken((await cookies()).get(COOKIE)?.value);
 }
 
 /** The signed-in student's User ID, or null. Verifies the signature and the expiry. */

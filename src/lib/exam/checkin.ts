@@ -221,6 +221,8 @@ export interface DeskStudent {
   answered: number;
   /** The phone the paper is bound to has been released for another. */
   released: boolean;
+  /** The invigilator's warnings on this paper, 0-3 (src/lib/exam/stars.ts). */
+  stars: number;
 }
 
 /**
@@ -236,10 +238,12 @@ export async function deskSearch(examPaperId: string, centre: string, q: string)
   return (await sql`
     select s.uid, s.name, s.class, s.centre_code as home_centre, c.checked_in_at,
            a.status, coalesce((select count(*)::int from jsonb_object_keys(a.answers)), 0) as answered,
-           (a.uid is not null and a.status = 'in_progress' and a.device_hash is null) as released
+           (a.uid is not null and a.status = 'in_progress' and a.device_hash is null) as released,
+           coalesce(x.stars, 0)::int as stars
       from students s
       left join exam_checkins c on c.uid = s.uid and c.exam_paper_id = ${examPaperId}::bigint
       left join attempts a on a.uid = s.uid and a.exam_paper_id = ${examPaperId}::bigint
+      left join exam_stars x on x.uid = s.uid and x.exam_paper_id = ${examPaperId}::bigint
      -- Demo accounts INCLUDED. They are left out of every count, but they sit a
      -- paper through the same gate as a child, and a rehearsal run on one must be
      -- findable at the desk like anybody else.

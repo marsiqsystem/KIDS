@@ -593,6 +593,24 @@ create table if not exists exam_away (
 
 create index if not exists exam_away_paper_idx on exam_away (exam_paper_id, uid);
 
+-- Stars -- the invigilator's warnings, one paper at a time.
+--
+-- Umar's ask, 8 Oct 2026: a student caught at mischief is warned and given a
+-- star, like a wanted level, up to three. What three stars leads to is not yet
+-- decided; this only keeps the count, at which centre, and who set it last.
+-- Every change is also written to admin_events (star_given / star_taken) with
+-- the invigilator's name, so the history survives a star being taken back.
+-- The student never sees it.
+create table if not exists exam_stars (
+  uid           char(9)     not null references students (uid),
+  exam_paper_id bigint      not null references exam_papers (id),
+  centre_code   text        not null,
+  stars         smallint    not null check (stars between 0 and 3),
+  updated_by    text        not null,
+  updated_at    timestamptz not null default now(),
+  primary key (uid, exam_paper_id)
+);
+
 -- "Open my account" -- a child already on the register asks the office to let
 -- them in, from the phone they will use.
 --

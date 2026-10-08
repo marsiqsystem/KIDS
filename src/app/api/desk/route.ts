@@ -4,7 +4,8 @@ import { logAdminEvent } from "@/lib/admin/staff";
 import { deskCode, deskCounts, deskSearch, mayRunDesk, releasePaper } from "@/lib/exam/checkin";
 import { sql } from "@/lib/exam/db";
 import { qrSvg } from "@/lib/qr-svg";
-import { deskAwayList } from "@/lib/exam/away";
+import { deskAwayDetail, deskAwayList } from "@/lib/exam/away";
+import { changeStars, deskStarList } from "@/lib/exam/stars";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,13 +16,18 @@ export const dynamic = "force-dynamic";
  * GET  ?paper=&centre=            the code to show now, and the centre's counts
  * POST { paper, centre, q }       find a student
  * POST { paper, centre, release } let a student's paper carry on on another phone
+ * POST { paper, centre, detail }  one student: school, stars, each time they left
+ * POST { paper, centre, star, by } give (by 1) or take back (by -1) a star
  *
  * The screen asks for a new code once every thirty seconds, on the step
- * boundary -- about 240 requests a desk across a two-hour morning, each one a
- * signature and a handful of counts. It is the one screen in the control centre
- * that refreshes by itself, and it does so only while a paper's check-in is
- * actually open: outside that window it returns no code and the screen stops
- * asking. A desk left open on a laptop overnight costs nothing.
+ * boundary, and every eight seconds while the paper itself is running, so the
+ * "Watch these students" list is current -- about 900 requests a desk across a
+ * two-hour paper, each one a signature and a handful of counts, while the
+ * database is awake anyway with every student's answers being saved. It is the
+ * one screen in the control centre that refreshes by itself, and it does so
+ * only while a paper's check-in is actually open: outside that window it
+ * returns no code and the screen stops asking. A desk left open on a laptop
+ * overnight costs nothing.
  *
  * Every request re-checks that this member of staff may run THIS desk.
  */
@@ -71,6 +77,7 @@ export async function GET(request: NextRequest) {
       // Who has left the paper for another app, refreshed with the code every
       // 30 s while it runs. See src/lib/exam/away.ts.
       away: await deskAwayList(paper, centre),
+      stars: await deskStarList(paper, centre),
       serverNow: now,
     },
     { headers: { "Cache-Control": "no-store" } },
@@ -99,6 +106,23 @@ export async function POST(request: NextRequest) {
       ok: true,
       message: "Released. Tell the student to open the paper on the other phone — same answers, same time left.",
     });
+  }
+
+  if (typeof body?.detail === "string") {
+    if (!/^\d{9}$/.test(body.detail)) return NextResponse.json({ ok: false, message: "No student was named." }, { status: 400 });
+    const student = await deskAwayDetail(body.detail, paper, centre);
+    if (!student) return NextResponse.json({ ok: false, message: "That student is not at this desk." });
+    return NextResponse.json({ ok: true, student }, { headers: { "Cache-Control": "no-store" } });
+  }
+
+  if (typeof body?.star === "string") {
+    const uid = body.star;
+    const by = body?.by === -1 ? -1 : body?.by === 1 ? 1 : 0;
+    if (!/^\d{9}$/.test(uid) || by === 0) return NextResponse.json({ ok: false, message: "No student was named." }, { status: 400 });
+    const stars = await changeStars(uid, paper, centre, by, auth.staff.staff_id);
+    if (stars === null) return NextResponse.json({ ok: false, message: "That student is not at this desk." });
+    await logAdminEvent(auth.staff.staff_id, by === 1 ? "star_given" : "star_taken", { kind: "student", id: uid }, { paper, centre, stars });
+    return NextResponse.json({ ok: true, stars });
   }
 
   return NextResponse.json(

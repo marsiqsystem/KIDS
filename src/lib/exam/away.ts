@@ -86,6 +86,8 @@ export interface AwayRow {
   away_now: boolean;
   last_at: Date;
   status: "in_progress" | "submitted" | null;
+  /** The invigilator's warnings on this paper, 0-3. See src/lib/exam/stars.ts. */
+  stars: number;
 }
 
 /**
@@ -111,14 +113,52 @@ export async function deskAwayList(examPaperId: string, centre: string, limit = 
            coalesce(sum(extract(epoch from (w.until - w.left_at))), 0)::int as seconds,
            coalesce(bool_or(w.back_at is null and a.status = 'in_progress'), false) as away_now,
            max(w.left_at) as last_at,
-           max(a.status) as status
+           max(a.status) as status,
+           coalesce(max(x.stars), 0)::int as stars
       from w
       join students s on s.uid = w.uid
       left join attempts a on a.uid = w.uid and a.exam_paper_id = w.exam_paper_id
+      left join exam_stars x on x.uid = w.uid and x.exam_paper_id = w.exam_paper_id
      where w.back_at is null or w.back_at - w.left_at >= interval '1 second'
      group by s.uid, s.name, s.class
      order by bool_or(w.back_at is null and a.status = 'in_progress') desc,
               count(*) desc, sum(extract(epoch from (w.until - w.left_at))) desc
      limit ${limit}
   `) as AwayRow[];
+}
+
+export interface AwayDetail {
+  uid: string;
+  name: string;
+  class: string;
+  school_name: string;
+  home_centre: string;
+  checked_in_at: Date | null;
+  stars: number;
+  periods: { left_at: Date; back_at: Date | null; how: AwayHow }[];
+}
+
+/**
+ * One student, opened from the desk's list: who they are, and each time the
+ * paper left their screen. Same one-second floor as the list. Null when the
+ * student is not at this desk.
+ */
+export async function deskAwayDetail(uid: string, examPaperId: string, centre: string): Promise<AwayDetail | null> {
+  const [s] = (await sql`
+    select s.uid, s.name, s.class, s.school_name, s.centre_code as home_centre, c.checked_in_at,
+           coalesce(x.stars, 0)::int as stars
+      from students s
+      left join exam_checkins c on c.uid = s.uid and c.exam_paper_id = ${examPaperId}::bigint
+      left join exam_stars x on x.uid = s.uid and x.exam_paper_id = ${examPaperId}::bigint
+     where s.uid = ${uid} and (s.centre_code = ${centre} or c.centre_code = ${centre})
+  `) as Omit<AwayDetail, "periods">[];
+  if (!s) return null;
+  const periods = (await sql`
+    select left_at, back_at, how
+      from exam_away
+     where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint
+       and (back_at is null or back_at - left_at >= interval '1 second')
+     order by left_at
+  `) as AwayDetail["periods"];
+  return { ...s, periods };
 }

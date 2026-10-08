@@ -55,6 +55,7 @@ const TABLES = [
   "admin_post_files",
   "app_account_requests",
   "exam_away",
+  "exam_stars",
   "register_guardians",
 ];
 

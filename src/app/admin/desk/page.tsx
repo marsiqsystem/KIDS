@@ -16,8 +16,8 @@ export const dynamic = "force-dynamic";
  * The exam desk, for invigilators.
  *
  * Its own page rather than a tab, because on exam morning it is opened on a
- * laptop or a phone propped on a desk and left there for two hours -- it should
- * be nothing but the code and the room.
+ * laptop or a phone propped on a desk and left there for two hours, then
+ * carried round the room once the paper starts.
  */
 export default async function DeskPage({
   searchParams,
@@ -33,19 +33,9 @@ export default async function DeskPage({
 
   const chosen = desks.find((d) => d.exam_paper_id === paper && d.centre_code === centre);
   if (chosen && (await mayRunDesk(staff.staff_id, isAdmin, paper, centre))) {
-    return (
-      <main className="min-h-screen bg-[#141010] px-5 py-5 text-[#e8e0dc]">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-4 flex items-center gap-4 text-xs text-[#6b5c57]">
-            <Link href="/admin/desk" className="hover:text-[#c9b8b2]">← All desks</Link>
-            <span>
-              {staff.full_name} · <span className="font-mono">{staff.staff_id}</span>
-            </span>
-          </div>
-          <DeskScreen paperId={chosen.exam_paper_id} centre={chosen.centre_code} centreName={chosen.centre_name} />
-        </div>
-      </main>
-    );
+    // The desk draws its own full-height screen (board 18); the KIDS mark in
+    // its header goes back to the list of desks.
+    return <DeskScreen paperId={chosen.exam_paper_id} centre={chosen.centre_code} staffId={staff.staff_id} />;
   }
 
   const byPaper = new Map<string, typeof desks>();

@@ -1,6 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowLeft, Clock, Lock, QrCode, Search, WifiOff } from "lucide-react";
+import { signOut } from "@/app/admin/actions";
 
 type Counts = { expected: number; checkedIn: number; fromElsewhere: number; started: number; submitted: number };
 type DeskState = {
@@ -17,6 +20,8 @@ type DeskState = {
   beforeOpen?: boolean;
   /** The paper itself is running: between its start and its end. */
   running?: boolean;
+  /** The paper's end has passed. */
+  closed?: boolean;
 };
 type Away = {
   uid: string;
@@ -54,6 +59,8 @@ type Student = {
 };
 /** What every part of the desk needs to talk to the server and redraw. */
 type Desk = { paperId: string; centre: string; refresh: () => void };
+type Strength = "strong" | "watch" | "quiet";
+type Tab = "watch" | "stars" | "find";
 
 /** A student moves to "Watch these students" at 3 exits or 2 minutes away (ruled 8 Oct 2026). */
 const WATCH_EXITS = 3;
@@ -62,14 +69,26 @@ const WATCH_SECONDS = 120;
 const RUNNING_POLL_MS = 8000;
 const MAX_STARS = 3;
 
-const n = (x: number) => x.toLocaleString("en-IN");
-const ist = (iso: string | null) =>
-  iso
-    ? new Date(iso).toLocaleString("en-IN", { hour: "numeric", minute: "2-digit", day: "numeric", month: "short", timeZone: "Asia/Kolkata" })
-    : "—";
-const clock = (iso: string) =>
-  new Date(iso).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", second: "2-digit", timeZone: "Asia/Kolkata" });
-const mmss = (s: number) => (s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`);
+const IST = "Asia/Kolkata";
+const clock = (ms: number | string) =>
+  new Date(ms).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", second: "2-digit", timeZone: IST });
+const hm = (iso: string) => new Date(iso).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", timeZone: IST });
+const duration = (s: number) => (s >= 60 ? `${Math.floor(s / 60)} min ${String(s % 60).padStart(2, "0")} s` : `${s} s`);
+const times = (n: number) => (n === 1 ? "once" : n === 2 ? "twice" : `${n} times`);
+
+const isWatched = (r: Away) => r.away_now || r.left >= WATCH_EXITS || r.seconds >= WATCH_SECONDS;
+const strengthOf = (r: { away_now?: boolean; stars: number }, watched: boolean): Strength =>
+  r.away_now || r.stars >= MAX_STARS ? "strong" : watched ? "watch" : "quiet";
+
+/** "Left 5 times · covered 1× · 1 min 40 s away · Class X"; the quiet line drops "away" and the class. */
+function awayMeta(r: Away, full: boolean): string {
+  const parts = [r.left > 0 ? `Left ${times(r.left)}` : `Covered ${r.unfocused}×`];
+  if (r.left > 0 && r.unfocused > 0) parts.push(`covered ${r.unfocused}×`);
+  parts.push(full ? `${duration(r.seconds)} away` : duration(r.seconds));
+  if (full) parts.push(`Class ${r.class}`);
+  if (r.status === "submitted") parts.push("handed in");
+  return parts.join(" · ");
+}
 
 async function post(desk: Desk, body: Record<string, unknown>) {
   const res = await fetch("/api/desk", {
@@ -80,32 +99,37 @@ async function post(desk: Desk, body: Record<string, unknown>) {
   return res.json();
 }
 
+const DISPLAY = "font-[family-name:var(--font-newsreader)]";
+const LABEL = "text-[12px] font-bold uppercase tracking-[0.12em] text-[#CDBFB6]";
+
 /**
- * The invigilator's screen: one big code, and the room's numbers.
+ * The invigilator's desk, in the hall — Claude Design's board 18 (8 Oct 2026).
  *
- * Built to be read from a desk by a queue of students holding phones up to it,
- * so the code fills the screen and nothing else competes with it. It asks for a
- * fresh code exactly on each thirty-second boundary, using the SERVER's clock
- * (the laptop's may be wrong); before check-in opens it waits for the opening
- * time instead of asking, and after the paper closes it stops asking at all.
+ * Two jobs on one screen. Before the paper it is a code that a queue scans from
+ * two metres; it asks for a fresh code exactly on each thirty-second boundary,
+ * by the SERVER's clock. Once the paper starts, the code folds away and the
+ * screen shows whom to go and look at, refreshed every eight seconds. On a
+ * phone a bottom bar (Watch · Stars · Find · Check-in code) keeps every action
+ * in reach of a thumb; on a laptop those sit in a side column.
  *
- * Once the paper itself starts, the job changes: the queue has sat down, and
- * what the invigilator needs is whom to go and look at. The code folds away
- * (one press brings it back for a latecomer) and "Watch these students" takes
- * its place, refreshed every eight seconds.
+ * Dark on purpose: a white QR on a dark ground scans faster, and a phone
+ * carried between desks should not light up a silent hall.
  */
 export default function DeskScreen({
   paperId,
   centre,
-  centreName,
+  staffId,
 }: {
   paperId: string;
   centre: string;
-  centreName: string;
+  staffId: string;
 }) {
   const [state, setState] = useState<DeskState | null>(null);
-  const [left, setLeft] = useState(30);
+  const [offline, setOffline] = useState(false);
+  const [lastOk, setLastOk] = useState<number | null>(null);
+  const [now, setNow] = useState<number | null>(null);
   const [showCode, setShowCode] = useState(false);
+  const [tab, setTab] = useState<Tab>("watch");
   const skew = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // The next load is scheduled from inside the current one, through a ref, so
@@ -120,29 +144,29 @@ export default function DeskScreen({
     try {
       const res = await fetch(`/api/desk?paper=${paperId}&centre=${centre}`, { cache: "no-store" });
       const data = (await res.json()) as DeskState;
+      setOffline(false);
       if (!data.ok) return setState(data); // signed out or not assigned: say so and stop.
 
       if (data.serverNow) skew.current = data.serverNow - Date.now();
       const serverNow = Date.now() + skew.current;
-      data.beforeOpen = Boolean(data.paper?.scanOpensAt && new Date(data.paper.scanOpensAt).getTime() > serverNow);
-      data.running = Boolean(
-        data.paper?.startsAt &&
-          data.paper?.endsAt &&
-          new Date(data.paper.startsAt).getTime() <= serverNow &&
-          serverNow < new Date(data.paper.endsAt).getTime(),
-      );
+      const at = (iso: string | null | undefined) => (iso ? new Date(iso).getTime() : null);
+      const [opens, starts, ends] = [at(data.paper?.scanOpensAt), at(data.paper?.startsAt), at(data.paper?.endsAt)];
+      data.beforeOpen = opens !== null && opens > serverNow;
+      data.running = starts !== null && ends !== null && starts <= serverNow && serverNow < ends;
+      data.closed = ends !== null && serverNow >= ends;
       setState(data);
+      setLastOk(serverNow);
 
       if (data.open && data.code) {
         // A few hundred ms past the boundary, so the new step has begun on the server.
         const toNextCode = Math.max(500, data.code.refreshAt - serverNow + 400);
         again(data.running ? Math.min(toNextCode, RUNNING_POLL_MS) : toNextCode);
-      } else if (data.beforeOpen && data.paper?.scanOpensAt) {
-        again(Math.min(new Date(data.paper.scanOpensAt).getTime() - serverNow + 400, 5 * 60_000));
+      } else if (data.beforeOpen && opens !== null) {
+        again(Math.min(opens - serverNow + 400, 5 * 60_000));
       }
-      // Closed: no timer. The counts stay on screen; Refresh reloads them.
+      // Closed: no timer. The lists stay on screen, no longer updating.
     } catch {
-      setState((s) => ({ ...(s ?? { ok: false }), message: "No connection. Retrying…" }));
+      setOffline(true);
       again(5000);
     }
   }, [paperId, centre]);
@@ -157,244 +181,442 @@ export default function DeskScreen({
     };
   }, [load]);
 
-  // The countdown under the code, so the invigilator can tell a queue "wait".
+  // The header clock and the code's countdown, both on the server's time.
   useEffect(() => {
-    const t = setInterval(() => {
-      if (!state?.code) return;
-      setLeft(Math.max(0, Math.ceil((state.code.refreshAt - (Date.now() + skew.current)) / 1000)));
-    }, 250);
+    const t = setInterval(() => setNow(Date.now() + skew.current), 250);
     return () => clearInterval(t);
-  }, [state?.code]);
+  }, []);
 
-  const c = state?.counts;
   const desk: Desk = { paperId, centre, refresh: load };
-  const watching = Boolean(state?.ok && state.running && !showCode);
+  const s = state;
+  const ok = Boolean(s?.ok);
+  const watching = ok && Boolean(s?.running || (s?.closed && s?.paper?.scanOpensAt));
+  const codeView = ok && Boolean(s?.open && s?.code) && (!s?.running || showCode);
+  const left = s?.code && now ? Math.max(0, Math.ceil((s.code.refreshAt - now) / 1000)) : 30;
+  const away = s?.away ?? [];
+  const watch = away.filter(isWatched);
+  const rest = away.filter((r) => !isWatched(r));
+  const stars = s?.stars ?? [];
+  const c = s?.counts;
+  const countLine = c
+    ? `${c.expected} expected here · ${c.checkedIn} checked in · ${c.started} started · ${c.submitted} submitted`
+    : "";
+  const awayNote =
+    c && c.fromElsewhere > 0 ? `${c.fromElsewhere} who checked in here are registered at another centre.` : null;
+
+  const window_ =
+    s?.paper?.startsAt && s.paper.endsAt ? ` · ${hm(s.paper.startsAt)} – ${hm(s.paper.endsAt)}` : "";
+  const pulse = !ok || s?.beforeOpen
+    ? null
+    : offline
+      ? "Retrying…"
+      : s?.closed
+        ? "Not updating"
+        : codeView
+          ? "Code changes every 30 s"
+          : "Updates every 8 s";
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
-      {watching ? (
-        <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4 sm:p-6">
-          <div className="flex flex-wrap items-start justify-between gap-2">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#9c8c86]">
-                {centre} · {centreName}
-              </p>
-              <h2 className="mt-1 text-lg font-bold">{state?.paper?.name}</h2>
-            </div>
-            <button
-              type="button"
-              onClick={() => setShowCode(true)}
-              className="rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a]"
-            >
-              Show check-in code
-            </button>
-          </div>
-          {state?.message ? <p className="mt-2 text-xs text-[#d9b877]">{state.message}</p> : null}
-          <div className="mt-4">
-            <LeftThePaper rows={state?.away ?? []} desk={desk} />
-          </div>
-        </section>
-      ) : (
-        <section className="flex flex-col items-center rounded border border-[#2a2321] bg-[#1a1514] px-6 py-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#9c8c86]">
-            {centre} · {centreName}
+    <div className="flex h-dvh flex-col overflow-hidden bg-[#170A0D] text-[#FDFBF7]">
+      {/* Header: where, what, and the time by the server's clock. */}
+      <header className="flex shrink-0 items-center gap-3.5 border-b border-[rgba(242,233,218,.12)] bg-[#1E0E12] px-[18px] py-3.5">
+        <Link href="/admin/desk" aria-label="All desks" className="shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/kids-icon.png" alt="" className="h-[30px] w-[30px]" />
+        </Link>
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-[15.5px] font-bold leading-tight">{ok ? `${centre} · Exam desk` : "Exam desk"}</p>
+          <p className="truncate text-[12px] leading-snug text-[#CDBFB6]">
+            {ok ? (s?.paper?.name ?? "") + window_ : s ? "" : "…"}
           </p>
-          <h2 className="mt-1 text-lg font-bold">{state?.paper?.name ?? "…"}</h2>
+        </div>
+        <div className="shrink-0 text-right">
+          <p className="font-mono text-[13.5px] tabular-nums">{now ? clock(now) : ""}</p>
+          {pulse ? (
+            <p className="text-[11.5px] text-[#CDBFB6]">
+              {pulse}
+              {pulse === "Updates every 8 s" ? (
+                <>
+                  {" · "}
+                  <button type="button" onClick={load} className="underline-offset-2 hover:underline">
+                    Refresh
+                  </button>
+                </>
+              ) : null}
+            </p>
+          ) : null}
+        </div>
+        {watching && !s?.closed && !codeView ? (
+          <button
+            type="button"
+            onClick={() => setShowCode(true)}
+            className="ml-2 hidden h-11 shrink-0 items-center gap-2 rounded-[11px] border-[1.5px] border-[#E5BE7A] px-[18px] text-[14px] font-bold text-[#E5BE7A] hover:bg-[#241216] lg:flex"
+          >
+            <QrCode size={18} strokeWidth={1.9} />
+            Show check-in code
+          </button>
+        ) : null}
+      </header>
 
-          {!state ? (
-            <p className="mt-16 text-sm text-[#9c8c86]">Loading…</p>
-          ) : !state.ok ? (
-            <p className="mt-16 max-w-sm text-sm text-[#d98b8b]">{state.message}</p>
-          ) : state.open && state.code ? (
+      {offline ? (
+        <div className="flex shrink-0 items-center gap-2.5 bg-[#FDFBF7] px-[18px] py-2.5 text-[14.5px] font-bold text-[#3D0A10]">
+          <WifiOff size={18} strokeWidth={1.9} />
+          <span className="flex-1">No connection. Retrying…</span>
+          {lastOk ? (
+            <span className="hidden text-[12.5px] font-medium text-[#6B5B5D] lg:inline">Last updated {clock(lastOk)}</span>
+          ) : null}
+        </div>
+      ) : null}
+      {ok && s?.closed && s.paper?.endsAt ? (
+        <div className="shrink-0 bg-[#F2E9DA] px-[18px] py-2.5 text-[#2B1A1C]">
+          <p className="text-[15px] font-bold">This paper has closed. No more students can check in.</p>
+          <p className="hidden text-[12.5px] text-[#6B5B5D] lg:block">
+            These lists stopped updating at {clock(s.paper.endsAt)}.
+          </p>
+        </div>
+      ) : null}
+
+      <div className="flex min-h-0 flex-1">
+        <main className="flex min-w-0 flex-1 flex-col gap-2 overflow-y-auto px-3.5 py-3">
+          {!s ? (
+            <Centred>
+              <p className="text-[15px] text-[#CDBFB6]">Loading…</p>
+            </Centred>
+          ) : !s.ok ? (
+            <Centred>
+              <Lock size={40} strokeWidth={1.9} className="text-[#E5BE7A]" />
+              <p className={`${DISPLAY} text-[28px] leading-tight`}>{s.message}</p>
+              <p className="max-w-[420px] text-[15px] leading-relaxed text-[#CDBFB6]">
+                The office puts a teacher on a centre&rsquo;s desk for one paper, from the Exams tab. Signed in as{" "}
+                <span className="font-mono">{staffId}</span>.
+              </p>
+              <form action={signOut}>
+                <button
+                  type="submit"
+                  className="h-12 rounded-xl border-[1.5px] border-[rgba(242,233,218,.45)] px-[22px] text-[15px] font-semibold hover:bg-[#241216]"
+                >
+                  Sign out
+                </button>
+              </form>
+            </Centred>
+          ) : codeView && s.code ? (
             <>
-              {/* White ground and a quiet zone: a dark-theme QR scans badly on a cheap camera. */}
-              <div
-                className="mt-6 w-full max-w-[26rem] rounded-lg bg-white p-4 [&_svg]:h-auto [&_svg]:w-full"
-                dangerouslySetInnerHTML={{ __html: state.code.svg }}
-                aria-label="Check-in code"
-              />
-              <p className="mt-5 font-mono text-5xl font-semibold tracking-[0.18em] text-[#e8e0dc] tabular-nums">
-                {state.code.code.slice(0, 3)} {state.code.code.slice(3)}
-              </p>
-              <p className="mt-3 text-sm text-[#9c8c86]">
-                Scan with the SET app · the code changes in <span className="font-mono text-[#e8e0dc]">{left}s</span>
-              </p>
-              {/* The camera is the fast path and the typed code is the one that has
-                  actually been tested end to end. An invigilator facing a student
-                  whose camera will not focus should not have to work that out. */}
-              <p className="mt-1 text-sm text-[#9c8c86]">
-                If the camera will not read it, they can type the six digits instead.
-              </p>
-              {state.message ? <p className="mt-2 text-xs text-[#d9b877]">{state.message}</p> : null}
-              {state.running ? (
+              <CodePanel code={s.code} left={left} />
+              {s.running ? (
                 <button
                   type="button"
                   onClick={() => setShowCode(false)}
-                  className="mt-5 rounded border border-[#3a2f2c] px-3 py-1.5 text-xs text-[#c9b8b2] hover:bg-[#241c1a]"
+                  className="mt-auto flex min-h-14 items-center justify-center gap-2.5 rounded-[14px] bg-[#C9A24B] text-[16px] font-bold text-[#2B1A1C] lg:mx-auto lg:mt-2 lg:px-6"
                 >
+                  <ArrowLeft size={19} strokeWidth={1.9} />
                   Back to the students to watch
                 </button>
-              ) : null}
+              ) : (
+                <PhoneCounts line={countLine} note={awayNote} />
+              )}
+            </>
+          ) : watching ? (
+            <>
+              <div className={tab === "watch" ? "flex flex-col gap-2" : "hidden flex-col gap-2 lg:flex"}>
+                <WatchLists watch={watch} rest={rest} desk={desk} />
+              </div>
+              <div className={tab === "stars" ? "lg:hidden" : "hidden"}>
+                <StarsTab stars={stars} away={away} desk={desk} />
+              </div>
+              <div className={tab === "find" ? "flex flex-col gap-2.5 lg:hidden" : "hidden"}>
+                <PhoneCounts line={countLine} note={null} />
+                <p className={`${DISPLAY} text-[23px]`}>Find a student</p>
+                <FindStudent desk={desk} />
+              </div>
             </>
           ) : (
-            <div className="mt-12 max-w-sm space-y-2 text-sm text-[#9c8c86]">
-              {state.beforeOpen && state.paper?.scanOpensAt ? (
-                <>
-                  <p className="text-[#e8e0dc]">Check-in opens at {ist(state.paper.scanOpensAt)}.</p>
-                  <p>Leave this screen open. The code appears by itself at that time.</p>
-                </>
-              ) : state.paper?.scanOpensAt ? (
-                <p>This paper has closed. No more students can check in.</p>
-              ) : (
-                <p>This paper has not been scheduled yet.</p>
-              )}
-            </div>
+            <>
+              <Centred>
+                <Clock size={40} strokeWidth={1.9} className="text-[#E5BE7A]" />
+                {s.beforeOpen && s.paper?.scanOpensAt ? (
+                  <>
+                    <p className={`${DISPLAY} text-[30px] leading-tight`}>Check-in opens at {hm(s.paper.scanOpensAt)}.</p>
+                    <p className="max-w-[380px] text-[15.5px] leading-relaxed text-[#CDBFB6]">
+                      Leave this screen open. The code appears by itself at that time.
+                    </p>
+                  </>
+                ) : (
+                  <p className={`${DISPLAY} text-[28px] leading-tight`}>This paper has not been scheduled yet.</p>
+                )}
+              </Centred>
+              <PhoneCounts line={countLine} note={null} />
+            </>
           )}
-        </section>
-      )}
+        </main>
 
-      <aside className="space-y-4">
-        <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4">
-          <div className="flex items-baseline justify-between">
-            <h3 className="text-sm font-bold">This room</h3>
-            <button type="button" onClick={load} className="text-xs text-[#9c8c86] hover:text-[#e8e0dc]">
-              Refresh
-            </button>
-          </div>
-          {c ? (
-            <dl className="mt-3 grid grid-cols-2 gap-3 tabular-nums">
-              <Stat k="Expected here" v={n(c.expected)} />
-              <Stat k="Checked in" v={n(c.checkedIn)} strong />
-              <Stat k="Started" v={n(c.started)} />
-              <Stat k="Submitted" v={n(c.submitted)} />
-            </dl>
-          ) : null}
-          {c && c.fromElsewhere > 0 ? (
-            <p className="mt-3 text-xs text-[#d9b877]">
-              {n(c.fromElsewhere)} checked in here are registered at another centre.
-            </p>
-          ) : null}
-        </section>
-
-        {state?.stars ? <StarList rows={state.stars} desk={desk} /> : null}
-
-        {state?.away && !watching ? (
-          <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4">
-            <LeftThePaper rows={state.away} desk={desk} />
-          </section>
+        {ok ? (
+          <aside className="hidden w-[420px] shrink-0 flex-col gap-[18px] overflow-y-auto border-l border-[rgba(242,233,218,.12)] bg-[#1B0C10] p-[18px] lg:flex">
+            <section>
+              <p className={`${LABEL} mb-2`}>This room</p>
+              {c ? (
+                <dl className="grid grid-cols-4 gap-1.5 rounded-xl bg-[#241216] px-1.5 py-3 text-center">
+                  {[
+                    [c.expected, "Expected here"],
+                    [c.checkedIn, "Checked in"],
+                    [c.started, "Started"],
+                    [c.submitted, "Submitted"],
+                  ].map(([v, k]) => (
+                    <div key={k}>
+                      <dd className="font-mono text-[24px] font-bold tabular-nums">{v}</dd>
+                      <dt className="text-[11.5px] leading-tight text-[#CDBFB6]">{k}</dt>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+              {awayNote ? <p className="mt-[7px] text-[12.5px] text-[#CDBFB6]">{awayNote}</p> : null}
+            </section>
+            {watching ? (
+              <section className="flex flex-col gap-2">
+                <p className={LABEL}>Stars · most first</p>
+                {stars.length === 0 ? (
+                  <p className="text-[12.5px] leading-relaxed text-[#B8A99F]">
+                    Nobody has a star. After warning a student, open their name and give one. Up to {MAX_STARS}.
+                  </p>
+                ) : (
+                  <ul className="flex flex-col">
+                    {stars.map((r) => {
+                      const a = away.find((x) => x.uid === r.uid);
+                      const meta = a?.away_now ? "away now" : a ? `left ${a.left}×` : "not left";
+                      return (
+                        <StudentLine key={r.uid} uid={r.uid} name={r.name} stars={r.stars} strength="quiet" meta={meta} desk={desk} />
+                      );
+                    })}
+                  </ul>
+                )}
+              </section>
+            ) : null}
+            {watching || codeView ? (
+              <section className="flex min-h-0 flex-col gap-2.5">
+                <p className={LABEL}>Find a student</p>
+                <FindStudent desk={desk} />
+              </section>
+            ) : null}
+          </aside>
         ) : null}
+      </div>
 
-        <FindStudent desk={desk} />
-      </aside>
+      {/* The phone's bottom bar, for the paper itself. */}
+      {watching && !codeView ? (
+        <nav className="grid shrink-0 auto-cols-fr grid-flow-col border-t border-[rgba(242,233,218,.14)] bg-[#1E0E12] px-1.5 pb-3.5 pt-1.5 lg:hidden">
+          <TabButton on={tab === "watch"} label="Watch" sub={watch.length ? `${watch.length} to watch` : "none yet"} onClick={() => setTab("watch")} />
+          <TabButton on={tab === "stars"} label="Stars" sub={String(stars.length)} onClick={() => setTab("stars")} />
+          <TabButton on={tab === "find"} label="Find" sub="" onClick={() => setTab("find")} />
+          {!s?.closed ? <TabButton on={false} label="Check-in code" sub="" onClick={() => setShowCode(true)} /> : null}
+        </nav>
+      ) : null}
+    </div>
+  );
+}
+
+function Centred({ children }: { children: React.ReactNode }) {
+  return <div className="flex flex-1 flex-col items-center justify-center gap-3 px-3 text-center">{children}</div>;
+}
+
+function PhoneCounts({ line, note }: { line: string; note: string | null }) {
+  if (!line) return null;
+  return (
+    <div className="lg:hidden">
+      <p className="rounded-[10px] border border-[rgba(242,233,218,.12)] bg-[#1E0E12] px-3 py-2 text-[13px] tabular-nums text-[#CDBFB6]">
+        {line}
+      </p>
+      {note ? <p className="mt-1 text-[12.5px] text-[#CDBFB6]">{note}</p> : null}
+    </div>
+  );
+}
+
+function TabButton({ on, label, sub, onClick }: { on: boolean; label: string; sub: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={on}
+      className={`flex min-h-14 flex-col items-center justify-center gap-[3px] rounded-xl ${
+        on ? "bg-[#C9A24B] text-[#2B1A1C]" : "text-[#FDFBF7]"
+      }`}
+    >
+      <span className="text-[14px] font-bold">{label}</span>
+      {sub ? <span className="text-[11px] font-semibold">{sub}</span> : null}
+    </button>
+  );
+}
+
+/** Readable from two metres: 256 px code and 58 px digits on a phone, 440 and 112 on a laptop. */
+function CodePanel({ code, left }: { code: NonNullable<DeskState["code"]>; left: number }) {
+  return (
+    <div className="flex flex-col items-center gap-3 lg:flex-1 lg:flex-row lg:justify-center lg:gap-14">
+      {/* White ground and a quiet zone: a dark-theme QR scans badly on a cheap camera. */}
+      <div
+        className="w-[256px] shrink-0 rounded-2xl bg-white p-[18px] lg:w-[440px] lg:rounded-[22px] lg:p-[30px] [&_svg]:h-auto [&_svg]:w-full"
+        dangerouslySetInnerHTML={{ __html: code.svg }}
+        aria-label="Check-in code"
+      />
+      <div className="flex flex-col items-center gap-3 lg:items-start lg:gap-4">
+        <p className={`hidden lg:block ${LABEL} text-[13px] tracking-[0.16em]`}>Desk code</p>
+        <p className="font-mono text-[58px] font-bold leading-none tracking-[0.06em] tabular-nums lg:text-[112px] lg:tracking-[0.05em]">
+          {code.code.slice(0, 3)} {code.code.slice(3)}
+        </p>
+        <div className="h-1 w-[220px] overflow-hidden rounded bg-[rgba(242,233,218,.15)] lg:h-[5px] lg:w-[360px]">
+          <div className="h-full bg-[#C9A24B]" style={{ width: `${Math.min(100, (left / 30) * 100)}%` }} />
+        </div>
+        <p className="text-[13.5px] text-[#CDBFB6] lg:text-[16px]">Changes in {left} s</p>
+        {/* The camera is the fast path and the typed code is the one that has
+            actually been tested end to end. */}
+        <p className="max-w-[320px] text-center text-[13.5px] leading-normal text-[#CDBFB6] lg:max-w-[420px] lg:text-left lg:text-[16px]">
+          If the camera will not read it, they can type the six digits instead.
+        </p>
+      </div>
     </div>
   );
 }
 
 /**
  * Who has left the paper on their phone — another app, the home screen, a
- * call — in two parts: the students to watch (3 exits, 2 minutes away in all,
- * or away right now; ruled 8 Oct 2026) and below them, smaller, the ones who
- * left once or twice. Tap a name for the school, the stars and each time.
+ * call. The students to watch (3 exits, 2 minutes away in all, or away right
+ * now; ruled 8 Oct 2026), then, quieter, the ones who left once or twice.
  *
  * A fact for the person in the room, not a verdict: a call from home looks
  * exactly like a search. It says what the phone saw and leaves the judging to
- * the invigilator, who can walk over and look. The student was told before the
- * paper that this is recorded.
+ * the invigilator, who can walk over and look.
  */
-function LeftThePaper({ rows, desk }: { rows: Away[]; desk: Desk }) {
-  const watch = rows.filter((r) => r.away_now || r.left >= WATCH_EXITS || r.seconds >= WATCH_SECONDS);
-  const rest = rows.filter((r) => !watch.includes(r));
+function WatchLists({ watch, rest, desk }: { watch: Away[]; rest: Away[]; desk: Desk }) {
   return (
     <>
-      <h3 className="text-sm font-bold">
-        Watch these students <span className="font-mono font-normal text-[#9c8c86]">{watch.length}</span>
-      </h3>
-      {watch.length === 0 ? (
-        <p className="mt-2 text-xs text-[#9c8c86]">
-          Nobody yet. A student appears here after leaving the paper {WATCH_EXITS} times, after{" "}
-          {WATCH_SECONDS / 60} minutes away in all, or while they are away right now.
+      <div className="flex flex-col gap-[7px]">
+        <div className="flex items-baseline gap-2.5">
+          <p className={`${DISPLAY} whitespace-nowrap text-[21px]`}>Watch these students</p>
+          {watch.length ? <p className="text-[13px] text-[#CDBFB6]">{watch.length}</p> : null}
+        </div>
+        <p className="text-[12px] leading-snug text-[#B8A99F]">
+          Counts each time the paper left the screen. It cannot see a second phone. A call home looks the same as a
+          search: go and look first.
         </p>
-      ) : (
-        <ul className="mt-3 space-y-2">
-          {watch.map((r) => (
-            <StudentLine
-              key={r.uid}
-              uid={r.uid}
-              desk={desk}
-              tone={r.away_now || r.stars >= MAX_STARS ? "red" : "amber"}
-              head={<AwayHead r={r} />}
-            />
-          ))}
-        </ul>
-      )}
-
+        {watch.length === 0 ? (
+          <div className="flex flex-col gap-2 rounded-[14px] border-[1.5px] border-dashed border-[rgba(242,233,218,.28)] p-[18px]">
+            <p className="text-[17px] font-bold">Nobody to watch yet.</p>
+            <p className="text-[14px] leading-relaxed text-[#CDBFB6]">
+              A student appears here once they have left the paper <strong className="text-[#FDFBF7]">{WATCH_EXITS} times</strong>,
+              been away <strong className="text-[#FDFBF7]">{WATCH_SECONDS / 60} minutes</strong> in total, or are{" "}
+              <strong className="text-[#FDFBF7]">away right now</strong>.
+            </p>
+          </div>
+        ) : (
+          <ul className="flex flex-col gap-[7px]">
+            {watch.map((r) => (
+              <StudentLine
+                key={r.uid}
+                uid={r.uid}
+                name={r.name}
+                stars={r.stars}
+                strength={strengthOf(r, true)}
+                awayNow={r.away_now && r.status !== "submitted"}
+                meta={awayMeta(r, true)}
+                desk={desk}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
       {rest.length > 0 ? (
-        <>
-          <h3 className="mt-5 text-xs font-bold text-[#9c8c86]">
-            Left once or twice <span className="font-mono font-normal">{rest.length}</span>
-          </h3>
-          <ul className="mt-2 space-y-1.5">
+        <div className="mt-1 flex flex-col">
+          <div className="mb-0.5 flex items-baseline gap-2.5">
+            <p className={LABEL}>Left once or twice</p>
+            <p className="text-[12px] text-[#B8A99F]">{rest.length}</p>
+          </div>
+          <ul className="flex flex-col">
             {rest.map((r) => (
               <StudentLine
                 key={r.uid}
                 uid={r.uid}
+                name={r.name}
+                stars={r.stars}
+                strength={strengthOf(r, false)}
+                meta={strengthOf(r, false) === "quiet" ? awayMeta(r, false) : awayMeta(r, true)}
                 desk={desk}
-                tone={r.stars >= MAX_STARS ? "red" : "plain"}
-                head={<AwayHead r={r} />}
               />
             ))}
           </ul>
-        </>
+        </div>
       ) : null}
-
-      <p className="mt-3 text-[11px] leading-relaxed text-[#9c8c86]">
-        Counts every time the paper left the phone&rsquo;s screen. It cannot see a second phone —
-        that is for your eyes. A call from home looks the same as a search, so go and look before you
-        decide anything.
-      </p>
     </>
   );
 }
 
-function AwayHead({ r }: { r: Away }) {
+/** The phone's Stars tab: everyone with a star, most first, as full rows. */
+function StarsTab({ stars, away, desk }: { stars: Starred[]; away: Away[]; desk: Desk }) {
   return (
-    <>
-      <div className="flex items-baseline justify-between gap-2">
-        <span className="truncate font-semibold text-[#e8e0dc]">
-          {r.name}
-          <Stars count={r.stars} />
-        </span>
-        <span className="shrink-0 font-mono text-[#9c8c86]">{r.uid}</span>
+    <div className="flex flex-col gap-2.5">
+      <div className="flex items-baseline gap-2.5">
+        <p className={`${DISPLAY} text-[23px]`}>Stars</p>
+        <p className="text-[13px] text-[#CDBFB6]">
+          {stars.length === 1 ? "1 student" : `${stars.length} students`}
+          {stars.length > 1 ? " · most first" : ""}
+        </p>
       </div>
-      <div className="mt-1 flex flex-wrap gap-x-3 text-[#c9bcb6] tabular-nums">
-        {r.away_now ? <span className="font-bold text-[#ff8a8a]">AWAY NOW</span> : null}
-        <span>
-          Left {r.left} time{r.left === 1 ? "" : "s"}
-        </span>
-        {r.unfocused > 0 ? <span>covered {r.unfocused}×</span> : null}
-        <span>{mmss(r.seconds)} away</span>
-        <span>Class {r.class}</span>
-        {r.status === "submitted" ? <span className="text-[#9c8c86]">handed in</span> : null}
-      </div>
-    </>
+      {stars.length === 0 ? (
+        <p className="text-[14px] leading-relaxed text-[#CDBFB6]">
+          Nobody has a star. After warning a student, open their name in Watch or Find and give one. Up to {MAX_STARS}.
+        </p>
+      ) : (
+        <ul className="flex flex-col gap-[7px]">
+          {stars.map((r) => {
+            const a = away.find((x) => x.uid === r.uid);
+            return (
+              <StudentLine
+                key={r.uid}
+                uid={r.uid}
+                name={r.name}
+                stars={r.stars}
+                strength={r.stars >= MAX_STARS || a?.away_now ? "strong" : "watch"}
+                awayNow={Boolean(a?.away_now && a.status !== "submitted")}
+                meta={a ? awayMeta(a, true) : `Has not left the paper · Class ${r.class}`}
+                desk={desk}
+              />
+            );
+          })}
+        </ul>
+      )}
+      <p className="text-[12.5px] leading-relaxed text-[#B8A99F]">
+        A star records a warning you gave in person. Every star given or taken back is written down with your name and
+        the time.
+      </p>
+    </div>
   );
 }
 
 /** ★★☆ — nothing at all when there are none, so a clean row stays clean. */
-function Stars({ count }: { count: number }) {
+function StarMark({ count, size }: { count: number; size: number }) {
   if (count <= 0) return null;
   return (
-    <span className="ml-1.5 whitespace-nowrap text-[#f0b94a]" aria-label={`${count} of ${MAX_STARS} stars`}>
-      {"★".repeat(count)}
-      <span className="text-[#4a3f3b]">{"★".repeat(Math.max(0, MAX_STARS - count))}</span>
+    <span
+      className="shrink-0 whitespace-nowrap leading-none"
+      style={{ fontSize: size, letterSpacing: size >= 20 ? 2 : 1 }}
+      aria-label={`${count} of ${MAX_STARS} stars`}
+    >
+      <span className="text-[#E5BE7A]">{"★".repeat(count)}</span>
+      <span className="text-[rgba(242,233,218,.22)]">{"★".repeat(Math.max(0, MAX_STARS - count))}</span>
     </span>
   );
 }
 
+const Chevron = ({ open }: { open: boolean }) => (
+  <span
+    aria-hidden
+    className={`mx-1 mb-1 h-[9px] w-[9px] shrink-0 border-b-2 border-r-2 border-[#CDBFB6] transition-transform ${
+      open ? "-rotate-[135deg] mb-0 mt-1" : "rotate-45"
+    }`}
+  />
+);
+
 /**
  * A star is a warning given in the room: the invigilator has spoken to the
  * student and records it, up to three. What three leads to is not decided yet
- * (8 Oct 2026); the count is kept and audited, and nothing acts on it.
+ * (8 Oct 2026); the count is kept and audited, and nothing acts on it. While a
+ * tap is saving both buttons lock, so a double-tap cannot give two stars.
  */
 function StarButtons({
   uid,
@@ -407,11 +629,11 @@ function StarButtons({
   desk: Desk;
   onChange: (stars: number) => void;
 }) {
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState<1 | -1 | null>(null);
   const [note, setNote] = useState<string | null>(null);
 
   async function change(by: 1 | -1) {
-    setBusy(true);
+    setBusy(by);
     setNote(null);
     try {
       const data = await post(desk, { star: uid, by });
@@ -422,53 +644,78 @@ function StarButtons({
     } catch {
       setNote("No connection. Try again.");
     } finally {
-      setBusy(false);
+      setBusy(null);
     }
   }
 
   return (
-    <div className="mt-2 text-xs">
-      <div className="flex flex-wrap items-center gap-2">
+    <div>
+      <div className="flex flex-wrap items-center gap-2.5">
         <button
           type="button"
-          disabled={busy || stars >= MAX_STARS}
+          disabled={busy !== null || stars >= MAX_STARS}
           onClick={() => change(1)}
-          className="rounded border border-[#8a6a2a] px-2 py-1 text-[#f0b94a] hover:bg-[#2a2216] disabled:opacity-40"
+          className={`flex min-h-12 items-center gap-2 rounded-xl px-[18px] text-[15px] font-bold text-[#2B1A1C] ${
+            busy === 1 ? "bg-[#A88A42]" : "bg-[#C9A24B] disabled:opacity-[.32]"
+          }`}
         >
-          ★ Give a star
+          {busy === 1 ? <Spinner /> : null}
+          {busy === 1 ? "Saving…" : "★ Give a star"}
         </button>
         <button
           type="button"
-          disabled={busy || stars <= 0}
+          disabled={busy !== null || stars <= 0}
           onClick={() => change(-1)}
-          className="rounded border border-[#3a2f2c] px-2 py-1 text-[#c9b8b2] hover:bg-[#241c1a] disabled:opacity-40"
+          className={`flex min-h-12 items-center gap-2 rounded-xl border-[1.5px] px-4 text-[15px] font-semibold ${
+            busy !== null
+              ? "border-[rgba(242,233,218,.25)] text-[#B8A99F]"
+              : "border-[rgba(242,233,218,.45)] text-[#FDFBF7] disabled:opacity-[.32]"
+          }`}
         >
-          Take one back
+          {busy === -1 ? <Spinner light /> : null}
+          {busy === -1 ? "Saving…" : "Take one back"}
         </button>
-        <span className="text-[#9c8c86]">
-          {stars === 0 ? "No stars" : `${stars} of ${MAX_STARS}`}
-          {stars >= MAX_STARS ? " — the most" : ""}
+        <span className="text-[13.5px] text-[#CDBFB6]">
+          {stars >= MAX_STARS ? `${MAX_STARS} of ${MAX_STARS} — the most` : `${stars} of ${MAX_STARS}`}
         </span>
       </div>
-      {note ? <p className="mt-1 text-[#d98b8b]">{note}</p> : null}
+      {note ? <p className="mt-1.5 text-[13px] text-[#E5BE7A]">{note}</p> : null}
     </div>
   );
 }
 
+const Spinner = ({ light }: { light?: boolean }) => (
+  <span
+    aria-hidden
+    className={`inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-t-transparent ${
+      light ? "border-[#B8A99F]" : "border-[#2B1A1C]"
+    }`}
+  />
+);
+
 /**
- * One student in a desk list. A tap opens who they are, their stars, and each
- * time the paper left their screen — fetched on the tap, not with the list.
+ * One student in a desk list, in one of three strengths: strongest (away now,
+ * or 3 stars) with a gold border; "watch"; or a single quiet line. A tap opens
+ * who they are, the star controls, and each time the paper left their screen —
+ * fetched on the tap, not with the list. Star controls live only in here, so
+ * nobody gives a star by brushing a list while walking.
  */
 function StudentLine({
   uid,
+  name,
+  stars,
+  strength,
+  awayNow,
+  meta,
   desk,
-  tone,
-  head,
 }: {
   uid: string;
+  name: string;
+  stars: number;
+  strength: Strength;
+  awayNow?: boolean;
+  meta: string;
   desk: Desk;
-  tone: "red" | "amber" | "plain";
-  head: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const [detail, setDetail] = useState<Detail | null>(null);
@@ -487,189 +734,216 @@ function StudentLine({
     }
   }
 
-  const border =
-    tone === "red"
-      ? "border-[#b23a3a] bg-[#3a1a1a]"
-      : tone === "amber"
-        ? "border-[#8a6a2a] bg-[#2a2216]"
-        : "border-[#2a2321]";
+  const id = `${uid.slice(0, 3)} ${uid.slice(3, 6)} ${uid.slice(6)}`;
 
-  return (
-    <li className={`rounded border text-xs ${border}`}>
-      <button type="button" onClick={toggle} aria-expanded={open} className="block w-full px-3 py-2 text-left">
-        {head}
-      </button>
-      {open ? (
-        <div className="border-t border-[#2a2321] px-3 py-2 text-[#c9bcb6]">
-          {note ? (
-            <p className="text-[#d98b8b]">{note}</p>
-          ) : !detail ? (
-            <p className="text-[#9c8c86]">Loading…</p>
+  const body = open ? (
+    <div className="mt-1.5 flex flex-col gap-3 border-t border-[rgba(242,233,218,.16)] pt-3">
+      {note ? (
+        <p className="text-[14px] text-[#E5BE7A]">{note}</p>
+      ) : !detail ? (
+        <p className="text-[14px] text-[#CDBFB6]">Loading…</p>
+      ) : (
+        <>
+          <p className="text-[14px] leading-normal text-[#EDE3D8]">
+            Class {detail.class} · {detail.school_name}
+            <br />
+            {detail.home_centre !== desk.centre ? `Registered at ${detail.home_centre} · ` : ""}
+            {detail.checked_in_at ? `checked in ${clock(detail.checked_in_at)}` : "not checked in"}
+          </p>
+          <StarButtons uid={uid} stars={detail.stars} desk={desk} onChange={(n) => setDetail({ ...detail, stars: n })} />
+          {detail.periods.length > 0 ? (
+            <ol className="flex flex-col gap-[3px] font-mono text-[13px] tabular-nums text-[#EDE3D8]">
+              {detail.periods.map((p) => (
+                <li key={p.left_at} className="flex flex-wrap gap-1.5">
+                  <span>
+                    Left {clock(p.left_at)} →{p.back_at ? ` back ${clock(p.back_at)}` : ""}
+                  </span>
+                  {p.back_at ? null : <span className="font-bold text-[#E5BE7A]">not back</span>}
+                  {p.how === "unfocused" ? <span className="text-[#CDBFB6]">· covered</span> : null}
+                </li>
+              ))}
+            </ol>
           ) : (
-            <>
-              <p>
-                Class {detail.class} · {detail.school_name}
-              </p>
-              <p className="text-[#9c8c86]">
-                {detail.home_centre !== desk.centre ? `Registered at ${detail.home_centre} · ` : ""}
-                {detail.checked_in_at ? `checked in ${clock(detail.checked_in_at)}` : "not checked in"}
-              </p>
-              <StarButtons
-                uid={uid}
-                stars={detail.stars}
-                desk={desk}
-                onChange={(stars) => setDetail({ ...detail, stars })}
-              />
-              {detail.periods.length > 0 ? (
-                <ol className="mt-2 space-y-0.5 font-mono tabular-nums text-[#9c8c86]">
-                  {detail.periods.map((p) => (
-                    <li key={p.left_at}>
-                      Left {clock(p.left_at)} → {p.back_at ? `back ${clock(p.back_at)}` : <span className="text-[#ff8a8a]">not back</span>}
-                      {p.how === "unfocused" ? " · covered" : ""}
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                <p className="mt-2 text-[#9c8c86]">Has not left the paper.</p>
-              )}
-            </>
+            <p className="text-[14px] text-[#CDBFB6]">Has not left the paper.</p>
           )}
-        </div>
-      ) : null}
+        </>
+      )}
+    </div>
+  ) : null;
+
+  if (strength === "quiet") {
+    return (
+      <li className={`border-t border-[rgba(242,233,218,.10)] ${open ? "pb-3" : ""}`}>
+        <button
+          type="button"
+          onClick={toggle}
+          aria-expanded={open}
+          className="flex min-h-10 w-full items-baseline gap-2.5 px-1 pt-1.5 text-left text-[#E2D6CB]"
+        >
+          <span className="text-[14.5px] font-semibold text-[#FDFBF7]">{name}</span>
+          <span className="font-mono text-[12px] text-[#B8A99F]">{id}</span>
+          <StarMark count={stars} size={14} />
+          <span className="min-w-0 flex-1 text-right text-[13px] text-[#CDBFB6]">{meta}</span>
+        </button>
+        {body ? <div className="px-1">{body}</div> : null}
+      </li>
+    );
+  }
+
+  const strong = strength === "strong";
+  return (
+    <li
+      className={`rounded-[14px] px-3.5 py-2.5 ${
+        strong ? "border-2 border-[#C9A24B] bg-[#3A1C22]" : "border border-[rgba(242,233,218,.16)] bg-[#261318]"
+      }`}
+    >
+      <button type="button" onClick={toggle} aria-expanded={open} className="flex w-full flex-col gap-1.5 text-left">
+        <span className="flex w-full items-center gap-3">
+          <span className="min-w-0 flex-1">
+            <span className={`block font-bold leading-tight ${strong ? "text-[18px]" : "text-[17px]"}`}>{name}</span>
+            <span className={`block font-mono tabular-nums text-[#CDBFB6] ${strong ? "text-[13.5px]" : "text-[13px]"}`}>{id}</span>
+          </span>
+          <StarMark count={stars} size={strong ? 22 : 20} />
+          <Chevron open={open} />
+        </span>
+        <span className="flex flex-wrap items-center gap-2">
+          {awayNow ? (
+            <span className="rounded-md bg-[#E5BE7A] px-[9px] py-1 text-[12.5px] font-extrabold tracking-[0.1em] text-[#3D0A10]">
+              AWAY NOW
+            </span>
+          ) : null}
+          <span className={`text-[14px] leading-snug ${strong ? "text-[#EDE3D8]" : "text-[#E2D6CB]"}`}>{meta}</span>
+        </span>
+      </button>
+      {body}
     </li>
   );
 }
 
-/** Everyone the invigilator has given a star on this paper, most first. */
-function StarList({ rows, desk }: { rows: Starred[]; desk: Desk }) {
-  return (
-    <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4">
-      <h3 className="text-sm font-bold">
-        Stars <span className="font-mono font-normal text-[#9c8c86]">{rows.length}</span>
-      </h3>
-      {rows.length === 0 ? (
-        <p className="mt-2 text-xs text-[#9c8c86]">
-          Nobody has a star. After warning a student, tap their name — in a list here, or with Find a
-          student below — and give one. Up to {MAX_STARS}.
-        </p>
-      ) : (
-        <ul className="mt-3 space-y-2">
-          {rows.map((r) => (
-            <StudentLine
-              key={r.uid}
-              uid={r.uid}
-              desk={desk}
-              tone={r.stars >= MAX_STARS ? "red" : "amber"}
-              head={
-                <div className="flex items-baseline justify-between gap-2">
-                  <span className="truncate font-semibold text-[#e8e0dc]">
-                    {r.name}
-                    <Stars count={r.stars} />
-                  </span>
-                  <span className="shrink-0 font-mono text-[#9c8c86]">{r.uid}</span>
-                </div>
-              }
-            />
-          ))}
-        </ul>
-      )}
-    </section>
-  );
-}
-
-function Stat({ k, v, strong }: { k: string; v: string; strong?: boolean }) {
-  return (
-    <div>
-      <dt className="text-xs text-[#6b5c57]">{k}</dt>
-      <dd className={`font-mono text-xl ${strong ? "text-[#8fbfae]" : "text-[#e8e0dc]"}`}>{v}</dd>
-    </div>
-  );
-}
-
 /**
- * Find one student -- the one whose phone just died, or the one just warned --
- * to let their paper carry on on another phone, or to give them a star.
+ * Find one student — the one just warned, or the one whose phone has died —
+ * to give a star or let their paper carry on on another phone. Moving is
+ * confirmed in place, inside the card, not in a pop-up over the list.
  */
 function FindStudent({ desk }: { desk: Desk }) {
   const [q, setQ] = useState("");
   const [rows, setRows] = useState<Student[] | null>(null);
   const [note, setNote] = useState<{ ok: boolean; text: string } | null>(null);
+  const [confirming, setConfirming] = useState<string | null>(null);
 
   async function search(e?: React.FormEvent) {
     e?.preventDefault();
-    const data = await post(desk, { q });
-    setRows(data.ok ? data.students : []);
-    if (!data.ok) setNote({ ok: false, text: data.message });
+    try {
+      const data = await post(desk, { q });
+      setRows(data.ok ? data.students : []);
+      setNote(data.ok ? null : { ok: false, text: data.message });
+    } catch {
+      setNote({ ok: false, text: "No connection. Try again." });
+    }
   }
 
   async function release(s: Student) {
-    if (!window.confirm(`Move ${s.name}'s paper to another phone?\n\nThey keep every answer and the same time. The phone it was on can no longer save.`)) return;
     const data = await post(desk, { release: s.uid });
+    setConfirming(null);
     setNote({ ok: data.ok, text: data.message });
     if (data.ok) search();
   }
 
   return (
-    <section className="rounded border border-[#2a2321] bg-[#1a1514] p-4">
-      <h3 className="text-sm font-bold">Find a student</h3>
-      <p className="mt-1 text-xs text-[#6b5c57]">
-        To give a star, or when a phone has died: find the student, move their paper, then have them sign
-        in on the other phone and open the paper.
-      </p>
-      <form onSubmit={search} className="mt-3 flex gap-2">
+    <div className="flex flex-col gap-2.5">
+      <form
+        onSubmit={search}
+        className="flex h-[52px] items-center gap-2.5 rounded-xl border-[1.5px] border-[rgba(242,233,218,.25)] bg-[#241216] px-3.5 focus-within:border-[#E5BE7A] lg:h-12"
+      >
+        <Search size={18} strokeWidth={1.9} className="shrink-0 text-[#E5BE7A]" />
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Name or User ID"
-          className="w-full rounded border border-[#3a2f2c] bg-[#141010] px-3 py-2 text-sm text-[#e8e0dc] outline-none focus:border-[#8a6f66]"
+          enterKeyHint="search"
+          className={`min-w-0 flex-1 bg-transparent text-[#FDFBF7] outline-none placeholder:text-[#B8A99F] ${q ? "font-mono text-[16px]" : "text-[15px]"}`}
         />
-        <button type="submit" className="rounded border border-[#3a2f2c] px-3 text-sm text-[#c9b8b2] hover:bg-[#241c1a]">
-          Find
-        </button>
       </form>
-      {note ? <p className={`mt-2 text-xs ${note.ok ? "text-[#8fbfae]" : "text-[#d98b8b]"}`}>{note.text}</p> : null}
+      {note ? <p className={`text-[13.5px] ${note.ok ? "text-[#CDBFB6]" : "text-[#E5BE7A]"}`}>{note.text}</p> : null}
       {rows ? (
         rows.length === 0 ? (
-          <p className="mt-3 text-xs text-[#6b5c57]">Nobody by that name at this centre.</p>
+          <p className="text-[13.5px] text-[#B8A99F]">Nobody by that name at this centre.</p>
         ) : (
-          <ul className="mt-3 divide-y divide-[#2a2321]">
-            {rows.map((s) => (
-              <li key={s.uid} className="py-2 text-xs">
-                <p className="text-sm text-[#e8e0dc]">
-                  {s.name}
-                  <Stars count={s.stars} /> <span className="font-mono text-[#6b5c57]">{s.uid}</span>
-                </p>
-                <p className="text-[#9c8c86]">
-                  Class {s.class}
-                  {s.home_centre !== desk.centre ? ` · registered at ${s.home_centre}` : ""} ·{" "}
-                  {!s.checked_in_at
-                    ? "not checked in"
-                    : s.status === "submitted"
-                      ? "submitted"
-                      : s.status === "in_progress"
-                        ? `writing · ${s.answered} answered${s.released ? " · released, waiting for the new phone" : ""}`
-                        : "checked in, not started"}
-                </p>
-                <StarButtons
-                  uid={s.uid}
-                  stars={s.stars}
-                  desk={desk}
-                  onChange={(stars) => setRows((rs) => rs?.map((x) => (x.uid === s.uid ? { ...x, stars } : x)) ?? null)}
-                />
-                {s.status === "in_progress" && !s.released ? (
-                  <button
-                    type="button"
-                    onClick={() => release(s)}
-                    className="mt-1 rounded border border-[#3a2f2c] px-2 py-0.5 text-[#c9b8b2] hover:bg-[#241c1a]"
-                  >
-                    Move to another phone
-                  </button>
-                ) : null}
-              </li>
-            ))}
+          <ul className="flex flex-col gap-2.5">
+            {rows.map((s) => {
+              const state = !s.checked_in_at
+                ? "not checked in"
+                : s.status === "submitted"
+                  ? "submitted"
+                  : s.status === "in_progress"
+                    ? s.released
+                      ? "released, waiting for the new phone"
+                      : `writing · ${s.answered} answered`
+                    : "checked in, not started";
+              const canMove = s.status === "in_progress" && !s.released;
+              return (
+                <li
+                  key={s.uid}
+                  className="flex flex-col gap-[11px] rounded-[14px] border border-[rgba(242,233,218,.16)] bg-[#261318] px-4 py-3.5"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[17px] font-bold">{s.name}</p>
+                      <p className="font-mono text-[13px] text-[#CDBFB6]">
+                        {s.uid.slice(0, 3)} {s.uid.slice(3, 6)} {s.uid.slice(6)}
+                      </p>
+                    </div>
+                    <StarMark count={s.stars} size={20} />
+                  </div>
+                  <p className="text-[14px] leading-snug text-[#E2D6CB]">
+                    Class {s.class}
+                    {s.home_centre !== desk.centre ? ` · registered at ${s.home_centre}` : ""} · {state}
+                  </p>
+                  <StarButtons
+                    uid={s.uid}
+                    stars={s.stars}
+                    desk={desk}
+                    onChange={(n) => setRows((rs) => rs?.map((x) => (x.uid === s.uid ? { ...x, stars: n } : x)) ?? null)}
+                  />
+                  {canMove && confirming !== s.uid ? (
+                    <button
+                      type="button"
+                      onClick={() => setConfirming(s.uid)}
+                      className="min-h-12 rounded-xl border-[1.5px] border-[rgba(242,233,218,.45)] text-[15px] font-semibold hover:bg-[#2e171d]"
+                    >
+                      Move to another phone
+                    </button>
+                  ) : null}
+                  {canMove && confirming === s.uid ? (
+                    <div className="flex flex-col gap-3 rounded-xl bg-[#FDFBF7] px-4 py-3.5 text-[#2B1A1C]">
+                      <p className="text-[15px] leading-normal">
+                        Move {s.name}&rsquo;s paper to another phone? They keep every answer and the same time. The phone it
+                        was on can no longer save.
+                      </p>
+                      <div className="flex gap-2.5">
+                        <button
+                          type="button"
+                          onClick={() => setConfirming(null)}
+                          className="min-h-12 flex-1 rounded-[11px] border-[1.5px] border-[#D9CDBB] text-[15px] font-semibold"
+                        >
+                          Keep it here
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => release(s)}
+                          className="min-h-12 flex-[1.3] rounded-[11px] bg-[#7B1E2B] text-[15px] font-bold text-[#FDFBF7]"
+                        >
+                          Move the paper
+                        </button>
+                      </div>
+                    </div>
+                  ) : null}
+                </li>
+              );
+            })}
           </ul>
         )
       ) : null}
-    </section>
+    </div>
   );
 }

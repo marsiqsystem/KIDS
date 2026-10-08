@@ -45,7 +45,11 @@ function Screens() {
           <Stack.Screen name="sign-in" />
         </Stack.Protected>
         <Stack.Protected guard={Boolean(token)}>
-          <Stack.Screen name="index" />
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="notices" />
+          <Stack.Screen name="subjects" />
+          <Stack.Screen name="password" />
+          <Stack.Screen name="set" />
         </Stack.Protected>
       </Stack>
     </>

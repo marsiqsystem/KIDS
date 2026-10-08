@@ -41,6 +41,12 @@ type Session = {
   endedBecause: "moved" | null;
   signIn: (uid: string, password: string) => Promise<SignInResult>;
   signOut: () => Promise<void>;
+  /**
+   * Any signed-in API call. If the server refuses the token — expired, or the
+   * account has moved to another phone — the phone is signed out here, once,
+   * and the layout takes the student back to the front door.
+   */
+  call: <T>(path: string, opts?: { method?: "GET" | "POST"; body?: unknown }) => Promise<T>;
 };
 
 const Ctx = createContext<Session | null>(null);
@@ -115,7 +121,19 @@ export function SessionProvider({ children }: PropsWithChildren) {
 
   const signOut = useCallback(() => forget(null), [forget]);
 
+  const call = useCallback(
+    async <T,>(path: string, opts: { method?: "GET" | "POST"; body?: unknown } = {}): Promise<T> => {
+      try {
+        return await api<T>(path, { ...opts, token });
+      } catch (e) {
+        if (e instanceof SignedOut) await forget(e.reason === "moved" ? "moved" : null);
+        throw e;
+      }
+    },
+    [token, forget],
+  );
+
   return (
-    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, signOut }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, signOut, call }}>{children}</Ctx.Provider>
   );
 }

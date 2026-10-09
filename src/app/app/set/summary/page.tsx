@@ -1,27 +1,21 @@
 import Link from "next/link";
 import { Check, Minus, X } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
-import { loopState, answersFor, streakFor, istToday } from "@/lib/app/loop";
-import { chapterOf, sectionOf } from "@/lib/app/bank";
-import { subjectHue } from "@/lib/app/subjects";
+import { setSummary } from "@/lib/app/answer";
 import { Ring, Streak } from "@/components/app/kit";
 
 /**
  * The summary. Redesign board 02, 2E — the score is the hero.
  *
- * "Coming back" is read from the schedule that was actually written when each
- * answer was recorded, not recomputed here. If the two ever disagreed, the
- * student would have been told one thing and the app would do another. A
- * question not reached is not counted against anyone — it is still unseen.
+ * Counted by setSummary (src/lib/app/answer.ts), which the native app's
+ * summary reads too.
  */
 export const dynamic = "force-dynamic";
 
-const istDate = (date: Date) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(date);
-
 export default async function SummaryPage() {
   const student = await requireStudent();
-  const state = await loopState(student);
-  if (!state.set) {
+  const summary = await setSummary(student);
+  if (!summary) {
     return (
       <div className="app-frame">
         <div className="app-body">
@@ -34,15 +28,7 @@ export default async function SummaryPage() {
     );
   }
 
-  const [answers, streak] = await Promise.all([answersFor(student.uid), streakFor(student.uid)]);
-  const today = istToday();
-  const rows = state.set.questionIds.map((id) => {
-    const row = answers.get(id) ?? null;
-    return { id, row: row && istDate(row.last_answered_at) === today ? row : null };
-  });
-  const correct = rows.filter((r) => r.row?.was_correct).length;
-  const { supply } = state;
-  const newToday = [...answers.values()].filter((a) => istDate(a.first_seen_at) === today).length;
+  const { rows, correct, streak, supply, newToday, today } = summary;
 
   return (
     <div className="app-frame">
@@ -53,11 +39,11 @@ export default async function SummaryPage() {
         </div>
         <p className="sum-hero__line">right today</p>
         <div className="k-pips k-pips--small k-pips--on-dark sum-hero__pips">
-          {rows.map(({ id, row }, i) => (
-            <span key={id} className={`k-pip k-pip--${!row ? "todo" : row.was_correct ? "right" : "wrong"}`}>
-              {!row ? (
+          {rows.map(({ id, right }, i) => (
+            <span key={id} className={`k-pip k-pip--${right === null ? "todo" : right ? "right" : "wrong"}`}>
+              {right === null ? (
                 <Minus size={16} aria-label={`${i + 1}, not reached`} />
-              ) : row.was_correct ? (
+              ) : right ? (
                 <Check size={19} aria-label={`${i + 1}, right`} />
               ) : (
                 <X size={19} aria-label={`${i + 1}, not this time`} />
@@ -80,17 +66,16 @@ export default async function SummaryPage() {
         <div className="k-card">
           <div className="k-label">Coming back</div>
           <ul className="sum-back">
-            {rows.map(({ id, row }) => {
-              const chapter = chapterOf(id) ?? sectionOf(id) ?? "Question";
+            {rows.map(({ id, chapter, hue, right, days }) => {
               return (
                 <li key={id}>
-                  <span className="sum-back__dot" style={{ background: subjectHue(sectionOf(id) ?? "") }} />
+                  <span className="sum-back__dot" style={{ background: hue }} />
                   <span className="sum-back__name" title={chapter}>
                     {chapter}
                   </span>
-                  {row ? (
-                    <span className={`k-chip ${row.was_correct ? "k-chip--grey" : "k-chip--again"}`}>
-                      {row.interval_days} day{row.interval_days === 1 ? "" : "s"}
+                  {right !== null ? (
+                    <span className={`k-chip ${right ? "k-chip--grey" : "k-chip--again"}`}>
+                      {days} day{days === 1 ? "" : "s"}
                     </span>
                   ) : (
                     <span className="k-chip k-chip--line">Not reached</span>

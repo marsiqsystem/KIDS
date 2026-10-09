@@ -53,6 +53,8 @@ function Screens() {
           <Stack.Screen name="summary" />
           <Stack.Screen name="chapter/[key]" />
           <Stack.Screen name="practice/[key]" />
+          <Stack.Screen name="paper/online" />
+          <Stack.Screen name="paper/written" />
         </Stack.Protected>
       </Stack>
     </>

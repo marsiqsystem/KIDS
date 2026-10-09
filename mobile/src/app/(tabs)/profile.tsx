@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as WebBrowser from "expo-web-browser";
 import Constants from "expo-constants";
-import { Bell, BookOpen, Flame, KeyRound, LogOut, Mail, PencilLine, ShieldCheck, Smartphone } from "lucide-react-native";
+import { Bell, BookOpen, Flame, KeyRound, LogOut, Mail, PencilLine, ShieldCheck, Smartphone, Trash2 } from "lucide-react-native";
 import { Btn, Card, Loading, Offline, Row, Screen, s } from "@/components/kit";
 import { useScreen } from "@/hooks/useScreen";
 import { useSession } from "@/lib/session";
@@ -114,6 +114,7 @@ export default function Profile() {
           title="My details are wrong"
           onPress={() => WebBrowser.openBrowserAsync(`${API_URL}/app/profile/details`)}
         />
+        <Row icon={<Trash2 size={20} color={color.maroon} />} title="Delete my account" onPress={() => router.push("/delete-account")} />
 
         {/* Only once there is a second phone to show. */}
         {data.phones.length > 1 ? (

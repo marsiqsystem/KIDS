@@ -111,13 +111,15 @@ export function BellButton({ unread }: { unread: number }) {
 }
 
 /** A white title bar with a back arrow, for screens pushed over the tabs. */
-export function Head({ title, aside }: { title: string; aside?: ReactNode }) {
+export function Head({ title, aside, back = true }: { title: string; aside?: ReactNode; back?: boolean }) {
   const insets = useSafeAreaInsets();
   return (
-    <View style={[s.head, { paddingTop: insets.top + 6 }]}>
-      <Pressable onPress={() => router.back()} style={s.headBack} accessibilityLabel="Back" hitSlop={6}>
-        <ArrowLeft size={24} color={color.ink} />
-      </Pressable>
+    <View style={[s.head, { paddingTop: insets.top + 6 }, !back && { paddingLeft: 16 }]}>
+      {back ? (
+        <Pressable onPress={() => router.back()} style={s.headBack} accessibilityLabel="Back" hitSlop={6}>
+          <ArrowLeft size={24} color={color.ink} />
+        </Pressable>
+      ) : null}
       <Text style={s.headTitle} accessibilityRole="header" numberOfLines={1}>
         {title}
       </Text>

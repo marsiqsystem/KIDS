@@ -30,17 +30,28 @@ export type Student = {
 
 export type SignInResult =
   | { ok: true; mustChange: boolean }
-  | { ok: false; field: "uid" | "password"; message: string; next?: { label: string; to: "claim" | "reset" } };
+  | { ok: false; field: "uid" | "password"; message: string; next?: { label: string; to: "claim" | "reset" | "ask" | "signin" } };
 
 type Session = {
   /** Still reading storage on launch: show nothing yet. */
   loading: boolean;
   token: string | null;
   student: Student | null;
-  /** Why the last session ended, when the server ended it. */
-  endedBecause: "moved" | null;
+  /** Why the last session ended, when the server or a deletion ended it. */
+  endedBecause: "moved" | "deleted" | null;
   signIn: (uid: string, password: string) => Promise<SignInResult>;
+  /**
+   * The account is on a one-time password (office-issued, or opened by an
+   * approval). Until it is replaced the app shows only "choose your password".
+   */
+  mustChange: boolean;
+  /** A session handed over by claiming or by an approval: keep it, as sign-in does. */
+  adopt: (token: string, mustChange: boolean) => Promise<void>;
+  /** The one-time password was replaced: the app opens. */
+  passwordChosen: () => void;
   signOut: () => Promise<void>;
+  /** The account was just deleted: forget the token and say so at the door. */
+  deleted: () => Promise<void>;
   /**
    * Any signed-in API call. If the server refuses the token — expired, or the
    * account has moved to another phone — the phone is signed out here, once,
@@ -59,7 +70,8 @@ export function useSession(): Session {
   return value;
 }
 
-async function deviceId(): Promise<string> {
+/** This installation's id (32 hex), made once and kept — what device binding and approvals key on. */
+export async function deviceId(): Promise<string> {
   const known = await SecureStore.getItemAsync(DEVICE);
   if (known && /^[0-9a-f]{32}$/.test(known)) return known;
   const id = Array.from(getRandomBytes(16), (b) => b.toString(16).padStart(2, "0")).join("");
@@ -71,12 +83,14 @@ export function SessionProvider({ children }: PropsWithChildren) {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
   const [student, setStudent] = useState<Student | null>(null);
-  const [endedBecause, setEndedBecause] = useState<"moved" | null>(null);
+  const [endedBecause, setEndedBecause] = useState<"moved" | "deleted" | null>(null);
+  const [mustChange, setMustChange] = useState(false);
 
-  const forget = useCallback(async (why: "moved" | null) => {
+  const forget = useCallback(async (why: "moved" | "deleted" | null) => {
     await SecureStore.deleteItemAsync(TOKEN);
     setToken(null);
     setStudent(null);
+    setMustChange(false);
     setEndedBecause(why);
   }, []);
 
@@ -84,8 +98,9 @@ export function SessionProvider({ children }: PropsWithChildren) {
   const load = useCallback(
     async (t: string) => {
       try {
-        const me = await api<{ ok: true; student: Student }>("/me", { token: t });
+        const me = await api<{ ok: true; student: Student; mustChange?: boolean }>("/me", { token: t });
         setStudent(me.student);
+        setMustChange(Boolean(me.mustChange));
       } catch (e) {
         if (e instanceof SignedOut) await forget(e.reason === "moved" ? "moved" : null);
         // Anything else is the network: keep the session, show what we have.
@@ -105,6 +120,19 @@ export function SessionProvider({ children }: PropsWithChildren) {
     })();
   }, [load]);
 
+  /** Keep a session the server has just issued, from whichever door it came. */
+  const keep = useCallback(
+    async (t: string, must: boolean) => {
+      await SecureStore.setItemAsync(TOKEN, t);
+      setEndedBecause(null);
+      setMustChange(must);
+      setToken(t);
+      await load(t);
+    },
+    [load],
+  );
+  const passwordChosen = useCallback(() => setMustChange(false), []);
+
   const signIn = useCallback(
     async (uid: string, password: string): Promise<SignInResult> => {
       const res = await api<
@@ -112,16 +140,20 @@ export function SessionProvider({ children }: PropsWithChildren) {
         | Extract<SignInResult, { ok: false }>
       >("/session", { method: "POST", body: { uid, password, deviceId: await deviceId() } });
       if (!res.ok) return res;
-      await SecureStore.setItemAsync(TOKEN, res.token);
-      setEndedBecause(null);
-      setToken(res.token);
-      await load(res.token);
+      await keep(res.token, res.mustChange);
       return { ok: true, mustChange: res.mustChange };
     },
-    [load],
+    [keep],
   );
 
-  const signOut = useCallback(() => forget(null), [forget]);
+  // Before the token goes: tell the server this phone stops receiving this
+  // account's notifications, or a shared handset would go on ringing for a
+  // child who has signed out. Best effort — signing out never waits on signal.
+  const signOut = useCallback(async () => {
+    if (token) await api("/push", { method: "POST", body: { token: null }, token }).catch(() => {});
+    await forget(null);
+  }, [token, forget]);
+  const deleted = useCallback(() => forget("deleted"), [forget]);
 
   const call = useCallback(
     async <T,>(path: string, opts: { method?: "GET" | "POST"; body?: unknown } = {}): Promise<T> => {
@@ -148,6 +180,6 @@ export function SessionProvider({ children }: PropsWithChildren) {
   );
 
   return (
-    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, signOut, call, exam }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, mustChange, adopt: keep, passwordChosen, signOut, deleted, call, exam }}>{children}</Ctx.Provider>
   );
 }

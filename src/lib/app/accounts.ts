@@ -252,3 +252,21 @@ export async function changePassword(
   await setPassword(uid, next);
   return { ok: true };
 }
+
+/**
+ * Step one of claiming: is this a child we can check by date of birth?
+ *
+ * Tells only what sign-in already tells anybody who types a UID -- unknown,
+ * already open, or open to claim -- plus whether a date of birth is on file.
+ * It never says whether a typed date is right: that is checked with the
+ * password, in claimAccount, so this cannot be used to guess a birthday.
+ * Shared by the website's claimCheckAction and the app's /door/claim-check.
+ */
+export async function claimCheck(rawUid: string): Promise<"unknown" | "claimed" | "no_dob" | "ok"> {
+  const uid = String(rawUid ?? "").replace(/\D/g, "");
+  if (uid.length !== 9) return "unknown";
+  const student = await findStudent(uid);
+  if (!student) return "unknown";
+  if (await findAccount(uid)) return "claimed";
+  return student.dob ? "ok" : "no_dob";
+}

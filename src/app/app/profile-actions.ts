@@ -3,12 +3,14 @@
 import { redirect } from "next/navigation";
 import { requireStudent } from "@/lib/app/gate";
 import { changePassword, findAccount } from "@/lib/app/accounts";
+import { deleteAppAccount } from "@/lib/app/delete-account";
+import { destroySession } from "@/lib/app/session";
 
 /**
  * Profile's server actions. Design 7a.
  *
- * There is exactly one thing on that screen that writes: the password. Subjects
- * are changed through the chooser the daily loop already owns, and everything
+ * Two things on that screen write: the password, and deleting the account.
+ * Subjects are changed through the chooser the daily loop already owns, and everything
  * else on Profile is the exam record read back, which nothing in this app is
  * allowed to edit.
  */
@@ -74,4 +76,26 @@ export async function changePasswordAction(
   }
 
   redirect("/app/profile?changed=1");
+}
+
+export type DeleteFormState = {
+  field?: "password" | "confirm";
+  message?: string;
+};
+
+/**
+ * Delete my account — see deleteAppAccount (src/lib/app/delete-account.ts) for
+ * what goes and what stays. On success the session ends with the account, and
+ * the door says the account is gone.
+ */
+export async function deleteAccountAction(_prev: DeleteFormState, formData: FormData): Promise<DeleteFormState> {
+  const student = await requireStudent();
+  const result = await deleteAppAccount(
+    student.uid,
+    String(formData.get("password") ?? ""),
+    String(formData.get("confirm") ?? ""),
+  );
+  if (!result.ok) return { field: result.field, message: result.message };
+  await destroySession();
+  redirect("/app/sign-in?deleted=1");
 }

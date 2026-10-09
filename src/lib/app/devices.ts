@@ -143,8 +143,13 @@ export async function bindDevice(
  * poll once cost 110 of them, so a second query per navigation of a daily-use
  * app was never going to be acceptable. See the note in session.ts.
  *
- * A left join, not an inner one: `students` remains the register of who exists,
- * and a student with no `app_accounts` row has simply never claimed.
+ * An INNER join: a session is only good while its account exists. Sessions are
+ * signed tokens with nothing stored behind them, so before 9 Oct 2026 — when
+ * this was a left join — a deleted account's other sessions (a second phone,
+ * the website in a browser) went on working for up to sixty days. Every way a
+ * session is issued (sign-in, claim, approval handoff, the app's POST session)
+ * creates or finds the account first, so a real session always has its row;
+ * a student with no `app_accounts` row has never claimed, or has deleted it.
  */
 export async function findStudentForSession(
   uid: string,
@@ -155,7 +160,7 @@ export async function findStudentForSession(
            coalesce(s.medium, '') as medium,
            a.current_device_id
       from students s
-      left join app_accounts a on a.uid = s.uid
+      join app_accounts a on a.uid = s.uid
      where s.uid = ${uid}
   `) as (Student & { current_device_id: string | null })[];
 

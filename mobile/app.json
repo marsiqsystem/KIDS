@@ -10,7 +10,8 @@
     "backgroundColor": "#FDFBF7",
     "ios": {
       "bundleIdentifier": "org.kidskolkata.set",
-      "supportsTablet": false
+      "supportsTablet": false,
+      "buildNumber": "10"
     },
     "android": {
       "package": "org.kidskolkata.set",
@@ -18,7 +19,8 @@
         "backgroundColor": "#FDFBF7",
         "foregroundImage": "./assets/images/kids-icon.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "versionCode": 10
     },
     "plugins": [
       "expo-router",
@@ -43,6 +45,13 @@
           "cameraPermission": "The camera scans the check-in code on your invigilator's desk, and shows you in a live class when your teacher allows it.",
           "microphonePermission": "The microphone lets you answer in a live class when your teacher allows it.",
           "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#7B1E2B",
+          "defaultChannel": "kids-notices"
         }
       ]
     ],

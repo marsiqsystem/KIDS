@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { signIn, claimAccount, logAppEvent, findAccount } from "@/lib/app/accounts";
+import { signIn, claimAccount, claimCheck, logAppEvent } from "@/lib/app/accounts";
 import { applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
 import { requestCorrection, FIELD_LABEL, type CorrectionField } from "@/lib/app/corrections";
 import { requireStudent } from "@/lib/app/gate";
@@ -11,8 +11,7 @@ import { createSession, destroySession, sessionUid } from "@/lib/app/session";
 import { bindDevice, readDeviceId } from "@/lib/app/devices";
 import { askToOpen, doorStatus, takeHandoff, type DoorStatus } from "@/lib/app/handoff";
 import { tenDigits } from "@/lib/admin/claim-match";
-import { findStudent } from "@/lib/exam/db";
-import { firstName } from "@/lib/exam/portal-auth";
+import { signInRefusal, claimRefusal, askRefusal, registerRefusal, doorHref, type DoorRefusal } from "@/lib/app/door-sentences";
 
 /**
  * Bind the account to the phone it was just opened on, then issue the session
@@ -48,14 +47,11 @@ export type FormState = {
   uid?: string;
 };
 
-const UNKNOWN_ID = (uid: string): FormState => ({
-  field: "uid",
-  // Names nobody. A stranger typing nine digits must not learn whether they
-  // guessed a real child, and a student on the wrong number needs to be told
-  // how the number is built, not who owns it.
-  // Redesign board 03: one sentence that says what to do next.
-  message: "No student with that number. Check the 9 digits on your KIDS card.",
-  action: { label: "Ask the office", href: `/app/reset?id=${uid}` },
+/** A shared refusal (src/lib/app/door-sentences.ts), as this form's state. */
+const asState = <F extends FormState["field"]>(r: DoorRefusal<NonNullable<F>>, uid: string): FormState => ({
+  field: r.field,
+  message: r.message,
+  ...(r.next ? { action: { label: r.next.label, href: doorHref(r.next, uid) } } : {}),
   uid,
 });
 
@@ -81,45 +77,8 @@ export async function signInAction(_prev: FormState, formData: FormData): Promis
     // knows would quietly become the child's permanent one.
     if (result.mustChange) redirect("/app/profile/password?must=1");
   } else {
-    switch (result.reason) {
-      case "unknown_id":
-        return UNKNOWN_ID(result.uid);
-
-      case "unclaimed":
-        return {
-          field: "password",
-          message: `${firstName(result.student.name)}, this account has no password yet. Claim it first.`,
-          action: { label: "Claim your account", href: `/app/claim?id=${uid}` },
-          uid,
-        };
-
-      case "locked":
-        return {
-          field: "password",
-          // Resting, not locked out: the consequence is the app's, not the child's.
-          message: `Three wrong tries. The app rests for ${result.minutes} ${result.minutes === 1 ? "minute" : "minutes"} — or ask the office.`,
-          action: { label: "Show the office my details", href: `/app/reset?id=${uid}` },
-          uid,
-        };
-
-      case "bad_password":
-        return {
-          field: "password",
-          // Names the student back to them, deliberately: on a shared handset
-          // this is the fastest way to see you are typing into your sister's
-          // account. The unknown-ID message above never names anyone.
-          message:
-            `That password is not right for ${firstName(result.student.name)}. ` +
-            (result.triesLeft > 0
-              ? `${result.triesLeft} ${result.triesLeft === 1 ? "try" : "tries"} left before the app rests for 15 minutes.`
-              : `The app now rests for 15 minutes.`),
-          action: { label: "Forgot password", href: `/app/reset?id=${uid}` },
-          uid,
-        };
-
-      default:
-        return { field: "uid", message: "Check your User ID and password.", uid };
-    }
+    // The sentences are shared with the app: src/lib/app/door-sentences.ts.
+    return asState(signInRefusal(result), uid);
   }
 
   // Outside the switch, and outside any try: redirect() works by throwing.
@@ -145,44 +104,7 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
 
   const result = await claimAccount(uid, `${day}-${month}-${year}`, password);
 
-  if (!result.ok) {
-    switch (result.reason) {
-      case "unknown_id":
-        return UNKNOWN_ID(result.uid);
-
-      case "already_claimed":
-        return {
-          field: "uid",
-          message: "This account is already open. Sign in with your password.",
-          action: { label: "Sign in", href: `/app/sign-in?id=${uid}` },
-          uid,
-        };
-
-      case "no_dob":
-        // 1,061 children on the register have no date of birth. They are not
-        // asked to guess at one; they are sent to a teacher, exactly as if they
-        // had forgotten a password.
-        return {
-          field: "dob",
-          message: "We have no date of birth for you. Ask the KIDS office — this app opens by itself when they approve.",
-          action: { label: "Ask KIDS to open my account", href: `/app/claim/ask?id=${uid}` },
-          uid,
-        };
-
-      case "wrong_dob":
-        // Names nobody and says nothing about which part was wrong: this is the
-        // one field standing between a guessed ID and a child's account.
-        return {
-          field: "dob",
-          message: "That date of birth does not match. Use the date on your school records.",
-          action: { label: "Ask KIDS to open my account", href: `/app/claim/ask?id=${uid}` },
-          uid,
-        };
-
-      default:
-        return { field: "uid", message: "Check your User ID and date of birth.", uid };
-    }
-  }
+  if (!result.ok) return asState(claimRefusal(result), uid);
 
   await startSession(uid, formData);
   redirect("/app");
@@ -261,16 +183,10 @@ export async function registerAction(
     device_id: deviceId,
   });
 
-  if (!result.ok) {
-    switch (result.reason) {
-      case "incomplete":
-        return { field: "name", message: "Something is missing. Check every box and try again." };
-      case "unknown_school":
-        return { field: "school", message: "We do not know that school. Choose one from the list." };
-      case "already_pending":
-        // Not an error worth a red box: they tapped twice, or came back later.
-        return { ok: true };
-    }
+  // "already_pending" is not an error worth a red box: they tapped twice.
+  if (!result.ok && result.reason !== "already_pending") {
+    const r = registerRefusal(result.reason);
+    return { field: r.field, message: r.message };
   }
 
   return { ok: true };
@@ -303,12 +219,7 @@ export async function registrationStatusAction(
  * the office as an "open my account" request instead of failing at the end.
  */
 export async function claimCheckAction(rawUid: string): Promise<"unknown" | "claimed" | "no_dob" | "ok"> {
-  const uid = String(rawUid ?? "").replace(/\D/g, "");
-  if (uid.length !== 9) return "unknown";
-  const student = await findStudent(uid);
-  if (!student) return "unknown";
-  if (await findAccount(uid)) return "claimed";
-  return student.dob ? "ok" : "no_dob";
+  return claimCheck(rawUid);
 }
 
 /* ---------------------------------------------------- office handoff --- */
@@ -367,19 +278,8 @@ export async function askOfficeAction(_prev: AskState, formData: FormData): Prom
   });
 
   if (!result.ok) {
-    switch (result.reason) {
-      case "unknown_id":
-        return { field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card." };
-      case "name":
-        return { field: "name", message: "Type your full name, as it is written at school." };
-      case "father":
-        return { field: "father", message: "Type your father's or guardian's full name." };
-      case "no_device":
-        return {
-          field: "uid",
-          message: "This phone could not be recognised, so the office has nowhere to send the approval. Call the office instead.",
-        };
-    }
+    const r = askRefusal(result.reason);
+    return { field: r.field, message: r.message };
   }
   return { ok: true };
 }

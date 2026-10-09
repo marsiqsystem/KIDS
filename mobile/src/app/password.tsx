@@ -15,9 +15,9 @@ import { color, font, radius } from "@/theme";
  * one-time password: that was a key, and this screen is where it is replaced.
  */
 export default function Password() {
-  const { call } = useSession();
+  const { call, mustChange: mustNow, passwordChosen } = useSession();
   const { data } = useScreen<{ mustChange: boolean }>("/profile");
-  const mustChange = Boolean(data?.mustChange);
+  const mustChange = mustNow || Boolean(data?.mustChange);
   const [current, setCurrent] = useState("");
   const [next, setNext] = useState("");
   const [again, setAgain] = useState("");
@@ -60,17 +60,21 @@ export default function Password() {
 
   return (
     <View style={{ flex: 1, backgroundColor: color.cream }}>
-      <Head title="Change my password" />
+      {/* On a one-time password there is nowhere to go back to: this IS the app until it is replaced. */}
+      <Head title={mustNow ? "Choose your password" : "Change my password"} back={!mustNow} />
       <Screen>
         {done ? (
           <Card style={{ alignItems: "center", gap: 10 }}>
             <ShieldCheck size={34} color={color.teal} />
             <Text style={s.h}>Password changed.</Text>
             <Text style={[s.line, { textAlign: "center" }]}>Use the new one next time you sign in.</Text>
-            <Btn label="Done" onPress={() => router.back()} />
+            <Btn label={mustNow ? "Open the app" : "Done"} onPress={() => (mustNow ? passwordChosen() : router.back())} />
           </Card>
         ) : (
           <>
+            {mustNow ? (
+              <Text style={s.line}>KIDS opened your account with a password nobody knows. Choose your own now, so you can sign in again if you change phones.</Text>
+            ) : null}
             {!mustChange ? field("Password you use now", current, setCurrent, refusal?.field === "current") : null}
             {field("New password", next, setNext, refusal?.field === "next")}
             {field("New password again", again, setAgain, refusal?.field === "next")}

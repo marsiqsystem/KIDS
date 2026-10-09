@@ -10,6 +10,7 @@ import {
   PencilLine,
   ShieldCheck,
   Smartphone,
+  Trash2,
 } from "lucide-react";
 import { requireStudent } from "@/lib/app/gate";
 import { chosenSections } from "@/lib/app/loop";
@@ -154,6 +155,16 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
           </span>
           <span className="k-row__text">
             <span className="k-row__title">My details are wrong</span>
+          </span>
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
+        </Link>
+
+        <Link href="/app/profile/delete" className="k-row">
+          <span className="k-row__icon" aria-hidden="true">
+            <Trash2 size={20} />
+          </span>
+          <span className="k-row__text">
+            <span className="k-row__title">Delete my account</span>
           </span>
           <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
         </Link>

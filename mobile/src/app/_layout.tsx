@@ -5,6 +5,8 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts, PlayfairDisplay_600SemiBold } from "@expo-google-fonts/playfair-display";
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from "@expo-google-fonts/inter";
 import { SessionProvider, useSession } from "@/lib/session";
+import { usePush } from "@/lib/push";
+import UpdateGate from "@/components/UpdateGate";
 import { color } from "@/theme";
 
 // Hold the KIDS splash until the fonts are in and the phone knows whether
@@ -29,7 +31,8 @@ export default function Root() {
  * phone, and the app does.
  */
 function Screens() {
-  const { loading, token } = useSession();
+  const { loading, token, mustChange } = useSession();
+  usePush();
 
   useEffect(() => {
     if (!loading) SplashScreen.hideAsync();
@@ -38,13 +41,20 @@ function Screens() {
   if (loading) return null;
 
   return (
-    <>
+    <UpdateGate>
       <StatusBar style="light" />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.cream } }}>
         <Stack.Protected guard={!token}>
           <Stack.Screen name="sign-in" />
+          <Stack.Screen name="claim" />
+          <Stack.Screen name="register" />
+          <Stack.Screen name="ask" />
         </Stack.Protected>
-        <Stack.Protected guard={Boolean(token)}>
+        {/* A one-time password: nothing but choosing one's own. */}
+        <Stack.Protected guard={Boolean(token) && mustChange}>
+          <Stack.Screen name="choose-password" />
+        </Stack.Protected>
+        <Stack.Protected guard={Boolean(token) && !mustChange}>
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="notices" />
           <Stack.Screen name="subjects" />
@@ -59,8 +69,9 @@ function Screens() {
           <Stack.Screen name="room" />
           <Stack.Screen name="class/[id]" />
           <Stack.Screen name="recordings" />
+          <Stack.Screen name="delete-account" />
         </Stack.Protected>
       </Stack>
-    </>
+    </UpdateGate>
   );
 }

@@ -16,13 +16,13 @@ export const dynamic = "force-dynamic";
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ id?: string; left?: string; moved?: string }>;
+  searchParams: Promise<{ id?: string; left?: string; moved?: string; deleted?: string }>;
 }) {
   // Already signed in — a shared handset's second child gets here by tapping a
   // bookmark, and should land in the app rather than at a password box.
   if (await sessionUid()) redirect("/app");
 
-  const { id, left, moved } = await searchParams;
+  const { id, left, moved, deleted } = await searchParams;
   const initialUid = (id ?? "").replace(/\D/g, "").slice(0, 9);
 
   return (
@@ -34,6 +34,13 @@ export default async function SignInPage({
         <div className="door-notices">
           <Notice icon={<Smartphone size={20} />} tone="gold" title="Your account is on another phone">
             Signing in here moves it back. Not you? Change your password after.
+          </Notice>
+        </div>
+      ) : null}
+      {deleted ? (
+        <div className="door-notices">
+          <Notice icon={<LogOut size={20} />} tone="teal" title="Your app account is deleted.">
+            Your exam record stays with KIDS. To use the app again, claim your account afresh.
           </Notice>
         </div>
       ) : null}

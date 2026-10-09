@@ -10,10 +10,10 @@ import {
   TextInput,
   View,
 } from "react-native";
-import * as WebBrowser from "expo-web-browser";
-import { ChevronRight, Eye, EyeOff, IdCard, Smartphone, UserPlus } from "lucide-react-native";
+import { router } from "expo-router";
+import { ChevronRight, Eye, EyeOff, Hourglass, IdCard, KeyRound, Smartphone, Trash2, UserPlus } from "lucide-react-native";
 import DoorHero from "@/components/DoorHero";
-import { API_URL } from "@/lib/api";
+import { useDoorWatch } from "@/lib/door";
 import { useSession, type SignInResult } from "@/lib/session";
 import { color, font, radius } from "@/theme";
 
@@ -23,9 +23,9 @@ import { color, font, radius } from "@/theme";
  * The sentences come from the server (src/app/api/m/v1/session), the same
  * ones the website shows, so the two front doors never disagree.
  *
- * Claim, Register and Forgot password are still the website's screens for
- * now, opened in an in-app browser; they become native in a later slice.
- * Claiming there sets the password, and the student signs in here.
+ * Claim, Register and Forgot password are the app's own screens (claim, register,
+ * ask). The app lands here with no session, so this is also where the office's
+ * approval arrives: useDoorWatch signs the phone in before anybody types.
  */
 export default function SignIn() {
   const { signIn, endedBecause } = useSession();
@@ -37,7 +37,8 @@ export default function SignIn() {
 
   const digits = uid.replace(/\D/g, "").slice(0, 9);
   const grouped = digits.replace(/(\d{3})(?=\d)/g, "$1 ");
-  const web = (path: string) => WebBrowser.openBrowserAsync(`${API_URL}${path}`);
+  const { door, opening } = useDoorWatch();
+  const withId = digits.length === 9 ? { id: digits } : {};
 
   async function submit() {
     setBusy(true);
@@ -55,8 +56,7 @@ export default function SignIn() {
 
   const goNext = () => {
     if (!refusal?.next) return;
-    const id = digits.length === 9 ? `?id=${digits}` : "";
-    web(refusal.next.to === "claim" ? `/app/claim${id}` : `/app/reset${id}`);
+    router.push({ pathname: refusal.next.to === "claim" ? "/claim" : "/ask", params: withId });
   };
 
   return (
@@ -72,6 +72,33 @@ export default function SignIn() {
               <Text style={styles.noticeText}>Signing in here moves it back. Not you? Change your password after.</Text>
             </View>
           </View>
+        ) : endedBecause === "deleted" ? (
+          <View style={styles.notice}>
+            <Trash2 size={20} color={color.maroon} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.noticeTitle}>Your app account is deleted</Text>
+              <Text style={styles.noticeText}>Your exam record stays with KIDS. To use the app again, claim your account afresh.</Text>
+            </View>
+          </View>
+        ) : null}
+
+        {/* What this phone is waiting on: an approval opens it by itself. */}
+        {opening || door?.state === "ready" ? (
+          <View style={[styles.notice, { backgroundColor: "#E3F3F0", borderColor: "#B7DED5" }]}>
+            <KeyRound size={20} color={color.teal} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.noticeTitle}>Approved by KIDS</Text>
+              <Text style={styles.noticeText}>Opening your account…</Text>
+            </View>
+          </View>
+        ) : door?.state === "waiting" || door?.state === "refused" ? (
+          <Pressable onPress={() => router.push({ pathname: "/ask", params: { id: door.uid } })} style={styles.notice} accessibilityRole="button">
+            <Hourglass size={20} color={color.maroon} />
+            <View style={{ flex: 1 }}>
+              <Text style={styles.noticeTitle}>{door.state === "waiting" ? "Your request is with the KIDS office" : "The office did not approve your request"}</Text>
+              <Text style={styles.noticeText}>{door.state === "waiting" ? "When they approve it, this app opens your account by itself." : "See what they wrote."}</Text>
+            </View>
+          </Pressable>
         ) : null}
 
         <View style={styles.body}>
@@ -143,7 +170,7 @@ export default function SignIn() {
           </Pressable>
 
           <Pressable
-            onPress={() => web(digits.length === 9 ? `/app/reset?id=${digits}` : "/app/reset")}
+            onPress={() => router.push({ pathname: "/ask", params: withId })}
             style={[styles.forgot, refusal && styles.forgotWeight]}
           >
             <Text style={styles.forgotText}>Forgot password</Text>
@@ -160,13 +187,13 @@ export default function SignIn() {
               icon={<IdCard size={22} color={color.maroon} />}
               title="Claim your account"
               line="You already have a KIDS number."
-              onPress={() => web(digits.length === 9 ? `/app/claim?id=${digits}` : "/app/claim")}
+              onPress={() => router.push({ pathname: "/claim", params: withId })}
             />
             <Row
               icon={<UserPlus size={22} color={color.inkMuted} />}
               title="Register"
               line="New to KIDS."
-              onPress={() => web("/app/register")}
+              onPress={() => router.push("/register")}
             />
           </View>
         </View>

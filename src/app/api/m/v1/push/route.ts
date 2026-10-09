@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import { json, mobileStudent } from "@/lib/app/mobile-api";
 import { sessionClaims } from "@/lib/app/session";
 import { registerPushToken, forgetPushToken } from "@/lib/app/push";
+import { APNS_PREFIX } from "@/lib/app/apns";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,11 +16,11 @@ export const dynamic = "force-dynamic";
  * POST { token, platform } → stored on this phone's app_devices row.
  * POST { token: null }     → forgotten (notifications turned off).
  *
- * Android only, for now. The sender (src/lib/app/push.ts) speaks Firebase, and
- * an Android token IS a Firebase token. An iPhone's token is Apple's (APNs);
- * sent through Firebase it would simply be marked failed. iPhone push waits for
- * the APNs key, which exists only once IQ Systems and Research Pvt. Ltd. is
- * enrolled with Apple.
+ * An Android token is a Firebase token and is stored as it is. An iPhone's is
+ * Apple's (64 hex characters) and is stored as `apns:<token>`, so the sender
+ * (src/lib/app/push.ts) sends it through Apple (src/lib/app/apns.ts) — which
+ * stays switched off until the APNs key of IQ Systems and Research Pvt. Ltd.
+ * is configured.
  */
 export async function POST(request: NextRequest) {
   const { student, refuse } = await mobileStudent();
@@ -32,9 +33,14 @@ export async function POST(request: NextRequest) {
     await forgetPushToken(student.uid, claims.deviceId);
     return json({ ok: true, stored: false });
   }
-  if (body?.platform !== "android" || typeof body?.token !== "string") {
-    return json({ ok: true, stored: false, reason: "platform" });
+  const token = typeof body?.token === "string" ? body.token.trim() : "";
+  if (body?.platform === "android" && token) {
+    await registerPushToken(student.uid, claims.deviceId, token);
+    return json({ ok: true, stored: true });
   }
-  await registerPushToken(student.uid, claims.deviceId, body.token);
-  return json({ ok: true, stored: true });
+  if (body?.platform === "ios" && /^[0-9a-f]{64,200}$/i.test(token)) {
+    await registerPushToken(student.uid, claims.deviceId, `${APNS_PREFIX}${token.toLowerCase()}`);
+    return json({ ok: true, stored: true });
+  }
+  return json({ ok: true, stored: false, reason: "platform" });
 }

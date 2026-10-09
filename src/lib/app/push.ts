@@ -1,4 +1,5 @@
 import { createSign } from "node:crypto";
+import { apnsConfigured, sendApns, APNS_PREFIX } from "@/lib/app/apns";
 import { sql } from "@/lib/exam/db";
 
 /**
@@ -81,8 +82,9 @@ function serviceAccount(): ServiceAccount | null {
   }
 }
 
+/** Firebase (Android) or Apple (iPhone) — either is enough to send to someone. */
 export function pushConfigured(): boolean {
-  return serviceAccount() !== null;
+  return serviceAccount() !== null || apnsConfigured();
 }
 
 const base64url = (b: Buffer | string) =>
@@ -275,22 +277,40 @@ async function sendOne(
  * against a serverless function with a request budget.
  */
 export async function sendToStudents(uids: string[], message: PushMessage): Promise<number> {
-  const account = serviceAccount();
-  if (!account) return 0;
-
+  if (!pushConfigured()) return 0;
   const targets = await targetsFor([...new Set(uids)]);
   if (targets.length === 0) return 0;
 
-  const bearer = await accessToken(account);
-  if (!bearer) return 0;
-
+  // Each phone through its own service: an iPhone's token is Apple's, stored
+  // with the `apns:` prefix; everything else is a Firebase token.
+  const iphones = targets.filter((t) => t.push_token.startsWith(APNS_PREFIX));
+  const androids = targets.filter((t) => !t.push_token.startsWith(APNS_PREFIX));
   let delivered = 0;
-  const SLICE = 10;
-  for (let i = 0; i < targets.length; i += SLICE) {
-    const results = await Promise.allSettled(
-      targets.slice(i, i + SLICE).map((t) => sendOne(account.project_id, bearer, t, message)),
-    );
-    delivered += results.filter((r) => r.status === "fulfilled" && r.value).length;
+
+  const account = serviceAccount();
+  const bearer = account && androids.length ? await accessToken(account) : null;
+  if (account && bearer) {
+    const SLICE = 10;
+    for (let i = 0; i < androids.length; i += SLICE) {
+      const results = await Promise.allSettled(
+        androids.slice(i, i + SLICE).map((t) => sendOne(account.project_id, bearer, t, message)),
+      );
+      delivered += results.filter((r) => r.status === "fulfilled" && r.value).length;
+    }
+  }
+
+  if (iphones.length && apnsConfigured()) {
+    const results = await sendApns(iphones.map((t) => t.push_token.slice(APNS_PREFIX.length)), message);
+    for (const [i, r] of results.entries()) {
+      if (r === "sent") delivered += 1;
+      // Stamped, not nulled — the same rule as a dead Firebase token.
+      if (r === "dead") {
+        await sql`
+          update app_devices set push_failed_at = now()
+           where uid = ${iphones[i].uid} and device_id = ${iphones[i].device_id}
+        `;
+      }
+    }
   }
   return delivered;
 }

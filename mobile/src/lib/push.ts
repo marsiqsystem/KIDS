@@ -12,12 +12,11 @@ import { useSession } from "@/lib/session";
  * carries `path`, the website address of the screen it is about, which a tap
  * opens here as the app's own screen.
  *
- * Android: the token is a Firebase token and goes straight to the server. It
- * only exists once google-services.json is in mobile/ (see app.config.js);
- * until then getting it fails, quietly, and nothing is registered.
- * iPhone: Apple's token is not sent, because the server cannot use it yet —
- * see src/app/api/m/v1/push. Permission is still asked, so nothing new is
- * asked of the child once iPhone push is wired.
+ * Android: the token is a Firebase token. It only exists once
+ * google-services.json is in mobile/ (see app.config.js); until then getting
+ * it fails, quietly, and nothing is registered.
+ * iPhone: the token is Apple's; the server sends to it through Apple once the
+ * company's push key is configured (src/lib/app/apns.ts on the website).
  */
 
 /** The channel the server names (channel_id "kids-notices"). Android 8+ drops a notification without it. */
@@ -64,10 +63,9 @@ export function usePush() {
           if (!granted) await call("/push", { method: "POST", body: { token: null } }).catch(() => {});
           return;
         }
-        if (Platform.OS !== "android") return;
         const device = await Notifications.getDevicePushTokenAsync();
         if (!gone && typeof device.data === "string") {
-          await call("/push", { method: "POST", body: { token: device.data, platform: "android" } });
+          await call("/push", { method: "POST", body: { token: device.data, platform: Platform.OS === "ios" ? "ios" : "android" } });
         }
       } catch {
         // No Firebase file in this build, or no signal. Notices are still in

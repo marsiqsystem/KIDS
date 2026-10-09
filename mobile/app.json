@@ -11,7 +11,8 @@
     "ios": {
       "bundleIdentifier": "org.kidskolkata.set",
       "supportsTablet": false,
-      "buildNumber": "10"
+      "buildNumber": "10",
+      "icon": "./assets/images/icon-1024.png"
     },
     "android": {
       "package": "org.kidskolkata.set",
@@ -53,7 +54,8 @@
           "color": "#7B1E2B",
           "defaultChannel": "kids-notices"
         }
-      ]
+      ],
+      "./plugins/withReleaseSigning"
     ],
     "extra": {
       "apiUrl": "https://www.kidskolkata.org"

@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState, type PropsWithChildren } from "react";
 import * as SecureStore from "expo-secure-store";
 import { getRandomBytes } from "expo-crypto";
-import { api, SignedOut } from "./api";
+import { api, examApi, SignedOut } from "./api";
 
 /**
  * Who is signed in on this phone.
@@ -47,6 +47,8 @@ type Session = {
    * and the layout takes the student back to the front door.
    */
   call: <T>(path: string, opts?: { method?: "GET" | "POST"; body?: unknown }) => Promise<T>;
+  /** A POST to the exam's endpoints (/api/app/exam/<path>): status and body, refusals included. */
+  exam: <T = Record<string, unknown>>(path: string, body?: unknown) => ReturnType<typeof examApi<T>>;
 };
 
 const Ctx = createContext<Session | null>(null);
@@ -133,7 +135,19 @@ export function SessionProvider({ children }: PropsWithChildren) {
     [token, forget],
   );
 
+  const exam = useCallback(
+    async <T,>(path: string, body?: unknown) => {
+      try {
+        return await examApi<T>(path, { token, body });
+      } catch (e) {
+        if (e instanceof SignedOut) await forget(e.reason === "moved" ? "moved" : null);
+        throw e;
+      }
+    },
+    [token, forget],
+  );
+
   return (
-    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, signOut, call }}>{children}</Ctx.Provider>
+    <Ctx.Provider value={{ loading, token, student, endedBecause, signIn, signOut, call, exam }}>{children}</Ctx.Provider>
   );
 }

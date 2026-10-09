@@ -35,6 +35,15 @@
         {
           "configureAndroidBackup": true
         }
+      ],
+      "expo-sqlite",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "The camera scans the check-in code on your invigilator's desk.",
+          "recordAudioAndroid": false,
+          "microphonePermission": false
+        }
       ]
     ],
     "extra": {

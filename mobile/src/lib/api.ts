@@ -1,4 +1,5 @@
 import Constants from "expo-constants";
+import { rememberServerNow } from "./clock";
 
 /**
  * The KIDS server's mobile API (src/app/api/m/v1 in the website's repo).
@@ -40,5 +41,32 @@ export async function api<T>(
     throw new SignedOut(data.reason === "moved" ? "moved" : "signed_out");
   }
   if (!res.ok) throw new Error(`The server answered ${res.status}.`);
-  return (await res.json()) as T;
+  const data = (await res.json()) as T;
+  rememberServerNow((data as { serverNow?: unknown } | null)?.serverNow);
+  return data;
+}
+
+/**
+ * One call to the exam's own endpoints, /api/app/exam/* — the website's, not
+ * a copy. They answer a refusal with its status AND a sentence ("Scan the code
+ * at your invigilator's desk first"), and the screen needs both, so this hands
+ * back whatever came rather than throwing on anything but a 401 or no signal.
+ */
+export async function examApi<T = Record<string, unknown>>(
+  path: string,
+  { token, body }: { token?: string | null; body?: unknown } = {},
+): Promise<{ status: number; data: T & { ok?: boolean; reason?: string; message?: string } }> {
+  const res = await fetch(`${API_URL}/api/app/exam/${path}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify(body ?? {}),
+  });
+  const data = (await res.json().catch(() => ({}))) as T & { ok?: boolean; reason?: string; message?: string };
+  rememberServerNow((data as { serverNow?: unknown }).serverNow);
+  if (res.status === 401) throw new SignedOut(data.reason === "moved" ? "moved" : "signed_out");
+  return { status: res.status, data };
 }

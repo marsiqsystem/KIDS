@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Check, Clock, CloudOff, Loader2, ArrowRight } from "lucide-react";
 import { examImageUrl, type Question } from "@/lib/exam/question";
 import { EXAM } from "@/lib/exam/config";
-import { useServerCountdown } from "./Countdown";
+import { serverNowArrivedAt, useServerCountdown } from "./Countdown";
 import AnswersReceived, { formatIstClock } from "./AnswersReceived";
 import Paper, { ClockFace } from "./Paper";
 import ScreenGuard from "@/components/app/ScreenGuard";
@@ -118,6 +118,11 @@ export default function LiveExam({
   const [autoSubmitted, setAutoSubmitted] = useState(false);
   const [receipt, setReceipt] = useState<string | null>(null);
   const [offer, setOffer] = useState<Offer | null>(null);
+  // The server's clock as of the response that opened the paper. The paper's
+  // countdown is measured against THIS, not the page's render time: a child
+  // who loaded the tab at 10:10 and pressed Start at 10:30 must not be shown
+  // twenty minutes they do not have.
+  const [paperNowIso, setPaperNowIso] = useState(serverNowIso);
 
   // Per student AND per sitting. It used to be per student only, which was safe
   // while there was one exam. Answers are stored by question NUMBER and merged
@@ -213,6 +218,10 @@ export default function LiveExam({
       setQuestions(data.questions);
       setAnswers(merged);
       setDeadlineAt(data.deadlineAt);
+      if (typeof data.serverNow === "string") {
+        serverNowArrivedAt(data.serverNow);
+        setPaperNowIso(data.serverNow);
+      }
       setResumed(Boolean(data.resumed) || Object.keys(merged).length > 0);
       cache({ questions: data.questions, answers: merged, deadlineAt: data.deadlineAt });
       setStage("live");
@@ -476,7 +485,7 @@ export default function LiveExam({
           onChoose={choose}
           onSubmit={submit}
           deadlineIso={deadlineAt}
-          serverNowIso={serverNowIso}
+          serverNowIso={paperNowIso}
           save={save}
           resumed={resumed}
           storageKey={`${cacheKey}:app`}
@@ -484,7 +493,7 @@ export default function LiveExam({
             <DeadlineClock
               face="app"
               deadlineIso={deadlineAt}
-              serverNowIso={serverNowIso}
+              serverNowIso={paperNowIso}
               onExpire={() => {
                 setAutoSubmitted(true);
                 expire.current();
@@ -514,7 +523,7 @@ export default function LiveExam({
         clock={
           <DeadlineClock
             deadlineIso={deadlineAt}
-            serverNowIso={serverNowIso}
+            serverNowIso={paperNowIso}
             onExpire={() => {
               setAutoSubmitted(true);
               expire.current();

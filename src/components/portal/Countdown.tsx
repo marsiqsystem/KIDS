@@ -17,10 +17,37 @@ import { useEffect, useState } from "react";
  */
 export type Tone = "calm" | "focused" | "urgent";
 
+/**
+ * When each server `now` first reached this page, by the device's own clock.
+ *
+ * The offset must be measured from the moment the server's time ARRIVED, not
+ * from whenever a countdown happens to be drawn. Measured at mount, the exam
+ * paper's clock -- drawn when the child presses Start, perhaps twenty minutes
+ * after the Exam tab loaded -- treated those twenty minutes as not having
+ * passed, and showed a child time they did not have (found 9 Oct 2026). The
+ * first countdown to see a given `serverNowIso` is the page arriving; every
+ * later one is measured from that same moment.
+ *
+ * Browser only: on the server this module lives across requests, and the
+ * offset there is meaningless anyway.
+ */
+const seenAt = new Map<string, number>();
+
+export function serverNowArrivedAt(serverNowIso: string): number {
+  if (typeof window === "undefined") return Date.now();
+  let at = seenAt.get(serverNowIso);
+  if (at === undefined) {
+    at = Date.now();
+    seenAt.set(serverNowIso, at);
+  }
+  return at;
+}
+
 export function useServerCountdown(targetIso: string, serverNowIso: string) {
   const target = new Date(targetIso).getTime();
-  // Fixed at mount: how far this device's clock is from the server's.
-  const [skew] = useState(() => Date.now() - new Date(serverNowIso).getTime());
+  // How far this device's clock is from the server's, as of the moment the
+  // server's time arrived (see serverNowArrivedAt).
+  const [skew] = useState(() => serverNowArrivedAt(serverNowIso) - new Date(serverNowIso).getTime());
   const [remaining, setRemaining] = useState(() => target - (Date.now() - skew));
 
   useEffect(() => {

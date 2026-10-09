@@ -5,7 +5,8 @@ import { poolFor } from "@/lib/app/bank";
 import { unreadCount } from "@/lib/app/notices";
 import { subjectShort, subjectHue, subjectInitials } from "@/lib/app/subjects";
 import { dayFor, programmeFor } from "@/lib/app/day";
-import { touchPresence } from "@/lib/app/room";
+import { touchPresence, roomFor } from "@/lib/app/room";
+import { nextClassFor } from "@/lib/admin/classes";
 import { windowFor, phaseOf } from "@/lib/exam/schedule";
 
 export const runtime = "nodejs";
@@ -18,14 +19,17 @@ export const dynamic = "force-dynamic";
  * student's own answers.
  *
  * `face` says which of the board's states to draw:
- *   coaching  — one of the 65 on the programme; Home is their day (phase 1b)
+ *   coaching  — one of the 65 on the programme; Home is their day: `day` is
+ *               dayFor's model whole (board 12/13), `day.shape` picks morning,
+ *               late or away, and `present` is the room's count
  *   choose    — no subjects yet (1A); `noStream` when XI/XII has no stream
  *   empty     — subjects chosen, nothing the loop can offer
  *   today     — today's five, not finished (1B/1C/1E)
  *   done      — today's five finished (1D)
  *
- * Also carries what the tab bar needs (the exam dot), so the app makes one
- * call on opening, not two.
+ * Also carries what the tab bar needs (the exam dot), and for anyone in a
+ * batch the next class (board 12, 1B — the website's NextClass card), so the
+ * app makes one call on opening, not three.
  */
 const onDay = (date: Date) =>
   new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", day: "numeric", month: "long" }).format(date);
@@ -43,7 +47,23 @@ export async function GET() {
   // Presence is touched here as the website's shell does, on opening.
   if (await programmeFor(student.uid)) void touchPresence(student.uid).catch(() => {});
   const day = await dayFor(student);
-  if (day) return json({ ...base, face: "coaching", coaching: { shape: day.shape } });
+  if (day) {
+    const [room, streak] = await Promise.all([roomFor(student.uid), streakFor(student.uid)]);
+    return json({ ...base, face: "coaching", day, present: room?.present ?? 0, streak: streak.days });
+  }
+
+  // Nearly everyone is in no batch, and this is null for them.
+  const live = await nextClassFor(student.uid);
+  const nextClass = live
+    ? {
+        id: live.id,
+        title: live.title,
+        subject: live.subject,
+        startsAt: new Date(live.starts_at).toISOString(),
+        startedAt: live.started_at ? new Date(live.started_at).toISOString() : null,
+        minutes: live.minutes,
+      }
+    : null;
 
   const state = await loopState(student);
   // After loopState, never beside it: loopState mints today's set, and the bell
@@ -63,7 +83,7 @@ export async function GET() {
           chapters: s.chapters,
           videos: s.videos,
         }));
-    return json({ ...base, unread, face: "choose", noStream, perDay: NEW_PER_DAY, offer });
+    return json({ ...base, unread, nextClass, face: "choose", noStream, perDay: NEW_PER_DAY, offer });
   }
 
   const [streak, answers] = await Promise.all([streakFor(student.uid), answersFor(student.uid)]);
@@ -95,6 +115,7 @@ export async function GET() {
   const common = {
     ...base,
     unread,
+    nextClass,
     chips,
     streak: { days: streak.days, best: streak.best, week: streak.week, today },
     supply: { seen: supply.seen, total: supply.total, unseen: supply.unseen, allSeen },

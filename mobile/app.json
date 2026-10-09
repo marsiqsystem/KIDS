@@ -40,9 +40,9 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "The camera scans the check-in code on your invigilator's desk.",
-          "recordAudioAndroid": false,
-          "microphonePermission": false
+          "cameraPermission": "The camera scans the check-in code on your invigilator's desk, and shows you in a live class when your teacher allows it.",
+          "microphonePermission": "The microphone lets you answer in a live class when your teacher allows it.",
+          "recordAudioAndroid": true
         }
       ]
     ],

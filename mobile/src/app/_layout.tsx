@@ -55,6 +55,10 @@ function Screens() {
           <Stack.Screen name="practice/[key]" />
           <Stack.Screen name="paper/online" />
           <Stack.Screen name="paper/written" />
+          <Stack.Screen name="sit" options={{ animation: "fade" }} />
+          <Stack.Screen name="room" />
+          <Stack.Screen name="class/[id]" />
+          <Stack.Screen name="recordings" />
         </Stack.Protected>
       </Stack>
     </>

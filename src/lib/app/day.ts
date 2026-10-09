@@ -475,3 +475,20 @@ export async function markBlock(
     on conflict (uid, on_date, kind) do nothing
   `;
 }
+
+/**
+ * Mark a block the student's day is offering right now — "I'm up", "Done".
+ *
+ * The kind is checked against the student's OWN day rather than trusted: only
+ * a block dayFor has given an `action` — the open one, and the wake, which can
+ * always still be claimed. Checking the same field the screen renders means the
+ * button and the rule cannot drift apart. Shared by the website's markDay and
+ * the native app's POST /api/m/v1/day. False when nothing was offered.
+ */
+export async function markOfferedBlock(student: Student, kind: BlockKind): Promise<boolean> {
+  const day = await dayFor(student);
+  const block = day?.blocks.find((b) => b.kind === kind);
+  if (!block?.action) return false;
+  await markBlock(student.uid, kind);
+  return true;
+}

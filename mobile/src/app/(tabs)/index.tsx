@@ -4,6 +4,8 @@ import { router } from "expo-router";
 import { CheckCheck, ChevronRight, Lock } from "lucide-react-native";
 import { Btn, Card, Empty, Hero, Loading, MaroonCard, Offline, Pips, Ring, Screen, Streak, s, type PipKind } from "@/components/kit";
 import SubjectChooser, { type Offer } from "@/components/SubjectChooser";
+import NextClass, { type NextClassModel } from "@/components/day/NextClass";
+import { DayAway, DayLate, TheDay, type Day } from "@/components/day/TheDay";
 import { useScreen } from "@/hooks/useScreen";
 import { color, font } from "@/theme";
 
@@ -17,14 +19,15 @@ import { color, font } from "@/theme";
 type Base = { greeting: string; name: string; cls: string; examLive: boolean; unread?: number };
 type Common = Base & {
   unread: number;
+  nextClass: NextClassModel | null;
   chips: string[];
   streak: { days: number; best: number; week: { date: string; done: boolean }[]; today: string };
   supply: { seen: number; total: number; unseen: number; allSeen: boolean };
   adds: { section: string; n: number }[];
 };
 type HomeModel =
-  | (Base & { face: "coaching"; coaching: { shape: string } })
-  | (Base & { face: "choose"; unread: number; noStream: boolean; perDay: number; offer: Offer[] })
+  | (Base & { face: "coaching"; day: Day; present: number; streak: number })
+  | (Base & { face: "choose"; unread: number; nextClass: NextClassModel | null; noStream: boolean; perDay: number; offer: Offer[] })
   | (Common & { face: "empty" })
   | (Common & {
       face: "today" | "done";
@@ -35,20 +38,12 @@ export default function Home() {
   const { data, failed, refreshing, refresh, reload } = useScreen<HomeModel>("/home");
   if (!data) return failed ? <Screen onRefresh={refresh} refreshing={refreshing}><Offline show /></Screen> : <Loading />;
 
+  // For the 65 on the coaching programme, Home IS the day (ruled 11 Sep).
   if (data.face === "coaching") {
-    return (
-      <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
-        <Hero eyebrow={data.greeting} title={data.name} chips={[{ label: `Class ${data.cls}` }]} />
-        <View style={{ paddingHorizontal: 16 }}>
-          <Card>
-            <Text style={s.h}>Your coaching day</Text>
-            <Text style={s.line}>
-              The day&rsquo;s programme comes to this app in the next update. Until then, open it on the KIDS website.
-            </Text>
-          </Card>
-        </View>
-      </Screen>
-    );
+    const { day } = data;
+    if (day.shape === "away") return <DayAway day={day} />;
+    if (day.shape === "late") return <DayLate day={day} refreshing={refreshing} onRefresh={refresh} />;
+    return <TheDay day={day} name={data.name} greeting={data.greeting} present={data.present} onChanged={reload} refreshing={refreshing} onRefresh={refresh} />;
   }
 
   if (data.face === "choose") {
@@ -57,6 +52,8 @@ export default function Home() {
         <Hero eyebrow={data.greeting} title={data.name} chips={[{ label: `Class ${data.cls}` }]} unread={data.unread} />
         <View style={{ paddingHorizontal: 16, gap: 12 }}>
           <Offline show={failed} />
+          {/* A class the student is expected at outranks the invitation. */}
+          <NextClass c={data.nextClass} />
           {data.noStream ? (
             <Card tone="dashed">
               <Empty title="Your stream is not on file" line="Ask the office to add Arts, Commerce or Science, then your subjects appear here." />
@@ -84,6 +81,7 @@ export default function Home() {
       <Hero eyebrow={data.greeting} title={data.name} chips={chips} unread={data.unread} />
       <View style={{ paddingHorizontal: 16, gap: 14 }}>
         <Offline show={failed} />
+        <NextClass c={data.nextClass} />
 
         {data.face === "empty" ? (
           <Card tone="dashed" style={{ alignItems: "center", gap: 10 }}>

@@ -5,6 +5,7 @@ import { unreadCount } from "@/lib/app/notices";
 import { listDevices } from "@/lib/app/devices";
 import { findAccount } from "@/lib/app/accounts";
 import { OFFICE } from "@/components/app/door";
+import { coachingSummary } from "@/lib/app/coaching";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -26,11 +27,12 @@ export async function GET() {
   const { student, refuse } = await mobileStudent();
   if (refuse) return refuse;
 
-  const [sections, unread, devices, account] = await Promise.all([
+  const [sections, unread, devices, account, coaching] = await Promise.all([
     chosenSections(student.uid),
     unreadCount(student),
     listDevices(student.uid),
     findAccount(student.uid),
+    coachingSummary(student.uid),
   ]);
   const questions = sections.length ? poolFor(student.class, student.stream, student.medium, sections).length : 0;
 
@@ -45,6 +47,7 @@ export async function GET() {
       medium: mediumName(student.medium),
     },
     unread,
+    coaching,
     subjects: { chosen: sections.length, questions },
     mustChange: Boolean(account?.must_change),
     phones:

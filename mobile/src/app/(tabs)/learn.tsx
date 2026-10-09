@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { router } from "expo-router";
-import { ChevronRight, Play, Search } from "lucide-react-native";
+import { ChevronRight, Play, PlayCircle, Search } from "lucide-react-native";
 import Svg, { Circle } from "react-native-svg";
-import { Btn, Card, Empty, Hero, Loading, Offline, Screen, s } from "@/components/kit";
+import { Btn, Card, Empty, Hero, Loading, Offline, Row, Screen, s } from "@/components/kit";
 import { useScreen } from "@/hooks/useScreen";
 import { color, font, radius } from "@/theme";
 
@@ -15,8 +15,9 @@ import { color, font, radius } from "@/theme";
  * stay visible with what adding them would bring. Below, every chapter of the
  * class and stream under its subject, each stating its real size.
  *
- * Search and filters run here over the list the server already narrowed.
- * (The class-recordings row arrives with live classes, phase 5.)
+ * Search and filters run here over the list the server already narrowed. A
+ * child whose batch has had a recorded class gets a row to the recordings;
+ * everybody else would be shown an empty promise.
  */
 type Chapter = {
   key: string;
@@ -108,6 +109,14 @@ export default function Learn() {
           </Card>
         ) : (
           <>
+            {data.recordedClasses > 0 && !subject && !query && active.size === 0 ? (
+              <Row
+                icon={<PlayCircle size={22} color={color.maroon} />}
+                title="Class recordings"
+                line={`${data.recordedClasses} class${data.recordedClasses === 1 ? "" : "es"} to watch again`}
+                onPress={() => router.push("/recordings")}
+              />
+            ) : null}
             {!subject && !query && active.size === 0 ? (
               <View style={{ gap: 10 }}>
                 {mine.length > 0 ? <Text style={s.label}>My subjects · {mine.length}</Text> : null}

@@ -22,6 +22,7 @@ type ProfileModel = {
   name: string;
   uid: string;
   onFile: { cls: string; school: string; centre: string; medium: string };
+  coaching: { name: string; started: boolean; week: number | null; weeks: number; batchSize: number; startsOn: string; progress: number } | null;
   unread: number;
   subjects: { chosen: number; questions: number };
   phones: { label: string; lastSeen: string; current: boolean }[];
@@ -58,6 +59,31 @@ export default function Profile() {
 
       <View style={{ paddingHorizontal: 16, gap: 12 }}>
         <Offline show={failed} />
+        {/* "Your coaching" — board 13, 2D: the week, the batch, the start. */}
+        {data.coaching ? (
+          <Card tone="gold">
+            <Text style={s.label}>Your coaching</Text>
+            <Text style={[s.h, { marginTop: 4 }]}>{data.coaching.name}</Text>
+            <View style={{ flexDirection: "row", marginTop: 10 }}>
+              {(
+                [
+                  [String(data.coaching.week ?? "—"), `week of ${data.coaching.weeks}`],
+                  [String(data.coaching.batchSize), "in your batch"],
+                  [data.coaching.startsOn, data.coaching.started ? "started" : "starts"],
+                ] as const
+              ).map(([n, label]) => (
+                <View key={label} style={{ flex: 1 }}>
+                  <Text style={styles.coachN}>{n}</Text>
+                  <Text style={s.meta}>{label}</Text>
+                </View>
+              ))}
+            </View>
+            <View style={styles.coachBar}>
+              <View style={[styles.coachFill, { width: `${data.coaching.progress}%` }]} />
+            </View>
+            <Text style={s.line}>Your teacher and your classes are on Home.</Text>
+          </Card>
+        ) : null}
         <Card>
           <Text style={[s.label, { marginBottom: 8 }]}>On file</Text>
           {(
@@ -139,6 +165,9 @@ export default function Profile() {
 }
 
 const styles = StyleSheet.create({
+  coachN: { fontFamily: font.display, fontSize: 22, color: color.maroon, fontVariant: ["tabular-nums"] },
+  coachBar: { height: 6, borderRadius: 3, backgroundColor: color.creamMuted, marginVertical: 10, overflow: "hidden" },
+  coachFill: { height: 6, backgroundColor: color.gold },
   hero: { flexDirection: "row", alignItems: "center", gap: 14, paddingHorizontal: 18, paddingBottom: 22, marginBottom: 2 },
   avatar: { width: 60, height: 60, borderRadius: 999, backgroundColor: color.gold, alignItems: "center", justifyContent: "center" },
   avatarText: { fontFamily: font.bodyBold, fontSize: 22, color: color.maroonDeep },

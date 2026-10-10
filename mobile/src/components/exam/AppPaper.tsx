@@ -264,7 +264,7 @@ export default function AppPaper({
         <Pressable onPress={toggleFlag} style={[s.square, flags.includes(at) && s.squareOn]} accessibilityState={{ selected: flags.includes(at) }} accessibilityLabel={flags.includes(at) ? "Remove the flag" : "Flag this question"}>
           <Flag size={22} color={flags.includes(at) ? color.maroonDeep : color.maroon} />
         </Pressable>
-        <Pressable onPress={() => go(at - 1)} disabled={at === 0} style={[s.square, at === 0 && { opacity: 0.4 }]} accessibilityLabel="Previous question">
+        <Pressable onPress={() => at !== 0 && go(at - 1)} accessibilityState={{ disabled: at === 0 }} style={[s.square, at === 0 && { opacity: 0.4 }]} accessibilityLabel="Previous question">
           <ChevronLeft size={24} color={color.maroon} />
         </Pressable>
         <View style={{ flex: 1 }}>{at === total - 1 ? <Btn label="Hand in" onPress={() => setView("review")} /> : <Btn label="Next" onPress={() => go(at + 1)} />}</View>

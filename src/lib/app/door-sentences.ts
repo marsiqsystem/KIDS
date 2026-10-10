@@ -98,6 +98,13 @@ export function claimRefusal(result: Exclude<Claim, { ok: true }>): DoorRefusal<
         message: "That date of birth does not match. Use the date on your school records.",
         next: { label: "Ask KIDS to open my account", to: "ask" },
       };
+    case "too_many_dob":
+      // The same way out as a child with no date of birth on file.
+      return {
+        field: "dob",
+        message: "Too many wrong dates of birth for this account today. Ask the KIDS office to open it — this app opens by itself when they approve.",
+        next: { label: "Ask KIDS to open my account", to: "ask" },
+      };
     default:
       return { field: "uid", message: "Check your User ID and date of birth." };
   }

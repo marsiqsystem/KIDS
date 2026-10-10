@@ -111,7 +111,6 @@ export default function SignIn() {
               placeholder="000 000 000"
               placeholderTextColor={color.inkFaint}
               maxLength={11}
-              autoFocus
               style={[styles.input, styles.uid, refusal?.field === "uid" && styles.invalid]}
               accessibilityLabel="User ID"
             />
@@ -154,8 +153,10 @@ export default function SignIn() {
           ) : null}
 
           <Pressable
-            onPress={submit}
-            disabled={busy || digits.length !== 9 || !password}
+            onPress={() => {
+              if (!(busy || digits.length !== 9 || !password)) submit();
+            }}
+            accessibilityState={{ disabled: busy || digits.length !== 9 || !password }}
             style={({ pressed }) => [
               styles.btn,
               (busy || digits.length !== 9 || !password) && styles.btnOff,

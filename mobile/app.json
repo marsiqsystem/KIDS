@@ -11,7 +11,7 @@
     "ios": {
       "bundleIdentifier": "org.kidskolkata.set",
       "supportsTablet": false,
-      "buildNumber": "10",
+      "buildNumber": "11",
       "icon": "./assets/images/icon-1024.png"
     },
     "android": {
@@ -21,7 +21,7 @@
         "foregroundImage": "./assets/images/kids-icon.png"
       },
       "predictiveBackGestureEnabled": false,
-      "versionCode": 10
+      "versionCode": 11
     },
     "plugins": [
       "expo-router",

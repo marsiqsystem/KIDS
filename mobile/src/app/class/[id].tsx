@@ -58,6 +58,17 @@ export default function ClassScreen() {
   );
 }
 
+/**
+ * JSON for inside a <script> tag. JSON.stringify leaves "<" alone, so a name
+ * typed at registration as "</script><script>..." would close the tag and run
+ * as code in the room page. Escaped, it stays a string.
+ */
+const scriptJson = (v: unknown) =>
+  JSON.stringify(v)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+
 /** The room page the WebView runs: the website's student settings, verbatim. */
 function roomHtml(m: Extract<ClassModel, { state: "live" }>): string {
   const options = {
@@ -91,12 +102,12 @@ function roomHtml(m: Extract<ClassModel, { state: "live" }>): string {
 <script>
 var say=function(t){document.getElementById('say').textContent=t};
 var post=function(o){window.ReactNativeWebView&&window.ReactNativeWebView.postMessage(JSON.stringify(o))};
-var s=document.createElement('script');s.src='https://${m.domain}/external_api.js';
+var s=document.createElement('script');s.src=${scriptJson(`https://${m.domain}/external_api.js`)};
 s.onerror=function(){say('');post({type:'unreachable'})};
 s.onload=function(){
   if(!window.JitsiMeetExternalAPI){say('Loaded, but the class could not start.');return}
-  var o=${JSON.stringify(options)};o.parentNode=document.getElementById('box');
-  var api=new JitsiMeetExternalAPI(${JSON.stringify(m.domain)},o);say('');
+  var o=${scriptJson(options)};o.parentNode=document.getElementById('box');
+  var api=new JitsiMeetExternalAPI(${scriptJson(m.domain)},o);say('');
   api.addListener('readyToClose',function(){post({type:'left'})});
 };
 document.head.appendChild(s);

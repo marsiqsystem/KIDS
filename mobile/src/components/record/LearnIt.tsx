@@ -111,8 +111,8 @@ function shuffled<T>(items: T[], seed: string): T[] {
 function Pill({ label, onPress, disabled, state }: { label: string; onPress?: () => void; disabled?: boolean; state?: "sel" | "got" | "no" | "alt" }) {
   return (
     <Pressable
-      onPress={onPress}
-      disabled={disabled}
+      onPress={() => !disabled && onPress?.()}
+      accessibilityState={{ disabled: Boolean(disabled) }}
       style={[
         s.pill,
         state === "alt" && { borderColor: color.creamMuted, backgroundColor: color.white },

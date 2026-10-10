@@ -112,7 +112,6 @@ function Form({ onSent }: { onSent: () => void }) {
   }, [schools, query]);
 
   const senior = cls === "XI" || cls === "XII";
-  const whoDone = name.trim().length >= 2 && d && m && y.length === 4 && cls && (!senior || stream);
 
   async function send() {
     if (!school) return;
@@ -171,7 +170,25 @@ function Form({ onSent }: { onSent: () => void }) {
               </>
             ) : null}
             {refusal ? <Refusal message={refusal.message} /> : null}
-            <Btn label="Next" disabled={!whoDone} onPress={() => setStep(1)} />
+            {/* Always tappable: a Next that silently does nothing reads as broken.
+                If something is missing, it says what. */}
+            <Btn
+              label="Next"
+              onPress={() => {
+                const missing =
+                  name.trim().length < 2
+                    ? { field: "name", message: "Type your full name, as it is written at school." }
+                    : !d || !m || y.length !== 4
+                      ? { field: "dob", message: "Type your date of birth as day, month and a 4-digit year." }
+                      : !cls
+                        ? { field: "class", message: "Choose the class you are in this year." }
+                        : senior && !stream
+                          ? { field: "class", message: "Choose your stream." }
+                          : null;
+                setRefusal(missing);
+                if (!missing) setStep(1);
+              }}
+            />
           </>
         ) : step === 1 ? (
           <>
@@ -200,7 +217,7 @@ function Form({ onSent }: { onSent: () => void }) {
                 <Btn label="Back" kind="outline" onPress={() => setStep(0)} />
               </View>
               <View style={{ flex: 1.4 }}>
-                <Btn label="Next" disabled={!school} onPress={() => setStep(2)} />
+                <Btn label="Next" onPress={() => (school ? setStep(2) : setRefusal({ field: "school", message: "Tap your school in the list." }))} />
               </View>
             </View>
           </>

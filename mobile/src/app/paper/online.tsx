@@ -230,6 +230,8 @@ export default function OnlinePaper() {
           <Privacy />
         </View>
       </ScrollView>
+      {/* Behind the phone's clock and battery: scrolled text must not run under them. */}
+      <View style={{ position: "absolute", top: 0, left: 0, right: 0, height: insets.top, backgroundColor: "#0C2A2E", zIndex: 2 }} />
 
       {openQ !== null ? (
         <QuestionSheet
@@ -333,10 +335,10 @@ function QuestionSheet({
             </View>
           ) : null}
           <View style={{ flexDirection: "row", gap: 8, marginTop: 6 }}>
-            <Pressable onPress={onPrev} disabled={q.n === 1} style={[sheet.nav, q.n === 1 && { opacity: 0.4 }]} accessibilityRole="button">
+            <Pressable onPress={() => q.n !== 1 && onPrev()} accessibilityState={{ disabled: q.n === 1 }} style={[sheet.nav, q.n === 1 && { opacity: 0.4 }]} accessibilityRole="button">
               <Text style={[sheet.navText, { color: color.maroon }]}>← Previous</Text>
             </Pressable>
-            <Pressable onPress={onNext} disabled={q.n === total} style={[sheet.nav, { backgroundColor: color.maroon }, q.n === total && { opacity: 0.4 }]} accessibilityRole="button">
+            <Pressable onPress={() => q.n !== total && onNext()} accessibilityState={{ disabled: q.n === total }} style={[sheet.nav, { backgroundColor: color.maroon }, q.n === total && { opacity: 0.4 }]} accessibilityRole="button">
               <Text style={[sheet.navText, { color: color.cream }]}>Next →</Text>
             </Pressable>
           </View>

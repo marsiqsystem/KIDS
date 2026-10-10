@@ -12,6 +12,14 @@ import { useEffect, useState } from "react";
  */
 const seenAt = new Map<string, number>();
 
+/**
+ * How often a countdown redraws. One second in every real build. A test build
+ * made with EXPO_PUBLIC_E2E=1 redraws every five, because Android's UI
+ * automation cannot read a screen that changes every second — the exam's
+ * clock never let it see the paper. The time itself is computed the same way.
+ */
+const TICK_MS = process.env.EXPO_PUBLIC_E2E === "1" ? 5000 : 1000;
+
 export function rememberServerNow(iso: unknown): void {
   if (typeof iso === "string" && !seenAt.has(iso)) seenAt.set(iso, Date.now());
 }
@@ -27,7 +35,7 @@ export function useServerCountdown(targetIso: string, serverNowIso: string) {
   const [remaining, setRemaining] = useState(() => target - (Date.now() - skew));
 
   useEffect(() => {
-    const id = setInterval(() => setRemaining(target - (Date.now() - skew)), 1000);
+    const id = setInterval(() => setRemaining(target - (Date.now() - skew)), TICK_MS);
     return () => clearInterval(id);
   }, [target, skew]);
 

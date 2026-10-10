@@ -180,12 +180,18 @@ export function Btn({
   busy?: boolean;
   icon?: ReactNode;
 }) {
-  const off = disabled || busy;
+  const off = Boolean(disabled || busy);
   return (
+    // Never Pressable's own `disabled`: on Android's new architecture a
+    // Pressable that starts disabled can stay deaf to taps after it is enabled
+    // (a "Next" that did nothing on a real phone, 9 Oct 2026). The tap always
+    // arrives; a button that is off simply ignores it.
     <Pressable
-      onPress={onPress}
-      disabled={off}
+      onPress={() => {
+        if (!off) onPress();
+      }}
       accessibilityRole="button"
+      accessibilityState={{ disabled: off, busy: Boolean(busy) }}
       style={({ pressed }) => [
         s.btn,
         small && s.btnSmall,

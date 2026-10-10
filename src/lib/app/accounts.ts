@@ -127,7 +127,23 @@ export type Claim =
   | { ok: false; reason: "unknown_id"; uid: string }
   | { ok: false; reason: "already_claimed"; student: Student }
   | { ok: false; reason: "no_dob"; student: Student }
-  | { ok: false; reason: "wrong_dob" };
+  | { ok: false; reason: "wrong_dob" }
+  | { ok: false; reason: "too_many_dob" };
+
+/**
+ * Wrong dates of birth allowed for one User ID in a day before claiming that
+ * account stops and the child is sent to the office.
+ *
+ * Found 9 Oct 2026: the date of birth was the only thing between a guessed ID
+ * and an account, and nothing limited the guesses. A child's birthday lies in a
+ * window of two or three years -- about a thousand tries, minutes for a script
+ * -- and 8,655 unclaimed accounts had a date on file. Whoever guessed first got
+ * the account, could sit the child's exam in the app, and locked the child out.
+ * Five a day stops a script and costs a child who mistyped nothing: the office
+ * route (ask KIDS to open my account) is the same one 1,061 children with no
+ * date of birth already use.
+ */
+const MAX_BAD_DOB_PER_DAY = 5;
 
 /**
  * "I sat SET 2026 — claim my account."
@@ -157,6 +173,15 @@ export async function claimAccount(
 
   if (await findAccount(uid)) return { ok: false, reason: "already_claimed", student };
   if (!student.dob) return { ok: false, reason: "no_dob", student };
+
+  const [{ n }] = (await sql`
+    select count(*)::int as n from app_events
+     where uid = ${uid} and kind = 'bad_dob' and at > now() - interval '1 day'
+  `) as { n: number }[];
+  if (n >= MAX_BAD_DOB_PER_DAY) {
+    await logAppEvent(uid, "locked", { at: "claim" });
+    return { ok: false, reason: "too_many_dob" };
+  }
 
   // Both sides normalised to DD-MM-YYYY. Every one of the 8,653 dates on the
   // register is stored in exactly that shape, but a typed `1-1-2009` should

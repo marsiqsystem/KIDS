@@ -64,7 +64,7 @@ export default function Notices() {
         title="Notices"
         aside={
           unread.length ? (
-            <Pressable onPress={() => markRead(unread.map((n) => n.key))} disabled={busy} hitSlop={8} style={{ paddingHorizontal: 10 }}>
+            <Pressable onPress={() => !busy && markRead(unread.map((n) => n.key))} hitSlop={8} style={{ paddingHorizontal: 10 }}>
               <Text style={s.metaMaroon}>Mark all read</Text>
             </Pressable>
           ) : null

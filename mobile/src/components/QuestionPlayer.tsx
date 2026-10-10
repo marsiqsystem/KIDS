@@ -192,7 +192,6 @@ export default function QuestionPlayer({
               <Pressable
                 key={i}
                 onPress={() => commit(i)}
-                disabled={!!verdict || pending}
                 accessibilityRole="button"
                 accessibilityState={{ selected: isMine }}
                 style={[

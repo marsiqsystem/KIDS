@@ -376,11 +376,10 @@ export function ChooseSubjects({
           return (
             <Pressable
               key={o.name}
-              onPress={() => toggle(o.name)}
-              disabled={!on && full}
+              onPress={() => (on || !full) && toggle(o.name)}
               style={[s.subject, on && s.subjectOn, !on && full && { opacity: 0.5 }]}
               accessibilityRole="button"
-              accessibilityState={{ selected: on }}
+              accessibilityState={{ selected: on, disabled: !on && full }}
             >
               <View style={{ flex: 1 }}>
                 <Text style={kit.h}>{o.name}</Text>

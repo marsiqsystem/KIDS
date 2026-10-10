@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { Image } from "react-native";
+import { BackHandler, Image } from "react-native";
 import { useNavigation } from "expo-router";
 import { usePreventScreenCapture } from "expo-screen-capture";
 import AppPaper, { AppClockFace, imageUrl, type Question, type Save } from "@/components/exam/AppPaper";
@@ -70,6 +70,16 @@ export default function LiveExam({ m, onFinished }: { m: PaperModel; onFinished:
     navigation.setOptions({ tabBarStyle: sitting ? { display: "none" } : undefined });
     return () => navigation.setOptions({ tabBarStyle: undefined });
   }, [navigation, sitting]);
+
+  // Nor Android's Back button: it took a child straight out of the paper to
+  // Home, from where Learn is a tap away — and Back is not leaving the app, so
+  // nothing reached the desk (found on the emulator, 10 Oct 2026). While a
+  // paper is open, Back does nothing; the way out is handing in.
+  useEffect(() => {
+    if (!sitting) return;
+    const sub = BackHandler.addEventListener("hardwareBackPress", () => true);
+    return () => sub.remove();
+  }, [sitting]);
 
   const sendAway = useCallback(async (periods: unknown[]) => (await exam("away", { away: periods })).status === 200, [exam]);
   useAwayWatch({ enabled: stage === "live", send: sendAway, storageKey: `${cacheKey}:away` });

@@ -463,6 +463,8 @@ export default function WrittenPaper() {
           <Privacy />
         </View>
       </ScrollView>
+      {/* Behind the phone's clock and battery: scrolled text must not run under them. */}
+      <View style={{ position: "absolute", top: 0, left: 0, right: 0, height: insets.top, backgroundColor: "#0C2A2E", zIndex: 2 }} />
 
       {opened ? (
         <QuestionSheet

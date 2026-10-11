@@ -1,4 +1,4 @@
-# SET · KIDS — the native app
+# KIDS EDU UDAAN — the native app
 
 The student app for Android and iPhone, written in React Native with Expo.
 Ruled 8 Oct 2026: a full native rewrite, published to Google Play and the App

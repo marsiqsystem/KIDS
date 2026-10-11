@@ -19,7 +19,7 @@ import "./tabs.css";
  */
 
 export const metadata: Metadata = {
-  title: "SET · KIDS",
+  title: "KIDS EDU UDAAN",
   description: "The Students Evaluation Test app for KIDS students.",
   // Not a public page. It is a door with children's names behind it, and there
   // is nothing here for a search engine to index.
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
    * iPhone student adds this to their home screen instead — and what they get
    * is decided here, not by the manifest, which iOS mostly ignores.
    *
-   * `title` is the label under the icon: "SET · KIDS", not the institute's
+   * `title` is the label under the icon: "KIDS EDU UDAAN", not the institute's
    * full name inherited from the site's root layout, which a home screen
    * truncates to "KIDS - Kabitirtha In…".
    *
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
    */
   appleWebApp: {
     capable: true,
-    title: "SET · KIDS",
+    title: "KIDS EDU UDAAN",
     statusBarStyle: "black-translucent",
   },
 };

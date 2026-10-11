@@ -18,7 +18,7 @@ import { OFFICE } from "@/components/app/door";
 export default function DeleteAccountPage() {
   return (
     <div>
-      <PageHeader title="Delete your app account" description="The KIDS student app (SET · KIDS)" />
+      <PageHeader title="Delete your app account" description="The KIDS student app (KIDS EDU UDAAN)" />
 
       <section className="w-full px-4 md:px-8 py-20 max-w-[900px] mx-auto">
         <div className="prose prose-lg max-w-none space-y-10 text-on-surface-variant">

@@ -4,6 +4,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as WebBrowser from "expo-web-browser";
 import Constants from "expo-constants";
+import * as Application from "expo-application";
+import * as Updates from "expo-updates";
 import { Bell, BookOpen, Flame, KeyRound, LogOut, Mail, PencilLine, ShieldCheck, Smartphone, Trash2 } from "lucide-react-native";
 import { Btn, Card, Loading, Offline, Row, Screen, s } from "@/components/kit";
 import { useScreen } from "@/hooks/useScreen";
@@ -158,7 +160,8 @@ export default function Profile() {
         <Text style={[s.label, { marginTop: 4 }]}>Contact KIDS</Text>
         <Row icon={<Mail size={20} color={color.maroon} />} title={data.office.email} onPress={() => Linking.openURL(`mailto:${data.office.email}`)} />
         <Text style={[s.line, { textAlign: "center", fontSize: 11.5 }]}>
-          {data.office.reg} · app {Constants.expoConfig?.version}
+          {data.office.reg} · app {Constants.expoConfig?.version} ({Application.nativeBuildVersion})
+          {Updates.updateId && !Updates.isEmbeddedLaunch ? ` · update ${Updates.updateId.slice(0, 6)}` : ""}
         </Text>
       </View>
     </Screen>

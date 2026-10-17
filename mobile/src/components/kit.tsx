@@ -13,26 +13,38 @@ import { color, font, radius } from "@/theme";
  * both.
  */
 
-/** A scrolling screen on the cream ground, with pull-to-refresh. */
+/**
+ * A scrolling screen on the cream ground, with pull-to-refresh.
+ *
+ * `top` is for screens that open on a hero: the colour of a band kept behind
+ * the phone's clock and battery, so the page scrolled up never runs under them
+ * (the status bar text is light everywhere). Same colour as the hero's top.
+ */
 export function Screen({
   children,
   refreshing,
   onRefresh,
   pad = true,
+  top,
 }: {
   children: ReactNode;
   refreshing?: boolean;
   onRefresh?: () => void;
   pad?: boolean;
+  top?: string;
 }) {
+  const insets = useSafeAreaInsets();
   return (
-    <ScrollView
-      style={{ flex: 1, backgroundColor: color.cream }}
-      contentContainerStyle={[pad && { padding: 16, paddingTop: 0 }, { gap: 14, paddingBottom: 28 }]}
-      refreshControl={onRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} tintColor={color.maroon} colors={[color.maroon]} /> : undefined}
-    >
-      {children}
-    </ScrollView>
+    <View style={{ flex: 1, backgroundColor: color.cream }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={[pad && { padding: 16, paddingTop: 0 }, { gap: 14, paddingBottom: 28 }]}
+        refreshControl={onRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} tintColor={color.maroon} colors={[color.maroon]} /> : undefined}
+      >
+        {children}
+      </ScrollView>
+      {top ? <View style={{ position: "absolute", top: 0, left: 0, right: 0, height: insets.top, backgroundColor: top }} /> : null}
+    </View>
   );
 }
 

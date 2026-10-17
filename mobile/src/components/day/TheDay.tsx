@@ -54,7 +54,7 @@ const weekday = (iso: string) => new Intl.DateTimeFormat("en-GB", { timeZone: "A
 export function TheDay({ day, name, greeting, present, onChanged, refreshing, onRefresh }: { day: Day; name: string; greeting: string; present: number; onChanged: () => void; refreshing: boolean; onRefresh: () => void }) {
   const insets = useSafeAreaInsets();
   return (
-    <Screen pad={false} refreshing={refreshing} onRefresh={onRefresh}>
+    <Screen pad={false} top={color.maroon} refreshing={refreshing} onRefresh={onRefresh}>
       <LinearGradient colors={[color.maroon, color.maroonDeep]} start={{ x: 0.2, y: 0 }} end={{ x: 0.8, y: 1 }} style={[st.hero, { paddingTop: insets.top + 16 }]}>
         <Image source={require("@/assets/images/kids-icon.png")} style={st.crest} />
         <View style={{ flexDirection: "row", alignItems: "flex-start", gap: 12 }}>

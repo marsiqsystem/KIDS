@@ -38,7 +38,7 @@ export default function Exam() {
 
   if (data.face === "before") {
     return (
-      <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+      <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
         <PaperHero name={data.paper} startsAt={data.startsAt} minutes={data.minutes} />
         <View style={{ paddingHorizontal: 16, gap: 14 }}>
           <Offline show={failed} />
@@ -53,7 +53,7 @@ export default function Exam() {
   }
 
   return (
-    <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+    <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
       <Hero title="Exam" />
       <View style={{ paddingHorizontal: 16, gap: 14 }}>
         <Offline show={failed} />

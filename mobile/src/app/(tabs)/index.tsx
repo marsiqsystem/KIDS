@@ -48,7 +48,7 @@ export default function Home() {
 
   if (data.face === "choose") {
     return (
-      <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+      <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
         <Hero eyebrow={data.greeting} title={data.name} chips={[{ label: `Class ${data.cls}` }]} unread={data.unread} />
         <View style={{ paddingHorizontal: 16, gap: 12 }}>
           <Offline show={failed} />
@@ -77,7 +77,7 @@ export default function Home() {
   const chips = done ? undefined : data.chips.map((label) => ({ label, gold: label.startsWith("★") }));
 
   return (
-    <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+    <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
       <Hero eyebrow={data.greeting} title={data.name} chips={chips} unread={data.unread} />
       <View style={{ paddingHorizontal: 16, gap: 14 }}>
         <Offline show={failed} />

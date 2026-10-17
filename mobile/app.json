@@ -4,7 +4,7 @@
     "slug": "kids-set",
     "version": "2.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/kids-icon.png",
+    "icon": "./assets/images/icon-full-1024.png",
     "scheme": "kidsset",
     "userInterfaceStyle": "light",
     "backgroundColor": "#FDFBF7",
@@ -19,13 +19,14 @@
       "bundleIdentifier": "org.kidskolkata.set",
       "supportsTablet": false,
       "buildNumber": "12",
-      "icon": "./assets/images/icon-1024.png"
+      "icon": "./assets/images/icon-full-1024.png"
     },
     "android": {
       "package": "org.kidskolkata.set",
       "adaptiveIcon": {
-        "backgroundColor": "#FDFBF7",
-        "foregroundImage": "./assets/images/kids-icon.png"
+        "backgroundColor": "#0E1F19",
+        "foregroundImage": "./assets/images/adaptive-foreground.png",
+        "backgroundImage": "./assets/images/adaptive-background.png"
       },
       "predictiveBackGestureEnabled": false,
       "versionCode": 12,

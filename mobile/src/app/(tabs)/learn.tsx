@@ -99,7 +99,7 @@ export default function Learn() {
   const others = subjects.filter((x) => !x.mine);
 
   return (
-    <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+    <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
       <Hero title="Learn" chips={data.noStream ? undefined : [{ label: `${withVideo} videos` }]} />
       <View style={{ paddingHorizontal: 16, gap: 12 }}>
         <Offline show={failed} />

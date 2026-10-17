@@ -38,7 +38,7 @@ export default function SummaryScreen() {
   const pips: PipKind[] = sum.rows.map((r) => (r.right === null ? "todo" : r.right ? "right" : "wrong"));
 
   return (
-    <Screen pad={false}>
+    <Screen pad={false} top={color.maroon}>
       <LinearGradient colors={[color.maroon, color.maroonDeep]} style={[styles.hero, { paddingTop: insets.top + 24 }]}>
         <Text style={styles.score}>
           {sum.correct}

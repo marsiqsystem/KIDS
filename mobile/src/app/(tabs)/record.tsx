@@ -21,7 +21,7 @@ export default function Record() {
   const { result: r, later, award, practice } = data;
 
   return (
-    <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+    <Screen pad={false} top="#0C2A2E" onRefresh={refresh} refreshing={refreshing}>
       <ResultHeader r={r} />
       <View style={{ paddingHorizontal: 16, gap: 14, paddingTop: 4 }}>
         <Offline show={failed} />

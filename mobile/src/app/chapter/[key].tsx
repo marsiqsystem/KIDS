@@ -49,7 +49,7 @@ export default function ChapterScreen() {
   }
 
   return (
-    <Screen pad={false}>
+    <Screen pad={false} top={data.hue}>
       <View style={[styles.hero, { backgroundColor: data.hue, paddingTop: insets.top + 6 }]}>
         <Pressable onPress={() => router.back()} style={styles.back} accessibilityLabel="Back to Learn" hitSlop={6}>
           <ArrowLeft size={24} color={color.white} />

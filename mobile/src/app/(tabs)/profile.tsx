@@ -44,7 +44,7 @@ export default function Profile() {
   if (!data) return failed ? <Screen onRefresh={refresh} refreshing={refreshing}><Offline show /></Screen> : <Loading />;
 
   return (
-    <Screen pad={false} onRefresh={refresh} refreshing={refreshing}>
+    <Screen pad={false} top={color.maroon} onRefresh={refresh} refreshing={refreshing}>
       <LinearGradient colors={[color.maroon, color.maroonDeep]} style={[styles.hero, { paddingTop: insets.top + 18 }]}>
         <View style={styles.avatar}>
           <Text style={styles.avatarText}>{initials(data.name)}</Text>

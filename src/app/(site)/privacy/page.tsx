@@ -8,7 +8,7 @@ export default function PrivacyPolicyPage() {
     <div>
       <PageHeader
         title="Privacy Policy"
-        description="Last updated: January 2025"
+        description="Last updated: October 2026"
       />
 
       <section className="w-full px-4 md:px-8 py-20 max-w-[900px] mx-auto">
@@ -92,7 +92,51 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl text-primary mb-4">9. Contact Us</h2>
+            <h2 className="font-serif text-2xl text-primary mb-4">9. The KIDS EDU UDAAN App</h2>
+            <p className="leading-relaxed">
+              KIDS EDU UDAAN is the KIDS app for students of Classes IX to XII on the KIDS register. It is published on Google Play and the App Store by IQ Systems and Research Private Limited on behalf of KIDS. This section covers the app; it applies to the student pages of this website (/app) in the same way.
+            </p>
+
+            <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">What the app collects, and why</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Your register details</strong> — name, date of birth, class, stream and school. KIDS already holds these from the SET register; you type them when you register or claim your account. Used for your account and your results.</li>
+              <li><strong>A family mobile number</strong>, only if you give one when registering or asking the office for help. Used by the KIDS office to contact you.</li>
+              <li><strong>Your User ID and password.</strong> The password is stored only in scrambled (hashed) form; nobody at KIDS can read it.</li>
+              <li><strong>A random installation number and the kind of phone</strong> (for example &ldquo;Android phone&rdquo;). One account works on one phone, and the office uses this to approve a new phone.</li>
+              <li><strong>Your answers</strong> to daily and practice questions, and your exam answers and results. Used for practice, marking and your record.</li>
+              <li><strong>Times you left the exam screen</strong> during a paper — collected only while an exam is open, and shown to your invigilator.</li>
+              <li><strong>A notification token</strong>, if you allow notifications, so KIDS can send you notices and class reminders.</li>
+            </ul>
+
+            <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">Camera and microphone</h3>
+            <p className="leading-relaxed">
+              The camera is used only when you tap to scan the check-in code at your exam desk (nothing is stored), and in a live class if you turn your camera on. The microphone is used only in a live class, when you unmute. Live classes run on KIDS&apos; own class server. Screenshots are blocked while an exam paper is on screen.
+            </p>
+
+            <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">Services that handle data for us</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Google Firebase</strong> (Android) and <strong>Apple Push Notification service</strong> (iPhone) deliver notifications. They receive the notification token and the notice, not your results.</li>
+              <li><strong>Google Drive</strong> stores recordings of live classes. A recording is shown only to the students of that class&apos;s batch.</li>
+              <li><strong>YouTube</strong> plays chapter videos, in privacy-enhanced mode, and only when you tap play.</li>
+              <li><strong>Expo</strong> delivers updates to the app&apos;s screens. It sees your phone&apos;s internet address and the app&apos;s version, nothing about you.</li>
+            </ul>
+            <p className="leading-relaxed mt-4">
+              The app has no advertising and no analytics or tracking tools. Nothing is sold or shared for marketing. All data travels over encrypted connections (HTTPS).
+            </p>
+
+            <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">Deleting your account</h3>
+            <p className="leading-relaxed">
+              You can delete your app account at any time in the app (Profile &rarr; Delete my account) or at <a href="/delete-account" className="text-primary hover:underline">kidskolkata.org/delete-account</a>. This deletes at once your app account and password, every phone signed in to it, your practice answers, streak and subjects, notices read, coaching attendance and study hours, and the app&apos;s own log. KIDS keeps your register entry and your exam results as the institute&apos;s record of the Students Evaluation Test; you may claim your account again later and start afresh. To ask about anything KIDS holds, write to the address below.
+            </p>
+
+            <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">Age</h3>
+            <p className="leading-relaxed">
+              The app is meant for students aged about 13 to 18 who are on the KIDS register. It is not directed at younger children.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="font-serif text-2xl text-primary mb-4">10. Contact Us</h2>
             <p className="leading-relaxed">
               For any questions regarding this Privacy Policy or to exercise your rights, please contact us at:
             </p>

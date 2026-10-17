@@ -8,10 +8,17 @@
     "scheme": "kidsset",
     "userInterfaceStyle": "light",
     "backgroundColor": "#FDFBF7",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
     "ios": {
       "bundleIdentifier": "org.kidskolkata.set",
       "supportsTablet": false,
-      "buildNumber": "11",
+      "buildNumber": "12",
       "icon": "./assets/images/icon-1024.png"
     },
     "android": {
@@ -21,7 +28,7 @@
         "foregroundImage": "./assets/images/kids-icon.png"
       },
       "predictiveBackGestureEnabled": false,
-      "versionCode": 11
+      "versionCode": 12
     },
     "plugins": [
       "expo-router",

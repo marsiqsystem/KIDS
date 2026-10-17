@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { X } from "lucide-react-native";
 import { Btn } from "@/components/kit";
 import { api } from "@/lib/api";
+import { useOtaRefresh } from "@/lib/ota";
 import { color, font, radius } from "@/theme";
 
 /**
@@ -24,6 +25,7 @@ export default function UpdateGate({ children }: { children: ReactNode }) {
   const [v, setV] = useState<Version | null>(null);
   const [closed, setClosed] = useState(false);
   const build = Number(Application.nativeBuildVersion);
+  useOtaRefresh();
 
   useEffect(() => {
     api<Version>("/version")

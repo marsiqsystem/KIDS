@@ -14,12 +14,13 @@
     },
     "updates": {
       "checkAutomatically": "ON_LOAD",
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "requestHeaders": { "expo-channel-name": "production" }
     },
     "ios": {
       "bundleIdentifier": "org.kidskolkata.set",
       "supportsTablet": false,
-      "buildNumber": "12",
+      "buildNumber": "13",
       "icon": "./assets/images/icon-full-1024.png"
     },
     "android": {
@@ -30,7 +31,7 @@
         "backgroundImage": "./assets/images/adaptive-background.png"
       },
       "predictiveBackGestureEnabled": false,
-      "versionCode": 12,
+      "versionCode": 13,
       "blockedPermissions": [
         "android.permission.SYSTEM_ALERT_WINDOW",
         "android.permission.READ_EXTERNAL_STORAGE",

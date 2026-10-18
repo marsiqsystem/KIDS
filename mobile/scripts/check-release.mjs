@@ -24,6 +24,10 @@ const check = (pass, good, wrong) => (pass ? ok : bad).push(pass ? good : wrong)
 
 const projectId = app.extra?.eas?.projectId;
 check(Boolean(projectId), `Expo project ${projectId}: updates come from u.expo.dev`, "No Expo project id (extra.eas.projectId). Run `npx eas-cli@latest init` signed in to the company's Expo account. Without it this build can never take an update.");
+// eas.json's channel reaches only EAS cloud builds. A build made here on the
+// laptop asks u.expo.dev with no channel, is answered 400, and never takes an
+// update — build 12 went to Play like that (18 Oct 2026).
+check(app.updates?.requestHeaders?.["expo-channel-name"] === "production", "Asks for updates on the production channel", "updates.requestHeaders must carry { \"expo-channel-name\": \"production\" }. Without it a locally built app is refused by u.expo.dev and never takes an update.");
 check(app.runtimeVersion?.policy === "appVersion", "runtimeVersion follows the app version", "runtimeVersion must be { policy: \"appVersion\" }.");
 check(Boolean(process.env.GOOGLE_SERVICES_JSON) || fs.existsSync(path.join(here, "google-services.json")), "google-services.json present: Android push works", "mobile/google-services.json is missing (Firebase console, Android app org.kidskolkata.set). Without it no phone ever gets a notice.");
 

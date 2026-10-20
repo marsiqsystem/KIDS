@@ -72,6 +72,23 @@ export async function recordAway(uid: string, examPaperId: string, periods: Away
   return rows.length;
 }
 
+/**
+ * Close whatever period is still open, because the paper is on screen again.
+ *
+ * A phone that is swiped out of recent apps dies with its period open: it sent
+ * "left" and never lived to send "back". The app that opens next is a new
+ * process and does not know. Found 20 Oct 2026 on Umar's phone -- a 16-second
+ * restart read "away now" on the desk until the paper closed. Called when the
+ * paper is opened again and when it is handed in, the two moments the server
+ * knows for certain the child is looking at it.
+ */
+export async function closeOpenAway(uid: string, examPaperId: string): Promise<void> {
+  await sql`
+    update exam_away set back_at = now(), heard_at = now()
+     where uid = ${uid} and exam_paper_id = ${examPaperId}::bigint and back_at is null
+  `;
+}
+
 export interface AwayRow {
   uid: string;
   name: string;

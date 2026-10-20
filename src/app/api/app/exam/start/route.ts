@@ -3,6 +3,7 @@ import { appGate, bindPaperToPhone, OTHER_PHONE } from "@/lib/exam/app-gate";
 import { deadlineFor } from "@/lib/exam/schedule";
 import { publicQuestions, scoreAnswers } from "@/lib/exam/papers";
 import { startOrResume, finalise, logEvent, findAttempt } from "@/lib/exam/attempts";
+import { closeOpenAway } from "@/lib/exam/away";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,6 +77,8 @@ export async function POST() {
 
   const resumed = Object.keys(attempt.answers ?? {}).length > 0;
   await logEvent(student.uid, "start", { paper: paper.id, resumed, via: "app" });
+  // The paper is on screen again, so any period this phone left open has ended.
+  await closeOpenAway(student.uid, window.examPaperId);
 
   return NextResponse.json(
     {

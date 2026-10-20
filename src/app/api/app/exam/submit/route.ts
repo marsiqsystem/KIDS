@@ -3,6 +3,7 @@ import { appGate, bindPaperToPhone, OTHER_PHONE } from "@/lib/exam/app-gate";
 import { cleanAnswers } from "@/lib/exam/api-gate";
 import { scoreAnswers } from "@/lib/exam/papers";
 import { submit, logEvent, findAttempt } from "@/lib/exam/attempts";
+import { closeOpenAway } from "@/lib/exam/away";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -38,6 +39,7 @@ export async function POST(request: NextRequest) {
   const accepted = await submit(student.uid, answers, scoreAnswers(paper, answers), window.examPaperId);
   if (accepted) {
     await logEvent(student.uid, "submit", { answered: Object.keys(answers).length, via: "app" });
+    await closeOpenAway(student.uid, window.examPaperId);
   }
 
   const attempt = await findAttempt(student.uid, window.examPaperId);

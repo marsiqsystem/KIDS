@@ -326,7 +326,7 @@ export default function DeskScreen({
               <div className={tab === "find" ? "flex flex-col gap-2.5 lg:hidden" : "hidden"}>
                 <PhoneCounts line={countLine} note={null} />
                 <p className={`${DISPLAY} text-[23px]`}>Find a student</p>
-                <FindStudent desk={desk} />
+                <FindStudent desk={desk} tick={lastOk} />
               </div>
             </>
           ) : (
@@ -368,6 +368,7 @@ export default function DeskScreen({
                   ))}
                 </dl>
               ) : null}
+              <p className="mt-[7px] text-[12.5px] text-[#CDBFB6]">KIDS team demo accounts are not counted here. Find them by User ID below.</p>
               {awayNote ? <p className="mt-[7px] text-[12.5px] text-[#CDBFB6]">{awayNote}</p> : null}
             </section>
             {watching ? (
@@ -393,7 +394,7 @@ export default function DeskScreen({
             {watching || codeView ? (
               <section className="flex min-h-0 flex-col gap-2.5">
                 <p className={LABEL}>Find a student</p>
-                <FindStudent desk={desk} />
+                <FindStudent desk={desk} tick={lastOk} />
               </section>
             ) : null}
           </aside>
@@ -825,11 +826,15 @@ function StudentLine({
  * to give a star or let their paper carry on on another phone. Moving is
  * confirmed in place, inside the card, not in a pop-up over the list.
  */
-function FindStudent({ desk }: { desk: Desk }) {
+function FindStudent({ desk, tick }: { desk: Desk; tick: number | null }) {
   const [q, setQ] = useState("");
   const [rows, setRows] = useState<Student[] | null>(null);
   const [note, setNote] = useState<{ ok: boolean; text: string } | null>(null);
   const [confirming, setConfirming] = useState<string | null>(null);
+  // The term the cards on screen were found with, so each refresh of the desk
+  // can ask again. Without it a card said "checked in, not started" to the end
+  // of a paper the student had already handed in (20 Oct 2026).
+  const shown = useRef<string | null>(null);
 
   async function search(e?: React.FormEvent) {
     e?.preventDefault();
@@ -837,10 +842,23 @@ function FindStudent({ desk }: { desk: Desk }) {
       const data = await post(desk, { q });
       setRows(data.ok ? data.students : []);
       setNote(data.ok ? null : { ok: false, text: data.message });
+      shown.current = data.ok ? q : null;
     } catch {
       setNote({ ok: false, text: "No connection. Try again." });
     }
   }
+
+  useEffect(() => {
+    const term = shown.current;
+    if (!term || tick === null) return;
+    post(desk, { q: term })
+      .then((data) => {
+        if (data.ok && shown.current === term) setRows(data.students);
+      })
+      .catch(() => {});
+    // Only the desk's own refresh drives this; `desk` is rebuilt every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tick]);
 
   async function release(s: Student) {
     const data = await post(desk, { release: s.uid });

@@ -116,6 +116,16 @@ export function useAwayWatch({
       );
     }
 
+    // A period still open from before is from a process that died away from the
+    // paper — swiped out of recent apps — and never lived to say "back". The
+    // paper is on screen again now, so that is when it ended. Left open, the
+    // desk read "away now" until the paper closed (20 Oct 2026).
+    const stale = read();
+    if (stale.some((p) => p.to === null)) {
+      const now = new Date().toISOString();
+      write(stale.map((p) => (p.to === null ? { ...p, to: now } : p)));
+    }
+
     // Anything left from before a restart or a dead battery goes now, and the
     // queue is retried every 20 seconds while the paper runs.
     void flush();

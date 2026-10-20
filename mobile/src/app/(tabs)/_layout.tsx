@@ -1,5 +1,8 @@
+import { useEffect } from "react";
+import { useRouter } from "expo-router";
 import { Tabs } from "expo-router/js-tabs";
 import { Award, BookOpen, CircleUser, FilePenLine, House } from "lucide-react-native";
+import { isSitting } from "@/lib/sitting";
 import { color, font } from "@/theme";
 
 /**
@@ -10,6 +13,13 @@ import { color, font } from "@/theme";
  * itself, in phase 4.
  */
 export default function TabsLayout() {
+  // A paper still running on this phone (the app was killed in the middle of
+  // it): open on the paper, never on Home. The Exam tab reopens it by itself.
+  const router = useRouter();
+  useEffect(() => {
+    if (isSitting()) router.navigate("/exam");
+  }, [router]);
+
   return (
     <Tabs
       screenOptions={{

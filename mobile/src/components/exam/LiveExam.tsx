@@ -8,6 +8,7 @@ import { useAwayWatch } from "@/components/exam/useAwayWatch";
 import { istClock, useServerCountdown } from "@/lib/clock";
 import { useSession } from "@/lib/session";
 import { forget, readJson, writeJson } from "@/lib/store";
+import { clearSitting, isSitting, markSitting } from "@/lib/sitting";
 
 /**
  * The real exam — the website's LiveExam (src/components/portal/LiveExam.tsx),
@@ -81,6 +82,13 @@ export default function LiveExam({ m, onFinished }: { m: PaperModel; onFinished:
     return () => sub.remove();
   }, [sitting]);
 
+  // And kept on the phone, so a launch after the app was killed comes straight
+  // back here instead of to Home. See src/lib/sitting.ts.
+  useEffect(() => {
+    if (sitting) markSitting(deadlineAt || m.closesAt);
+    else if (stage === "submitted") clearSitting();
+  }, [sitting, stage, deadlineAt, m.closesAt]);
+
   const sendAway = useCallback(async (periods: unknown[]) => (await exam("away", { away: periods })).status === 200, [exam]);
   useAwayWatch({ enabled: stage === "live", send: sendAway, storageKey: `${cacheKey}:away` });
 
@@ -124,6 +132,7 @@ export default function LiveExam({ m, onFinished }: { m: PaperModel; onFinished:
       }
       // Already handed in, or the window shut: the tab redraws from the server.
       if (data.state === "submitted" || data.state === "over") {
+        clearSitting();
         onFinished();
         return;
       }
@@ -153,6 +162,22 @@ export default function LiveExam({ m, onFinished }: { m: PaperModel; onFinished:
       setStage("error");
     }
   }, [exam, readCache, cacheKey, onFinished]);
+
+  // A paper already under way on this phone — the app was killed and opened
+  // again — reopens by itself. Making the child find the Exam tab and press
+  // Start again only left them on the other tabs in the middle of a paper.
+  const autoResumed = useRef(false);
+  useEffect(() => {
+    if (autoResumed.current || stage !== "waiting" || beforeStart) return;
+    if (!isSitting() && !readCache()) return;
+    // Through a timer, not inline: start() sets state, and must not do so
+    // synchronously inside the effect.
+    const t = setTimeout(() => {
+      autoResumed.current = true;
+      void start();
+    }, 0);
+    return () => clearTimeout(t);
+  }, [stage, beforeStart, readCache, start]);
 
   /*
    * Fetch every diagram the moment the paper arrives. A hall's Wi-Fi is at its

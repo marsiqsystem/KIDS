@@ -220,9 +220,12 @@ export default function DeskScreen({
     <div className="flex h-dvh flex-col overflow-hidden bg-[#170A0D] text-[#FDFBF7]">
       {/* Header: where, what, and the time by the server's clock. */}
       <header className="flex shrink-0 items-center gap-3.5 border-b border-[rgba(242,233,218,.12)] bg-[#1E0E12] px-[18px] py-3.5">
-        <Link href="/admin/desk" aria-label="All desks" className="shrink-0">
+        {/* Said in words: the logo alone was the way out, and nobody found it (20 Oct 2026). */}
+        <Link href="/admin/desk" aria-label="All desks" className="flex shrink-0 items-center gap-2 text-[#CDBFB6] hover:text-[#E5BE7A]">
+          <ArrowLeft size={18} strokeWidth={1.9} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/kids-icon.png" alt="" className="h-[30px] w-[30px]" />
+          <span className="hidden text-[13px] font-medium lg:inline">All desks</span>
         </Link>
         <div className="min-w-0 flex-1">
           <p className="truncate text-[15.5px] font-bold leading-tight">{ok ? `${centre} · Exam desk` : "Exam desk"}</p>

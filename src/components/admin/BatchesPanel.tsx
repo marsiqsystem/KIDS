@@ -9,12 +9,25 @@ import {
   assignToBatch,
   newBatch,
   removeFromBatch,
+  removeManyFromBatch,
   unassignFromBatch,
 } from "@/app/admin/actions";
 import type { StaffListRow } from "@/lib/admin/staff";
 import type { Batch } from "@/lib/admin/batches";
 import type { OpenBatch } from "./ControlCentre";
-import { Alert, Field, RowAction, Submit, INPUT, SURFACE } from "./ui";
+import {
+  Alert,
+  BulkAction,
+  BulkBar,
+  Field,
+  RowAction,
+  Submit,
+  INPUT,
+  SURFACE,
+  Tick,
+  TickAll,
+  useSelection,
+} from "./ui";
 
 const n = (x: number) => x.toLocaleString("en-IN");
 
@@ -158,6 +171,7 @@ function BatchDetail({
   canEdit: boolean;
 }) {
   const { batch, members, teachers: assigned } = open;
+  const sel = useSelection(members.map((m) => m.uid));
 
   return (
     <div className="space-y-6">
@@ -182,6 +196,20 @@ function BatchDetail({
       <TeachersOnBatch batch={batch} assigned={assigned} teachers={teachers} canEdit={canEdit} />
       {canEdit ? <AddStudents batchId={batch.id} /> : null}
 
+      {canEdit ? (
+        <BulkBar sel={sel} noun={["student", "students"]}>
+          <BulkAction
+            action={removeManyFromBatch}
+            ids={sel.selected}
+            fields={{ batchId: batch.id }}
+            danger
+            confirm={`Take ${sel.selected.length} selected out of ${batch.name}?`}
+          >
+            Remove {sel.selected.length} from the batch
+          </BulkAction>
+        </BulkBar>
+      ) : null}
+
       <section className="overflow-x-auto rounded border border-[#F2E9DA] bg-[#FFFFFF]">
         <h3 className="flex items-center gap-2 border-b border-[#F2E9DA] px-4 py-3 text-sm font-bold">
           <UsersRound className="h-4 w-4 text-[#7B1E2B]" aria-hidden />
@@ -193,6 +221,11 @@ function BatchDetail({
           <table className="w-full text-sm">
             <thead className="border-b border-[#F2E9DA] text-xs text-[#6B5B5D]">
               <tr>
+                {canEdit ? (
+                  <th className="w-8 px-3 py-2">
+                    <TickAll sel={sel} ids={members.map((m) => m.uid)} label="" />
+                  </th>
+                ) : null}
                 <th className="px-3 py-2 text-left font-semibold">User ID</th>
                 <th className="px-3 py-2 text-left font-semibold">Name</th>
                 <th className="px-3 py-2 text-left font-semibold">Class</th>
@@ -203,6 +236,11 @@ function BatchDetail({
             <tbody className="divide-y divide-[#F2E9DA]">
               {members.map((m) => (
                 <tr key={m.uid}>
+                  {canEdit ? (
+                    <td className="px-3 py-2">
+                      <Tick sel={sel} id={m.uid} label={`Select ${m.name}`} />
+                    </td>
+                  ) : null}
                   <td className="whitespace-nowrap px-3 py-2 font-mono text-xs">{m.uid}</td>
                   <td className="px-3 py-2">{m.name}</td>
                   <td className="px-3 py-2 text-xs">{m.class}</td>

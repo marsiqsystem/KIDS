@@ -2,9 +2,26 @@
 
 import { useActionState } from "react";
 import { Download } from "lucide-react";
-import { approveCorrectionAction, rejectCorrectionAction } from "@/app/admin/actions";
+import {
+  approveCorrectionAction,
+  approveCorrectionsAction,
+  rejectCorrectionAction,
+  rejectCorrectionsAction,
+} from "@/app/admin/actions";
 import type { PendingCorrection } from "@/lib/admin/corrections";
-import { Alert, INPUT, RowAction, SURFACE } from "./ui";
+import {
+  Alert,
+  BulkAction,
+  BulkBar,
+  BulkReject,
+  INPUT,
+  RowAction,
+  SURFACE,
+  Tick,
+  TickAll,
+  useSelection,
+  type Selection,
+} from "./ui";
 
 const LABEL: Record<PendingCorrection["field"], string> = {
   name: "Name",
@@ -22,10 +39,15 @@ const LABEL: Record<PendingCorrection["field"], string> = {
  * office may be sure of only one. Approving changes the register immediately and
  * is re-applied after every reseed; the export at the top is how the master
  * workbook is brought into line so the two stop disagreeing.
+ *
+ * Fields can be ticked -- one, a student's, or all -- and changed or left
+ * together.
  */
 export default function CorrectionsPanel({ pending }: { pending: PendingCorrection[] }) {
   const byStudent = new Map<string, PendingCorrection[]>();
   for (const c of pending) byStudent.set(c.uid, [...(byStudent.get(c.uid) ?? []), c]);
+  const sel = useSelection(pending.map((c) => c.id));
+  const n = sel.selected.length;
 
   return (
     <div className="space-y-6">
@@ -49,19 +71,52 @@ export default function CorrectionsPanel({ pending }: { pending: PendingCorrecti
         </a>
       </section>
 
+      {pending.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-4 px-1">
+          <TickAll sel={sel} ids={pending.map((c) => c.id)} label={`Select all ${pending.length}`} />
+          <div className="ml-auto">
+            <BulkAction
+              action={approveCorrectionsAction}
+              ids={pending.map((c) => c.id)}
+              confirm={
+                `Change the register for all ${pending.length} waiting corrections?` +
+                (pending.length > 60 ? `\n\nSixty are changed per press; press it again for the rest.` : "")
+              }
+            >
+              Change all {pending.length}
+            </BulkAction>
+          </div>
+        </div>
+      ) : null}
+
+      <BulkBar sel={sel} noun={["correction", "corrections"]}>
+        <BulkAction
+          action={approveCorrectionsAction}
+          ids={sel.selected}
+          primary
+          confirm={`Change the register for ${n} selected ${n === 1 ? "correction" : "corrections"}?`}
+        >
+          Change {n}
+        </BulkAction>
+        <BulkReject action={rejectCorrectionsAction} ids={sel.selected} noun="corrections" reader="the students" />
+      </BulkBar>
+
       {[...byStudent.entries()].map(([uid, rows]) => (
         <section key={uid} className={`rounded ${SURFACE}`}>
-          <header className="border-b border-[#F2E9DA] px-5 py-3">
-            <h3 className="text-sm font-bold">
-              {rows[0].student_name} <span className="font-mono text-xs font-normal text-[#6B5B5D]">{uid}</span>
-            </h3>
-            <p className="text-xs text-[#6B5B5D]">
-              Class {rows[0].class} · {rows[0].school_name}
-            </p>
+          <header className="flex items-start gap-3 border-b border-[#F2E9DA] px-5 py-3">
+            <TickAll sel={sel} ids={rows.map((c) => c.id)} label="" />
+            <div>
+              <h3 className="text-sm font-bold">
+                {rows[0].student_name} <span className="font-mono text-xs font-normal text-[#6B5B5D]">{uid}</span>
+              </h3>
+              <p className="text-xs text-[#6B5B5D]">
+                Class {rows[0].class} · {rows[0].school_name}
+              </p>
+            </div>
           </header>
           <ul className="divide-y divide-[#F2E9DA]">
             {rows.map((c) => (
-              <Row key={c.id} c={c} />
+              <Row key={c.id} c={c} sel={sel} />
             ))}
           </ul>
         </section>
@@ -70,7 +125,7 @@ export default function CorrectionsPanel({ pending }: { pending: PendingCorrecti
   );
 }
 
-function Row({ c }: { c: PendingCorrection }) {
+function Row({ c, sel }: { c: PendingCorrection; sel: Selection }) {
   const [state, reject] = useActionState(rejectCorrectionAction, {});
   const was = c.field === "school" ? (c.old_label ?? c.old_value) : c.old_value;
   const now = c.field === "school" ? (c.new_label ?? c.new_value) : c.new_value;
@@ -78,6 +133,7 @@ function Row({ c }: { c: PendingCorrection }) {
   return (
     <li className="px-5 py-4">
       <div className="flex flex-wrap items-start gap-x-6 gap-y-3">
+        <Tick sel={sel} id={c.id} label={`Select ${LABEL[c.field]} for ${c.student_name}`} />
         <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold text-[#6B5B5D]">{LABEL[c.field]}</p>
           <p className="mt-1 text-sm">

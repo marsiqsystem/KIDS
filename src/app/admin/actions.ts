@@ -344,6 +344,18 @@ export async function removeFromBatch(_prev: State, formData: FormData): Promise
   return done("Removed from the batch.");
 }
 
+/** Take every ticked student out of one batch. The ids here are User IDs. */
+export async function removeManyFromBatch(_prev: State, formData: FormData): Promise<State> {
+  const by = await requireStaff("admin");
+  const batchId = String(formData.get("batchId") ?? "");
+  const uids = idsFrom(formData);
+  if (uids.length === 0) return { message: "Nothing was selected." };
+
+  for (const uid of uids) await removeMember(batchId, uid, by.staff_id);
+  refresh();
+  return done(`Removed ${uids.length} from the batch.`);
+}
+
 export async function assignToBatch(_prev: State, formData: FormData): Promise<State> {
   const by = await requireStaff("admin");
   const batchId = String(formData.get("batchId") ?? "");
@@ -804,6 +816,73 @@ export async function approveSchool(_prev: State, formData: FormData): Promise<S
   return done(`Approved ${approved}.${kept}${more}`);
 }
 
+/**
+ * The ticked rows of a queue, from a BulkAction form: numeric ids only, each
+ * once. Anything else in the list is dropped rather than trusted.
+ */
+function idsFrom(formData: FormData): string[] {
+  const raw = String(formData.get("ids") ?? "").split(",");
+  return [...new Set(raw.map((s) => s.trim()).filter((s) => /^\d+$/.test(s)))];
+}
+
+/** Sixty a press, like every other bulk button here: well inside one request's time. */
+const BULK_LIMIT = 60;
+
+function bulkSentence(verb: string, did: number, gone: number, more: number, tail = ""): State {
+  const parts = [`${verb} ${did}.${tail}`];
+  if (gone) parts.push(`${gone} had already been decided by somebody else.`);
+  if (more) parts.push(`${more} more ticked were not reached; press it again.`);
+  return { ok: did > 0, message: parts.join(" ") };
+}
+
+/**
+ * Approve the ticked applications.
+ *
+ * Unlike approveSchool, a ticked application the duplicate guard flagged IS
+ * approved: ticking it is the person opening it, and the confirm on the button
+ * names how many flagged ones are in the selection. With no ticks at all
+ * (`all=clean`), every clean application on the queue -- flagged ones left.
+ */
+export async function approveApplicationsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  let ids = idsFrom(formData);
+  if (formData.get("all") === "clean") {
+    ids = (await pendingRegistrations(1000)).filter((r) => r.duplicates.length === 0).map((r) => r.id);
+  }
+  if (ids.length === 0) return { message: "Nothing was selected." };
+
+  let approved = 0;
+  let gone = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    const result = await approveRegistration(id, staff.staff_id);
+    if (result.ok) approved += 1;
+    else if (result.reason === "not_pending") gone += 1;
+    else {
+      refresh();
+      return { message: `Approved ${approved}, then stopped: ${result.detail}` };
+    }
+  }
+
+  refresh();
+  return bulkSentence("Approved", approved, gone, Math.max(0, ids.length - BULK_LIMIT), " Their apps open the accounts by themselves.");
+}
+
+export async function rejectApplicationsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const ids = idsFrom(formData);
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (ids.length === 0) return { message: "Nothing was selected." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters.", field: "reason" };
+
+  let turned = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    if (await rejectRegistration(id, staff.staff_id, reason)) turned += 1;
+  }
+  refresh();
+  const gone = Math.min(ids.length, BULK_LIMIT) - turned;
+  return bulkSentence("Turned down", turned, gone, Math.max(0, ids.length - BULK_LIMIT));
+}
+
 /* ---------------------------------------------------------------- claims --- */
 
 /**
@@ -868,7 +947,80 @@ export async function approveMatchingRequestsAction(): Promise<State> {
   return done(`Approved ${approved} matched. Their apps open by themselves.${more ? ` ${more} more matched; press it again.` : ""}`);
 }
 
+/**
+ * Approve the ticked account requests. A ticked forgotten-password request is
+ * approved too -- the confirm names how many are in the selection. Where two
+ * ticked requests ask for the same User ID, the first approved turns the other
+ * down, and it is counted as already decided.
+ */
+export async function approveAccountRequestsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const ids = idsFrom(formData);
+  if (ids.length === 0) return { message: "Nothing was selected." };
+
+  let approved = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    if (await approveAccountRequest(id, staff.staff_id)) approved += 1;
+  }
+  refresh();
+  const gone = Math.min(ids.length, BULK_LIMIT) - approved;
+  return bulkSentence("Approved", approved, gone, Math.max(0, ids.length - BULK_LIMIT), " Their apps open by themselves.");
+}
+
+export async function rejectAccountRequestsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const ids = idsFrom(formData);
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (ids.length === 0) return { message: "Nothing was selected." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters.", field: "reason" };
+
+  let turned = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    if (await rejectAccountRequest(id, staff.staff_id, reason)) turned += 1;
+  }
+  refresh();
+  const gone = Math.min(ids.length, BULK_LIMIT) - turned;
+  return bulkSentence("Turned down", turned, gone, Math.max(0, ids.length - BULK_LIMIT));
+}
+
 /* ----------------------------------------------------------- corrections --- */
+
+/** Change the register for every ticked correction. Stops at the first that throws, and says which. */
+export async function approveCorrectionsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const ids = idsFrom(formData);
+  if (ids.length === 0) return { message: "Nothing was selected." };
+
+  let changed = 0;
+  let gone = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    try {
+      if (await approveCorrection(id, staff.staff_id)) changed += 1;
+      else gone += 1;
+    } catch (e) {
+      refresh();
+      return { message: `Changed ${changed}, then stopped: ${e instanceof Error ? e.message : "that did not work."}` };
+    }
+  }
+  refresh();
+  return bulkSentence("Changed", changed, gone, Math.max(0, ids.length - BULK_LIMIT), " Export the corrections for the master workbook when you can.");
+}
+
+export async function rejectCorrectionsAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const ids = idsFrom(formData);
+  const reason = String(formData.get("reason") ?? "").trim();
+  if (ids.length === 0) return { message: "Nothing was selected." };
+  if (reason.length > 300) return { message: "Keep the reason under 300 characters." };
+
+  let left = 0;
+  for (const id of ids.slice(0, BULK_LIMIT)) {
+    if (await rejectCorrection(id, staff.staff_id, reason)) left += 1;
+  }
+  refresh();
+  const gone = Math.min(ids.length, BULK_LIMIT) - left;
+  return bulkSentence("Left as it was:", left, gone, Math.max(0, ids.length - BULK_LIMIT));
+}
 
 export async function approveCorrectionAction(_prev: State, formData: FormData): Promise<State> {
   const staff = await requireStaff("admin");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { Loader2, Check, AlertCircle, Copy } from "lucide-react";
 import type { State } from "@/app/admin/actions";
@@ -216,5 +216,206 @@ function RowButton({
     >
       {pending ? "…" : children}
     </button>
+  );
+}
+
+/* ------------------------------------------------------------- selection --- */
+
+/**
+ * Which rows of a queue are ticked.
+ *
+ * Kept as ids, and read through the rows on screen: once an action lands and
+ * the page refreshes, an approved row is gone from `ids` and so drops out of
+ * the selection by itself. A tick can never point at a row that is not shown.
+ */
+export function useSelection(ids: string[]) {
+  const [picked, setPicked] = useState<Set<string>>(() => new Set());
+  const shown = new Set(ids);
+  const selected = [...picked].filter((id) => shown.has(id));
+
+  return {
+    selected,
+    has: (id: string) => picked.has(id) && shown.has(id),
+    toggle: (id: string) =>
+      setPicked((p) => {
+        const next = new Set(p);
+        if (next.has(id)) next.delete(id);
+        else next.add(id);
+        return next;
+      }),
+    /** Tick or untick a group at once -- a school, a "matched" list, everything. */
+    setMany: (group: string[], on: boolean) =>
+      setPicked((p) => {
+        const next = new Set(p);
+        for (const id of group) {
+          if (on) next.add(id);
+          else next.delete(id);
+        }
+        return next;
+      }),
+    clear: () => setPicked(new Set()),
+  };
+}
+export type Selection = ReturnType<typeof useSelection>;
+
+/** A row's tick box. */
+export function Tick({ sel, id, label }: { sel: Selection; id: string; label: string }) {
+  return (
+    <input
+      type="checkbox"
+      aria-label={label}
+      checked={sel.has(id)}
+      onChange={() => sel.toggle(id)}
+      className="mt-1 h-4 w-4 shrink-0 accent-[#7B1E2B]"
+    />
+  );
+}
+
+/** "Select all" for a group: ticked when every row in it is, half-ticked when some are. */
+export function TickAll({ sel, ids, label }: { sel: Selection; ids: string[]; label: string }) {
+  const on = ids.filter((id) => sel.has(id)).length;
+  return (
+    <label className="inline-flex cursor-pointer select-none items-center gap-2 text-xs text-[#4A3A3C]">
+      <input
+        type="checkbox"
+        aria-label={label || "Select all in this group"}
+        checked={ids.length > 0 && on === ids.length}
+        ref={(el) => {
+          if (el) el.indeterminate = on > 0 && on < ids.length;
+        }}
+        onChange={() => sel.setMany(ids, on < ids.length)}
+        disabled={ids.length === 0}
+        className="h-4 w-4 accent-[#7B1E2B]"
+      />
+      {label}
+    </label>
+  );
+}
+
+/**
+ * The bar that appears once anything is ticked: how many, and what to do with
+ * them. Sticky, because the ticking happens forty rows down from the top.
+ */
+export function BulkBar({
+  sel,
+  noun,
+  children,
+}: {
+  sel: Selection;
+  noun: [string, string];
+  children: React.ReactNode;
+}) {
+  const count = sel.selected.length;
+  if (count === 0) return null;
+  return (
+    <div className="sticky top-0 z-10 flex flex-wrap items-start gap-x-4 gap-y-2 rounded border border-[#7B1E2B] bg-[#F6E9E9] px-4 py-3">
+      <p className="pt-1 text-xs font-semibold text-[#2B1A1C]">
+        {count.toLocaleString("en-IN")} {count === 1 ? noun[0] : noun[1]} selected
+      </p>
+      <button
+        type="button"
+        onClick={sel.clear}
+        className="pt-1 text-xs text-[#6B5B5D] underline-offset-2 hover:underline"
+      >
+        Clear
+      </button>
+      <div className="ml-auto flex flex-wrap items-start gap-2">{children}</div>
+    </div>
+  );
+}
+
+/**
+ * One button that sends a list of ids to a server action, as `ids`.
+ *
+ * The action decides what it may do with each one -- this only carries the
+ * list. `confirm` is asked first, as everywhere else in the control centre.
+ */
+export function BulkAction({
+  action,
+  ids,
+  fields = {},
+  confirm,
+  danger,
+  primary,
+  children,
+}: {
+  action: (prev: State, formData: FormData) => Promise<State>;
+  ids: string[];
+  fields?: Record<string, string>;
+  confirm?: string;
+  danger?: boolean;
+  primary?: boolean;
+  children: React.ReactNode;
+}) {
+  const [state, formAction] = useActionState(action, {});
+  return (
+    <div>
+      <form
+        action={formAction}
+        onSubmit={(e) => {
+          if (confirm && !window.confirm(confirm)) e.preventDefault();
+        }}
+        className="inline"
+      >
+        <input type="hidden" name="ids" value={ids.join(",")} />
+        {Object.entries(fields).map(([k, v]) => (
+          <input key={k} type="hidden" name={k} value={v} />
+        ))}
+        <RowButton danger={danger} primary={primary}>
+          {children}
+        </RowButton>
+      </form>
+      {state.message ? (
+        <div className="mt-1">
+          <Alert state={state} />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+/**
+ * Turn down everything ticked, with one reason for all of them.
+ *
+ * Behind a disclosure like the single-row version, so the reason box is only
+ * there when it is wanted.
+ */
+export function BulkReject({
+  action,
+  ids,
+  noun,
+  reader,
+  defaultReason,
+}: {
+  action: (prev: State, formData: FormData) => Promise<State>;
+  ids: string[];
+  noun: string;
+  reader: string;
+  defaultReason?: string;
+}) {
+  const [state, formAction] = useActionState(action, {});
+  return (
+    <details className="w-full sm:w-auto">
+      <summary className="cursor-pointer select-none rounded border border-[#E8C9CC] bg-[#FFFFFF] px-2.5 py-1 text-xs text-[#B22234] hover:bg-[#FBE9EA]">
+        Turn down {ids.length}…
+      </summary>
+      <form
+        action={formAction}
+        onSubmit={(e) => {
+          if (!window.confirm(`Turn down ${ids.length} ${noun}? This cannot be undone from here.`)) e.preventDefault();
+        }}
+        className="mt-2 w-full space-y-2 sm:w-96"
+      >
+        <input type="hidden" name="ids" value={ids.join(",")} />
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">
+            One reason for all {ids.length} · {reader} read it, word for word
+          </span>
+          <textarea name="reason" rows={2} maxLength={300} defaultValue={defaultReason} className={INPUT} />
+        </label>
+        <RowButton danger>Turn down {ids.length}</RowButton>
+        <Alert state={state} />
+      </form>
+    </details>
   );
 }

@@ -2,9 +2,27 @@
 
 import { useActionState } from "react";
 import { AlertTriangle, Inbox } from "lucide-react";
-import { approveApplication, approveSchool, rejectApplication } from "@/app/admin/actions";
+import {
+  approveApplication,
+  approveApplicationsAction,
+  approveSchool,
+  rejectApplication,
+  rejectApplicationsAction,
+} from "@/app/admin/actions";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
-import { Alert, INPUT, RowAction, SURFACE } from "./ui";
+import {
+  Alert,
+  BulkAction,
+  BulkBar,
+  BulkReject,
+  INPUT,
+  RowAction,
+  SURFACE,
+  Tick,
+  TickAll,
+  useSelection,
+  type Selection,
+} from "./ui";
 
 /**
  * Applications — children asking to be put on the register.
@@ -18,6 +36,10 @@ import { Alert, INPUT, RowAction, SURFACE } from "./ui";
  * checked -- against the list a class teacher sent. A school's clean
  * applications can be approved together; anything the duplicate guard flagged
  * cannot, and is held back for a person to open.
+ *
+ * Any rows can also be ticked -- across schools -- and approved or turned down
+ * together. Ticking a flagged one is a person choosing it, so it is included,
+ * and the confirm says how many flagged ones are in the selection.
  */
 export default function ApplicationsPanel({
   pending,
@@ -32,6 +54,10 @@ export default function ApplicationsPanel({
     groups.set(key, [...(groups.get(key) ?? []), r]);
   }
   const flagged = pending.filter((r) => r.duplicates.length > 0).length;
+  const clean = pending.length - flagged;
+  const sel = useSelection(pending.map((r) => r.id));
+  const ticked = pending.filter((r) => sel.has(r.id));
+  const tickedFlagged = ticked.filter((r) => r.duplicates.length > 0).length;
 
   return (
     <div className="space-y-6">
@@ -48,6 +74,30 @@ export default function ApplicationsPanel({
               {flagged ? ` · ${flagged} flagged as a possible duplicate` : ""}
             </span>
           ) : null}
+          {clean > 0 ? (
+            <div className="ml-auto">
+              <BulkAction
+                action={approveApplicationsAction}
+                ids={[]}
+                fields={{ all: "clean" }}
+                primary
+                confirm={
+                  `Approve all ${clean} clean applications, from every school?
+
+` +
+                  `Each gets a new User ID. This cannot be undone from the control centre.` +
+                  (flagged ? `
+
+${flagged} flagged as a possible duplicate will be left for you.` : "") +
+                  (clean > 60 ? `
+
+Sixty are approved per press; press it again for the rest.` : "")
+                }
+              >
+                Approve all {clean} clean
+              </BulkAction>
+            </div>
+          ) : null}
         </div>
         <p className="mt-2 max-w-3xl text-xs leading-relaxed text-[#6B5B5D]">
           Approving puts the child on the register with a new User ID, and their app opens the
@@ -56,13 +106,46 @@ export default function ApplicationsPanel({
         </p>
       </section>
 
+      {pending.length > 0 ? (
+        <div className="flex items-center px-1">
+          <TickAll sel={sel} ids={pending.map((r) => r.id)} label={`Select all ${pending.length}`} />
+        </div>
+      ) : null}
+
+      <BulkBar sel={sel} noun={["application", "applications"]}>
+        <BulkAction
+          action={approveApplicationsAction}
+          ids={sel.selected}
+          primary
+          confirm={
+            `Approve ${ticked.length} selected ${ticked.length === 1 ? "application" : "applications"}?
+
+` +
+            `Each gets a new User ID. This cannot be undone from the control centre.` +
+            (tickedFlagged
+              ? `
+
+${tickedFlagged} of them ${tickedFlagged === 1 ? "is" : "are"} flagged as a possible duplicate and will get a SECOND User ID.`
+              : "")
+          }
+        >
+          Approve {ticked.length}
+        </BulkAction>
+        <BulkReject
+          action={rejectApplicationsAction}
+          ids={sel.selected}
+          noun="applications"
+          reader="the families"
+        />
+      </BulkBar>
+
       {pending.length === 0 ? (
         <p className={`flex items-center gap-2 rounded p-4 text-sm text-[#6B5B5D] ${SURFACE}`}>
           <Inbox className="h-4 w-4" aria-hidden />
           New registrations from the app arrive here.
         </p>
       ) : (
-        [...groups.entries()].map(([key, rows]) => <SchoolGroup key={key} rows={rows} />)
+        [...groups.entries()].map(([key, rows]) => <SchoolGroup key={key} rows={rows} sel={sel} />)
       )}
 
       {decided.length > 0 ? <Decided rows={decided} /> : null}
@@ -70,13 +153,14 @@ export default function ApplicationsPanel({
   );
 }
 
-function SchoolGroup({ rows }: { rows: PendingRow[] }) {
+function SchoolGroup({ rows, sel }: { rows: PendingRow[]; sel: Selection }) {
   const first = rows[0];
   const clean = rows.filter((r) => r.duplicates.length === 0).length;
 
   return (
     <section className={`rounded ${SURFACE}`}>
       <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#F2E9DA] px-5 py-3">
+        <TickAll sel={sel} ids={rows.map((r) => r.id)} label="" />
         <div>
           <h3 className="text-sm font-bold">{first.school_name}</h3>
           <p className="font-mono text-xs text-[#6B5B5D]">
@@ -108,19 +192,20 @@ function SchoolGroup({ rows }: { rows: PendingRow[] }) {
 
       <ul className="divide-y divide-[#F2E9DA]">
         {rows.map((r) => (
-          <Application key={r.id} r={r} />
+          <Application key={r.id} r={r} sel={sel} />
         ))}
       </ul>
     </section>
   );
 }
 
-function Application({ r }: { r: PendingRow }) {
+function Application({ r, sel }: { r: PendingRow; sel: Selection }) {
   const dup = r.duplicates.length > 0;
 
   return (
     <li className="px-5 py-4">
       <div className="flex flex-wrap items-start gap-x-6 gap-y-3">
+        <Tick sel={sel} id={r.id} label={`Select ${r.name}`} />
         <div className="min-w-0 flex-1">
           <p className="text-sm font-semibold text-[#2B1A1C]">{r.name}</p>
           <dl className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[#6B5B5D]">

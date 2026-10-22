@@ -4,12 +4,26 @@ import { useActionState } from "react";
 import { AlertTriangle, Check, Minus, X } from "lucide-react";
 import {
   approveAccountRequestAction,
+  approveAccountRequestsAction,
   approveMatchingRequestsAction,
   rejectAccountRequestAction,
+  rejectAccountRequestsAction,
 } from "@/app/admin/actions";
 import type { AccountRequestRow } from "@/lib/admin/account-requests";
 import type { FieldMatch } from "@/lib/admin/claim-match";
-import { Alert, INPUT, RowAction, SURFACE } from "./ui";
+import {
+  Alert,
+  BulkAction,
+  BulkBar,
+  BulkReject,
+  INPUT,
+  RowAction,
+  SURFACE,
+  Tick,
+  TickAll,
+  useSelection,
+  type Selection,
+} from "./ui";
 
 const when = (d: Date) =>
   new Date(d).toLocaleString("en-IN", {
@@ -33,12 +47,20 @@ const when = (d: Date) =>
  * Approving opens the account on the phone that asked, by itself; turning one
  * down shows the child the reason. Nothing to print, nothing to read out. See
  * src/lib/app/handoff.ts.
+ *
+ * Rows can be ticked and approved or turned down together. The "Approve N
+ * matched" button never touches a forgotten-password request; a ticked one is
+ * a person's choice, and the confirm names how many are in the selection.
  */
 export default function AccountRequestsPanel({ rows }: { rows: AccountRequestRow[] }) {
   const matched = rows.filter((r) => r.verdict === "matched");
   const notMatched = rows.filter((r) => r.verdict === "not_matched");
   const bulk = matched.filter((r) => r.kind === "claim" && r.rivals === 0).length;
   const [state, action, pending] = useActionState(approveMatchingRequestsAction, {});
+  const sel = useSelection(rows.map((r) => r.id));
+  const ticked = rows.filter((r) => sel.has(r.id));
+  const tickedResets = ticked.filter((r) => r.kind === "reset").length;
+  const tickedUnmatched = ticked.filter((r) => r.verdict !== "matched").length;
 
   return (
     <div className="space-y-4">
@@ -88,19 +110,54 @@ export default function AccountRequestsPanel({ rows }: { rows: AccountRequestRow
       </section>
 
       {rows.length > 0 ? (
+        <div className="flex items-center px-1">
+          <TickAll sel={sel} ids={rows.map((r) => r.id)} label={`Select all ${rows.length}`} />
+        </div>
+      ) : null}
+
+      <BulkBar sel={sel} noun={["request", "requests"]}>
+        <BulkAction
+          action={approveAccountRequestsAction}
+          ids={sel.selected}
+          primary
+          confirm={
+            `Approve ${ticked.length} selected ${ticked.length === 1 ? "request" : "requests"}?\n\nEach phone that asked opens its account by itself.` +
+            (tickedUnmatched ? `\n\n${tickedUnmatched} of them did NOT match the school's records.` : "") +
+            (tickedResets
+              ? `\n\n${tickedResets} ${tickedResets === 1 ? "is a forgotten-password request" : "are forgotten-password requests"}: approving moves the account to the phone that asked and signs every other phone out.`
+              : "")
+          }
+        >
+          Approve {ticked.length}
+        </BulkAction>
+        <BulkReject action={rejectAccountRequestsAction} ids={sel.selected} noun="requests" reader="the children" />
+      </BulkBar>
+
+      {rows.length > 0 ? (
         <>
-          <Group title="Matched" tone="ok" rows={matched} />
-          <Group title="Not matched" tone="warn" rows={notMatched} />
+          <Group title="Matched" tone="ok" rows={matched} sel={sel} />
+          <Group title="Not matched" tone="warn" rows={notMatched} sel={sel} />
         </>
       ) : null}
     </div>
   );
 }
 
-function Group({ title, tone, rows }: { title: string; tone: "ok" | "warn"; rows: AccountRequestRow[] }) {
+function Group({
+  title,
+  tone,
+  rows,
+  sel,
+}: {
+  title: string;
+  tone: "ok" | "warn";
+  rows: AccountRequestRow[];
+  sel: Selection;
+}) {
   return (
     <section className={`rounded ${SURFACE}`}>
       <header className="flex items-center gap-3 border-b border-[#F2E9DA] px-5 py-3">
+        <TickAll sel={sel} ids={rows.map((r) => r.id)} label="" />
         <h3 className={`text-sm font-bold ${tone === "ok" ? "text-[#137565]" : "text-[#8A6D1F]"}`}>{title}</h3>
         <span className="text-xs text-[#6B5B5D]">{rows.length}</span>
       </header>
@@ -109,7 +166,7 @@ function Group({ title, tone, rows }: { title: string; tone: "ok" | "warn"; rows
       ) : (
         <ul className="divide-y divide-[#F2E9DA]">
           {rows.map((r) => (
-            <Request key={r.id} r={r} />
+            <Request key={r.id} r={r} sel={sel} />
           ))}
         </ul>
       )}
@@ -117,12 +174,13 @@ function Group({ title, tone, rows }: { title: string; tone: "ok" | "warn"; rows
   );
 }
 
-function Request({ r }: { r: AccountRequestRow }) {
+function Request({ r, sel }: { r: AccountRequestRow; sel: Selection }) {
   const matched = r.verdict === "matched";
 
   return (
     <li className="px-5 py-4">
       <div className="flex flex-wrap items-start gap-x-6 gap-y-3">
+        <Tick sel={sel} id={r.id} label={`Select ${r.name}`} />
         <div className="min-w-0 flex-1">
           <p className="text-sm text-[#2B1A1C]">
             <span className="font-mono">{r.uid}</span> · <span className="font-semibold">{r.name}</span>{" "}

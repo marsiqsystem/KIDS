@@ -122,9 +122,17 @@ export async function recentDecisions(limit = 25): Promise<DecidedRow[]> {
  * cannot.
  */
 export async function mintUid(centreCode: string, schoolCode: string): Promise<string> {
+  // A school nobody sits at yet takes its prefix from extra_schools
+  // (src/lib/admin/schema.sql), set when the school was added.
   const [sibling] = (await sql`
-    select left(uid, 5) as prefix from students
-     where centre_code = ${centreCode} and school_code = ${schoolCode} and not is_demo
+    select prefix from (
+      select left(uid, 5) as prefix, 0 as pick from students
+       where centre_code = ${centreCode} and school_code = ${schoolCode} and not is_demo
+      union all
+      select uid_prefix, 1 from extra_schools
+       where centre_code = ${centreCode} and school_code = ${schoolCode}
+    ) p
+     order by pick
      limit 1
   `) as { prefix: string }[];
 
@@ -185,8 +193,14 @@ export async function approveRegistration(id: string, staffId: string): Promise<
   }
 
   const [centre] = (await sql`
-    select centre_name from students
-     where centre_code = ${reg.centre_code} and not is_demo limit 1
+    select centre_name from (
+      select centre_name, 0 as pick from students
+       where centre_code = ${reg.centre_code} and not is_demo
+      union all
+      select centre_name, 1 from extra_schools where centre_code = ${reg.centre_code}
+    ) c
+     order by pick
+     limit 1
   `) as { centre_name: string }[];
 
   await sql`

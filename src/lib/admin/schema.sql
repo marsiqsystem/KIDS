@@ -738,3 +738,41 @@ alter table exam_question_drafts add column if not exists choice jsonb;
 -- -- what they are sent, what their answers are numbered against, what they are
 -- marked on -- is the set cut down to these (src/lib/exam/papers.ts paperFor).
 alter table attempts add column if not exists subjects jsonb;
+
+-- Schools a new student may register at before any student sits there.
+--
+-- The school list (src/lib/app/registrations.ts listSchools) is otherwise read
+-- from `students`, so a school with nobody on the register cannot be chosen,
+-- and an approval there has no sibling UID to copy its first five digits from.
+-- This row supplies both: the names, and the five-digit prefix that mintUid
+-- copies. Once the first student is approved here, `students` carries the
+-- school too and this row is only a duplicate the list collapses.
+--
+-- 2 Nov 2026, at the KIDS office's request: two new centres, Bawali (South 24
+-- Parganas) and Chaitanyapur (Purba Medinipur). The first UID digit (8, 9) is
+-- one no existing centre uses; centre codes follow CTR-21.
+create table if not exists extra_schools (
+  centre_code  text        not null,
+  centre_name  text        not null,
+  school_code  text        not null,
+  school_name  text        not null,
+  uid_prefix   char(5)     not null unique,
+  added_at     timestamptz not null default now(),
+  primary key (centre_code, school_code)
+);
+
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+  ('CTR-22', 'Bawali', 'SC-01', 'MIM Academy', '82201'),
+  ('CTR-22', 'Bawali', 'SC-02', 'Bawali High School', '82202'),
+  ('CTR-22', 'Bawali', 'SC-03', 'Sree Sarada Ramkrishna Balika Vidyapeeth', '82203'),
+  ('CTR-22', 'Bawali', 'SC-04', 'Bheri Bhetkakhali Boys High School', '82204'),
+  ('CTR-22', 'Bawali', 'SC-05', 'Bheri Bhetkakhali Girls High School', '82205'),
+  ('CTR-22', 'Bawali', 'SC-06', 'Bawali Pallimongal High School', '82206'),
+  ('CTR-22', 'Bawali', 'SC-07', 'Bawali Gangaprosad Vidyapith', '82207'),
+  ('CTR-22', 'Bawali', 'SC-08', 'Alampur Siksha Niketan', '82208'),
+  ('CTR-22', 'Bawali', 'SC-09', 'Paikpara High School', '82209'),
+  ('CTR-23', 'Chaitanyapur', 'SC-01', 'Dwariberia High School', '92301'),
+  ('CTR-23', 'Chaitanyapur', 'SC-02', 'Deulpota High School', '92302'),
+  ('CTR-23', 'Chaitanyapur', 'SC-03', 'Dhekua High School', '92303'),
+  ('CTR-23', 'Chaitanyapur', 'SC-04', 'Rampur Vivekananda Mission Vidyamandir', '92304')
+on conflict do nothing;

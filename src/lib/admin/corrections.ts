@@ -1,3 +1,4 @@
+import { findSchool } from "@/lib/app/registrations";
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "./staff";
 
@@ -84,10 +85,9 @@ async function applyToRegister(uid: string, field: string, value: string): Promi
       // Copied from a student already at the new school, so the names match the
       // register exactly. The UID is NOT changed: it is who the child is, and
       // every mark they have is filed under it.
-      const [x] = (await sql`
-        select centre_code, centre_name, school_code, school_name from students
-         where centre_code || '|' || school_code = ${value} and not is_demo limit 1
-      `) as { centre_code: string; centre_name: string; school_code: string; school_name: string }[];
+      // Or from extra_schools, for a school nobody sits at yet.
+      const [centre, school] = value.split("|");
+      const x = centre && school ? await findSchool(centre, school) : null;
       if (!x) throw new Error("That school is no longer on the register.");
       await sql`
         update students set centre_code = ${x.centre_code}, centre_name = ${x.centre_name},

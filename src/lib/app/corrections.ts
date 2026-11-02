@@ -1,3 +1,4 @@
+import { findSchool } from "@/lib/app/registrations";
 import { sql } from "@/lib/exam/db";
 
 /**
@@ -78,11 +79,8 @@ export async function requestCorrection(req: CorrectionRequest): Promise<Request
     : s.name;
 
   if (req.field === "school") {
-    const [known] = (await sql`
-      select 1 as ok from students
-       where centre_code || '|' || school_code = ${value} and not is_demo limit 1
-    `) as unknown[];
-    if (!known) return { ok: false, reason: "unknown_school" };
+    const [centre, school] = value.split("|");
+    if (!centre || !school || !(await findSchool(centre, school))) return { ok: false, reason: "unknown_school" };
   }
   if (req.field === "class" && !["IX", "X", "XI", "XII"].includes(value)) {
     return { ok: false, reason: "invalid" };

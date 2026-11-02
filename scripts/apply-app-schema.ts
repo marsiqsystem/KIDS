@@ -57,6 +57,7 @@ const TABLES = [
   "exam_away",
   "exam_stars",
   "register_guardians",
+  "extra_schools",
 ];
 
 /**

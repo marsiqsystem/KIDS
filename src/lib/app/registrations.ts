@@ -30,12 +30,33 @@ export interface School {
  * family must never be able to file a child under it.
  */
 export async function listSchools(): Promise<School[]> {
+  // A to Z by school, as the KIDS office asked (2 Nov 2026); the centre only
+  // breaks a tie between two schools of one name. Schools with nobody on the
+  // register yet come from extra_schools (src/lib/admin/schema.sql).
   return (await sql`
-    select distinct centre_code, centre_name, school_code, school_name
-      from students
-     where not is_demo
-     order by centre_name, school_name
+    select centre_code, centre_name, school_code, school_name from students where not is_demo
+    union
+    select centre_code, centre_name, school_code, school_name from extra_schools
+     order by school_name, centre_name
   `) as School[];
+}
+
+/** One school by its pair, from the register or, failing that, extra_schools. */
+export async function findSchool(centreCode: string, schoolCode: string): Promise<School | null> {
+  const [school] = (await sql`
+    select centre_code, centre_name, school_code, school_name from (
+      select centre_code, centre_name, school_code, school_name, 0 as pick
+        from students
+       where centre_code = ${centreCode} and school_code = ${schoolCode} and not is_demo
+      union all
+      select centre_code, centre_name, school_code, school_name, 1
+        from extra_schools
+       where centre_code = ${centreCode} and school_code = ${schoolCode}
+    ) s
+     order by pick
+     limit 1
+  `) as School[];
+  return school ?? null;
 }
 
 /** Collapse a name for comparison only. Never stored in this form. */
@@ -112,13 +133,7 @@ export async function applyToRegister(input: Application): Promise<Applied> {
     return { ok: false, reason: "incomplete" };
   }
 
-  const [school] = (await sql`
-    select school_name, centre_name from students
-     where centre_code = ${input.centre_code}
-       and school_code = ${input.school_code}
-       and not is_demo
-     limit 1
-  `) as { school_name: string }[];
+  const school = await findSchool(input.centre_code, input.school_code);
   if (!school) return { ok: false, reason: "unknown_school" };
 
   if (input.device_id) {

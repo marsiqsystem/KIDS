@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, TextInput, View, type TextInputProps } fro
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { ArrowLeft } from "lucide-react-native";
+import { useKeepAlive } from "@/lib/api";
 import { color, font, radius } from "@/theme";
 
 /**
@@ -13,6 +14,8 @@ import { color, font, radius } from "@/theme";
 /** The white bar over a door screen: back, and the title. */
 export function DoorBar({ title }: { title: string }) {
   const insets = useSafeAreaInsets();
+  // Every door form (claim, register, ask) sends after a minute of typing.
+  useKeepAlive();
   return (
     <View style={[st.bar, { paddingTop: insets.top + 6 }]}>
       <Pressable onPress={() => router.back()} style={st.back} accessibilityLabel="Back" hitSlop={6}>

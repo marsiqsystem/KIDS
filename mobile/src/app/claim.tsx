@@ -44,7 +44,7 @@ export default function Claim() {
     setBusy(true);
     setRefusal(null);
     try {
-      const r = await api<{ state: "unknown" | "claimed" | "no_dob" | "ok" }>("/door/claim-check", { method: "POST", body: { uid: digits } });
+      const r = await api<{ state: "unknown" | "claimed" | "no_dob" | "ok" }>("/door/claim-check", { method: "POST", body: { uid: digits }, retry: true });
       if (r.state === "ok") setChecked(true);
       else if (r.state === "no_dob") router.replace({ pathname: "/ask", params: { id: digits } });
       else if (r.state === "claimed")

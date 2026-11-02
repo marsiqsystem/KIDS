@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { AppState } from "react-native";
 import Constants from "expo-constants";
 import { rememberServerNow } from "./clock";
 
@@ -42,6 +44,28 @@ async function fetchWithRetry(url: string, init: RequestInit, tries = 2): Promis
   }
 }
 
+/**
+ * Keep the phone's connection to the server alive while a form is open.
+ *
+ * A child takes a minute or two over Register or Claim. In that time the
+ * mobile network silently drops the idle connection the screen opened, the
+ * phone sends "Send to KIDS" down it, and nothing arrives: the button spins
+ * 12 s and says "No connection" (2 Nov 2026 — on several phones; the server
+ * logs showed the request never came). A tiny call every 20 s keeps it open.
+ * /version reads no database.
+ */
+const KEEP_ALIVE_MS = 20_000;
+
+export function useKeepAlive() {
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (AppState.currentState !== "active") return;
+      fetchWithRetry(`${API_URL}/api/m/v1/version`, { headers: { Accept: "application/json" } }, 1).catch(() => {});
+    }, KEEP_ALIVE_MS);
+    return () => clearInterval(id);
+  }, []);
+}
+
 /** Thrown when the server says this session is no longer good. */
 export class SignedOut extends Error {
   constructor(public reason: "signed_out" | "moved") {
@@ -56,7 +80,18 @@ export class SignedOut extends Error {
  */
 export async function api<T>(
   path: string,
-  { token, method = "GET", body }: { token?: string | null; method?: "GET" | "POST"; body?: unknown } = {},
+  {
+    token,
+    method = "GET",
+    body,
+    retry,
+  }: {
+    token?: string | null;
+    method?: "GET" | "POST";
+    body?: unknown;
+    /** A POST the server treats the same however often it arrives (a check, a registration it dedupes). */
+    retry?: boolean;
+  } = {},
 ): Promise<T> {
   const res = await fetchWithRetry(`${API_URL}/api/m/v1${path}`, {
     method,
@@ -66,7 +101,7 @@ export async function api<T>(
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     body: body !== undefined ? JSON.stringify(body) : undefined,
-  }, method === "GET" ? 2 : 1);
+  }, method === "GET" || retry ? 2 : 1);
   if (res.status === 401) {
     const data = (await res.json().catch(() => ({}))) as { reason?: string };
     throw new SignedOut(data.reason === "moved" ? "moved" : "signed_out");

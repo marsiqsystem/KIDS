@@ -13,6 +13,7 @@ import {
 import { router } from "expo-router";
 import { ChevronRight, Eye, EyeOff, Hourglass, IdCard, KeyRound, Smartphone, Trash2, UserPlus } from "lucide-react-native";
 import DoorHero from "@/components/DoorHero";
+import { useKeepAlive } from "@/lib/api";
 import { useDoorWatch } from "@/lib/door";
 import { useSession, type SignInResult } from "@/lib/session";
 import { color, font, radius } from "@/theme";
@@ -29,6 +30,7 @@ import { color, font, radius } from "@/theme";
  */
 export default function SignIn() {
   const { signIn, endedBecause } = useSession();
+  useKeepAlive();
   const [uid, setUid] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);

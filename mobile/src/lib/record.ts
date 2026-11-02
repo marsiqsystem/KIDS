@@ -214,10 +214,13 @@ export function useRecord({ fresh = true }: { fresh?: boolean } = {}) {
     }
   }, [call, token]);
 
+  // The cached copy is looked up at focus time, never listed as a dependency:
+  // each load stores a new model, which re-ran this effect, which loaded again
+  // — 65 calls in 22 s from one phone on 2 Nov 2026.
   useFocusEffect(
     useCallback(() => {
-      if (fresh || !mine) load();
-    }, [fresh, mine, load]),
+      if (fresh || !(cached && cached.token === token)) load();
+    }, [fresh, token, load]),
   );
 
   const refresh = useCallback(async () => {

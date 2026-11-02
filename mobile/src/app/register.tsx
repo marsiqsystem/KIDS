@@ -131,6 +131,8 @@ function Form({ onSent }: { onSent: () => void }) {
           guardianPhone: phone,
           deviceId: await deviceId(),
         },
+        // The server takes a second send from this phone as the same application.
+        retry: true,
       });
       if (r.ok) onSent();
       else {

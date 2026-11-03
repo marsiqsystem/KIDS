@@ -6,10 +6,12 @@ import {
   approveApplication,
   approveApplicationsAction,
   approveSchool,
+  editApplication,
   rejectApplication,
   rejectApplicationsAction,
 } from "@/app/admin/actions";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
+import type { School } from "@/lib/app/registrations";
 import {
   Alert,
   BulkAction,
@@ -44,9 +46,11 @@ import {
 export default function ApplicationsPanel({
   pending,
   decided,
+  schools,
 }: {
   pending: PendingRow[];
   decided: DecidedRow[];
+  schools: School[];
 }) {
   const groups = new Map<string, PendingRow[]>();
   for (const r of pending) {
@@ -145,7 +149,7 @@ ${tickedFlagged} of them ${tickedFlagged === 1 ? "is" : "are"} flagged as a poss
           New registrations from the app arrive here.
         </p>
       ) : (
-        [...groups.entries()].map(([key, rows]) => <SchoolGroup key={key} rows={rows} sel={sel} />)
+        [...groups.entries()].map(([key, rows]) => <SchoolGroup key={key} rows={rows} sel={sel} schools={schools} />)
       )}
 
       {decided.length > 0 ? <Decided rows={decided} /> : null}
@@ -153,7 +157,7 @@ ${tickedFlagged} of them ${tickedFlagged === 1 ? "is" : "are"} flagged as a poss
   );
 }
 
-function SchoolGroup({ rows, sel }: { rows: PendingRow[]; sel: Selection }) {
+function SchoolGroup({ rows, sel, schools }: { rows: PendingRow[]; sel: Selection; schools: School[] }) {
   const first = rows[0];
   const clean = rows.filter((r) => r.duplicates.length === 0).length;
 
@@ -192,14 +196,14 @@ function SchoolGroup({ rows, sel }: { rows: PendingRow[]; sel: Selection }) {
 
       <ul className="divide-y divide-[#F2E9DA]">
         {rows.map((r) => (
-          <Application key={r.id} r={r} sel={sel} />
+          <Application key={r.id} r={r} sel={sel} schools={schools} />
         ))}
       </ul>
     </section>
   );
 }
 
-function Application({ r, sel }: { r: PendingRow; sel: Selection }) {
+function Application({ r, sel, schools }: { r: PendingRow; sel: Selection; schools: School[] }) {
   const dup = r.duplicates.length > 0;
 
   return (
@@ -223,6 +227,7 @@ function Application({ r, sel }: { r: PendingRow; sel: Selection }) {
               })}
             />
           </dl>
+          {r.original ? <Edited r={r} /> : null}
         </div>
 
         <div className="flex items-center gap-2">
@@ -267,8 +272,118 @@ function Application({ r, sel }: { r: PendingRow; sel: Selection }) {
         </div>
       ) : null}
 
+      <EditApplication r={r} schools={schools} />
       <Reject r={r} />
     </li>
+  );
+}
+
+/** What the family first typed, under a row the office has corrected. */
+function Edited({ r }: { r: PendingRow }) {
+  const o = r.original!;
+  const was: string[] = [];
+  if (o.name !== r.name) was.push(`name “${o.name}”`);
+  if (o.dob !== r.dob) was.push(`born ${o.dob}`);
+  if (o.class !== r.class || (o.stream ?? "") !== (r.stream ?? "")) was.push(`Class ${o.stream ? `${o.class} · ${o.stream}` : o.class}`);
+  if (o.centre_code !== r.centre_code || o.school_code !== r.school_code) was.push(o.school_name);
+  if ((o.guardian_phone ?? "") !== (r.guardian_phone ?? "")) was.push(`phone ${o.guardian_phone ?? "none"}`);
+  return (
+    <p className="mt-1.5 text-xs text-[#8A6D1F]">
+      Edited by {r.edited_by_name ?? "the office"}
+      {r.edited_at
+        ? ` · ${new Date(r.edited_at).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", timeZone: "Asia/Kolkata" })}`
+        : ""}
+      {was.length ? <> · the family typed {was.join(", ")}</> : null}
+    </p>
+  );
+}
+
+/**
+ * Correct the application, behind a disclosure -- for after the office has rung
+ * the family. Saving does not approve: the corrected row comes back with the
+ * duplicate guard run again, and approving is still its own press.
+ */
+function EditApplication({ r, schools }: { r: PendingRow; schools: School[] }) {
+  const [state, action, pending] = useActionState(editApplication, {});
+  const here = `${r.centre_code}|${r.school_code}`;
+  const known = schools.some((s) => `${s.centre_code}|${s.school_code}` === here);
+
+  return (
+    <details className="mt-3">
+      <summary className="cursor-pointer select-none text-xs text-[#6B5B5D] hover:text-[#4A3A3C]">
+        Edit…
+      </summary>
+      <form action={action} className="mt-2 grid max-w-3xl gap-3 sm:grid-cols-2">
+        <input type="hidden" name="registrationId" value={r.id} />
+        <EditField label="Child’s full name" name="name" defaultValue={r.name} wide />
+        <EditField label="Date of birth · DD-MM-YYYY" name="dob" defaultValue={r.dob} mono />
+        <EditField label="Parent’s phone" name="guardian_phone" defaultValue={r.guardian_phone ?? ""} mono />
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Class</span>
+          <select name="class" defaultValue={r.class} className={INPUT}>
+            {["IX", "X", "XI", "XII"].map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Stream · XI and XII only</span>
+          <select name="stream" defaultValue={r.stream ?? ""} className={INPUT}>
+            <option value="">—</option>
+            {["Arts", "Commerce", "Science"].map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <label className="block sm:col-span-2">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">School</span>
+          <select name="school" defaultValue={known ? here : ""} className={INPUT}>
+            {known ? null : <option value="">Pick the school</option>}
+            {schools.map((s) => (
+              <option key={`${s.centre_code}|${s.school_code}`} value={`${s.centre_code}|${s.school_code}`}>
+                {s.school_name} · {s.centre_name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
+          <button
+            type="submit"
+            disabled={pending}
+            className="rounded border border-[#E3D6C4] px-2.5 py-1 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9] disabled:opacity-50"
+          >
+            {pending ? "Saving…" : "Save the correction"}
+          </button>
+          <span className="text-xs text-[#6B5B5D]">
+            Saving does not approve. What the family first typed is kept.
+          </span>
+        </div>
+        <div className="sm:col-span-2">
+          <Alert state={state} />
+        </div>
+      </form>
+    </details>
+  );
+}
+
+function EditField({
+  label,
+  name,
+  defaultValue,
+  mono,
+  wide,
+}: {
+  label: string;
+  name: string;
+  defaultValue: string;
+  mono?: boolean;
+  wide?: boolean;
+}) {
+  return (
+    <label className={`block ${wide ? "sm:col-span-2" : ""}`}>
+      <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">{label}</span>
+      <input name={name} defaultValue={defaultValue} className={`${INPUT} ${mono ? "font-mono" : ""}`} />
+    </label>
   );
 }
 

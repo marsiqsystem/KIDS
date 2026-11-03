@@ -18,6 +18,7 @@ type Register = { rows: StudentRow[]; total: number; page: number; pages: number
 import type { LiveClass } from "@/lib/admin/classes";
 import type { Post } from "@/lib/admin/posts";
 import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
+import type { School } from "@/lib/app/registrations";
 import type { ClaimTotals, SchoolClaims, UnclaimedRow } from "@/lib/admin/claims";
 import type { AccountRequestRow } from "@/lib/admin/account-requests";
 import type { PendingCorrection } from "@/lib/admin/corrections";
@@ -29,6 +30,7 @@ import BatchesPanel from "./BatchesPanel";
 import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
 import ApplicationsPanel from "./ApplicationsPanel";
+import StudentEditor from "./StudentEditor";
 import ClaimsPanel from "./ClaimsPanel";
 import AccountRequestsPanel from "./AccountRequestsPanel";
 import CorrectionsPanel from "./CorrectionsPanel";
@@ -79,6 +81,7 @@ export default async function ControlCentre({
   batches,
   openBatch,
   students,
+  schools = [],
   register = null,
   events,
   classes,
@@ -105,13 +108,15 @@ export default async function ControlCentre({
   batches: Batch[];
   openBatch: OpenBatch | null;
   students: StudentRow[];
+  /** Every school, for the Students tab's Edit form. */
+  schools?: School[];
   /** The register itself, when nobody is searching. */
   register?: Register | null;
   events: AuditRow[];
   classes: LiveClass[];
   posts: Post[];
   liveReady: boolean;
-  applications?: { pending: PendingRow[]; decided: DecidedRow[] } | null;
+  applications?: { pending: PendingRow[]; decided: DecidedRow[]; schools: School[] } | null;
   /** Pending count for the sidebar. An inbox nobody knows is full is never opened. */
   waiting?: number;
   claims?: {
@@ -151,7 +156,7 @@ export default async function ControlCentre({
         ) : null}
         {tab === "applications" && applications ? (
           <Page title="Applications" line={`${n(waiting)} waiting`}>
-            <ApplicationsPanel pending={applications.pending} decided={applications.decided} />
+            <ApplicationsPanel pending={applications.pending} decided={applications.decided} schools={applications.schools} />
           </Page>
         ) : null}
         {tab === "claims" && claims ? (
@@ -218,7 +223,7 @@ export default async function ControlCentre({
         ) : null}
         {tab === "students" ? (
           <Page title="Students" line="The register · search to narrow it">
-            <StudentsPanel students={students} register={register} query={query} canReset={isAdmin} />
+            <StudentsPanel students={students} register={register} query={query} canReset={isAdmin} schools={schools} />
           </Page>
         ) : null}
         {tab === "audit" ? (
@@ -504,8 +509,8 @@ function Inbox({ href, icon, title, n: count, hot }: { href: string; icon: React
  * a class filter, and prev/next.
  */
 function StudentsPanel({
-  students, register = null, query, canReset,
-}: { students: StudentRow[]; register?: Register | null; query: string; canReset: boolean }) {
+  students, register = null, query, canReset, schools,
+}: { students: StudentRow[]; register?: Register | null; query: string; canReset: boolean; schools: School[] }) {
   const rows = query ? students : (register?.rows ?? []);
   return (
     <div className="space-y-5">
@@ -526,6 +531,7 @@ function StudentsPanel({
                 <Th>App</Th>
                 <Th>Batches</Th>
                 {canReset ? <Th>Password</Th> : null}
+                {canReset ? <Th>Details</Th> : null}
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F2E9DA]">
@@ -555,6 +561,11 @@ function StudentsPanel({
                       >
                         {s.claimed ? "Reset password" : "Issue password"}
                       </RowAction>
+                    </Td>
+                  ) : null}
+                  {canReset ? (
+                    <Td>
+                      <StudentEditor s={s} schools={schools} />
                     </Td>
                   ) : null}
                 </tr>

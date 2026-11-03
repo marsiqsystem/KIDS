@@ -1,5 +1,7 @@
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "./staff";
+import { findSchool, possibleDuplicates } from "@/lib/app/registrations";
+import { tenDigits } from "./claim-match";
 
 /**
  * Working the applications queue, and minting a UID.
@@ -28,6 +30,22 @@ export interface PendingRow {
    * applications open; "a name · class X · the same school" decides it at a glance.
    */
   duplicates: { uid: string; name: string; class: string; school_name: string }[];
+  /** What the family first typed, when the office has since edited the row. */
+  original: ApplicationFields | null;
+  edited_at: Date | null;
+  edited_by_name: string | null;
+}
+
+/** The parts of an application the office may correct before deciding it. */
+export interface ApplicationFields {
+  name: string;
+  dob: string;
+  class: string;
+  stream: string | null;
+  centre_code: string;
+  school_code: string;
+  school_name: string;
+  guardian_phone: string | null;
 }
 
 /**
@@ -41,6 +59,7 @@ export async function pendingRegistrations(limit = 500): Promise<PendingRow[]> {
   return (await sql`
     select r.id::text, r.name, r.dob, r.class, r.stream, r.centre_code, r.school_code,
            r.school_name, r.guardian_phone, r.applied_at, r.possible_duplicates,
+           r.original, r.edited_at, ed.full_name as edited_by_name,
            coalesce((
              select json_agg(json_build_object(
                       'uid', s.uid, 'name', s.name, 'class', s.class,
@@ -49,6 +68,7 @@ export async function pendingRegistrations(limit = 500): Promise<PendingRow[]> {
               where s.uid in (select jsonb_array_elements_text(r.possible_duplicates))
            ), '[]'::json) as duplicates
       from app_registrations r
+      left join admin_staff ed on ed.staff_id = r.edited_by
      where r.status = 'pending'
      order by r.centre_code, r.school_code, r.applied_at
      limit ${limit}
@@ -249,4 +269,89 @@ export async function rejectRegistration(
     });
   }
   return rows.length > 0;
+}
+
+const CLASSES = new Set(["IX", "X", "XI", "XII"]);
+const STREAMS = new Set(["Arts", "Commerce", "Science"]);
+
+/** DD-MM-YYYY naming a real day, the way students.dob holds it. */
+export function validDob(raw: string): string | null {
+  const m = /^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/.exec(raw.trim());
+  if (!m) return null;
+  const [d, mo, y] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  const date = new Date(Date.UTC(y, mo - 1, d));
+  if (date.getUTCFullYear() !== y || date.getUTCMonth() !== mo - 1 || date.getUTCDate() !== d) return null;
+  if (y < 1995 || y > new Date().getFullYear() - 8) return null;
+  return `${String(d).padStart(2, "0")}-${String(mo).padStart(2, "0")}-${y}`;
+}
+
+export type Edit = { ok: true; duplicates: number } | { ok: false; message: string; field?: string };
+
+/**
+ * Correct an application before it is decided.
+ *
+ * For the office, after ringing the family: a school's name typed where the
+ * child's should be, a date of birth with day and month swapped, the wrong
+ * school picked. Only while pending -- an approved application is a student,
+ * and a student is corrected on the Corrections tab, not here.
+ *
+ * The first edit copies what the family typed into `original`; later edits
+ * leave it alone. The duplicate guard is run again on the corrected name and
+ * date of birth, because the whole reason for most of these edits is that the
+ * typed name was not a name -- and a real one may well be on the register
+ * already, which means "claim it", not "approve".
+ */
+export async function editRegistration(
+  id: string,
+  staffId: string,
+  input: { name: string; dob: string; class: string; stream: string; school: string; guardian_phone: string },
+): Promise<Edit> {
+  const name = input.name.trim().replace(/\s+/g, " ");
+  if (!name || name.length > 100) return { ok: false, message: "Give the child's full name.", field: "name" };
+  const dob = validDob(input.dob);
+  if (!dob) return { ok: false, message: "Date of birth as DD-MM-YYYY, a real date.", field: "dob" };
+  const cls = input.class.trim().toUpperCase();
+  if (!CLASSES.has(cls)) return { ok: false, message: "Class is IX, X, XI or XII.", field: "class" };
+  const senior = cls === "XI" || cls === "XII";
+  const stream = senior ? input.stream.trim() : "";
+  if (senior && !STREAMS.has(stream)) return { ok: false, message: "Class XI and XII need a stream.", field: "stream" };
+  const [centre, code] = input.school.split("|");
+  const school = centre && code ? await findSchool(centre, code) : null;
+  if (!school) return { ok: false, message: "Pick the school from the list.", field: "school" };
+  let phone: string | null = null;
+  if (input.guardian_phone.trim()) {
+    phone = tenDigits(input.guardian_phone);
+    if (!phone) return { ok: false, message: "A ten-digit phone number, or leave it empty.", field: "guardian_phone" };
+  }
+
+  const [before] = (await sql`
+    select name, dob, class, stream, centre_code, school_code, school_name, guardian_phone
+      from app_registrations where id = ${id}::bigint and status = 'pending'
+  `) as ApplicationFields[];
+  if (!before) return { ok: false, message: "Somebody has already decided this one. Reload to see what they did." };
+
+  const duplicates = await possibleDuplicates(name, dob);
+
+  const rows = (await sql`
+    update app_registrations
+       set original = coalesce(original, jsonb_build_object(
+             'name', name, 'dob', dob, 'class', class, 'stream', stream,
+             'centre_code', centre_code, 'school_code', school_code,
+             'school_name', school_name, 'guardian_phone', guardian_phone)),
+           name = ${name}, dob = ${dob}, class = ${cls}, stream = ${stream || null},
+           centre_code = ${school.centre_code}, school_code = ${school.school_code},
+           school_name = ${school.school_name}, guardian_phone = ${phone},
+           possible_duplicates = ${JSON.stringify(duplicates.map((d) => d.uid))}::jsonb,
+           edited_at = now(), edited_by = ${staffId}
+     where id = ${id}::bigint and status = 'pending'
+     returning id
+  `) as { id: string }[];
+  if (!rows.length) return { ok: false, message: "Somebody has already decided this one. Reload to see what they did." };
+
+  await logAdminEvent(staffId, "registration_edited", { kind: "registration", id }, {
+    before,
+    after: { name, dob, class: cls, stream: stream || null, centre_code: school.centre_code,
+             school_code: school.school_code, school_name: school.school_name, guardian_phone: phone },
+  });
+  return { ok: true, duplicates: duplicates.length };
 }

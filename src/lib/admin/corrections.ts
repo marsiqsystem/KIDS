@@ -1,6 +1,7 @@
 import { findSchool } from "@/lib/app/registrations";
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "./staff";
+import { validDob } from "./registrations";
 
 /**
  * Deciding a student's correction, and making it stick.
@@ -155,4 +156,93 @@ export async function approvedCorrections(): Promise<ExportRow[]> {
      where c.status = 'approved'
      order by c.decided_at
   `) as ExportRow[];
+}
+
+export type StudentEdit =
+  | { ok: true; changed: string[] }
+  | { ok: false; message: string; field?: string };
+
+/**
+ * The office corrects a student already on the register, directly.
+ *
+ * For after a phone call: a misspelt name, a date of birth with day and month
+ * swapped, a child in the wrong class or school. Each changed field is written
+ * as an APPROVED row in app_corrections -- exactly what approving a student's
+ * own request leaves behind -- so scripts/seed-students.ts re-applies it after
+ * any reseed from the master workbook, and the Corrections export carries it
+ * back to the workbook. Writing `students` alone would be reverted silently by
+ * the next reseed; that has happened before (see this file's header).
+ *
+ * The UID never changes, whatever else does: it is who the child is, and every
+ * mark is filed under it. A field with a student's own request still open is
+ * refused, so the office decides that request rather than racing it.
+ */
+export async function officeEditStudent(
+  uid: string,
+  staffId: string,
+  input: { name: string; dob: string; class: string; stream: string; school: string; note: string },
+): Promise<StudentEdit> {
+  const [s] = (await sql`
+    select name, dob, class, stream, centre_code, school_code, is_demo
+      from students where uid = ${uid}
+  `) as { name: string; dob: string | null; class: string; stream: string | null;
+          centre_code: string; school_code: string; is_demo: boolean }[];
+  if (!s) return { ok: false, message: "No student has that User ID." };
+
+  const name = input.name.trim().replace(/\s+/g, " ");
+  if (!name || name.length > 100) return { ok: false, message: "Give the child's full name.", field: "name" };
+  let dob: string | null = s.dob;
+  if (input.dob.trim()) {
+    dob = validDob(input.dob);
+    if (!dob) return { ok: false, message: "Date of birth as DD-MM-YYYY, a real date.", field: "dob" };
+  } else if (s.dob) {
+    return { ok: false, message: "A date of birth cannot be removed, only corrected.", field: "dob" };
+  }
+  const cls = input.class.trim().toUpperCase();
+  if (!["IX", "X", "XI", "XII"].includes(cls)) return { ok: false, message: "Class is IX, X, XI or XII.", field: "class" };
+  const senior = cls === "XI" || cls === "XII";
+  const stream = senior ? input.stream.trim() : "";
+  if (senior && !["Arts", "Commerce", "Science"].includes(stream)) {
+    return { ok: false, message: "Class XI and XII need a stream.", field: "stream" };
+  }
+  const [centre, code] = input.school.split("|");
+  const school = centre && code ? await findSchool(centre, code) : null;
+  if (!school) return { ok: false, message: "Pick the school from the list.", field: "school" };
+  const note = input.note.trim().slice(0, 300) || null;
+
+  // Class before stream: applying a class of IX or X clears the stream.
+  const changes: { field: string; from: string | null; to: string }[] = [];
+  if (name !== s.name) changes.push({ field: "name", from: s.name, to: name });
+  if (dob && dob !== s.dob) changes.push({ field: "dob", from: s.dob, to: dob });
+  if (cls !== s.class) changes.push({ field: "class", from: s.class, to: cls });
+  if (senior && stream !== (s.stream ?? "")) changes.push({ field: "stream", from: s.stream, to: stream });
+  const pair = `${school.centre_code}|${school.school_code}`;
+  if (pair !== `${s.centre_code}|${s.school_code}`) {
+    changes.push({ field: "school", from: `${s.centre_code}|${s.school_code}`, to: pair });
+  }
+  if (changes.length === 0) return { ok: false, message: "Nothing was changed." };
+
+  const open = (await sql`
+    select field from app_corrections
+     where uid = ${uid} and status = 'pending'
+       and field = any(${changes.map((c) => c.field)})
+  `) as { field: string }[];
+  if (open.length) {
+    return {
+      ok: false,
+      message: `The student has asked for a change to their ${open.map((o) => o.field).join(" and ")} — decide that on the Corrections tab first.`,
+    };
+  }
+
+  for (const c of changes) {
+    await applyToRegister(uid, c.field, c.to);
+    await sql`
+      insert into app_corrections
+        (uid, field, old_value, new_value, note, status, decided_at, decided_by)
+      values
+        (${uid}, ${c.field}, ${c.from}, ${c.to}, ${note ?? "Edited by the office"}, 'approved', now(), ${staffId})
+    `;
+  }
+  await logAdminEvent(staffId, "student_edited", { kind: "student", id: uid }, { changes, note });
+  return { ok: true, changed: changes.map((c) => c.field) };
 }

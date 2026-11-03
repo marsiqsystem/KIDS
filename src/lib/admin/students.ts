@@ -61,6 +61,10 @@ export interface StudentRow {
   class: string;
   stream: string | null;
   school_name: string;
+  /** For the office's Edit form. Admin screens only. */
+  dob: string | null;
+  centre_code: string;
+  school_code: string;
   medium: string | null;
   claimed: boolean;
   /** True while an office-issued password is still standing, unused. */
@@ -100,6 +104,7 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
 
   return (await sql`
     select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
+           s.dob, s.centre_code, s.school_code,
            (a.uid is not null) as claimed,
            coalesce(a.must_change, false) as must_change,
            coalesce(a.locked_until > now(), false) as locked_out,
@@ -151,6 +156,7 @@ export async function listStudents(
 
   const rows = (await sql`
     select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
+           s.dob, s.centre_code, s.school_code,
            (a.uid is not null) as claimed,
            coalesce(a.must_change, false) as must_change,
            coalesce(a.locked_until > now(), false) as locked_out,

@@ -7,6 +7,7 @@ import { listStudents, overview, searchStudents } from "@/lib/admin/students";
 import { recentClasses } from "@/lib/admin/classes";
 import { listPosts } from "@/lib/admin/posts";
 import { pendingCount, pendingRegistrations, recentDecisions } from "@/lib/admin/registrations";
+import { listSchools } from "@/lib/app/registrations";
 import { claimTotals, claimsBySchool, unclaimedAtSchool } from "@/lib/admin/claims";
 import { pendingAccountRequestCount, pendingAccountRequests } from "@/lib/admin/account-requests";
 import { pendingCorrectionCount, pendingCorrections } from "@/lib/admin/corrections";
@@ -127,6 +128,7 @@ export default async function AdminPage({
           : null
       }
       students={tab === "students" && q ? await searchStudents(q) : []}
+      schools={tab === "students" ? await listSchools() : []}
       register={
         tab === "students" && !q
           ? await listStudents({ cls: sclass, page: Number(page) || 1 })
@@ -138,7 +140,7 @@ export default async function AdminPage({
       liveReady={liveConfigured()}
       applications={
         tab === "applications"
-          ? { pending: await pendingRegistrations(), decided: await recentDecisions() }
+          ? { pending: await pendingRegistrations(), decided: await recentDecisions(), schools: await listSchools() }
           : null
       }
       waiting={await pendingCount()}

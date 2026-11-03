@@ -35,6 +35,7 @@ import { hideRecording, recordingsForClass } from "@/lib/admin/recordings";
 import { resetAppPassword } from "@/lib/admin/app-passwords";
 import {
   approveRegistration,
+  editRegistration,
   pendingRegistrations,
   rejectRegistration,
 } from "@/lib/admin/registrations";
@@ -42,9 +43,10 @@ import { openLockedOutAtSchool, type IssuedSheetRow } from "@/lib/admin/claims";
 import {
   approveAccountRequest,
   approveMatchingRequests,
+  editAccountRequest,
   rejectAccountRequest,
 } from "@/lib/admin/account-requests";
-import { approveCorrection, rejectCorrection } from "@/lib/admin/corrections";
+import { approveCorrection, officeEditStudent, rejectCorrection } from "@/lib/admin/corrections";
 import {
   assignInvigilator,
   createMock,
@@ -778,6 +780,34 @@ export async function rejectApplication(_prev: State, formData: FormData): Promi
 }
 
 /**
+ * Correct an application before deciding it -- after the office has rung the
+ * family. Approving stays a separate press, so an edit can be read back first.
+ */
+export async function editApplication(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("registrationId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No application was named." };
+  const f = (k: string) => String(formData.get(k) ?? "");
+
+  const result = await editRegistration(id, staff.staff_id, {
+    name: f("name"),
+    dob: f("dob"),
+    class: f("class"),
+    stream: f("stream"),
+    school: f("school"),
+    guardian_phone: f("guardian_phone"),
+  });
+  if (!result.ok) return { message: result.message, field: result.field };
+
+  refresh();
+  return done(
+    result.duplicates
+      ? "Saved. The corrected name and date of birth match a student already on the register — look before approving."
+      : "Saved. Read it back, then approve.",
+  );
+}
+
+/**
  * Approve every clean application from one school at once.
  *
  * Applications arrive in school-shaped clumps, and a school's list checked
@@ -938,6 +968,29 @@ export async function rejectAccountRequestAction(_prev: State, formData: FormDat
   return done("Turned down. The child sees your reason on their phone.");
 }
 
+/** Correct a waiting request -- usually the User ID -- after ringing the family. */
+export async function editAccountRequestAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const id = String(formData.get("requestId") ?? "");
+  if (!/^\d+$/.test(id)) return { message: "No request was named." };
+  const f = (k: string) => String(formData.get(k) ?? "");
+
+  const result = await editAccountRequest(id, staff.staff_id, {
+    uid: f("uid"),
+    typed_name: f("typed_name"),
+    father_name: f("father_name"),
+    guardian_phone: f("guardian_phone"),
+  });
+  if (!result.ok) return { message: result.message, field: result.field };
+
+  refresh();
+  return done(
+    result.kind === "reset"
+      ? `Saved. ${result.uid} already has an account, so this is now a forgotten-password request: approving signs every other phone out.`
+      : "Saved. Read it back against the register, then approve.",
+  );
+}
+
 /** Every matched first claim, sixty at a time. Matching rules: src/lib/admin/claim-match.ts. */
 export async function approveMatchingRequestsAction(): Promise<State> {
   const staff = await requireStaff("admin");
@@ -984,6 +1037,32 @@ export async function rejectAccountRequestsAction(_prev: State, formData: FormDa
 }
 
 /* ----------------------------------------------------------- corrections --- */
+
+/**
+ * The office corrects a student on the register, after a call. Admin-only, like
+ * approving: it changes who the register says a child is. Written as approved
+ * corrections so a reseed from the master workbook cannot revert it.
+ */
+export async function editStudentAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const uid = String(formData.get("uid") ?? "");
+  if (!/^\d{9}$/.test(uid)) return { message: "No student was named." };
+  const f = (k: string) => String(formData.get(k) ?? "");
+
+  const result = await officeEditStudent(uid, staff.staff_id, {
+    name: f("name"),
+    dob: f("dob"),
+    class: f("class"),
+    stream: f("stream"),
+    school: f("school"),
+    note: f("note"),
+  });
+  if (!result.ok) return { message: result.message, field: result.field };
+
+  refresh();
+  return done(`Saved: ${result.changed.join(", ")}. It also goes into the Corrections export for the master workbook.`);
+}
+
 
 /** Change the register for every ticked correction. Stops at the first that throws, and says which. */
 export async function approveCorrectionsAction(_prev: State, formData: FormData): Promise<State> {

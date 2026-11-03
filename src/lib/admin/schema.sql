@@ -776,3 +776,15 @@ insert into extra_schools (centre_code, centre_name, school_code, school_name, u
   ('CTR-23', 'Chaitanyapur', 'SC-03', 'Dhekua High School', '92303'),
   ('CTR-23', 'Chaitanyapur', 'SC-04', 'Rampur Vivekananda Mission Vidyamandir', '92304')
 on conflict do nothing;
+
+-- The office may correct an application or a claim before deciding it -- a
+-- school's name typed where the child's should be, a wrong User ID -- once it
+-- has rung the family (Umar, 3 Nov 2026). What the family first typed is kept
+-- in `original`, written once on the first edit and never again, so a later
+-- dispute can still be answered with what was actually submitted.
+alter table app_registrations    add column if not exists original  jsonb;
+alter table app_registrations    add column if not exists edited_at timestamptz;
+alter table app_registrations    add column if not exists edited_by text references admin_staff (staff_id);
+alter table app_account_requests add column if not exists original  jsonb;
+alter table app_account_requests add column if not exists edited_at timestamptz;
+alter table app_account_requests add column if not exists edited_by text references admin_staff (staff_id);

@@ -293,29 +293,56 @@ export interface CentreRow {
  * waiting for approval are counted against the centre they would join.
  */
 export async function centresOverview(): Promise<CentreRow[]> {
+  // Every centre with a school, not only those with a student: a centre added
+  // through extra_schools (CTR-22 Bawali, CTR-23 Chaitanyapur, 2 Nov 2026) has
+  // nobody on the register until its first application is approved, and the
+  // office still needs to see it here, at nought.
   return (await sql`
-    select s.centre_code, s.centre_name,
-           count(distinct s.school_code)::int                               as schools,
-           count(*)::int                                                     as enrolled,
-           count(*) filter (where s.class = 'IX')::int                       as ix,
-           count(*) filter (where s.class = 'X')::int                        as x,
-           count(*) filter (where s.class = 'XI')::int                       as xi,
-           count(*) filter (where s.class = 'XII')::int                      as xii,
-           count(*) filter (where a.uid is not null and not a.must_change)::int as claimed,
-           count(f.uid)::int                                                 as sat_phase1,
+    with schools as (
+      select centre_code, centre_name, school_code, 0 as pick from students where not is_demo
+      union
+      select centre_code, centre_name, school_code, 1 from extra_schools
+    ),
+    centres as (
+      select centre_code,
+             (array_agg(centre_name order by pick))[1]  as centre_name,
+             count(distinct school_code)::int            as schools
+        from schools
+       group by centre_code
+    ),
+    counts as (
+      select s.centre_code,
+             count(*)::int                                                     as enrolled,
+             count(*) filter (where s.class = 'IX')::int                       as ix,
+             count(*) filter (where s.class = 'X')::int                        as x,
+             count(*) filter (where s.class = 'XI')::int                       as xi,
+             count(*) filter (where s.class = 'XII')::int                      as xii,
+             count(*) filter (where a.uid is not null and not a.must_change)::int as claimed,
+             count(f.uid)::int                                                 as sat_phase1
+        from students s
+        left join app_accounts a on a.uid = s.uid
+        -- Scoped to the July OMR paper. offline_results is keyed (uid, exam_paper_id)
+        -- since September 2026, and a join on uid alone would count a child once
+        -- for every paper they have marks for.
+        left join offline_results f
+               on f.uid = s.uid
+              and f.exam_paper_id = (select id from exam_papers where code = 'P1-OFFLINE')
+       where not s.is_demo
+       group by s.centre_code
+    )
+    select c.centre_code, c.centre_name, c.schools,
+           coalesce(n.enrolled, 0)   as enrolled,
+           coalesce(n.ix, 0)         as ix,
+           coalesce(n.x, 0)          as x,
+           coalesce(n.xi, 0)         as xi,
+           coalesce(n.xii, 0)        as xii,
+           coalesce(n.claimed, 0)    as claimed,
+           coalesce(n.sat_phase1, 0) as sat_phase1,
            (select count(*)::int from app_registrations r
-             where r.status = 'pending' and r.centre_code = s.centre_code)   as applications
-      from students s
-      left join app_accounts a on a.uid = s.uid
-      -- Scoped to the July OMR paper. offline_results is keyed (uid, exam_paper_id)
-      -- since September 2026, and a join on uid alone would count a child once
-      -- for every paper they have marks for.
-      left join offline_results f
-             on f.uid = s.uid
-            and f.exam_paper_id = (select id from exam_papers where code = 'P1-OFFLINE')
-     where not s.is_demo
-     group by s.centre_code, s.centre_name
-     order by s.centre_code
+             where r.status = 'pending' and r.centre_code = c.centre_code) as applications
+      from centres c
+      left join counts n on n.centre_code = c.centre_code
+     order by c.centre_code
   `) as CentreRow[];
 }
 

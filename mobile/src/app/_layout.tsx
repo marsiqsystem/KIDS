@@ -70,6 +70,7 @@ function Screens() {
           <Stack.Screen name="class/[id]" />
           <Stack.Screen name="recordings" />
           <Stack.Screen name="delete-account" />
+          <Stack.Screen name="details" />
         </Stack.Protected>
       </Stack>
     </UpdateGate>

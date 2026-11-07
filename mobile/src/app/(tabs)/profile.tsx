@@ -2,7 +2,6 @@ import { Linking, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import * as WebBrowser from "expo-web-browser";
 import Constants from "expo-constants";
 import * as Application from "expo-application";
 import * as Updates from "expo-updates";
@@ -10,7 +9,6 @@ import { Bell, BookOpen, Flame, KeyRound, LogOut, Mail, PencilLine, ShieldCheck,
 import { Btn, Card, Loading, Offline, Row, Screen, s } from "@/components/kit";
 import { useScreen } from "@/hooks/useScreen";
 import { useSession } from "@/lib/session";
-import { API_URL } from "@/lib/api";
 import { color, font } from "@/theme";
 
 /**
@@ -114,7 +112,7 @@ export default function Profile() {
         <Row
           icon={<PencilLine size={20} color={color.maroon} />}
           title="My details are wrong"
-          onPress={() => WebBrowser.openBrowserAsync(`${API_URL}/app/profile/details`)}
+          onPress={() => router.push("/details")}
         />
         <Row icon={<Trash2 size={20} color={color.maroon} />} title="Delete my account" onPress={() => router.push("/delete-account")} />
 

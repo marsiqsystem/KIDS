@@ -135,10 +135,15 @@ export function SessionProvider({ children }: PropsWithChildren) {
 
   const signIn = useCallback(
     async (uid: string, password: string): Promise<SignInResult> => {
+      // Tried twice, like Register and Claim: the first sign-in after the app
+      // has sat idle often dies on a dropped connection before it reaches the
+      // server ("No connection" with the internet fine; the second tap works --
+      // filmed 7 Nov 2026). A repeat is harmless: the same User ID and password
+      // get the same answer.
       const res = await api<
         | { ok: true; token: string; expiresAt: number; mustChange: boolean }
         | Extract<SignInResult, { ok: false }>
-      >("/session", { method: "POST", body: { uid, password, deviceId: await deviceId() } });
+      >("/session", { method: "POST", body: { uid, password, deviceId: await deviceId() }, retry: true });
       if (!res.ok) return res;
       await keep(res.token, res.mustChange);
       return { ok: true, mustChange: res.mustChange };

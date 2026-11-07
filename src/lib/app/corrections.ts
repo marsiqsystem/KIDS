@@ -78,6 +78,13 @@ export async function requestCorrection(req: CorrectionRequest): Promise<Request
     : req.field === "class" ? s.class
     : s.name;
 
+  // A field left as it was is not a request -- checked before anything else,
+  // so a school the register list no longer carries (a demo, a renamed one)
+  // does not refuse every send that only corrects a name.
+  if ((old ?? "").trim().toUpperCase() === value.toUpperCase()) {
+    return { ok: false, reason: "same" };
+  }
+
   if (req.field === "school") {
     const [centre, school] = value.split("|");
     if (!centre || !school || !(await findSchool(centre, school))) return { ok: false, reason: "unknown_school" };
@@ -91,9 +98,6 @@ export async function requestCorrection(req: CorrectionRequest): Promise<Request
   if (req.field === "dob" && !/^\d{2}-\d{2}-\d{4}$/.test(value)) {
     return { ok: false, reason: "invalid" };
   }
-  if ((old ?? "").trim().toUpperCase() === value.toUpperCase()) {
-    return { ok: false, reason: "same" };
-  }
 
   try {
     await sql`
@@ -105,4 +109,61 @@ export async function requestCorrection(req: CorrectionRequest): Promise<Request
     return { ok: false, reason: "already_open" };
   }
   return { ok: true };
+}
+
+export type CorrectionsFiled = { ok: boolean; message: string; filed: number };
+
+/**
+ * "My details are wrong", the whole form at once -- the website's form and the
+ * native app's screen both send here, so the two can never answer differently.
+ *
+ * The form arrives with every field filled in from the register, and only the
+ * fields the student actually changed are filed -- each as its own request, so
+ * the office can accept a corrected spelling and still query a class change.
+ * Nothing on the register changes until the office approves.
+ */
+export async function fileCorrections(
+  uid: string,
+  values: { name: string; dob: string; class: string; stream: string; school: string },
+  note: string | null,
+): Promise<CorrectionsFiled> {
+  const asked: { field: CorrectionField; value: string }[] = [
+    { field: "name", value: values.name },
+    { field: "dob", value: values.dob },
+    { field: "class", value: values.class },
+    { field: "stream", value: values.stream },
+    { field: "school", value: values.school },
+  ];
+
+  let filed = 0;
+  const refused: string[] = [];
+  for (const a of asked) {
+    if (!a.value.trim()) continue;
+    const r = await requestCorrection({ uid, field: a.field, newValue: a.value, note });
+    if (r.ok) filed += 1;
+    else if (r.reason === "already_open") refused.push(`${FIELD_LABEL[a.field]} is already waiting for the office`);
+    else if (r.reason === "invalid") refused.push(`${FIELD_LABEL[a.field]} does not look right`);
+    else if (r.reason === "unknown_school") refused.push("that school is not on our list");
+    // "same" is not a refusal: it is a field they did not change.
+  }
+
+  if (filed === 0 && refused.length === 0) {
+    return { ok: false, filed, message: "Nothing was changed. Edit the detail that is wrong, then send it." };
+  }
+  if (filed === 0) return { ok: false, filed, message: `Not sent: ${refused.join("; ")}.` };
+  return {
+    ok: true,
+    filed,
+    message:
+      `Sent to the KIDS office. ${filed === 1 ? "It" : "They"} will check it and change your record if it is right.` +
+      (refused.length ? ` Not sent: ${refused.join("; ")}.` : ""),
+  };
+}
+
+/** Day, month, year boxes as DD-MM-YYYY; "" when any box is empty. */
+export function dobFromParts(day: unknown, month: unknown, year: unknown): string {
+  const d = String(day ?? "").trim().padStart(2, "0");
+  const m = String(month ?? "").trim().padStart(2, "0");
+  const y = String(year ?? "").trim();
+  return d !== "00" && m !== "00" && y ? `${d}-${m}-${y}` : "";
 }

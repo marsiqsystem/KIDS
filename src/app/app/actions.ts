@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { signIn, claimAccount, claimCheck, logAppEvent } from "@/lib/app/accounts";
 import { applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
-import { requestCorrection, FIELD_LABEL, type CorrectionField } from "@/lib/app/corrections";
+import { fileCorrections, dobFromParts } from "@/lib/app/corrections";
 import { requireStudent } from "@/lib/app/gate";
 import { passwordProblem } from "@/lib/app/passwords";
 import { createSession, destroySession, sessionUid } from "@/lib/app/session";
@@ -303,40 +303,17 @@ export async function requestCorrectionsAction(
   const student = await requireStudent();
   const note = String(formData.get("note") ?? "").trim().slice(0, 300) || null;
 
-  const day = String(formData.get("dobDay") ?? "").trim().padStart(2, "0");
-  const month = String(formData.get("dobMonth") ?? "").trim().padStart(2, "0");
-  const year = String(formData.get("dobYear") ?? "").trim();
-  const dob = day !== "00" && month !== "00" && year ? `${day}-${month}-${year}` : "";
-
-  const asked: { field: CorrectionField; value: string }[] = [
-    { field: "name", value: String(formData.get("name") ?? "") },
-    { field: "dob", value: dob },
-    { field: "class", value: String(formData.get("class") ?? "") },
-    { field: "stream", value: String(formData.get("stream") ?? "") },
-    { field: "school", value: String(formData.get("school") ?? "") },
-  ];
-
-  let filed = 0;
-  const refused: string[] = [];
-  for (const a of asked) {
-    if (!a.value.trim()) continue;
-    const r = await requestCorrection({ uid: student.uid, field: a.field, newValue: a.value, note });
-    if (r.ok) filed += 1;
-    else if (r.reason === "already_open") refused.push(`${FIELD_LABEL[a.field]} is already waiting for the office`);
-    else if (r.reason === "invalid") refused.push(`${FIELD_LABEL[a.field]} does not look right`);
-    else if (r.reason === "unknown_school") refused.push("that school is not on our list");
-    // "same" is not a refusal: it is a field they did not change.
-  }
-
-  if (filed === 0 && refused.length === 0) {
-    return { message: "Nothing was changed. Edit the detail that is wrong, then send it." };
-  }
-  if (filed === 0) return { message: `Not sent: ${refused.join("; ")}.` };
-  return {
-    ok: true,
-    filed,
-    message:
-      `Sent to the KIDS office. ${filed === 1 ? "It" : "They"} will check it and change your record if it is right.` +
-      (refused.length ? ` Not sent: ${refused.join("; ")}.` : ""),
-  };
+  // The same rules and sentences as the native app's /api/m/v1/details.
+  const r = await fileCorrections(
+    student.uid,
+    {
+      name: String(formData.get("name") ?? ""),
+      dob: dobFromParts(formData.get("dobDay"), formData.get("dobMonth"), formData.get("dobYear")),
+      class: String(formData.get("class") ?? ""),
+      stream: String(formData.get("stream") ?? ""),
+      school: String(formData.get("school") ?? ""),
+    },
+    note,
+  );
+  return r.ok ? { ok: true, filed: r.filed, message: r.message } : { message: r.message };
 }

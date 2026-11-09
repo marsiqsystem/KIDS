@@ -2,6 +2,7 @@ import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "@/lib/admin/staff";
 import { newRoomName } from "@/lib/live/jitsi";
 import { sendToBatch } from "@/lib/app/push";
+import { recordingOpenToStudent } from "@/lib/admin/recordings";
 
 /**
  * Live classes.
@@ -315,8 +316,12 @@ export async function canStudentJoin(
 
   // Checked before "has it started", because a child who is not in the batch
   // should be told so plainly rather than left waiting for a class that is
-  // never going to admit them.
-  if (member.length === 0) return { ok: false, why: "not-in-batch" };
+  // never going to admit them. The one exception is a finished class whose
+  // recording has since opened to the whole class: "ended" sends them to it.
+  if (member.length === 0) {
+    if (live.ended_at && (await recordingOpenToStudent(live.id, uid))) return { ok: false, why: "ended" };
+    return { ok: false, why: "not-in-batch" };
+  }
 
   if (!live.started_at) return { ok: false, why: "not-started" };
   if (live.ended_at) return { ok: false, why: "ended" };

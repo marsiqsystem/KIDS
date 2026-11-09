@@ -26,7 +26,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
 
   const verdict = await canStudentJoin(id, student.uid);
 
-  // "ended" is only ever said to a member of the batch.
+  // "ended" is said to a member of the batch, or to a student its recording
+  // has since opened to (recordingOpenToStudent).
   if (!verdict.ok && verdict.why === "ended") {
     const [live, parts] = await Promise.all([findClass(id), recordingsForClass(id)]);
     if (!live) return json({ ok: true, state: "refused", why: "not-found" });

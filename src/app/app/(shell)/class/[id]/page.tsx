@@ -30,7 +30,8 @@ export default async function StudentClassPage({ params }: { params: Promise<{ i
   const verdict = await canStudentJoin(id, student.uid);
 
   // A finished class is where its recording lives. canStudentJoin has already
-  // checked this child is in the batch: "ended" is only ever said to a member.
+  // checked this child is in the batch, or that the recording has since opened
+  // to their whole class (recordingOpenToStudent).
   if (!verdict.ok && verdict.why === "ended") return <Recorded classId={id} />;
   if (!verdict.ok) return <Refused why={verdict.why} />;
   const live = verdict.live;

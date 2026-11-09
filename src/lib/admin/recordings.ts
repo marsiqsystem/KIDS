@@ -11,7 +11,8 @@ import {
 
 /**
  * Class recordings — every live class, kept in the KIDS Google Drive and
- * watchable in the app by the class's own batch.
+ * watchable in the app by the class's own batch at once, and by the whole
+ * class three days later (OPEN_TO_CLASS_AFTER_DAYS).
  *
  * Nobody presses anything. The teacher's room starts the recorder when they
  * join (JitsiRoom, `record`), Jibri on the class server writes the video, and
@@ -187,8 +188,25 @@ export async function recordingsForClass(classId: string, includeHidden = false)
 }
 
 /**
+ * How long after a class ends its recording opens to the whole class, not only
+ * the batch (the office's request, 23 Oct 2026): the batch watches at once,
+ * every student of the batch's class who sat SET Phase 1 three days later.
+ *
+ * "The batch's class" is admin_batches.class_label matched to students.class
+ * exactly, so batch 7 ('X') opens to Class X; a label such as 'XI Science'
+ * matches no student and its recordings stay with the batch. "Sat Phase 1" is
+ * a mark on either July paper (P1-OFFLINE or P1-ONLINE). A demo account --
+ * staff, a teacher, a core member, the office's own -- counts as having sat,
+ * so they see what the class sees (Umar, 9 Nov 2026).
+ */
+export const OPEN_TO_CLASS_AFTER_DAYS = 3;
+
+/**
  * Every recording a student may watch, newest class first: classes of a batch
- * they are in right now, not cancelled, not hidden.
+ * they are in right now, or — OPEN_TO_CLASS_AFTER_DAYS after the class ended —
+ * of their own class if they sat Phase 1. Not cancelled, not hidden.
+ *
+ * The second half is the same test as recordingOpenToStudent; change both.
  */
 export async function recordingsForStudent(uid: string, limit = 100): Promise<StudentRecording[]> {
   return (await sql`
@@ -198,13 +216,57 @@ export async function recordingsForStudent(uid: string, limit = 100): Promise<St
       join admin_classes c on c.id = r.class_id
      where r.hidden_at is null
        and c.cancelled_at is null
-       and exists (
-             select 1 from admin_batch_members m
-              where m.batch_id = c.batch_id and m.uid = ${uid} and m.removed_at is null
+       and (
+             exists (
+               select 1 from admin_batch_members m
+                where m.batch_id = c.batch_id and m.uid = ${uid} and m.removed_at is null
+             )
+             or (
+               c.ended_at <= now() - make_interval(days => ${OPEN_TO_CLASS_AFTER_DAYS})
+               and exists (
+                 select 1 from admin_batches b
+                   join students s on s.class = b.class_label
+                  where b.id = c.batch_id and s.uid = ${uid}
+               )
+               and (
+                 -- staff, teachers and core members (9 Nov 2026) sat no paper
+                 exists (select 1 from students d where d.uid = ${uid} and d.is_demo)
+                 or exists (select 1 from offline_results o join exam_papers p on p.id = o.exam_paper_id
+                          where o.uid = ${uid} and p.code like 'P1-%')
+                 or exists (select 1 from online_results o join exam_papers p on p.id = o.exam_paper_id
+                             where o.uid = ${uid} and p.code like 'P1-%')
+               )
+             )
            )
      order by c.starts_at desc, r.added_at
      limit ${limit}
   `) as StudentRecording[];
+}
+
+/**
+ * Whether a student who is NOT in a class's batch may watch its recording yet:
+ * the class ended OPEN_TO_CLASS_AFTER_DAYS ago, it was for their class, and
+ * they sat Phase 1. The same test as the second half of recordingsForStudent.
+ */
+export async function recordingOpenToStudent(classId: string, uid: string): Promise<boolean> {
+  if (!/^\d{1,18}$/.test(classId)) return false;
+  const rows = (await sql`
+    select 1
+      from admin_classes c
+      join admin_batches b on b.id = c.batch_id
+      join students s on s.class = b.class_label and s.uid = ${uid}
+     where c.id = ${classId}::bigint
+       and c.cancelled_at is null
+       and c.ended_at <= now() - make_interval(days => ${OPEN_TO_CLASS_AFTER_DAYS})
+       and (
+         s.is_demo
+         or exists (select 1 from offline_results o join exam_papers p on p.id = o.exam_paper_id
+                  where o.uid = ${uid} and p.code like 'P1-%')
+         or exists (select 1 from online_results o join exam_papers p on p.id = o.exam_paper_id
+                     where o.uid = ${uid} and p.code like 'P1-%')
+       )
+  `) as unknown[];
+  return rows.length > 0;
 }
 
 /**

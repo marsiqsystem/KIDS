@@ -16,11 +16,11 @@
  * API changes in a way old builds cannot survive — and only after that build
  * has been in the stores long enough to be installed.
  */
-export const NATIVE_LATEST = 10;
+export const NATIVE_LATEST = 13;
 export const NATIVE_MINIMUM = 10;
 
 /** One line on what the newest build changes, shown on the update card. */
-export const NATIVE_NOTES = "The first build of the KIDS app from the stores.";
+export const NATIVE_NOTES = "A newer KIDS EDU UDAAN is on Google Play. Update to get every fix.";
 
 export const STORE = {
   android: "https://play.google.com/store/apps/details?id=org.kidskolkata.set",

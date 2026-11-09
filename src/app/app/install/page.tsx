@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Share, SquarePlus } from "lucide-react";
-import { apkUrl } from "@/lib/app/app-version";
+import { Play, Share, SquarePlus } from "lucide-react";
+import { STORE } from "@/lib/app/native-build";
 import { OFFICE } from "@/components/app/door";
 
 /**
  * Where a family is sent to get the app. Redesign board 03, 1A.
  *
  * Public on purpose — it is the address that goes in a WhatsApp message — and it
- * carries no student's name and nothing to sign in with. The Android warning is
- * drawn, not described, with the words Android actually shows, because the
- * reader has just been told this file may harm their phone.
+ * carries no student's name and nothing to sign in with.
  *
- * The board prints a file size and a version under the button. Neither is
- * known here (the APK lives wherever KIDS_APK_URL points), so neither is drawn.
- * The download button hides entirely when no link is configured.
+ * Since the Play listing went live (Nov 2026) the button goes to Google Play;
+ * the sideloaded-APK steps and Android's "Install anyway" warning are gone.
  */
 
 export const metadata: Metadata = {
@@ -24,13 +21,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// The link is read at request time, so setting KIDS_APK_URL in Vercel takes
-// effect without a rebuild.
-export const dynamic = "force-dynamic";
-
 export default function InstallPage() {
-  const apk = apkUrl();
-
   return (
     <div className="app-frame">
       <header className="door-hero door-hero--install">
@@ -42,46 +33,33 @@ export default function InstallPage() {
       </header>
 
       <div className="door-body">
-        {apk ? (
-          // A plain link: the browser's own download manager handles a dropped
-          // connection far better than anything we would write.
-          <a className="k-btn k-btn--gold" href={apk} download>
-            <Download size={20} aria-hidden="true" /> Download for Android
-          </a>
-        ) : (
-          <div className="door-alert door-alert--gold">
-            <p>
-              The download is not ready yet. Ask the KIDS office for the file:{" "}
-              <a href={`mailto:${OFFICE.email}`}>{OFFICE.email}</a>
-            </p>
-          </div>
-        )}
+        {/* Since 7 Nov 2026 the app is public on Google Play; the old APK
+            download (KIDS_APK_URL) is no longer offered here. */}
+        <a className="k-btn k-btn--gold" href={STORE.android} target="_blank" rel="noopener noreferrer">
+          <Play size={20} aria-hidden="true" /> Get it on Google Play
+        </a>
 
         <div>
           <div className="k-label door-steps-title">Android · three steps</div>
           <ol className="inst">
             <li className="inst__step">
               <span className="inst__n">1</span>
-              <span>Tap the file you downloaded.</span>
+              <span>
+                Open the <strong>Play Store</strong> and search for <strong>KIDS EDU UDAAN</strong> — or tap the button
+                above.
+              </span>
             </li>
-            <li className="inst__step inst__step--warn">
+            <li className="inst__step">
               <span className="inst__n">2</span>
-              <div>
-                <span>
-                  Android may warn you. Tap <strong>Install anyway</strong>.
-                </span>
-                <div className="inst__phone" aria-hidden="true">
-                  <p>&ldquo;This type of file can harm your device.&rdquo;</p>
-                  <div>
-                    <span>Cancel</span>
-                    <span className="inst__go">Install anyway</span>
-                  </div>
-                </div>
-              </div>
+              <span>
+                Check the name is exactly KIDS EDU UDAAN, then tap <strong>Install</strong>.
+              </span>
             </li>
             <li className="inst__step">
               <span className="inst__n">3</span>
-              <span>Open the app and sign in.</span>
+              <span>
+                Tap <strong>Open</strong>. Sat SET in July? Tap Claim your account. New? Tap Register.
+              </span>
             </li>
           </ol>
         </div>
@@ -111,6 +89,10 @@ export default function InstallPage() {
 
         <p className="door-foot">
           Already installed? <Link href="/app">Open the app</Link>
+          <br />
+          Help videos and answers: <Link href="/help">kidskolkata.org/help</Link>
+          <br />
+          Stuck? Write to <a href={`mailto:${OFFICE.email}`}>{OFFICE.email}</a>
         </p>
       </div>
     </div>

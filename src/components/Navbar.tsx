@@ -11,7 +11,8 @@ const navLinks = [
   { name: "Projects & Achievements", href: "/projects" },
   { name: "Gallery", href: "/gallery" },
   { name: "Partners", href: "/partners" },
-  { name: "Join Us", href: "/support" },
+  { name: "Results", href: "/results" },
+  { name: "Help", href: "/help" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -53,7 +54,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-6 2xl:gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -79,24 +80,23 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Results sits beside Join Us rather than in the text nav: for the
-            weeks after a declaration it is what most visitors arrive for, and a
-            seventh word in the link row is not something anyone finds. Gold, so
-            it reads as a second call to action without competing with Join Us. */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* The app is what most visitors now arrive for, so it takes the gold
+            button; Results moved into the text row once the declaration was
+            three months old. Join Us stays the dark one. */}
+        <div className="hidden xl:flex items-center gap-3">
           <Link
-            href="/results"
-            className={`px-6 py-2.5 rounded font-semibold text-sm uppercase tracking-wider border-2 border-secondary transition-colors ${
-              pathname === "/results"
+            href="/get-the-app"
+            className={`px-5 py-2.5 rounded font-semibold text-sm uppercase tracking-wider border-2 border-secondary transition-colors ${
+              pathname === "/get-the-app"
                 ? "bg-secondary text-on-secondary"
                 : "text-secondary hover:bg-secondary hover:text-on-secondary"
             }`}
           >
-            Results
+            Get the App
           </Link>
           <Link
             href="/support"
-            className="bg-primary text-on-primary px-6 py-2.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors"
+            className="bg-primary text-on-primary px-5 py-2.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-primary-container transition-colors"
           >
             Join Us
           </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-primary"
+          className="xl:hidden p-2 text-primary"
           aria-label="Toggle menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
@@ -125,7 +125,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-stone-200 overflow-hidden"
+            className="xl:hidden bg-white border-t border-stone-200 overflow-hidden max-h-[calc(100vh-7.5rem)] overflow-y-auto"
           >
             <nav className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -143,11 +143,11 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/results"
+                href="/get-the-app"
                 onClick={() => setMobileOpen(false)}
                 className="mt-4 border-2 border-secondary text-secondary text-center py-3 rounded font-semibold"
               >
-                Results
+                Get the App
               </Link>
               <Link
                 href="/support"

@@ -36,6 +36,9 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm text-stone-500">
             <li><Link href="/udaan" className="hover:text-primary transition-colors">Students Evaluation Test</Link></li>
+            <li><Link href="/get-the-app" className="hover:text-primary transition-colors">KIDS EDU UDAAN App</Link></li>
+            <li><Link href="/help" className="hover:text-primary transition-colors">App Help &amp; Videos</Link></li>
+            <li><Link href="/results" className="hover:text-primary transition-colors">SET Results</Link></li>
             <li><Link href="/about" className="hover:text-primary transition-colors">Teacher Training</Link></li>
             <li><Link href="/support" className="hover:text-primary transition-colors">Life Membership</Link></li>
           </ul>

@@ -94,7 +94,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="font-serif text-2xl text-primary mb-4">9. The KIDS EDU UDAAN App</h2>
             <p className="leading-relaxed">
-              KIDS EDU UDAAN is the KIDS app for students of Classes IX to XII on the KIDS register. It is published on Google Play and the App Store by IQ Systems and Research Private Limited on behalf of KIDS. This section covers the app; it applies to the student pages of this website (/app) in the same way.
+              KIDS EDU UDAAN is the KIDS app for students of Classes IX to XII on the KIDS register. It is published on Google Play by IQ Systems and Research Private Limited on behalf of KIDS. This section covers the app; it applies to the student pages of this website (/app) in the same way.
             </p>
 
             <h3 className="font-serif text-xl text-primary/80 mb-3 mt-6">What the app collects, and why</h3>

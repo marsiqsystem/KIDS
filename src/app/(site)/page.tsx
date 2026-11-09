@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import PlayButton from "@/components/PlayButton";
+import { STORE } from "@/lib/app/native-build";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -130,6 +132,57 @@ export default function Home() {
 
         {/* Bottom fade for smooth transition to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-surface to-transparent z-10" />
+      </section>
+
+      {/* ─── THE APP ─── */}
+      <section id="app" className="scroll-mt-32 py-20 bg-surface-container-low border-b border-outline-variant/50">
+        <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 gsap-fade-up">
+            <span className="text-sm font-semibold text-secondary uppercase tracking-widest block mb-3">New · Free for KIDS students</span>
+            <h2 className="font-serif text-3xl md:text-5xl text-primary mb-6">KIDS EDU UDAAN, the KIDS app</h2>
+            <p className="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-2xl">
+              Every student of Classes IX to XII on the KIDS register can now practise daily, learn chapter by chapter,
+              sit the Students Evaluation Test and keep their result — on their own phone.
+            </p>
+            <ol className="grid sm:grid-cols-3 gap-4 mb-8">
+              {[
+                { n: "1", title: "Install", desc: "Search KIDS EDU UDAAN on the Google Play Store." },
+                { n: "2", title: "Claim or register", desc: "Sat SET in July? Claim with your User ID and date of birth. New? Register." },
+                { n: "3", title: "Start", desc: "Pick your subjects and begin your daily practice." },
+              ].map((s) => (
+                <li key={s.n} className="bg-white rounded-xl border border-outline-variant p-5">
+                  <span className="font-serif text-3xl text-secondary">{s.n}</span>
+                  <h3 className="font-serif text-lg text-primary mt-1 mb-1">{s.title}</h3>
+                  <p className="text-sm text-on-surface-variant">{s.desc}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="flex flex-wrap gap-4 items-center">
+              <PlayButton href={STORE.android} />
+              <Link
+                href="/help"
+                className="border-2 border-primary text-primary px-6 py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary/5 transition-colors"
+              >
+                Help videos
+              </Link>
+              <Link href="/get-the-app" className="text-primary font-semibold text-sm uppercase tracking-wider hover:underline underline-offset-4">
+                More about the app →
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-5 flex justify-center gap-4 gsap-fade-up">
+            <img
+              src="/help/app-welcome.jpg"
+              alt="The app's first screen"
+              className="w-36 md:w-52 rounded-[1.75rem] border-4 border-white shadow-2xl translate-y-6"
+            />
+            <img
+              src="/help/app-home.jpg"
+              alt="The app's Home screen"
+              className="w-36 md:w-52 rounded-[1.75rem] border-4 border-white shadow-2xl"
+            />
+          </div>
+        </div>
       </section>
 
       {/* ─── VISION & MISSION ─── */}

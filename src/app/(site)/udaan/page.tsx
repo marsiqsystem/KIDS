@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import PageHeader from "@/components/PageHeader";
+import { CENTRE_COUNT, CENTRE_LIST, SCHOOL_COUNT } from "@/lib/centres";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -23,28 +24,24 @@ const benefits = [
 ];
 
 const subjects = [
-  { cls: "IX - X", stream: "General", subjects: "English, Mathematics, Physical Science, Life Science, Geography, History", format: "MCQ based OMR" },
-  { cls: "XI - XII", stream: "Science", subjects: "Physics, Chemistry, Mathematics, Biology, Computer Science", format: "MCQ based OMR" },
-  { cls: "", stream: "Arts", subjects: "Political Science, Philosophy, History, Geography, Education", format: "MCQ based OMR" },
-  { cls: "", stream: "Commerce", subjects: "Accountancy, Business Studies, Economics, Costing & Taxation", format: "MCQ based OMR" },
+  { cls: "IX - X", stream: "General", subjects: "English, Mathematics, Physical Science, Life Science, Geography, History", format: "MCQ · Phase 1 on OMR and online, Phase 2 in the app" },
+  { cls: "XI - XII", stream: "Science", subjects: "Physics, Chemistry, Mathematics, Biology, Computer Science", format: "MCQ · Phase 1 on OMR and online, Phase 2 in the app" },
+  { cls: "", stream: "Arts", subjects: "Political Science, Philosophy, History, Geography, Education", format: "MCQ · Phase 1 on OMR and online, Phase 2 in the app" },
+  { cls: "", stream: "Commerce", subjects: "Accountancy, Business Studies, Economics, Costing & Taxation", format: "MCQ · Phase 1 on OMR and online, Phase 2 in the app" },
 ];
 
-const processSteps = [
-  { num: "01", title: "High-Speed Upload", desc: "Bulk scanning of physical OMR sheets into our secure cloud environment." },
-  { num: "02", title: "AI Vision Scanning", desc: "Neural networks detect student IDs and bubbling patterns with pixel-level precision." },
-  { num: "03", title: "Automated Scoring", desc: "Instant cross-referencing with master answer keys and negative marking logic." },
-  { num: "04", title: "Smart Marksheet", desc: "Personalized performance analytics sent directly to schools and parents." },
+const phaseOne = [
+  { num: "01", title: "Two papers", desc: "An online paper of 50 questions and a written OMR paper of 100. They are marked and shown separately — never added together." },
+  { num: "02", title: "Marked by KIDS' own OMR software", desc: "Every answer sheet is scanned and read by software KIDS built for SET, and checked against the verified answer key. Sheets it flags — double marks, unclear panels, mixed-up forms — are checked and ruled by people." },
+  { num: "03", title: "A marksheet that teaches", desc: "Each student's marksheet prints their own OMR sheet back to them, with a written explanation for every question and the chapters worth revising." },
+  { num: "04", title: "Reports for schools", desc: "Participating schools receive their own report on how their students did." },
 ];
 
-const centres = [
-  { school: "Garden Reach MAMG HS", zone: "Purulia Zone" },
-  { school: "Momin HS", zone: "Raghunathpur Zone" },
-  { school: "Siddhartha Vidyapith", zone: "Jhalda Zone" },
-  { school: "Manbhum Victoria", zone: "Manbazar Zone" },
-  { school: "Adarsha Vidyalaya", zone: "Balarampur Zone" },
-  { school: "Kashipur Girls HS", zone: "Kashipur Zone" },
-  { school: "Hura Block School", zone: "Hura Zone" },
-  { school: "Neturia Academy", zone: "Neturia Zone" },
+const phaseTwo = [
+  { num: "01", title: "Register in the app", desc: "Phase 1 students claim their account with their User ID; new students register in the app and the KIDS office approves." },
+  { num: "02", title: "At a centre, under invigilators", desc: "The paper is sat on the student's own phone, at an examination centre — not at home." },
+  { num: "03", title: "Check in at the desk", desc: "Students scan the code at the invigilator's desk to open the paper. Screenshots are blocked while the paper is on screen." },
+  { num: "04", title: "Results in the app", desc: "Results are published in the app, in each student's own My Record." },
 ];
 
 export default function UdaanPage() {
@@ -164,58 +161,59 @@ export default function UdaanPage() {
         </div>
       </section>
 
-      {/* OMR Innovation */}
+      {/* Two phases */}
       <section className="py-20 bg-tertiary text-on-tertiary">
         <div className="w-full px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-on-tertiary-container mb-4">Our Innovation</h2>
-            <h3 className="font-serif text-2xl">AI-Powered OMR Evaluator</h3>
-            <p className="mt-4 max-w-2xl mx-auto opacity-80">
-              Leveraging cutting-edge computer vision for instant, error-free results.
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <span className="text-sm font-semibold text-on-tertiary-container uppercase tracking-widest block mb-3">SET 2026&ndash;27</span>
+            <h2 className="font-serif text-4xl mb-4">One Test, Two Phases</h2>
+            <p className="opacity-80 text-lg">
+              SET 2026&ndash;27 is held in two phases. The first was sat in July on paper and online; the second is sat
+              in the KIDS EDU UDAAN app, at an examination centre.
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Comparison */}
+          <div className="grid lg:grid-cols-2 gap-8">
             <div className="gsap-fade-up bg-tertiary-container rounded-xl p-8 border border-white/10">
-              <h4 className="font-serif text-xl mb-8">Traditional vs. KIDS Innovation</h4>
-              <div className="space-y-4">
-                <div className="grid grid-cols-3 pb-4 border-b border-white/10 text-sm font-semibold uppercase tracking-wider">
-                  <span>Metric</span>
-                  <span className="opacity-60">Traditional</span>
-                  <span className="text-secondary-fixed-dim">KIDS AI</span>
-                </div>
-                {[
-                  { metric: "Eval. Speed", trad: "15 Min / Page", kids: "~0.5 Seconds" },
-                  { metric: "Accuracy", trad: "92.5%", kids: "99.9%" },
-                  { metric: "Cost Impact", trad: "High Resource", kids: "85% Lower" },
-                  { metric: "Analytics", trad: "Manual Entry", kids: "Instant Smart" },
-                ].map((r, i) => (
-                  <div key={i} className="grid grid-cols-3 py-4 border-b border-white/5">
-                    <span className="opacity-60">{r.metric}</span>
-                    <span>{r.trad}</span>
-                    <span className="text-secondary-fixed-dim font-bold">{r.kids}</span>
-                  </div>
+              <span className="text-sm font-semibold uppercase tracking-wider text-secondary-fixed-dim">Phase 1 &middot; July 2026 &middot; Results published</span>
+              <h3 className="font-serif text-2xl mt-2 mb-6">On paper, at the centres</h3>
+              <ul className="space-y-5">
+                {phaseOne.map((step) => (
+                  <li key={step.title} className="flex gap-4">
+                    <span className="font-serif text-2xl text-secondary-container shrink-0 w-8">{step.num}</span>
+                    <div>
+                      <h4 className="font-serif text-lg">{step.title}</h4>
+                      <p className="text-sm opacity-75">{step.desc}</p>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
+              <Link href="/set" className="inline-block mt-8 text-sm font-semibold uppercase tracking-wider text-secondary-fixed-dim hover:underline underline-offset-4">
+                Find your Phase 1 result &rarr;
+              </Link>
             </div>
-
-            {/* Process */}
-            <div className="space-y-6">
-              {processSteps.map((step) => (
-                <div key={step.num} className="gsap-fade-up flex items-center gap-6 p-6 bg-white/5 rounded-xl border border-white/5">
-                  <span className="text-4xl font-serif text-secondary-container">{step.num}</span>
-                  <div>
-                    <h5 className="font-serif text-lg">{step.title}</h5>
-                    <p className="text-sm opacity-70">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="gsap-fade-up bg-white/5 rounded-xl p-8 border border-white/10">
+              <span className="text-sm font-semibold uppercase tracking-wider text-secondary-fixed-dim">Phase 2 &middot; Date to be announced</span>
+              <h3 className="font-serif text-2xl mt-2 mb-6">In the app, at the centre</h3>
+              <ul className="space-y-5">
+                {phaseTwo.map((step) => (
+                  <li key={step.title} className="flex gap-4">
+                    <span className="font-serif text-2xl text-secondary-container shrink-0 w-8">{step.num}</span>
+                    <div>
+                      <h4 className="font-serif text-lg">{step.title}</h4>
+                      <p className="text-sm opacity-75">{step.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/get-the-app" className="inline-block mt-8 text-sm font-semibold uppercase tracking-wider text-secondary-fixed-dim hover:underline underline-offset-4">
+                Get the KIDS EDU UDAAN app &rarr;
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Network */}
+      {/* Network — the real Phase 1 centres, from the register (src/lib/centres.ts) */}
       <section className="py-20 bg-surface-container-low">
         <div className="w-full px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -225,24 +223,26 @@ export default function UdaanPage() {
             </div>
             <div className="flex gap-4">
               <div className="text-center bg-white px-8 py-4 rounded-lg border border-stone-200 shadow-sm">
-                <span className="block text-3xl font-serif text-primary">08</span>
+                <span className="block text-3xl font-serif text-primary">{CENTRE_COUNT}</span>
                 <span className="text-xs font-semibold uppercase opacity-60">Centres</span>
               </div>
               <div className="text-center bg-white px-8 py-4 rounded-lg border border-stone-200 shadow-sm">
-                <span className="block text-3xl font-serif text-primary">42+</span>
+                <span className="block text-3xl font-serif text-primary">{SCHOOL_COUNT}</span>
                 <span className="text-xs font-semibold uppercase opacity-60">Schools</span>
               </div>
             </div>
           </div>
           <div className="gsap-fade-up bg-white p-6 rounded-xl border border-stone-200 shadow-sm">
-            <h3 className="text-sm font-semibold text-primary mb-6 uppercase tracking-wider">Examination Centres</h3>
+            <h3 className="text-sm font-semibold text-primary mb-6 uppercase tracking-wider">Examination Centres &middot; Phase 1</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {centres.map((c) => (
-                <div key={c.school} className="flex items-start gap-2 p-3 rounded-lg bg-stone-50">
+              {CENTRE_LIST.map(({ key, centre }) => (
+                <div key={key} className="flex items-start gap-2 p-3 rounded-lg bg-stone-50">
                   <span className="text-secondary">📍</span>
                   <div>
-                    <strong className="text-sm">{c.school}</strong>
-                    <p className="text-xs text-stone-500">{c.zone}</p>
+                    <strong className="text-sm">{centre.name}</strong>
+                    <p className="text-xs text-stone-500">
+                      {centre.code} &middot; {centre.district}
+                    </p>
                   </div>
                 </div>
               ))}

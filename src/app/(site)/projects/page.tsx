@@ -163,24 +163,38 @@ export default function ProjectsPage() {
                   Innovation Spotlight: Digital Transformation
                 </h2>
                 <p className="text-primary-fixed text-lg mb-8 leading-relaxed">
-                  To ensure transparency and rapid feedback, KIDS has pioneered the AI-Powered OMR Evaluator. This system processes thousands of results within hours, eliminating human error.
+                  KIDS builds its own tools for SET: software that marks every OMR sheet against a verified answer key,
+                  and now an app that puts practice, learning, the exam and the result in every student&apos;s hands.
                 </p>
                 <div className="space-y-4">
                   <div className="flex gap-4 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-                    <span className="text-3xl">⚡</span>
+                    <span className="text-3xl">📱</span>
                     <div>
-                      <h4 className="font-serif text-lg text-white mb-1">Smart Marksheets</h4>
+                      <h4 className="font-serif text-lg text-white mb-1">KIDS EDU UDAAN App</h4>
                       <p className="text-primary-fixed/80 text-sm">
-                        Individualized performance reports with percentile ranking and subject-wise deep dives.
+                        Daily practice, chapters and videos, the SET exam and the student&apos;s own result — free on
+                        Google Play.{" "}
+                        <Link href="/get-the-app" className="underline underline-offset-4 text-white">Get the app</Link>
                       </p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-                    <span className="text-3xl">🤖</span>
+                    <span className="text-3xl">📝</span>
                     <div>
-                      <h4 className="font-serif text-lg text-white mb-1">AI Evaluator</h4>
+                      <h4 className="font-serif text-lg text-white mb-1">Own OMR Software</h4>
                       <p className="text-primary-fixed/80 text-sm">
-                        99.9% accuracy in mark identification with automated quality control checks.
+                        Every sheet is scanned and checked against the answer key; anything the software flags is
+                        checked and ruled by people.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <span className="text-3xl">⚡</span>
+                    <div>
+                      <h4 className="font-serif text-lg text-white mb-1">Marksheets That Teach</h4>
+                      <p className="text-primary-fixed/80 text-sm">
+                        Each marksheet prints the student&apos;s own OMR sheet back, with an explanation for every
+                        question and the chapters worth revising.
                       </p>
                     </div>
                   </div>
@@ -198,7 +212,39 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ─── SET 2025 RESULTS & PERFORMANCE ─── */}
+      {/* ─── SET 2026–27 PHASE 1 ─── */}
+      <section className="py-20 bg-surface-container-low border-b border-outline-variant/50">
+        <div className="w-full px-4 md:px-8">
+          <div className="text-center mb-12 gsap-fade-up">
+            <span className="text-sm font-semibold text-secondary uppercase tracking-widest block mb-2">Latest</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary">SET 2026&ndash;27 &mdash; Phase 1 Results</h2>
+            <div className="w-24 h-1 bg-secondary mx-auto mt-4" />
+          </div>
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            {[
+              { value: "7,322", label: "Students' results published", desc: "Sat in July 2026, published on 17 August." },
+              { value: "2", label: "Papers", desc: "An online paper of 50 questions and a written OMR paper of 100, shown separately." },
+              { value: "121", label: "School reports", desc: "Each participating school received its own report." },
+            ].map((s) => (
+              <div key={s.label} className="gsap-fade-up bg-white p-8 rounded-xl border border-outline-variant text-center">
+                <div className="font-serif text-5xl text-secondary mb-2">{s.value}</div>
+                <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">{s.label}</p>
+                <p className="text-sm text-on-surface-variant">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/set" className="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold text-sm uppercase tracking-wider hover:opacity-90 transition-opacity">
+              Find your result →
+            </Link>
+            <Link href="/udaan" className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-primary/5 transition-colors">
+              How SET works now
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SET 2025 RESULTS & PERFORMANCE (archive) ─── */}
       <section className="py-20 bg-surface">
         <div className="w-full px-4 md:px-8">
           {/* Section Title */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { AlertTriangle, Inbox } from "lucide-react";
+import { AlertTriangle, Inbox, UserRound } from "lucide-react";
 import {
   approveApplication,
   approveApplicationsAction,
@@ -52,13 +52,17 @@ export default function ApplicationsPanel({
   decided: DecidedRow[];
   schools: School[];
 }) {
+  // Staff, teachers and core members ("Other" for class) are not children of a
+  // school; they get their own section and never join a school's clean list.
+  const students = pending.filter((r) => r.kind !== "guest");
+  const guests = pending.filter((r) => r.kind === "guest");
   const groups = new Map<string, PendingRow[]>();
-  for (const r of pending) {
+  for (const r of students) {
     const key = `${r.centre_code}|${r.school_code}`;
     groups.set(key, [...(groups.get(key) ?? []), r]);
   }
-  const flagged = pending.filter((r) => r.duplicates.length > 0).length;
-  const clean = pending.length - flagged;
+  const flagged = students.filter((r) => r.duplicates.length > 0).length;
+  const clean = students.length - flagged;
   const sel = useSelection(pending.map((r) => r.id));
   const ticked = pending.filter((r) => sel.has(r.id));
   const tickedFlagged = ticked.filter((r) => r.duplicates.length > 0).length;
@@ -74,7 +78,9 @@ export default function ApplicationsPanel({
           </h2>
           {pending.length > 0 ? (
             <span className="text-xs text-[#6B5B5D]">
-              across {groups.size} {groups.size === 1 ? "school" : "schools"}
+              {groups.size ? `across ${groups.size} ${groups.size === 1 ? "school" : "schools"}` : ""}
+              {groups.size && guests.length ? " · " : ""}
+              {guests.length ? `${guests.length} staff & ${guests.length === 1 ? "teacher" : "teachers"}` : ""}
               {flagged ? ` · ${flagged} flagged as a possible duplicate` : ""}
             </span>
           ) : null}
@@ -93,6 +99,9 @@ export default function ApplicationsPanel({
                   (flagged ? `
 
 ${flagged} flagged as a possible duplicate will be left for you.` : "") +
+                  (guests.length ? `
+
+Staff & teachers are not included; approve them one by one.` : "") +
                   (clean > 60 ? `
 
 Sixty are approved per press; press it again for the rest.` : "")
@@ -149,11 +158,134 @@ ${tickedFlagged} of them ${tickedFlagged === 1 ? "is" : "are"} flagged as a poss
           New registrations from the app arrive here.
         </p>
       ) : (
-        [...groups.entries()].map(([key, rows]) => <SchoolGroup key={key} rows={rows} sel={sel} schools={schools} />)
+        <>
+          {guests.length ? <GuestGroup rows={guests} sel={sel} /> : null}
+          {[...groups.entries()].map(([key, rows]) => (
+            <SchoolGroup key={key} rows={rows} sel={sel} schools={schools} />
+          ))}
+        </>
       )}
 
       {decided.length > 0 ? <Decided rows={decided} /> : null}
     </div>
+  );
+}
+
+/**
+ * Staff, teachers and core members who chose "Other" for class (9 Nov 2026).
+ *
+ * Approving makes a demo account under KIDS Team (Demo): the whole app, seen as
+ * the class they picked, and never a student -- no total, ranking, school list
+ * or desk count includes them. There is no date of birth to check, so the phone
+ * number is the check: ring it if the name is not one you know.
+ */
+function GuestGroup({ rows, sel }: { rows: PendingRow[]; sel: Selection }) {
+  return (
+    <section className={`rounded ${SURFACE}`}>
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[#F2E9DA] px-5 py-3">
+        <TickAll sel={sel} ids={rows.map((r) => r.id)} label="" />
+        <div>
+          <h3 className="flex items-center gap-2 text-sm font-bold">
+            <UserRound className="h-4 w-4" aria-hidden />
+            Staff &amp; teachers · not students
+          </h3>
+          <p className="text-xs text-[#6B5B5D]">
+            They chose “Other” for class. Approving gives them the app as the class they picked, under
+            KIDS Team (Demo) — never counted as a student.
+          </p>
+        </div>
+        <span className="text-xs text-[#6B5B5D]">
+          {rows.length} {rows.length === 1 ? "application" : "applications"}
+        </span>
+      </header>
+      <ul className="divide-y divide-[#F2E9DA]">
+        {rows.map((r) => (
+          <GuestApplication key={r.id} r={r} sel={sel} />
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function GuestApplication({ r, sel }: { r: PendingRow; sel: Selection }) {
+  return (
+    <li className="px-5 py-4">
+      <div className="flex flex-wrap items-start gap-x-6 gap-y-3">
+        <Tick sel={sel} id={r.id} label={`Select ${r.name}`} />
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-semibold text-[#2B1A1C]">{r.name}</p>
+          <dl className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[#6B5B5D]">
+            <Pair k="Sees the app as" v={`Class ${r.stream ? `${r.class} · ${r.stream}` : r.class}`} />
+            {r.guardian_phone ? <Pair k="Phone" v={r.guardian_phone} mono /> : null}
+            <Pair
+              k="Applied"
+              v={new Date(r.applied_at).toLocaleString("en-IN", {
+                day: "numeric",
+                month: "short",
+                hour: "numeric",
+                minute: "2-digit",
+                timeZone: "Asia/Kolkata",
+              })}
+            />
+          </dl>
+          {r.original ? <Edited r={r} /> : null}
+        </div>
+        <div className="flex items-center gap-2">
+          <RowAction action={approveApplication} fields={{ registrationId: r.id }} primary>
+            Approve
+          </RowAction>
+        </div>
+      </div>
+      <EditGuest r={r} />
+      <Reject r={r} />
+    </li>
+  );
+}
+
+/** Correct a guest: name, phone, and the class they see the app as. */
+function EditGuest({ r }: { r: PendingRow }) {
+  const [state, action, pending] = useActionState(editApplication, {});
+  return (
+    <details className="mt-3">
+      <summary className="cursor-pointer select-none text-xs text-[#6B5B5D] hover:text-[#4A3A3C]">
+        Edit…
+      </summary>
+      <form action={action} className="mt-2 grid max-w-3xl gap-3 sm:grid-cols-2">
+        <input type="hidden" name="registrationId" value={r.id} />
+        <EditField label="Full name" name="name" defaultValue={r.name} wide />
+        <EditField label="Phone" name="guardian_phone" defaultValue={r.guardian_phone ?? ""} mono />
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Sees the app as class</span>
+          <select name="class" defaultValue={r.class} className={INPUT}>
+            {["IX", "X", "XI", "XII"].map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <label className="block">
+          <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Stream · XI and XII only</span>
+          <select name="stream" defaultValue={r.stream ?? ""} className={INPUT}>
+            <option value="">—</option>
+            {["Arts", "Commerce", "Science"].map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+        <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
+          <button
+            type="submit"
+            disabled={pending}
+            className="rounded border border-[#E3D6C4] px-2.5 py-1 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9] disabled:opacity-50"
+          >
+            {pending ? "Saving…" : "Save the correction"}
+          </button>
+          <span className="text-xs text-[#6B5B5D]">Saving does not approve. What they first typed is kept.</span>
+        </div>
+        <div className="sm:col-span-2">
+          <Alert state={state} />
+        </div>
+      </form>
+    </details>
   );
 }
 
@@ -214,7 +346,7 @@ function Application({ r, sel, schools }: { r: PendingRow; sel: Selection; schoo
           <p className="text-sm font-semibold text-[#2B1A1C]">{r.name}</p>
           <dl className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[#6B5B5D]">
             <Pair k="Class" v={r.stream ? `${r.class} · ${r.stream}` : r.class} />
-            <Pair k="Born" v={r.dob} mono />
+            {r.dob ? <Pair k="Born" v={r.dob} mono /> : null}
             {r.guardian_phone ? <Pair k="Parent" v={r.guardian_phone} mono /> : null}
             <Pair
               k="Applied"
@@ -316,7 +448,7 @@ function EditApplication({ r, schools }: { r: PendingRow; schools: School[] }) {
       <form action={action} className="mt-2 grid max-w-3xl gap-3 sm:grid-cols-2">
         <input type="hidden" name="registrationId" value={r.id} />
         <EditField label="Child’s full name" name="name" defaultValue={r.name} wide />
-        <EditField label="Date of birth · DD-MM-YYYY" name="dob" defaultValue={r.dob} mono />
+        <EditField label="Date of birth · DD-MM-YYYY" name="dob" defaultValue={r.dob ?? ""} mono />
         <EditField label="Parent’s phone" name="guardian_phone" defaultValue={r.guardian_phone ?? ""} mono />
         <label className="block">
           <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Class</span>
@@ -441,7 +573,7 @@ function Decided({ rows }: { rows: DecidedRow[] }) {
           <thead className="text-[#6B5B5D]">
             <tr>
               <th className="px-4 py-2 font-semibold">When</th>
-              <th className="px-4 py-2 font-semibold">Child</th>
+              <th className="px-4 py-2 font-semibold">Name</th>
               <th className="px-4 py-2 font-semibold">School</th>
               <th className="px-4 py-2 font-semibold">Decision</th>
               <th className="px-4 py-2 font-semibold">By</th>
@@ -462,7 +594,9 @@ function Decided({ rows }: { rows: DecidedRow[] }) {
                 <td className="px-4 py-2 text-[#2B1A1C]">
                   {d.name} <span className="text-[#6B5B5D]">· {d.class}</span>
                 </td>
-                <td className="px-4 py-2 text-[#6B5B5D]">{d.school_name}</td>
+                <td className="px-4 py-2 text-[#6B5B5D]">
+                  {d.kind === "guest" ? "Staff & teachers" : d.school_name}
+                </td>
                 <td className="px-4 py-2">
                   {d.status === "approved" ? (
                     <span className="text-[#137565]">

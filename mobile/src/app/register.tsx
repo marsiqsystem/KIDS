@@ -23,9 +23,15 @@ import { color, font, radius } from "@/theme";
  * spelling. The password is chosen after approval: a password typed before
  * anyone has checked the application would be a secret for a child who may not
  * exist.
+ *
+ * "Other" on the class list is for KIDS staff, school teachers and core
+ * members (Rizwan Sir's idea, 9 Nov 2026): no date of birth, no school, a
+ * phone number the office can ring, and the class whose app they want to see.
+ * The office approves them into a demo account that is never counted.
  */
 type School = { centre_code: string; school_code: string; school_name: string; centre_name: string };
 const CLASSES = ["IX", "X", "XI", "XII"];
+const OTHER = "OTHER";
 const STREAMS = ["Arts", "Commerce", "Science"];
 
 export default function Register() {
@@ -48,7 +54,9 @@ export default function Register() {
           When they approve it, this app opens your account by itself. You can close the app — it opens next time you do.
         </Notice>
         <Text style={st.lead}>
-          {application.name} · Class {application.class} · {application.school_name}
+          {application.kind === "guest"
+            ? `${application.name} · Staff / teacher · sees Class ${application.class}`
+            : `${application.name} · Class ${application.class} · ${application.school_name}`}
         </Text>
       </Shell>
     );
@@ -83,6 +91,8 @@ function Shell({ children }: { children: React.ReactNode }) {
 }
 
 const STEPS = ["Who you are", "Your school", "Send"];
+/** "Other" has no school to choose, so two steps: step 0, then step 2. */
+const GUEST_STEPS = ["Who you are", "Send"];
 
 function Form({ onSent }: { onSent: () => void }) {
   const [step, setStep] = useState(0);
@@ -91,6 +101,7 @@ function Form({ onSent }: { onSent: () => void }) {
   const [m, setM] = useState("");
   const [y, setY] = useState("");
   const [cls, setCls] = useState("");
+  const [viewAs, setViewAs] = useState("");
   const [stream, setStream] = useState("");
   const [schools, setSchools] = useState<School[] | null>(null);
   const [query, setQuery] = useState("");
@@ -111,33 +122,46 @@ function Form({ onSent }: { onSent: () => void }) {
     return (needle ? all.filter((s) => s.school_name.toLowerCase().includes(needle)) : all).slice(0, 40);
   }, [schools, query]);
 
-  const senior = cls === "XI" || cls === "XII";
+  const guest = cls === OTHER;
+  // A guest's stream belongs to the class they see the app as.
+  const seen = guest ? viewAs : cls;
+  const senior = seen === "XI" || seen === "XII";
+  const steps = guest ? GUEST_STEPS : STEPS;
+  const shownStep = guest ? (step === 0 ? 0 : 1) : step;
 
   async function send() {
-    if (!school) return;
+    if (guest) {
+      if (phone.replace(/\D/g, "").length < 10) {
+        setRefusal({ field: "phone", message: "Type your 10-digit mobile number, so the office can call you." });
+        return;
+      }
+    } else if (!school) return;
     setBusy(true);
     setRefusal(null);
     try {
+      const body = guest
+        ? { name, class: OTHER, viewAs, stream: senior ? stream : "", guardianPhone: phone, deviceId: await deviceId() }
+        : {
+            name,
+            day: d,
+            month: m,
+            year: y,
+            class: cls,
+            stream: senior ? stream : "",
+            school: `${school!.centre_code}|${school!.school_code}`,
+            guardianPhone: phone,
+            deviceId: await deviceId(),
+          };
       const r = await api<{ ok: boolean; field?: string; message?: string }>("/door/register", {
         method: "POST",
-        body: {
-          name,
-          day: d,
-          month: m,
-          year: y,
-          class: cls,
-          stream: senior ? stream : "",
-          school: `${school.centre_code}|${school.school_code}`,
-          guardianPhone: phone,
-          deviceId: await deviceId(),
-        },
+        body,
         // The server takes a second send from this phone as the same application.
         retry: true,
       });
       if (r.ok) onSent();
       else {
         setRefusal({ field: r.field ?? "name", message: r.message ?? "That did not go through. Try again." });
-        setStep(r.field === "school" ? 1 : 0);
+        setStep(r.field === "school" ? 1 : r.field === "phone" ? 2 : 0);
       }
     } catch {
       setRefusal({ field: "name", message: "No connection. Check the internet and try again." });
@@ -149,22 +173,48 @@ function Form({ onSent }: { onSent: () => void }) {
     <KeyboardAvoidingView style={{ flex: 1, backgroundColor: color.cream }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
       <DoorBar title="Register" />
       <View style={s.steps}>
-        {STEPS.map((label, i) => (
+        {steps.map((label, i) => (
           <View key={label} style={{ flex: 1, alignItems: "center", gap: 4 }}>
-            <View style={[s.stepDot, i < step && { backgroundColor: color.teal, borderColor: color.teal }, i === step && { borderColor: color.maroon, backgroundColor: color.maroon }]}>
-              {i < step ? <Check size={12} color={color.white} /> : <Text style={[s.stepN, i === step && { color: color.cream }]}>{i + 1}</Text>}
+            <View style={[s.stepDot, i < shownStep && { backgroundColor: color.teal, borderColor: color.teal }, i === shownStep && { borderColor: color.maroon, backgroundColor: color.maroon }]}>
+              {i < shownStep ? <Check size={12} color={color.white} /> : <Text style={[s.stepN, i === shownStep && { color: color.cream }]}>{i + 1}</Text>}
             </View>
-            <Text style={[s.stepLabel, i === step && { color: color.maroon }]}>{label}</Text>
+            <Text style={[s.stepLabel, i === shownStep && { color: color.maroon }]}>{label}</Text>
           </View>
         ))}
       </View>
       <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled">
         {step === 0 ? (
           <>
-            <Field label="Your full name" value={name} onChangeText={setName} autoCapitalize="words" placeholder="As written at school" bad={refusal?.field === "name"} />
-            <DobFields day={d} month={m} year={y} onDay={setD} onMonth={setM} onYear={setY} bad={refusal?.field === "dob"} />
+            <Field label="Your full name" value={name} onChangeText={setName} autoCapitalize="words" placeholder={guest ? "Your full name" : "As written at school"} bad={refusal?.field === "name"} />
+            {guest ? null : <DobFields day={d} month={m} year={y} onDay={setD} onMonth={setM} onYear={setY} bad={refusal?.field === "dob"} />}
             <Text style={st.label}>Class this year</Text>
-            <Chips items={CLASSES} value={cls} onChange={setCls} format={(c) => `Class ${c}`} />
+            <Chips
+              items={[...CLASSES, OTHER]}
+              value={cls}
+              onChange={(c) => {
+                setCls(c);
+                setStream("");
+              }}
+              format={(c) => (c === OTHER ? "Other" : `Class ${c}`)}
+            />
+            {guest ? (
+              <>
+                <Text style={st.hint}>
+                  For KIDS office staff, school teachers and core members. You see the app as a student of the class you
+                  choose below, and you are never counted as a student.
+                </Text>
+                <Text style={st.label}>See the app as</Text>
+                <Chips
+                  items={CLASSES}
+                  value={viewAs}
+                  onChange={(c) => {
+                    setViewAs(c);
+                    setStream("");
+                  }}
+                  format={(c) => `Class ${c}`}
+                />
+              </>
+            ) : null}
             {senior ? (
               <>
                 <Text style={st.label}>Stream</Text>
@@ -179,16 +229,18 @@ function Form({ onSent }: { onSent: () => void }) {
               onPress={() => {
                 const missing =
                   name.trim().length < 2
-                    ? { field: "name", message: "Type your full name, as it is written at school." }
-                    : !d || !m || y.length !== 4
-                      ? { field: "dob", message: "Type your date of birth as day, month and a 4-digit year." }
-                      : !cls
-                        ? { field: "class", message: "Choose the class you are in this year." }
-                        : senior && !stream
-                          ? { field: "class", message: "Choose your stream." }
-                          : null;
+                    ? { field: "name", message: guest ? "Type your full name." : "Type your full name, as it is written at school." }
+                    : !cls
+                      ? { field: "class", message: "Choose the class you are in this year." }
+                      : guest && !viewAs
+                        ? { field: "class", message: "Choose which class's app you want to see." }
+                        : !guest && (!d || !m || y.length !== 4)
+                          ? { field: "dob", message: "Type your date of birth as day, month and a 4-digit year." }
+                          : senior && !stream
+                            ? { field: "class", message: "Choose the stream." }
+                            : null;
                 setRefusal(missing);
-                if (!missing) setStep(1);
+                if (!missing) setStep(guest ? 2 : 1);
               }}
             />
           </>
@@ -228,19 +280,32 @@ function Form({ onSent }: { onSent: () => void }) {
             <View style={s.review}>
               <Text style={st.label}>You are sending</Text>
               <Text style={st.lead}>{name}</Text>
-              <Text style={st.hint}>
-                Born {d}-{m}-{y} · Class {cls}
-                {senior ? ` · ${stream}` : ""}
-              </Text>
-              <Text style={st.hint}>
-                {school?.school_name} · {school?.centre_name}
-              </Text>
+              {guest ? (
+                <Text style={st.hint}>
+                  Staff / teacher · sees Class {viewAs}
+                  {senior ? ` · ${stream}` : ""}
+                </Text>
+              ) : (
+                <>
+                  <Text style={st.hint}>
+                    Born {d}-{m}-{y} · Class {cls}
+                    {senior ? ` · ${stream}` : ""}
+                  </Text>
+                  <Text style={st.hint}>
+                    {school?.school_name} · {school?.centre_name}
+                  </Text>
+                </>
+              )}
             </View>
-            <Field label="Family mobile number (optional)" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="So the office can call if something does not match." />
+            {guest ? (
+              <Field label="Your mobile number" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="The office calls this number to check it is you." bad={refusal?.field === "phone"} />
+            ) : (
+              <Field label="Family mobile number (optional)" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="So the office can call if something does not match." />
+            )}
             {refusal ? <Refusal message={refusal.message} /> : null}
             <View style={{ flexDirection: "row", gap: 10 }}>
               <View style={{ flex: 1 }}>
-                <Btn label="Back" kind="outline" onPress={() => setStep(1)} />
+                <Btn label="Back" kind="outline" onPress={() => setStep(guest ? 0 : 1)} />
               </View>
               <View style={{ flex: 1.4 }}>
                 <Btn label={busy ? "Sending" : "Send to KIDS"} busy={busy} onPress={send} />

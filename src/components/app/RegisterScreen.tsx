@@ -40,6 +40,10 @@ import type { School, PendingApplication } from "@/lib/app/registrations";
  * The waiting face watches (on opening, on returning to the foreground, and
  * every thirty seconds while pending) so the approval reaches a phone that is
  * sitting on this screen as well as one that is opened tomorrow.
+ *
+ * "Other" on the class list is for KIDS staff, school teachers and core
+ * members (9 Nov 2026): no date of birth, no school, a phone the office can
+ * ring, and the class whose app they want to see. Approved as a demo account.
  */
 export default function RegisterScreen({ schools }: { schools: School[] }) {
   const [application, setApplication] = useState<PendingApplication | null>(null);
@@ -72,6 +76,8 @@ export default function RegisterScreen({ schools }: { schools: School[] }) {
 /* ------------------------------------------------------------------ form --- */
 
 const STEPS = ["Who you are", "Your school", "Send"];
+/** "Other" has no school step: Who you are → Send. */
+const GUEST_STEPS = ["Who you are", "Send"];
 
 function Form({
   schools,
@@ -86,7 +92,7 @@ function Form({
 }) {
   const [step, setStep] = useState(0);
   const [handled, setHandled] = useState<RegisterState | null>(null);
-  const [who, setWho] = useState({ name: "", d: "", m: "", y: "", cls: "", stream: "" });
+  const [who, setWho] = useState({ name: "", d: "", m: "", y: "", cls: "", viewAs: "", stream: "" });
   const [school, setSchool] = useState("");
   const [query, setQuery] = useState("");
   const month = useRef<HTMLInputElement>(null);
@@ -94,12 +100,18 @@ function Form({
 
   // A refusal returns the family to the step the field lives on.
   const refusedAt =
-    state.field && handled !== state ? (state.field === "school" ? 1 : 0) : null;
+    state.field && handled !== state ? (state.field === "school" ? 1 : state.field === "phone" ? 2 : 0) : null;
   const at = refusedAt ?? step;
 
-  const senior = who.cls === "XI" || who.cls === "XII";
+  const guest = who.cls === "OTHER";
+  // A guest's stream belongs to the class they see the app as.
+  const seen = guest ? who.viewAs : who.cls;
+  const senior = seen === "XI" || seen === "XII";
   const whoReady =
-    who.name.trim().length >= 2 && who.d && who.m && who.y.length === 4 && who.cls && (!senior || who.stream);
+    who.name.trim().length >= 2 &&
+    who.cls &&
+    (guest ? who.viewAs : who.d && who.m && who.y.length === 4) &&
+    (!senior || who.stream);
 
   const chosen = schools.find((s) => `${s.centre_code}|${s.school_code}` === school) ?? null;
 
@@ -125,7 +137,7 @@ function Form({
   return (
     <>
       <div className="door-bar door-bar--steps">
-        <Stepper steps={STEPS} at={at} />
+        <Stepper steps={guest ? GUEST_STEPS : STEPS} at={guest ? (at === 0 ? 0 : 1) : at} />
       </div>
 
       <form action={formAction} className="door-body">
@@ -146,12 +158,13 @@ function Form({
               className={`door-input${state.field === "name" ? " door-input--bad" : ""}`}
               autoComplete="name"
               autoCapitalize="words"
-              placeholder="As written at school"
+              placeholder={guest ? "Your full name" : "As written at school"}
               value={who.name}
               onChange={(e) => setWho((w) => ({ ...w, name: e.target.value }))}
             />
           </div>
 
+          {guest ? null : (
           <div className="door-field">
             <label className="k-label" htmlFor="dobDay">
               Date of birth
@@ -206,11 +219,12 @@ function Form({
               </label>
             </div>
           </div>
+          )}
 
           <fieldset className="door-field door-fieldset">
             <legend className="k-label">Class</legend>
             <div className="door-seg">
-              {["IX", "X", "XI", "XII"].map((c) => (
+              {["IX", "X", "XI", "XII", "OTHER"].map((c) => (
                 <label key={c} className={`door-seg__opt${who.cls === c ? " door-seg__opt--on" : ""}`}>
                   <input
                     type="radio"
@@ -219,11 +233,35 @@ function Form({
                     checked={who.cls === c}
                     onChange={() => setWho((w) => ({ ...w, cls: c, stream: "" }))}
                   />
-                  {c}
+                  {c === "OTHER" ? "Other" : c}
                 </label>
               ))}
             </div>
           </fieldset>
+
+          {guest ? (
+            <fieldset className="door-field door-fieldset">
+              <legend className="k-label">See the app as</legend>
+              <div className="door-seg">
+                {["IX", "X", "XI", "XII"].map((c) => (
+                  <label key={c} className={`door-seg__opt${who.viewAs === c ? " door-seg__opt--on" : ""}`}>
+                    <input
+                      type="radio"
+                      name="viewAs"
+                      value={c}
+                      checked={who.viewAs === c}
+                      onChange={() => setWho((w) => ({ ...w, viewAs: c, stream: "" }))}
+                    />
+                    {c}
+                  </label>
+                ))}
+              </div>
+              <span className="door-hint">
+                For KIDS office staff, school teachers and core members. You see the app as a student of this
+                class, and you are never counted as a student.
+              </span>
+            </fieldset>
+          ) : null}
 
           {senior ? (
             <fieldset className="door-field door-fieldset">
@@ -248,7 +286,7 @@ function Form({
           {at === 0 && state.field !== "school" ? <FormAlert state={{ message: state.message }} /> : null}
 
           <div className="door-bottom">
-            <button type="button" className="k-btn" disabled={!whoReady} onClick={() => next(1)}>
+            <button type="button" className="k-btn" disabled={!whoReady} onClick={() => next(guest ? 2 : 1)}>
               Next
             </button>
             <p className="door-foot">
@@ -331,38 +369,55 @@ function Form({
               <dt>Name</dt>
               <dd>{who.name}</dd>
             </div>
-            <div>
-              <dt>Born</dt>
-              <dd className="k-mono">
-                {who.d.padStart(2, "0")} / {who.m.padStart(2, "0")} / {who.y}
-              </dd>
-            </div>
-            <div>
-              <dt>Class</dt>
-              <dd>
-                {who.cls}
-                {who.stream ? ` · ${who.stream}` : ""}
-              </dd>
-            </div>
-            <div>
-              <dt>School</dt>
-              <dd>{chosen?.school_name}</dd>
-            </div>
+            {guest ? (
+              <div>
+                <dt>Sees the app as</dt>
+                <dd>
+                  Class {who.viewAs}
+                  {who.stream ? ` · ${who.stream}` : ""} · staff / teacher
+                </dd>
+              </div>
+            ) : (
+              <>
+                <div>
+                  <dt>Born</dt>
+                  <dd className="k-mono">
+                    {who.d.padStart(2, "0")} / {who.m.padStart(2, "0")} / {who.y}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Class</dt>
+                  <dd>
+                    {who.cls}
+                    {who.stream ? ` · ${who.stream}` : ""}
+                  </dd>
+                </div>
+                <div>
+                  <dt>School</dt>
+                  <dd>{chosen?.school_name}</dd>
+                </div>
+              </>
+            )}
           </dl>
 
           <div className="door-field">
             <label className="k-label" htmlFor="guardianPhone">
-              Family phone · optional
+              {guest ? "Your mobile number" : "Family phone · optional"}
             </label>
             <input
               id="guardianPhone"
               name="guardianPhone"
-              className="door-input"
+              className={`door-input${state.field === "phone" ? " door-input--bad" : ""}`}
               inputMode="tel"
               autoComplete="tel"
+              required={guest}
             />
-            <span className="door-hint">Only so the office can reach your family.</span>
+            <span className="door-hint">
+              {guest ? "The office calls this number to check it is you." : "Only so the office can reach your family."}
+            </span>
           </div>
+
+          {at === 2 && state.field === "phone" ? <FormAlert state={{ message: state.message }} /> : null}
 
           <div className="door-bottom">
             <button type="submit" className="k-btn" disabled={pending}>
@@ -431,12 +486,12 @@ function Waiting({
               <dd>{application.name}</dd>
             </div>
             <div>
-              <dt>Class</dt>
+              <dt>{application.kind === "guest" ? "Sees the app as" : "Class"}</dt>
               <dd>{application.class}</dd>
             </div>
             <div>
               <dt>School</dt>
-              <dd>{application.school_name}</dd>
+              <dd>{application.kind === "guest" ? "Staff & teachers" : application.school_name}</dd>
             </div>
           </dl>
           <p className="door-hint">

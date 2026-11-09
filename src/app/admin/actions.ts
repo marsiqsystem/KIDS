@@ -830,7 +830,7 @@ export async function approveSchool(_prev: State, formData: FormData): Promise<S
   const group = (await pendingRegistrations(1000)).filter(
     (r) => r.centre_code === centre && r.school_code === school,
   );
-  const clean = group.filter((r) => r.duplicates.length === 0);
+  const clean = group.filter((r) => r.kind === "student" && r.duplicates.length === 0);
   const held = group.length - clean.length;
 
   let approved = 0;
@@ -877,7 +877,11 @@ export async function approveApplicationsAction(_prev: State, formData: FormData
   const staff = await requireStaff("admin");
   let ids = idsFrom(formData);
   if (formData.get("all") === "clean") {
-    ids = (await pendingRegistrations(1000)).filter((r) => r.duplicates.length === 0).map((r) => r.id);
+    // Children only: a guest (staff, a teacher) is checked by ringing the phone,
+    // one at a time, never swept in with a school's clean list.
+    ids = (await pendingRegistrations(1000))
+      .filter((r) => r.kind === "student" && r.duplicates.length === 0)
+      .map((r) => r.id);
   }
   if (ids.length === 0) return { message: "Nothing was selected." };
 

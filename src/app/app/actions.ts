@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { signIn, claimAccount, claimCheck, logAppEvent } from "@/lib/app/accounts";
-import { applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
+import { applyAsGuest, applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
 import { fileCorrections, dobFromParts } from "@/lib/app/corrections";
 import { requireStudent } from "@/lib/app/gate";
 import { passwordProblem } from "@/lib/app/passwords";
@@ -11,7 +11,7 @@ import { createSession, destroySession, sessionUid } from "@/lib/app/session";
 import { bindDevice, readDeviceId } from "@/lib/app/devices";
 import { askToOpen, doorStatus, takeHandoff, type DoorStatus } from "@/lib/app/handoff";
 import { tenDigits } from "@/lib/admin/claim-match";
-import { signInRefusal, claimRefusal, askRefusal, registerRefusal, doorHref, type DoorRefusal } from "@/lib/app/door-sentences";
+import { signInRefusal, claimRefusal, askRefusal, registerRefusal, guestRefusal, doorHref, type DoorRefusal } from "@/lib/app/door-sentences";
 
 /**
  * Bind the account to the phone it was just opened on, then issue the session
@@ -136,7 +136,7 @@ export async function signOutAction(): Promise<void> {
  * it into a student later. See src/lib/admin/registrations.ts.
  */
 export type RegisterState = {
-  field?: "name" | "dob" | "class" | "school";
+  field?: "name" | "dob" | "class" | "school" | "phone";
   message?: string;
   ok?: boolean;
 };
@@ -157,6 +157,19 @@ export async function registerAction(
 
   if (name.length < 2) {
     return { field: "name", message: "Type your full name, as it is written at school." };
+  }
+  // "Other": staff, a teacher or a core member -- no date of birth, no school.
+  if (cls === "OTHER") {
+    const viewAs = String(formData.get("viewAs") ?? "").trim().toUpperCase();
+    if (!["IX", "X", "XI", "XII"].includes(viewAs)) {
+      return { field: "class", message: "Choose which class's app you want to see." };
+    }
+    const guest = await applyAsGuest({ name, view_as: viewAs, stream: stream || null, phone, device_id: deviceId });
+    if (!guest.ok && guest.reason !== "already_pending") {
+      const r = guestRefusal(guest.reason);
+      return { field: r.field, message: r.message };
+    }
+    return { ok: true };
   }
   if (!/^\d{2}$/.test(day) || !/^\d{2}$/.test(month) || !/^\d{4}$/.test(year)) {
     return { field: "dob", message: "Type your date of birth as day, month and year." };

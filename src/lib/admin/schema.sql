@@ -788,3 +788,16 @@ alter table app_registrations    add column if not exists edited_by text referen
 alter table app_account_requests add column if not exists original  jsonb;
 alter table app_account_requests add column if not exists edited_at timestamptz;
 alter table app_account_requests add column if not exists edited_by text references admin_staff (staff_id);
+
+-- Staff, teachers and core members who want to see the app (Rizwan Sir's idea,
+-- Umar's ruling, 9 Nov 2026). The class list on Register reads IX, X, XI, XII,
+-- Other; "Other" files a GUEST application: a name, a phone number the office
+-- can ring, and the class whose app they want to see. No date of birth (it only
+-- tells children apart) and no school.
+--
+-- A guest is filed under KIDS Team (Demo) and approved as is_demo, so every
+-- total, ranking, desk count and school list -- which already leave demo rows
+-- out -- leaves them out too. `class` holds the class they see the app as.
+alter table app_registrations alter column dob drop not null;
+alter table app_registrations add column if not exists kind text not null default 'student'
+  check (kind in ('student', 'guest'));

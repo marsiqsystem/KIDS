@@ -14,8 +14,11 @@ import { tenDigits } from "./claim-match";
 
 export interface PendingRow {
   id: string;
+  /** 'guest' = staff, a teacher or a core member who chose "Other" for class. */
+  kind: "student" | "guest";
   name: string;
-  dob: string;
+  /** Null for a guest: no date of birth is asked. */
+  dob: string | null;
   class: string;
   stream: string | null;
   centre_code: string;
@@ -39,7 +42,7 @@ export interface PendingRow {
 /** The parts of an application the office may correct before deciding it. */
 export interface ApplicationFields {
   name: string;
-  dob: string;
+  dob: string | null;
   class: string;
   stream: string | null;
   centre_code: string;
@@ -57,7 +60,7 @@ export interface ApplicationFields {
  */
 export async function pendingRegistrations(limit = 500): Promise<PendingRow[]> {
   return (await sql`
-    select r.id::text, r.name, r.dob, r.class, r.stream, r.centre_code, r.school_code,
+    select r.id::text, r.kind, r.name, r.dob, r.class, r.stream, r.centre_code, r.school_code,
            r.school_name, r.guardian_phone, r.applied_at, r.possible_duplicates,
            r.original, r.edited_at, ed.full_name as edited_by_name,
            coalesce((
@@ -91,6 +94,7 @@ export async function pendingCount(): Promise<number> {
 
 export interface DecidedRow {
   id: string;
+  kind: "student" | "guest";
   name: string;
   class: string;
   school_name: string;
@@ -111,7 +115,7 @@ export interface DecidedRow {
  */
 export async function recentDecisions(limit = 25): Promise<DecidedRow[]> {
   return (await sql`
-    select r.id::text, r.name, r.class, r.school_name, r.status, r.uid, r.reason,
+    select r.id::text, r.kind, r.name, r.class, r.school_name, r.status, r.uid, r.reason,
            r.decided_at, r.decided_by, st.full_name as decided_by_name
       from app_registrations r
       left join admin_staff st on st.staff_id = r.decided_by
@@ -141,13 +145,16 @@ export async function recentDecisions(limit = 25): Promise<DecidedRow[]> {
  * takes a row lock, so the database serialises what two people in an office
  * cannot.
  */
-export async function mintUid(centreCode: string, schoolCode: string): Promise<string> {
+export async function mintUid(centreCode: string, schoolCode: string, demo = false): Promise<string> {
   // A school nobody sits at yet takes its prefix from extra_schools
-  // (src/lib/admin/schema.sql), set when the school was added.
+  // (src/lib/admin/schema.sql), set when the school was added. A guest copies
+  // the prefix of the demo accounts already at that centre's demo school
+  // (21399 at CTR-13); the last four still come off the one global counter,
+  // exactly as the demo UIDs build_seed.py made did.
   const [sibling] = (await sql`
     select prefix from (
       select left(uid, 5) as prefix, 0 as pick from students
-       where centre_code = ${centreCode} and school_code = ${schoolCode} and not is_demo
+       where centre_code = ${centreCode} and school_code = ${schoolCode} and is_demo = ${demo}
       union all
       select uid_prefix, 1 from extra_schools
        where centre_code = ${centreCode} and school_code = ${schoolCode}
@@ -199,15 +206,17 @@ export type Approval =
  */
 export async function approveRegistration(id: string, staffId: string): Promise<Approval> {
   const [reg] = (await sql`
-    select id::text, name, dob, class, stream, centre_code, school_code, school_name
+    select id::text, kind, name, dob, class, stream, centre_code, school_code, school_name
       from app_registrations
      where id = ${id}::bigint and status = 'pending'
   `) as PendingRow[];
   if (!reg) return { ok: false, reason: "not_pending" };
+  // A guest becomes a demo account, so every count and ranking leaves them out.
+  const guest = reg.kind === "guest";
 
   let uid: string;
   try {
-    uid = await mintUid(reg.centre_code, reg.school_code);
+    uid = await mintUid(reg.centre_code, reg.school_code, guest);
   } catch (e) {
     return { ok: false, reason: "no_prefix", detail: (e as Error).message };
   }
@@ -231,7 +240,7 @@ export async function approveRegistration(id: string, staffId: string): Promise<
       (${uid}, ${reg.name}, ${reg.class}, ${reg.stream},
        ${reg.school_code}, ${reg.school_name},
        ${reg.centre_code}, ${centre?.centre_name ?? reg.centre_code},
-       ${reg.dob}, false)
+       ${reg.dob}, ${guest})
     on conflict (uid) do nothing
   `;
 
@@ -243,6 +252,7 @@ export async function approveRegistration(id: string, staffId: string): Promise<
 
   await logAdminEvent(staffId, "registration_approved", { kind: "student", id: uid }, {
     registration: id,
+    guest,
     name: reg.name,
     school: reg.school_name,
   });
@@ -308,6 +318,13 @@ export async function editRegistration(
 ): Promise<Edit> {
   const name = input.name.trim().replace(/\s+/g, " ");
   if (!name || name.length > 100) return { ok: false, message: "Give the child's full name.", field: "name" };
+
+  const [kind] = (await sql`
+    select kind from app_registrations where id = ${id}::bigint and status = 'pending'
+  `) as { kind: string }[];
+  if (!kind) return { ok: false, message: "Somebody has already decided this one. Reload to see what they did." };
+  if (kind.kind === "guest") return editGuest(id, staffId, name, input);
+
   const dob = validDob(input.dob);
   if (!dob) return { ok: false, message: "Date of birth as DD-MM-YYYY, a real date.", field: "dob" };
   const cls = input.class.trim().toUpperCase();
@@ -354,4 +371,49 @@ export async function editRegistration(
              school_code: school.school_code, school_name: school.school_name, guardian_phone: phone },
   });
   return { ok: true, duplicates: duplicates.length };
+}
+
+/**
+ * Correct a guest application: name, phone and the class they see the app as.
+ * No date of birth and no school -- a guest has neither -- and no duplicate
+ * guard, which runs on name plus date of birth.
+ */
+async function editGuest(
+  id: string,
+  staffId: string,
+  name: string,
+  input: { class: string; stream: string; guardian_phone: string },
+): Promise<Edit> {
+  const cls = input.class.trim().toUpperCase();
+  if (!CLASSES.has(cls)) return { ok: false, message: "Class is IX, X, XI or XII.", field: "class" };
+  const senior = cls === "XI" || cls === "XII";
+  const stream = senior ? input.stream.trim() : "";
+  if (senior && !STREAMS.has(stream)) return { ok: false, message: "Class XI and XII need a stream.", field: "stream" };
+  const phone = tenDigits(input.guardian_phone);
+  if (!phone) return { ok: false, message: "A ten-digit phone number.", field: "guardian_phone" };
+
+  const [before] = (await sql`
+    select name, class, stream, guardian_phone
+      from app_registrations where id = ${id}::bigint and status = 'pending'
+  `) as { name: string; class: string; stream: string | null; guardian_phone: string | null }[];
+  if (!before) return { ok: false, message: "Somebody has already decided this one. Reload to see what they did." };
+
+  const rows = (await sql`
+    update app_registrations
+       set original = coalesce(original, jsonb_build_object(
+             'name', name, 'dob', dob, 'class', class, 'stream', stream,
+             'centre_code', centre_code, 'school_code', school_code,
+             'school_name', school_name, 'guardian_phone', guardian_phone)),
+           name = ${name}, class = ${cls}, stream = ${stream || null}, guardian_phone = ${phone},
+           edited_at = now(), edited_by = ${staffId}
+     where id = ${id}::bigint and status = 'pending'
+     returning id
+  `) as { id: string }[];
+  if (!rows.length) return { ok: false, message: "Somebody has already decided this one. Reload to see what they did." };
+
+  await logAdminEvent(staffId, "registration_edited", { kind: "registration", id }, {
+    before,
+    after: { name, class: cls, stream: stream || null, guardian_phone: phone },
+  });
+  return { ok: true, duplicates: 0 };
 }

@@ -22,6 +22,8 @@ export type DoorStatus =
 
 export type Application = {
   id: string;
+  /** 'guest' = staff, a teacher or a core member who chose "Other" (9 Nov 2026). */
+  kind?: "student" | "guest";
   name: string;
   class: string;
   school_name: string;

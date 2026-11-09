@@ -131,3 +131,10 @@ export function registerRefusal(reason: "incomplete" | "unknown_school"): DoorRe
     ? { field: "school", message: "We do not know that school. Choose one from the list." }
     : { field: "name", message: "Something is missing. Check every box and try again." };
 }
+
+/** Why a guest application ("Other" for class) was not filed. */
+export function guestRefusal(reason: "incomplete" | "phone"): DoorRefusal<"name" | "phone"> {
+  return reason === "phone"
+    ? { field: "phone", message: "Type your 10-digit mobile number, so the office can call you." }
+    : { field: "name", message: "Something is missing. Check every box and try again." };
+}

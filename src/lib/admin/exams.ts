@@ -339,7 +339,8 @@ export async function centresOverview(): Promise<CentreRow[]> {
            coalesce(n.claimed, 0)    as claimed,
            coalesce(n.sat_phase1, 0) as sat_phase1,
            (select count(*)::int from app_registrations r
-             where r.status = 'pending' and r.centre_code = c.centre_code) as applications
+             where r.status = 'pending' and r.kind = 'student'
+               and r.centre_code = c.centre_code) as applications
       from centres c
       left join counts n on n.centre_code = c.centre_code
      order by c.centre_code

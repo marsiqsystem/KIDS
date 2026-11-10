@@ -791,6 +791,18 @@ insert into extra_schools (centre_code, centre_name, school_code, school_name, u
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-05', 'Chhattishgarh High School', '92405')
 on conflict do nothing;
 
+-- 10 Nov 2026, via Umar: two Kolkata schools, centre at Arya Parishad
+-- Vidyalaya. Sanghamitra Vidyalaya, S.E. Rly. Colony, Kolkata 700043; Kidderpore
+-- Balika Vidyaayatan, 6/1 Fancy Market, Mansatala Lane, Kidderpore 700023.
+-- Names are the office's spelling. Arya Parishad's own students sat at CTR-05
+-- (Shri Jnan Bhaskar) in Phase 1 and are still filed there. CTR-25 follows
+-- CTR-24; first digit 1 as the other Kolkata centres -- no student UID has 25
+-- in digits two and three.
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+  ('CTR-25', 'Arya Parishad Vidyalaya (H.S. Coed)', 'SC-01', 'Sanghamitra Vidyalaya (H.S.)', '12501'),
+  ('CTR-25', 'Arya Parishad Vidyalaya (H.S. Coed)', 'SC-02', 'Kidderpore Balika Vidyaayatan (H.S.)', '12502')
+on conflict do nothing;
+
 -- The office may correct an application or a claim before deciding it -- a
 -- school's name typed where the child's should be, a wrong User ID -- once it
 -- has rung the family (Umar, 3 Nov 2026). What the family first typed is kept

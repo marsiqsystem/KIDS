@@ -36,6 +36,7 @@ import { resetAppPassword } from "@/lib/admin/app-passwords";
 import {
   approveRegistration,
   editRegistration,
+  officeAddStudent,
   pendingRegistrations,
   rejectRegistration,
 } from "@/lib/admin/registrations";
@@ -47,6 +48,7 @@ import {
   rejectAccountRequest,
 } from "@/lib/admin/account-requests";
 import { approveCorrection, officeEditStudent, rejectCorrection } from "@/lib/admin/corrections";
+import { addSchool, moveSchool, removeSchool, renameSchool } from "@/lib/admin/schools";
 import {
   assignInvigilator,
   createMock,
@@ -1417,4 +1419,71 @@ export async function uploadQuestionImageAction(
   const file = formData.get("image");
   if (!(file instanceof File) || file.size === 0) return { ok: false, message: "Choose a picture first." };
   return storeImage(new Uint8Array(await file.arrayBuffer()), staff.staff_id);
+}
+
+/* -------------------------------------------------- schools and centres --- */
+
+/**
+ * The office keeps the school list itself (Umar, 10 Nov 2026). Admin-only:
+ * a school is where a child's UID comes from, and a move changes the centre
+ * hundreds of children are filed under.
+ */
+export async function addSchoolAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const f = (k: string) => String(formData.get(k) ?? "");
+  const r = await addSchool({ name: f("name"), centre: f("centre"), newCentre: f("newCentre"), digit: f("digit") }, staff.staff_id);
+  if (!r.ok) return { message: r.message, field: r.field };
+  refresh();
+  return done(r.message);
+}
+
+export async function moveSchoolAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const f = (k: string) => String(formData.get(k) ?? "");
+  const r = await moveSchool(f("school"), { centre: f("centre"), newCentre: f("newCentre") }, staff.staff_id);
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done(r.message);
+}
+
+export async function renameSchoolAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const r = await renameSchool(String(formData.get("school") ?? ""), String(formData.get("name") ?? ""), staff.staff_id);
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done(r.message);
+}
+
+export async function removeSchoolAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const r = await removeSchool(String(formData.get("school") ?? ""), staff.staff_id);
+  if (!r.ok) return { message: r.message };
+  refresh();
+  return done(r.message);
+}
+
+/**
+ * Put a child on the register from the office. Minted through the same
+ * approval as an application from the app (src/lib/admin/registrations.ts).
+ */
+export async function addStudentAction(_prev: State, formData: FormData): Promise<State> {
+  const staff = await requireStaff("admin");
+  const f = (k: string) => String(formData.get(k) ?? "");
+  const r = await officeAddStudent(staff.staff_id, {
+    name: f("name"),
+    dob: f("dob"),
+    class: f("class"),
+    stream: f("stream"),
+    school: f("school"),
+    guardian_phone: f("guardian_phone"),
+    confirmed: formData.get("confirm") === "on",
+  });
+  if (!r.ok) {
+    const seen = r.duplicates?.length
+      ? ` Already on the register: ${r.duplicates.map((d) => `${d.uid} ${d.name}, class ${d.class}, ${d.school_name}`).join("; ")}.`
+      : "";
+    return { message: r.message + seen, field: r.field };
+  }
+  refresh();
+  return done(`Added. User ID ${r.uid}. Give it to the family: they claim the account in the app with this User ID and the date of birth.`);
 }

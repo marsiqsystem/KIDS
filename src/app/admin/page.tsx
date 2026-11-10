@@ -12,6 +12,7 @@ import { claimTotals, claimsBySchool, unclaimedAtSchool } from "@/lib/admin/clai
 import { pendingAccountRequestCount, pendingAccountRequests } from "@/lib/admin/account-requests";
 import { pendingCorrectionCount, pendingCorrections } from "@/lib/admin/corrections";
 import { awardState, centresOverview, papersForAdmin } from "@/lib/admin/exams";
+import { centreChoices, districtsOf, schoolsForAdmin } from "@/lib/admin/schools";
 import { contentChapters } from "@/lib/admin/content";
 import { liveConfigured } from "@/lib/live/jitsi";
 import { desksFor } from "@/lib/exam/checkin";
@@ -150,6 +151,7 @@ export default async function AdminPage({
       corrections={tab === "corrections" ? await pendingCorrections() : null}
       papers={tab === "exams" || tab === "results" ? await papersForAdmin() : null}
       centres={tab === "centres" || tab === "exams" ? await centresOverview() : null}
+      schoolAdmin={tab === "centres" ? await loadSchoolAdmin() : null}
       award={tab === "results" ? await awardState() : null}
       content={tab === "content" ? await loadContent(cls) : null}
       dashboard={
@@ -179,4 +181,10 @@ async function loadContent(raw: string) {
   const choice = CONTENT_CHOICES.has(raw) ? raw : "X";
   const [c, stream] = choice.split("|");
   return { choice, chapters: await contentChapters(c, stream ?? null) };
+}
+
+/** The Centres tab's school list, and what its Add and Move forms offer. */
+async function loadSchoolAdmin() {
+  const centres = await centreChoices();
+  return { schools: await schoolsForAdmin(), centres, districts: districtsOf(centres) };
 }

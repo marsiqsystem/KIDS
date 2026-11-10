@@ -748,6 +748,12 @@ alter table attempts add column if not exists subjects jsonb;
 -- copies. Once the first student is approved here, `students` carries the
 -- school too and this row is only a duplicate the list collapses.
 --
+-- From 10 Nov 2026 the office adds, renames, moves and removes schools on the
+-- Centres tab (src/lib/admin/schools.ts), not here. The rows below stay for a
+-- fresh database. Each insert skips a school the office has since removed or
+-- moved (its admin_events row), so re-running this file never puts it back;
+-- a rename survives because the row still exists and the insert does nothing.
+--
 -- 2 Nov 2026, at the KIDS office's request: two new centres, Bawali (South 24
 -- Parganas) and Chaitanyapur (Purba Medinipur). The first UID digit (8, 9) is
 -- one no existing centre uses; centre codes follow CTR-21.
@@ -761,7 +767,8 @@ create table if not exists extra_schools (
   primary key (centre_code, school_code)
 );
 
-insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix)
+select v.* from (values
   ('CTR-22', 'Bawali', 'SC-01', 'MIM Academy', '82201'),
   ('CTR-22', 'Bawali', 'SC-02', 'Bawali High School', '82202'),
   ('CTR-22', 'Bawali', 'SC-03', 'Sree Sarada Ramkrishna Balika Vidyapeeth', '82203'),
@@ -775,6 +782,10 @@ insert into extra_schools (centre_code, centre_name, school_code, school_name, u
   ('CTR-23', 'Chaitanyapur', 'SC-02', 'Deulpota High School', '92302'),
   ('CTR-23', 'Chaitanyapur', 'SC-03', 'Dhekua High School', '92303'),
   ('CTR-23', 'Chaitanyapur', 'SC-04', 'Rampur Vivekananda Mission Vidyamandir', '92304')
+) v (centre_code, centre_name, school_code, school_name, uid_prefix)
+ where not exists (select 1 from admin_events e
+                    where e.target_kind = 'school' and e.action in ('school_removed', 'school_moved')
+                      and e.target_id = v.centre_code || '|' || v.school_code)
 on conflict do nothing;
 
 -- 10 Nov 2026, from Rizwan Sir via Umar: five Kharagpur (Paschim Medinipur)
@@ -783,12 +794,17 @@ on conflict do nothing;
 -- Azizia Urdu, Hitakarini and Chhattishgarh Hindi, Mahakavi Telugu, Traffic
 -- Bengali. CTR-24 follows CTR-23; the first digit 9 as Chaitanyapur, also in
 -- Medinipur -- no student UID has 24 in digits two and three.
-insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix)
+select v.* from (values
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-01', 'Kharagpur Azizia High School', '92401'),
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-02', 'Kharagpur Hitakarini High School (H.S.)', '92402'),
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-03', 'Kharagpur Traffic High School', '92403'),
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-04', 'Mahakavi Gurajada Vidyalayam High School', '92404'),
   ('CTR-24', 'Kharagpur Azizia High School', 'SC-05', 'Chhattishgarh High School', '92405')
+) v (centre_code, centre_name, school_code, school_name, uid_prefix)
+ where not exists (select 1 from admin_events e
+                    where e.target_kind = 'school' and e.action in ('school_removed', 'school_moved')
+                      and e.target_id = v.centre_code || '|' || v.school_code)
 on conflict do nothing;
 
 -- 10 Nov 2026, via Umar: two Kolkata schools, centre at Arya Parishad
@@ -798,9 +814,14 @@ on conflict do nothing;
 -- (Shri Jnan Bhaskar) in Phase 1 and are still filed there. CTR-25 follows
 -- CTR-24; first digit 1 as the other Kolkata centres -- no student UID has 25
 -- in digits two and three.
-insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix)
+select v.* from (values
   ('CTR-25', 'Arya Parishad Vidyalaya (H.S. Coed)', 'SC-01', 'Sanghamitra Vidyalaya (H.S.)', '12501'),
   ('CTR-25', 'Arya Parishad Vidyalaya (H.S. Coed)', 'SC-02', 'Kidderpore Balika Vidyaayatan (H.S.)', '12502')
+) v (centre_code, centre_name, school_code, school_name, uid_prefix)
+ where not exists (select 1 from admin_events e
+                    where e.target_kind = 'school' and e.action in ('school_removed', 'school_moved')
+                      and e.target_id = v.centre_code || '|' || v.school_code)
 on conflict do nothing;
 
 -- The office may correct an application or a claim before deciding it -- a

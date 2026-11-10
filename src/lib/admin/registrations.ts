@@ -417,3 +417,74 @@ async function editGuest(
   });
   return { ok: true, duplicates: 0 };
 }
+
+export type OfficeAdd =
+  | { ok: true; uid: string }
+  | { ok: false; message: string; field?: string; duplicates?: PendingRow["duplicates"] };
+
+/**
+ * The office puts a child on the register directly, without the family
+ * applying from the app (Umar, 10 Nov 2026) -- a school's list brought to the
+ * office, a family that rang instead.
+ *
+ * It is filed as an application from source 'office' and approved at once by
+ * approveRegistration, so a UID is minted in exactly one place and every child
+ * added this way is in the decided list and the audit log like any other.
+ * The duplicate guard runs first; a match stops the add until the office ticks
+ * that it has checked, because a second UID can never be reconciled with the
+ * first.
+ */
+export async function officeAddStudent(
+  staffId: string,
+  input: { name: string; dob: string; class: string; stream: string; school: string; guardian_phone: string; confirmed: boolean },
+): Promise<OfficeAdd> {
+  const name = input.name.trim().replace(/\s+/g, " ");
+  if (!name || name.length > 100) return { ok: false, message: "Give the child's full name.", field: "name" };
+  const dob = validDob(input.dob);
+  if (!dob) return { ok: false, message: "Date of birth as DD-MM-YYYY, a real date.", field: "dob" };
+  const cls = input.class.trim().toUpperCase();
+  if (!CLASSES.has(cls)) return { ok: false, message: "Class is IX, X, XI or XII.", field: "class" };
+  const senior = cls === "XI" || cls === "XII";
+  const stream = senior ? input.stream.trim() : "";
+  if (senior && !STREAMS.has(stream)) return { ok: false, message: "Class XI and XII need a stream.", field: "stream" };
+  const [centre, code] = input.school.split("|");
+  const school = centre && code ? await findSchool(centre, code) : null;
+  if (!school) return { ok: false, message: "Pick the school from the list.", field: "school" };
+  let phone: string | null = null;
+  if (input.guardian_phone.trim()) {
+    phone = tenDigits(input.guardian_phone);
+    if (!phone) return { ok: false, message: "A ten-digit phone number, or leave it empty.", field: "guardian_phone" };
+  }
+
+  const duplicates = await possibleDuplicates(name, dob);
+  if (duplicates.length && !input.confirmed) {
+    return {
+      ok: false,
+      field: "confirm",
+      message: "Somebody with this name and date of birth is already on the register. Check it is not the same child, then tick the box and add again.",
+      duplicates: duplicates.map(({ uid, name, class: c, school_name }) => ({ uid, name, class: c, school_name })),
+    };
+  }
+
+  const [row] = (await sql`
+    insert into app_registrations
+      (name, dob, class, stream, centre_code, school_code, school_name,
+       guardian_phone, source, possible_duplicates)
+    values
+      (${name}, ${dob}, ${cls}, ${stream || null},
+       ${school.centre_code}, ${school.school_code}, ${school.school_name},
+       ${phone}, 'office', ${JSON.stringify(duplicates.map((d) => d.uid))}::jsonb)
+    returning id::text
+  `) as { id: string }[];
+
+  const approved = await approveRegistration(row.id, staffId);
+  if (!approved.ok) {
+    return {
+      ok: false,
+      message: approved.reason === "no_prefix"
+        ? approved.detail
+        : "It was filed but could not be approved. It is waiting on the Applications tab.",
+    };
+  }
+  return { ok: true, uid: approved.uid };
+}

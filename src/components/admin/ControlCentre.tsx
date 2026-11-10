@@ -23,6 +23,7 @@ import type { ClaimTotals, SchoolClaims, UnclaimedRow } from "@/lib/admin/claims
 import type { AccountRequestRow } from "@/lib/admin/account-requests";
 import type { PendingCorrection } from "@/lib/admin/corrections";
 import type { AdminPaper, AwardState, CentreRow } from "@/lib/admin/exams";
+import type { CentreChoice, District, SchoolAdminRow } from "@/lib/admin/schools";
 import type { ContentChapter } from "@/lib/admin/content";
 import { ONE_WAY, sentence } from "@/lib/admin/sentences";
 import StaffPanel from "./StaffPanel";
@@ -31,6 +32,8 @@ import ClassesPanel from "./ClassesPanel";
 import PostsPanel from "./PostsPanel";
 import ApplicationsPanel from "./ApplicationsPanel";
 import StudentEditor from "./StudentEditor";
+import AddStudent from "./AddStudent";
+import SchoolsPanel from "./SchoolsPanel";
 import ClaimsPanel from "./ClaimsPanel";
 import AccountRequestsPanel from "./AccountRequestsPanel";
 import CorrectionsPanel from "./CorrectionsPanel";
@@ -95,6 +98,7 @@ export default async function ControlCentre({
   requestsWaiting = 0,
   papers = null,
   centres = null,
+  schoolAdmin = null,
   content = null,
   award = null,
   dashboard = null,
@@ -131,6 +135,8 @@ export default async function ControlCentre({
   correctionsWaiting?: number;
   papers?: AdminPaper[] | null;
   centres?: CentreRow[] | null;
+  /** The school list as the office keeps it, on the Centres tab. */
+  schoolAdmin?: { schools: SchoolAdminRow[]; centres: CentreChoice[]; districts: District[] } | null;
   content?: { choice: string; chapters: ContentChapter[] } | null;
   award?: AwardState | null;
   dashboard?: Dashboard | null;
@@ -189,6 +195,11 @@ export default async function ControlCentre({
         {tab === "centres" && centres ? (
           <Page title="Centres" line={`${centres.length} centres`}>
             <CentresPanel centres={centres} />
+            {schoolAdmin ? (
+              <div className="mt-6">
+                <SchoolsPanel schools={schoolAdmin.schools} centres={schoolAdmin.centres} districts={schoolAdmin.districts} />
+              </div>
+            ) : null}
           </Page>
         ) : null}
         {tab === "content" && content ? (
@@ -514,6 +525,11 @@ function StudentsPanel({
   const rows = query ? students : (register?.rows ?? []);
   return (
     <div className="space-y-5">
+      {canReset ? (
+        <div className="flex justify-end">
+          <AddStudent schools={schools} />
+        </div>
+      ) : null}
       {!query && register ? <RegisterBar register={register} /> : null}
       {query && students.length === 0 ? (
         <p className="text-sm text-[#B22234]">Nobody on the register matches “{query}”.</p>

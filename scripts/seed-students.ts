@@ -124,10 +124,18 @@ for (const c of corrections) {
               stream = case when ${c.new_value} in ('IX','X') then null else stream end
               where uid = ${c.uid}`;
   else if (c.field === "school")
+    // extra_schools too: a whole school moved to another centre from the
+    // Centres tab (10 Nov 2026) has, straight after the workbook upsert, nobody
+    // at its new pair in `students` -- only its extra_schools row knows it.
     await sql`update students s set centre_code = x.centre_code, centre_name = x.centre_name,
                      school_code = x.school_code, school_name = x.school_name
-                from (select centre_code, centre_name, school_code, school_name from students
-                       where centre_code || '|' || school_code = ${c.new_value} and not is_demo limit 1) x
+                from (select centre_code, centre_name, school_code, school_name from (
+                        select centre_code, centre_name, school_code, school_name, 0 as pick from students
+                         where centre_code || '|' || school_code = ${c.new_value} and not is_demo
+                        union all
+                        select centre_code, centre_name, school_code, school_name, 1 from extra_schools
+                         where centre_code || '|' || school_code = ${c.new_value}
+                      ) y order by pick limit 1) x
                where s.uid = ${c.uid}`;
 }
 if (corrections.length) {

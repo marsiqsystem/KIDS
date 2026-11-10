@@ -777,6 +777,20 @@ insert into extra_schools (centre_code, centre_name, school_code, school_name, u
   ('CTR-23', 'Chaitanyapur', 'SC-04', 'Rampur Vivekananda Mission Vidyamandir', '92304')
 on conflict do nothing;
 
+-- 10 Nov 2026, from Rizwan Sir via Umar: five Kharagpur (Paschim Medinipur)
+-- schools, sitting at Kharagpur Azizia High School. Names are the office's
+-- spelling. Media, for the paper on the day (students.medium, not this table):
+-- Azizia Urdu, Hitakarini and Chhattishgarh Hindi, Mahakavi Telugu, Traffic
+-- Bengali. CTR-24 follows CTR-23; the first digit 9 as Chaitanyapur, also in
+-- Medinipur -- no student UID has 24 in digits two and three.
+insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix) values
+  ('CTR-24', 'Kharagpur Azizia High School', 'SC-01', 'Kharagpur Azizia High School', '92401'),
+  ('CTR-24', 'Kharagpur Azizia High School', 'SC-02', 'Kharagpur Hitakarini High School (H.S.)', '92402'),
+  ('CTR-24', 'Kharagpur Azizia High School', 'SC-03', 'Kharagpur Traffic High School', '92403'),
+  ('CTR-24', 'Kharagpur Azizia High School', 'SC-04', 'Mahakavi Gurajada Vidyalayam High School', '92404'),
+  ('CTR-24', 'Kharagpur Azizia High School', 'SC-05', 'Chhattishgarh High School', '92405')
+on conflict do nothing;
+
 -- The office may correct an application or a claim before deciding it -- a
 -- school's name typed where the child's should be, a wrong User ID -- once it
 -- has rung the family (Umar, 3 Nov 2026). What the family first typed is kept

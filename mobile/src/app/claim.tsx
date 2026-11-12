@@ -28,6 +28,7 @@ export default function Claim() {
   const [d, setD] = useState("");
   const [m, setM] = useState("");
   const [y, setY] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [again, setAgain] = useState("");
   const [busy, setBusy] = useState(false);
@@ -57,6 +58,10 @@ export default function Claim() {
   }
 
   async function claim() {
+    if (phone.replace(/\D/g, "").length < 10) {
+      setRefusal({ field: "phone", message: "Type your family's 10-digit mobile number, so the office can call if something is wrong." });
+      return;
+    }
     if (password !== again) {
       setRefusal({ field: "password", message: "The two passwords are not the same. Type them again." });
       return;
@@ -66,7 +71,7 @@ export default function Claim() {
     try {
       const r = await api<{ ok: true; token: string } | ({ ok: false } & Refused)>("/door/claim", {
         method: "POST",
-        body: { uid: digits, day: d, month: m, year: y, password, deviceId: await deviceId() },
+        body: { uid: digits, day: d, month: m, year: y, guardianPhone: phone, password, deviceId: await deviceId() },
       });
       if (r.ok) {
         // The layout swaps the door for the app by itself.
@@ -101,6 +106,7 @@ export default function Claim() {
         {checked ? (
           <>
             <DobFields day={d} month={m} year={y} onDay={setD} onMonth={setM} onYear={setY} bad={refusal?.field === "dob"} />
+            <Field label="Family mobile number" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="So the office can call if something is wrong." bad={refusal?.field === "phone"} />
             <Field label="Choose a password" value={password} onChangeText={setPassword} secureTextEntry autoCapitalize="none" autoCorrect={false} placeholder="At least 6 characters" bad={refusal?.field === "password"} />
             <Field label="Type it again" value={again} onChangeText={setAgain} secureTextEntry autoCapitalize="none" autoCorrect={false} bad={refusal?.field === "password"} />
           </>
@@ -108,7 +114,7 @@ export default function Claim() {
         {refusal ? <Refusal message={refusal.message} next={refusal.next} onNext={refusal.next ? () => way(refusal.next!) : undefined} /> : null}
         <View style={{ marginTop: 4 }}>
           {checked ? (
-            <Btn label={busy ? "Opening" : "Open my account"} busy={busy} disabled={!d || !m || y.length !== 4 || !password || !again} onPress={claim} />
+            <Btn label={busy ? "Opening" : "Open my account"} busy={busy} disabled={!d || !m || y.length !== 4 || !phone || !password || !again} onPress={claim} />
           ) : (
             <Btn label={busy ? "Checking" : "Continue"} busy={busy} disabled={digits.length !== 9} onPress={check} />
           )}

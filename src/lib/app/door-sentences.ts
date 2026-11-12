@@ -126,7 +126,8 @@ export function askRefusal(reason: "unknown_id" | "name" | "father" | "no_device
   }
 }
 
-export function registerRefusal(reason: "incomplete" | "unknown_school"): DoorRefusal<"name" | "school"> {
+export function registerRefusal(reason: "incomplete" | "phone" | "unknown_school"): DoorRefusal<"name" | "school" | "phone"> {
+  if (reason === "phone") return { field: "phone", message: "Type your family's 10-digit mobile number, so the office can call if something is wrong." };
   return reason === "unknown_school"
     ? { field: "school", message: "We do not know that school. Choose one from the list." }
     : { field: "name", message: "Something is missing. Check every box and try again." };

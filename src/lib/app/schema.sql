@@ -336,3 +336,9 @@ create table if not exists coaching_presence (
 );
 
 create index if not exists coaching_presence_seen_idx on coaching_presence (seen_at desc);
+
+-- The family's mobile number, typed when the account is claimed (Umar, 12 Nov
+-- 2026): 500 children on the register had no number anywhere, so a mistake in
+-- their details left the office nobody to ring. Null for accounts claimed
+-- before then, and for app builds that predate the question.
+alter table app_accounts add column if not exists phone text;

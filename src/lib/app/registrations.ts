@@ -114,6 +114,7 @@ export interface Application {
 export type Applied =
   | { ok: true; id: string; duplicates: Duplicate[] }
   | { ok: false; reason: "incomplete" }
+  | { ok: false; reason: "phone" }
   | { ok: false; reason: "unknown_school" }
   | { ok: false; reason: "already_pending"; id: string };
 
@@ -133,6 +134,10 @@ export async function applyToRegister(input: Application): Promise<Applied> {
   if (!name || !dob || !cls || !input.centre_code || !input.school_code) {
     return { ok: false, reason: "incomplete" };
   }
+  // Required since 12 Nov 2026 (Umar): an application with a mistake in it and
+  // no number to ring is an application nobody can put right.
+  const phone = tenDigits(input.guardian_phone ?? "");
+  if (!phone) return { ok: false, reason: "phone" };
 
   const school = await findSchool(input.centre_code, input.school_code);
   if (!school) return { ok: false, reason: "unknown_school" };
@@ -154,7 +159,7 @@ export async function applyToRegister(input: Application): Promise<Applied> {
     values
       (${name}, ${dob}, ${cls}, ${input.stream || null},
        ${input.centre_code}, ${input.school_code}, ${school.school_name},
-       ${input.guardian_phone || null}, ${input.device_id || null},
+       ${phone}, ${input.device_id || null},
        ${JSON.stringify(duplicates.map((d) => d.uid))}::jsonb)
     returning id::text
   `) as { id: string }[];
@@ -195,7 +200,7 @@ export type GuestApplied =
  *
  * No date of birth and no school are asked, so the duplicate guard has nothing
  * to run on and does not; the phone number is what the office checks instead,
- * which is why it is required here and optional for a child. Approval makes an
+ * which is why it is required here (and, since 12 Nov 2026, for a child too). Approval makes an
  * is_demo account (src/lib/admin/registrations.ts), never a student.
  */
 export async function applyAsGuest(input: GuestApplication): Promise<GuestApplied> {

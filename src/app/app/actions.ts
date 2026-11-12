@@ -39,7 +39,7 @@ async function startSession(uid: string, formData: FormData): Promise<void> {
 
 export type FormState = {
   /** Which control is wrong, so the form can redden it. */
-  field?: "uid" | "password" | "dob";
+  field?: "uid" | "password" | "dob" | "phone";
   message?: string;
   /** A second line offering the way out — "Reset my password", and so on. */
   action?: { label: string; href: string };
@@ -91,6 +91,7 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
   const month = String(formData.get("dobMonth") ?? "").trim();
   const year = String(formData.get("dobYear") ?? "").trim();
   const password = String(formData.get("password") ?? "");
+  const phone = tenDigits(String(formData.get("guardianPhone") ?? ""));
 
   if (uid.length !== 9) {
     return { field: "uid", message: "Type the 9 digits on your KIDS card.", uid };
@@ -99,10 +100,13 @@ export async function claimAction(_prev: FormState, formData: FormData): Promise
     return { field: "dob", message: "Type your date of birth as day, month and year.", uid };
   }
 
+  if (!phone) {
+    return { field: "phone", message: "Type your family's 10-digit mobile number, so the office can call if something is wrong.", uid };
+  }
   const problem = passwordProblem(password, uid);
   if (problem) return { field: "password", message: problem, uid };
 
-  const result = await claimAccount(uid, `${day}-${month}-${year}`, password);
+  const result = await claimAccount(uid, `${day}-${month}-${year}`, password, phone);
 
   if (!result.ok) return asState(claimRefusal(result), uid);
 

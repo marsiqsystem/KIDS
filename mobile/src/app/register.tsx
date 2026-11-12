@@ -130,12 +130,16 @@ function Form({ onSent }: { onSent: () => void }) {
   const shownStep = guest ? (step === 0 ? 0 : 1) : step;
 
   async function send() {
-    if (guest) {
-      if (phone.replace(/\D/g, "").length < 10) {
-        setRefusal({ field: "phone", message: "Type your 10-digit mobile number, so the office can call you." });
-        return;
-      }
-    } else if (!school) return;
+    if (phone.replace(/\D/g, "").length < 10) {
+      setRefusal({
+        field: "phone",
+        message: guest
+          ? "Type your 10-digit mobile number, so the office can call you."
+          : "Type your family's 10-digit mobile number, so the office can call if something is wrong.",
+      });
+      return;
+    }
+    if (!guest && !school) return;
     setBusy(true);
     setRefusal(null);
     try {
@@ -300,7 +304,7 @@ function Form({ onSent }: { onSent: () => void }) {
             {guest ? (
               <Field label="Your mobile number" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="The office calls this number to check it is you." bad={refusal?.field === "phone"} />
             ) : (
-              <Field label="Family mobile number (optional)" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="So the office can call if something does not match." />
+              <Field label="Family mobile number" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" hint="So the office can call if something does not match." bad={refusal?.field === "phone"} />
             )}
             {refusal ? <Refusal message={refusal.message} /> : null}
             <View style={{ flexDirection: "row", gap: 10 }}>

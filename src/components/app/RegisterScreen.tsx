@@ -402,7 +402,7 @@ function Form({
 
           <div className="door-field">
             <label className="k-label" htmlFor="guardianPhone">
-              {guest ? "Your mobile number" : "Family phone · optional"}
+              {guest ? "Your mobile number" : "Family mobile number"}
             </label>
             <input
               id="guardianPhone"
@@ -410,10 +410,10 @@ function Form({
               className={`door-input${state.field === "phone" ? " door-input--bad" : ""}`}
               inputMode="tel"
               autoComplete="tel"
-              required={guest}
+              required
             />
             <span className="door-hint">
-              {guest ? "The office calls this number to check it is you." : "Only so the office can reach your family."}
+              {guest ? "The office calls this number to check it is you." : "So the office can call if something does not match."}
             </span>
           </div>
 

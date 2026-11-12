@@ -200,6 +200,21 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
           </div>
 
           <div className="door-field">
+            <label className="k-label" htmlFor="guardianPhone">
+              Family mobile number
+            </label>
+            <input
+              id="guardianPhone"
+              name="guardianPhone"
+              className={`door-input${state.field === "phone" ? " door-input--bad" : ""}`}
+              inputMode="tel"
+              autoComplete="tel"
+              required
+            />
+            <span className="door-hint">So the office can call if something is wrong.</span>
+          </div>
+
+          <div className="door-field">
             <label className="k-label" htmlFor="claim-password">
               Choose a password
             </label>

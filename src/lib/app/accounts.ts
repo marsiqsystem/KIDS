@@ -161,6 +161,7 @@ export async function claimAccount(
   rawUid: string,
   dob: string,
   password: string,
+  phone: string | null = null,
 ): Promise<Claim> {
   const uid = (rawUid ?? "").replace(/\D/g, "");
   if (uid.length !== 9) return { ok: false, reason: "malformed" };
@@ -192,8 +193,8 @@ export async function claimAccount(
   }
 
   await sql`
-    insert into app_accounts (uid, password_hash)
-    values (${uid}, ${await hashPassword(password)})
+    insert into app_accounts (uid, password_hash, phone)
+    values (${uid}, ${await hashPassword(password)}, ${phone})
     on conflict (uid) do nothing
   `;
   await logAppEvent(uid, "claim");

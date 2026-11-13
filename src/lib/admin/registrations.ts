@@ -128,9 +128,10 @@ export async function recentDecisions(limit = 25): Promise<DecidedRow[]> {
 /**
  * Mint the next UID for a school.
  *
- * A UID is District(1) + Centre(2) + School(2) + GlobalSeq(4). Only the last
- * four count up, and they count up ACROSS THE WHOLE REGISTER, not within a
- * school.
+ * A UID is District(1) + Centre(2) + School(2) + Seq(4). build_seed.py counted
+ * the last four ACROSS THE WHOLE REGISTER (uid_sequence carried that on); it
+ * ran out at 9999 on 13 Nov 2026, so new UIDs now take the lowest number free
+ * within their own prefix -- see the end of this function.
  *
  * The first five digits are COPIED from a student who already sits at that
  * school rather than rebuilt from the codes. Checked against all 9,652 rows on
@@ -173,16 +174,38 @@ export async function mintUid(centreCode: string, schoolCode: string, demo = fal
     );
   }
 
-  const [seq] = (await sql`
-    update uid_sequence set next = next + 1, updated_at = now()
-     where id = true
-     returning next - 1 as issued
-  `) as { issued: number }[];
+  // The global counter reached 9999 on 13 November 2026. From then on the last
+  // four only need to be unique WITHIN the prefix -- the full nine digits are
+  // the UID, and the busiest school held 339 of its 9,999. Take the lowest
+  // number at this prefix that no table has ever recorded, so a removed
+  // student's UID is never handed to a new child with someone else's account,
+  // devices or marks still pointing at it. Two people approving at the same
+  // school at once can pick the same number; the insert in approveRegistration
+  // refuses the second and it mints again.
+  const prefix = sibling.prefix;
+  const like = `${prefix}%`;
+  const [free] = (await sql`
+    select ${prefix} || lpad(n::text, 4, '0') as uid
+      from generate_series(1, 9999) n
+     where ${prefix} || lpad(n::text, 4, '0') not in (
+             select uid from students            where uid like ${like}
+       union select uid from app_registrations   where uid like ${like}
+       union select uid from app_accounts        where uid like ${like}
+       union select uid from app_account_requests where uid like ${like}
+       union select uid from app_devices         where uid like ${like}
+       union select uid from app_corrections     where uid like ${like}
+       union select uid from register_guardians  where uid like ${like}
+       union select uid from offline_results     where uid like ${like}
+       union select uid from online_results      where uid like ${like}
+       union select uid from exam_results        where uid like ${like}
+       union select uid from admin_batch_members where uid like ${like}
+     )
+     order by n
+     limit 1
+  `) as { uid: string }[];
 
-  if (!seq) throw new Error("uid_sequence has no row — cannot mint a UID.");
-  if (seq.issued > 9999) throw new Error("UID sequence has run past 9999.");
-
-  return `${sibling.prefix}${String(seq.issued).padStart(4, "0")}`;
+  if (!free) throw new Error(`Every UID at prefix ${prefix} is taken.`);
+  return free.uid;
 }
 
 export type Approval =
@@ -214,13 +237,6 @@ export async function approveRegistration(id: string, staffId: string): Promise<
   // A guest becomes a demo account, so every count and ranking leaves them out.
   const guest = reg.kind === "guest";
 
-  let uid: string;
-  try {
-    uid = await mintUid(reg.centre_code, reg.school_code, guest);
-  } catch (e) {
-    return { ok: false, reason: "no_prefix", detail: (e as Error).message };
-  }
-
   const [centre] = (await sql`
     select centre_name from (
       select centre_name, 0 as pick from students
@@ -232,17 +248,33 @@ export async function approveRegistration(id: string, staffId: string): Promise<
      limit 1
   `) as { centre_name: string }[];
 
-  await sql`
-    insert into students
-      (uid, name, class, stream, school_code, school_name,
-       centre_code, centre_name, dob, is_demo)
-    values
-      (${uid}, ${reg.name}, ${reg.class}, ${reg.stream},
-       ${reg.school_code}, ${reg.school_name},
-       ${reg.centre_code}, ${centre?.centre_name ?? reg.centre_code},
-       ${reg.dob}, ${guest})
-    on conflict (uid) do nothing
-  `;
+  // A clash must never pass silently: `do nothing` alone would mark this
+  // application approved under a UID that belongs to another child.
+  let uid = "";
+  for (let attempt = 0; attempt < 5 && !uid; attempt++) {
+    let candidate: string;
+    try {
+      candidate = await mintUid(reg.centre_code, reg.school_code, guest);
+    } catch (e) {
+      return { ok: false, reason: "no_prefix", detail: (e as Error).message };
+    }
+    const inserted = (await sql`
+      insert into students
+        (uid, name, class, stream, school_code, school_name,
+         centre_code, centre_name, dob, is_demo)
+      values
+        (${candidate}, ${reg.name}, ${reg.class}, ${reg.stream},
+         ${reg.school_code}, ${reg.school_name},
+         ${reg.centre_code}, ${centre?.centre_name ?? reg.centre_code},
+         ${reg.dob}, ${guest})
+      on conflict (uid) do nothing
+      returning uid
+    `) as { uid: string }[];
+    if (inserted.length) uid = candidate;
+  }
+  if (!uid) {
+    return { ok: false, reason: "no_prefix", detail: "Could not find a free UID — press Approve again." };
+  }
 
   await sql`
     update app_registrations

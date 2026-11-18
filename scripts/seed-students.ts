@@ -119,6 +119,7 @@ for (const c of corrections) {
   if (c.field === "name") await sql`update students set name = ${c.new_value} where uid = ${c.uid}`;
   else if (c.field === "dob") await sql`update students set dob = ${c.new_value} where uid = ${c.uid}`;
   else if (c.field === "stream") await sql`update students set stream = ${c.new_value} where uid = ${c.uid}`;
+  else if (c.field === "phone") await sql`update students set phone = ${c.new_value} where uid = ${c.uid}`;
   else if (c.field === "class")
     await sql`update students set class = ${c.new_value},
               stream = case when ${c.new_value} in ('IX','X') then null else stream end

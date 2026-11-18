@@ -91,6 +91,17 @@ export default function StudentEditor({ s, schools }: { s: StudentRow; schools: 
                 </select>
               </label>
               <label className="block sm:col-span-2">
+                <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Family mobile · ten digits</span>
+                <input
+                  name="phone"
+                  inputMode="tel"
+                  maxLength={20}
+                  defaultValue={s.phone ?? ""}
+                  placeholder="not on file"
+                  className={`${INPUT} font-mono`}
+                />
+              </label>
+              <label className="block sm:col-span-2">
                 <span className="mb-1 block text-xs font-semibold text-[#6B5B5D]">Why · for the record</span>
                 <input name="note" maxLength={300} placeholder="e.g. confirmed with the father by phone" className={INPUT} />
               </label>

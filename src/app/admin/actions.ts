@@ -1061,6 +1061,7 @@ export async function editStudentAction(_prev: State, formData: FormData): Promi
     class: f("class"),
     stream: f("stream"),
     school: f("school"),
+    phone: f("phone"),
     note: f("note"),
   });
   if (!result.ok) return { message: result.message, field: result.field };

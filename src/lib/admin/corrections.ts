@@ -2,6 +2,7 @@ import { findSchool } from "@/lib/app/registrations";
 import { sql } from "@/lib/exam/db";
 import { logAdminEvent } from "./staff";
 import { validDob } from "./registrations";
+import { tenDigits } from "./claim-match";
 
 /**
  * Deciding a student's correction, and making it stick.
@@ -81,6 +82,9 @@ async function applyToRegister(uid: string, field: string, value: string): Promi
       return;
     case "stream":
       await sql`update students set stream = ${value} where uid = ${uid}`;
+      return;
+    case "phone":
+      await sql`update students set phone = ${value} where uid = ${uid}`;
       return;
     case "school": {
       // Copied from a student already at the new school, so the names match the
@@ -180,13 +184,17 @@ export type StudentEdit =
 export async function officeEditStudent(
   uid: string,
   staffId: string,
-  input: { name: string; dob: string; class: string; stream: string; school: string; note: string },
+  input: { name: string; dob: string; class: string; stream: string; school: string; phone: string; note: string },
 ): Promise<StudentEdit> {
   const [s] = (await sql`
-    select name, dob, class, stream, centre_code, school_code, is_demo
-      from students where uid = ${uid}
+    select s.name, s.dob, s.class, s.stream, s.centre_code, s.school_code, s.is_demo,
+           coalesce(s.phone, a.phone, g.phone) as phone
+      from students s
+      left join app_accounts a on a.uid = s.uid
+      left join register_guardians g on g.uid = s.uid
+     where s.uid = ${uid}
   `) as { name: string; dob: string | null; class: string; stream: string | null;
-          centre_code: string; school_code: string; is_demo: boolean }[];
+          centre_code: string; school_code: string; is_demo: boolean; phone: string | null }[];
   if (!s) return { ok: false, message: "No student has that User ID." };
 
   const name = input.name.trim().replace(/\s+/g, " ");
@@ -208,6 +216,16 @@ export async function officeEditStudent(
   const [centre, code] = input.school.split("|");
   const school = centre && code ? await findSchool(centre, code) : null;
   if (!school) return { ok: false, message: "Pick the school from the list.", field: "school" };
+  // The number shown is the one the office sees (theirs, the app's, or the
+  // workbook's), so it is what an edit is compared with. Like a date of birth,
+  // it can be corrected but not blanked.
+  let phone: string | null = s.phone;
+  if (input.phone.trim()) {
+    phone = tenDigits(input.phone);
+    if (!phone) return { ok: false, message: "A ten-digit mobile number.", field: "phone" };
+  } else if (s.phone) {
+    return { ok: false, message: "A mobile number cannot be removed, only corrected.", field: "phone" };
+  }
   const note = input.note.trim().slice(0, 300) || null;
 
   // Class before stream: applying a class of IX or X clears the stream.
@@ -220,6 +238,7 @@ export async function officeEditStudent(
   if (pair !== `${s.centre_code}|${s.school_code}`) {
     changes.push({ field: "school", from: `${s.centre_code}|${s.school_code}`, to: pair });
   }
+  if (phone && phone !== s.phone) changes.push({ field: "phone", from: s.phone, to: phone });
   if (changes.length === 0) return { ok: false, message: "Nothing was changed." };
 
   const open = (await sql`

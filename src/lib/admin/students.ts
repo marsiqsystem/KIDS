@@ -77,6 +77,11 @@ export interface StudentRow {
    */
   locked_out: boolean;
   batches: string | null;
+  /**
+   * The family's mobile: the office's own entry, else the one typed in the app,
+   * else the master workbook's. Null when none of the three has one.
+   */
+  phone: string | null;
 }
 
 /**
@@ -105,6 +110,7 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
   return (await sql`
     select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
            s.dob, s.centre_code, s.school_code,
+           coalesce(s.phone, a.phone, g.phone) as phone,
            (a.uid is not null) as claimed,
            coalesce(a.must_change, false) as must_change,
            coalesce(a.locked_until > now(), false) as locked_out,
@@ -115,6 +121,7 @@ export async function searchStudents(query: string, limit = 100): Promise<Studen
                and b.archived_at is null) as batches
       from students s
       left join app_accounts a on a.uid = s.uid
+      left join register_guardians g on g.uid = s.uid
      where (not s.is_demo or ${isUid})
        and case when ${isUid}
                 then s.uid = ${q}
@@ -157,6 +164,7 @@ export async function listStudents(
   const rows = (await sql`
     select s.uid, s.name, s.class, s.stream, s.school_name, s.medium,
            s.dob, s.centre_code, s.school_code,
+           coalesce(s.phone, a.phone, g.phone) as phone,
            (a.uid is not null) as claimed,
            coalesce(a.must_change, false) as must_change,
            coalesce(a.locked_until > now(), false) as locked_out,
@@ -167,6 +175,7 @@ export async function listStudents(
                and b.archived_at is null) as batches
       from students s
       left join app_accounts a on a.uid = s.uid
+      left join register_guardians g on g.uid = s.uid
      where not s.is_demo and (${cls} = '' or s.class = ${cls})
      order by s.name, s.uid
      limit ${limit} offset ${(at - 1) * limit}

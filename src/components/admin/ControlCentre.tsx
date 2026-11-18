@@ -544,6 +544,7 @@ function StudentsPanel({
                 <Th>Name</Th>
                 <Th>Class</Th>
                 <Th>School</Th>
+                <Th>Mobile</Th>
                 <Th>App</Th>
                 <Th>Batches</Th>
                 {canReset ? <Th>Password</Th> : null}
@@ -560,6 +561,7 @@ function StudentsPanel({
                     {s.stream ? ` · ${s.stream}` : ""}
                   </Td>
                   <Td>{s.school_name}</Td>
+                  <Td mono>{s.phone ?? <span className="text-[#A79B9C]">—</span>}</Td>
                   <Td>
                     <AppState s={s} />
                   </Td>

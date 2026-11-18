@@ -467,7 +467,7 @@ create table if not exists uid_sequence (
 create table if not exists app_corrections (
   id           bigserial   primary key,
   uid          char(9)     not null references students (uid),
-  field        text        not null check (field in ('name', 'dob', 'class', 'stream', 'school')),
+  field        text        not null check (field in ('name', 'dob', 'class', 'stream', 'school', 'phone')),
   -- What the register said when the request was made. Stored, because the
   -- register may change before anybody looks, and the office has to judge the
   -- request against what the student actually saw.
@@ -494,6 +494,13 @@ create index if not exists app_corrections_pending_idx
   on app_corrections (requested_at) where status = 'pending';
 create index if not exists app_corrections_approved_idx
   on app_corrections (decided_at) where status = 'approved';
+
+-- 'phone' added 19 Nov 2026: the office types a family's mobile from the
+-- Students tab's Edit, written as an approved correction like the others so it
+-- reaches the Corrections export. Students never request it themselves.
+alter table app_corrections drop constraint if exists app_corrections_field_check;
+alter table app_corrections add constraint app_corrections_field_check
+  check (field in ('name', 'dob', 'class', 'stream', 'school', 'phone'));
 
 
 -- --------------------------------------------------------- video overrides --

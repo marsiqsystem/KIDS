@@ -31,6 +31,14 @@ create index if not exists students_centre_idx on students (centre_code);
 alter table students add column if not exists medium text not null default '';
 create index if not exists students_medium_idx on students (medium) where medium <> '';
 
+-- The family's mobile number, typed in by the office from the Students tab
+-- (Umar, 19 Nov 2026). Null unless the office has set it; the console shows
+-- this first, then the number typed in the app (app_accounts.phone), then the
+-- master workbook's (register_guardians.phone). Each edit is also an approved
+-- app_corrections row, so it goes into the Corrections export. The reseed's
+-- upsert does not name this column, so a reseed leaves it alone.
+alter table students add column if not exists phone text;
+
 -- One row per student per exam. The primary key IS the one-attempt rule.
 create table if not exists attempts (
   uid           char(9) primary key references students (uid),

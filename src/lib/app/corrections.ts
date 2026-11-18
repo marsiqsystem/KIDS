@@ -30,12 +30,15 @@ export interface OpenCorrection {
   reason: string | null;
 }
 
-/** What this student has asked for, most recent first. Last 90 days. */
+/**
+ * What this student has asked for, most recent first. Last 90 days.
+ * Not 'phone': only the office sets that, and it is no request of theirs.
+ */
 export async function correctionsFor(uid: string): Promise<OpenCorrection[]> {
   return (await sql`
     select id::text, field, old_value, new_value, status, requested_at, decided_at, reason
       from app_corrections
-     where uid = ${uid}
+     where uid = ${uid} and field <> 'phone'
        and (status = 'pending' or decided_at > now() - interval '90 days')
      order by requested_at desc
   `) as OpenCorrection[];

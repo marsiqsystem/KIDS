@@ -149,6 +149,21 @@ async function prefixFree(prefix: string): Promise<boolean> {
   return !r?.taken;
 }
 
+/**
+ * The first school code at a centre, from the next one on, whose UID prefix is
+ * also free. A school that moved away (or a student who did) keeps UIDs minted
+ * under its old code, so the code itself can look free while its prefix is
+ * not -- 22 Nov: CTR-15's next code SC-10 gave 41510, already on UIDs.
+ */
+async function nextFreeSchool(centreCode: string, digit: string): Promise<{ code: string; prefix: string } | null> {
+  const start = Number((await nextSchoolCode(centreCode)).slice(3));
+  for (let n = start; n < 99; n++) {
+    const prefix = `${digit}${two(centreNumber(centreCode))}${two(n)}`;
+    if (prefix.length === 5 && (await prefixFree(prefix))) return { code: `SC-${two(n)}`, prefix };
+  }
+  return null;
+}
+
 /** Where a school name already appears, if it does. */
 async function existingByName(name: string): Promise<SchoolAdminRow | null> {
   const all = await schoolsForAdmin();
@@ -204,11 +219,9 @@ export async function addSchool(
     digit = c.digit;
   }
 
-  const schoolCode = await nextSchoolCode(centreCode);
-  const prefix = `${digit}${two(centreNumber(centreCode))}${schoolCode.slice(3)}`;
-  if (prefix.length !== 5 || !(await prefixFree(prefix))) {
-    return { ok: false, message: `The UID prefix ${prefix} is already in use. Nothing was added; tell Umar.` };
-  }
+  const free = await nextFreeSchool(centreCode, digit);
+  if (!free) return { ok: false, message: `${centreName} has no free school code left. Nothing was added; tell Umar.` };
+  const { code: schoolCode, prefix } = free;
 
   const rows = (await sql`
     insert into extra_schools (centre_code, centre_name, school_code, school_name, uid_prefix)
@@ -333,11 +346,9 @@ export async function moveSchool(
   `) as { digit: string | null }[];
   if (!d?.digit) return { ok: false, message: "Could not tell which district this school is in. Nothing was moved." };
 
-  const toCode = await nextSchoolCode(toCentre);
-  const prefix = `${d.digit}${two(centreNumber(toCentre))}${toCode.slice(3)}`;
-  if (prefix.length !== 5 || !(await prefixFree(prefix))) {
-    return { ok: false, message: `The UID prefix ${prefix} is already in use. Nothing was moved; tell Umar.` };
-  }
+  const free = await nextFreeSchool(toCentre, d.digit);
+  if (!free) return { ok: false, message: `${toName} has no free school code left. Nothing was moved; tell Umar.` };
+  const { code: toCode, prefix } = free;
 
   // A student's own open request to change school is theirs to have decided first.
   const [open] = (await sql`

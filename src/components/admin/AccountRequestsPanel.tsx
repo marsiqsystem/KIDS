@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { AlertTriangle, Check, Minus, X } from "lucide-react";
+import { AlertTriangle, Check, Download, Minus, X } from "lucide-react";
 import {
   approveAccountRequestAction,
   approveAccountRequestsAction,
@@ -14,6 +14,7 @@ import type { AccountRequestRow } from "@/lib/admin/account-requests";
 import type { FieldMatch } from "@/lib/admin/claim-match";
 import {
   Alert,
+  EXPORT_LINK,
   BulkAction,
   BulkBar,
   BulkReject,
@@ -78,10 +79,13 @@ export default function AccountRequestsPanel({ rows }: { rows: AccountRequestRow
               <span className="text-[#8A6D1F]">{notMatched.length} not matched</span>
             </span>
           ) : null}
+          <a href="/admin/export/claims" className={`ml-auto ${EXPORT_LINK}`}>
+            <Download className="h-3.5 w-3.5" aria-hidden />
+            Export claim requests (CSV)
+          </a>
           {bulk > 0 ? (
             <form
               action={action}
-              className="ml-auto"
               onSubmit={(e) => {
                 if (!window.confirm(
                   `Approve ${Math.min(bulk, 60)} matched requests?\n\nEach phone that asked opens its account by itself.`,

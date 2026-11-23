@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { AlertTriangle, Inbox, UserRound } from "lucide-react";
+import { AlertTriangle, Download, Inbox, UserRound } from "lucide-react";
 import {
   approveApplication,
   approveApplicationsAction,
@@ -14,6 +14,7 @@ import type { DecidedRow, PendingRow } from "@/lib/admin/registrations";
 import type { School } from "@/lib/app/registrations";
 import {
   Alert,
+  EXPORT_LINK,
   BulkAction,
   BulkBar,
   BulkReject,
@@ -84,8 +85,12 @@ export default function ApplicationsPanel({
               {flagged ? ` · ${flagged} flagged as a possible duplicate` : ""}
             </span>
           ) : null}
+          <a href="/admin/export/applications" className={`ml-auto ${EXPORT_LINK}`}>
+            <Download className="h-3.5 w-3.5" aria-hidden />
+            Export applications (CSV)
+          </a>
           {clean > 0 ? (
-            <div className="ml-auto">
+            <div>
               <BulkAction
                 action={approveApplicationsAction}
                 ids={[]}

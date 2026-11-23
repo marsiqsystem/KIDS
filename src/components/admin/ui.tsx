@@ -14,6 +14,11 @@ import type { State } from "@/app/admin/actions";
  */
 
 export const SURFACE = "border border-[#F2E9DA] bg-[#FFFFFF]";
+
+/** A quiet download link, the same as the Corrections export. */
+export const EXPORT_LINK =
+  "inline-flex items-center gap-2 rounded border border-[#E3D6C4] px-3 py-1.5 text-xs text-[#4A3A3C] hover:bg-[#F6E9E9]";
+
 export const INPUT =
   "w-full rounded border border-[#E3D6C4] bg-[#FDFBF7] px-3 py-2 text-sm text-[#2B1A1C] " +
   "outline-none placeholder:text-[#6B5B5D] focus:border-[#7B1E2B]";

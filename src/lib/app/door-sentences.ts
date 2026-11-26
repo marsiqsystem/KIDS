@@ -115,7 +115,7 @@ export function askRefusal(reason: "unknown_id" | "name" | "father" | "no_device
     case "unknown_id":
       return { field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card." };
     case "name":
-      return { field: "name", message: "Type your full name, as it is written at school." };
+      return { field: "name", message: "Type the student's own name here, not the school's name." };
     case "father":
       return { field: "father", message: "Type your father's or guardian's full name." };
     default:

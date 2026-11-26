@@ -183,7 +183,7 @@ function AskForm({
 
       <div className="door-field">
         <label className="k-label" htmlFor="ask-name">
-          Your full name
+          Your name
         </label>
         <input
           id="ask-name"
@@ -191,7 +191,7 @@ function AskForm({
           className={`door-input${state.field === "name" ? " door-input--bad" : ""}`}
           autoComplete="name"
           autoCapitalize="words"
-          placeholder="As written at school"
+          placeholder="Student’s own name, not the school"
         />
       </div>
 

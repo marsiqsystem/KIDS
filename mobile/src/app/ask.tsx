@@ -76,7 +76,7 @@ export default function Ask() {
               <Text style={st.lead}>The KIDS office checks who you are and opens your account on this phone. Fill in what your school knows you by.</Text>
             )}
             <Field label="User ID" value={grouped(digits)} onChangeText={setUid} keyboardType="number-pad" placeholder="000 000 000" maxLength={11} hint="The 9-digit number on your KIDS card." bad={refusal?.field === "uid"} />
-            <Field label="Your full name" value={name} onChangeText={setName} autoCapitalize="words" placeholder="As written at school" bad={refusal?.field === "name"} />
+            <Field label="Your name" value={name} onChangeText={setName} autoCapitalize="words" placeholder="Student's own name, not the school" bad={refusal?.field === "name"} />
             <Field label="Father's or guardian's name" value={father} onChangeText={setFather} autoCapitalize="words" bad={refusal?.field === "father"} />
             <Field label="Family mobile number" value={phone} onChangeText={(v) => setPhone(v.replace(/[^\d+ ]/g, ""))} keyboardType="phone-pad" placeholder="10 digits" bad={refusal?.field === "phone"} />
             {refusal ? <Refusal message={refusal.message} /> : null}

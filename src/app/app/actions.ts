@@ -160,7 +160,7 @@ export async function registerAction(
   const deviceId = readDeviceId(formData.get("deviceId"));
 
   if (name.length < 2) {
-    return { field: "name", message: "Type your full name, as it is written at school." };
+    return { field: "name", message: "Type the student's own name here, not the school's name." };
   }
   // "Other": staff, a teacher or a core member -- no date of birth, no school.
   if (cls === "OTHER") {

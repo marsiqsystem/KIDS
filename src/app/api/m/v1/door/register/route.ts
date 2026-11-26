@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
   const phone = String(body?.guardianPhone ?? "").trim();
   const deviceId = readDeviceId(body?.deviceId ?? null);
 
-  if (name.length < 2) return json({ ok: false, field: "name", message: "Type your full name, as it is written at school." });
+  if (name.length < 2) return json({ ok: false, field: "name", message: "Type the student's own name here, not the school's name." });
   if (!deviceId) return json({ ok: false, field: "name", message: "This phone could not be recognised. Close the app and open it again." });
 
   if (cls === "OTHER") {

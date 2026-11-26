@@ -77,11 +77,11 @@ export interface Duplicate {
  * Has this child already got a UID?
  *
  * Name plus date of birth is 98.4% unique across the 9,652 students on the
- * register, which makes it a good enough guard to be worth running on every
- * application and nowhere near good enough to decide anything by itself. So it
- * never blocks: it attaches what it found to the application, and a person
- * looks. A child who is told "you already exist" and does not is a child who
- * cannot sit the exam.
+ * register. This function only records what it found on the application for
+ * the office. Since 26 Nov 2026 the stopping is done by `registeredMatches` in
+ * `applyToRegister`, which shows the child the match and lets a family at a
+ * DIFFERENT school say "this is not me" -- a child wrongly told "you already
+ * exist" is a child who cannot sit the exam.
  *
  * The reason this matters more than it sounds: a second UID is a second place
  * in the merit list and a second set of marks that can never be reconciled with
@@ -100,6 +100,55 @@ export async function possibleDuplicates(name: string, dob: string): Promise<Dup
   `) as Duplicate[];
 }
 
+/**
+ * A name reduced to its letters, for matching only: "MD. ARSAL  REHAN" and
+ * "Md Arsal Rehan" are the same child. Never stored in this form.
+ */
+function letters(name: string): string {
+  return name.toUpperCase().replace(/[^A-Z]/g, "");
+}
+
+/** A student already on the register, as the front door may show them back. */
+export interface RegisteredMatch {
+  uid: string;
+  name: string;
+  class: string;
+  school_name: string;
+  centre_name: string;
+  centre_code: string;
+  school_code: string;
+  /** The account is already open (claimed, or opened by an approval). */
+  open: boolean;
+  /** The register has no date of birth for them, so they cannot claim alone. */
+  no_dob: boolean;
+}
+
+/**
+ * Students on the register with this name and date of birth.
+ *
+ * 26 Nov 2026 (Umar): 288 of 493 waiting applications were children already on
+ * the register, applying again because they had lost their User ID. So a
+ * matching name and date of birth now STOPS the application and shows the
+ * child their User ID (`applyToRegister`), and the same match answers "Find my
+ * User ID" (`findMyUid`). Matching is on letters only, so spacing, full stops
+ * and case do not hide a child.
+ */
+export async function registeredMatches(name: string, dob: string): Promise<RegisteredMatch[]> {
+  const n = letters(name);
+  if (n.length < 2 || !dob) return [];
+  return (await sql`
+    select s.uid, s.name, s.class, s.school_name, s.centre_name, s.centre_code, s.school_code,
+           (a.uid is not null) as open, false as no_dob
+      from students s
+      left join app_accounts a on a.uid = s.uid
+     where not s.is_demo
+       and s.dob = ${dob}
+       and regexp_replace(upper(s.name), '[^A-Z]', '', 'g') = ${n}
+     order by s.uid
+     limit 5
+  `) as RegisteredMatch[];
+}
+
 export interface Application {
   name: string;
   dob: string;
@@ -109,6 +158,13 @@ export interface Application {
   school_code: string;
   guardian_phone: string | null;
   device_id: string | null;
+  /**
+   * The family has seen the matching student and says it is a different child.
+   * Honoured only when every match is at ANOTHER school: two children of one
+   * name and one birthday at the same school is not believable, a lost User ID
+   * is. The office still sees the match on the application.
+   */
+  not_me?: boolean;
 }
 
 export type Applied =
@@ -116,7 +172,9 @@ export type Applied =
   | { ok: false; reason: "incomplete" }
   | { ok: false; reason: "phone" }
   | { ok: false; reason: "unknown_school" }
-  | { ok: false; reason: "already_pending"; id: string };
+  | { ok: false; reason: "already_pending"; id: string }
+  | { ok: false; reason: "already_registered"; matches: RegisteredMatch[]; sameSchool: boolean }
+  | { ok: false; reason: "already_applied"; appliedAt: Date };
 
 /**
  * File an application.
@@ -150,7 +208,33 @@ export async function applyToRegister(input: Application): Promise<Applied> {
     if (existing) return { ok: false, reason: "already_pending", id: existing.id };
   }
 
-  const duplicates = await possibleDuplicates(name, dob);
+  // Already on the register: show them their User ID instead of a second one.
+  const matches = await registeredMatches(name, dob);
+  if (matches.length) {
+    const sameSchool = matches.some(
+      (m) => m.centre_code === input.centre_code && m.school_code === input.school_code,
+    );
+    if (sameSchool || !input.not_me) {
+      await logEvent(matches[0].uid, "register_matched", { device: input.device_id, sameSchool });
+      return { ok: false, reason: "already_registered", matches, sameSchool };
+    }
+  }
+
+  // Already applied, from another phone (or after reinstalling the app).
+  const [applied] = (await sql`
+    select applied_at from app_registrations
+     where status = 'pending' and kind = 'student'
+       and dob = ${dob}
+       and regexp_replace(upper(name), '[^A-Z]', '', 'g') = ${letters(name)}
+     order by applied_at
+     limit 1
+  `) as { applied_at: Date }[];
+  if (applied) return { ok: false, reason: "already_applied", appliedAt: applied.applied_at };
+
+  const guarded = await possibleDuplicates(name, dob);
+  // What the office sees: the old guard's finds plus any "not me" match.
+  const duplicates: Duplicate[] = [...guarded];
+  for (const m of matches) if (!duplicates.some((d) => d.uid === m.uid)) duplicates.push(m);
 
   const [row] = (await sql`
     insert into app_registrations
@@ -165,6 +249,82 @@ export async function applyToRegister(input: Application): Promise<Applied> {
   `) as { id: string }[];
 
   return { ok: true, id: row.id, duplicates };
+}
+
+/** An audit line in app_events. Never the reason a child is refused. */
+async function logEvent(uid: string, kind: string, detail: Record<string, unknown>): Promise<void> {
+  try {
+    await sql`insert into app_events (uid, kind, detail) values (${uid}, ${kind}, ${JSON.stringify(detail)})`;
+  } catch {
+    // An audit write that fails is not the child's problem.
+  }
+}
+
+/** app_events.uid is required; a search that found nobody is logged under this. */
+const NOBODY = "000000000";
+/** Searches per phone per day. Enough for a family with spelling trouble, not for a list. */
+const FINDS_PER_DAY = 10;
+
+export type Found =
+  | { ok: true; matches: RegisteredMatch[] }
+  | { ok: false; reason: "incomplete" | "unknown_school" | "not_found" | "too_many" };
+
+/**
+ * "Find my User ID" (26 Nov 2026): for a child who has lost their KIDS card.
+ * 288 different wrong User IDs were typed in two weeks -- phone numbers,
+ * 123456789 -- and most of those children then registered again.
+ *
+ * Name + date of birth finds them anywhere on the register. A child the
+ * register has no date of birth for (994 of them) is found by name at the
+ * school they chose instead; their claim still goes to the office, so being
+ * found does not open anything. Every search is logged against the phone and
+ * capped per day, so this is not a way to read the register.
+ */
+export async function findMyUid(input: {
+  name: string;
+  dob: string;
+  centre_code: string;
+  school_code: string;
+  device_id: string;
+}): Promise<Found> {
+  const name = input.name?.trim() ?? "";
+  if (letters(name).length < 2 || !input.dob || !input.centre_code || !input.school_code || !input.device_id) {
+    return { ok: false, reason: "incomplete" };
+  }
+  const school = await findSchool(input.centre_code, input.school_code);
+  if (!school) return { ok: false, reason: "unknown_school" };
+
+  const [{ n }] = (await sql`
+    select count(*)::int as n from app_events
+     where kind = 'find_id' and at > now() - interval '1 day'
+       and detail ->> 'device' = ${input.device_id}
+  `) as { n: number }[];
+  if (n >= FINDS_PER_DAY) return { ok: false, reason: "too_many" };
+
+  let matches = await registeredMatches(name, input.dob);
+  if (!matches.length) {
+    matches = (await sql`
+      select s.uid, s.name, s.class, s.school_name, s.centre_name, s.centre_code, s.school_code,
+             (a.uid is not null) as open, true as no_dob
+        from students s
+        left join app_accounts a on a.uid = s.uid
+       where not s.is_demo
+         and (s.dob is null or btrim(s.dob) = '')
+         and s.centre_code = ${input.centre_code} and s.school_code = ${input.school_code}
+         and regexp_replace(upper(s.name), '[^A-Z]', '', 'g') = ${letters(name)}
+       order by s.uid
+       limit 5
+    `) as RegisteredMatch[];
+  }
+  // Their own school first.
+  matches.sort(
+    (a, b) =>
+      Number(b.centre_code === input.centre_code && b.school_code === input.school_code) -
+      Number(a.centre_code === input.centre_code && a.school_code === input.school_code),
+  );
+
+  await logEvent(matches[0]?.uid ?? NOBODY, "find_id", { device: input.device_id, found: matches.length });
+  return matches.length ? { ok: true, matches } : { ok: false, reason: "not_found" };
 }
 
 /**

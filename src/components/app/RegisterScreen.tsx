@@ -283,7 +283,16 @@ function Form({
             </fieldset>
           ) : null}
 
-          {at === 0 && state.field !== "school" ? <FormAlert state={{ message: state.message }} /> : null}
+          {at === 0 && state.field !== "school" ? (
+            <FormAlert state={{ message: state.message, action: state.action }} />
+          ) : null}
+          {/* Already on the register at ANOTHER school (26 Nov 2026): the family
+              may say it is a different child. Sends the whole form again. */}
+          {at === 0 && state.notMe ? (
+            <button type="submit" name="notMe" value="1" className="k-btn k-btn--outline" disabled={pending}>
+              This is not me — send my registration
+            </button>
+          ) : null}
 
           <div className="door-bottom">
             <button type="button" className="k-btn" disabled={!whoReady} onClick={() => next(guest ? 2 : 1)}>
@@ -291,6 +300,9 @@ function Form({
             </button>
             <p className="door-foot">
               Already on the register? <Link href="/app/claim">Claim your account</Link>
+            </p>
+            <p className="door-foot">
+              Sat a KIDS exam but lost your User ID? <Link href="/app/claim/find">Find my User ID</Link>
             </p>
           </div>
         </div>

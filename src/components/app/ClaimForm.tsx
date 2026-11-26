@@ -181,6 +181,9 @@ export default function ClaimForm({ initialUid = "" }: { initialUid?: string }) 
               {checking ? "Checking…" : "Find me"}
             </button>
             <p className="door-foot">
+              Lost your KIDS card? <Link href="/app/claim/find">Find my User ID</Link>
+            </p>
+            <p className="door-foot">
               Already claimed? <Link href={uid.length === 9 ? `/app/sign-in?id=${uid}` : "/app/sign-in"}>Sign in</Link>
             </p>
             <p className="door-foot">

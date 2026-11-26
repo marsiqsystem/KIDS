@@ -2,7 +2,12 @@ import { NextRequest } from "next/server";
 import { json } from "@/lib/app/mobile-api";
 import { applyAsGuest, applyToRegister } from "@/lib/app/registrations";
 import { readDeviceId } from "@/lib/app/devices";
-import { guestRefusal, registerRefusal } from "@/lib/app/door-sentences";
+import {
+  alreadyAppliedRefusal,
+  alreadyRegisteredRefusal,
+  guestRefusal,
+  registerRefusal,
+} from "@/lib/app/door-sentences";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -62,8 +67,16 @@ export async function POST(request: NextRequest) {
     school_code: schoolCode,
     guardian_phone: phone || null,
     device_id: deviceId,
+    not_me: body?.notMe === true,
   });
-  // Already pending is not an error: they tapped twice, or came back later.
-  if (!result.ok && result.reason !== "already_pending") return json({ ok: false, ...registerRefusal(result.reason) });
-  return json({ ok: true });
+  if (result.ok || result.reason === "already_pending") {
+    // Already pending is not an error: they tapped twice, or came back later.
+    return json({ ok: true });
+  }
+  // On the register already (26 Nov 2026): { ok: false, field, message, next, uid, notMe }.
+  if (result.reason === "already_registered") {
+    return json({ ok: false, ...alreadyRegisteredRefusal(result.matches, result.sameSchool) });
+  }
+  if (result.reason === "already_applied") return json({ ok: false, ...alreadyAppliedRefusal(result.appliedAt) });
+  return json({ ok: false, ...registerRefusal(result.reason) });
 }

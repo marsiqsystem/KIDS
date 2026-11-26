@@ -49,6 +49,7 @@ function Screens() {
           <Stack.Screen name="claim" />
           <Stack.Screen name="register" />
           <Stack.Screen name="ask" />
+          <Stack.Screen name="find-id" />
         </Stack.Protected>
         {/* A one-time password: nothing but choosing one's own. */}
         <Stack.Protected guard={Boolean(token) && mustChange}>

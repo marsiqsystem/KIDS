@@ -17,7 +17,7 @@ import { color } from "@/theme";
  * A child with no date of birth on the register is not asked to guess one —
  * they are sent to ask the office.
  */
-type Way = { label: string; to: "claim" | "reset" | "ask" | "signin" };
+type Way = { label: string; to: "claim" | "reset" | "ask" | "signin" | "find" };
 type Refused = { field: string; message: string; next?: Way };
 
 export default function Claim() {
@@ -36,7 +36,8 @@ export default function Claim() {
   const digits = uid.replace(/\D/g, "").slice(0, 9);
 
   const way = (next: Way) => {
-    if (next.to === "ask") router.replace({ pathname: "/ask", params: { id: digits, day: d, month: m, year: y } });
+    if (next.to === "find") router.push("/find-id");
+    else if (next.to === "ask") router.replace({ pathname: "/ask", params: { id: digits, day: d, month: m, year: y } });
     else if (next.to === "signin" || next.to === "claim") router.back();
     else router.replace({ pathname: "/ask", params: { id: digits } });
   };
@@ -50,7 +51,7 @@ export default function Claim() {
       else if (r.state === "no_dob") router.replace({ pathname: "/ask", params: { id: digits } });
       else if (r.state === "claimed")
         setRefusal({ field: "uid", message: "This account is already open. Sign in with your password.", next: { label: "Sign in", to: "signin" } });
-      else setRefusal({ field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card.", next: { label: "Ask the office", to: "reset" } });
+      else setRefusal({ field: "uid", message: "No student with that number. Check the 9 digits on your KIDS card.", next: { label: "Lost your card? Find my User ID", to: "find" } });
     } catch {
       setRefusal({ field: "uid", message: "No connection. Check the internet and try again." });
     }
@@ -112,11 +113,14 @@ export default function Claim() {
           </>
         ) : null}
         {refusal ? <Refusal message={refusal.message} next={refusal.next} onNext={refusal.next ? () => way(refusal.next!) : undefined} /> : null}
-        <View style={{ marginTop: 4 }}>
+        <View style={{ marginTop: 4, gap: 10 }}>
           {checked ? (
             <Btn label={busy ? "Opening" : "Open my account"} busy={busy} disabled={!d || !m || y.length !== 4 || !phone || !password || !again} onPress={claim} />
           ) : (
-            <Btn label={busy ? "Checking" : "Continue"} busy={busy} disabled={digits.length !== 9} onPress={check} />
+            <>
+              <Btn label={busy ? "Checking" : "Continue"} busy={busy} disabled={digits.length !== 9} onPress={check} />
+              <Btn label="Lost your KIDS card? Find my User ID" kind="outline" onPress={() => router.push("/find-id")} />
+            </>
           )}
         </View>
       </ScrollView>

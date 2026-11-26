@@ -10,8 +10,8 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { router } from "expo-router";
-import { ChevronRight, Eye, EyeOff, Hourglass, IdCard, KeyRound, Smartphone, Trash2, UserPlus } from "lucide-react-native";
+import { router, useLocalSearchParams } from "expo-router";
+import { ChevronRight, Eye, EyeOff, Hourglass, IdCard, KeyRound, Search, Smartphone, Trash2, UserPlus } from "lucide-react-native";
 import DoorHero from "@/components/DoorHero";
 import { useKeepAlive } from "@/lib/api";
 import { useDoorWatch } from "@/lib/door";
@@ -31,7 +31,9 @@ import { color, font, radius } from "@/theme";
 export default function SignIn() {
   const { signIn, endedBecause } = useSession();
   useKeepAlive();
-  const [uid, setUid] = useState("");
+  // Find my User ID and Register send a found student here with their number.
+  const given = String(useLocalSearchParams<{ id?: string }>().id ?? "").replace(/\D/g, "").slice(0, 9);
+  const [uid, setUid] = useState(given);
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -191,6 +193,12 @@ export default function SignIn() {
               title="Claim your account"
               line="You already have a KIDS number."
               onPress={() => router.push({ pathname: "/claim", params: withId })}
+            />
+            <Row
+              icon={<Search size={22} color={color.inkMuted} />}
+              title="Find my User ID"
+              line="Lost your KIDS card."
+              onPress={() => router.push("/find-id")}
             />
             <Row
               icon={<UserPlus size={22} color={color.inkMuted} />}

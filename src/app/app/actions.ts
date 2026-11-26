@@ -3,7 +3,13 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { signIn, claimAccount, claimCheck, logAppEvent } from "@/lib/app/accounts";
-import { applyAsGuest, applyToRegister, applicationForDevice, type PendingApplication } from "@/lib/app/registrations";
+import {
+  applyAsGuest,
+  applyToRegister,
+  applicationForDevice,
+  findMyUid,
+  type PendingApplication,
+} from "@/lib/app/registrations";
 import { fileCorrections, dobFromParts } from "@/lib/app/corrections";
 import { requireStudent } from "@/lib/app/gate";
 import { passwordProblem } from "@/lib/app/passwords";
@@ -11,7 +17,19 @@ import { createSession, destroySession, sessionUid } from "@/lib/app/session";
 import { bindDevice, readDeviceId } from "@/lib/app/devices";
 import { askToOpen, doorStatus, takeHandoff, type DoorStatus } from "@/lib/app/handoff";
 import { tenDigits } from "@/lib/admin/claim-match";
-import { signInRefusal, claimRefusal, askRefusal, registerRefusal, guestRefusal, doorHref, type DoorRefusal } from "@/lib/app/door-sentences";
+import {
+  signInRefusal,
+  claimRefusal,
+  askRefusal,
+  registerRefusal,
+  guestRefusal,
+  doorHref,
+  alreadyRegisteredRefusal,
+  alreadyAppliedRefusal,
+  findIdRefusal,
+  wayForMatch,
+  type DoorRefusal,
+} from "@/lib/app/door-sentences";
 
 /**
  * Bind the account to the phone it was just opened on, then issue the session
@@ -143,6 +161,10 @@ export type RegisterState = {
   field?: "name" | "dob" | "class" | "school" | "phone";
   message?: string;
   ok?: boolean;
+  /** Already on the register (26 Nov 2026): the way to their own account. */
+  action?: { label: string; href: string };
+  /** Offer "This is not me" -- only when the match is at another school. */
+  notMe?: boolean;
 };
 
 export async function registerAction(
@@ -198,9 +220,23 @@ export async function registerAction(
     school_code: schoolCode,
     guardian_phone: phone || null,
     device_id: deviceId,
+    not_me: formData.get("notMe") === "1",
   });
 
   // "already_pending" is not an error worth a red box: they tapped twice.
+  if (!result.ok && result.reason === "already_registered") {
+    const r = alreadyRegisteredRefusal(result.matches, result.sameSchool);
+    return {
+      field: r.field,
+      message: r.message,
+      action: r.next ? { label: r.next.label, href: doorHref(r.next, r.uid) } : undefined,
+      notMe: r.notMe,
+    };
+  }
+  if (!result.ok && result.reason === "already_applied") {
+    const r = alreadyAppliedRefusal(result.appliedAt);
+    return { field: r.field, message: r.message };
+  }
   if (!result.ok && result.reason !== "already_pending") {
     const r = registerRefusal(result.reason);
     return { field: r.field, message: r.message };
@@ -333,4 +369,47 @@ export async function requestCorrectionsAction(
     note,
   );
   return r.ok ? { ok: true, filed: r.filed, message: r.message } : { message: r.message };
+}
+
+export type FindIdState = {
+  field?: "name" | "dob" | "school";
+  message?: string;
+  found?: { uid: string; class: string; school_name: string; centre_name: string; label: string; href: string }[];
+};
+
+/**
+ * "Find my User ID" (26 Nov 2026) -- the website's twin of /api/m/v1/door/find-id.
+ * See findMyUid in src/lib/app/registrations.ts.
+ */
+export async function findIdAction(_prev: FindIdState, formData: FormData): Promise<FindIdState> {
+  const day = String(formData.get("dobDay") ?? "").trim().padStart(2, "0");
+  const month = String(formData.get("dobMonth") ?? "").trim().padStart(2, "0");
+  const year = String(formData.get("dobYear") ?? "").trim();
+  const [centreCode, schoolCode] = String(formData.get("school") ?? "").split("|");
+  const deviceId = readDeviceId(formData.get("deviceId"));
+  if (!/^\d{2}$/.test(day) || !/^\d{2}$/.test(month) || !/^\d{4}$/.test(year) || day === "00" || month === "00") {
+    return { field: "dob", message: "Type your date of birth as day, month and a 4-digit year." };
+  }
+  if (!deviceId) return { field: "name", message: "This browser could not be recognised. Reload the page and try again." };
+  const result = await findMyUid({
+    name: String(formData.get("name") ?? ""),
+    dob: `${day}-${month}-${year}`,
+    centre_code: centreCode ?? "",
+    school_code: schoolCode ?? "",
+    device_id: deviceId,
+  });
+  if (!result.ok) return findIdRefusal(result.reason);
+  return {
+    found: result.matches.map((m) => {
+      const next = wayForMatch(m);
+      return {
+        uid: m.uid,
+        class: m.class,
+        school_name: m.school_name,
+        centre_name: m.centre_name,
+        label: next.label,
+        href: doorHref(next, m.uid),
+      };
+    }),
+  };
 }

@@ -1,5 +1,6 @@
 import { firstName } from "@/lib/exam/portal-auth";
 import type { SignIn, Claim } from "@/lib/app/accounts";
+import type { RegisteredMatch } from "@/lib/app/registrations";
 
 /**
  * What the front door says when it says no — one copy, for the website's
@@ -131,6 +132,75 @@ export function registerRefusal(reason: "incomplete" | "phone" | "unknown_school
   return reason === "unknown_school"
     ? { field: "school", message: "We do not know that school. Choose one from the list." }
     : { field: "name", message: "Something is missing. Check every box and try again." };
+}
+
+/** 123456789 → "123 456 789", as the KIDS card prints it. */
+const groupUid = (uid: string) => uid.replace(/(\d{3})(?=\d)/g, "$1 ");
+
+/** The one screen a found student should go to next, and what to call it. */
+export function wayForMatch(m: Pick<RegisteredMatch, "open" | "no_dob">): DoorWayOut {
+  if (m.open) return { label: "Sign in", to: "signin" };
+  if (m.no_dob) return { label: "Ask KIDS to open my account", to: "ask" };
+  return { label: "Claim my account", to: "claim" };
+}
+
+/**
+ * Register stopped because the child is already on the register (26 Nov 2026).
+ * Says their User ID out loud: they typed the name and date of birth that the
+ * claim itself asks for, so it tells them nothing they could not already use.
+ * `uid` is the account the way out leads to; `notMe` offers "this is not me",
+ * which the server honours only when the match is at another school.
+ */
+export function alreadyRegisteredRefusal(
+  matches: RegisteredMatch[],
+  sameSchool: boolean,
+): DoorRefusal<"name"> & { uid: string; notMe: boolean } {
+  const first = matches[0];
+  const who = (m: RegisteredMatch) => `${groupUid(m.uid)} (Class ${m.class}, ${m.school_name})`;
+  const head =
+    matches.length === 1
+      ? `You are already registered with KIDS. Your User ID is ${who(first)}.`
+      : `You are already registered with KIDS. Your User ID is one of these: ${matches.map(who).join("; ")}.`;
+  const tail = first.open
+    ? " This account is already open — sign in with your password. Forgot it? Ask the office."
+    : " Claim that account — do not register again.";
+  const notMe = !sameSchool;
+  return {
+    field: "name",
+    message: head + tail + (notMe ? " Not you? Tap “This is not me”." : ""),
+    next: wayForMatch(first),
+    uid: first.uid,
+    notMe,
+  };
+}
+
+/** Why "Find my User ID" found nothing, or would not look. */
+export function findIdRefusal(
+  reason: "incomplete" | "unknown_school" | "not_found" | "too_many",
+): DoorRefusal<"name" | "school"> {
+  switch (reason) {
+    case "unknown_school":
+      return { field: "school", message: "Choose your school from the list." };
+    case "not_found":
+      return {
+        field: "name",
+        message:
+          "We could not find you. Type your name exactly as on your KIDS admit card, and check your date of birth. If you never sat a KIDS exam, register as new.",
+      };
+    case "too_many":
+      return { field: "name", message: "Too many searches from this phone today. Try tomorrow, or call the KIDS office." };
+    default:
+      return { field: "name", message: "Type your name, date of birth and school." };
+  }
+}
+
+/** The same child already has an application waiting, sent from another phone. */
+export function alreadyAppliedRefusal(appliedAt: Date): DoorRefusal<"name"> {
+  const day = new Date(appliedAt).toLocaleDateString("en-IN", { day: "numeric", month: "long", timeZone: "Asia/Kolkata" });
+  return {
+    field: "name",
+    message: `An application for this name and date of birth was already sent on ${day}. The KIDS office will check it — do not send another.`,
+  };
 }
 
 /** Why a guest application ("Other" for class) was not filed. */

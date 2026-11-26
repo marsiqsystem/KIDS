@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { router } from "expo-router";
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { Check, CircleX, Hourglass, KeyRound, Search } from "lucide-react-native";
 import { Btn } from "@/components/kit";
@@ -31,6 +32,9 @@ import { color, font, radius } from "@/theme";
  * The office approves them into a demo account that is never counted.
  */
 type School = { centre_code: string; school_code: string; school_name: string; centre_name: string };
+/** Already on the register (26 Nov 2026): the way to their own account. */
+type Way = { label: string; to: "claim" | "reset" | "ask" | "signin" };
+type Refused = { field: string; message: string; next?: Way; uid?: string; notMe?: boolean };
 const CLASSES = ["IX", "X", "XI", "XII"];
 const OTHER = "OTHER";
 const STREAMS = ["Arts", "Commerce", "Science"];
@@ -109,7 +113,16 @@ function Form({ onSent }: { onSent: () => void }) {
   const [school, setSchool] = useState<School | null>(null);
   const [phone, setPhone] = useState("");
   const [busy, setBusy] = useState(false);
-  const [refusal, setRefusal] = useState<{ field: string; message: string } | null>(null);
+  const [refusal, setRefusal] = useState<Refused | null>(null);
+
+  // A student found already on the register goes to their own account.
+  const goTo = (r: Refused) => {
+    if (!r.next || !r.uid) return;
+    const params = { id: r.uid };
+    if (r.next.to === "signin") router.replace({ pathname: "/sign-in", params });
+    else if (r.next.to === "claim") router.replace({ pathname: "/claim", params });
+    else router.replace({ pathname: "/ask", params });
+  };
 
   useEffect(() => {
     api<{ schools: School[] }>("/door/schools")
@@ -127,7 +140,7 @@ function Form({ onSent }: { onSent: () => void }) {
   const steps = guest ? GUEST_STEPS : STEPS;
   const shownStep = guest ? (step === 0 ? 0 : 1) : step;
 
-  async function send() {
+  async function send(notMe = false) {
     if (phone.replace(/\D/g, "").length < 10) {
       setRefusal({
         field: "phone",
@@ -153,8 +166,9 @@ function Form({ onSent }: { onSent: () => void }) {
             school: `${school!.centre_code}|${school!.school_code}`,
             guardianPhone: phone,
             deviceId: await deviceId(),
+            notMe,
           };
-      const r = await api<{ ok: boolean; field?: string; message?: string }>("/door/register", {
+      const r = await api<{ ok: boolean } & Partial<Refused>>("/door/register", {
         method: "POST",
         body,
         // The server takes a second send from this phone as the same application.
@@ -162,7 +176,13 @@ function Form({ onSent }: { onSent: () => void }) {
       });
       if (r.ok) onSent();
       else {
-        setRefusal({ field: r.field ?? "name", message: r.message ?? "That did not go through. Try again." });
+        setRefusal({
+          field: r.field ?? "name",
+          message: r.message ?? "That did not go through. Try again.",
+          next: r.next,
+          uid: r.uid,
+          notMe: r.notMe,
+        });
         setStep(r.field === "school" ? 1 : r.field === "phone" ? 2 : 0);
       }
     } catch {
@@ -223,7 +243,13 @@ function Form({ onSent }: { onSent: () => void }) {
                 <Chips items={STREAMS} value={stream} onChange={setStream} />
               </>
             ) : null}
-            {refusal ? <Refusal message={refusal.message} /> : null}
+            {refusal ? (
+              <Refusal message={refusal.message} next={refusal.uid ? refusal.next : undefined} onNext={refusal.uid ? () => goTo(refusal) : undefined} />
+            ) : null}
+            {/* Already on the register at ANOTHER school: the family may say it is a different child. */}
+            {refusal?.notMe ? (
+              <Btn label={busy ? "Sending" : "This is not me — send my registration"} kind="outline" busy={busy} onPress={() => send(true)} />
+            ) : null}
             {/* Always tappable: a Next that silently does nothing reads as broken.
                 If something is missing, it says what. */}
             <Btn
@@ -245,6 +271,7 @@ function Form({ onSent }: { onSent: () => void }) {
                 if (!missing) setStep(guest ? 2 : 1);
               }}
             />
+            {guest ? null : <Btn label="Sat a KIDS exam before? Find my User ID" kind="quiet" onPress={() => router.push("/find-id")} />}
           </>
         ) : step === 1 ? (
           <>
@@ -310,7 +337,7 @@ function Form({ onSent }: { onSent: () => void }) {
                 <Btn label="Back" kind="outline" onPress={() => setStep(guest ? 0 : 1)} />
               </View>
               <View style={{ flex: 1.4 }}>
-                <Btn label={busy ? "Sending" : "Send to KIDS"} busy={busy} onPress={send} />
+                <Btn label={busy ? "Sending" : "Send to KIDS"} busy={busy} onPress={() => send()} />
               </View>
             </View>
           </>

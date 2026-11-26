@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useActionState, useState } from "react";
-import { ChevronRight, IdCard, UserPlus } from "lucide-react";
+import { ChevronRight, IdCard, Search, UserPlus } from "lucide-react";
 import UidField from "./UidField";
 import PasswordField from "./PasswordField";
 import FormAlert from "./FormAlert";
@@ -62,6 +62,14 @@ export default function SignInForm({ initialUid = "" }: { initialUid?: string })
             <span className="k-row__line">You already have a KIDS number.</span>
           </span>
           <ChevronRight size={18} className="door-row__chev" aria-hidden="true" />
+        </Link>
+        <Link href="/app/claim/find" className="k-row">
+          <Search size={22} className="k-row__chev" aria-hidden="true" />
+          <span className="k-row__text">
+            <span className="k-row__title">Find my User ID</span>
+            <span className="k-row__line">Lost your KIDS card.</span>
+          </span>
+          <ChevronRight size={18} className="k-row__chev" aria-hidden="true" />
         </Link>
         <Link href="/app/register" className="k-row">
           <UserPlus size={22} className="k-row__chev" aria-hidden="true" />

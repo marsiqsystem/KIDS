@@ -4,6 +4,7 @@ import { useActionState, useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { requestCorrectionsAction, type CorrectionState } from "@/app/app/actions";
 import type { School } from "@/lib/app/registrations";
+import { findSchools } from "@/lib/app/school-search";
 import FormAlert from "./FormAlert";
 
 /**
@@ -57,8 +58,8 @@ export default function DetailsForm({
 
   const currentSchool = schools.find((s) => `${s.centre_code}|${s.school_code}` === `${current.centre_code}|${current.school_code}`);
   const found = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return q.length < 2 ? [] : schools.filter((s) => s.school_name.toLowerCase().includes(q)).slice(0, 20);
+    // From the first letter, never cut off (26 Nov 2026: a cap of 20 hid schools).
+    return query.trim() ? findSchools(schools, query) : [];
   }, [query, schools]);
 
   const reasons = REASONS.filter((r) => r.id !== "stream" || cls === "XI" || cls === "XII");

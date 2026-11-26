@@ -5,6 +5,7 @@ import { Btn } from "@/components/kit";
 import { DobFields, DoorBar, Field, Notice, Refusal, grouped, st } from "@/components/doorKit";
 import { api } from "@/lib/api";
 import { useDoorWatch } from "@/lib/door";
+import { findSchools } from "@/lib/school-search";
 import { deviceId } from "@/lib/session";
 import { color, font, radius } from "@/theme";
 
@@ -116,11 +117,8 @@ function Form({ onSent }: { onSent: () => void }) {
       .catch(() => setSchools([]));
   }, []);
 
-  const shown = useMemo(() => {
-    const needle = query.trim().toLowerCase();
-    const all = schools ?? [];
-    return (needle ? all.filter((s) => s.school_name.toLowerCase().includes(needle)) : all).slice(0, 40);
-  }, [schools, query]);
+  // Every school, never cut off (26 Nov 2026: a 40-row cap hid M to T).
+  const shown = useMemo(() => findSchools(schools ?? [], query), [schools, query]);
 
   const guest = cls === OTHER;
   // A guest's stream belongs to the class they see the app as.
@@ -189,7 +187,7 @@ function Form({ onSent }: { onSent: () => void }) {
       <ScrollView contentContainerStyle={st.body} keyboardShouldPersistTaps="handled">
         {step === 0 ? (
           <>
-            <Field label="Your full name" value={name} onChangeText={setName} autoCapitalize="words" placeholder={guest ? "Your full name" : "As written at school"} bad={refusal?.field === "name"} />
+            <Field label="Your name" value={name} onChangeText={setName} autoCapitalize="words" placeholder={guest ? "Your full name" : "Student's own name, not the school"} bad={refusal?.field === "name"} />
             {guest ? null : <DobFields day={d} month={m} year={y} onDay={setD} onMonth={setM} onYear={setY} bad={refusal?.field === "dob"} />}
             <Text style={st.label}>Class this year</Text>
             <Chips
@@ -233,7 +231,7 @@ function Form({ onSent }: { onSent: () => void }) {
               onPress={() => {
                 const missing =
                   name.trim().length < 2
-                    ? { field: "name", message: guest ? "Type your full name." : "Type your full name, as it is written at school." }
+                    ? { field: "name", message: guest ? "Type your full name." : "Type the student's own name here, not the school's name." }
                     : !cls
                       ? { field: "class", message: "Choose the class you are in this year." }
                       : guest && !viewAs

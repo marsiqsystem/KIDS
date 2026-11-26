@@ -5,6 +5,7 @@ import { Btn, Card, Head, Loading, Offline, Screen, s } from "@/components/kit";
 import { DobFields, Field, Refusal, st } from "@/components/doorKit";
 import { useScreen } from "@/hooks/useScreen";
 import { api, useKeepAlive } from "@/lib/api";
+import { findSchools } from "@/lib/school-search";
 import { useSession } from "@/lib/session";
 import { color, font, radius } from "@/theme";
 
@@ -71,11 +72,8 @@ function DetailsForm({ current, asked, reload }: { current: Details["current"]; 
       .catch(() => setSchools([]));
   }, [picking, schools]);
 
-  const shown = useMemo(() => {
-    const needle = query.trim().toLowerCase();
-    const all = schools ?? [];
-    return (needle ? all.filter((x) => x.school_name.toLowerCase().includes(needle)) : all).slice(0, 40);
-  }, [schools, query]);
+  // Every school, never cut off (26 Nov 2026: a 40-row cap hid M to T).
+  const shown = useMemo(() => findSchools(schools ?? [], query), [schools, query]);
 
   const senior = cls === "XI" || cls === "XII";
 
@@ -104,7 +102,7 @@ function DetailsForm({ current, asked, reload }: { current: Details["current"]; 
       <Screen>
         <Text style={s.line}>Change only what is wrong, then send it. A person at KIDS checks every change first.</Text>
 
-        <Field label="Your full name" value={name} onChangeText={setName} autoCapitalize="words" hint="As written at school." />
+        <Field label="Your name" value={name} onChangeText={setName} autoCapitalize="words" hint="The student's own name, not the school's name." />
         <DobFields day={d} month={m} year={y} onDay={setD} onMonth={setM} onYear={setY} />
 
         <Text style={st.label}>Class this year</Text>

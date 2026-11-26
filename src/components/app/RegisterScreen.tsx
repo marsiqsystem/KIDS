@@ -9,6 +9,7 @@ import DeviceField, { readOrCreateDeviceId } from "./DeviceField";
 import { useDoorStatus } from "./DoorWatch";
 import { OFFICE, Stepper } from "./door";
 import { groupUid } from "./UidField";
+import { findSchools } from "@/lib/app/school-search";
 import {
   registerAction,
   registrationStatusAction,
@@ -116,9 +117,8 @@ function Form({
   const chosen = schools.find((s) => `${s.centre_code}|${s.school_code}` === school) ?? null;
 
   const found = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2) return [];
-    return schools.filter((s) => s.school_name.toLowerCase().includes(q)).slice(0, 30);
+    // From the first letter, never cut off (26 Nov 2026: a cap of 30 hid schools).
+    return query.trim() ? findSchools(schools, query) : [];
   }, [query, schools]);
 
   const byCentre = new Map<string, School[]>();
@@ -150,7 +150,7 @@ function Form({
 
           <div className="door-field">
             <label className="k-label" htmlFor="name">
-              Full name
+              Your name
             </label>
             <input
               id="name"
@@ -158,7 +158,7 @@ function Form({
               className={`door-input${state.field === "name" ? " door-input--bad" : ""}`}
               autoComplete="name"
               autoCapitalize="words"
-              placeholder={guest ? "Your full name" : "As written at school"}
+              placeholder={guest ? "Your full name" : "Student’s own name, not the school"}
               value={who.name}
               onChange={(e) => setWho((w) => ({ ...w, name: e.target.value }))}
             />
@@ -340,7 +340,7 @@ function Form({
                 })}
               </div>
             ))}
-            {query.trim().length >= 2 ? (
+            {query.trim() ? (
               <p className="door-hint door-center">
                 {found.length} of {schools.length} schools
               </p>
